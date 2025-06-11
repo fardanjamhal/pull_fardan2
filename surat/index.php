@@ -49,12 +49,21 @@
 			<?php 
    	        	if(isset($_GET['pesan'])){
                    	if($_GET['pesan']=="berhasil"){
-                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa dalam 2-3 hari kerja!</center></div>";
+                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa di hari kerja!</center></div>";
               		}
               	}
            	?>
 		</div>
 		<div class="row">
+			<div class="col-sm-3 mt-4">
+		    	<div class="card">
+		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<div class="card-body text-center">
+		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
+		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
+		      		</div>
+		    	</div>
+		  	</div>
 			<div class="col-sm-3 mt-4">
 		    	<div class="card">
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
@@ -68,8 +77,17 @@
 		    	<div class="card">
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">FORMULIR PENGANTAR NIKAH</h5><br>
+		        		<h5 class="card-title">FORMULIR PENGANTAR NIKAH <br>(Model N1)</h5><br>
 		        		<a href="formulir_pengantar_nikah/" class="btn btn-info">BUAT SURAT</a>
+		      		</div>
+		    	</div>
+		  	</div>
+			<div class="col-sm-3 mt-4">
+		    	<div class="card">
+		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		      		<div class="card-body text-center">
+		        		<h5 class="card-title">FORMULIR PERMOHONAN KEHENDAK NIKAH <br>(Model N2)</h5><br>
+		        		<a href="formulir_permohonan_kehendak_nikah/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -106,15 +124,6 @@
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN PERHIASAN</h5><br>
 		        		<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
-		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
 		  	</div>

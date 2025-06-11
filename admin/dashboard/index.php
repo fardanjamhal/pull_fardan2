@@ -209,7 +209,7 @@
        				<form class="form-horizontal" method="post" action="simpan-penduduk.php">
        					<div class="col-md-12">
                   <div class="col-md-4" style="text-align: center;">
-                    <img style="max-width:300px; width:100%; height:auto;" src="../../assets/img/Logo-Pangandaran.png"><br>
+                   <img src="../../assets/img/Logo-Pangandaran.png" style="width: 20%; max-width: 300px; height: auto;" alt="Logo Pangandaran"><br>
                     <?php  
                       $qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
                       foreach($qTampilDesa as $row){
@@ -253,7 +253,6 @@
                     </div><br>
                     <div style="font-size: 35pt; font-weight: 500;"><p>Halo, <strong><?php echo $_SESSION['lvl']; ?></strong></div>
                     <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di <a href="#" style="text-decoration:none"><strong>Web Aplikasi Pelayanan Surat Administrasi Desa Online.</strong></a></p></div><br><br><br>
-                    <div style="font-size: 10pt; font-weight: 500;">© e-<b>SuratDesa</b> 2024. Hak Cipta Dilindungi.</div>
                   </div>
         				</div>
               </form>

@@ -104,14 +104,21 @@
 				</form>
 			</div>
 
-			<div class="card-footer">
-				<div>
-					Copyright &copy; 2024 <a href="../" class="text-white text-decoration-none">e-SuratDesa</a>
-				</div>
-				<div>
-					All rights reserved.
-				</div>
+			<div class="card-footer py-2 bg-transparent text-center">
+			<div class="footer bg-transparent text-center">
+				<span class="text-dark" style="font-size: 0.9rem;">
+				<strong>&copy; <span id="year"></span> 
+					<a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa</a>
+				</strong>
+				</span>
 			</div>
+
+			<script>
+				document.getElementById("year").textContent = new Date().getFullYear();
+			</script>
+			</div>
+
+
 		</div>
 	</div>
 </div>

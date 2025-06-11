@@ -71,8 +71,17 @@
 
 <!-- FOOTER -->
 <div class="footer bg-transparent text-center mb-3">
-	<span class="text-light"><strong>&copy; 2024 <a href="#" class="text-decoration-none text-white">e-SuratDesa</a>.</strong> All rights reserved.</span>
+  <span class="text-light">
+    <strong>&copy; <span id="year"></span> 
+      <a href="#" class="text-decoration-none text-white">Pelayanan Surat Desa</a>
+    </strong>
+  </span>
 </div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 
 <!-- JS (WAJIB AGAR MENU HP BERFUNGSI) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

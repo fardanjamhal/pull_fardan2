@@ -107,7 +107,7 @@
 								dikembangkan oleh
 								<b
 									><a href="#" style="text-decoration: none"
-										>Alea Media Center</a
+										>Desa Digital</a
 									></b
 								>
 								untuk mempermudah penduduk dalam pembuatan surat administrasi
@@ -116,26 +116,23 @@
 							</blockquote>
 						</p>
 						<br />
-						<p class="card-text">
-							<label style="font-weight: 700; font-size: 25px"
-								><i class="fas fa-shield-alt"></i> HAK CIPTA DAN KETENTUAN</label
-							>
-						</p>
-						<hr />
-						<b>©</b> e-<b>SuratDesa</b> 2024. Hak Cipta Dilindungi.
 					</div>
 					<br /><br /><br />
 					<div class="row text-center">
-						<div class="col-md-12">
-							<img src="../assets/img/foto_me.jpg" class="img-circle" /><br /><br />
-							<p class="text-muted">
-								Trademark By
-								<b
-									><a href="#" style="text-decoration: none"
-										>Alea Media Center.</a
-									></b>
-							</p>
+						<div class="footer bg-transparent text-center mb-3">
+							<div class="footer bg-transparent text-center mb-3">
+						<span class="text-light">
+							<strong>&copy; <span id="year"></span> 
+							<a href="#" class="text-decoration-none text-white">e-SuratDesa</a>.
+							</strong> All rights reserved.
+						</span>
 						</div>
+
+						<script>
+						document.getElementById("year").textContent = new Date().getFullYear();
+						</script>
+
+
 						<div class="col-md-3"></div>
 					</div>
 				</div>

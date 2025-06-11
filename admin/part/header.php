@@ -22,7 +22,7 @@
  	<!-- bootstrap wysihtml5 - text editor -->
  	<link rel="stylesheet" href="../../assets/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
  	<!-- Font Awesome v5.8.2 -->
- 	<link rel="stylesheet" href="../../assets/fontawesome-free-5.8.2-web/css/all.css">
+ 	<link rel="stylesheet" href="../../assets/fontawesome-free-5.10.2-web/css/all.css">
  	<!-- CSS DataTable -->
  	<link rel="stylesheet" href="../../assets/datatables/jquery.dataTables.css" />
  	<link rel="stylesheet" href="../../assets/datatables/dataTables.bootstrap.css" />
@@ -30,10 +30,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 	<header class="main-header">
-  	<a href="../../" class="logo" style="text-decoration:none">
-  		<span class="logo-mini"><img src="../../assets/img/mini-logo.png"></span>
-  		<span class="logo-lg"><img src="../../assets/img/e-SuratDesa-mini.png"></span>
-  	</a>
+
   	<nav class="navbar navbar-static-top">
   		<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
    			<span class="sr-only">Toggle navigation</span>
