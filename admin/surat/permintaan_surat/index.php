@@ -138,6 +138,12 @@
                             FROM penduduk 
                             LEFT JOIN formulir_pengantar_nikah ON formulir_pengantar_nikah.nik = penduduk.nik 
                             WHERE formulir_pengantar_nikah.status_surat='pending'
+
+                            UNION 
+                            SELECT penduduk.nama, formulir_permohonan_kehendak_nikah.id_fpkn AS id_surat, formulir_permohonan_kehendak_nikah.no_surat, formulir_permohonan_kehendak_nikah.nik, formulir_permohonan_kehendak_nikah.jenis_surat, formulir_permohonan_kehendak_nikah.status_surat, formulir_permohonan_kehendak_nikah.tanggal_surat 
+                            FROM penduduk 
+                            LEFT JOIN formulir_permohonan_kehendak_nikah ON formulir_permohonan_kehendak_nikah.nik = penduduk.nik 
+                            WHERE formulir_permohonan_kehendak_nikah.status_surat='pending'
                         ";
 
                         $result = mysqli_query($connect, $query);
@@ -185,6 +191,7 @@
                                     case 'surat_pengantar_skck':
                                     case 'surat_keterangan_tidak_mampu':
                                     case 'formulir_pengantar_nikah':
+                                    case 'formulir_permohonan_kehendak_nikah':
                                         $link = "konfirmasi/{$jenis}/index.php?id={$row['id_surat']}";
                                         break;
                                 }
