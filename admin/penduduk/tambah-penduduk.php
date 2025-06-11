@@ -30,31 +30,25 @@
       </li>
       <li class="active">
         <a href="../penduduk/">
-          <i class="fa fa-users"></i><span>&nbsp;Data Penduduk</span>
+          <i class="fa fa-users"></i><span>&nbsp;&nbsp;Data Penduduk</span>
         </a>
       </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fas fa-envelope-open-text"></i> <span>&nbsp;&nbsp;Surat</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+
+      <li>
+        <a href="../surat/permintaan_surat/">
+          <i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span>
         </a>
-        <ul class="treeview-menu">
-          <li>
-            <a href="../surat/permintaan_surat/">
-              <i class="fa fa-circle-notch"></i> Permintaan Surat
-            </a>
-          </li>
-          <li>
-            <a href="../surat/surat_selesai/"><i class="fa fa-circle-notch"></i> Surat Selesai
-            </a>
-          </li>
-        </ul>
       </li>
       <li>
+        <a href="../surat/surat_selesai/">
+          <i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span>
+        </a>
+      </li>
+
+
+      <li>
         <a href="../laporan/">
-          <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span>
+          <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span>
         </a>
       </li>
     </ul>
@@ -68,7 +62,15 @@
       <li class="active">Data Penduduk</li>
     </ol>
   </section>
-  <section class="content">      
+  <section class="content">
+    
+  <div class="col-md-12">
+  <a href="download-template.php" class="btn btn-success">
+    <i class="fa fa-download"></i> Download Template Excel
+  </a>
+  <br><br>
+  </div>
+
     <div class="row">
       <div class="col-md-12">
         <form method="post" enctype="multipart/form-data" action="import-penduduk.php">

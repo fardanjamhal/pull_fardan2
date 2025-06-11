@@ -144,9 +144,11 @@
 
                         if ($result && $result->num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $tgl = date('d', strtotime($row['tanggal_surat']));
-                                $bln = date('F', strtotime($row['tanggal_surat']));
-                                $thn = date('Y', strtotime($row['tanggal_surat']));
+                                $datetime = strtotime($row['tanggal_surat']);
+                                $tgl = date('d', $datetime);
+                                $bln = date('F', $datetime);
+                                $thn = date('Y', $datetime);
+                                $jam = date('H:i:s', $datetime);
 
                                 $blnIndo = [
                                     'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
@@ -155,7 +157,7 @@
                                     'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
                                 ];
 
-                                $tanggal = "$tgl {$blnIndo[$bln]} $thn";
+                                $tanggal = "$tgl {$blnIndo[$bln]} $thn pukul $jam";
 
                                 echo "<tr>
                                     <td>{$tanggal}</td>
