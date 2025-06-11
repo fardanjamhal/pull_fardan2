@@ -63,7 +63,7 @@
     </ol>
   </section>
   <section class="content">      
-    <div class="row">
+    <div class="row" style="overflow-x:auto;">
       <div class="col-md-12">
         <br><br>
         <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
@@ -189,7 +189,10 @@
                                         break;
                                 }
 
-                                echo "<a class='btn btn-success btn-sm' href='{$link}'>
+                                echo "<a class='btn btn-danger btn-sm' href='hapus_surat.php?id={$row['id_surat']}&jenis={$jenis}' onclick=\"return confirm('Yakin ingin menghapus surat ini?')\">
+                                        <i class='fa fa-trash'></i> HAPUS
+                                      </a>
+                                        <a class='btn btn-success btn-sm' href='{$link}'>
                                         <i class='fa fa-check'></i> <b>KONFIRMASI</b>
                                       </a>
                                     </td>
@@ -198,6 +201,22 @@
                           }
                         ?>
                 </tbody>
+
+                <?php if (isset($_GET['status']) && $_GET['status'] == 'berhasil'): ?>
+                  <div id="flash-message" style="
+                      background-color: #d4edda;
+                      color: #155724;
+                      border: 1px solid #c3e6cb;
+                      padding: 10px 20px;
+                      border-radius: 5px;
+                      margin-bottom: 15px;
+                      font-weight: bold;
+                      animation: fadeOut 3s forwards;
+                  ">
+                      ✅ Surat berhasil dihapus!
+                  </div>
+              <?php endif; ?>
+
         </table>
       </div>
     </div>

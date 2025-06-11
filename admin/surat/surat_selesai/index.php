@@ -167,16 +167,49 @@ $result = mysqli_query($connect, $sql);
           </table>
         </div>
 
-        <!-- Pagination -->
-        <nav aria-label="Page navigation">
-          <ul class="pagination">
-            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-              <li class="page-item <?= ($i == $page ? 'active' : '') ?>">
-                <a class="page-link" href="?jenis_surat=<?= $filter_jenis ?>&keyword=<?= $keyword ?>&limit=<?= $limit ?>&page=<?= $i ?>"><?= $i ?></a>
-              </li>
-            <?php endfor; ?>
-          </ul>
-        </nav>
+
+        <div class="text-center mt-4">
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                <!-- Tombol Previous -->
+                <?php if ($page > 1): ?>
+                  <li class="page-item">
+                    <a class="page-link" href="?jenis_surat=<?= $filter_jenis ?>&keyword=<?= $keyword ?>&limit=<?= $limit ?>&page=<?= ($page - 1) ?>" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                <?php endif; ?>
+
+                <?php
+                  $start_page = max(1, $page - 4);
+                  $end_page = min($total_pages, $start_page + 9);
+
+                  if ($end_page - $start_page < 9) {
+                    $start_page = max(1, $end_page - 9);
+                  }
+
+                  for ($i = $start_page; $i <= $end_page; $i++):
+                ?>
+                  <li class="page-item <?= ($i == $page ? 'active' : '') ?>">
+                    <a class="page-link" href="?jenis_surat=<?= $filter_jenis ?>&keyword=<?= $keyword ?>&limit=<?= $limit ?>&page=<?= $i ?>">
+                      <?= $i ?>
+                    </a>
+                  </li>
+                <?php endfor; ?>
+
+                <!-- Tombol Next -->
+                <?php if ($page < $total_pages): ?>
+                  <li class="page-item">
+                    <a class="page-link" href="?jenis_surat=<?= $filter_jenis ?>&keyword=<?= $keyword ?>&limit=<?= $limit ?>&page=<?= ($page + 1) ?>" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                <?php endif; ?>
+
+              </ul>
+            </nav>
+          </div>
+          
 
       </div>
     </div>
