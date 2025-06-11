@@ -1,0 +1,119 @@
+<?php
+	session_start();
+ 
+	if(isset($_SESSION['admin'])){
+		header('location:../admin/dashboard/');
+	}else if(isset($_SESSION['kades'])){
+		header('location:../admin/dashboard/');
+	}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../assets/img/mini-logo.png">
+	<title>Login Page</title>   
+	<link rel="stylesheet" href="../assets/fontawesome-free-5.10.2-web/css/all.css">
+	<link rel="stylesheet" href="../assets/bootstrap-4.3.1-dist/css/bootstrap.css">
+	<style>
+		body {
+			background: linear-gradient(to right, #1d3557, #457b9d);
+			height: 100vh;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+		.card {
+			width: 360px;
+			border: none;
+			border-radius: 1rem;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+			background-color: #f8f9fa;
+		}
+		.card-header h3 {
+			font-weight: 600;
+			color: #1d3557;
+		}
+		.input-group-text {
+			background-color: #1d3557;
+			color: #fff;
+			border: none;
+		}
+		.form-control {
+			border-left: none;
+			background-color: #f1f1f1;
+		}
+		.login_btn {
+			background-color: #1d3557;
+			color: white;
+			font-weight: bold;
+			border-radius: 30px;
+			padding: 8px 20px;
+			transition: 0.3s ease;
+		}
+		.login_btn:hover {
+			background-color: #457b9d;
+			color: white;
+		}
+		.card-footer {
+			background-color: #1d3557;
+			border-top: none;
+			border-radius: 0 0 1rem 1rem;
+			padding: 10px 15px;
+			text-align: center;
+			color: #fff;
+			font-size: 8pt;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<?php 
+		if(isset($_GET['pesan'])){
+			if($_GET['pesan']=="login-gagal"){
+				echo "<div class='alert alert-danger mt-3'><center>Username atau Password Anda salah!</center></div>";
+			}
+		}
+	?>
+	<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+		<div class="card p-3">
+			<div class="text-center mb-4">
+				<img src="../assets/img/mini-logo.png" class="img-fluid" style="max-width: 100px;" alt="Logo e-SuratDesa">
+			</div>
+			<div class="card-header text-center">
+				<h3>Login System</h3>
+			</div>
+			<div class="card-body">
+				<form method="post" action="aksi-login.php">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" name="username" placeholder="username" required>			
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" name="password" placeholder="password" required>
+					</div>
+					<div class="form-group mt-3 d-flex justify-content-center">
+						<input type="submit" value="Login" class="btn float-right login_btn w-100">
+					</div>
+				</form>
+			</div>
+
+			<div class="card-footer">
+				<div>
+					Copyright &copy; 2024 <a href="../" class="text-white text-decoration-none">e-SuratDesa</a>
+				</div>
+				<div>
+					All rights reserved.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
