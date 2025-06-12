@@ -32,6 +32,26 @@
 <body>
 <div>
 	<table width="100%" style="text-align: center; margin: 0 auto;">
+	<div align="left">
+	<h4 style="font-weight:normal; margin:0; font-size: 8px; text-align: left;">
+		<b>LAMPIRAN V <br>
+			KEPDIRJEN BIMAS ISLAM No. 473  TAHUN 2020 <br>
+			TENTANG PETUNJUK TEKNIS PELAKSANAAN PENCATATAN PERNIKAHAN
+		</b>
+	</h4>
+	</div>
+	<div align="center">
+	<h4 style="font-weight:normal; margin:0; text-align: center;">
+		<br>
+		<b>FORMULIR PENGANTAR NIKAH
+		</b>
+	</h4>
+	<h4 style="font-weight:normal; margin:0; text-align: right;">
+	
+		<b>Model N1
+		</b>
+	</h4>
+	</div>
 	<tr>
 		<td style="width: 100px;">
 			<img src="../../../../assets/img/Logo-Pangandaran-90x90.png" alt="Logo" style="width: 75px; height: 75px;">

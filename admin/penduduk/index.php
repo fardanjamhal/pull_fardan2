@@ -68,7 +68,7 @@
     </ol>
   </section>
   <section class="content">      
-    <div class="row">
+    <div class="row" style="overflow-x:auto;">
       <div class="col-md-12">
         <div>
           <?php 

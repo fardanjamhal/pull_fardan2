@@ -275,6 +275,12 @@
                         <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></textarea>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tempat Akad Nikah</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftempat_akad" style="text-transform: capitalize;" value="<?php echo $row['tempat_akad']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -301,6 +307,18 @@
                       <label class="col-sm-3 control-label">Kewarganegaraan</label>
                       <div class="col-sm-9">
                         <input type="text" name="fkewarganegaraan" style="text-transform: uppercase;" value="<?php echo $row['kewarganegaraan']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Calon Suami</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fcalon_suami" style="text-transform: uppercase;" value="<?php echo $row['calon_suami']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Calon Istri</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fcalon_istri" style="text-transform: uppercase;" value="<?php echo $row['calon_istri']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>

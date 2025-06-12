@@ -31,26 +31,16 @@
 </head>
 <body>
 <div>
-	<table width="100%" style="text-align: center; margin: 0 auto;">
-	<tr>
-		<td style="width: 100px;">
-			<img src="../../../../assets/img/Logo-Pangandaran-90x90.png" alt="Logo" style="width: 90px; height: 90px;">
-		</td>
-		<td>
-			<div class="header" style="text-align: center;">
-				<h4 class="kop" style="margin: 0; text-transform: uppercase;">PEMERINTAH <?php echo $rows['kota']; ?></h4>
-				<h4 class="kop" style="margin: 0; text-transform: uppercase;">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-				<h4 class="kop" style="margin: 0; text-transform: uppercase;">DESA <?php echo $rows['nama_desa']; ?></h4>
-				<h5 class="kop2" style="margin: 0; text-transform: capitalize;"><?php echo $rows['alamat']; ?> Telp. <?php echo $rows['no_telpon']; ?> Kode Pos <?php echo $rows['kode_pos']; ?></h5>
-			</div>
-		</td>
-	</tr>
-	</table>
-	<hr style="border: 1px solid #000; width: 100%;">
+	<div align="left">
+	<h4 style="font-weight:normal; margin:0; font-size: 8px; text-align: left;">
+		<b>KEPDIRJEN BIMAS ISLAM No. 473 TAHUN 2020 <br>
+		TENTANG PETUNJUK TEKNIS PELAKSANAAN PENCATATAN PERNIKAHAN</b>
+	</h4>
+	</div>
 	<br>
 		<div align="center">
-		<h4 style="text-decoration: underline; margin: 0; text-transform: uppercase;"><b><?php echo $row['jenis_surat']; ?></b></h4>
-		<h4 style="font-weight:normal; margin:0;">Nomor : <?php echo $row['no_surat']; ?></h4>
+		<h4 style="margin: 0; text-transform: uppercase;"><b><?php echo $row['jenis_surat']; ?></b></h4>
+		<h4 style="font-weight:normal; margin:0; text-align: right;"><b>Model N2</b></h4>
 		</div>
 	<br>
 	<div class="clear"></div>
@@ -58,78 +48,64 @@
 		<table width="100%">
 		<tr>
 			<td style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan di bawah ini atas nama
-				<?php echo $rowss['jabatan'] ." ". $rows['nama_desa']; ?>, menerangkan bahwa:
+			Perihal&nbsp;&nbsp;&nbsp;&nbsp; : Permohonan Kehendak Nikah
+			</td>
+			<td align="center">
+				<?php echo $rows['nama_desa']; ?>, 
+				<?php
+					$tanggalSurat = $row['tanggal_surat'];
+					$bulanIndo = array(
+						'January' => 'Januari',
+						'February' => 'Februari',
+						'March' => 'Maret',
+						'April' => 'April',
+						'May' => 'Mei',
+						'June' => 'Juni',
+						'July' => 'Juli',
+						'August' => 'Agustus',
+						'September' => 'September',
+						'October' => 'Oktober',
+						'November' => 'November',
+						'December' => 'Desember'
+					);
+					$tanggal = date('d', strtotime($tanggalSurat));
+					$bulan = date('F', strtotime($tanggalSurat));
+					$tahun = date('Y', strtotime($tanggalSurat));
+					echo $tanggal . ' ' . $bulanIndo[$bulan] . ' ' . $tahun;
+				?>
 			</td>
 		</tr>
 		</table>
 		<br>
-
+		
 		<table width="100%" style="text-transform: capitalize;">
+			<div>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dengan hormat, kami mengajukan permohonan kehendak nikah untuk atas nama:
+			</div>
 			<tr>
-				<td width="30%" class="indentasi">Nama</td>
+				<td width="16%" class="indentasi">Nama</td>
 				<td width="2%">:</td>
-				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
+				<td width="50%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">NIK</td>
+				<td class="indentasi">Calon Suami</td>
 				<td>:</td>
-				<td><?php echo $row['nik']; ?></td>
-			</tr>
-			<?php
-				$tgl_lhr = date($row['tgl_lahir']);
-				$tgl = date('d ', strtotime($tgl_lhr));
-				$bln = date('F', strtotime($tgl_lhr));
-				$thn = date(' Y', strtotime($tgl_lhr));
-				$blnIndo = array(
-				    'January' => 'Januari',
-				    'February' => 'Februari',
-				    'March' => 'Maret',
-				    'April' => 'April',
-				    'May' => 'Mei',
-				    'June' => 'Juni',
-				    'July' => 'Juli',
-				    'August' => 'Agustus',
-				    'September' => 'September',
-				    'October' => 'Oktober',
-				    'November' => 'November',
-				    'December' => 'Desember'
-				);
-			?>
-			<tr>
-				<td class="indentasi">Tempat/Tgl. Lahir</td>
-				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['tempat_lahir'])) . ", " . $tgl . ucwords(strtolower($blnIndo[$bln])) . $thn; ?></td>
+				<td><?php echo $row['calon_suami']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Jenis Kelamin</td>
+				<td class="indentasi">Calon Istri</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
+				<td><?php echo $row['calon_istri']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Agama</td>
+				<td class="indentasi">Hari/Tanggal/Jam</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+				<td><?php echo $row['hari_tanggal']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Pekerjaan</td>
+				<td class="indentasi">Tempat akad nikah</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan'])); ?></td>
-			</tr>
-			<td class="indentasi">Alamat</td>
-			<td>:</td>
-			<td style="text-align: justify;">
-				<?php
-				$alamat = $row['jalan'] . " rt " . $row['rt'] . " / rw " . $row['rw'] . ", dusun " . $row['dusun'] . " desa " . $row['desa'] . " kecamatan " . $row['kecamatan'] . " " . $row['kota'];
-				$alamat = ucwords(strtolower($alamat));
-				$alamat = str_replace(['Rt', 'Rw'], ['RT', 'RW'], $alamat);
-				echo $alamat;
-				?>
-			</td>
-			<tr>
-				<td class="indentasi">Kewarganegaraan</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
+				<td><?php echo $row['tempat_akad']; ?></td>
 			</tr>
 		</table>
 

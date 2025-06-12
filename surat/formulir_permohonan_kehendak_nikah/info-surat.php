@@ -126,10 +126,28 @@
 						               	<input type="text" name="fkepada_yth" class="form-control" style="text-transform: capitalize;" placeholder="Tempat" required>
 						           	</div>
 						        </div>
+								<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Calon Suami </label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fcalon_suami" class="form-control" style="text-transform: capitalize;" placeholder="Nama" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Calon Istri </label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fcalon_istri" class="form-control" style="text-transform: capitalize;" placeholder="Nama" required>
+						           	</div>
+						        </div>
 						        <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Hari/Tanggal/Jam</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fhari_tanggal" class="form-control" style="text-transform: capitalize;" placeholder="Jadwal" required>
+						               	<input type="text" name="fhari_tanggal" class="form-control" style="text-transform: capitalize;" placeholder="contoh : Senin / 09 Juni 2025 / Pukul 10.00 WITA" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Tempat Akad Nikah </label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="ftempat_akad" class="form-control" style="text-transform: capitalize;" placeholder="Tempat Akad" required>
 						           	</div>
 						        </div>
 						      	<div class="form-group">
