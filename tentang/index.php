@@ -118,37 +118,23 @@
 						<br />
 					</div>
 					<br /><br /><br />
-					<div class="row text-center">
-						<div class="footer bg-transparent text-center mb-3">
-							<div class="footer bg-transparent text-center mb-3">
-						<span class="text-light">
-							<strong>&copy; <span id="year"></span> 
-							<a href="#" class="text-decoration-none text-white">e-SuratDesa</a>.
-							</strong> All rights reserved.
-						</span>
-						</div>
-
-						<script>
-						document.getElementById("year").textContent = new Date().getFullYear();
-						</script>
-
-
-						<div class="col-md-3"></div>
-					</div>
-				</div>
 			</div>
 		</div>
+		<div class="card-footer py-2 bg-transparent text-center">
+			<div class="footer bg-transparent text-center">
+				<span class="text-dark">
+				<strong>&copy; <span id="year"></span> 
+					<a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa</a>
+				</strong>
+				</span>
+			</div>
+			<script>
+				document.getElementById("year").textContent = new Date().getFullYear();
+			</script>
+	</div>
 	</div>
 
-	<div class="footer bg-dark text-center py-3">
-		<span class="text-light"
-			><strong
-				>Copyright &copy; 2024
-				<a href="../" class="text-decoration-none text-white">e-SuratDesa</a>.
-			</strong>
-			All rights reserved.</span
-		>
-	</div>
+	
 
 	<!-- Bootstrap JS dependencies agar navbar toggle berfungsi -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

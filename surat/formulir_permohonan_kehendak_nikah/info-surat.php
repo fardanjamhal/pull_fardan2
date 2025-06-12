@@ -120,12 +120,6 @@
 						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
 						<div class="row">
 						  	<div class="col-sm-12">
-						  		<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Kepada yth, Kepala KUA/PPN LN di </label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fkepada_yth" class="form-control" style="text-transform: capitalize;" placeholder="Tempat" required>
-						           	</div>
-						        </div>
 								<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Calon Suami </label>
 						           	<div class="col-sm-12">

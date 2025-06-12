@@ -121,7 +121,10 @@
 						<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Status Nikah <br> ket petunjuk <br>a. Laki-laki : Jejaka, Duda, atau beristri ke … <br>b. Perempuan : Perawan, Janda</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fstatus_nikah" class="form-control" style="text-transform: capitalize;" placeholder="Status Nikah" required>
+						               	<input type="text" name="fstatus_nikah1" class="form-control" placeholder="a. Laki-laki : Jejaka, Duda, atau beristri ke …" required>
+						           	</div><br>
+									<div class="col-sm-12">
+						               	<input type="text" name="fstatus_nikah2" class="form-control" placeholder="b. Perempuan : Perawan, Janda" required>
 						           	</div>
 						        </div>
 								<br>

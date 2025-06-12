@@ -158,9 +158,18 @@
 	</div>
 </div>
 
-<div class="footer bg-dark text-center">
-    <span class="text-light"><strong>Copyright &copy; 2019 <a href="../" class="text-decoration-none text-white">e-SuratDesa</a>.</strong> All rights reserved.</span>
-</div>
+	<div class="card-footer py-2 text-center">
+			<div class="footer text-center">
+				<span class="text-dark">
+				<strong>&copy; <span id="year"></span> 
+					<a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa</a>
+				</strong>
+				</span>
+			</div>
+			<script>
+				document.getElementById("year").textContent = new Date().getFullYear();
+			</script>
+	</div>
 
 <!-- Tambahkan file JS Bootstrap agar navbar toggle berfungsi -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

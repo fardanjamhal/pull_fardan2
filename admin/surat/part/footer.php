@@ -1,6 +1,16 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2024 <a href="../../../" style="text-decoration:none">e-SuratDesa</a>.</strong> All rights
-    reserved.
+    <div class="card-footer py-2 bg-transparent text-center">
+			<div class="footer bg-transparent text-center">
+				<span class="text-dark">
+				<strong>&copy; <span id="year"></span> 
+					<a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa</a>
+				</strong>
+				</span>
+			</div>
+			<script>
+				document.getElementById("year").textContent = new Date().getFullYear();
+			</script>
+	</div>
 </footer>
 <script src="../../../assets/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../../../assets/AdminLTE/bower_components/jquery-ui/jquery-ui.min.js"></script>

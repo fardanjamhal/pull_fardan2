@@ -156,12 +156,12 @@
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;a. Laki-laki : Jejaka, Duda, atau beristri ke …</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['status_nikah'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['status_nikah1'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;b. Perempuan : Perawan, Janda</td>
 				<td>:</td>
-				<td></td>
+				<td><?php echo ucwords(strtolower($row['status_nikah2'])); ?></td>
 			</tr>
 		</table>
 		<td class="indentasi">Adalah benar anak dari pernikahan seorang pria:</td>

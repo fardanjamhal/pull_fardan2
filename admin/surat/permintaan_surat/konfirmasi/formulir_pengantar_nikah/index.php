@@ -279,9 +279,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Status Nikah</label>
+                      <label class="col-sm-3 control-label">Status Nikah Laki Laki</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fstatus_nikah" style="text-transform: uppercase;" value="<?php echo $row['status_nikah']; ?>" class="form-control" readonly>
+                        <input type="text" name="fstatus_nikah1" style="text-transform: uppercase;" value="<?php echo $row['status_nikah1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Status Nikah Perempuan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fstatus_nikah2" style="text-transform: uppercase;" value="<?php echo $row['status_nikah2']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>

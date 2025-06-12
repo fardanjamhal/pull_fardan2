@@ -108,8 +108,28 @@
 
                       </div>
                     </div>
+
+                    <div class="form-group">
+                    <label class="col-sm-3 control-label">Kepada yth, Kepala KUA/PPN LN di </label>
+                    <div class="col-sm-9">
+                      <input type="text" name="fkepada_yth" 
+                            value="<?php echo $row['kepada_yth']; ?>" 
+                            class="form-control" placeholder="Tempat" required>
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label class="col-sm-3 control-label">Kepala KUA/PPN LN</label>
+                    <div class="col-sm-9">
+                      <input type="text" name="fkepala_kua" 
+                            value="<?php echo $row['kepala_kua']; ?>" 
+                            class="form-control" placeholder="Nama" required>
+                    </div>
+                    </div>
+
                   </div>
                 </div>
+
                 <div class="col-md-6">
                   <div class="box-body">
 
