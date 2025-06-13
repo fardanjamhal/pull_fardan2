@@ -22,7 +22,7 @@
  	<!-- bootstrap wysihtml5 - text editor -->
  	<link rel="stylesheet" href="../../../assets/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
  	<!-- Font Awesome v5.8.2 -->
- 	<link rel="stylesheet" href="../../../assets/fontawesome-free-5.8.2-web/css/all.css">
+ 	<link rel="stylesheet" href="../../../assets/fontawesome-free-5.10.2-web/css/all.css">
  	<!-- CSS DataTable -->
  	<link rel="stylesheet" href="../../../assets/datatables/jquery.dataTables.css" />
  	<link rel="stylesheet" href="../../../assets/datatables/dataTables.bootstrap.css" />
