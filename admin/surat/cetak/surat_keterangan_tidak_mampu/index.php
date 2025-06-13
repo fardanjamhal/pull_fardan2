@@ -64,12 +64,12 @@
 			<tr>
 				<td width="30%" class="indentasi">Nama</td>
 				<td width="2%">:</td>
-				<td width="68%">H. Moh. Saifuddin</td>
+				<td width="68%">H. MOH. SAIFUDDIN</td>
 			</tr>
 			<tr>
 				<td class="indentasi">Jabatan</td>
 				<td>:</td>
-				<td>Kepala Desa</td>
+				<td>KEPALA DESA</td>
 			</tr>
 		</table>
 		<br>

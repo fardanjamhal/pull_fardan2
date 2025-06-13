@@ -111,6 +111,7 @@
                   UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM formulir_surat_izin_orang_tua WHERE status_surat='pending'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
@@ -142,6 +143,7 @@
                   UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM formulir_surat_izin_orang_tua WHERE status_surat='selesai'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
@@ -197,6 +199,7 @@
                   UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM formulir_surat_izin_orang_tua WHERE status_surat='selesai'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;

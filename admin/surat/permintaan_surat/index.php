@@ -204,6 +204,12 @@
                             LEFT JOIN formulir_persetujuan_calon_pengantin_istri ON formulir_persetujuan_calon_pengantin_istri.nik = penduduk.nik 
                             WHERE formulir_persetujuan_calon_pengantin_istri.status_surat='pending' 
 
+                            UNION 
+                            SELECT penduduk.nama, formulir_surat_izin_orang_tua.id_fsiot AS id_surat, formulir_surat_izin_orang_tua.no_surat, formulir_surat_izin_orang_tua.nik, formulir_surat_izin_orang_tua.jenis_surat, formulir_surat_izin_orang_tua.status_surat, formulir_surat_izin_orang_tua.tanggal_surat 
+                            FROM penduduk 
+                            LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.nik = penduduk.nik 
+                            WHERE formulir_surat_izin_orang_tua.status_surat='pending'
+
                         ";
 
                         $result = mysqli_query($connect, $query);
@@ -254,6 +260,7 @@
                                     case 'formulir_permohonan_kehendak_nikah':
                                     case 'formulir_persetujuan_calon_pengantin':
                                     case 'formulir_persetujuan_calon_pengantin_istri':
+                                    case 'formulir_surat_izin_orang_tua':
                                         $link = "konfirmasi/{$jenis}/index.php?id={$row['id_surat']}";
                                         break;
                                 }

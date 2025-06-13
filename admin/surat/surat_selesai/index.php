@@ -17,7 +17,8 @@ $jenisSuratList = [
   'formulir_pengantar_nikah' => ['id' => 'id_fpn', 'folder' => 'formulir_pengantar_nikah'],
   'formulir_permohonan_kehendak_nikah' => ['id' => 'id_fpkn', 'folder' => 'formulir_permohonan_kehendak_nikah'],
   'formulir_persetujuan_calon_pengantin' => ['id' => 'id_fpcp', 'folder' => 'formulir_persetujuan_calon_pengantin'],
-  'formulir_persetujuan_calon_pengantin_istri' => ['id' => 'id_fpcp2', 'folder' => 'formulir_persetujuan_calon_pengantin_istri']
+  'formulir_persetujuan_calon_pengantin_istri' => ['id' => 'id_fpcp2', 'folder' => 'formulir_persetujuan_calon_pengantin_istri'],
+  'formulir_surat_izin_orang_tua' => ['id' => 'id_fsiot', 'folder' => 'formulir_surat_izin_orang_tua']
 ];
 
 // Ambil filter dari URL

@@ -170,7 +170,7 @@
 				<tr>
 				<td width="46%" class="indentasi">Nama Lengkap dan alias</td>
 				<td width="2%">:</td>
-				<td><?php echo ucwords(strtolower($row['nama_ayah'])); ?></td>
+				<td><?php echo strtoupper($row['nama_ayah']); ?></td>
 				</tr>
 				<tr>
 				<td width="46%" class="indentasi">Nomor Induk Kependudukan (NIK)</td>
@@ -185,7 +185,7 @@
 				<tr>
 				<td width="46%" class="indentasi">Kewarganegaraan</td>
 				<td width="2%">:</td>
-				<td><?php echo ucwords(strtolower($row['kewarganegaraan_ayah'])); ?></td>
+				<td><?php echo strtoupper($row['kewarganegaraan_ayah']); ?></td>
 				</tr>
 				<tr>
 				<td width="46%" class="indentasi">Agama</td>
@@ -209,7 +209,7 @@
 				<tr>
 				<td width="46%" class="indentasi">Nama Lengkap dan alias</td>
 				<td width="2%">:</td>
-				<td><?php echo ucwords(strtolower($row['nama_ibu'])); ?></td>
+				<td><?php echo strtoupper($row['nama_ibu']); ?></td>
 				</tr>
 				<tr>
 				<td width="46%" class="indentasi">Nomor Induk Kependudukan (NIK)</td>
@@ -224,7 +224,7 @@
 				<tr>
 				<td width="46%" class="indentasi">Kewarganegaraan</td>
 				<td width="2%">:</td>
-				<td><?php echo ucwords(strtolower($row['kewarganegaraan_ibu'])); ?></td>
+				<td><?php echo strtoupper($row['kewarganegaraan_ibu']); ?></td>
 				</tr>
 				<tr>
 				<td width="46%" class="indentasi">Agama</td>

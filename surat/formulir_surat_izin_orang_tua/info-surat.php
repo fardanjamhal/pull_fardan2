@@ -21,7 +21,7 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>FORMULIR PERSETUJUAN CALON PENGANTIN <br>(Model N4)</b></h5></a>
+							<a class="col-sm-6"><h5><b>FORMULIR SURAT IZIN ORANG TUA<br>(Model N5)</b></h5></a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>
@@ -118,12 +118,25 @@
 						</div>
 						<br>
 						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
+
 						<div class="row">
 						  	<div class="col-sm-12">
 								<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Bin</label>
+						           	<label class="col-sm-12" style="font-weight: bold;">Pemohon (Anak)</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fbin" class="form-control" style="text-transform: capitalize;" placeholder="Bin (Suami)" required>
+						               	<input type="text" name="fbin" class="form-control" style="text-transform: capitalize;" placeholder="Bin/Binti*" required>
+						           	</div>
+						        </div>
+						  	</div>
+						</div><br><br>
+
+
+						<div class="row">
+						  	<div class="col-sm-12">
+								<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: bold;">Ayah/wali/pengampu</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fnama1" class="form-control" style="text-transform: capitalize;" placeholder="1. Nama lengkap dan alias" required>
 						           	</div>
 						        </div>
 						  	</div>
@@ -131,51 +144,148 @@
 						<div class="row">
 						  	<div class="col-sm-12">
 								<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Calon Istri</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama_istri" class="form-control" style="text-transform: capitalize;" placeholder="Nama lengkap dan alias (Istri)" required>
+						               	<input type="text" name="fbin1" class="form-control" style="text-transform: capitalize;" placeholder="2. Bin" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fbin_istri" class="form-control" style="text-transform: capitalize;" placeholder="Bin (Istri)" required>
+						               	<input type="text" name="fnik1" class="form-control" style="text-transform: capitalize;" placeholder="3. Nomor Induk Kependudukan" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik_istri" class="form-control" style="text-transform: capitalize;" placeholder="Nomor Induk Kependudukan (Istri)" required>
+						               	<input type="text" name="ftempat_tgl_lahir1" class="form-control" style="text-transform: capitalize;" placeholder="4. Tempat dan tanggal lahir" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="ftgl_lahir_istri" class="form-control" style="text-transform: capitalize;" placeholder="Tempat dan tanggal lahir (Istri)" required>
+						               	<input type="text" name="fkewarganegaraan1" class="form-control" style="text-transform: capitalize;" placeholder="5. Kewarganegaraan" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fkewarganegaraan_istri" class="form-control" style="text-transform: capitalize;" placeholder="Kewarganegaraan (Istri)" required>
+						               	<input type="text" name="fagama1" class="form-control" style="text-transform: capitalize;" placeholder="6. Agama" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fagama_istri" class="form-control" style="text-transform: capitalize;" placeholder="Agama (Istri)" required>
+						               	<input type="text" name="fpekerjaan1" class="form-control" style="text-transform: capitalize;" placeholder="7. Pekerjaan" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fpekerjaan_istri" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan (Istri)" required>
+						               	<input type="text" name="falamat1" class="form-control" style="text-transform: capitalize;" placeholder="8. Alamat" required>
 						           	</div>
 						        </div>
+						  	</div>
+						</div><br><br>
+
+						<div class="row">
+						  	<div class="col-sm-12">
 								<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: bold;">Ibu/wali/pengampu</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat_istri" class="form-control" style="text-transform: capitalize;" placeholder="Alamat Istri (Istri)" required>
+						               	<input type="text" name="fnama2" class="form-control" style="text-transform: capitalize;" placeholder="1. Nama lengkap dan alias" required>
 						           	</div>
 						        </div>
 						  	</div>
 						</div>
+						<div class="row">
+						  	<div class="col-sm-12">
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fbin2" class="form-control" style="text-transform: capitalize;" placeholder="2. Bin" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fnik2" class="form-control" style="text-transform: capitalize;" placeholder="3. Nomor Induk Kependudukan" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="ftempat_tgl_lahir2" class="form-control" style="text-transform: capitalize;" placeholder="4. Tempat dan tanggal lahir" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fkewarganegaraan2" class="form-control" style="text-transform: capitalize;" placeholder="5. Kewarganegaraan" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fagama2" class="form-control" style="text-transform: capitalize;" placeholder="6. Agama" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fpekerjaan2" class="form-control" style="text-transform: capitalize;" placeholder="7. Pekerjaan" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="falamat2" class="form-control" style="text-transform: capitalize;" placeholder="8. Alamat" required>
+						           	</div>
+						        </div>
+						  	</div>
+						</div><br><br>
+						
+
+						<div class="row">
+						  	<div class="col-sm-12">
+								<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: bold;">Ayah dan ibu kandung/wali/pengampu dari</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fnama3" class="form-control" style="text-transform: capitalize;" placeholder="1. Nama lengkap dan alias" required>
+						           	</div>
+						        </div>
+						  	</div>
+						</div>
+						<div class="row">
+						  	<div class="col-sm-12">
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fbin3" class="form-control" style="text-transform: capitalize;" placeholder="2. Bin" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fnik3" class="form-control" style="text-transform: capitalize;" placeholder="3. Nomor Induk Kependudukan" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="ftempat_tgl_lahir3" class="form-control" style="text-transform: capitalize;" placeholder="4. Tempat dan tanggal lahir" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fkewarganegaraan3" class="form-control" style="text-transform: capitalize;" placeholder="5. Kewarganegaraan" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fagama3" class="form-control" style="text-transform: capitalize;" placeholder="6. Agama" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fpekerjaan3" class="form-control" style="text-transform: capitalize;" placeholder="7. Pekerjaan" required>
+						           	</div>
+						        </div>
+								<div class="form-group">
+						           	<div class="col-sm-12">
+						               	<input type="text" name="falamat3" class="form-control" style="text-transform: capitalize;" placeholder="8. Alamat" required>
+						           	</div>
+						        </div>
+						  	</div>
+						</div>
+
+
 						<hr width="97%">
 						<div class="container-fluid">
-		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/formulir_persetujuan_calon_pengantin/'">
+		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/formulir_surat_izin_orang_tua/'">
 		                	<input type="submit" name="submit" class="btn btn-info" value="Submit">
 		              	</div>
 					</form>

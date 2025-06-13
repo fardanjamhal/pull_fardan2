@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, formulir_persetujuan_calon_pengantin_istri.* FROM penduduk LEFT JOIN formulir_persetujuan_calon_pengantin_istri ON formulir_persetujuan_calon_pengantin_istri.nik = penduduk.nik WHERE formulir_persetujuan_calon_pengantin_istri.id_fpcp2='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, formulir_surat_izin_orang_tua.* FROM penduduk LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.nik = penduduk.nik WHERE formulir_surat_izin_orang_tua.id_fsiot='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -69,7 +69,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Formulir Persetujuan Calon Pengantin Istri</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Izin Orang Tua</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -117,16 +117,16 @@
 
                      <!-- FARDAN SALIN NOMOR OTOMATIS -->
                     <?php
-                      // Ambil id_fpcp2kkb dari data surat sekarang (misal dari hasil query sebelumnya)
-                      $current_id = isset($row['id_fpcp2']) ? (int)$row['id_fpcp2'] : 0;
+                      // Ambil id_fsiotkkb dari data surat sekarang (misal dari hasil query sebelumnya)
+                      $current_id = isset($row['id_fsiot']) ? (int)$row['id_fsiot'] : 0;
 
                       if ($current_id > 0) {
-                          // Query nomor surat sebelumnya berdasarkan id_fpcp2kkb yang kurang dari current_id
+                          // Query nomor surat sebelumnya berdasarkan id_fsiotkkb yang kurang dari current_id
                           $query = mysqli_query($connect, "
                               SELECT no_surat 
-                              FROM formulir_persetujuan_calon_pengantin_istri
-                              WHERE id_fpcp2 < $current_id 
-                              ORDER BY id_fpcp2 DESC 
+                              FROM formulir_surat_izin_orang_tua
+                              WHERE id_fsiot < $current_id 
+                              ORDER BY id_fsiot DESC 
                               LIMIT 1
                           ");
 
@@ -174,15 +174,15 @@
 
                     <!-- TAMBAHKAN 1 ANGKA OTOMATIS -->
                      <?php
-                    $current_id = isset($row['id_fpcp2']) ? (int)$row['id_fpcp2'] : 0;
+                    $current_id = isset($row['id_fsiot']) ? (int)$row['id_fsiot'] : 0;
                     $auto_no_surat = '';
 
                     if ($current_id > 0) {
                         $query = mysqli_query($connect, "
                             SELECT no_surat 
-                            FROM formulir_persetujuan_calon_pengantin_istri
-                            WHERE id_fpcp2 < $current_id 
-                            ORDER BY id_fpcp2 DESC 
+                            FROM formulir_surat_izin_orang_tua
+                            WHERE id_fsiot < $current_id 
+                            ORDER BY id_fsiot DESC 
                             LIMIT 1
                         ");
 
@@ -317,17 +317,171 @@
               <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
+
+              
                 <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Ayah/wali/pengampu</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnama1" style="text-transform: uppercase;" value="<?php echo $row['nama1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Bin</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fbin1" style="text-transform: uppercase;" value="<?php echo $row['bin1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nomor Induk Kependudukan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnik1" style="text-transform: uppercase;" value="<?php echo $row['nik1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tempat dan tanggal lahir</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftempat_tgl_lahir1" style="text-transform: uppercase;" value="<?php echo $row['tempat_tgl_lahir1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fkewarganegaraan1" style="text-transform: uppercase;" value="<?php echo $row['kewarganegaraan1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Agama</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fagama1" style="text-transform: uppercase;" value="<?php echo $row['agama1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pekerjaan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fpekerjaan1" style="text-transform: uppercase;" value="<?php echo $row['pekerjaan1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alamat</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="falamat1" style="text-transform: uppercase;" value="<?php echo $row['alamat1']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+
                   <div class="box-body">
                     <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_fpcp2']; ?>" class="form-control">
+                      <input type="hidden" name="id" value="<?php echo $row['id_fsiot']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
+                  
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">Ibu/wali/pengampu</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnama2" style="text-transform: uppercase;" value="<?php echo $row['nama2']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Bin</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fbin2" style="text-transform: uppercase;" value="<?php echo $row['bin2']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nomor Induk Kependudukan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnik2" style="text-transform: uppercase;" value="<?php echo $row['nik2']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tempat dan tanggal lahir</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftempat_tgl_lahir2" style="text-transform: uppercase;" value="<?php echo $row['tempat_tgl_lahir2']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fkewarganegaraan2" style="text-transform: uppercase;" value="<?php echo $row['kewarganegaraan2']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Agama</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fagama2" style="text-transform: uppercase;" value="<?php echo $row['agama2']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pekerjaan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fpekerjaan2" style="text-transform: uppercase;" value="<?php echo $row['pekerjaan2']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alamat</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="falamat2" style="text-transform: uppercase;" value="<?php echo $row['alamat2']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+
+                    <br><br>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Ayah dan ibu kandung/wali/pengampu dari</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnama3" style="text-transform: uppercase;" value="<?php echo $row['nama3']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Bin</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fbin3" style="text-transform: uppercase;" value="<?php echo $row['bin3']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nomor Induk Kependudukan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnik3" style="text-transform: uppercase;" value="<?php echo $row['nik3']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tempat dan tanggal lahir</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftempat_tgl_lahir3" style="text-transform: uppercase;" value="<?php echo $row['tempat_tgl_lahir3']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fkewarganegaraan3" style="text-transform: uppercase;" value="<?php echo $row['kewarganegaraan3']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Agama</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fagama3" style="text-transform: uppercase;" value="<?php echo $row['agama3']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pekerjaan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fpekerjaan3" style="text-transform: uppercase;" value="<?php echo $row['pekerjaan3']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alamat</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="falamat3" style="text-transform: uppercase;" value="<?php echo $row['alamat3']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+
                   <div class="box-body">
                   </div>
                 </div>
+
+                
 
                   <div class="box-body pull-right">
                     <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">

@@ -63,12 +63,12 @@
 			<tr>
 				<td width="40%" class="indentasi">&nbsp;&nbsp;1. Nama lengkap dan alias</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['nama'])); ?></td>
+				<td><?php echo strtoupper($row['nama']); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;2. Bin</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['bin'])); ?></td>
+				<td><?php echo strtoupper($row['bin']); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;3. Nomor Induk Kependudukan</td>
@@ -118,12 +118,12 @@
 			<tr>
 				<td width="40%" class="indentasi">&nbsp;&nbsp;1. Nama lengkap dan alias</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['nama_istri'])); ?></td>
+				<td><?php echo strtoupper($row['nama_istri']); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;2. Bin</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['bin_istri'])); ?></td>
+				<td><?php echo strtoupper($row['bin_istri']); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;3. Nomor Induk Kependudukan</td>

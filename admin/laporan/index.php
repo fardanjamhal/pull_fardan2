@@ -315,6 +315,9 @@
             (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_persetujuan_calon_pengantin.no_surat, formulir_persetujuan_calon_pengantin.tanggal_surat, formulir_persetujuan_calon_pengantin.jenis_surat FROM penduduk LEFT JOIN formulir_persetujuan_calon_pengantin ON formulir_persetujuan_calon_pengantin.nik = penduduk.nik WHERE formulir_persetujuan_calon_pengantin.status_surat='selesai')
             UNION ALL
             (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_persetujuan_calon_pengantin_istri.no_surat, formulir_persetujuan_calon_pengantin_istri.tanggal_surat, formulir_persetujuan_calon_pengantin_istri.jenis_surat FROM penduduk LEFT JOIN formulir_persetujuan_calon_pengantin_istri ON formulir_persetujuan_calon_pengantin_istri.nik = penduduk.nik WHERE formulir_persetujuan_calon_pengantin_istri.status_surat='selesai')
+            UNION ALL
+            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_surat_izin_orang_tua.no_surat, formulir_surat_izin_orang_tua.tanggal_surat, formulir_surat_izin_orang_tua.jenis_surat FROM penduduk LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.nik = penduduk.nik WHERE formulir_surat_izin_orang_tua.status_surat='selesai')
+            
           ";
 
           $where_clause = "";
