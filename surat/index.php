@@ -73,24 +73,120 @@
 		      		</div>
 		    	</div>
 		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">FORMULIR PENGANTAR NIKAH <br>(Model N1)</h5><br>
-		        		<a href="formulir_pengantar_nikah/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">FORMULIR PERMOHONAN KEHENDAK NIKAH <br>(Model N2)</h5><br>
-		        		<a href="formulir_permohonan_kehendak_nikah/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
+			
+
+			<!-- CSS untuk Popup -->
+				<style>
+				.popup-modal {
+					display: none;
+					position: fixed;
+					z-index: 9999;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(0,0,0,0.5);
+				}
+
+				.popup-content {
+					background-color: #fff;
+					margin: 10% auto;
+					padding: 20px 30px;
+					border-radius: 8px;
+					width: 400px;
+					text-align: center;
+					position: relative;
+				}
+
+				.popup-content h5 {
+					margin-bottom: 20px;
+					font-size: 18px;
+				}
+
+				.popup-content a {
+					display: block;
+					margin: 8px 0;
+				}
+
+				.popup-note {
+					margin-top: 20px;
+					font-size: 13px;
+					text-align: left;
+					background: #f9f9f9;
+					padding: 10px;
+					border-radius: 6px;
+					border: 1px solid #ddd;
+				}
+
+				.popup-note b {
+					display: block;
+					margin-bottom: 5px;
+				}
+
+				.close-btn {
+					position: absolute;
+					top: 10px;
+					right: 15px;
+					font-size: 18px;
+					font-weight: bold;
+					cursor: pointer;
+				}
+				</style>
+
+				<!-- Kartu Surat dengan Button -->
+				<div class="col-sm-3 mt-4">
+				<div class="card">
+					<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+					<div class="card-body text-center">
+					<h5 class="card-title">FORMULIR PENGANTAR NIKAH <br>(Model N1-N5)</h5><br>
+					<button class="btn btn-info" onclick="openPopup()">BUAT SURAT</button>
+					</div>
+				</div>
+				</div>
+
+				<!-- Popup Modal dengan 5 Link dan Keterangan -->
+				<div id="popup" class="popup-modal">
+				<div class="popup-content">
+					<span class="close-btn" onclick="closePopup()">&times;</span>
+					<h5>Pilih Jenis Formulir</h5>
+					<a href="formulir_pengantar_nikah/" class="btn btn-primary">Formulir N1</a>
+					<a href="formulir_permohonan_kehendak_nikah/" class="btn btn-warning">Formulir N2</a>
+					<a href="formulir_persetujuan_calon_pengantin/" class="btn btn-success">Formulir N4 - Pria</a>
+					<a href="formulir_persetujuan_calon_pengantin_istri/" class="btn btn-success">Formulir N4 - Wanita</a>
+					<a href="formulir_surat_izin_orang_tua/" class="btn btn-danger">Formulir N5</a>
+
+					<!-- Keterangan Formulir -->
+					<div class="popup-note">
+					<b>Keterangan Formulir :</b>
+					<span style="font-weight: bold;">Model N1 :</span> Formulir Pengantar Nikah <br>
+					<span style="font-weight: bold;">Model N2 :</span> Formulir Permohonan Kehendak Nikah
+					<span style="font-weight: bold;">Model N4 :</span> Formulir Persetujuan Calon Pengantin
+					<span style="font-weight: bold;">Model N5 :</span> Formulir Surat Izin Orang Tua
+					</div>
+				</div>
+				</div>
+
+				<!-- Script untuk Popup -->
+				<script>
+				function openPopup() {
+					document.getElementById("popup").style.display = "block";
+				}
+
+				function closePopup() {
+					document.getElementById("popup").style.display = "none";
+				}
+
+				window.onclick = function(event) {
+					const popup = document.getElementById("popup");
+					if (event.target == popup) {
+					popup.style.display = "none";
+					}
+				}
+				</script>
+
+
+
+
 			<div class="col-sm-3 mt-4">
 		    	<div class="card">
 		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">

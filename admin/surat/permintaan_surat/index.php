@@ -144,6 +144,19 @@
                             FROM penduduk 
                             LEFT JOIN formulir_permohonan_kehendak_nikah ON formulir_permohonan_kehendak_nikah.nik = penduduk.nik 
                             WHERE formulir_permohonan_kehendak_nikah.status_surat='pending'
+
+                            UNION 
+                            SELECT penduduk.nama, formulir_persetujuan_calon_pengantin.id_fpcp AS id_surat, formulir_persetujuan_calon_pengantin.no_surat, formulir_persetujuan_calon_pengantin.nik, formulir_persetujuan_calon_pengantin.jenis_surat, formulir_persetujuan_calon_pengantin.status_surat, formulir_persetujuan_calon_pengantin.tanggal_surat 
+                            FROM penduduk 
+                            LEFT JOIN formulir_persetujuan_calon_pengantin ON formulir_persetujuan_calon_pengantin.nik = penduduk.nik 
+                            WHERE formulir_persetujuan_calon_pengantin.status_surat='pending'     
+
+                            UNION 
+                            SELECT penduduk.nama, formulir_persetujuan_calon_pengantin_istri.id_fpcp2 AS id_surat, formulir_persetujuan_calon_pengantin_istri.no_surat, formulir_persetujuan_calon_pengantin_istri.nik, formulir_persetujuan_calon_pengantin_istri.jenis_surat, formulir_persetujuan_calon_pengantin_istri.status_surat, formulir_persetujuan_calon_pengantin_istri.tanggal_surat 
+                            FROM penduduk 
+                            LEFT JOIN formulir_persetujuan_calon_pengantin_istri ON formulir_persetujuan_calon_pengantin_istri.nik = penduduk.nik 
+                            WHERE formulir_persetujuan_calon_pengantin_istri.status_surat='pending' 
+
                         ";
 
                         $result = mysqli_query($connect, $query);
@@ -192,6 +205,8 @@
                                     case 'surat_keterangan_tidak_mampu':
                                     case 'formulir_pengantar_nikah':
                                     case 'formulir_permohonan_kehendak_nikah':
+                                    case 'formulir_persetujuan_calon_pengantin':
+                                    case 'formulir_persetujuan_calon_pengantin_istri':
                                         $link = "konfirmasi/{$jenis}/index.php?id={$row['id_surat']}";
                                         break;
                                 }

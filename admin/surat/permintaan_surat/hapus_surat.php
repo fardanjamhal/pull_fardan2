@@ -17,7 +17,9 @@ if (isset($_GET['id']) && isset($_GET['jenis'])) {
         'surat_pengantar_skck' => ['table' => 'surat_pengantar_skck', 'id_col' => 'id_sps'],
         'surat_keterangan_tidak_mampu' => ['table' => 'surat_keterangan_tidak_mampu', 'id_col' => 'id_sktm'],
         'formulir_pengantar_nikah' => ['table' => 'formulir_pengantar_nikah', 'id_col' => 'id_fpn'],
-        'formulir_permohonan_kehendak_nikah' => ['table' => 'formulir_permohonan_kehendak_nikah', 'id_col' => 'id_fpkn']
+        'formulir_permohonan_kehendak_nikah' => ['table' => 'formulir_permohonan_kehendak_nikah', 'id_col' => 'id_fpkn'],
+        'formulir_persetujuan_calon_pengantin' => ['table' => 'formulir_persetujuan_calon_pengantin', 'id_col' => 'id_fpcp'],
+        'formulir_persetujuan_calon_pengantin_istri' => ['table' => 'formulir_persetujuan_calon_pengantin_istri', 'id_col' => 'id_fpcp2']
     ];
 
     if (array_key_exists($jenis, $suratMap)) {

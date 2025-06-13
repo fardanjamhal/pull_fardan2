@@ -109,6 +109,8 @@
                   UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM formulir_pengantar_nikah WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='pending'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
@@ -137,7 +139,9 @@
                   UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM formulir_pengantar_nikah WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='selesai'       
+                  UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='selesai'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
@@ -156,7 +160,7 @@
       ?>
       <div class="col-lg-1"></div>
       <div class="col-lg-5 col-xs-6">
-        <div class="small-box bg-aqua">
+        <div class="small-box bg-blue">
           <div class="inner">
             <h3>
               <?php
@@ -180,7 +184,20 @@
           <div class="inner">
             <h3>
               <?php
-                $qTampil = mysqli_query($connect, "SELECT * FROM surat_keterangan WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_domisili WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_usaha WHERE status_surat='selesai' UNION SELECT * FROM surat_keterangan_tidak_mampu WHERE status_surat='selesai'");
+               $qTampil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='selesai' 
+                  UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
+                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM formulir_pengantar_nikah WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='selesai'
+                  ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
               ?>
