@@ -56,8 +56,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
 		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
@@ -65,23 +64,61 @@
 		    	</div>
 		  	</div>
 			<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5><br>
 		        		<a href="surat_keterangan_domisili/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
 		  	</div>
+
 			<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI USAHA</h5><br>
-		        		<a href="surat_keterangan_domisili_usaha/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
+			<div class="card surat-card text-center">
+				<div class="card-body">
+				<h5 class="card-title">SURAT KETERANGAN DOMISILI USAHA</h5><br>
+				<a href="surat_keterangan_domisili_usaha/" class="btn btn-info">BUAT SURAT</a>
+				</div>
+			</div>
+			</div>
+
+			<style>
+				.card.surat-card {
+				background: linear-gradient(135deg, #e0f7fa, #ffffff);
+				background-image: url('https://cdn-icons-png.flaticon.com/512/84/84380.png');
+				background-repeat: no-repeat;
+				background-size: 80px;
+				background-position: top 20px center;
+				border: 1px solid #cce;
+				border-radius: 12px;
+				padding-top: 100px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+				transition: transform 0.2s ease;
+				min-height: 300px;
+				}
+
+				.card.surat-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+				}
+
+				.card.surat-card .card-body h5 {
+				font-weight: bold;
+				font-size: 1.1rem;
+				color: #006064;
+				}
+
+				.card.surat-card .btn-info {
+				background-color: #00acc1;
+				border-color: #00acc1;
+				font-weight: 500;
+				}
+
+				.card.surat-card .btn-info:hover {
+				background-color: #00838f;
+				border-color: #00838f;
+				}
+			</style>
+
 			
 
 			<!-- CSS untuk Popup -->
@@ -144,8 +181,7 @@
 
 				<!-- Kartu Surat dengan Button -->
 				<div class="col-sm-3 mt-4">
-				<div class="card">
-					<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+				<div class="card surat-card text-center">
 					<div class="card-body text-center">
 					<h5 class="card-title">FORMULIR PENGANTAR NIKAH <br>(Model N1-N5)</h5><br>
 					<button class="btn btn-info" onclick="openPopup()">BUAT SURAT</button>
@@ -193,12 +229,18 @@
 				}
 				</script>
 
-
-
+			
 
 			<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
+		      		<div class="card-body text-center">
+		        		<h5 class="card-title">SURAT KETERANGAN PENGANTAR</h5><br>
+		        		<a href="surat_keterangan_pengantar/" class="btn btn-info">BUAT SURAT</a>
+		      		</div>
+		    	</div>
+		  	</div>
+			<div class="col-sm-3 mt-4">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN</h5><br>
 		        		<a href="surat_keterangan/" class="btn btn-info">BUAT SURAT</a>
@@ -206,8 +248,7 @@
 		    	</div>
 		  	</div>
 			<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN KEMATIAN</h5><br>
 		        		<a href="surat_keterangan_kematian/" class="btn btn-info">BUAT SURAT</a>
@@ -215,8 +256,7 @@
 		    	</div>
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN BERKELAKUAN BAIK</h5><br>
 		        		<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">BUAT SURAT</a>
@@ -224,8 +264,7 @@
 		    	</div>
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</h5><br>
 		        		<a href="surat_keterangan_kepemilikan_kendaraan_bermotor/" class="btn btn-info">BUAT SURAT</a>
@@ -233,8 +272,7 @@
 		    	</div>
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN PERHIASAN</h5><br>
 		        		<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>
@@ -242,8 +280,7 @@
 		    	</div>
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT LAPOR HAJATAN</h5><br>
 		        		<a href="surat_lapor_hajatan/" class="btn btn-info">BUAT SURAT</a>
@@ -251,8 +288,7 @@
 		    	</div>
 		  	</div>
 		  	<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT PENGANTAR SKCK</h5><br>
 		        		<a href="surat_pengantar_skck/" class="btn btn-info">BUAT SURAT</a>
@@ -260,8 +296,7 @@
 		    	</div>
 		  	</div>
 			<div class="col-sm-3 mt-4">
-		    	<div class="card">
-		      		<img src="../assets/img/menu-surat.jpg" class="card-img-top" alt="...">
+		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN TIDAK MAMPU</h5><br>
 		        		<a href="surat_keterangan_tidak_mampu/" class="btn btn-info">BUAT SURAT</a>

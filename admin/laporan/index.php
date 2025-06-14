@@ -319,8 +319,10 @@
             (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_surat_izin_orang_tua.no_surat, formulir_surat_izin_orang_tua.tanggal_surat, formulir_surat_izin_orang_tua.jenis_surat FROM penduduk LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.nik = penduduk.nik WHERE formulir_surat_izin_orang_tua.status_surat='selesai')
             UNION ALL
             (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_kematian.no_surat, surat_keterangan_kematian.tanggal_surat, surat_keterangan_kematian.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_kematian ON surat_keterangan_kematian.nik = penduduk.nik WHERE surat_keterangan_kematian.status_surat='selesai')
-             UNION ALL
+            UNION ALL
             (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_domisili_usaha.no_surat, surat_keterangan_domisili_usaha.tanggal_surat, surat_keterangan_domisili_usaha.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_domisili_usaha ON surat_keterangan_domisili_usaha.nik = penduduk.nik WHERE surat_keterangan_domisili_usaha.status_surat='selesai')
+            UNION ALL
+            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_pengantar.no_surat, surat_keterangan_pengantar.tanggal_surat, surat_keterangan_pengantar.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_pengantar ON surat_keterangan_pengantar.nik = penduduk.nik WHERE surat_keterangan_pengantar.status_surat='selesai')
             
           ";
 

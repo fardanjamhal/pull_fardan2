@@ -58,8 +58,7 @@
   <section class="content-header">
     <h1>Permintaan Surat</h1><br>
     
-    <!-- Tambahkan di <head> -->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
         .tombol-hp {
           display: none; /* Sembunyikan di desktop */
@@ -94,7 +93,6 @@
         }
       </style>
 
-      <!-- Tambahkan di <body> -->
       <div class="tombol-hp">
         <a href="../../dashboard/">
           <div>
@@ -116,7 +114,7 @@
         <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th><strong>Tanggal</strong></th>
+              <th><strong>No.</strong></th> <th><strong>Tanggal</strong></th>
               <th><strong>NIK</strong></th>
               <th><strong>Nama</strong></th>
               <th><strong>Jenis Surat</strong></th>
@@ -222,9 +220,16 @@
                             LEFT JOIN surat_keterangan_domisili_usaha ON surat_keterangan_domisili_usaha.nik = penduduk.nik 
                             WHERE surat_keterangan_domisili_usaha.status_surat='pending'
 
+                            UNION 
+                            SELECT penduduk.nama, surat_keterangan_pengantar.id_skp AS id_surat, surat_keterangan_pengantar.no_surat, surat_keterangan_pengantar.nik, surat_keterangan_pengantar.jenis_surat, surat_keterangan_pengantar.status_surat, surat_keterangan_pengantar.tanggal_surat 
+                            FROM penduduk 
+                            LEFT JOIN surat_keterangan_pengantar ON surat_keterangan_pengantar.nik = penduduk.nik 
+                            WHERE surat_keterangan_pengantar.status_surat='pending'
+                            ORDER BY tanggal_surat DESC
                         ";
 
                         $result = mysqli_query($connect, $query);
+                        $no = 1; // Initialize the counter
 
                         if ($result && $result->num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -244,7 +249,7 @@
                                 $tanggal = "$tgl {$blnIndo[$bln]} $thn pukul $jam";
 
                                 echo "<tr>
-                                    <td>{$tanggal}</td>
+                                    <td>{$no}.</td> <td>{$tanggal}</td>
                                     <td>{$row['nik']}</td>
                                     <td style='text-transform: capitalize;'>{$row['nama']}</td>
                                     <td>{$row['jenis_surat']}</td>
@@ -275,6 +280,7 @@
                                     case 'formulir_surat_izin_orang_tua':
                                     case 'surat_keterangan_kematian':
                                     case 'surat_keterangan_domisili_usaha':
+                                    case 'surat_keterangan_pengantar':
                                         $link = "konfirmasi/{$jenis}/index.php?id={$row['id_surat']}";
                                         break;
                                 }
@@ -287,6 +293,7 @@
                                       </a>
                                     </td>
                                 </tr>";
+                                $no++; // Increment the counter
                             }
                           }
                         ?>

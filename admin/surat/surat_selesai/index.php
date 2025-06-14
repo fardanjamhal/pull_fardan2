@@ -20,7 +20,8 @@ $jenisSuratList = [
   'formulir_persetujuan_calon_pengantin_istri' => ['id' => 'id_fpcp2', 'folder' => 'formulir_persetujuan_calon_pengantin_istri'],
   'formulir_surat_izin_orang_tua' => ['id' => 'id_fsiot', 'folder' => 'formulir_surat_izin_orang_tua'],
   'surat_keterangan_kematian' => ['id' => 'id_skk', 'folder' => 'surat_keterangan_kematian'],
-  'surat_keterangan_domisili_usaha' => ['id' => 'id_skdu', 'folder' => 'surat_keterangan_domisili_usaha']
+  'surat_keterangan_domisili_usaha' => ['id' => 'id_skdu', 'folder' => 'surat_keterangan_domisili_usaha'],
+  'surat_keterangan_pengantar' => ['id' => 'id_skp', 'folder' => 'surat_keterangan_pengantar']
 ];
 
 // Ambil filter dari URL
