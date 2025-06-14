@@ -18,7 +18,9 @@ $jenisSuratList = [
   'formulir_permohonan_kehendak_nikah' => ['id' => 'id_fpkn', 'folder' => 'formulir_permohonan_kehendak_nikah'],
   'formulir_persetujuan_calon_pengantin' => ['id' => 'id_fpcp', 'folder' => 'formulir_persetujuan_calon_pengantin'],
   'formulir_persetujuan_calon_pengantin_istri' => ['id' => 'id_fpcp2', 'folder' => 'formulir_persetujuan_calon_pengantin_istri'],
-  'formulir_surat_izin_orang_tua' => ['id' => 'id_fsiot', 'folder' => 'formulir_surat_izin_orang_tua']
+  'formulir_surat_izin_orang_tua' => ['id' => 'id_fsiot', 'folder' => 'formulir_surat_izin_orang_tua'],
+  'surat_keterangan_kematian' => ['id' => 'id_skk', 'folder' => 'surat_keterangan_kematian'],
+  'surat_keterangan_domisili_usaha' => ['id' => 'id_skdu', 'folder' => 'surat_keterangan_domisili_usaha']
 ];
 
 // Ambil filter dari URL
@@ -176,6 +178,7 @@ $result = mysqli_query($connect, $sql);
           <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
             <thead>
               <tr>
+                <th>No</th> <!-- Tambahan -->
                 <th>Tanggal</th>
                 <th>No. Surat</th>
                 <th>NIK</th>
@@ -186,6 +189,7 @@ $result = mysqli_query($connect, $sql);
               </tr>
             </thead>
             <tbody>
+              <?php $no = $offset + 1; ?> <!-- Nomor Urut Otomatis -->
               <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <?php
                   $tgl = date('d ', strtotime($row['tanggal_surat']));
@@ -200,6 +204,7 @@ $result = mysqli_query($connect, $sql);
                   $folder = $jenisSuratList[$row['table_name']]['folder'];
                 ?>
                 <tr>
+                   <td><?= $no++; ?></td> <!-- Tampilkan nomor urut -->
                   <td><?= $tgl . $bulanIndo[$bln] . $thn; ?></td>
                   <td><?= $row['no_surat']; ?></td>
                   <td><?= $row['nik']; ?></td>

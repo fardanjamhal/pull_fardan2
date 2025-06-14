@@ -210,6 +210,18 @@
                             LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.nik = penduduk.nik 
                             WHERE formulir_surat_izin_orang_tua.status_surat='pending'
 
+                            UNION 
+                            SELECT penduduk.nama, surat_keterangan_kematian.id_skk AS id_surat, surat_keterangan_kematian.no_surat, surat_keterangan_kematian.nik, surat_keterangan_kematian.jenis_surat, surat_keterangan_kematian.status_surat, surat_keterangan_kematian.tanggal_surat 
+                            FROM penduduk 
+                            LEFT JOIN surat_keterangan_kematian ON surat_keterangan_kematian.nik = penduduk.nik 
+                            WHERE surat_keterangan_kematian.status_surat='pending'
+
+                            UNION 
+                            SELECT penduduk.nama, surat_keterangan_domisili_usaha.id_skdu AS id_surat, surat_keterangan_domisili_usaha.no_surat, surat_keterangan_domisili_usaha.nik, surat_keterangan_domisili_usaha.jenis_surat, surat_keterangan_domisili_usaha.status_surat, surat_keterangan_domisili_usaha.tanggal_surat 
+                            FROM penduduk 
+                            LEFT JOIN surat_keterangan_domisili_usaha ON surat_keterangan_domisili_usaha.nik = penduduk.nik 
+                            WHERE surat_keterangan_domisili_usaha.status_surat='pending'
+
                         ";
 
                         $result = mysqli_query($connect, $query);
@@ -261,6 +273,8 @@
                                     case 'formulir_persetujuan_calon_pengantin':
                                     case 'formulir_persetujuan_calon_pengantin_istri':
                                     case 'formulir_surat_izin_orang_tua':
+                                    case 'surat_keterangan_kematian':
+                                    case 'surat_keterangan_domisili_usaha':
                                         $link = "konfirmasi/{$jenis}/index.php?id={$row['id_surat']}";
                                         break;
                                 }
