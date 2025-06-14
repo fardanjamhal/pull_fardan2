@@ -6,20 +6,66 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="assets/img/mini-logo.png">
 	<title>e-SuratDesa</title>
-  	<link rel="stylesheet" href="assets/fontawesome-free-5.10.2-web/css/all.css">
+	<link rel="stylesheet" href="assets/fontawesome-free-5.10.2-web/css/all.css">
 	<link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.css">
+
+	<!-- Particles.js Library -->
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
 	<style type="text/css">
-		body{
-			background:url('assets/img/background.jpg');
+		body, html {
+			margin: 0;
+			padding: 0;
 			height: 100%;
-		    background-position: center;
-		    background-repeat: no-repeat;
-		    background-size: cover;
-		    background-attachment:fixed;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		#particles-js {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-color: #000;
+		}
+
+		.glow-title {
+			font-size: 28pt;
+			color: #0ff;
+			font-weight: bold;
+			text-shadow:
+				0 0 5px #0ff,
+				0 0 10px #0ff,
+				0 0 20px #0ff,
+				0 0 40px #0ff;
+			animation: neonGlow 2s ease-in-out infinite alternate;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+
+		@keyframes neonGlow {
+			from {
+				text-shadow:
+					0 0 5px #0ff,
+					0 0 10px #0ff,
+					0 0 20px #0ff,
+					0 0 40px #0ff;
+			}
+			to {
+				text-shadow:
+					0 0 10px #0ff,
+					0 0 20px #0ff,
+					0 0 40px #0ff,
+					0 0 80px #0ff;
+			}
 		}
 	</style>
 </head>
 <body>
+
+<!-- Background Particles -->
+<div id="particles-js"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -56,15 +102,15 @@
 
 <!-- KONTEN -->
 <div class="container" style="padding-top:20vh; padding-bottom:120px" align="center">
+	<div class="glow-title mb-4">Sistem Pelayanan Administrasi</div>
 	<img src="assets/img/Logo-Pangandaran.png"><hr>
-	<a class="text-light" style="font-size:18pt"><strong>WEB APLIKASI PELAYANAN SURAT ADMINISTRASI DESA</strong></a><br>
 	<?php  
 		include('config/koneksi.php');
 		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
 		foreach($qTampilDesa as $row){
 	?>
-	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong><br>
-	<a class="text-light" style="font-size:15pt; text-transform: uppercase;"><strong><?php echo $row['kota']; ?></strong></a><hr>
+	<a class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong><br>
+	<a class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong><?php echo $row['kota']; ?></strong></a><hr>
 	<?php } ?>
 	<a href="surat/" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
 </div>
@@ -82,8 +128,54 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
+<!-- Particles Config -->
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": { "value": "#00ffff" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 3, "random": true },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#00ffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 1,
+        "direction": "none",
+        "out_mode": "out"
+      }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "grab"
+        }
+      },
+      "modes": {
+        "grab": {
+          "distance": 200,
+          "line_linked": { "opacity": 0.5 }
+        }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
 
-<!-- JS (WAJIB AGAR MENU HP BERFUNGSI) -->
+<!-- JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
 <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
