@@ -18,7 +18,7 @@
 <html>
 <head>
 	<link rel="shortcut icon" href="../../../../assets/img/mini-logo.png">
-	<title>CETAK SURAT</title>
+	<title><?php echo $row['no_surat']; ?></title>
 	<link href="../../../../assets/formsuratCSS/formsurat.css" rel="stylesheet" type="text/css"/>
 	<style type="text/css" media="print">
 	    @page { margin: 0; }
