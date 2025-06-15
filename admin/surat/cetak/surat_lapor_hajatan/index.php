@@ -159,7 +159,7 @@
 		</table><br>
 		<table width="100%" style="text-transform: capitalize;" style="text-transform: capitalize;">
 			<tr>
-				<td width="25%" class="indentasi">Hari</td>
+				<td width="30%" class="indentasi">Hari</td>
 				<td width="2%">:</td>
 				<td width="73%"><?php echo $row['hari']; ?></td>
 			</tr>
@@ -322,7 +322,8 @@
 									// Pastikan ini adalah path gambar yang valid
 									$url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
 									// Tampilkan gambar dalam tag <img>
-									echo '<img src="' . $url_gambar . '" alt="Barcode Pejabat" style="max-width: 60px;  margin-top: -64px">';
+									echo "<br>";
+									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 75px;  margin-top: -84px">';
 									echo "<br>";
 								} else {
 									echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
