@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2025 at 08:32 AM
+-- Generation Time: Jun 15, 2025 at 02:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -271,16 +271,17 @@ INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`) VAL
 CREATE TABLE `pejabat_desa` (
   `id_pejabat_desa` int(11) NOT NULL,
   `nama_pejabat_desa` varchar(50) NOT NULL,
-  `jabatan` varchar(20) NOT NULL
+  `jabatan` varchar(20) NOT NULL,
+  `nip` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pejabat_desa`
 --
 
-INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`) VALUES
-(1, 'H. Moh. Saifuddin', 'Kepala Desa'),
-(2, '../../../../assets/img/barcode.png', 'Kepala Desa');
+INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `nip`) VALUES
+(1, 'H. Moh. Saifuddin', 'Kepala Desa22', 'NIP : 123445577788811'),
+(2, '../../../../assets/img/barcode.png', 'Kepala Desa', '');
 
 -- --------------------------------------------------------
 

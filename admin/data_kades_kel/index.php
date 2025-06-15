@@ -27,9 +27,11 @@
           <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span>
         </a>
       </li>
-      <li class="active">
-        <a href="#"><i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span></a>
-      </li>
+     <li>
+   			<a href="../profil_desa/">
+     			<i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
+   			</a>
+   		</li>
       <li>
    			<a href="../data_kades_kel/">
      			<i class="fa fa-user"></i> <span>&nbsp;Data Kades / Kelurahan</span>
@@ -104,7 +106,7 @@
   include ('../../config/koneksi.php');
 
   // Perhatikan di sini pakai $connect, bukan $koneksi
-  $query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+  $query = mysqli_query($connect, "SELECT * FROM pejabat_desa LIMIT 1");
   $data = mysqli_fetch_assoc($query);
   ?>
 
@@ -189,68 +191,23 @@
 
   <div class="form-center-wrapper">
     <div class="form-container">
-      <form action="update_profil_desa.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id_profil_desa" value="<?php echo $data['id_profil_desa']; ?>">
+      <form action="update_data_kades_kel.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id_pejabat_desa" value="<?php echo $data['id_pejabat_desa']; ?>">
 
         <div class="form-group">
-          <label>Nama Desa</label>
-          <input type="text" name="nama_desa" value="<?php echo $data['nama_desa']; ?>">
+          <label>Nama Kades / Kelurahan</label>
+          <input type="text" name="nama_pejabat_desa" value="<?php echo $data['nama_pejabat_desa']; ?>">
         </div>
 
         <div class="form-group">
-          <label>Alamat</label>
-          <input type="text" name="alamat" value="<?php echo $data['alamat']; ?>">
+          <label>Jabatan</label>
+          <input type="text" name="jabatan" value="<?php echo $data['jabatan']; ?>">
         </div>
 
         <div class="form-group">
-          <label>No Telepon</label>
-          <input type="text" name="no_telpon" value="<?php echo $data['no_telpon']; ?>">
+          <label>NIP</label>
+          <input type="text" name="nip" value="<?php echo $data['nip']; ?>">
         </div>
-
-        <div class="form-group">
-          <label>Kecamatan</label>
-          <input type="text" name="kecamatan" value="<?php echo $data['kecamatan']; ?>">
-        </div>
-
-        <div class="form-group">
-          <label>Kota</label>
-          <input type="text" name="kota" value="<?php echo $data['kota']; ?>">
-        </div>
-
-        <div class="form-group">
-          <label>Provinsi</label>
-          <input type="text" name="provinsi" value="<?php echo $data['provinsi']; ?>">
-        </div>
-
-        <div class="form-group">
-          <label>Kode Pos</label>
-          <input type="text" name="kode_pos" value="<?php echo $data['kode_pos']; ?>">
-        </div>
-
-        <label>Tanda Tangan Digital</label><br>
-        <input type="file" name="ttd_digital"><br><br><br><br>
-
-         <!-- Tampilkan preview jika sudah ada -->
-        <?php if (!empty($data['ttd_digital'])): ?>
-          <img src="../../assets/img/barcode.png?<?php echo time(); ?>" alt="Barcode Pejabat" style="max-width: 60px; margin-top: -75px">
-        <?php endif; ?>
-
-        <br>
-
-        <label>Gambar Kop Surat</label>
-        <input type="file" name="gambar_kop"><br>
-
-         <!-- Tampilkan preview jika sudah ada -->
-        <?php if (!empty($data['gambar_kop'])): ?>
-          <img src="../../assets/img/<?php echo $data['gambar_kop']; ?>" style="height: 75px;"><br><br>
-        <?php endif; ?>
-
-        <label>Logo Desa</label><br>
-        <input type="file" name="logo_desa"><br>
-
-        <?php if (!empty($data['logo_desa'])): ?>
-          <img src="../../assets/img/<?php echo $data['logo_desa']; ?>" style="height: 75px;"><br><br>
-        <?php endif; ?>
 
         <button type="submit" class="btn-simpan">💾 Simpan Perubahan</button>
       </form>

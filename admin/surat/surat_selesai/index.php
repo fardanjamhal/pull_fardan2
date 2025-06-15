@@ -96,6 +96,11 @@ $result = mysqli_query($connect, $sql);
           <i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
         </a>
       </li>
+      <li>
+   			<a href="../../data_kades_kel/">
+     			<i class="fa fa-user"></i> <span>&nbsp;Data Kades / Kelurahan</span>
+   			</a>
+   		</li>
       <li><a href="../../penduduk/"><i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span></a></li>
       <li><a href="../../surat/permintaan_surat/"><i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span></a></li>
       <li><a href="../../surat/surat_selesai/"><i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span></a></li>

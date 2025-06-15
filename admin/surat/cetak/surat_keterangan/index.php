@@ -352,6 +352,20 @@
 						echo "<p>Data Surat Keterangan Domisili dengan ID **{$id}** tidak ditemukan.</p>";
 					}
 					?>
+
+					<br>
+					<?php
+						$id = 1; // Misalnya ID = 1
+						$query = "SELECT nip FROM pejabat_desa WHERE id_pejabat_desa = '$id'";
+						$result = mysqli_query($connect, $query);
+
+						if ($data = mysqli_fetch_assoc($result)) {
+							echo "<b>" . strtoupper($data['nip']) . "</b>";
+						} else {
+							echo "Data tidak ditemukan.";
+						}
+					?>
+
 			</div>
 			</td>
 			</tr>
