@@ -4,7 +4,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="shortcut icon" href="../../../../../assets/img/mini-logo.png">
+
+  <?php
+	include('../../../../../config/koneksi.php');
+
+	// Ambil data dari profil_desa
+	$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+	$data = mysqli_fetch_assoc($query);
+
+	// Cek apakah ada favicon tersimpan, jika tidak pakai default
+	$favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
+	?>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="../../../../../assets/img/<?php echo $favicon; ?>">
+
+
   <title>ADMIN | e-SuratDesa</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
