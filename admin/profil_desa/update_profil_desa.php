@@ -22,10 +22,29 @@ $kode_pos   = $_POST['kode_pos'];
 $queryLama = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '$id'");
 $dataLama  = mysqli_fetch_assoc($queryLama);
 
+$ttdDigital = $dataLama['ttd_digital'];
 $logoLama  = $dataLama['logo_desa'];
 $kopLama   = $dataLama['gambar_kop'];
 
 $targetDir = "../../assets/img/";
+
+// --- Upload Gambar TTD Tangan (dengan nama tetap barcode.png)
+$ttd_digital = $ttdDigital; // default pakai lama
+if (!empty($_FILES['ttd_digital']['name'])) {
+    $filename_ttd = "barcode.png"; // Nama file tetap
+    $temp_ttd     = $_FILES['ttd_digital']['tmp_name'];
+    $tujuan_ttd   = $targetDir . $filename_ttd;
+
+    // Hapus file lama jika ada
+    if (file_exists($tujuan_ttd)) {
+        unlink($tujuan_ttd);
+    }
+
+    // Upload file baru
+    if (move_uploaded_file($temp_ttd, $tujuan_ttd)) {
+        $ttd_digital = $filename_ttd; // Simpan nama file tetap
+    }
+}
 
 // --- Upload Gambar Kop
 $gambar_kop = $kopLama; // default pakai lama
@@ -60,6 +79,7 @@ $query = "UPDATE profil_desa SET
             kota        = '$kota',
             provinsi    = '$provinsi',
             kode_pos    = '$kode_pos',
+            ttd_digital = '$ttd_digital',
             gambar_kop  = '$gambar_kop',
             logo_desa   = '$logo_desa'
           WHERE id_profil_desa = '$id'";

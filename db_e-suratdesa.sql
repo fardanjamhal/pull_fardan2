@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2025 at 06:21 AM
+-- Generation Time: Jun 15, 2025 at 08:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -354,6 +354,7 @@ CREATE TABLE `profil_desa` (
   `kota` varchar(50) NOT NULL,
   `provinsi` varchar(20) NOT NULL,
   `kode_pos` varchar(10) NOT NULL,
+  `ttd_digital` varchar(350) DEFAULT NULL,
   `gambar_kop` varchar(350) DEFAULT NULL,
   `logo_desa` varchar(350) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -362,8 +363,8 @@ CREATE TABLE `profil_desa` (
 -- Dumping data for table `profil_desa`
 --
 
-INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `no_telpon`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `gambar_kop`, `logo_desa`) VALUES
-(1, 'Allu Tarowang', 'Jl.Raya Cijulang No. 00', '085255430300', 'Tarowang', 'Kabupaten Jeneponto', 'Sulawesi Selatan', '9999', '311122910_406575298308078_714964801078203355_n.png', 'Logo-Pangandaran.png');
+INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `no_telpon`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `ttd_digital`, `gambar_kop`, `logo_desa`) VALUES
+(1, 'Allu Tarowang', 'Jl.Raya Cijulang No. 00', '085255430300', 'Tarowang', 'Kabupaten Jeneponto', 'Sulawesi Selatan', '9999', 'barcode.png', '72a6cd37-8809-4156-8fd2-41cbefc931a6.png', 'Logo-Pangandaran.png');
 
 -- --------------------------------------------------------
 
@@ -509,7 +510,9 @@ INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `n
 (38, 'Surat Keterangan Domisili', '112/SKD/SS/VII/2025', '12345', '2025-06-11 01:52:14', 1, 'SELESAI', 1),
 (39, 'Surat Keterangan Domisili', '113/SKD/SS/VII/2025', '12345', '2025-06-11 01:52:39', 2, 'SELESAI', 1),
 (40, 'Surat Keterangan Domisili', '114/SKD/SS/VII/2025', '12345', '2025-06-13 19:43:42', 1, 'SELESAI', 1),
-(41, 'Surat Keterangan Domisili', NULL, '12345', '2025-06-14 23:10:36', NULL, 'PENDING', 1);
+(41, 'Surat Keterangan Domisili', '115/SKD/SS/VII/2025', '12345', '2025-06-14 23:10:36', 1, 'SELESAI', 1),
+(42, 'Surat Keterangan Domisili', '116/SKD/SS/VII/2025', '12345', '2025-06-15 14:21:38', 2, 'SELESAI', 1),
+(43, 'Surat Keterangan Domisili', NULL, '12345', '2025-06-15 14:21:42', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -1097,7 +1100,7 @@ ALTER TABLE `surat_keterangan_berkelakuan_baik`
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili_usaha`

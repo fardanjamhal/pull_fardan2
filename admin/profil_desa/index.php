@@ -222,8 +222,18 @@
           <input type="text" name="kode_pos" value="<?php echo $data['kode_pos']; ?>">
         </div>
 
-        <label>Gambar Kop Surat</label><br>
-        <input type="file" name="gambar_kop"><br><br>
+        <label>Tanda Tangan Digital</label><br>
+        <input type="file" name="ttd_digital"><br><br><br><br>
+
+         <!-- Tampilkan preview jika sudah ada -->
+        <?php if (!empty($data['ttd_digital'])): ?>
+          <img src="../../assets/img/barcode.png?<?php echo time(); ?>" alt="Barcode Pejabat" style="max-width: 60px; margin-top: -75px">
+        <?php endif; ?>
+
+        <br>
+
+        <label>Gambar Kop Surat</label>
+        <input type="file" name="gambar_kop"><br>
 
          <!-- Tampilkan preview jika sudah ada -->
         <?php if (!empty($data['gambar_kop'])): ?>
@@ -231,7 +241,7 @@
         <?php endif; ?>
 
         <label>Logo Desa</label><br>
-        <input type="file" name="logo_desa"><br><br>
+        <input type="file" name="logo_desa"><br>
 
         <?php if (!empty($data['logo_desa'])): ?>
           <img src="../../assets/img/<?php echo $data['logo_desa']; ?>" style="height: 75px;"><br><br>
