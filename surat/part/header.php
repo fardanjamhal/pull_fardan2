@@ -20,9 +20,17 @@
 </head>
 <body class="bg-light">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand ml-4 mt-1" href="../../"
-			><img src="../../assets/img/e-SuratDesa.png" alt="e-SuratDesa"
-		/></a>
+		<a class="navbar-brand ml-4 mt-1" href="../../">
+			<?php
+			include('../../config/koneksi.php');
+
+			$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+			$data = mysqli_fetch_assoc($query);
+			?>
+			<div style="position: absolute; top: 50%; left: 10%; transform: translate(-50%, -50%);">
+			<img src="../../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 50px; height: auto;">
+			</div>
+		</a>
 		<button
 			class="navbar-toggler mr-4 mt-3"
 			type="button"

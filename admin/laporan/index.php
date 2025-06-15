@@ -85,6 +85,11 @@
         </a>
       </li>
       <li>
+        <a href="../profil_desa/">
+          <i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
+        </a>
+      </li>
+      <li>
         <a href="../penduduk/">
           <i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span>
         </a>

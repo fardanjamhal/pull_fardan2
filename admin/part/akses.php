@@ -1,9 +1,10 @@
 <?php
-	session_start();
+session_start();
 
-	if(empty($_SESSION['username'])){
-	    header("location:../../");
-	}else if(!isset($_SESSION['lvl'])){
-		header("location:../../");
-	}
+// Cek apakah user sudah login
+if ($_SESSION['lvl'] !== 'Administrator' && $_SESSION['lvl'] !== 'Kepala Desa') {
+    header("Location: ../../");
+    exit();
+}
+
 ?>

@@ -14,7 +14,16 @@
                       }
                     }
                   ?>
-                	<img src="../../assets/img/Logo-Pangandaran.png"><hr>
+                  
+                		<?php
+                  include('../../config/koneksi.php');
+
+                  $query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+                  $data = mysqli_fetch_assoc($query);
+                  ?>
+                  <img src="../../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 120px; height: auto;">
+                  
+                  <hr>
                   	<label style="font-weight: 700;"><i class="fas fa-id-card"></i> NIK  <i>(Nomor Induk Kependudukan)</i></label>
                   	<input type="text" class="form-control form-control-md" maxlength="16" onkeypress="return hanyaAngka(event)" name="fnik" placeholder="Masukkan NIK Anda..." required>
                     <script>

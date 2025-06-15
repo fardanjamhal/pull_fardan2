@@ -24,6 +24,17 @@ $jenisSuratList = [
   'surat_keterangan_pengantar' => ['id' => 'id_skp', 'folder' => 'surat_keterangan_pengantar']
 ];
 
+// Tambahkan kode ini DI SINI:
+uksort($jenisSuratList, function($a, $b) {
+    return strcmp(
+        ucwords(str_replace('_', ' ', $a)),
+        ucwords(str_replace('_', ' ', $b))
+    );
+});
+
+// Ambil filter dari URL
+$filter_jenis = $_GET['jenis_surat'] ?? '';
+
 // Ambil filter dari URL
 $filter_jenis = $_GET['jenis_surat'] ?? '';
 $keyword = $_GET['keyword'] ?? '';
@@ -80,6 +91,11 @@ $result = mysqli_query($connect, $sql);
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
       <li><a href="../../dashboard/"><i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span></a></li>
+      <li>
+        <a href="../../profil_desa/">
+          <i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
+        </a>
+      </li>
       <li><a href="../../penduduk/"><i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span></a></li>
       <li><a href="../../surat/permintaan_surat/"><i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span></a></li>
       <li><a href="../../surat/surat_selesai/"><i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span></a></li>

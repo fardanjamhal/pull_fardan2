@@ -27,6 +27,11 @@
           <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span>
         </a>
       </li>
+      <li>
+        <a href="../profil_desa/">
+          <i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
+        </a>
+      </li>
       <li class="active">
         <a href="#"><i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span></a>
       </li>

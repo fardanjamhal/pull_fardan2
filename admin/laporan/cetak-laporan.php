@@ -135,9 +135,16 @@
           ORDER BY tanggal_surat";
       }
     }else{
+
+      $query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+      $data = mysqli_fetch_assoc($query);
+
+      // Ambil nama file gambar dari database
+      $gambar_kop = !empty($data['gambar_kop']) ? $data['gambar_kop'] : 'e-SuratDesa.png';
+
       echo '
           <div class="header" style="text-align: center;">
-            <img src="../../assets/img/e-SuratDesa.png" style="max-width: 200px; height: auto;">
+            <img src="../../assets/img/' . $gambar_kop . '" style="max-width: 120px; height: auto;">
             <div style="font-size: 12pt; font-weight: bold; margin-top: 8px;">
               Laporan Surat Administrasi Desa
             </div>

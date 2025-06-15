@@ -4,7 +4,21 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="shortcut icon" href="../assets/img/mini-logo.png" />
+
+	<?php
+	include('../config/koneksi.php');
+
+	// Ambil data dari profil_desa
+	$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+	$data = mysqli_fetch_assoc($query);
+
+	// Cek apakah ada favicon tersimpan, jika tidak pakai default
+	$favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
+	?>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="../assets/img/<?php echo $favicon; ?>">
+
 	<title>e-SuratDesa</title>
 
 	<!-- Bootstrap 4 CSS -->
@@ -31,7 +45,18 @@
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<a class="navbar-brand ml-4 mt-1" href="../">
-				<img src="../assets/img/e-SuratDesa.png" alt="e-SuratDesa" />
+
+			<?php
+			include('../config/koneksi.php');
+
+			$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+			$data = mysqli_fetch_assoc($query);
+			?>
+			<div style="position: absolute; top: 50%; left: 10%; transform: translate(-50%, -50%);">
+			<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 50px; height: auto;">
+			</div>
+			<hr>
+
 			</a>
 			<button
 				class="navbar-toggler mr-4 mt-3"

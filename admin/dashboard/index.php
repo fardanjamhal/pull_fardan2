@@ -27,6 +27,11 @@
    				<i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span>
  				</a>
  			</li>
+      <li>
+   			<a href="../profil_desa/">
+     			<i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
+   			</a>
+   		</li>
    		<li>
    			<a href="../penduduk/">
      			<i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span>
@@ -242,7 +247,13 @@
        				<form class="form-horizontal" method="post" action="simpan-penduduk.php">
        					<div class="col-md-12">
                   <div class="col-md-4" style="text-align: center;">
-                   <img src="../../assets/img/Logo-Pangandaran.png" style="width: 20%; max-width: 300px; height: auto;" alt="Logo Pangandaran"><br>
+
+                   <?php
+                    $query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+                    $data = mysqli_fetch_assoc($query);
+                    ?>
+                    <img src="../../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 120px; height: auto;">
+
                     <?php  
                       $qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
                       foreach($qTampilDesa as $row){

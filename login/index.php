@@ -14,7 +14,21 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../assets/img/mini-logo.png">
+
+	<?php
+	include('../config/koneksi.php');
+
+	// Ambil data dari profil_desa
+	$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+	$data = mysqli_fetch_assoc($query);
+
+	// Cek apakah ada favicon tersimpan, jika tidak pakai default
+	$favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
+	?>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="../assets/img/<?php echo $favicon; ?>">
+
 	<title>Login Page</title>   
 	<link rel="stylesheet" href="../assets/fontawesome-free-5.10.2-web/css/all.css">
 	<link rel="stylesheet" href="../assets/bootstrap-4.3.1-dist/css/bootstrap.css">
@@ -79,7 +93,15 @@
 	<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
 		<div class="card p-3">
 			<div class="text-center mb-4">
-				<img src="../assets/img/mini-logo.png" class="img-fluid" style="max-width: 100px;" alt="Logo e-SuratDesa">
+
+				<?php
+				include('../config/koneksi.php');
+
+				$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+				$data = mysqli_fetch_assoc($query);
+				?>
+				<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 120px; height: auto;">
+
 			</div>
 			<div class="card-header text-center">
 				<h3>Login System</h3>
