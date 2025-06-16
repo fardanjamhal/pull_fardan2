@@ -31,31 +31,22 @@
 </head>
 <body>
 <div>
+
 	<table width="100%" style="text-align: center; margin: 0 auto;">
 	<tr>
-		<td style="width: 100px;">
+		<?php
+		// Ambil data profil untuk $rows jika belum ada
+		include('../../../../config/koneksi.php');
+		$q = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+		$rows = mysqli_fetch_assoc($q);
 
-			<?php
-				include('../../../../config/koneksi.php');
-
-				$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
-				$data = mysqli_fetch_assoc($query);
-				?>
-			<img src="../../../../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 75px; height: auto;">
-
-		</td>
-		<td>
-			<div class="header" style="text-align: center;">
-				<h4 class="kop" style="margin: 0; text-transform: uppercase;">PEMERINTAH <?php echo $rows['kota']; ?></h4>
-				<h4 class="kop" style="margin: 0; text-transform: uppercase;">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-				<h4 class="kop" style="margin: 0; text-transform: uppercase;">DESA <?php echo $rows['nama_desa']; ?></h4>
-				<h5 class="kop2" style="margin: 0; text-transform: capitalize;"><?php echo $rows['alamat']; ?> Telp. <?php echo $rows['no_telpon']; ?> Kode Pos <?php echo $rows['kode_pos']; ?></h5>
-			</div>
-		</td>
+		// Tampilkan kop surat
+		include('../kop_surat.php');
+		?>
 	</tr>
 	</table>
+
 	<hr style="border: 1px solid #000; width: 100%;">
-	<br>
 	<br>
 		<div align="center">
 		<h4 style="text-decoration: underline; margin: 0; text-transform: uppercase;"><b><?php echo $row['jenis_surat']; ?></b></h4>
