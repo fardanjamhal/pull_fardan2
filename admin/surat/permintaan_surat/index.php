@@ -64,6 +64,7 @@
     </ul>
   </section>
 </aside>
+
 <div class="content-wrapper">
   <section class="content-header">
     <h1>Permintaan Surat</h1><br>
@@ -133,181 +134,87 @@
             </tr>
           </thead>
           <tbody>
-                  <?php
-                        $query = "
-                            SELECT penduduk.nama, surat_keterangan.id_sk AS id_surat, surat_keterangan.no_surat, surat_keterangan.nik, surat_keterangan.jenis_surat, surat_keterangan.status_surat, surat_keterangan.tanggal_surat
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik 
-                            WHERE surat_keterangan.status_surat='pending'
 
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_berkelakuan_baik.id_skbb AS id_surat, surat_keterangan_berkelakuan_baik.no_surat, surat_keterangan_berkelakuan_baik.nik, surat_keterangan_berkelakuan_baik.jenis_surat, surat_keterangan_berkelakuan_baik.status_surat, surat_keterangan_berkelakuan_baik.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik 
-                            WHERE surat_keterangan_berkelakuan_baik.status_surat='pending'
+          <?php
+              $jenisSurat = [
+                'surat_keterangan' => 'id_sk',
+                'surat_keterangan_berkelakuan_baik' => 'id_skbb',
+                'surat_keterangan_domisili' => 'id_skd',
+                'surat_keterangan_kepemilikan_kendaraan_bermotor' => 'id_skkkb',
+                'surat_keterangan_perhiasan' => 'id_skp',
+                'surat_keterangan_usaha' => 'id_sku',
+                'surat_lapor_hajatan' => 'id_slh',
+                'surat_pengantar_skck' => 'id_sps',
+                'surat_keterangan_tidak_mampu' => 'id_sktm',
+                'formulir_pengantar_nikah' => 'id_fpn',
+                'formulir_permohonan_kehendak_nikah' => 'id_fpkn',
+                'formulir_persetujuan_calon_pengantin' => 'id_fpcp',
+                'formulir_persetujuan_calon_pengantin_istri' => 'id_fpcp2',
+                'formulir_surat_izin_orang_tua' => 'id_fsiot',
+                'surat_keterangan_kematian' => 'id_skk',
+                'surat_keterangan_domisili_usaha' => 'id_skdu',
+                'surat_keterangan_pengantar' => 'id_skp',
+                'surat_keterangan_beda_identitas' => 'id_skbi',
+                'surat_keterangan_beda_identitas_kis' => 'id_skbis'
+              ];
 
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_domisili.id_skd AS id_surat, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.nik, surat_keterangan_domisili.jenis_surat, surat_keterangan_domisili.status_surat, surat_keterangan_domisili.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik 
-                            WHERE surat_keterangan_domisili.status_surat='pending'
+              $unionParts = [];
+              foreach ($jenisSurat as $table => $idField) {
+                $unionParts[] = "SELECT penduduk.nama, {$table}.{$idField} AS id_surat, {$table}.no_surat, {$table}.nik, {$table}.jenis_surat, {$table}.status_surat, {$table}.tanggal_surat
+                                FROM penduduk
+                                LEFT JOIN {$table} ON {$table}.nik = penduduk.nik
+                                WHERE {$table}.status_surat='pending'";
+              }
 
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_kepemilikan_kendaraan_bermotor.id_skkkb AS id_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.no_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.nik, surat_keterangan_kepemilikan_kendaraan_bermotor.jenis_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.status_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_kepemilikan_kendaraan_bermotor ON surat_keterangan_kepemilikan_kendaraan_bermotor.nik = penduduk.nik 
-                            WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.status_surat='pending'
+              $query = implode(" UNION ", $unionParts) . " ORDER BY tanggal_surat DESC";
+              $result = mysqli_query($connect, $query);
+              $no = 1;
 
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_perhiasan.id_skp AS id_surat, surat_keterangan_perhiasan.no_surat, surat_keterangan_perhiasan.nik, surat_keterangan_perhiasan.jenis_surat, surat_keterangan_perhiasan.status_surat, surat_keterangan_perhiasan.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_perhiasan ON surat_keterangan_perhiasan.nik = penduduk.nik 
-                            WHERE surat_keterangan_perhiasan.status_surat='pending'
+              if ($result && $result->num_rows > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $datetime = strtotime($row['tanggal_surat']);
+                  $tgl = date('d', $datetime);
+                  $bln = date('F', $datetime);
+                  $thn = date('Y', $datetime);
+                  $jam = date('H:i:s', $datetime);
 
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_usaha.id_sku AS id_surat, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.nik, surat_keterangan_usaha.jenis_surat, surat_keterangan_usaha.status_surat, surat_keterangan_usaha.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik 
-                            WHERE surat_keterangan_usaha.status_surat='pending'
+                  $blnIndo = [
+                    'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
+                    'April' => 'April', 'May' => 'Mei', 'June' => 'Juni',
+                    'July' => 'Juli', 'August' => 'Agustus', 'September' => 'September',
+                    'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
+                  ];
 
-                            UNION 
-                            SELECT penduduk.nama, surat_lapor_hajatan.id_slh AS id_surat, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.jenis_surat, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik 
-                            WHERE surat_lapor_hajatan.status_surat='pending'
+                  $tanggal = "$tgl {$blnIndo[$bln]} $thn pukul $jam";
+                  $jenis = strtolower(str_replace(' ', '_', $row['jenis_surat']));
+                  $link = "konfirmasi/{$jenis}/index.php?id={$row['id_surat']}";
 
-                            UNION 
-                            SELECT penduduk.nama, surat_pengantar_skck.id_sps AS id_surat, surat_pengantar_skck.no_surat, surat_pengantar_skck.nik, surat_pengantar_skck.jenis_surat, surat_pengantar_skck.status_surat, surat_pengantar_skck.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik 
-                            WHERE surat_pengantar_skck.status_surat='pending'
+                  echo "<tr>
+                    <td>{$no}.</td> <td>{$tanggal}</td>
+                    <td>{$row['nik']}</td>
+                    <td style='text-transform: capitalize;'>{$row['nama']}</td>
+                    <td>{$row['jenis_surat']}</td>
+                    <td>
+                      <a class='btn btn-danger btn-sm' href='#'>
+                        <i class='fa fa-spinner'></i> <b>{$row['status_surat']}</b>
+                      </a>
+                    </td>
+                    <td>
+                      <a class='btn btn-danger btn-sm' href='hapus_surat.php?id={$row['id_surat']}&jenis={$jenis}' onclick=\"return confirm('Yakin ingin menghapus surat ini?')\">
+                        <i class='fa fa-trash'></i> HAPUS
+                      </a>
+                      <a class='btn btn-success btn-sm' href='{$link}'>
+                        <i class='fa fa-check'></i> <b>KONFIRMASI</b>
+                      </a>
+                    </td>
+                  </tr>";
+                  $no++;
+                }
+              }
+              ?>
 
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sktm AS id_surat, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik 
-                            WHERE surat_keterangan_tidak_mampu.status_surat='pending'
-
-                            UNION 
-                            SELECT penduduk.nama, formulir_pengantar_nikah.id_fpn AS id_surat, formulir_pengantar_nikah.no_surat, formulir_pengantar_nikah.nik, formulir_pengantar_nikah.jenis_surat, formulir_pengantar_nikah.status_surat, formulir_pengantar_nikah.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN formulir_pengantar_nikah ON formulir_pengantar_nikah.nik = penduduk.nik 
-                            WHERE formulir_pengantar_nikah.status_surat='pending'
-
-                            UNION 
-                            SELECT penduduk.nama, formulir_permohonan_kehendak_nikah.id_fpkn AS id_surat, formulir_permohonan_kehendak_nikah.no_surat, formulir_permohonan_kehendak_nikah.nik, formulir_permohonan_kehendak_nikah.jenis_surat, formulir_permohonan_kehendak_nikah.status_surat, formulir_permohonan_kehendak_nikah.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN formulir_permohonan_kehendak_nikah ON formulir_permohonan_kehendak_nikah.nik = penduduk.nik 
-                            WHERE formulir_permohonan_kehendak_nikah.status_surat='pending'
-
-                            UNION 
-                            SELECT penduduk.nama, formulir_persetujuan_calon_pengantin.id_fpcp AS id_surat, formulir_persetujuan_calon_pengantin.no_surat, formulir_persetujuan_calon_pengantin.nik, formulir_persetujuan_calon_pengantin.jenis_surat, formulir_persetujuan_calon_pengantin.status_surat, formulir_persetujuan_calon_pengantin.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN formulir_persetujuan_calon_pengantin ON formulir_persetujuan_calon_pengantin.nik = penduduk.nik 
-                            WHERE formulir_persetujuan_calon_pengantin.status_surat='pending'     
-
-                            UNION 
-                            SELECT penduduk.nama, formulir_persetujuan_calon_pengantin_istri.id_fpcp2 AS id_surat, formulir_persetujuan_calon_pengantin_istri.no_surat, formulir_persetujuan_calon_pengantin_istri.nik, formulir_persetujuan_calon_pengantin_istri.jenis_surat, formulir_persetujuan_calon_pengantin_istri.status_surat, formulir_persetujuan_calon_pengantin_istri.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN formulir_persetujuan_calon_pengantin_istri ON formulir_persetujuan_calon_pengantin_istri.nik = penduduk.nik 
-                            WHERE formulir_persetujuan_calon_pengantin_istri.status_surat='pending' 
-
-                            UNION 
-                            SELECT penduduk.nama, formulir_surat_izin_orang_tua.id_fsiot AS id_surat, formulir_surat_izin_orang_tua.no_surat, formulir_surat_izin_orang_tua.nik, formulir_surat_izin_orang_tua.jenis_surat, formulir_surat_izin_orang_tua.status_surat, formulir_surat_izin_orang_tua.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.nik = penduduk.nik 
-                            WHERE formulir_surat_izin_orang_tua.status_surat='pending'
-
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_kematian.id_skk AS id_surat, surat_keterangan_kematian.no_surat, surat_keterangan_kematian.nik, surat_keterangan_kematian.jenis_surat, surat_keterangan_kematian.status_surat, surat_keterangan_kematian.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_kematian ON surat_keterangan_kematian.nik = penduduk.nik 
-                            WHERE surat_keterangan_kematian.status_surat='pending'
-
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_domisili_usaha.id_skdu AS id_surat, surat_keterangan_domisili_usaha.no_surat, surat_keterangan_domisili_usaha.nik, surat_keterangan_domisili_usaha.jenis_surat, surat_keterangan_domisili_usaha.status_surat, surat_keterangan_domisili_usaha.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_domisili_usaha ON surat_keterangan_domisili_usaha.nik = penduduk.nik 
-                            WHERE surat_keterangan_domisili_usaha.status_surat='pending'
-
-                            UNION 
-                            SELECT penduduk.nama, surat_keterangan_pengantar.id_skp AS id_surat, surat_keterangan_pengantar.no_surat, surat_keterangan_pengantar.nik, surat_keterangan_pengantar.jenis_surat, surat_keterangan_pengantar.status_surat, surat_keterangan_pengantar.tanggal_surat 
-                            FROM penduduk 
-                            LEFT JOIN surat_keterangan_pengantar ON surat_keterangan_pengantar.nik = penduduk.nik 
-                            WHERE surat_keterangan_pengantar.status_surat='pending'
-                            ORDER BY tanggal_surat DESC
-                        ";
-
-                        $result = mysqli_query($connect, $query);
-                        $no = 1; // Initialize the counter
-
-                        if ($result && $result->num_rows > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $datetime = strtotime($row['tanggal_surat']);
-                                $tgl = date('d', $datetime);
-                                $bln = date('F', $datetime);
-                                $thn = date('Y', $datetime);
-                                $jam = date('H:i:s', $datetime);
-
-                                $blnIndo = [
-                                    'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
-                                    'April' => 'April', 'May' => 'Mei', 'June' => 'Juni',
-                                    'July' => 'Juli', 'August' => 'Agustus', 'September' => 'September',
-                                    'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
-                                ];
-
-                                $tanggal = "$tgl {$blnIndo[$bln]} $thn pukul $jam";
-
-                                echo "<tr>
-                                    <td>{$no}.</td> <td>{$tanggal}</td>
-                                    <td>{$row['nik']}</td>
-                                    <td style='text-transform: capitalize;'>{$row['nama']}</td>
-                                    <td>{$row['jenis_surat']}</td>
-                                    <td>
-                                        <a class='btn btn-danger btn-sm' href='#'>
-                                            <i class='fa fa-spinner'></i> <b>{$row['status_surat']}</b>
-                                        </a>
-                                    </td>
-                                    <td>";
-
-                                $jenis = strtolower(str_replace(' ', '_', $row['jenis_surat']));
-                                $link = '';
-
-                                switch ($jenis) {
-                                    case 'surat_keterangan':
-                                    case 'surat_keterangan_berkelakuan_baik':
-                                    case 'surat_keterangan_domisili':
-                                    case 'surat_keterangan_kepemilikan_kendaraan_bermotor':
-                                    case 'surat_keterangan_perhiasan':
-                                    case 'surat_keterangan_usaha':
-                                    case 'surat_lapor_hajatan':
-                                    case 'surat_pengantar_skck':
-                                    case 'surat_keterangan_tidak_mampu':
-                                    case 'formulir_pengantar_nikah':
-                                    case 'formulir_permohonan_kehendak_nikah':
-                                    case 'formulir_persetujuan_calon_pengantin':
-                                    case 'formulir_persetujuan_calon_pengantin_istri':
-                                    case 'formulir_surat_izin_orang_tua':
-                                    case 'surat_keterangan_kematian':
-                                    case 'surat_keterangan_domisili_usaha':
-                                    case 'surat_keterangan_pengantar':
-                                        $link = "konfirmasi/{$jenis}/index.php?id={$row['id_surat']}";
-                                        break;
-                                }
-
-                                echo "<a class='btn btn-danger btn-sm' href='hapus_surat.php?id={$row['id_surat']}&jenis={$jenis}' onclick=\"return confirm('Yakin ingin menghapus surat ini?')\">
-                                        <i class='fa fa-trash'></i> HAPUS
-                                      </a>
-                                        <a class='btn btn-success btn-sm' href='{$link}'>
-                                        <i class='fa fa-check'></i> <b>KONFIRMASI</b>
-                                      </a>
-                                    </td>
-                                </tr>";
-                                $no++; // Increment the counter
-                            }
-                          }
-                        ?>
-                </tbody>
+                  
+          </tbody>
 
                 <?php if (isset($_GET['status']) && $_GET['status'] == 'berhasil'): ?>
                   <div id="flash-message" style="

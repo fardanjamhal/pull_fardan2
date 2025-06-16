@@ -21,7 +21,9 @@ $jenisSuratList = [
   'formulir_surat_izin_orang_tua' => ['id' => 'id_fsiot', 'folder' => 'formulir_surat_izin_orang_tua'],
   'surat_keterangan_kematian' => ['id' => 'id_skk', 'folder' => 'surat_keterangan_kematian'],
   'surat_keterangan_domisili_usaha' => ['id' => 'id_skdu', 'folder' => 'surat_keterangan_domisili_usaha'],
-  'surat_keterangan_pengantar' => ['id' => 'id_skp', 'folder' => 'surat_keterangan_pengantar']
+  'surat_keterangan_pengantar' => ['id' => 'id_skp', 'folder' => 'surat_keterangan_pengantar'],
+  'surat_keterangan_beda_identitas' => ['id' => 'id_skbi', 'folder' => 'surat_keterangan_beda_identitas'],
+  'surat_keterangan_beda_identitas_kis' => ['id' => 'id_skbis', 'folder' => 'surat_keterangan_beda_identitas_kis']
 ];
 
 // Tambahkan kode ini DI SINI:

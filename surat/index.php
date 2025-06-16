@@ -82,31 +82,6 @@
            	?>
 		</div>
 		<div class="row">
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
-		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5><br>
-		        		<a href="surat_keterangan_domisili/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-
-			<div class="col-sm-3 mt-4">
-			<div class="card surat-card text-center">
-				<div class="card-body">
-				<h5 class="card-title">SURAT KETERANGAN DOMISILI USAHA</h5><br>
-				<a href="surat_keterangan_domisili_usaha/" class="btn btn-info">BUAT SURAT</a>
-				</div>
-			</div>
-			</div>
 
 			<style>
 				.card.surat-card {
@@ -256,8 +231,49 @@
 				}
 				</script>
 
-			
+			<div class="col-sm-3 mt-4">
+		    	<div class="card surat-card text-center">
+		      		<div class="card-body text-center">
+		        		<h5 class="card-title">SURAT KETERANGAN BEDA IDENTITAS</h5><br>
+		        		<a href="surat_keterangan_beda_identitas/" class="btn btn-info">BUAT SURAT</a>
+		      		</div>
+		    	</div>
+		  	</div>
+			<div class="col-sm-3 mt-4">
+		    	<div class="card surat-card text-center">
+		      		<div class="card-body text-center">
+		        		<h5 class="card-title">SURAT KETERANGAN BEDA IDENTITAS KIS</h5><br>
+		        		<a href="surat_keterangan_beda_identitas_kis/" class="btn btn-info">BUAT SURAT</a>
+		      		</div>
+		    	</div>
+		  	</div>
+			<div class="col-sm-3 mt-4">
+		    	<div class="card surat-card text-center">
+		      		<div class="card-body text-center">
+		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
+		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
+		      		</div>
+		    	</div>
+		  	</div>
+			<div class="col-sm-3 mt-4">
+		    	<div class="card surat-card text-center">
+		      		<div class="card-body text-center">
+		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5><br>
+		        		<a href="surat_keterangan_domisili/" class="btn btn-info">BUAT SURAT</a>
+		      		</div>
+		    	</div>
+		  	</div>
 
+			<div class="col-sm-3 mt-4">
+			<div class="card surat-card text-center">
+				<div class="card-body">
+				<h5 class="card-title">SURAT KETERANGAN DOMISILI USAHA</h5><br>
+				<a href="surat_keterangan_domisili_usaha/" class="btn btn-info">BUAT SURAT</a>
+				</div>
+			</div>
+			</div>
+
+			
 			<div class="col-sm-3 mt-4">
 		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">

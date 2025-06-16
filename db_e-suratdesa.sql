@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2025 at 02:02 PM
+-- Generation Time: Jun 16, 2025 at 02:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -151,8 +151,7 @@ CREATE TABLE `formulir_persetujuan_calon_pengantin` (
 INSERT INTO `formulir_persetujuan_calon_pengantin` (`id_fpcp`, `jenis_surat`, `no_surat`, `nik`, `bin`, `nama_istri`, `bin_istri`, `nik_istri`, `tgl_lahir_istri`, `kewarganegaraan_istri`, `agama_istri`, `pekerjaan_istri`, `alamat_istri`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (31, 'Formulir Persetujuan Calon Pengantin', '12922590', '12345', 'Nama Bin', 'NAMA ISTRI', 'BIN ISTRI', 'NIK  ISTRI', 'TGL  ISTRI', 'wni  ISTRI', 'AGAMAR  ISTRI', 'PEKERJAAN  ISTRI', 'ALAMAT  ISTRI', '2025-06-13 00:56:10', 2, 'SELESAI', 1),
 (32, 'Formulir Persetujuan Calon Pengantin', '12922591', '12345', 'Nama Bin', 'NAMA ISTRI', 'BIN ISTRI', 'NIK  ISTRI', 'TGL  ISTRI', 'wni  ISTRI', 'AGAMAR  ISTRI', 'PEKERJAAN  ISTRI', 'ALAMAT  ISTRI', '2025-06-13 06:17:17', 2, 'SELESAI', 1),
-(36, 'Formulir Persetujuan Calon Pengantin', '12922592', '12345', 'Nama Bin', 'NAMA ISTRI', 'BIN ISTRI', 'NIK  ISTRI', 'TGL  ISTRI', 'wni  ISTRI', 'AGAMAR  ISTRI', 'PEKERJAAN  ISTRI', 'ALAMAT  ISTRI', '2025-06-13 10:19:53', 2, 'SELESAI', 1),
-(37, 'Formulir Persetujuan Calon Pengantin', NULL, '12345', 'sd', 'sd', 'sd', 'sda', 'sd', 'sd', 'sddsds', 'dssd', 'dsdsa', '2025-06-13 11:58:19', NULL, 'PENDING', 1);
+(36, 'Formulir Persetujuan Calon Pengantin', '12922592', '12345', 'Nama Bin', 'NAMA ISTRI', 'BIN ISTRI', 'NIK  ISTRI', 'TGL  ISTRI', 'wni  ISTRI', 'AGAMAR  ISTRI', 'PEKERJAAN  ISTRI', 'ALAMAT  ISTRI', '2025-06-13 10:19:53', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -187,8 +186,7 @@ CREATE TABLE `formulir_persetujuan_calon_pengantin_istri` (
 INSERT INTO `formulir_persetujuan_calon_pengantin_istri` (`id_fpcp2`, `jenis_surat`, `no_surat`, `nik`, `bin`, `nama_suami`, `bin_suami`, `nik_suami`, `tgl_lahir_suami`, `kewarganegaraan_suami`, `agama_suami`, `pekerjaan_suami`, `alamat_suami`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (38, 'Formulir Persetujuan Calon Pengantin Istri', '99855', '12345', 'Bin istri', 'nama suami', 'bin suami', 'nik suami', 'tep suami', 'kew suami', 'aga suami', 'pek suami', 'ala', '2025-06-13 09:33:10', 2, 'SELESAI', 1),
 (39, 'Formulir Persetujuan Calon Pengantin Istri', '99856', '12345', 'Nama Bin', 'nama suami', 'bin suami', 'nik suami', 'tep suami', 'kew suami', 'aga suami', 'pek suami', 'ala', '2025-06-13 10:20:08', 2, 'SELESAI', 1),
-(41, 'Formulir Persetujuan Calon Pengantin Istri', '99857', '12345', 'Nama Bin', 'nama suami', 'bin suami', 'nik suami', 'tep suami', 'kew suami', 'aga suami', 'pek suami', 'ala', '2025-06-13 11:47:37', 2, 'SELESAI', 1),
-(42, 'Formulir Persetujuan Calon Pengantin Istri', NULL, '12345', 'sda', 'sd', 'dsdssdds', 'sdaaa', 'sddsds', 'sddsds', 'dssd', 'dss', 'dsdsd', '2025-06-13 11:58:31', NULL, 'PENDING', 1);
+(41, 'Formulir Persetujuan Calon Pengantin Istri', '99857', '12345', 'Nama Bin', 'nama suami', 'bin suami', 'nik suami', 'tep suami', 'kew suami', 'aga suami', 'pek suami', 'ala', '2025-06-13 11:47:37', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -365,7 +363,7 @@ CREATE TABLE `profil_desa` (
 --
 
 INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `no_telpon`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `ttd_digital`, `gambar_kop`, `logo_desa`) VALUES
-(1, 'Allu Tarowang', 'Jl.Raya Cijulang No. 00', '085255430300', 'Tarowang', 'Kabupaten Jeneponto', 'Sulawesi Selatan', '9999', 'barcode.png', '72a6cd37-8809-4156-8fd2-41cbefc931a6.png', 'Logo-Pangandaran.png');
+(1, 'Allu Tarowang', 'Jl.Raya Cijulang No. 00', '085255430300', 'Tarowang', 'Kabupaten Jeneponto', 'Sulawesi Selatan', '9999', 'barcode.png', '311122910_406575298308078_714964801078203355_n.png', 'Logo-Pangandaran.png');
 
 -- --------------------------------------------------------
 
@@ -416,6 +414,75 @@ INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `kepe
 (162, 'Surat Keterangan', '18/SK/KODE-DESA/VII/2025', '12345', 'MELAMAR KERJA', '2025-06-11 06:06:47', 2, 'SELESAI', 1),
 (163, 'Surat Keterangan', '19/SK/KODE-DESA/VII/2025', '12345', 'MELAMAR KERJA', '2025-06-11 06:08:12', 1, 'SELESAI', 1),
 (164, 'Surat Keterangan', '20/SK/KODE-DESA/VII/2025', '12345', 'MELAMAR KERJA', '2025-06-14 21:50:36', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_beda_identitas`
+--
+
+CREATE TABLE `surat_keterangan_beda_identitas` (
+  `id_skbi` int(11) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `perbedaan` varchar(30) NOT NULL,
+  `nama_kartu_identitas` varchar(30) NOT NULL,
+  `nama_no_identitas` varchar(30) NOT NULL,
+  `nama2` varchar(30) NOT NULL,
+  `tgl_lahir2` varchar(30) NOT NULL,
+  `jenis_kelamin2` varchar(20) NOT NULL,
+  `alamat2` varchar(50) NOT NULL,
+  `agama2` varchar(30) NOT NULL,
+  `pekerjaan2` varchar(200) NOT NULL,
+  `keterangan2` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `surat_keterangan_beda_identitas`
+--
+
+INSERT INTO `surat_keterangan_beda_identitas` (`id_skbi`, `jenis_surat`, `no_surat`, `nik`, `perbedaan`, `nama_kartu_identitas`, `nama_no_identitas`, `nama2`, `tgl_lahir2`, `jenis_kelamin2`, `alamat2`, `agama2`, `pekerjaan2`, `keterangan2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(25, 'Surat Keterangan Beda Identitas', '001/SKTM/KODE-DESA/VI/2025', '12345', 'KTP', 'saa', 'sa1122', 'sd', '2121', 'Perempuan', 'adsad', '-', '15', 'assa', '2025-06-16 14:50:06', 2, 'SELESAI', 1),
+(26, 'Surat Keterangan Beda Identitas', '02/SKTM/KODE-DESA/VI/2025', '12345', '', 'saa', 'sa1122', 'sd', '2121', 'Laki-Laki', 'adsad', '14', '15', 'assa', '2025-06-16 15:29:07', 1, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_beda_identitas_kis`
+--
+
+CREATE TABLE `surat_keterangan_beda_identitas_kis` (
+  `id_skbis` int(11) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `keperluan` varchar(50) NOT NULL,
+  `no_kartu` varchar(30) NOT NULL,
+  `nama_di_kartu` varchar(30) NOT NULL,
+  `nik2` varchar(30) NOT NULL,
+  `alamat2` varchar(30) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `faskes_tingkat` varchar(30) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `surat_keterangan_beda_identitas_kis`
+--
+
+INSERT INTO `surat_keterangan_beda_identitas_kis` (`id_skbis`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `no_kartu`, `nama_di_kartu`, `nik2`, `alamat2`, `tanggal_lahir`, `faskes_tingkat`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(30, 'Surat Keterangan Beda Identitas KIS', '001/SKTM/KODE-DESA/VI/2025', '12345', '', '0101', '4141', '4141', 'adsad', '1990-04-21', 'DFDD', '2025-06-16 18:46:04', 1, 'SELESAI', 1),
+(31, 'Surat Keterangan Beda Identitas KIS', '02/SKTM/KODE-DESA/VI/2025', '12345', '', '0101', '4141', '4141', 'adsad', '2001-06-14', 'DFDD', '2025-06-16 19:13:19', 2, 'SELESAI', 1),
+(32, 'Surat Keterangan Beda Identitas KIS', '03/SKTM/KODE-DESA/VI/2025', '3517112233440001', '', '0101', '4141', '4141', 'adsad', '2025-06-06', 'DFDD', '2025-06-16 19:34:24', 1, 'SELESAI', 1),
+(33, 'Surat Keterangan Beda Identitas KIS', '04/SKTM/KODE-DESA/VI/2025', '12345', 'MENGURUS', '12256633225858744', 'NONCI NONCI', '73925555698855541', 'adsadSAAASSASAA', '0000-00-00', 'DFDDSAAASAA', '2025-06-16 19:52:08', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -513,7 +580,7 @@ INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `n
 (40, 'Surat Keterangan Domisili', '114/SKD/SS/VII/2025', '12345', '2025-06-13 19:43:42', 1, 'SELESAI', 1),
 (41, 'Surat Keterangan Domisili', '115/SKD/SS/VII/2025', '12345', '2025-06-14 23:10:36', 1, 'SELESAI', 1),
 (42, 'Surat Keterangan Domisili', '116/SKD/SS/VII/2025', '12345', '2025-06-15 14:21:38', 2, 'SELESAI', 1),
-(43, 'Surat Keterangan Domisili', NULL, '12345', '2025-06-15 14:21:42', NULL, 'PENDING', 1);
+(43, 'Surat Keterangan Domisili', '117/SKD/SS/VII/2025', '12345', '2025-06-15 14:21:42', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -540,7 +607,7 @@ CREATE TABLE `surat_keterangan_domisili_usaha` (
 
 INSERT INTO `surat_keterangan_domisili_usaha` (`id_skdu`, `jenis_surat`, `no_surat`, `nik`, `jenis_usaha`, `alamat_usaha`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (44, 'Surat Keterangan Domisili Usaha', '99', '12345', 'jenis', 'BONTOSUNGGU', '2025-06-14 18:09:12', 2, 'SELESAI', 1),
-(45, 'Surat Keterangan Domisili Usaha', NULL, '12345', 'jenis', 'JL. KUMALA BALANG BERU', '2025-06-14 18:47:07', NULL, 'PENDING', 1);
+(46, 'Surat Keterangan Domisili Usaha', '100', '12345', 'jenis', 'JL. KUMALA BALANG BERU', '2025-06-16 20:29:00', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -721,8 +788,7 @@ INSERT INTO `surat_keterangan_tidak_mampu` (`id_sktm`, `jenis_surat`, `no_surat`
 (15, 'Surat Keterangan Tidak Mampu', '004/SKTM/KODE-DESA/VI/2025', '12345', 'JENEPONTO, RT001/RW001, Dusun Ciokong,\r\nDesa BULUL', 'PENGUSAHA', 'MELAMAR KERJA', '2025-06-09 15:28:17', 1, 'SELESAI', 1),
 (16, 'Surat Keterangan Tidak Mampu', '0005/SKTM/KODE-DESA/VI/2025', '12345', 'JENEPONTO, RT001/RW001, Dusun Ciokong,\r\nDesa BULUL', 'PENGUSAHA', 'MELAMAR KERJA', '2025-06-10 12:42:33', 1, 'SELESAI', 1),
 (17, 'Surat Keterangan Tidak Mampu', '06/SKTM/KODE-DESA/VI/2025', '12345', 'JENEPONTO, RT001/RW001, Dusun Ciokong,\r\nDesa BULUL', 'PENGUSAHA', '-', '2025-06-10 19:57:25', 2, 'SELESAI', 1),
-(18, 'Surat Keterangan Tidak Mampu', '07/SKTM/KODE-DESA/VI/2025', '12345', 'JENEPONTO, RT001/RW001, Dusun Ciokong,\r\nDesa BULUL', 'PENGUSAHA', 'MELAMAR KERJA', '2025-06-11 07:47:57', 1, 'SELESAI', 1),
-(19, 'Surat Keterangan Tidak Mampu', NULL, '3517112233440001', 'jl. KH. hasyim asy\'ari no. 15, RT001/RW002, Dusun ', 'PELAJAR/MAHASISWA', 'MELAMAR KERJA', '2025-06-14 23:28:31', NULL, 'PENDING', 1);
+(18, 'Surat Keterangan Tidak Mampu', '07/SKTM/KODE-DESA/VI/2025', '12345', 'JENEPONTO, RT001/RW001, Dusun Ciokong,\r\nDesa BULUL', 'PENGUSAHA', 'MELAMAR KERJA', '2025-06-11 07:47:57', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -926,6 +992,24 @@ ALTER TABLE `surat_keterangan`
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
 
 --
+-- Indexes for table `surat_keterangan_beda_identitas`
+--
+ALTER TABLE `surat_keterangan_beda_identitas`
+  ADD PRIMARY KEY (`id_skbi`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_nik` (`nik`);
+
+--
+-- Indexes for table `surat_keterangan_beda_identitas_kis`
+--
+ALTER TABLE `surat_keterangan_beda_identitas_kis`
+  ADD PRIMARY KEY (`id_skbis`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_nik` (`nik`);
+
+--
 -- Indexes for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
@@ -1035,7 +1119,7 @@ ALTER TABLE `dusun`
 -- AUTO_INCREMENT for table `formulir_pengantar_nikah`
 --
 ALTER TABLE `formulir_pengantar_nikah`
-  MODIFY `id_fpn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_fpn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `formulir_permohonan_kehendak_nikah`
@@ -1092,6 +1176,18 @@ ALTER TABLE `surat_keterangan`
   MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
+-- AUTO_INCREMENT for table `surat_keterangan_beda_identitas`
+--
+ALTER TABLE `surat_keterangan_beda_identitas`
+  MODIFY `id_skbi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_beda_identitas_kis`
+--
+ALTER TABLE `surat_keterangan_beda_identitas_kis`
+  MODIFY `id_skbis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
 -- AUTO_INCREMENT for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
@@ -1101,13 +1197,13 @@ ALTER TABLE `surat_keterangan_berkelakuan_baik`
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili_usaha`
 --
 ALTER TABLE `surat_keterangan_domisili_usaha`
-  MODIFY `id_skdu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_skdu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_kematian`

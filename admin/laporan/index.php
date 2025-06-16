@@ -298,63 +298,67 @@
           </div>
         </div><br><br>
 
-        <?php
-          $main_query_base = "
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan.no_surat, surat_keterangan.tanggal_surat, surat_keterangan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_berkelakuan_baik.no_surat, surat_keterangan_berkelakuan_baik.tanggal_surat, surat_keterangan_berkelakuan_baik.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.tanggal_surat, surat_keterangan_domisili.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik WHERE surat_keterangan_domisili.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_kepemilikan_kendaraan_bermotor.no_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.tanggal_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_kepemilikan_kendaraan_bermotor ON surat_keterangan_kepemilikan_kendaraan_bermotor.nik = penduduk.nik WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_perhiasan.no_surat, surat_keterangan_perhiasan.tanggal_surat, surat_keterangan_perhiasan.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_perhiasan ON surat_keterangan_perhiasan.nik = penduduk.nik WHERE surat_keterangan_perhiasan.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.tanggal_surat, surat_keterangan_usaha.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.tanggal_surat, surat_lapor_hajatan.jenis_surat FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_pengantar_skck.no_surat, surat_pengantar_skck.tanggal_surat, surat_pengantar_skck.jenis_surat FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.tanggal_surat, surat_keterangan_tidak_mampu.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_pengantar_nikah.no_surat, formulir_pengantar_nikah.tanggal_surat, formulir_pengantar_nikah.jenis_surat FROM penduduk LEFT JOIN formulir_pengantar_nikah ON formulir_pengantar_nikah.nik = penduduk.nik WHERE formulir_pengantar_nikah.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_permohonan_kehendak_nikah.no_surat, formulir_permohonan_kehendak_nikah.tanggal_surat, formulir_permohonan_kehendak_nikah.jenis_surat FROM penduduk LEFT JOIN formulir_permohonan_kehendak_nikah ON formulir_permohonan_kehendak_nikah.nik = penduduk.nik WHERE formulir_permohonan_kehendak_nikah.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_persetujuan_calon_pengantin.no_surat, formulir_persetujuan_calon_pengantin.tanggal_surat, formulir_persetujuan_calon_pengantin.jenis_surat FROM penduduk LEFT JOIN formulir_persetujuan_calon_pengantin ON formulir_persetujuan_calon_pengantin.nik = penduduk.nik WHERE formulir_persetujuan_calon_pengantin.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_persetujuan_calon_pengantin_istri.no_surat, formulir_persetujuan_calon_pengantin_istri.tanggal_surat, formulir_persetujuan_calon_pengantin_istri.jenis_surat FROM penduduk LEFT JOIN formulir_persetujuan_calon_pengantin_istri ON formulir_persetujuan_calon_pengantin_istri.nik = penduduk.nik WHERE formulir_persetujuan_calon_pengantin_istri.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, formulir_surat_izin_orang_tua.no_surat, formulir_surat_izin_orang_tua.tanggal_surat, formulir_surat_izin_orang_tua.jenis_surat FROM penduduk LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.nik = penduduk.nik WHERE formulir_surat_izin_orang_tua.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_kematian.no_surat, surat_keterangan_kematian.tanggal_surat, surat_keterangan_kematian.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_kematian ON surat_keterangan_kematian.nik = penduduk.nik WHERE surat_keterangan_kematian.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_domisili_usaha.no_surat, surat_keterangan_domisili_usaha.tanggal_surat, surat_keterangan_domisili_usaha.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_domisili_usaha ON surat_keterangan_domisili_usaha.nik = penduduk.nik WHERE surat_keterangan_domisili_usaha.status_surat='selesai')
-            UNION ALL
-            (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw, surat_keterangan_pengantar.no_surat, surat_keterangan_pengantar.tanggal_surat, surat_keterangan_pengantar.jenis_surat FROM penduduk LEFT JOIN surat_keterangan_pengantar ON surat_keterangan_pengantar.nik = penduduk.nik WHERE surat_keterangan_pengantar.status_surat='selesai')
-            
-          ";
+       <?php
+          // Daftar nama tabel surat
+          $daftar_tabel_surat = [
+            'surat_keterangan',
+            'surat_keterangan_berkelakuan_baik',
+            'surat_keterangan_domisili',
+            'surat_keterangan_kepemilikan_kendaraan_bermotor',
+            'surat_keterangan_perhiasan',
+            'surat_keterangan_usaha',
+            'surat_lapor_hajatan',
+            'surat_pengantar_skck',
+            'surat_keterangan_tidak_mampu',
+            'formulir_pengantar_nikah',
+            'formulir_permohonan_kehendak_nikah',
+            'formulir_persetujuan_calon_pengantin',
+            'formulir_persetujuan_calon_pengantin_istri',
+            'formulir_surat_izin_orang_tua',
+            'surat_keterangan_kematian',
+            'surat_keterangan_domisili_usaha',
+            'surat_keterangan_pengantar',
+            'surat_keterangan_beda_identitas',
+            'surat_keterangan_beda_identitas_kis'
+          ];
 
-          $where_clause = "";
-          if(isset($_GET['filter']) && ! empty($_GET['filter'])){
-              $filter = $_GET['filter'];
-              if($filter == '2'){
-                  $where_clause = " WHERE DATE(tanggal_surat)='{$_GET['tanggal']}'";
-              }else if($filter == '3'){
-                  $where_clause = " WHERE MONTH(tanggal_surat)='{$_GET['bulan']}' AND YEAR(tanggal_surat)='{$_GET['tahun']}'";
-              }else if($filter == '4'){
-                  $where_clause = " WHERE YEAR(tanggal_surat)='{$_GET['tahun']}'";
-              }
+          // Loop untuk membentuk bagian UNION
+          $unions = [];
+          foreach ($daftar_tabel_surat as $tabel) {
+            $unions[] = "
+              (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw,
+                      $tabel.no_surat, $tabel.tanggal_surat, $tabel.jenis_surat
+              FROM penduduk
+              LEFT JOIN $tabel ON $tabel.nik = penduduk.nik
+              WHERE $tabel.status_surat = 'selesai')
+            ";
           }
 
-          // Query untuk menghitung total records
+          // Gabungkan semua query UNION
+          $main_query_base = implode(" UNION ALL ", $unions);
+
+          // Tambahkan filter jika ada
+          $where_clause = "";
+          if (isset($_GET['filter']) && !empty($_GET['filter'])) {
+            $filter = $_GET['filter'];
+            if ($filter == '2') {
+              $where_clause = " WHERE DATE(tanggal_surat) = '{$_GET['tanggal']}'";
+            } elseif ($filter == '3') {
+              $where_clause = " WHERE MONTH(tanggal_surat) = '{$_GET['bulan']}' AND YEAR(tanggal_surat) = '{$_GET['tahun']}'";
+            } elseif ($filter == '4') {
+              $where_clause = " WHERE YEAR(tanggal_surat) = '{$_GET['tahun']}'";
+            }
+          }
+
+          // Hitung total record
           $total_records_query = "SELECT COUNT(*) AS total FROM (" . $main_query_base . ") AS total_surat" . $where_clause;
           $total_records_result = mysqli_query($connect, $total_records_query);
           $total_records_row = mysqli_fetch_assoc($total_records_result);
           $total_records = $total_records_row['total'];
           $total_pages = ceil($total_records / $limit);
-        ?>
+          ?>
+
+
         <div class="table-responsive">
           <table class="table table-striped table-bordered" width="100%" cellspacing="0">
             <thead>

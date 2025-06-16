@@ -17,6 +17,8 @@
 		rel="stylesheet"
 		href="../../assets/fontawesome-free-5.10.2-web/css/all.css"
 	/>
+	<!-- Flatpickr CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body class="bg-light">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">

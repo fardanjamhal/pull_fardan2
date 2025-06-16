@@ -82,7 +82,7 @@
 <div id="particles-js"></div>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black; box-shadow: 0 0 15px rgba(0, 174, 255, 0.6);">
 	<a class="navbar-brand ml-4 mt-1" href="#">
 
 	<?php
@@ -127,6 +127,7 @@
 			</li>
 		</ul>
 	</div>
+	
 </nav>
 
 <!-- KONTEN -->

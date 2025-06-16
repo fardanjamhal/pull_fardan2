@@ -21,7 +21,7 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN DOMISILI USAHA</b></h5></a>
+							<a class="col-sm-6"><h5><b>SURAT KETERANGAN BEDA IDENTITAS</b></h5></a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>
@@ -115,26 +115,95 @@
 						           	</div>
 						        </div>
 							</div>
+							<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i>Formulir Surat&nbsp;&nbsp;&nbsp;</h6><hr width="97%">
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Usaha</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">TERDAPAT PERBEDAAN PADA</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fjenis_usaha" class="form-control" style="text-transform: capitalize;" placeholder="Jenis Usaha" required>
+						               	<input type="text" name="fperbedaan" class="form-control" style="text-transform: capitalize;" placeholder="Nama / Tgl Lahir / Alamat .." required>
 						           	</div>
 						        </div>
 							</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Alamat Usaha</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">KARTU IDENTITAS</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat_usaha" class="form-control" style="text-transform: capitalize;" placeholder="Alamat Usaha" required>
+						               	<input type="text" name="fnama_kartu_identitas" class="form-control" style="text-transform: capitalize;" placeholder="Kartu Identitas" required>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">No. Identitas</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fnama_no_identitas" class="form-control" style="text-transform: capitalize;" placeholder="No. Identitas" required>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Nama</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fnama2" class="form-control" style="text-transform: capitalize;" placeholder="Nama" required>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Tempat / Tanggal Lahir </label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="ftgl_lahir2" class="form-control" style="text-transform: capitalize;" placeholder="Tempat / Tanggal Lahir" required>
+						           	</div>
+						        </div>
+							</div>
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-sm-12" style="font-weight: 500;">Jenis Kelamin</label>
+							<div class="col-sm-12">
+							<select name="fjenis_kelamin2" class="form-control" required>
+								<option value="">-- Pilih Jenis Kelamin --</option>
+								<option value="Laki-Laki">LAKI-LAKI</option>
+								<option value="Perempuan">PEREMPUAN</option>
+							</select>
+							</div>
+						</div>
+						</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Alamat / Tempat Tinggal</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="falamat2" class="form-control" style="text-transform: capitalize;" placeholder="Alamat / Tempat Tinggal" required>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Agama</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fagama2" class="form-control" style="text-transform: capitalize;" placeholder="Agama" required>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Pekerjaan</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fpekerjaan2" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" required>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Keterangan</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fketerangan2" class="form-control" style="text-transform: capitalize;" placeholder="Keterangan" required>
 						           	</div>
 						        </div>
 							</div>
 						</div>
 						<hr width="97%">
 						<div class="container-fluid">
-		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/surat_keterangan_domisili_usaha/'">
+		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/surat_keterangan_beda_identitas/'">
 		                	<input type="submit" name="submit" class="btn btn-info" value="Submit">
 		              	</div>
 					</form>
