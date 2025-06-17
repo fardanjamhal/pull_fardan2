@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2025 at 09:50 AM
+-- Generation Time: Jun 17, 2025 at 10:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -270,6 +270,7 @@ CREATE TABLE `pejabat_desa` (
   `id_pejabat_desa` int(11) NOT NULL,
   `nama_pejabat_desa` varchar(50) NOT NULL,
   `jabatan` varchar(20) NOT NULL,
+  `pangkat` varchar(50) NOT NULL,
   `nip` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -277,9 +278,9 @@ CREATE TABLE `pejabat_desa` (
 -- Dumping data for table `pejabat_desa`
 --
 
-INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `nip`) VALUES
-(1, 'H JAMALUDDIN, S.Sos', 'Kepala Desa', '12559966887799'),
-(2, '../../../../assets/img/barcode.png', 'Kepala Desa', '');
+INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `pangkat`, `nip`) VALUES
+(1, 'H JAMALUDDIN, S.Sos', 'Kepala Desa', 'Pangkat Penata III/e', 'Nip. 12559966887799'),
+(2, '../../../../assets/img/barcode.png', 'Kepala Desa', '', '');
 
 -- --------------------------------------------------------
 

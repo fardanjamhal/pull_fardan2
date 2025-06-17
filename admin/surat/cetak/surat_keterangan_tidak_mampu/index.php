@@ -321,7 +321,7 @@
 							// Variabel $id_pejabat_desa sudah berisi nilai 1 atau 2 (atau lainnya) dari database
 							if ($id_pejabat_desa == 1) {
 
-								echo '<span style="text-transform: uppercase; font-weight: bold; text-decoration: underline; ">' . 
+								echo '<span style="font-weight: bold; text-decoration: underline;">' . 
 								htmlspecialchars($nama_pejabat_terpilih) . 
 								'</span>';
 
@@ -339,7 +339,7 @@
 								}
 								// Panggil nama dan jabatan pejabat dengan ID 2
 								if (isset($pejabat_data[2])) {
-									echo '<span style="text-transform: uppercase; font-weight: bold;">' . 
+									echo '<span style="font-weight: bold; text-decoration: underline;">' . 
 									htmlspecialchars($pejabat_data[1]['nama']) . 
 									'</span>';
 								} else {
@@ -379,11 +379,11 @@
 
 							// Cek apakah pangkat kosong
 							if (!empty($pangkat)) {
-								echo '<b style="text-transform: none;">' . htmlspecialchars($pangkat) . '</b><br>';
+								echo '<span style="text-transform: none;">' . htmlspecialchars($pangkat) . '</span><br>';
 							}
 
 							// NIP akan tetap ditampilkan, dan otomatis "naik" kalau pangkat kosong
-							echo '<b style="text-transform: none;">' . htmlspecialchars($nip) . '</b><br>';
+							echo '<span style="text-transform: none;">' . htmlspecialchars($nip) . '</span><br>';
 						} else {
 							echo "Data tidak ditemukan.";
 						}
