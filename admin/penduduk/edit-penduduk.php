@@ -124,9 +124,14 @@
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Jenis Kelamin</label>
                       <div class="col-sm-8">
-                        <input type="text" name="fjenis_kelamin" class="form-control" style="text-transform: capitalize;" placeholder="Jenis Kelamin" value="<?php echo $row['jenis_kelamin']; ?>">
+                        <select name="fjenis_kelamin" class="form-control">
+                          <option value="">-- PILIH JENIS KELAMIN --</option>
+                          <option value="LAKI-LAKI" <?php if($row['jenis_kelamin'] == 'LAKI-LAKI') echo 'selected'; ?>>LAKI-LAKI</option>
+                          <option value="PEREMPUAN" <?php if($row['jenis_kelamin'] == 'PEREMPUAN') echo 'selected'; ?>>PEREMPUAN</option>
+                        </select>
                       </div>
                     </div>
+
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Agama</label>
                       <div class="col-sm-8">
@@ -240,11 +245,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="box-footer pull-right">
-                    <input type="button" class="btn btn-default" value="Batal" onclick="history.back()">
-                    <input type="reset" class="btn btn-default" value="Reset">
-                    <input type="submit" name="submit" class="btn btn-info" value="Submit">
-                  </div>
+                 <div class="box-footer" style="text-align: right;">
+                  <button type="button" class="btn btn-secondary" onclick="history.back()">Batal</button>
+                  <button type="reset" class="btn btn-warning">Reset</button>
+                  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                </div>
+
                 </div>
               </form>
             </div>

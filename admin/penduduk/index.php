@@ -3,6 +3,61 @@
   include ('../part/header.php');
 ?>
 
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+
+    deleteButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        const id = this.getAttribute('data-id');
+        const nama = this.getAttribute('data-nama');
+
+        Swal.fire({
+          title: 'Yakin ingin menghapus?',
+          text: 'Data ' + nama + ' akan dihapus secara permanen!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#3085d6',
+          confirmButtonText: 'Ya, Hapus!',
+          cancelButtonText: 'Batal'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = 'hapus-penduduk.php?id=' + id;
+          }
+        });
+      });
+    });
+  });
+</script>
+
+
+<style>
+  .swal-title-lg {
+    font-size: 2rem !important; /* Judul lebih besar */
+    font-weight: 600;
+  }
+
+  .swal-content-lg {
+    font-size: 1.5rem !important; /* Isi teks diperbesar */
+  }
+
+  .swal-popup-lg {
+    padding: 2em !important;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .swal2-popup {
+    font-size: 1.5rem !important; /* Default teks tombol juga membesar */
+  }
+</style>
+
+
+
+
 <aside class="main-sidebar">
   <section class="sidebar">
     <div class="user-panel">
@@ -78,6 +133,136 @@
     </ol>
   </section>
   <section class="content">    
+
+
+
+  <!-- pop up hapus data penduduk -->
+      <?php
+            if (isset($_GET['pesan'])) {
+                $nama = isset($_GET['nama']) ? htmlspecialchars(urldecode($_GET['nama'])) : '';
+                $nik  = isset($_GET['nik']) ? htmlspecialchars(urldecode($_GET['nik'])) : '';
+
+                echo "<script>";
+                switch ($_GET['pesan']) {
+                    case 'sukses':
+                        echo "
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil',
+                                text: 'Data penduduk berhasil dihapus.',
+                                width: '30em',
+                                confirmButtonText: 'Oke',
+                                customClass: {
+                                    title: 'swal-title-lg',
+                                    popup: 'swal-popup-lg',
+                                    content: 'swal-content-lg'
+                                }
+                            });
+                            window.history.replaceState(null, null, window.location.pathname);
+                        ";
+                        break;
+
+                    case 'gagal-relasi':
+                        echo "
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Tidak Bisa Dihapus',
+                                text: 'Data $nama tidak bisa dihapus karena masih digunakan dalam surat lain.',
+                                showCancelButton: true,
+                                confirmButtonText: 'Lihat Surat Terkait',
+                                cancelButtonText: 'Tutup',
+                                width: '30em',
+                                customClass: {
+                                    title: 'swal-title-lg',
+                                    popup: 'swal-popup-lg',
+                                    content: 'swal-content-lg'
+                                }
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '../surat/surat_selesai/?jenis_surat=&keyword=" . urlencode($nik) . "&limit=10';
+                                }
+                            });
+                            window.history.replaceState(null, null, window.location.pathname);
+                        ";
+                        break;
+
+                    case 'gagal-umum':
+                        echo "
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal',
+                                text: 'Terjadi kesalahan saat menghapus data.',
+                                width: '30em',
+                                confirmButtonText: 'Tutup',
+                                customClass: {
+                                    title: 'swal-title-lg',
+                                    popup: 'swal-popup-lg',
+                                    content: 'swal-content-lg'
+                                }
+                            });
+                            window.history.replaceState(null, null, window.location.pathname);
+                        ";
+                        break;
+
+                    case 'nik-tidak-ditemukan':
+                        echo "
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'NIK Tidak Ditemukan',
+                                text: 'Data penduduk dengan NIK tersebut tidak ditemukan.',
+                                width: '30em',
+                                confirmButtonText: 'Tutup',
+                                customClass: {
+                                    title: 'swal-title-lg',
+                                    popup: 'swal-popup-lg',
+                                    content: 'swal-content-lg'
+                                }
+                            });
+                            window.history.replaceState(null, null, window.location.pathname);
+                        ";
+                        break;
+
+                    case 'id-tidak-valid':
+                        echo "
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'ID Tidak Valid',
+                                text: 'ID penduduk tidak valid.',
+                                width: '30em',
+                                confirmButtonText: 'Tutup',
+                                customClass: {
+                                    title: 'swal-title-lg',
+                                    popup: 'swal-popup-lg',
+                                    content: 'swal-content-lg'
+                                }
+                            });
+                            window.history.replaceState(null, null, window.location.pathname);
+                        ";
+                        break;
+                }
+                echo "</script>";
+            }
+            ?>
+
+  <!-- pop up hapus data penduduk -->
+
+            <?php if (isset($_GET['pesan']) && $_GET['pesan'] === 'edit-sukses'): ?>
+              <script>
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Berhasil Diedit',
+                  text: 'Data <?= htmlspecialchars($_GET["nama"]) ?> berhasil diperbarui.',
+                  confirmButtonColor: '#3085d6'
+                });
+                window.history.replaceState(null, null, window.location.pathname);
+              </script>
+            <?php endif; ?>
+
+
+  <!-- pop up hapus data penduduk -->
+
+
+
   
   <!-- Tambahkan di <head> -->
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -211,7 +396,11 @@
               ?>
               <td>
                 <a class="btn btn-success btn-sm" href='edit-penduduk.php?id=<?php echo $row['id_penduduk']; ?>'><i class="fa fa-edit"></i></a>
-                <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?id=<?php echo $row['id_penduduk']; ?>' onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
+                <!-- Tombol Hapus -->
+                <button type="button" class="btn btn-sm btn-danger delete-btn" data-id="<?php echo $row['id_penduduk']; ?>" data-nama="<?php echo htmlspecialchars($row['nama']); ?>">
+                  <i class="fa fa-trash"></i>
+                </button>
+
               </td>
               <?php  
                 } else {

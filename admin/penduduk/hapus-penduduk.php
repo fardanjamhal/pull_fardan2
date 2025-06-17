@@ -1,32 +1,41 @@
 <?php
 include ('../../config/koneksi.php');
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); // Amankan ID dari URL
+    $id = intval($_GET['id']);
 
-    // Ambil NIK berdasarkan ID penduduk
-    $queryNik = mysqli_query($connect, "SELECT nik FROM penduduk WHERE id_penduduk = '$id'");
-    $dataNik = mysqli_fetch_assoc($queryNik);
-    $nik = $dataNik['nik'] ?? null;
+    try {
+        // Ambil data penduduk
+        $queryPenduduk = mysqli_query($connect, "SELECT nik, nama FROM penduduk WHERE id_penduduk = '$id'");
+        $data = mysqli_fetch_assoc($queryPenduduk);
 
-    if ($nik) {
-        // Hapus data dari tabel surat_keterangan yang berkaitan dengan NIK
-        $qHapusSurat = mysqli_query($connect, "DELETE FROM surat_keterangan WHERE nik = '$nik'");
+        $nik = $data['nik'] ?? null;
+        $nama = urlencode($data['nama'] ?? ''); // encode agar aman di URL
 
-        // Hapus data dari tabel penduduk
-        $qHapusPenduduk = mysqli_query($connect, "DELETE FROM penduduk WHERE id_penduduk = '$id'");
+        if ($nik) {
+            // Coba hapus data
+            mysqli_query($connect, "DELETE FROM penduduk WHERE id_penduduk = '$id'");
 
-        if ($qHapusSurat && $qHapusPenduduk) {
             header('Location: index.php?pesan=sukses');
             exit();
         } else {
-            header('Location: index.php?pesan=gagal-menghapus');
+            header('Location: index.php?pesan=nik-tidak-ditemukan');
             exit();
         }
-    } else {
-        header('Location: index.php?pesan=nik-tidak-ditemukan');
-        exit();
+
+    } catch (mysqli_sql_exception $e) {
+        $nama = $nama ?? 'Penduduk';
+
+        if (strpos($e->getMessage(), 'a foreign key constraint fails') !== false) {
+            header("Location: index.php?pesan=gagal-relasi&nama=" . urlencode($nama) . "&nik=" . urlencode($nik));
+            exit();
+        } else {
+            header('Location: index.php?pesan=gagal-umum');
+            exit();
+        }
     }
+
 } else {
     header('Location: index.php?pesan=id-tidak-valid');
     exit();

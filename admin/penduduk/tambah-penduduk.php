@@ -199,11 +199,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="box-footer pull-right">
-                    <input type="button" class="btn btn-default" value="Batal" onclick="history.back()">
-                    <input type="reset" class="btn btn-default" value="Reset">
-                    <input type="submit" name="submit" class="btn btn-info" value="Submit">
+                  <div class="box-footer" style="text-align: right;">
+                    <button type="button" class="btn btn-secondary" onclick="history.back()">Batal</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                   </div>
+
                 </div>
               </form>
             </div>
