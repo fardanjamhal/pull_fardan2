@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2025 at 02:29 PM
+-- Generation Time: Jun 17, 2025 at 01:52 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -278,7 +278,7 @@ CREATE TABLE `pejabat_desa` (
 --
 
 INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `nip`) VALUES
-(1, 'H. Moh. Saifuddin', 'Kepala Desa22', 'NIP : 123445577788811'),
+(1, 'H JAMALUDDIN, S.Sos', 'Kepala Desa', ''),
 (2, '../../../../assets/img/barcode.png', 'Kepala Desa', '');
 
 -- --------------------------------------------------------
@@ -348,11 +348,11 @@ CREATE TABLE `profil_desa` (
   `id_profil_desa` int(11) NOT NULL,
   `nama_desa` varchar(50) NOT NULL,
   `alamat` varchar(100) NOT NULL,
-  `no_telpon` varchar(20) NOT NULL,
+  `no_telpon` varchar(50) NOT NULL,
   `kecamatan` varchar(50) NOT NULL,
   `kota` varchar(50) NOT NULL,
-  `provinsi` varchar(20) NOT NULL,
-  `kode_pos` varchar(10) NOT NULL,
+  `provinsi` varchar(50) NOT NULL,
+  `kode_pos` varchar(50) NOT NULL,
   `ttd_digital` varchar(350) DEFAULT NULL,
   `gambar_kop` varchar(350) DEFAULT NULL,
   `logo_desa` varchar(350) DEFAULT NULL
@@ -363,7 +363,7 @@ CREATE TABLE `profil_desa` (
 --
 
 INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `no_telpon`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `ttd_digital`, `gambar_kop`, `logo_desa`) VALUES
-(1, 'Allu Tarowang', 'Jl.Raya Cijulang No. 00', '085255430300', 'Tarowang', 'Kabupaten Jeneponto', 'Sulawesi Selatan', '9999', 'barcode.png', '311122910_406575298308078_714964801078203355_n.png', 'Logo-Pangandaran.png');
+(1, 'Bungungloe', 'Alamat : Bontosunggu Utara Desa Bungungloe Kec. Turatea Kabupaten Jeneponto', '', 'Turatea', 'Kabupaten Jeneponto', 'Sulawesi Selatan', 'Kode Pos 92312', 'barcode.png', '311122910_406575298308078_714964801078203355_n.png', 'Logo-Pangandaran.png');
 
 -- --------------------------------------------------------
 

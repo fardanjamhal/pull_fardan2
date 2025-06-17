@@ -23,7 +23,8 @@ $jenisSuratList = [
   'surat_keterangan_domisili_usaha' => ['id' => 'id_skdu', 'folder' => 'surat_keterangan_domisili_usaha'],
   'surat_keterangan_pengantar' => ['id' => 'id_skp', 'folder' => 'surat_keterangan_pengantar'],
   'surat_keterangan_beda_identitas' => ['id' => 'id_skbi', 'folder' => 'surat_keterangan_beda_identitas'],
-  'surat_keterangan_beda_identitas_kis' => ['id' => 'id_skbis', 'folder' => 'surat_keterangan_beda_identitas_kis']
+  'surat_keterangan_beda_identitas_kis' => ['id' => 'id_skbis', 'folder' => 'surat_keterangan_beda_identitas_kis'],
+  'surat_keterangan_penghasilan_orang_tua' => ['id' => 'id_skpot', 'folder' => 'surat_keterangan_penghasilan_orang_tua']
 ];
 
 // Tambahkan kode ini DI SINI:

@@ -115,10 +115,15 @@
 						<input type="text" class="form-control" name="username" placeholder="username" required>			
 					</div>
 					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" name="password" placeholder="password" required>
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fas fa-key"></i></span>
+					</div>
+					<input type="password" class="form-control" id="password" name="password" placeholder="password" required>
+					<div class="input-group-append">
+						<span class="input-group-text" onclick="togglePassword()" style="cursor: pointer;">
+						<i class="fas fa-eye" id="eyeIcon"></i>
+						</span>
+					</div>
 					</div>
 					<div class="form-group mt-3 d-flex justify-content-center">
 						<input type="submit" value="Login" class="btn float-right login_btn w-100">
@@ -138,6 +143,24 @@
 			<script>
 				document.getElementById("year").textContent = new Date().getFullYear();
 			</script>
+
+			<script>
+			function togglePassword() {
+				const input = document.getElementById("password");
+				const icon = document.getElementById("eyeIcon");
+
+				if (input.type === "password") {
+				input.type = "text";
+				icon.classList.remove("fa-eye");
+				icon.classList.add("fa-eye-slash");
+				} else {
+				input.type = "password";
+				icon.classList.remove("fa-eye-slash");
+				icon.classList.add("fa-eye");
+				}
+			}
+			</script>
+
 			</div>
 
 

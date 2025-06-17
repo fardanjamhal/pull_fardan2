@@ -273,7 +273,15 @@
 			</div>
 			</div>
 
-			
+			<div class="col-sm-3 mt-4">
+			<div class="card surat-card text-center">
+				<div class="card-body">
+				<h5 class="card-title">SURAT KETERANGAN PENGHASILAN ORANG TUA</h5><br>
+				<a href="surat_keterangan_penghasilan_orang_tua/" class="btn btn-info">BUAT SURAT</a>
+				</div>
+			</div>
+			</div>
+
 			<div class="col-sm-3 mt-4">
 		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
