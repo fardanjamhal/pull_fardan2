@@ -345,9 +345,9 @@
 			<td></td>
 
 
-			<table width="100%" style="text-transform: capitalize; border-collapse: collapse; margin-top: -20px;">
+			<table width="100%" style="text-transform: capitalize; border-collapse: collapse;">
 			<tr>
-			<td style="vertical-align: top; padding-top: 20px; text-align: center; padding-left: 325px;">
+			<td style="vertical-align: top; padding-top: -20px; text-align: center; padding-left: 325px;">
 			<div>
 			<?php
 					// Ambil ID Surat Keterangan Domisili dari URL
@@ -399,7 +399,7 @@
 							// Variabel $id_pejabat_desa sudah berisi nilai 1 atau 2 (atau lainnya) dari database
 							if ($id_pejabat_desa == 1) {
 
-								echo '<span style="text-transform: uppercase; font-weight: bold; text-decoration: underline; ">' . 
+								echo '<span style="text-transform: uppercase; font-weight: bold; text-decoration: underline;">' . 
 								htmlspecialchars($nama_pejabat_terpilih) . 
 								'</span>';
 
@@ -410,7 +410,8 @@
 									// Pastikan ini adalah path gambar yang valid
 									$url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
 									// Tampilkan gambar dalam tag <img>
-									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 60px;  margin-top: -75px">';
+									echo "<br>";
+									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -94px">';
 									echo "<br>";
 								} else {
 									echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
@@ -447,15 +448,27 @@
 					<br>
 					<?php
 						$id = 1; // Misalnya ID = 1
-						$query = "SELECT nip FROM pejabat_desa WHERE id_pejabat_desa = '$id'";
+						$query = "SELECT pangkat, nip FROM pejabat_desa WHERE id_pejabat_desa = '$id'";
 						$result = mysqli_query($connect, $query);
 
 						if ($data = mysqli_fetch_assoc($result)) {
-							echo "<b>" . strtoupper($data['nip']) . "</b>";
+							// Bersihkan data
+							$pangkat = trim($data['pangkat']);
+							$nip = trim($data['nip']);
+
+							// Cek apakah pangkat kosong
+							if (!empty($pangkat)) {
+								echo '<b style="text-transform: none;">' . htmlspecialchars($pangkat) . '</b><br>';
+							}
+
+							// NIP akan tetap ditampilkan, dan otomatis "naik" kalau pangkat kosong
+							echo '<b style="text-transform: none;">' . htmlspecialchars($nip) . '</b><br>';
 						} else {
 							echo "Data tidak ditemukan.";
 						}
-					?>
+						?>
+
+
 
 			</div>
 			</td>

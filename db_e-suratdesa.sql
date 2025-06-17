@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2025 at 01:52 AM
+-- Generation Time: Jun 17, 2025 at 09:50 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -278,7 +278,7 @@ CREATE TABLE `pejabat_desa` (
 --
 
 INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `nip`) VALUES
-(1, 'H JAMALUDDIN, S.Sos', 'Kepala Desa', ''),
+(1, 'H JAMALUDDIN, S.Sos', 'Kepala Desa', '12559966887799'),
 (2, '../../../../assets/img/barcode.png', 'Kepala Desa', '');
 
 -- --------------------------------------------------------
@@ -607,7 +607,8 @@ CREATE TABLE `surat_keterangan_domisili_usaha` (
 
 INSERT INTO `surat_keterangan_domisili_usaha` (`id_skdu`, `jenis_surat`, `no_surat`, `nik`, `jenis_usaha`, `alamat_usaha`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (44, 'Surat Keterangan Domisili Usaha', '99', '12345', 'jenis', 'BONTOSUNGGU', '2025-06-14 18:09:12', 2, 'SELESAI', 1),
-(46, 'Surat Keterangan Domisili Usaha', '100', '12345', 'jenis', 'JL. KUMALA BALANG BERU', '2025-06-16 20:29:00', 2, 'SELESAI', 1);
+(46, 'Surat Keterangan Domisili Usaha', '100', '12345', 'jenis', 'JL. KUMALA BALANG BERU', '2025-06-16 20:29:00', 2, 'SELESAI', 1),
+(47, 'Surat Keterangan Domisili Usaha', NULL, '12345', '', '', '2025-06-17 11:26:33', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -715,6 +716,50 @@ INSERT INTO `surat_keterangan_pengantar` (`id_skp`, `jenis_surat`, `no_surat`, `
 (53, 'Surat Keterangan Pengantar', '99', '3517112233440001', 'MELAMAR KERJA', '', 'B', '2025-06-14 22:48:39', 2, 'SELESAI', 1),
 (54, 'Surat Keterangan Pengantar', '100', '12345', 'MELAMAR KERJA', '', 'B', '2025-06-14 23:10:21', 1, 'SELESAI', 1),
 (56, 'Surat Keterangan Pengantar', '101', '12345', 'MELAMAR KERJA', '7 Hari', 'B', '2025-06-14 23:25:39', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_penghasilan_orang_tua`
+--
+
+CREATE TABLE `surat_keterangan_penghasilan_orang_tua` (
+  `id_skpot` int(11) NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `nomor_induk_siswa` varchar(30) NOT NULL,
+  `jurusan_fakultas` varchar(30) NOT NULL,
+  `sekolah_perguruan_tinggi` varchar(30) NOT NULL,
+  `kelas_semester` varchar(30) NOT NULL,
+  `nama_ayah` varchar(50) NOT NULL,
+  `tgl_lahir2` varchar(50) NOT NULL,
+  `nik2` varchar(30) NOT NULL,
+  `jenis_kelamin2` varchar(200) NOT NULL,
+  `agama2` varchar(50) NOT NULL,
+  `pekerjaan2` varchar(50) NOT NULL,
+  `alamat2` varchar(50) NOT NULL,
+  `penghasilan_ayah` varchar(50) NOT NULL,
+  `nama_ibu` varchar(50) NOT NULL,
+  `tgl_lahir3` varchar(50) NOT NULL,
+  `nik3` varchar(30) NOT NULL,
+  `jenis_kelamin3` varchar(200) NOT NULL,
+  `agama3` varchar(50) NOT NULL,
+  `pekerjaan3` varchar(50) NOT NULL,
+  `alamat3` varchar(50) NOT NULL,
+  `penghasilan_ibu` varchar(50) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(15) NOT NULL,
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `surat_keterangan_penghasilan_orang_tua`
+--
+
+INSERT INTO `surat_keterangan_penghasilan_orang_tua` (`id_skpot`, `jenis_surat`, `no_surat`, `nik`, `nomor_induk_siswa`, `jurusan_fakultas`, `sekolah_perguruan_tinggi`, `kelas_semester`, `nama_ayah`, `tgl_lahir2`, `nik2`, `jenis_kelamin2`, `agama2`, `pekerjaan2`, `alamat2`, `penghasilan_ayah`, `nama_ibu`, `tgl_lahir3`, `nik3`, `jenis_kelamin3`, `agama3`, `pekerjaan3`, `alamat3`, `penghasilan_ibu`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(24, 'Surat Keterangan Penghasilan Orang Tua', '005/KKKB/KODE-DESA/VII/2025', '12345', 'dfdf', 'dfd', 'dffd', 'df', 'dffd', 'dfdf', 'dfd', 'LAKI-LAKI', 'fdfd', 'fddf', 'dfdf', 'Rp. 90.000,-', 'sdsd', 'sdds', 'sdsd', 'PEREMPUAN', 'sdds', '23', 'sdsad', 'Rp. 9.365,-', '2025-06-17 11:46:42', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1064,6 +1109,15 @@ ALTER TABLE `surat_keterangan_pengantar`
   ADD KEY `idx_nik` (`nik`);
 
 --
+-- Indexes for table `surat_keterangan_penghasilan_orang_tua`
+--
+ALTER TABLE `surat_keterangan_penghasilan_orang_tua`
+  ADD PRIMARY KEY (`id_skpot`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_nik` (`nik`);
+
+--
 -- Indexes for table `surat_keterangan_perhiasan`
 --
 ALTER TABLE `surat_keterangan_perhiasan`
@@ -1203,7 +1257,7 @@ ALTER TABLE `surat_keterangan_domisili`
 -- AUTO_INCREMENT for table `surat_keterangan_domisili_usaha`
 --
 ALTER TABLE `surat_keterangan_domisili_usaha`
-  MODIFY `id_skdu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_skdu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_kematian`
@@ -1222,6 +1276,12 @@ ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
 --
 ALTER TABLE `surat_keterangan_pengantar`
   MODIFY `id_skp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_penghasilan_orang_tua`
+--
+ALTER TABLE `surat_keterangan_penghasilan_orang_tua`
+  MODIFY `id_skpot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_perhiasan`

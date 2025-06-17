@@ -12,6 +12,7 @@ if (!isset($_POST['id_pejabat_desa'])) {
 $id                 = $_POST['id_pejabat_desa'];
 $nama_pejabat_desa  = $_POST['nama_pejabat_desa'];
 $jabatan            = $_POST['jabatan'];
+$pangkat            = $_POST['pangkat'];
 $nip                = $_POST['nip'];
 
 
@@ -23,6 +24,7 @@ $dataLama  = mysqli_fetch_assoc($queryLama);
 $query = "UPDATE pejabat_desa SET 
             nama_pejabat_desa   = '$nama_pejabat_desa',
             jabatan             = '$jabatan',
+            pangkat             = '$pangkat',
             nip                 = '$nip'
           WHERE id_pejabat_desa = '$id'";
 

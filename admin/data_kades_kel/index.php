@@ -203,6 +203,10 @@
           <label>Jabatan</label>
           <input type="text" name="jabatan" value="<?php echo $data['jabatan']; ?>">
         </div>
+        <div class="form-group">
+          <label>Pangkat</label>
+          <input type="text" name="pangkat" value="<?php echo $data['pangkat']; ?>">
+        </div>
 
         <div class="form-group">
           <label>NIP</label>

@@ -386,15 +386,25 @@
 					<br>
 					<?php
 						$id = 1; // Misalnya ID = 1
-						$query = "SELECT nip FROM pejabat_desa WHERE id_pejabat_desa = '$id'";
+						$query = "SELECT pangkat, nip FROM pejabat_desa WHERE id_pejabat_desa = '$id'";
 						$result = mysqli_query($connect, $query);
 
 						if ($data = mysqli_fetch_assoc($result)) {
-							echo "<b>" . strtoupper($data['nip']) . "</b>";
+							// Bersihkan data
+							$pangkat = trim($data['pangkat']);
+							$nip = trim($data['nip']);
+
+							// Cek apakah pangkat kosong
+							if (!empty($pangkat)) {
+								echo '<b style="text-transform: none;">' . htmlspecialchars($pangkat) . '</b><br>';
+							}
+
+							// NIP akan tetap ditampilkan, dan otomatis "naik" kalau pangkat kosong
+							echo '<b style="text-transform: none;">' . htmlspecialchars($nip) . '</b><br>';
 						} else {
 							echo "Data tidak ditemukan.";
 						}
-					?>
+						?>
 
 			</div>
 			</td>
