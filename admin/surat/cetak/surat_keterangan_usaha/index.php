@@ -352,7 +352,7 @@
 									// Pastikan ini adalah path gambar yang valid
 									$url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
 									// Tampilkan gambar dalam tag <img>
-									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -65px">';
+									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -90px">';
 									echo "<br>";
 								} else {
 									echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
