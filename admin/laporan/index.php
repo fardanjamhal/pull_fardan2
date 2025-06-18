@@ -327,10 +327,10 @@
           $unions = [];
           foreach ($daftar_tabel_surat as $tabel) {
             $unions[] = "
-              (SELECT penduduk.nama, penduduk.dusun, penduduk.rt, penduduk.rw,
+              (SELECT arsip_surat.nama, arsip_surat.dusun, arsip_surat.rt, arsip_surat.rw,
                       $tabel.no_surat, $tabel.tanggal_surat, $tabel.jenis_surat
-              FROM penduduk
-              LEFT JOIN $tabel ON $tabel.nik = penduduk.nik
+              FROM arsip_surat
+              LEFT JOIN $tabel ON $tabel.nik = arsip_surat.nik
               WHERE $tabel.status_surat = 'selesai')
             ";
           }

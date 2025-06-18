@@ -34,6 +34,26 @@
   });
 </script>
 
+<script>
+function salinTeks(teks) {
+  navigator.clipboard.writeText(teks).then(function() {
+    tampilkanToast("✅ NIK berhasil disalin: " + teks);
+  }, function(err) {
+    tampilkanToast("❌ Gagal menyalin NIK");
+  });
+}
+
+function tampilkanToast(pesan) {
+  const toast = document.getElementById("toast-salin");
+  toast.innerText = pesan;
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+</script>
+<div id="toast-salin"></div>
+
 
 <style>
   .swal-title-lg {
@@ -54,6 +74,34 @@
     font-size: 1.5rem !important; /* Default teks tombol juga membesar */
   }
 </style>
+
+<style>
+#toast-salin {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 20px;
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+#toast-salin.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 60px;
+}
+</style>
+
 
 
 
@@ -413,7 +461,10 @@
             ?>
             <tr>
               <td><?php echo $no++; ?></td>
-              <td><?php echo $row['nik']; ?></td>
+              <td>
+                <?php echo $row['nik']; ?>
+                <button onclick="salinTeks('<?php echo $row['nik']; ?>')" title="Salin NIK" style="margin-left: 5px;">📋</button>
+              </td>
               <td style="text-transform: capitalize;"><?php echo $row['nama']; ?></td>
               <?php
                 $tanggal = date('d', strtotime($row['tgl_lahir']));
@@ -464,6 +515,7 @@
     </div>
   </section>
 </div>
+
 
 <?php 
   include ('../part/footer.php');

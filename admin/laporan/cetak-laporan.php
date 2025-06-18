@@ -38,7 +38,7 @@ if (isset($_GET['filter']) && !empty($_GET['filter'])) {
     $headerFontSize = '12pt'; // Ukuran font lebih kecil untuk filter tertentu
 
     foreach ($suratTables as $table) {
-        $baseSelect = "SELECT penduduk.nama, penduduk.dusun, penduduk.desa, penduduk.rw, T.no_surat, T.tanggal_surat, T.jenis_surat FROM penduduk LEFT JOIN {$table} T ON T.nik = penduduk.nik WHERE T.status_surat='selesai'";
+        $baseSelect = "SELECT arsip_surat.nama, arsip_surat.dusun, arsip_surat.desa, arsip_surat.rw, T.no_surat, T.tanggal_surat, T.jenis_surat FROM arsip_surat LEFT JOIN {$table} T ON T.nik = arsip_surat.nik WHERE T.status_surat='selesai'";
         $condition = '';
 
         if ($filter == '2' && isset($_GET['tanggal'])) {
@@ -68,7 +68,7 @@ if (isset($_GET['filter']) && !empty($_GET['filter'])) {
 
     $queryConditions = [];
     foreach ($suratTables as $table) {
-        $baseSelect = "SELECT penduduk.nama, penduduk.dusun, penduduk.desa, penduduk.rw, T.no_surat, T.tanggal_surat, T.jenis_surat FROM penduduk LEFT JOIN {$table} T ON T.nik = penduduk.nik WHERE T.status_surat='selesai'";
+        $baseSelect = "SELECT arsip_surat.nama, arsip_surat.dusun, arsip_surat.desa, arsip_surat.rw, T.no_surat, T.tanggal_surat, T.jenis_surat FROM arsip_surat LEFT JOIN {$table} T ON T.nik = arsip_surat.nik WHERE T.status_surat='selesai'";
         $queryConditions[] = $baseSelect;
     }
     $query = implode(" UNION ", $queryConditions) . " ORDER BY tanggal_surat";
