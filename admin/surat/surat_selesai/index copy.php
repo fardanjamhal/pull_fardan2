@@ -36,8 +36,6 @@ uksort($jenisSuratList, function($a, $b) {
     );
 });
 
-
-
 // Mengambil parameter filter dari URL
 $filter_jenis = $_GET['jenis_surat'] ?? '';
 $keyword = $_GET['keyword'] ?? '';
@@ -61,17 +59,14 @@ foreach ($jenisSuratList as $table => $info) {
     // Tambahkan kondisi pencarian jika keyword ada
     if ($keyword) {
         $escapedKeyword = mysqli_real_escape_string($connect, $keyword);
-        // Mencari di NIK, Nomor Surat, dan nama dari tabel arsip_surat
-        // Menggunakan alias 'nama_dari_arsip' untuk menghindari konflik nama kolom
+        // Mencari di NIK, Nomor Surat, dan Nama Penduduk
         $conditions[] = "(s.nik LIKE '%$escapedKeyword%' OR s.no_surat LIKE '%$escapedKeyword%' OR (SELECT ap.nama FROM arsip_surat ap WHERE ap.nik = s.nik LIMIT 1) LIKE '%$escapedKeyword%')";
     }
 
     $whereStr = implode(' AND ', $conditions);
 
     // SQL Query untuk setiap tabel surat
-    // MENGAMBIL nama DARI TABEL arsip_surat dengan alias 'nama_alias'
-    // Nama kolom yang dihasilkan UNION ALL harus konsisten.
-    // Kita akan tetap menggunakan 'nama' sebagai alias akhir untuk kompatibilitas.
+    // Menggunakan sub-query untuk 'nama' agar setiap NIK hanya memiliki satu nama
     $queries_for_union[] = "SELECT
                                 s.{$info['id']} AS id_surat,
                                 s.no_surat,
@@ -79,7 +74,7 @@ foreach ($jenisSuratList as $table => $info) {
                                 s.jenis_surat,
                                 s.status_surat,
                                 s.tanggal_surat,
-                                (SELECT ap.nama FROM arsip_surat ap WHERE ap.nik = s.nik ORDER BY ap.id_arsip DESC LIMIT 1) AS nama, -- DIUBAH MENJADI nama
+                                (SELECT ap.nama FROM arsip_surat ap WHERE ap.nik = s.nik LIMIT 1) AS nama, -- Kunci perbaikan untuk nama
                                 '{$table}' AS table_name
                              FROM {$table} s
                              WHERE $whereStr";
@@ -102,7 +97,6 @@ $final_select_query = "SELECT DISTINCT
                        FROM ($sql_union_all) AS combined_unique_data";
 
 // Query untuk mendapatkan total baris untuk paginasi dari hasil yang sudah unik
-// Karena SELECT DISTINCT sudah menghasilkan kolom 'nama', query COUNT(*) tidak perlu join ulang
 $total_result_query = "SELECT COUNT(*) as total FROM ($final_select_query) AS final_combined_data_count";
 $total_result = mysqli_query($connect, $total_result_query);
 
@@ -164,24 +158,13 @@ if (!$result) {
                 background-color: #0056b3;
             }
         }
-
-        /* --- PENYESUAIAN UNTUK MEMINDAHKAN MENU NAIK SEDIKIT --- */
-        /* Mengurangi padding di bagian atas seluruh konten sidebar */
-        .main-sidebar .sidebar {
-            padding-top: 0px; /* Coba 0px, 5px, atau 10px sampai Anda dapatkan yang pas */
-        }
-
-        /* Mengurangi margin di bagian atas panel pengguna (gambar dan nama) */
-        .main-sidebar .user-panel {
-            margin-top: 0px; /* Ini juga bisa disesuaikan, misalnya 0px jika ingin lebih rapat */
-        }
-        /* --- AKHIR PENYESUAIAN --- */
     </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
-        <aside class="main-sidebar" style="padding-top: 0;">
+    
+       <aside class="main-sidebar" style="padding-top: 0;">
             <section class="sidebar">
                 <div class="user-panel" style="margin-top: 0px;">
                     <div class="pull-left image">
@@ -218,6 +201,7 @@ if (!$result) {
             </section>
         </aside>
 
+        
 
         <div class="content-wrapper">
             <section class="content-header">
@@ -296,7 +280,6 @@ if (!$result) {
                                                 ];
                                                 $folder = $jenisSuratList[$row['table_name']]['folder'];
                                             ?>
-                                            
                                             <tr>
                                                 <td><?= $no++; ?></td>
                                                 <td><?= $tgl . $bulanIndo[$bln] . $thn; ?></td>
@@ -333,9 +316,11 @@ if (!$result) {
                                     <?php endif; ?>
 
                                     <?php
+                                        // Logika untuk menampilkan rentang halaman paginasi
                                         $start_page = max(1, $page - 4);
                                         $end_page = min($total_pages, $start_page + 9);
 
+                                        // Sesuaikan jika rentang terlalu sempit di awal atau akhir
                                         if ($end_page - $start_page < 9) {
                                             $start_page = max(1, $end_page - 9);
                                         }
@@ -366,6 +351,5 @@ if (!$result) {
         </div>
 
         <?php include('../part/footer.php'); ?>
-    </div>
-</body>
+    </div></body>
 </html>

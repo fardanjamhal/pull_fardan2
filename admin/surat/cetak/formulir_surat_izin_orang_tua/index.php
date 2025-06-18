@@ -1,17 +1,30 @@
 <?php 
 	include ('../../permintaan_surat/konfirmasi/part/akses.php');
-  	include ('../../../../config/koneksi.php');
+	include ('../../../../config/koneksi.php');
 
-  	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT penduduk.*, formulir_surat_izin_orang_tua.* FROM penduduk LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.nik = penduduk.nik WHERE formulir_surat_izin_orang_tua.id_fsiot='$id'");
-  	while($row = mysqli_fetch_array($qCek)){
+	$id = $_GET['id']; // id_skd dari surat
 
-  		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
-        foreach($qTampilDesa as $rows){
+	$qCek = mysqli_query($connect,"
+		SELECT arsip_surat.*, formulir_surat_izin_orang_tua.*, formulir_surat_izin_orang_tua.id_arsip 
+		FROM formulir_surat_izin_orang_tua 
+		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = formulir_surat_izin_orang_tua.id_arsip 
+		WHERE formulir_surat_izin_orang_tua.id_fsiot = '$id'
+	");
+
+	while($row = mysqli_fetch_array($qCek)){
+
+		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
+		foreach($qTampilDesa as $rows){
 
 			$id_pejabat_desa = $row['id_pejabat_desa'];
-		  	$qCekPejabatDesa = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN formulir_surat_izin_orang_tua ON formulir_surat_izin_orang_tua.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE formulir_surat_izin_orang_tua.id_pejabat_desa = '$id_pejabat_desa' AND formulir_surat_izin_orang_tua.id_fsiot='$id'");
-		  	while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
+			$qCekPejabatDesa = mysqli_query($connect,"
+				SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa 
+				FROM pejabat_desa 
+				WHERE pejabat_desa.id_pejabat_desa = '$id_pejabat_desa'
+			");
+
+			while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
+				// cetak data di sini
 ?>
 
 <html>

@@ -27,40 +27,55 @@
     </div>
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-      <li>
+
+
+
+  <li>
         <a href="../dashboard/">
           <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span>
         </a>
       </li>
-      <li class="active">
-        <a href="../penduduk/">
-          <i class="fa fa-users"></i><span>&nbsp;Data Penduduk</span>
+      <li>
+        <a href="../profil_desa/">
+          <i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
         </a>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fas fa-envelope-open-text"></i> <span>&nbsp;&nbsp;Surat</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li>
-            <a href="../surat/permintaan_surat/">
-              <i class="fa fa-circle-notch"></i> Permintaan Surat
-            </a>
-          </li>
-          <li>
-            <a href="../surat/surat_selesai/"><i class="fa fa-circle-notch"></i> Surat Selesai
-            </a>
-          </li>
-        </ul>
       </li>
       <li>
-        <a href="../laporan/">
-          <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;Laporan</span>
+   			<a href="../data_kades_kel/">
+     			<i class="fa fa-user"></i> <span>&nbsp;Data Kades / Kelurahan</span>
+   			</a>
+   		</li>
+      <li class="active">
+        <a href="#"><i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span></a>
+      </li>
+      <?php
+        if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
+      ?>
+      <li>
+        <a href="../surat/permintaan_surat/">
+          <i class="fa fa-file-alt"></i>
+          <span>&nbsp;Permintaan Surat</span>
         </a>
       </li>
+
+      <li>
+        <a href="../surat/surat_selesai/">
+          <i class="fa fa-check-circle"></i>
+          <span>&nbsp;Surat Selesai</span>
+        </a>
+      </li>
+      <?php 
+        }else{
+          
+        }
+      ?>
+      <li>
+        <a href="../laporan/">
+          <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span>
+        </a>
+      </li>
+
+
     </ul>
   </section>
 </aside>

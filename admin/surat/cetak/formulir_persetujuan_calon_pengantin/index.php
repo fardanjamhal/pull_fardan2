@@ -1,17 +1,30 @@
 <?php 
 	include ('../../permintaan_surat/konfirmasi/part/akses.php');
-  	include ('../../../../config/koneksi.php');
+	include ('../../../../config/koneksi.php');
 
-  	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT penduduk.*, formulir_persetujuan_calon_pengantin.* FROM penduduk LEFT JOIN formulir_persetujuan_calon_pengantin ON formulir_persetujuan_calon_pengantin.nik = penduduk.nik WHERE formulir_persetujuan_calon_pengantin.id_fpcp='$id'");
-  	while($row = mysqli_fetch_array($qCek)){
+	$id = $_GET['id']; // id_skd dari surat
 
-  		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
-        foreach($qTampilDesa as $rows){
+	$qCek = mysqli_query($connect,"
+		SELECT arsip_surat.*, formulir_persetujuan_calon_pengantin.*, formulir_persetujuan_calon_pengantin.id_arsip 
+		FROM formulir_persetujuan_calon_pengantin 
+		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = formulir_persetujuan_calon_pengantin.id_arsip 
+		WHERE formulir_persetujuan_calon_pengantin.id_fpcp = '$id'
+	");
+
+	while($row = mysqli_fetch_array($qCek)){
+
+		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
+		foreach($qTampilDesa as $rows){
 
 			$id_pejabat_desa = $row['id_pejabat_desa'];
-		  	$qCekPejabatDesa = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN formulir_persetujuan_calon_pengantin ON formulir_persetujuan_calon_pengantin.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE formulir_persetujuan_calon_pengantin.id_pejabat_desa = '$id_pejabat_desa' AND formulir_persetujuan_calon_pengantin.id_fpcp='$id'");
-		  	while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
+			$qCekPejabatDesa = mysqli_query($connect,"
+				SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa 
+				FROM pejabat_desa 
+				WHERE pejabat_desa.id_pejabat_desa = '$id_pejabat_desa'
+			");
+
+			while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
+				// cetak data di sini
 ?>
 
 <html>

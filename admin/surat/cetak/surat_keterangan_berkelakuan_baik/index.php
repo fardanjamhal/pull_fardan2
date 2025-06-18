@@ -1,17 +1,30 @@
 <?php 
 	include ('../../permintaan_surat/konfirmasi/part/akses.php');
-  	include ('../../../../config/koneksi.php');
+	include ('../../../../config/koneksi.php');
 
-  	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_berkelakuan_baik.* FROM penduduk LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik WHERE surat_keterangan_berkelakuan_baik.id_skbb='$id'");
-  	while($row = mysqli_fetch_array($qCek)){
+	$id = $_GET['id']; // id_skd dari surat
 
-  		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
-        foreach($qTampilDesa as $rows){
+	$qCek = mysqli_query($connect,"
+		SELECT arsip_surat.*, surat_keterangan_berkelakuan_baik.*, surat_keterangan_berkelakuan_baik.id_arsip 
+		FROM surat_keterangan_berkelakuan_baik 
+		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_berkelakuan_baik.id_arsip 
+		WHERE surat_keterangan_berkelakuan_baik.id_skbb = '$id'
+	");
+
+	while($row = mysqli_fetch_array($qCek)){
+
+		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
+		foreach($qTampilDesa as $rows){
 
 			$id_pejabat_desa = $row['id_pejabat_desa'];
-		  	$qCekPejabatDesa = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_keterangan_berkelakuan_baik.id_pejabat_desa = '$id_pejabat_desa' AND surat_keterangan_berkelakuan_baik.id_skbb='$id'");
-		  	while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
+			$qCekPejabatDesa = mysqli_query($connect,"
+				SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa 
+				FROM pejabat_desa 
+				WHERE pejabat_desa.id_pejabat_desa = '$id_pejabat_desa'
+			");
+
+			while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
+				// cetak data di sini
 ?>
 
 <html>
@@ -341,7 +354,9 @@
 						}
 
 					} else {
-						echo "<p>Data Surat Keterangan Domisili dengan ID **{$id}** tidak ditemukan.</p>";
+						echo '<span style="font-weight: bold; text-decoration: underline;">' . 
+									htmlspecialchars($pejabat_data[1]['nama']) . 
+									'</span>';
 					}
 					?>
 

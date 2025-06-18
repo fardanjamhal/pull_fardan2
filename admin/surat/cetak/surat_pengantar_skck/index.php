@@ -1,17 +1,30 @@
 <?php 
 	include ('../../permintaan_surat/konfirmasi/part/akses.php');
-  	include ('../../../../config/koneksi.php');
+	include ('../../../../config/koneksi.php');
 
-  	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_pengantar_skck.* FROM penduduk LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik WHERE surat_pengantar_skck.id_sps='$id'");
-  	while($row = mysqli_fetch_array($qCek)){
+	$id = $_GET['id']; // id_skd dari surat
 
-  		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
-        foreach($qTampilDesa as $rows){
+	$qCek = mysqli_query($connect,"
+		SELECT arsip_surat.*, surat_pengantar_skck.*, surat_pengantar_skck.id_arsip 
+		FROM surat_pengantar_skck 
+		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_pengantar_skck.id_arsip 
+		WHERE surat_pengantar_skck.id_sps = '$id'
+	");
+
+	while($row = mysqli_fetch_array($qCek)){
+
+		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
+		foreach($qTampilDesa as $rows){
 
 			$id_pejabat_desa = $row['id_pejabat_desa'];
-		  	$qCekPejabatDesa = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_pengantar_skck.id_pejabat_desa = '$id_pejabat_desa' AND surat_pengantar_skck.id_sps='$id'");
-		  	while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
+			$qCekPejabatDesa = mysqli_query($connect,"
+				SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa 
+				FROM pejabat_desa 
+				WHERE pejabat_desa.id_pejabat_desa = '$id_pejabat_desa'
+			");
+
+			while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
+				// cetak data di sini
 ?>
 
 <html>
@@ -340,7 +353,7 @@
 									// Pastikan ini adalah path gambar yang valid
 									$url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
 									// Tampilkan gambar dalam tag <img>
-									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -82px">';
+									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -65px">';
 									echo "<br>";
 								} else {
 									echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
@@ -370,7 +383,9 @@
 						}
 
 					} else {
-						echo "<p>Data Surat Keterangan Domisili dengan ID **{$id}** tidak ditemukan.</p>";
+						echo '<span style="font-weight: bold; text-decoration: underline;">' . 
+									htmlspecialchars($pejabat_data[1]['nama']) . 
+									'</span>';
 					}
 					?>
 

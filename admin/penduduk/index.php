@@ -328,6 +328,53 @@
         ?>
         <a class="btn btn-success btn-md" href='tambah-penduduk.php'><i class="fa fa-user-plus"></i> Tambah Data Penduduk</a>
         <a target="_blank" class="btn btn-md" href='export-penduduk.php' style="background-color: #007bff; color: white; border-color: #007bff;"><i class="fas fa-file-export"></i> Export .XLS</a>
+       
+       <?php
+          include('../../config/koneksi.php');
+          $dataPenduduk = mysqli_query($connect, "SELECT * FROM penduduk");
+          ?>
+          <!-- Tombol Hapus -->
+        <button id="btnHapusSemua" class="btn btn-danger float-end">
+          <i class="fa fa-trash"></i> Hapus Semua
+        </button>
+        
+        <!-- Tabel -->
+        <?php if (mysqli_num_rows($dataPenduduk) > 0): ?>
+        <?php else: ?>
+          <br><br><div class="alert alert-warning mt-3">📭 Data penduduk kosong.</div>
+        <?php endif; ?>
+
+        <!-- Script Konfirmasi Hapus -->
+        <script>
+        document.getElementById('btnHapusSemua').addEventListener('click', function () {
+          Swal.fire({
+            title: 'Yakin ingin menghapus semua data?',
+            text: "Data tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = 'delete_all.php?hapus=semua';
+            }
+          });
+        });
+
+        // Tampilkan alert sukses jika berhasil hapus
+        <?php if (isset($_GET['pesan']) && $_GET['pesan'] == 'berhasil'): ?>
+        Swal.fire({
+          icon: 'success',
+          title: 'Data berhasil dihapus!',
+          showConfirmButton: false,
+          timer: 2000
+        });
+        <?php endif; ?>
+        </script>
+
+
         <?php 
           } else {
 

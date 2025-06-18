@@ -8,6 +8,20 @@
 	$id_pejabat_desa 	= $_POST['ft_tangan'];
 	$status_surat 		= "SELESAI";
 
+	// Cek apakah no_surat sudah ada untuk surat lain
+	$qCek = "SELECT * FROM formulir_permohonan_kehendak_nikah WHERE no_surat = '$no_surat' AND id_fpkn != '$id'";
+	$cekResult = mysqli_query($connect, $qCek);
+
+		if (mysqli_num_rows($cekResult) > 0) {
+			echo ("<script LANGUAGE='JavaScript'>
+				window.alert('Nomor surat sudah digunakan. Silakan gunakan nomor lain.');
+				window.location.href = 'index.php?id=$id'; // tetap di halaman sekarang
+			</script>");
+			exit();
+		}
+
+	// Jika tidak duplikat, lanjutkan update
+
 	$qUpdate 	= "UPDATE formulir_permohonan_kehendak_nikah SET no_surat='$no_surat', kepada_yth='$kepada_yth', kepala_kua='$kepala_kua', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' WHERE id_fpkn='$id'";
 	$update 	= mysqli_query($connect, $qUpdate);
 

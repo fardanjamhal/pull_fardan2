@@ -6,6 +6,20 @@
 	$id_pejabat_desa 	= $_POST['ft_tangan'];
 	$status_surat 		= "SELESAI";
 
+	// Cek apakah no_surat sudah ada untuk surat lain
+	$qCek = "SELECT * FROM surat_keterangan_kematian WHERE no_surat = '$no_surat' AND id_skk != '$id'";
+	$cekResult = mysqli_query($connect, $qCek);
+
+		if (mysqli_num_rows($cekResult) > 0) {
+			echo ("<script LANGUAGE='JavaScript'>
+				window.alert('Nomor surat sudah digunakan. Silakan gunakan nomor lain.');
+				window.location.href = 'index.php?id=$id'; // tetap di halaman sekarang
+			</script>");
+			exit();
+		}
+
+	// Jika tidak duplikat, lanjutkan update
+
 	$qUpdate 	= "UPDATE surat_keterangan_kematian SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' WHERE id_skk='$id'";
 	$update 	= mysqli_query($connect, $qUpdate);
 
