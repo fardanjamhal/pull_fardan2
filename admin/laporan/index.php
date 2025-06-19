@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL); // Tampilkan semua error PHP
+ini_set('display_errors', 1); // Tampilkan error di browser
+
   include ('../../config/koneksi.php');
   include ('../part/akses.php');
   include ('../part/header.php');
@@ -11,18 +14,20 @@
   // Membangun URL dasar untuk pagination dan filter
   $base_url = 'index.php';
   $query_params = array();
-  if (isset($_GET['filter'])) {
+  // Pastikan parameter tidak kosong sebelum ditambahkan ke query_params
+  if (isset($_GET['filter']) && !empty($_GET['filter'])) {
       $query_params['filter'] = $_GET['filter'];
-      if ($_GET['filter'] == '2' && isset($_GET['tanggal'])) {
+      if ($_GET['filter'] == '2' && isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
           $query_params['tanggal'] = $_GET['tanggal'];
-      } else if ($_GET['filter'] == '3' && isset($_GET['bulan']) && isset($_GET['tahun'])) {
+      } else if ($_GET['filter'] == '3' && isset($_GET['bulan']) && $_GET['bulan'] != '' && isset($_GET['tahun']) && $_GET['tahun'] != '') {
           $query_params['bulan'] = $_GET['bulan'];
           $query_params['tahun'] = $_GET['tahun'];
-      } else if ($_GET['filter'] == '4' && isset($_GET['tahun'])) {
+      } else if ($_GET['filter'] == '4' && isset($_GET['tahun']) && $_GET['tahun'] != '') {
           $query_params['tahun'] = $_GET['tahun'];
       }
   }
-  $current_url = $base_url . '?' . http_build_query($query_params);
+  // Hanya tambahkan '?' jika ada parameter, hindari "? " kosong
+  $current_url = $base_url . (!empty($query_params) ? '?' . http_build_query($query_params) : '');
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -126,39 +131,38 @@
 <div class="content-wrapper">
   <section class="content-header">
     <?php
+      $title_suffix = '';
+      $blnIndo = array(
+        'January' => 'Januari',
+        'February' => 'Februari',
+        'March' => 'Maret',
+        'April' => 'April',
+        'May' => 'Mei',
+        'June' => 'Juni',
+        'July' => 'Juli',
+        'August' => 'Agustus',
+        'September' => 'September',
+        'October' => 'Oktober',
+        'November' => 'November',
+        'December' => 'Desember'
+      );
+      $nama_bulan_arr = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+
       if(isset($_GET['filter']) && ! empty($_GET['filter'])){
         $filter = $_GET['filter'];
-        if($filter == '1'){
-          echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar</h1>';
-        }else if($filter == '2'){
+        if($filter == '2' && isset($_GET['tanggal']) && $_GET['tanggal'] != ''){
           $tgl_lhr = date($_GET['tanggal']);
           $tgl = date('d ', strtotime($tgl_lhr));
           $bln = date('F', strtotime($tgl_lhr));
           $thn = date(' Y', strtotime($tgl_lhr));
-          $blnIndo = array(
-            'January' => 'Januari',
-            'February' => 'Februari',
-            'March' => 'Maret',
-            'April' => 'April',
-            'May' => 'Mei',
-            'June' => 'Juni',
-            'July' => 'Juli',
-            'August' => 'Agustus',
-            'September' => 'September',
-            'October' => 'Oktober',
-            'November' => 'November',
-            'December' => 'Desember'
-          );
-          echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar (Tanggal '.$tgl . $blnIndo[$bln] . $thn.')</b>';
-        }else if($filter == '3'){
-          $nama_bulan = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-          echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar (Bulan '.$nama_bulan[$_GET['bulan']].' '.$_GET['tahun'].')</b>';
-        }else if($filter == '4'){
-          echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar (Tahun '.$_GET['tahun'].')</b>';
+          $title_suffix = ' (Tanggal '.$tgl . $blnIndo[$bln] . $thn.')';
+        }else if($filter == '3' && isset($_GET['bulan']) && $_GET['bulan'] != '' && isset($_GET['tahun']) && $_GET['tahun'] != ''){
+          $title_suffix = ' (Bulan '.$nama_bulan_arr[$_GET['bulan']].' '.$_GET['tahun'].')';
+        }else if($filter == '4' && isset($_GET['tahun']) && $_GET['tahun'] != ''){
+          $title_suffix = ' (Tahun '.$_GET['tahun'].')';
         }
-      }else{
-        echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar</h1>';
       }
+      echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar'.$title_suffix.'</h1>';
     ?>
     <h1></h1>
     <ol class="breadcrumb">
@@ -169,8 +173,7 @@
   <section class="content">
     <div class="row">
 
-    <!-- Tambahkan di <head> -->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
         .tombol-hp {
           display: none; /* Sembunyikan di desktop */
@@ -205,7 +208,6 @@
         }
       </style>
 
-      <!-- Tambahkan di <body> -->
       <div class="tombol-hp">
         <a href="../dashboard/">
           <div>
@@ -217,22 +219,19 @@
       <div class="col-md-12">
         <div class="col-md-9">
           <?php
+            // Cetak Laporan Button
+            $cetak_href = 'cetak-laporan.php';
             if(isset($_GET['filter']) && ! empty($_GET['filter'])){
               $filter = $_GET['filter'];
-              if($filter == '1'){
-                echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php"><i class="fas fa-print"></i> Cetak Laporan</a>';
-              }else if($filter == '2'){
-                $tgl = date('d-m-y', strtotime($_GET['tanggal']));
-                echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php?filter=2&tanggal='.$_GET['tanggal'].'"><i class="fas fa-print"></i> Cetak Laporan</a>';
-              }else if($filter == '3'){
-                $nama_bulan = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-                echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php?filter=3&bulan='.$_GET['bulan'].'&tahun='.$_GET['tahun'].'"><i class="fas fa-print"></i> Cetak Laporan</a>';
-              }else if($filter == '4'){
-                echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php?filter=4&tahun='.$_GET['tahun'].'"><i class="fas fa-print"></i> Cetak Laporan</a>';
+              if($filter == '2' && isset($_GET['tanggal']) && $_GET['tanggal'] != ''){
+                $cetak_href .= '?filter=2&tanggal='.$_GET['tanggal'];
+              }else if($filter == '3' && isset($_GET['bulan']) && $_GET['bulan'] != '' && isset($_GET['tahun']) && $_GET['tahun'] != ''){
+                $cetak_href .= '?filter=3&bulan='.$_GET['bulan'].'&tahun='.$_GET['tahun'];
+              }else if($filter == '4' && isset($_GET['tahun']) && $_GET['tahun'] != ''){
+                $cetak_href .= '?filter=4&tahun='.$_GET['tahun'];
               }
-            }else{
-              echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="cetak-laporan.php"><i class="fas fa-print"></i> Cetak Laporan</a>';
             }
+            echo '<a name="cetak" target="output" class="btn btn-primary btn-md" href="'.$cetak_href.'"><i class="fas fa-print"></i> Cetak Laporan</a>';
           ?>
         </div>
         <div class="col-md-3" align="right">
@@ -267,7 +266,7 @@
                     <select class="form-control" name="bulan">
                       <option value="">Pilih</option>
                       <?php
-                        $nama_bulan_arr = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+                        // $nama_bulan_arr sudah didefinisikan di atas
                         for ($i=1; $i <= 12; $i++) {
                           $selected = (isset($_GET['bulan']) && $_GET['bulan'] == $i) ? 'selected' : '';
                           echo '<option value="'.$i.'" '.$selected.'>'.$nama_bulan_arr[$i].'</option>';
@@ -280,8 +279,40 @@
                     <select class="form-control" name="tahun">
                       <option value="">Pilih</option>
                       <?php
-                        $query_tahun = "SELECT YEAR(tanggal_surat) AS tahun FROM surat_keterangan GROUP BY YEAR(tanggal_surat) ORDER BY tahun DESC";
+                        // Ambil tahun dari semua tabel surat kemudian UNION dan DISTINCT
+                        $daftar_tabel_surat_filter = [
+                          'surat_keterangan',
+                          'surat_keterangan_berkelakuan_baik',
+                          'surat_keterangan_domisili',
+                          'surat_keterangan_kepemilikan_kendaraan_bermotor',
+                          'surat_keterangan_perhiasan',
+                          'surat_keterangan_usaha',
+                          'surat_lapor_hajatan',
+                          'surat_pengantar_skck',
+                          'surat_keterangan_tidak_mampu',
+                          'formulir_pengantar_nikah',
+                          'formulir_permohonan_kehendak_nikah',
+                          'formulir_persetujuan_calon_pengantin',
+                          'formulir_persetujuan_calon_pengantin_istri',
+                          'formulir_surat_izin_orang_tua',
+                          'surat_keterangan_kematian',
+                          'surat_keterangan_domisili_usaha',
+                          'surat_keterangan_pengantar',
+                          'surat_keterangan_beda_identitas',
+                          'surat_keterangan_beda_identitas_kis',
+                          'surat_keterangan_penghasilan_orang_tua'
+                        ];
+
+                        $query_tahun_parts = [];
+                        foreach ($daftar_tabel_surat_filter as $tabel_for_year) {
+                            $query_tahun_parts[] = "(SELECT YEAR(tanggal_surat) AS tahun FROM $tabel_for_year WHERE status_surat = 'selesai')";
+                        }
+                        $query_tahun = "SELECT DISTINCT tahun FROM (" . implode(" UNION ", $query_tahun_parts) . ") AS all_years ORDER BY tahun DESC";
+
                         $sql_tahun = mysqli_query($connect, $query_tahun);
+                        if (!$sql_tahun) {
+                            die('Error mengambil tahun: ' . mysqli_error($connect));
+                        }
                         while($data_tahun = mysqli_fetch_array($sql_tahun)){
                           $selected = (isset($_GET['tahun']) && $_GET['tahun'] == $data_tahun['tahun']) ? 'selected' : '';
                           echo '<option value="'.$data_tahun['tahun'].'" '.$selected.'>'.$data_tahun['tahun'].'</option>';
@@ -300,6 +331,7 @@
 
        <?php
           // Daftar nama tabel surat
+          // Pastikan nama tabel ini sesuai dengan yang ada di database Anda
           $daftar_tabel_surat = [
             'surat_keterangan',
             'surat_keterangan_berkelakuan_baik',
@@ -323,37 +355,61 @@
             'surat_keterangan_penghasilan_orang_tua'
           ];
 
-          // Loop untuk membentuk bagian UNION
-          $unions = [];
-          foreach ($daftar_tabel_surat as $tabel) {
-            $unions[] = "
-              (SELECT arsip_surat.nama, arsip_surat.dusun, arsip_surat.rt, arsip_surat.rw,
-                      $tabel.no_surat, $tabel.tanggal_surat, $tabel.jenis_surat
-              FROM arsip_surat
-              LEFT JOIN $tabel ON $tabel.nik = arsip_surat.nik
-              WHERE $tabel.status_surat = 'selesai')
-            ";
-          }
+          // Array untuk menyimpan bagian UNION query
+          $union_parts_select = [];
+          // Array untuk menyimpan kondisi WHERE untuk filter tanggal di dalam setiap UNION part
+          $union_where_clause = "";
 
-          // Gabungkan semua query UNION
-          $main_query_base = implode(" UNION ALL ", $unions);
-
-          // Tambahkan filter jika ada
-          $where_clause = "";
+          // Tambahkan filter jika ada, filter ini akan diterapkan ke setiap UNION part
           if (isset($_GET['filter']) && !empty($_GET['filter'])) {
             $filter = $_GET['filter'];
-            if ($filter == '2') {
-              $where_clause = " WHERE DATE(tanggal_surat) = '{$_GET['tanggal']}'";
-            } elseif ($filter == '3') {
-              $where_clause = " WHERE MONTH(tanggal_surat) = '{$_GET['bulan']}' AND YEAR(tanggal_surat) = '{$_GET['tahun']}'";
-            } elseif ($filter == '4') {
-              $where_clause = " WHERE YEAR(tanggal_surat) = '{$_GET['tahun']}'";
+            if ($filter == '2' && isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
+              $union_where_clause = " AND DATE(tanggal_surat) = '{$_GET['tanggal']}'";
+            } elseif ($filter == '3' && isset($_GET['bulan']) && $_GET['bulan'] != '' && isset($_GET['tahun']) && $_GET['tahun'] != '') {
+              $union_where_clause = " AND MONTH(tanggal_surat) = '{$_GET['bulan']}' AND YEAR(tanggal_surat) = '{$_GET['tahun']}'";
+            } elseif ($filter == '4' && isset($_GET['tahun']) && $_GET['tahun'] != '') {
+              $union_where_clause = " AND YEAR(tanggal_surat) = '{$_GET['tahun']}'";
             }
           }
 
+          foreach ($daftar_tabel_surat as $tabel) {
+            $union_parts_select[] = "
+              SELECT nik, no_surat, tanggal_surat, jenis_surat
+              FROM $tabel
+              WHERE status_surat = 'selesai' " . $union_where_clause . "
+            ";
+          }
+
+          $union_subquery_sql = implode(" UNION ALL ", $union_parts_select);
+
+          // Query utama menggabungkan hasil UNION dengan tabel arsip_surat untuk mendapatkan detail penduduk
+          // Menggunakan DISTINCT untuk menghindari duplikasi data surat itu sendiri jika ada di UNION ALL
+          // Penting: Ganti 'arsip_surat' dengan 'penduduk' jika informasi nama/alamat ada di tabel penduduk
+          $main_query_base = "
+            SELECT DISTINCT
+              t_union.nik,
+              t_union.no_surat,
+              t_union.tanggal_surat,
+              t_union.jenis_surat,
+              arsip_surat.nama,
+              arsip_surat.dusun,
+              arsip_surat.rt,
+              arsip_surat.rw
+            FROM
+              ($union_subquery_sql) AS t_union
+            LEFT JOIN
+              arsip_surat ON t_union.nik = arsip_surat.nik
+            WHERE arsip_surat.nama IS NOT NULL -- Pastikan hanya data yang memiliki nama (join berhasil)
+          ";
+
           // Hitung total record
-          $total_records_query = "SELECT COUNT(*) AS total FROM (" . $main_query_base . ") AS total_surat" . $where_clause;
+          // Query untuk menghitung total records harus dijalankan pada keseluruhan hasil yang sudah difilter
+          // Tidak perlu membuat subquery baru untuk COUNT, langsung hitung dari hasil main_query_base
+          $total_records_query = "SELECT COUNT(*) AS total FROM ($main_query_base) AS final_results"; // Alias berbeda untuk subquery COUNT
           $total_records_result = mysqli_query($connect, $total_records_query);
+          if (!$total_records_result) {
+              die('Error menghitung total records: ' . mysqli_error($connect) . '<br>Query: ' . $total_records_query);
+          }
           $total_records_row = mysqli_fetch_assoc($total_records_result);
           $total_records = $total_records_row['total'];
           $total_pages = ceil($total_records / $limit);
@@ -364,7 +420,8 @@
           <table class="table table-striped table-bordered" width="100%" cellspacing="0">
             <thead>
               <tr>
-                  <th>No.</th> <th>No. Surat</th>
+                  <th>No.</th>
+                  <th>No. Surat</th>
                   <th>Tanggal</th>
                   <th>Nama</th>
                   <th>Jenis Surat</th>
@@ -374,36 +431,26 @@
             <tbody>
               <?php
                 // Query untuk menampilkan data dengan pagination
-                $query = "SELECT * FROM (" . $main_query_base . ") AS filtered_surat" . $where_clause . " ORDER BY tanggal_surat DESC LIMIT $offset, $limit";
+                // ORDER BY dan LIMIT diterapkan pada hasil akhir yang sudah digabungkan dan difilter
+                $query = $main_query_base . " ORDER BY t_union.tanggal_surat DESC LIMIT $offset, $limit";
                 $sql = mysqli_query($connect, $query);
-                $row_count = mysqli_num_rows($sql);
 
-                if($row_count > 0){
+                if (!$sql) { // Pengecekan error query
+                    die('Query Error: ' . mysqli_error($connect) . '<br>Query: ' . $query);
+                }
+
+                if(mysqli_num_rows($sql) > 0){
                   $no = $offset + 1; // Inisialisasi nomor baris
                   while($data = mysqli_fetch_array($sql)){
+                    // $blnIndo sudah didefinisikan di atas
+                    $tgl_surat = date($data['tanggal_surat']);
+                    $tgl = date('d ', strtotime($tgl_surat));
+                    $bln = date('F', strtotime($tgl_surat));
+                    $thn = date(' Y', strtotime($tgl_surat));
               ?>
                     <tr>
-                      <td><?php echo $no++;?></td> <td><?php echo $data['no_surat'];?></td>
-                      <?php
-                        $tgl_lhr = date($data['tanggal_surat']);
-                        $tgl = date('d ', strtotime($tgl_lhr));
-                        $bln = date('F', strtotime($tgl_lhr));
-                        $thn = date(' Y', strtotime($tgl_lhr));
-                        $blnIndo = array(
-                          'January' => 'Januari',
-                          'February' => 'Februari',
-                          'March' => 'Maret',
-                          'April' => 'April',
-                          'May' => 'Mei',
-                          'June' => 'Juni',
-                          'July' => 'Juli',
-                          'August' => 'Agustus',
-                          'September' => 'September',
-                          'October' => 'Oktober',
-                          'November' => 'November',
-                          'December' => 'Desember'
-                        );
-                      ?>
+                      <td><?php echo $no++;?></td>
+                      <td><?php echo $data['no_surat'];?></td>
                       <td><?php echo $tgl . $blnIndo[$bln] . $thn;?></td>
                       <td><?php echo $data['nama'];?></td>
                       <td><?php echo $data['jenis_surat'];?></td>
@@ -412,7 +459,7 @@
               <?php
                   }
                 }else{
-                  echo '<tr><td colspan="6" class="text-center">Tidak ada data laporan.</td></tr>'; // Sesuaikan colspan
+                  echo '<tr><td colspan="6" class="text-center">Tidak ada data laporan.</td></tr>';
                 }
               ?>
             </tbody>
@@ -476,7 +523,7 @@
                         <li><a href="<?php echo $current_url . '&page=' . ($page + 1) . '&limit=' . $limit; ?>">Next</a></li>
                     <?php endif; ?>
                 </ul>
-                
+
             </div>
         </div>
 
