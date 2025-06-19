@@ -26,8 +26,16 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           $query_params['tahun'] = $_GET['tahun'];
       }
   }
-  // Hanya tambahkan '?' jika ada parameter, hindari "? " kosong
-  $current_url = $base_url . (!empty($query_params) ? '?' . http_build_query($query_params) : '');
+
+  // --- START MODIFICATION HERE ---
+  // Construct the base URL for pagination links, ensuring it starts with '?' if parameters exist
+  $pagination_base_url = $base_url;
+  $existing_params_string = http_build_query($query_params);
+
+  if (!empty($existing_params_string)) {
+      $pagination_base_url .= '?' . $existing_params_string;
+  }
+  // --- END MODIFICATION HERE ---
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -497,30 +505,34 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                         $start_page = max(1, $end_page - $max_pages_to_show + 1);
                     }
 
+                    // --- START MODIFICATION HERE ---
+                    $first_param_char = strpos($pagination_base_url, '?') === false ? '?' : '&';
+                    // --- END MODIFICATION HERE ---
+
                     if ($page > 1): ?>
-                        <li><a href="<?php echo $current_url . '&page=' . ($page - 1) . '&limit=' . $limit; ?>">Previous</a></li>
+                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . ($page - 1) . '&limit=' . $limit; ?>">Previous</a></li>
                     <?php endif; ?>
 
                     <?php if ($start_page > 1): ?>
-                        <li><a href="<?php echo $current_url . '&page=1&limit=' . $limit; ?>">1</a></li>
+                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=1&limit=' . $limit; ?>">1</a></li>
                         <?php if ($start_page > 2): ?>
                             <li class="disabled"><span>...</span></li>
                         <?php endif; ?>
                     <?php endif; ?>
 
                     <?php for ($i = $start_page; $i <= $end_page; $i++): ?>
-                        <li class="<?php echo ($i == $page) ? 'active' : ''; ?>"><a href="<?php echo $current_url . '&page=' . $i . '&limit=' . $limit; ?>"><?php echo $i; ?></a></li>
+                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . $i . '&limit=' . $limit; ?>" class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a></li>
                     <?php endfor; ?>
 
                     <?php if ($end_page < $total_pages): ?>
                         <?php if ($end_page < $total_pages - 1): ?>
                             <li class="disabled"><span>...</span></li>
                         <?php endif; ?>
-                        <li><a href="<?php echo $current_url . '&page=' . $total_pages . '&limit=' . $limit; ?>"><?php echo $total_pages; ?></a></li>
+                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . $total_pages . '&limit=' . $limit; ?>"><?php echo $total_pages; ?></a></li>
                     <?php endif; ?>
 
                     <?php if ($page < $total_pages): ?>
-                        <li><a href="<?php echo $current_url . '&page=' . ($page + 1) . '&limit=' . $limit; ?>">Next</a></li>
+                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . ($page + 1) . '&limit=' . $limit; ?>">Next</a></li>
                     <?php endif; ?>
                 </ul>
 
