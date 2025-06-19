@@ -167,7 +167,7 @@
                                 WHERE {$table}.status_surat='pending'";
               }
 
-              $query = implode(" UNION ", $unionParts) . " ORDER BY tanggal_surat DESC";
+              $query = implode(" UNION ", $unionParts) . " ORDER BY tanggal_surat ASC";
               $result = mysqli_query($connect, $query);
               $no = 1;
 
