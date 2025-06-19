@@ -460,7 +460,10 @@ ini_set('display_errors', 1); // Tampilkan error di browser
               ?>
                     <tr>
                       <td><?php echo $no++;?></td>
-                      <td><?php echo $data['no_surat'];?></td>
+                      <td>
+                          <?php echo $data['no_surat']; ?>
+                            <button onclick="salinTeks(this, '<?php echo $data['no_surat']; ?>')" title="Salin No. Surat">📋</button>
+                      </td>
                       <td><?php echo $tgl . $blnIndo[$bln] . $thn;?></td>
                       <td><?php echo $data['nama'];?></td>
                       <td><?php echo $data['jenis_surat'];?></td>
@@ -475,6 +478,36 @@ ini_set('display_errors', 1); // Tampilkan error di browser
             </tbody>
           </table>
         </div>
+
+        <div id="alert-global" style="
+                            display: none;
+                            position: fixed;
+                            background-color: #dff0d8;
+                            color: #3c763d;
+                            padding: 6px 12px;
+                            border-radius: 4px;
+                            font-size: 13px;
+                            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                            z-index: 9999;
+                        "></div>
+
+                                <script>
+                                function salinTeks(btn, teks) {
+                                    navigator.clipboard.writeText(teks).then(function () {
+                                        const alertBox = document.getElementById("alert-global");
+                                        alertBox.textContent = "Disalin: " + teks;
+
+                                        const rect = btn.getBoundingClientRect();
+                                        alertBox.style.top = (window.scrollY + rect.top - 40) + "px";
+                                        alertBox.style.left = (window.scrollX + rect.left) + "px";
+                                        alertBox.style.display = "block";
+
+                                        setTimeout(() => {
+                                            alertBox.style.display = "none";
+                                        }, 1500);
+                                    });
+                                }
+                                </script>
 
 
         <div class="row">

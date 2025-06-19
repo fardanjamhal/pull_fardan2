@@ -3,9 +3,11 @@
 ## 4.0.5
 
 ### Bug fixes
+
 - Replace `autocapitalize=off` with `autocapitalize=none` (#4994)
 
 ### Translations
+
 - Vietnamese: remove an unnecessary quote mark (#5059)
 - Czech: Add missing commas and periods (#5052)
 - Spanish: Update the 'errorLoading' message (#5032)
@@ -21,14 +23,17 @@
 ## 4.0.4
 
 ### New features / Improvements
+
 - Make tag matching case insensitive [https://github.com/select2/select2/commit/cb9a90457867ffb14c7b1550bb67e872e0a5c2dd, https://github.com/select2/select2/commit/1167bace78cd3b1a918c1b04f3bac54674eab62b]
 - Support selecting options with blank or `0` option values [https://github.com/select2/select2/commit/16b4840c0e2df0461998e3b464ee0a546173950d, https://github.com/select2/select2/commit/0358ee528765157234643d289bce6b8ca5889c72]
 
 ### Bug fixes
+
 - Fix issue with entire form losing focus when tabbing away from a Select2 control (#4419)
 - Fix UMD support for CommonJS [https://github.com/select2/select2/commit/45a877345482956021161203ac789c25f40a7d5e]
 
 ### Documentation
+
 - Github Pages documentation has been deprecated, replaced with https://github.com/select2/docs
 - Add django-autocomplete-light to integrations [https://github.com/select2/select2/pull/4597]
 - Correct typo in options page [https://github.com/select2/select2/pull/4389]
@@ -38,6 +43,7 @@
 - Correct typos in documentation [https://github.com/select2/select2/pull/4663]
 
 ### Translations
+
 - Add `errorLoading` Hungarian translation [https://github.com/select2/select2/commit/7d1d13352321e21670ff1c6cba7413aa264fd57a]
 - Add `errorLoading` German translation [https://github.com/select2/select2/commit/4df965219ea4c39147fde9335bc260840465933a]
 - Add Slovene language [https://github.com/select2/select2/commit/8e6422c570a87da8d89c45daf0d253695a943c84]
@@ -52,11 +58,13 @@
 This is the third bugfix release of Select2 4.0.0. It builds upon the [second bugfix release](https://github.com/select2/select2/releases/tag/4.0.2) and fixes many common issues.
 
 ### New features / Improvements
+
 - The old `dropdownAutoWidth` option now properly works [https://github.com/select2/select2/commit/fe26b083eb830836061de1458e483782cefef424]
 - A `focus` event on the original `<select>` is now handled [https://github.com/select2/select2/commit/31e7a1d4c52ed7477769fcad5d15166ae3c9b4d0]
 - Adding and removing options now refreshes the selection automatically [https://github.com/select2/select2/commit/ea79a197e0ffe55aa600eed6d18cbd1c804c3176]
 
 ### Bug fixes
+
 - `select2('option')` no longer mutate the arguments when working on multiple elements [https://github.com/select2/select2/commit/c2c1aeef31c95c6df5545c900a4e1782d712497c]
 - Better detect aborted requests [https://github.com/select2/select2/commit/cfb66f5e4f71a56c46a6890c5dde4b7f24f11fa8]
 - New options are now properly created during tokenization [https://github.com/select2/select2/commit/3b8cd2e36990e695e4cb4b966c8658e7ca1574dc]
@@ -66,6 +74,7 @@ This is the third bugfix release of Select2 4.0.0. It builds upon the [second bu
 - Apply `ajax.delay` to empty search terms as well [https://github.com/select2/select2/commit/4b9e02f02211248be25ac4c16d4635cf38237bb9]
 
 ### Documentation
+
 - Added example for attaching event listeners [https://github.com/select2/select2/commit/84d6b5d840f7f4e6b7a2fb3f08424bf5495c876d]
 - Correct link to the [Select2 Bootstrap Theme](https://github.com/select2/select2-bootstrap-theme) [https://github.com/select2/select2/pull/4318]
 - Added example for using a `<label>` [https://github.com/select2/select2/commit/3bc7f4ac78b58eff8cd17b3273596638c3c9c5c1]
@@ -73,6 +82,7 @@ This is the third bugfix release of Select2 4.0.0. It builds upon the [second bu
 - Added favicon [https://github.com/select2/select2/pull/4379]
 
 ### Translations
+
 - Add Khmer translation [https://github.com/select2/select2/pull/4246]
 - Added Norwegian bokmaal for `errorLoading` [https://github.com/select2/select2/pull/4259]
 - Fixed pluralization in Lithuanian translation [https://github.com/select2/select2/commit/5b5eddd183c87bf43165b3a98e03eabe10e9fa58]
@@ -108,6 +118,7 @@ This is the second bugfix release of Select2 4.0.0. It builds upon the [first re
 - Added notes about DOM events [https://github.com/select2/select2/commit/37dbe059fce4578b46b7561e6243b7fdc63ac002]
 
 ### Translations
+
 - Correct Romanian translation [https://github.com/select2/select2/commit/72d905f9e026d49e7c600f37a1ce742c404654d7]
 
 ## 4.0.1
@@ -115,12 +126,14 @@ This is the second bugfix release of Select2 4.0.0. It builds upon the [first re
 This is the first bugfix release of Select2 4.0.0. It builds upon the [first release candidate of Select2 4.0.1](https://github.com/select2/select2/releases/tag/4.0.1-rc.1) with some minor improvements.
 
 ### New features / improvements
+
 - The option container is now passed in as the second argument when templating selections using `templateResult` [https://github.com/select2/select2/commit/dc516e7073605723be59bc727b96a3b3dea1ae5a]
 - The option container is now passed in as the second argument when templating selections using `templateSelection` [https://github.com/select2/select2/pull/3324]
 - You can immediately start typing to search when tabbing into a multiple select [https://github.com/select2/select2/commit/02cca7baa7b78e73cdcf393172ee3a54be387167, https://github.com/select2/select2/commit/79cdcc0956e242c1ce642bbaa93e538c54f4be0]
 - All parameters passed in for AJAX requests are now set as query string parameters by default [https://github.com/select2/select2/issues/3548]
 
 ### Bug fixes
+
 - The search box will now be properly sized after removing a selection [https://github.com/select2/select2/commit/5f80c5d9f81f3c5398c3e6e3e84fd6c67c8873f1]
 - Dropdown results will now be spoken by screen readers [https://github.com/select2/select2/commit/9fae3d74e373fc646da4e39a0c2ab11efa808c3f]
 - Options are now properly cloned when initializing multiple instances at once [https://github.com/select2/select2/commit/3c8366e8769233a6b20ade934fe629279e7be6ff]
@@ -160,6 +173,7 @@ This is the first bugfix release of Select2 4.0.0. It builds upon the [first rel
 - Fix invalid JSON in the tags example within the 4.0 announcement [https://github.com/select2/select2/pull/3637]
 
 ### Translations
+
 - Added Cyrillic variant of the Serbian language [https://github.com/select2/select2/pull/3943]
 - Corrected Thai "no results found" translation [https://github.com/select2/select2/pull/3782]
 - Swapped the `inputTooLong` and `inputTooShort` messages in the Galician translation [https://github.com/select2/select2/pull/3291]
@@ -174,24 +188,26 @@ This is the first bugfix release of Select2 4.0.0. It builds upon the [first rel
 
 ## 4.0.0
 
-
 This builds upon [the second release candidate](https://github.com/select2/select2/tree/4.0.0-rc.2), **so review all previous release notes** before upgrading from previous versions of Select2.
 
 ### Supported environments
+
 - jQuery 1.7.2+
 - Modern browsers (Chrome, Firefox, Safari)
 - Internet Explorer 8+
 
 ### New features
+
 - Fully compatible with AMD and UMD based loaders.
 - Advanced plugin system that [uses custom adapters](https://select2.org/advanced/adapters-and-decorators).
 - Full support for `jQuery.noConflict`.
-- A `<select>` is the recommended element and [can be used for all options](https://select2.org/upgrading/migrating-from-35#no-more-hidden-input-tags).  There is limited backwards-compatible support for the `<input>` element in [full builds](https://select2.org/getting-started/builds-and-modules).
+- A `<select>` is the recommended element and [can be used for all options](https://select2.org/upgrading/migrating-from-35#no-more-hidden-input-tags). There is limited backwards-compatible support for the `<input>` element in [full builds](https://select2.org/getting-started/builds-and-modules).
 - [Declarative configuration through `data-*` attributes](https://select2.org/configuration/data-attributes)
 - Easy to configure theme system and new default theme
 - You can use more specific locales (like `en-US`) and Select2 will be able to determine what translation files to load.
 
 ### Breaking changes
+
 - Select2 now uses the MIT license
 - [The full build](https://select2.org/getting-started/builds-and-modules) of Select2 no longer includes jQuery - You must include jQuery separately on your page.
 - Select2 will prevent the inner scrolling of modals (and other scrollable containers) when it is open to prevent the UI from breaking. [Read more at the commit.](https://github.com/select2/select2/commit/003d6053a9fff587c688008397e7d5824463fe99)
@@ -210,6 +226,7 @@ This builds upon [the second release candidate](https://github.com/select2/selec
 - The `copy` value for the `width` option has been renamed to `style`.
 
 ##### Renamed
+
 - `formatSelection` -> `templateSelection`
 - `formatResult` -> `templateResult`
 - `sortResults` -> `sorter`
@@ -221,6 +238,7 @@ This builds upon [the second release candidate](https://github.com/select2/selec
 - `placeholderOption` has been replaced by `placeholder.id` (`placeholder` -> `placeholder.text`)
 
 ##### [Internationalization](https://select2.org/i18n)
+
 - `formatNoMatches` -> `language.noMatches`
 - `formatSearching` -> `language.searching`
 - `formatInputTooShort` -> `language.inputTooShort`
@@ -230,18 +248,21 @@ This builds upon [the second release candidate](https://github.com/select2/selec
 - `formatSelectionTooBig` -> `language.maximumSelected`
 
 ##### Deprecated/Removed
-- `initSelection` - This is [no longer needed](https://select2.org/upgrading/migrating-from-35#removed-the-requirement-of-initselection) with `<select>` tags.  Limited backwards compatibility in the [full build](https://select2.org/getting-started/builds-and-modules).
+
+- `initSelection` - This is [no longer needed](https://select2.org/upgrading/migrating-from-35#removed-the-requirement-of-initselection) with `<select>` tags. Limited backwards compatibility in the [full build](https://select2.org/getting-started/builds-and-modules).
 - `id` - Data objects should now always have `id` and `text` attributes that are strings, use [`$.map`](https://api.jquery.com/jquery.map/) when migrating
-- `query` - Use a [custom data adapter](https://select2.org/upgrading/migrating-from-35#custom-data-adapters-instead-of-query) instead.  Limited backwards compatibility in the [full build](https://select2.org/getting-started/builds-and-modules).
+- `query` - Use a [custom data adapter](https://select2.org/upgrading/migrating-from-35#custom-data-adapters-instead-of-query) instead. Limited backwards compatibility in the [full build](https://select2.org/getting-started/builds-and-modules).
 - `ajax.params` - All parameters passed to `ajax` will be passed to the AJAX data transport function
 
 #### Methods
 
 ##### Renamed
+
 - `.select2("val", [value])` -> `.val([value])`
 - `.select2("enable", !disabled)` -> `.prop("disabled", disabled)`
 
 ##### Removed
+
 - `.select2("onSortStart")` and `.select2("onSortEnd")` - A custom [selection adapter](https://select2.org/advanced/default-adapters/selection) should be created instead
 - `.select2("data", data)` - Create the `<option>` tags for the objects that you would like to set, and set the `.val` to select them
 - `.select2("readonly")` - There is [no way to make a `<select>` element read-only](http://stackoverflow.com/q/368813/359284), disable it instead
@@ -249,10 +270,12 @@ This builds upon [the second release candidate](https://github.com/select2/selec
 #### Events
 
 ##### New
+
 - `select2:closing` is triggered before the dropdown is closed
 - `select2:select` is triggered when an option is selected
 
 ##### Renamed
+
 - `select2-close` is now `select2:close`
 - `select2-open` is now `select2:open`
 - `select2-opening` is now `select2:opening`
@@ -261,6 +284,7 @@ This builds upon [the second release candidate](https://github.com/select2/selec
 - `select2-removing` is now `select2:unselecting`
 
 ##### Removed
+
 - `select2-clearing` has been removed in favor of `select2:unselecting`
 - `select2-highlight`
 - `select2-loaded`

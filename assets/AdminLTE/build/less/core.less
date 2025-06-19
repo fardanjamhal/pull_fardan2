@@ -11,7 +11,8 @@ body {
 }
 
 body {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto;
@@ -43,8 +44,9 @@ body {
 .content-wrapper,
 .main-footer {
   // Using disposable variable to join statements with a comma
-  @transition-rule: @transition-speed @transition-fn,
-  margin @transition-speed @transition-fn;
+  @transition-rule:
+    @transition-speed @transition-fn,
+    margin @transition-speed @transition-fn;
   .transition-transform(@transition-rule);
   margin-left: @sidebar-width;
   z-index: 820;
@@ -69,7 +71,7 @@ body {
   }
 }
 
-.content-wrapper  {
+.content-wrapper {
   min-height: 100%;
   background-color: @content-bg;
   z-index: 800;
@@ -145,7 +147,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 /* General Links */

@@ -28,32 +28,35 @@ I am now running a [Patreon](https://www.patreon.com/MarkBaker) to support the w
 Supporters will receive access to articles about working with PhpSpreadsheet, and how to use some of its more advanced features.
 
 Posts already available to Patreon supporters:
- - The Dating Game
-   - A  look at how MS Excel (and PhpSpreadsheet) handle date and time values.
+
+- The Dating Game
+  - A look at how MS Excel (and PhpSpreadsheet) handle date and time values.
 - Looping the Loop
-    - Advice on Iterating through the rows and cells in a worksheet.
+  - Advice on Iterating through the rows and cells in a worksheet.
 
 And for Patrons at levels actively using PhpSpreadsheet:
- - Behind the Mask
-   - A look at Number Format Masks.
+
+- Behind the Mask
+  - A look at Number Format Masks.
 
 The Next Article (currently Work in Progress):
- - Formula for Success
-   - How to debug formulae that don't produce the expected result.
 
+- Formula for Success
+  - How to debug formulae that don't produce the expected result.
 
 My aim is to post at least one article each month, taking a detailed look at some feature of MS Excel and how to use that feature in PhpSpreadsheet, or on how to perform different activities in PhpSpreadsheet.
 
 Planned posts for the future include topics like:
- - Tables
- - Structured References
- - AutoFiltering
- - Array Formulae
- - Conditional Formatting
- - Data Validation
- - Value Binders
- - Images
- - Charts
+
+- Tables
+- Structured References
+- AutoFiltering
+- Array Formulae
+- Conditional Formatting
+- Data Validation
+- Value Binders
+- Images
+- Charts
 
 After a period of six months exclusive to Patreon supporters, articles will be incorporated into the public documentation for the library.
 
