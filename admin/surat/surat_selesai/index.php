@@ -270,6 +270,12 @@ if (!$result) {
                             <a href="?" class="btn btn-default"><i class="fa fa-refresh"></i> Reset</a>
                         </form>
 
+                        <script>
+                        document.getElementById('jenis_surat').addEventListener('change', function () {
+                            this.form.submit();
+                        });
+                        </script>
+
                        <script>
                         function salinTeks(teks) {
                         navigator.clipboard.writeText(teks).then(function () {

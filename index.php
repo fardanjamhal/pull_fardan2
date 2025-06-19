@@ -74,6 +74,34 @@
 					0 0 80px #0ff;
 			}
 		}
+
+		@media (max-width: 768px) {
+			.glow-title {
+				font-size: 20pt;
+				text-align: center;
+			}
+
+			.navbar-nav {
+				text-align: right;
+			}
+
+			.container {
+				padding-top: 10vh !important;
+			}
+
+			.navbar-brand img {
+				width: 40px;
+			}
+
+			.btn {
+				font-size: 14px !important;
+				padding: 8px 10px;
+			}
+
+			.footer {
+				font-size: 12px;
+			}
+			}
 	</style>
 </head>
 <body>
@@ -91,9 +119,9 @@
 	$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
 	$data = mysqli_fetch_assoc($query);
 	?>
-	<div style="position: absolute; top: 50%; left: 10%; transform: translate(-50%, -50%);">
+	<a class="navbar-brand ml-4 mt-1" href="#">
   	<img src="assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 50px; height: auto;">
-	</div>
+	</a>
 	<hr>
 
 
@@ -148,7 +176,7 @@
 		foreach($qTampilDesa as $row){
 	?>
 	
-	<a class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong><br>
+	<p class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong></p>
 	<a class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong><?php echo $row['kota']; ?></strong></a><hr>
 	<?php } ?>
 	<a href="surat/" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
@@ -213,6 +241,7 @@
     "retina_detect": true
   });
 </script>
+
 
 <!-- JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -431,7 +431,7 @@
               include ('../../config/koneksi.php');
 
               $no = 1;
-              $qTampil = mysqli_query($connect, "SELECT * FROM penduduk");
+              $qTampil = mysqli_query($connect, "SELECT * FROM penduduk ORDER BY nama ASC");
               foreach($qTampil as $row){
                 $tanggal = $row['tgl_lahir'];
             ?>
