@@ -234,6 +234,14 @@
 			<div class="col-sm-3 mt-4">
 		    	<div class="card surat-card text-center">
 		      		<div class="card-body text-center">
+		        		<h5 class="card-title">SURAT PENGANTAR HEWAN</h5><br>
+		        		<a href="surat_pengantar_hewan/" class="btn btn-info">BUAT SURAT</a>
+		      		</div>
+		    	</div>
+		  	</div>
+			<div class="col-sm-3 mt-4">
+		    	<div class="card surat-card text-center">
+		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN BEDA IDENTITAS</h5><br>
 		        		<a href="surat_keterangan_beda_identitas/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>

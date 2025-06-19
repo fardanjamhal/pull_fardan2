@@ -25,7 +25,8 @@ $jenisSuratList = [
     'surat_keterangan_pengantar' => ['id' => 'id_skp', 'folder' => 'surat_keterangan_pengantar'],
     'surat_keterangan_beda_identitas' => ['id' => 'id_skbi', 'folder' => 'surat_keterangan_beda_identitas'],
     'surat_keterangan_beda_identitas_kis' => ['id' => 'id_skbis', 'folder' => 'surat_keterangan_beda_identitas_kis'],
-    'surat_keterangan_penghasilan_orang_tua' => ['id' => 'id_skpot', 'folder' => 'surat_keterangan_penghasilan_orang_tua']
+    'surat_keterangan_penghasilan_orang_tua' => ['id' => 'id_skpot', 'folder' => 'surat_keterangan_penghasilan_orang_tua'],
+    'surat_pengantar_hewan' => ['id' => 'id_sph', 'folder' => 'surat_pengantar_hewan']
 ];
 
 // Mengurutkan jenis surat berdasarkan nama yang lebih mudah dibaca (opsional, untuk tampilan dropdown)

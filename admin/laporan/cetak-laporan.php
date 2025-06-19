@@ -23,7 +23,8 @@ $suratTables = [
     'surat_keterangan_pengantar',
     'surat_keterangan_beda_identitas',
     'surat_keterangan_beda_identitas_kis',
-    'surat_keterangan_penghasilan_orang_tua'
+    'surat_keterangan_penghasilan_orang_tua',
+    'surat_pengantar_hewan'
 ];
 
 $query = "";

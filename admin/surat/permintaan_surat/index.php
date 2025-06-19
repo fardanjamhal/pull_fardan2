@@ -156,7 +156,8 @@
                 'surat_keterangan_pengantar' => 'id_skp',
                 'surat_keterangan_beda_identitas' => 'id_skbi',
                 'surat_keterangan_beda_identitas_kis' => 'id_skbis',
-                'surat_keterangan_penghasilan_orang_tua' => 'id_skpot'
+                'surat_keterangan_penghasilan_orang_tua' => 'id_skpot',
+                'surat_pengantar_hewan' => 'id_sph'
               ];
 
               $unionParts = [];

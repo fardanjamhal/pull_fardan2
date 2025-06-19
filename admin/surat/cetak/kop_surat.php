@@ -13,8 +13,8 @@ $data = mysqli_fetch_assoc($query);
   <td>
     <div class="header" style="text-align: center;">
       <h4 class="kop" style="margin: 0; text-transform: uppercase;">PEMERINTAH <?php echo $rows['kota']; ?></h4>
-      <h4 class="kop" style="margin: 0; text-transform: uppercase;">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-      <h4 class="kop" style="margin: 0; text-transform: uppercase;">DESA <?php echo $rows['nama_desa']; ?></h4>
+      <h4 class="kop" style="margin: 0; text-transform: uppercase;"><?php echo $rows['kecamatan']; ?></h4>
+      <h4 class="kop" style="margin: 0; text-transform: uppercase;"><?php echo $rows['nama_desa']; ?></h4>
       <h6 class="kop2" style="margin: 0; text-transform: capitalize;"><?php echo $rows['alamat']; ?> <?php echo $rows['no_telpon']; ?> <?php echo $rows['kode_pos']; ?></h6>
     </div>
   </td>
