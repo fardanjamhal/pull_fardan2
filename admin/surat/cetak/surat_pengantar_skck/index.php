@@ -77,15 +77,33 @@
 		</table>
 		<br>
 		<table width="100%" style="text-transform: capitalize;">
+
+			<?php
+			include('../../../../config/koneksi.php');
+
+			// Ambil nama pejabat dan jabatannya dari pejabat_desa urutan pertama
+			$query = "SELECT nama_pejabat_desa, jabatan FROM pejabat_desa ORDER BY id_pejabat_desa ASC LIMIT 1";
+			$result = mysqli_query($connect, $query);
+
+			$nama_pejabat = '';
+			$jabatan = '';
+			if ($data = mysqli_fetch_assoc($result)) {
+				$nama_pejabat = $data['nama_pejabat_desa'];
+				$jabatan = $data['jabatan'];
+			}
+			?>
+
 			<tr>
 				<td width="30%" class="indentasi">Nama</td>
 				<td width="2%" >:</td>
-				<td width="68%">H. MOH. SAIFUDDIN</td>
+				<td width="68%"><strong style="text-transform: uppercase;">
+					<?php echo htmlspecialchars($nama_pejabat); ?>
+				</strong><br></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Jabatan</td>
 				<td>:</td>
-				<td>KEPALA DESA</td>
+				<td style="text-transform: uppercase;"><?php echo htmlspecialchars($jabatan); ?></td>
 			</tr>
 		</table>
 		<br>
