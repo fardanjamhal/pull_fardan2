@@ -102,7 +102,7 @@
   		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
    				<li class="user user-menu">
-     				<a href="../profil_desa/ganti_akun.php">
+     				<a href="../profil_desa/password.php">
      					<i class="fas fa-key"></i><span class="hidden-xs"> Ganti Password</span>
      				</a>
    				</li>

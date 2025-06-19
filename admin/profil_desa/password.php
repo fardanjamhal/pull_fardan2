@@ -142,7 +142,7 @@
       <div style="max-width: 500px; margin: 40px auto; padding: 30px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); background-color: #f9f9f9; font-family: sans-serif;">
 
   <h2 style="text-align: center; margin-bottom: 30px;">
-    Ganti Username & Password (ID: <?php echo $id_login; ?>)
+    Ganti Username & Password
   </h2>
 
   <form action="proses_ganti_akun.php" method="post" autocomplete="off">
@@ -187,12 +187,6 @@
           cursor: pointer;
       ">Simpan Perubahan</button>
   </form>
-
-  <!-- Navigasi edit akun -->
-  <div style="text-align: center; margin-top: 20px;">
-    <a href="?id=1" style="text-decoration: none; color: #007bff;">Akun Administrator</a> |
-    <a href="?id=2" style="text-decoration: none; color: #007bff;">Akun Kades</a>
-  </div>
 
 </div>
 

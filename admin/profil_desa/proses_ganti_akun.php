@@ -8,7 +8,7 @@ $id_login = isset($_POST['id_login']) ? (int)$_POST['id_login'] : 0;
 // Validasi ID
 if ($id_login < 1) {
     $_SESSION['error'] = "ID login tidak valid.";
-    header("Location: ganti_akun.php");
+    header("Location: password.php");
     exit;
 }
 
@@ -21,11 +21,11 @@ $password_md5 = md5($password_plain); // Tetap pakai MD5 (meskipun disarankan bc
 $query = "UPDATE login SET username = '$username', password = '$password_md5' WHERE id = $id_login";
 
 if (mysqli_query($connect, $query)) {
-    $_SESSION['success'] = "Akun ID $id_login berhasil diperbarui.";
+    $_SESSION['success'] = "Akun berhasil diperbarui.";
 } else {
     $_SESSION['error'] = "Gagal memperbarui akun: " . mysqli_error($connect);
 }
 
-header("Location: ganti_akun.php?id=$id_login");
+header("Location: password.php?id=$id_login");
 exit;
 ?>

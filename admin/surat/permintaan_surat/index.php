@@ -212,7 +212,14 @@
                   </tr>";
                   $no++;
                 }
-              }
+              } else {
+                      echo "<tr>
+                        <td colspan='7' style='text-align: center; color: #999; padding: 30px;'>
+                          <i class='fa fa-inbox' style='font-size: 24px; color: #ccc;'></i><br>
+                          <span style='font-size: 16px; font-style: italic;'>📭 Permintaan surat saat ini kosong</span>
+                        </td>
+                      </tr>";
+                    } 
               ?>
 
                   
