@@ -34,26 +34,6 @@
   });
 </script>
 
-<script>
-function salinTeks(teks) {
-  navigator.clipboard.writeText(teks).then(function() {
-    tampilkanToast("✅ NIK berhasil disalin: " + teks);
-  }, function(err) {
-    tampilkanToast("❌ Gagal menyalin NIK");
-  });
-}
-
-function tampilkanToast(pesan) {
-  const toast = document.getElementById("toast-salin");
-  toast.innerText = pesan;
-  toast.classList.add("show");
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 3000);
-}
-</script>
-<div id="toast-salin"></div>
-
 
 <style>
   .swal-title-lg {
@@ -101,10 +81,6 @@ function tampilkanToast(pesan) {
   bottom: 60px;
 }
 </style>
-
-
-
-
 
 <aside class="main-sidebar">
   <section class="sidebar">

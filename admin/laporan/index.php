@@ -460,10 +460,15 @@ ini_set('display_errors', 1); // Tampilkan error di browser
               ?>
                     <tr>
                       <td><?php echo $no++;?></td>
-                      <td>
+                        <td>
                           <?php echo $data['no_surat']; ?>
-                            <button onclick="salinTeks(this, '<?php echo $data['no_surat']; ?>')" title="Salin No. Surat">📋</button>
-                      </td>
+                              <button 
+                                onclick="salinTeks('<?php echo $data['no_surat']; ?>')" 
+                                  title="Salin" 
+                                  style="margin-left: 5px; background: none; border: none; cursor: pointer; font-size: 16px;">
+                                    📋
+                              </button>
+                         </td>
                       <td><?php echo $tgl . $blnIndo[$bln] . $thn;?></td>
                       <td><?php echo $data['nama'];?></td>
                       <td><?php echo $data['jenis_surat'];?></td>
@@ -479,35 +484,55 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           </table>
         </div>
 
-        <div id="alert-global" style="
-                            display: none;
-                            position: fixed;
-                            background-color: #dff0d8;
-                            color: #3c763d;
-                            padding: 6px 12px;
-                            border-radius: 4px;
-                            font-size: 13px;
-                            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-                            z-index: 9999;
-                        "></div>
 
-                                <script>
-                                function salinTeks(btn, teks) {
-                                    navigator.clipboard.writeText(teks).then(function () {
-                                        const alertBox = document.getElementById("alert-global");
-                                        alertBox.textContent = "Disalin: " + teks;
+                        <script>
+                        function salinTeks(teks) {
+                        navigator.clipboard.writeText(teks).then(function () {
+                            tampilkanToast("✅ Berhasil disalin: " + teks);
+                        }, function (err) {
+                            tampilkanToast("❌ Gagal menyalin");
+                        });
+                        }
 
-                                        const rect = btn.getBoundingClientRect();
-                                        alertBox.style.top = (window.scrollY + rect.top - 40) + "px";
-                                        alertBox.style.left = (window.scrollX + rect.left) + "px";
-                                        alertBox.style.display = "block";
+                        function tampilkanToast(pesan) {
+                        const toast = document.getElementById("toast-salin");
+                        toast.innerText = pesan;
+                        toast.classList.add("show");
 
-                                        setTimeout(() => {
-                                            alertBox.style.display = "none";
-                                        }, 1500);
-                                    });
-                                }
-                                </script>
+                        // Hilangkan setelah 3 detik
+                        setTimeout(() => {
+                            toast.classList.remove("show");
+                        }, 3000);
+                        }
+                        </script>
+
+                        <style>
+                        #toast-salin {
+                        position: fixed;
+                        bottom: 40px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                        color: #fff;
+                        padding: 12px 20px;
+                        border-radius: 8px;
+                        font-size: 14px;
+                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+                        z-index: 9999;
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: opacity 0.5s ease, transform 0.5s ease;
+                        }
+
+                        #toast-salin.show {
+                        opacity: 1;
+                        transform: translateX(-50%) translateY(-10px);
+                        pointer-events: auto;
+                        }
+                        </style>
+
+                        <div id="toast-salin"></div>
+        
 
 
         <div class="row">

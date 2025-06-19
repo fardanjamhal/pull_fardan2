@@ -132,6 +132,9 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surat Selesai</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         /* Gaya responsif untuk tombol di HP */
         .tombol-hp {
@@ -267,6 +270,55 @@ if (!$result) {
                             <a href="?" class="btn btn-default"><i class="fa fa-refresh"></i> Reset</a>
                         </form>
 
+                       <script>
+                        function salinTeks(teks) {
+                        navigator.clipboard.writeText(teks).then(function () {
+                            tampilkanToast("✅ Berhasil disalin: " + teks);
+                        }, function (err) {
+                            tampilkanToast("❌ Gagal menyalin");
+                        });
+                        }
+
+                        function tampilkanToast(pesan) {
+                        const toast = document.getElementById("toast-salin");
+                        toast.innerText = pesan;
+                        toast.classList.add("show");
+
+                        // Hilangkan setelah 3 detik
+                        setTimeout(() => {
+                            toast.classList.remove("show");
+                        }, 3000);
+                        }
+                        </script>
+
+                        <style>
+                        #toast-salin {
+                        position: fixed;
+                        bottom: 40px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                        color: #fff;
+                        padding: 12px 20px;
+                        border-radius: 8px;
+                        font-size: 14px;
+                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+                        z-index: 9999;
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: opacity 0.5s ease, transform 0.5s ease;
+                        }
+
+                        #toast-salin.show {
+                        opacity: 1;
+                        transform: translateX(-50%) translateY(-10px);
+                        pointer-events: auto;
+                        }
+                        </style>
+
+                        <div id="toast-salin"></div>
+
+
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
                                 <thead>
@@ -302,15 +354,24 @@ if (!$result) {
                                             <tr>
                                                 <td><?= $no++; ?></td>
                                                 <td><?= $tgl . $bulanIndo[$bln] . $thn; ?></td>
-                                               <td>
-                                                    <?php echo $row['no_surat']; ?>
-                                                    <button onclick="salinTeks(this, '<?php echo $row['no_surat']; ?>')" title="Salin No. Surat">📋</button>
+                                                <td>
+                                                <?php echo $row['no_surat']; ?>
+                                                <button 
+                                                    onclick="salinTeks('<?php echo $row['no_surat']; ?>')" 
+                                                    title="Salin" 
+                                                    style="margin-left: 5px; background: none; border: none; cursor: pointer; font-size: 16px;">
+                                                    📋
+                                                </button>
                                                 </td>
-                                                 <td>
-                                                    <?php echo $row['nik']; ?>
-                                                    <button onclick="salinTeks(this, '<?php echo $row['nik']; ?>')" title="Salin NIK">📋</button>
+                                                <td>
+                                                <?php echo $row['nik']; ?>
+                                                <button 
+                                                    onclick="salinTeks('<?php echo $row['nik']; ?>')" 
+                                                    title="Salin" 
+                                                    style="margin-left: 5px; background: none; border: none; cursor: pointer; font-size: 16px;">
+                                                    📋
+                                                </button>
                                                 </td>
-
                                                 <td style="text-transform: capitalize;"><?= htmlspecialchars($row['nama']); ?></td>
                                                 <td><?= htmlspecialchars($row['jenis_surat']); ?></td>
                                                 <td><a class="btn btn-success btn-sm"><i class="fa fa-check"></i> <b><?= htmlspecialchars($row['status_surat']); ?></b></a></td>
@@ -329,37 +390,6 @@ if (!$result) {
                                 </tbody>
                             </table>
                         </div>
-
-                        <div id="alert-global" style="
-                            display: none;
-                            position: fixed;
-                            background-color: #dff0d8;
-                            color: #3c763d;
-                            padding: 6px 12px;
-                            border-radius: 4px;
-                            font-size: 13px;
-                            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-                            z-index: 9999;
-                        "></div>
-
-                                <script>
-                                function salinTeks(btn, teks) {
-                                    navigator.clipboard.writeText(teks).then(function () {
-                                        const alertBox = document.getElementById("alert-global");
-                                        alertBox.textContent = "Disalin: " + teks;
-
-                                        const rect = btn.getBoundingClientRect();
-                                        alertBox.style.top = (window.scrollY + rect.top - 40) + "px";
-                                        alertBox.style.left = (window.scrollX + rect.left) + "px";
-                                        alertBox.style.display = "block";
-
-                                        setTimeout(() => {
-                                            alertBox.style.display = "none";
-                                        }, 1500);
-                                    });
-                                }
-                                </script>
-
 
 
                         <div class="text-center mt-4">
