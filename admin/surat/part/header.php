@@ -41,6 +41,9 @@
  	<!-- CSS DataTable -->
  	<link rel="stylesheet" href="../../../assets/datatables/jquery.dataTables.css" />
  	<link rel="stylesheet" href="../../../assets/datatables/dataTables.bootstrap.css" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
