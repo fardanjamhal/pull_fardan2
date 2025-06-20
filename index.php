@@ -176,7 +176,7 @@
 		foreach($qTampilDesa as $row){
 	?>
 	
-	<p class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong></p>
+	<p class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong><?php echo $row['nama_desa']; ?></strong></p>
 	<a class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong><?php echo $row['kota']; ?></strong></a><hr>
 	<?php } ?>
 	<a href="surat/" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
