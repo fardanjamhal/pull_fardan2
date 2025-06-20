@@ -1,10 +1,12 @@
 <?php
 session_start();
 
-// Cek apakah user sudah login
-if ($_SESSION['lvl'] !== 'Administrator' && $_SESSION['lvl'] !== 'Kepala Desa') {
-    header("Location: ../../");
+// Pastikan user sudah login dan level diizinkan
+if (!isset($_SESSION['lvl']) || 
+    ($_SESSION['lvl'] !== 'Administrator' && $_SESSION['lvl'] !== 'Kepala Desa')) {
+    
+    // Opsional: redirect ke login dengan pesan
+    header("Location: ../../login/index.php");
     exit();
 }
-
 ?>

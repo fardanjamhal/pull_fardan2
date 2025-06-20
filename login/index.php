@@ -80,6 +80,16 @@
 			font-size: 8pt;
 		}
 	</style>
+
+<?php
+if (isset($_GET['pesan']) && $_GET['pesan'] === 'password_diubah') {
+    echo '<div style="padding:10px; background:#d4edda; color:#155724; border:1px solid #c3e6cb; border-radius:4px; margin-bottom:10px; text-align:center;">
+        Password berhasil diubah. Silakan login kembali.
+    </div>';
+}
+?>
+
+
 </head>
 <body>
 <div class="container">

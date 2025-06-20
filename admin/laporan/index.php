@@ -485,53 +485,7 @@ ini_set('display_errors', 1); // Tampilkan error di browser
         </div>
 
 
-                        <script>
-                        function salinTeks(teks) {
-                        navigator.clipboard.writeText(teks).then(function () {
-                            tampilkanToast("✅ Berhasil disalin: " + teks);
-                        }, function (err) {
-                            tampilkanToast("❌ Gagal menyalin");
-                        });
-                        }
-
-                        function tampilkanToast(pesan) {
-                        const toast = document.getElementById("toast-salin");
-                        toast.innerText = pesan;
-                        toast.classList.add("show");
-
-                        // Hilangkan setelah 3 detik
-                        setTimeout(() => {
-                            toast.classList.remove("show");
-                        }, 3000);
-                        }
-                        </script>
-
-                        <style>
-                        #toast-salin {
-                        position: fixed;
-                        bottom: 40px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background: linear-gradient(135deg, #4CAF50, #2E7D32);
-                        color: #fff;
-                        padding: 12px 20px;
-                        border-radius: 8px;
-                        font-size: 14px;
-                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-                        z-index: 9999;
-                        opacity: 0;
-                        pointer-events: none;
-                        transition: opacity 0.5s ease, transform 0.5s ease;
-                        }
-
-                        #toast-salin.show {
-                        opacity: 1;
-                        transform: translateX(-50%) translateY(-10px);
-                        pointer-events: auto;
-                        }
-                        </style>
-
-                        <div id="toast-salin"></div>
+                        
         
 
 
