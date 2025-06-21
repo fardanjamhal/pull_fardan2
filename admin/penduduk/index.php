@@ -82,6 +82,37 @@
 }
 </style>
 
+<style>
+  .btn-toggle-surat {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-surat {
+  display: block;
+  width: 100%;
+  margin: 3px 0;
+  padding: 6px 12px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-surat:hover {
+  background-color: #e2e6ea;
+}
+</style>
+
 <aside class="main-sidebar">
   <section class="sidebar">
     <div class="user-panel">
@@ -437,10 +468,57 @@
             ?>
             <tr>
               <td><?php echo $no++; ?></td>
-              <td>
+
+                
+               <td>
                 <?php echo $row['nik']; ?>
                 <button onclick="salinTeks('<?php echo $row['nik']; ?>')" title="Salin NIK" style="margin-left: 5px;">📋</button>
+
+                <!-- Tombol Buat Surat -->
+                <button class="btn-toggle-surat" onclick="tampilkanPilihanSurat('<?php echo $row['nik']; ?>')">Buat Surat</button>
+
+                <!-- Daftar Jenis Surat -->
+                <div class="pilihan-surat mt-2" id="pilihan-<?php echo $row['nik']; ?>" style="display: none;">
+                  <?php
+                      $nik = $row['nik'];
+                      $surat_urls = [
+                        'surat_keterangan',
+                        'surat_keterangan_berkelakuan_baik',
+                        'surat_keterangan_domisili',
+                        'surat_keterangan_kepemilikan_kendaraan_bermotor',
+                        'surat_keterangan_perhiasan',
+                        'surat_keterangan_usaha',
+                        'surat_lapor_hajatan',
+                        'surat_pengantar_skck',
+                        'surat_keterangan_tidak_mampu',
+                        'formulir_pengantar_nikah',
+                        'formulir_permohonan_kehendak_nikah',
+                        'formulir_persetujuan_calon_pengantin',
+                        'formulir_persetujuan_calon_pengantin_istri',
+                        'formulir_surat_izin_orang_tua',
+                        'surat_keterangan_kematian',
+                        'surat_keterangan_domisili_usaha',
+                        'surat_keterangan_pengantar',
+                        'surat_keterangan_beda_identitas',
+                        'surat_keterangan_beda_identitas_kis',
+                        'surat_keterangan_penghasilan_orang_tua',
+                        'surat_pengantar_hewan',
+                      ];
+
+                      foreach ($surat_urls as $surat) {
+                          // Ubah format teks tombol dari snake_case ke Capitalized Words
+                          $label = ucwords(str_replace('_', ' ', $surat));
+                          echo '
+                          <form action="../../surat/' . $surat . '/info-surat.php" method="post" style="margin-bottom: 10px;">
+                              <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
+                              <button type="submit" class="btn-surat">' . $label . '</button>
+                          </form>';
+                      }
+                      ?>
+                </div>
               </td>
+
+
               <td style="text-transform: capitalize;"><?php echo $row['nama']; ?></td>
               <?php
                 $tanggal = date('d', strtotime($row['tgl_lahir']));
@@ -485,6 +563,20 @@
             <?php
               }
             ?>
+            
+
+            <script>
+            function tampilkanPilihanSurat(nik) {
+              const div = document.getElementById('pilihan-' + nik);
+              if (div.style.display === 'none') {
+                div.style.display = 'block';
+              } else {
+                div.style.display = 'none';
+              }
+            }
+            </script>
+
+
           </tbody>
         </table>
       </div>

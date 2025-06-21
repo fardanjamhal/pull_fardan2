@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2025 at 11:40 AM
+-- Generation Time: Jun 21, 2025 at 04:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -76,7 +76,11 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 (97, '7304041301120002', 'Rendi', 'Bo\'nia', '2012-01-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-19 15:53:46'),
 (98, '7304041301120002', 'Rendi', 'Bo\'nia', '2012-01-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-19 16:02:20'),
 (99, '7304047011770001', 'Sulkepi', 'Togo-Togo', '1996-06-02', 'Perempuan', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-19 17:28:25'),
-(100, '7304047011770001', 'Sulkepi', 'Togo-Togo', '1996-06-02', 'Perempuan', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-19 17:28:46');
+(100, '7304047011770001', 'Sulkepi', 'Togo-Togo', '1996-06-02', 'Perempuan', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-19 17:28:46'),
+(101, '7304041301120002', 'Rendi', 'Bo\'nia', '2012-01-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-20 16:54:22'),
+(102, '7304041301120002', 'Rendi', 'Bo\'nia', '2012-01-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-20 16:56:49'),
+(103, '7304041301120002', 'Rendi', 'Bo\'nia', '2012-01-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-20 16:59:20'),
+(104, '7304041301120002', 'Rendi', 'Bo\'nia', '2012-01-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-20 17:01:36');
 
 -- --------------------------------------------------------
 
@@ -138,7 +142,8 @@ CREATE TABLE `formulir_pengantar_nikah` (
 --
 
 INSERT INTO `formulir_pengantar_nikah` (`id_fpn`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `status_nikah1`, `status_nikah2`, `nama_ayah`, `nik_ayah`, `tempat_tgl_lahir_ayah`, `kewarganegaraan_ayah`, `agama_ayah`, `pekerjaan_ayah`, `alamat_ayah`, `nama_ibu`, `nik_ibu`, `tempat_tgl_lahir_ibu`, `kewarganegaraan_ibu`, `agama_ibu`, `pekerjaan_ibu`, `alamat_ibu`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(28, 'Formulir Pengantar Nikah', '001/FPN/KODE-DESA/VI/2025', '7304041301120002', 91, 'a. Laki-laki : Jejaka, Duda, a', 'b. Perempuan : Perawan, Janda', 'DAENG PATTA', 'nik ayah', '122112', '21212', '2121', '22121', '212121', 'RINA DG JPA', 'NIK IBU', 'LAHIR IBU', 'WNI IBU', 'AGAMA IBU', 'PEKERJAAN IBU', 'ALAMAT IBU', '2025-06-19 13:50:42', 2, 'SELESAI', 1);
+(28, 'Formulir Pengantar Nikah', '001/FPN/KODE-DESA/VI/2025', '7304041301120002', 91, 'a. Laki-laki : Jejaka, Duda, a', 'b. Perempuan : Perawan, Janda', 'DAENG PATTA', 'nik ayah', '122112', '21212', '2121', '22121', '212121', 'RINA DG JPA', 'NIK IBU', 'LAHIR IBU', 'WNI IBU', 'AGAMA IBU', 'PEKERJAAN IBU', 'ALAMAT IBU', '2025-06-19 13:50:42', 2, 'SELESAI', 1),
+(29, 'Formulir Pengantar Nikah', '02/FPN/KODE-DESA/VI/2025', '7304041301120002', 101, 'df', 'dfs', 'dfs', 'DFDFS', 'DFDFSdfs', 'dfs', 'dsf', 'DFdfdfs', 'df', 'dfs', 'df', 'df', 'dfs', 'df', 'df', 'dsf', '2025-06-20 16:54:22', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -309,7 +314,7 @@ CREATE TABLE `pejabat_desa` (
 --
 
 INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `pangkat`, `nip`) VALUES
-(1, 'H JAMALUDDIN, S.Sos', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 12559966887799'),
+(1, 'LUKMAN, SE', 'Kepala Desa', '', ''),
 (2, '../../../../assets/img/barcode.png', 'Kepala Desa', '', '');
 
 -- --------------------------------------------------------
@@ -668,7 +673,7 @@ INSERT INTO `penduduk` (`id_penduduk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 CREATE TABLE `profil_desa` (
   `id_profil_desa` int(11) NOT NULL,
   `nama_desa` varchar(50) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
+  `alamat` varchar(250) NOT NULL,
   `no_telpon` varchar(50) NOT NULL,
   `kecamatan` varchar(50) NOT NULL,
   `kota` varchar(50) NOT NULL,
@@ -684,7 +689,7 @@ CREATE TABLE `profil_desa` (
 --
 
 INSERT INTO `profil_desa` (`id_profil_desa`, `nama_desa`, `alamat`, `no_telpon`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `ttd_digital`, `gambar_kop`, `logo_desa`) VALUES
-(1, 'Desa Bungungloe', 'Alamat : Bontosunggu Utara Desa Bungungloe Kec. Turatea Kabupaten Jeneponto', '', 'Kecamatan Turatea', 'Kabupaten Jeneponto', 'Sulawesi Selatan', 'Kode Pos 92312', 'barcode.png', '311122910_406575298308078_714964801078203355_n.png', 'Logo-Pangandaran.png');
+(1, 'Desa Sapanang', 'Alamat : Bontosunggu Utara Desa Bungungloe Kec. Turatea Kabupaten Jeneponto', '', 'Kecamatan Binamu', 'Kabupaten Jeneponto', 'Sulawesi Selatan', '', 'barcode.png', '311122910_406575298308078_714964801078203355_n.png', 'Logo-Pangandaran.png');
 
 -- --------------------------------------------------------
 
@@ -704,6 +709,13 @@ CREATE TABLE `surat_keterangan` (
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `surat_keterangan`
+--
+
+INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(166, 'Surat Keterangan', '04/SKTM/KODE-DESA/VI/2025', '7304041301120002', 102, 'PENDAFTARAN', '2025-06-20 16:56:49', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -904,6 +916,13 @@ CREATE TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor` (
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
+--
+
+INSERT INTO `surat_keterangan_kepemilikan_kendaraan_bermotor` (`id_skkkb`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `roda`, `merk_type`, `jenis_model`, `tahun_pembuatan`, `cc`, `warna_cat`, `no_rangka`, `no_mesin`, `no_polisi`, `no_bpkb`, `atas_nama_pemilik`, `alamat_pemilik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(14, 'Surat Keterangan Kepemilikan Kendaraan Bermotor', '04/SKTM/KODE-DESA/VI/2025', '7304041301120002', 103, '', 'sad', 'ds', 'sd', 'ds', 'ds', 'das', 'sda', 'ds', 'sd', 'ds', 'ds', 'dsads', '2025-06-20 16:59:20', 2, 'SELESAI', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -1069,6 +1088,13 @@ CREATE TABLE `surat_lapor_hajatan` (
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `surat_lapor_hajatan`
+--
+
+INSERT INTO `surat_lapor_hajatan` (`id_slh`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bukti_ktp`, `bukti_kk`, `jenis_hajat`, `hari`, `tanggal`, `jenis_hiburan`, `pemilik`, `alamat_pemilik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(13, 'Surat Lapor Hajatan', '001/SKTM/KODE-DESA/VI/2025', '7304041301120002', 104, '122', '212', 'Pernikahan', 'Selasa', '0001-01-01 00:00:00', 'ew', 'sd', 'sd', '2025-06-20 17:01:36', 2, 'SELESAI', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -1101,8 +1127,7 @@ CREATE TABLE `surat_pengantar_hewan` (
 INSERT INTO `surat_pengantar_hewan` (`id_sph`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nama_hewan`, `jenis_kelamin_hewan`, `umur`, `warna_bulu`, `tanduk`, `tujuan`, `untuk`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (37, 'Surat Pengantar Hewan', '001/SPH/KODE-DESA/VI/2025', '7304041301120002', 97, 'EWAADDD', 'ADASDS', '355454', 'SDFF', 'SREWRDFDFD', '', '', '2025-06-19 15:53:46', 2, 'SELESAI', 1),
 (38, 'Surat Pengantar Hewan', '02/SPH/KODE-DESA/VI/2025', '7304041301120002', 98, 'EWAADDD', 'ADASDS', '355454', 'SDFF', '', 'dfdfds', 'dasdsae', '2025-06-19 16:02:20', 2, 'SELESAI', 1),
-(39, 'Surat Pengantar Hewan', '03/SPH/KODE-DESA/VI/2025', '7304047011770001', 99, 'EWAADDD', 'ADASDS', '355454', 'SDFF', '', 'dsssd', 'aadd', '2025-06-19 17:28:25', 1, 'SELESAI', 1),
-(40, 'Surat Pengantar Hewan', NULL, '7304047011770001', 100, 'dss', 'dfgdf', 'rere', 'dfgdfg', '', 'fdfdgfd', 'fdgdfgfgfg', '2025-06-19 17:28:46', NULL, 'PENDING', 1);
+(39, 'Surat Pengantar Hewan', '03/SPH/KODE-DESA/VI/2025', '7304047011770001', 99, 'EWAADDD', 'ADASDS', '355454', 'SDFF', '', 'dsssd', 'aadd', '2025-06-19 17:28:25', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1369,7 +1394,7 @@ ALTER TABLE `surat_pengantar_skck`
 -- AUTO_INCREMENT for table `arsip_surat`
 --
 ALTER TABLE `arsip_surat`
-  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `dusun`
@@ -1381,7 +1406,7 @@ ALTER TABLE `dusun`
 -- AUTO_INCREMENT for table `formulir_pengantar_nikah`
 --
 ALTER TABLE `formulir_pengantar_nikah`
-  MODIFY `id_fpn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_fpn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `formulir_permohonan_kehendak_nikah`
@@ -1435,7 +1460,7 @@ ALTER TABLE `profil_desa`
 -- AUTO_INCREMENT for table `surat_keterangan`
 --
 ALTER TABLE `surat_keterangan`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_beda_identitas`
@@ -1477,7 +1502,7 @@ ALTER TABLE `surat_keterangan_kematian`
 -- AUTO_INCREMENT for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
 --
 ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
-  MODIFY `id_skkkb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_skkkb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar`
@@ -1513,7 +1538,7 @@ ALTER TABLE `surat_keterangan_usaha`
 -- AUTO_INCREMENT for table `surat_lapor_hajatan`
 --
 ALTER TABLE `surat_lapor_hajatan`
-  MODIFY `id_slh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_slh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `surat_pengantar_hewan`
