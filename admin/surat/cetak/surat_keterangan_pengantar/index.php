@@ -382,7 +382,7 @@
 							// Variabel $id_pejabat_desa sudah berisi nilai 1 atau 2 (atau lainnya) dari database
 							if ($id_pejabat_desa == 1) {
 
-								echo '<span style="font-weight: bold; text-decoration: underline;">' . 
+								echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
 								htmlspecialchars($nama_pejabat_terpilih) . 
 								'</span>';
 
@@ -401,7 +401,7 @@
 								}
 								// Panggil nama dan jabatan pejabat dengan ID 2
 								if (isset($pejabat_data[2])) {
-									echo '<span style="font-weight: bold; text-decoration: underline;">' . 
+									echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
 									htmlspecialchars($pejabat_data[1]['nama']) . 
 									'</span>';
 								} else {
@@ -424,7 +424,7 @@
 						}
 
 					} else {
-						echo '<span style="font-weight: bold; text-decoration: underline;">' . 
+						echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
 									htmlspecialchars($pejabat_data[1]['nama']) . 
 									'</span>';
 					}

@@ -480,42 +480,51 @@
                 <!-- Daftar Jenis Surat -->
                 <div class="pilihan-surat mt-2" id="pilihan-<?php echo $row['nik']; ?>" style="display: none;">
                   <?php
-                      $nik = $row['nik'];
-                      $surat_urls = [
-                        'surat_keterangan',
-                        'surat_keterangan_berkelakuan_baik',
-                        'surat_keterangan_domisili',
-                        'surat_keterangan_kepemilikan_kendaraan_bermotor',
-                        'surat_keterangan_perhiasan',
-                        'surat_keterangan_usaha',
-                        'surat_lapor_hajatan',
-                        'surat_pengantar_skck',
-                        'surat_keterangan_tidak_mampu',
-                        'formulir_pengantar_nikah',
-                        'formulir_permohonan_kehendak_nikah',
-                        'formulir_persetujuan_calon_pengantin',
-                        'formulir_persetujuan_calon_pengantin_istri',
-                        'formulir_surat_izin_orang_tua',
-                        'surat_keterangan_kematian',
-                        'surat_keterangan_domisili_usaha',
-                        'surat_keterangan_pengantar',
-                        'surat_keterangan_beda_identitas',
-                        'surat_keterangan_beda_identitas_kis',
-                        'surat_keterangan_penghasilan_orang_tua',
-                        'surat_pengantar_hewan',
-                      ];
+                    $nik = $row['nik'];
 
-                      foreach ($surat_urls as $surat) {
-                          // Ubah format teks tombol dari snake_case ke Capitalized Words
-                          $label = ucwords(str_replace('_', ' ', $surat));
-                          echo '
-                          <form action="../../surat/' . $surat . '/info-surat.php" method="post" style="margin-bottom: 10px;">
-                              <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
-                              <button type="submit" class="btn-surat">' . $label . '</button>
-                          </form>';
-                      }
-                      ?>
+                    $surat_urls = [
+                      'surat_keterangan',
+                      'surat_keterangan_berkelakuan_baik',
+                      'surat_keterangan_domisili',
+                      'surat_keterangan_kepemilikan_kendaraan_bermotor',
+                      'surat_keterangan_perhiasan',
+                      'surat_keterangan_usaha',
+                      'surat_lapor_hajatan',
+                      'surat_pengantar_skck',
+                      'surat_keterangan_tidak_mampu',
+                      'formulir_pengantar_nikah',
+                      'formulir_permohonan_kehendak_nikah',
+                      'formulir_persetujuan_calon_pengantin',
+                      'formulir_persetujuan_calon_pengantin_istri',
+                      'formulir_surat_izin_orang_tua',
+                      'surat_keterangan_kematian',
+                      'surat_keterangan_domisili_usaha',
+                      'surat_keterangan_pengantar',
+                      'surat_keterangan_beda_identitas',
+                      'surat_keterangan_beda_identitas_kis',
+                      'surat_keterangan_penghasilan_orang_tua',
+                      'surat_pengantar_hewan',
+                    ];
+
+                    // Urutkan berdasarkan abjad
+                    sort($surat_urls);
+
+                    // Nomor lokal untuk daftar surat
+                    $noSurat = 1;
+
+                    foreach ($surat_urls as $surat) {
+                        // Ubah format teks tombol dari snake_case ke Capitalized Words
+                        $label = ucwords(str_replace('_', ' ', $surat));
+                        echo '
+                        <form action="../../surat/' . $surat . '/info-surat.php" method="post" style="margin-bottom: 10px;">
+                            <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
+                            <button type="submit" class="btn-surat">' . $noSurat++ . '. ' . $label . '</button>
+                        </form>';
+                    }
+                  ?>
+                  
                 </div>
+
               </td>
 
 

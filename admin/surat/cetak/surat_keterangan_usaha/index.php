@@ -358,7 +358,7 @@
 							// Variabel $id_pejabat_desa sudah berisi nilai 1 atau 2 (atau lainnya) dari database
 							if ($id_pejabat_desa == 1) {
 
-								echo '<span style="font-weight: bold; text-decoration: underline;">' . 
+								echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
 								htmlspecialchars($nama_pejabat_terpilih) . 
 								'</span>';
 
@@ -369,14 +369,14 @@
 									// Pastikan ini adalah path gambar yang valid
 									$url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
 									// Tampilkan gambar dalam tag <img>
-									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -90px">';
+									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -82px">';
 									echo "<br>";
 								} else {
 									echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
 								}
 								// Panggil nama dan jabatan pejabat dengan ID 2
 								if (isset($pejabat_data[2])) {
-									echo '<span style="font-weight: bold; text-decoration: underline;">' . 
+									echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
 									htmlspecialchars($pejabat_data[1]['nama']) . 
 									'</span>';
 								} else {
@@ -399,7 +399,7 @@
 						}
 
 					} else {
-						echo '<span style="font-weight: bold; text-decoration: underline;">' . 
+						echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
 									htmlspecialchars($pejabat_data[1]['nama']) . 
 									'</span>';
 					}
