@@ -121,247 +121,59 @@
 				}
 			</style>
 
-			
+				<?php
+				$suratFolders = [
+				"surat_keterangan",
+				"surat_keterangan_berkelakuan_baik",
+				"surat_keterangan_domisili",
+				"surat_keterangan_kepemilikan_kendaraan_bermotor",
+				"surat_keterangan_perhiasan",
+				"surat_keterangan_usaha",
+				"surat_lapor_hajatan",
+				"surat_pengantar_skck",
+				"surat_keterangan_tidak_mampu",
+				"formulir_pengantar_nikah",
+				"formulir_permohonan_kehendak_nikah",
+				"formulir_persetujuan_calon_pengantin",
+				"formulir_persetujuan_calon_pengantin_istri",
+				"formulir_surat_izin_orang_tua",
+				"surat_keterangan_kematian",
+				"surat_keterangan_domisili_usaha",
+				"surat_keterangan_pengantar",
+				"surat_keterangan_beda_identitas",
+				"surat_keterangan_beda_identitas_kis",
+				"surat_keterangan_penghasilan_orang_tua",
+				"surat_pengantar_hewan",
+				"surat_keterangan_kematian_dan_penguburan"
+				];
 
-			<!-- CSS untuk Popup -->
-				<style>
-				.popup-modal {
-					display: none;
-					position: fixed;
-					z-index: 9999;
-					left: 0;
-					top: 0;
-					width: 100%;
-					height: 100%;
-					background-color: rgba(0,0,0,0.5);
+				// Siapkan array baru berisi folder + judul
+				$daftarSurat = [];
+				foreach ($suratFolders as $folder) {
+				$judul = strtoupper(str_replace("_", " ", $folder));
+				$daftarSurat[] = ['folder' => $folder, 'judul' => $judul];
 				}
 
-				.popup-content {
-					background-color: #fff;
-					margin: 10% auto;
-					padding: 20px 30px;
-					border-radius: 8px;
-					width: 400px;
-					text-align: center;
-					position: relative;
-				}
+				// Urutkan berdasarkan abjad judul
+				usort($daftarSurat, function($a, $b) {
+				return strcmp($a['judul'], $b['judul']);
+				});
+				?>
 
-				.popup-content h5 {
-					margin-bottom: 20px;
-					font-size: 18px;
-				}
-
-				.popup-content a {
-					display: block;
-					margin: 8px 0;
-				}
-
-				.popup-note {
-					margin-top: 20px;
-					font-size: 13px;
-					text-align: left;
-					background: #f9f9f9;
-					padding: 10px;
-					border-radius: 6px;
-					border: 1px solid #ddd;
-				}
-
-				.popup-note b {
-					display: block;
-					margin-bottom: 5px;
-				}
-
-				.close-btn {
-					position: absolute;
-					top: 10px;
-					right: 15px;
-					font-size: 18px;
-					font-weight: bold;
-					cursor: pointer;
-				}
-				</style>
-
-				<!-- Kartu Surat dengan Button -->
-				<div class="col-sm-3 mt-4">
-				<div class="card surat-card text-center">
-					<div class="card-body text-center">
-					<h5 class="card-title">FORMULIR PENGANTAR NIKAH <br>(Model N1-N5)</h5><br>
-					<button class="btn btn-info" onclick="openPopup()">BUAT SURAT</button>
+				<div class="row">
+				<?php $no = 1; foreach ($daftarSurat as $surat): ?>
+					<div class="col-sm-3 mt-4">
+					<div class="card surat-card text-center">
+						<div class="card-body">
+						<h5 class="card-title"><?= $no++ . ". " . $surat['judul']; ?></h5>
+						<a href="<?= $surat['folder']; ?>/" class="btn btn-info mt-3">BUAT SURAT</a>
+						</div>
 					</div>
-				</div>
-				</div>
-
-				<!-- Popup Modal dengan 5 Link dan Keterangan -->
-				<div id="popup" class="popup-modal">
-				<div class="popup-content">
-					<span class="close-btn" onclick="closePopup()">&times;</span>
-					<h5>Pilih Jenis Formulir</h5>
-					<a href="formulir_pengantar_nikah/" class="btn btn-primary">Formulir N1</a>
-					<a href="formulir_permohonan_kehendak_nikah/" class="btn btn-warning">Formulir N2</a>
-					<a href="formulir_persetujuan_calon_pengantin/" class="btn btn-success">Formulir N4 - Pria</a>
-					<a href="formulir_persetujuan_calon_pengantin_istri/" class="btn btn-success">Formulir N4 - Wanita</a>
-					<a href="formulir_surat_izin_orang_tua/" class="btn btn-danger">Formulir N5</a>
-
-					<!-- Keterangan Formulir -->
-					<div class="popup-note">
-					<b>Keterangan Formulir :</b>
-					<span style="font-weight: bold;">Model N1 :</span> Formulir Pengantar Nikah <br>
-					<span style="font-weight: bold;">Model N2 :</span> Formulir Permohonan Kehendak Nikah
-					<span style="font-weight: bold;">Model N4 :</span> Formulir Persetujuan Calon Pengantin
-					<span style="font-weight: bold;">Model N5 :</span> Formulir Surat Izin Orang Tua
 					</div>
+				<?php endforeach; ?>
 				</div>
-				</div>
 
-				<!-- Script untuk Popup -->
-				<script>
-				function openPopup() {
-					document.getElementById("popup").style.display = "block";
-				}
 
-				function closePopup() {
-					document.getElementById("popup").style.display = "none";
-				}
-
-				window.onclick = function(event) {
-					const popup = document.getElementById("popup");
-					if (event.target == popup) {
-					popup.style.display = "none";
-					}
-				}
-				</script>
-
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT PENGANTAR HEWAN</h5><br>
-		        		<a href="surat_pengantar_hewan/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN BEDA IDENTITAS</h5><br>
-		        		<a href="surat_keterangan_beda_identitas/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN BEDA IDENTITAS KIS</h5><br>
-		        		<a href="surat_keterangan_beda_identitas_kis/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
-		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5><br>
-		        		<a href="surat_keterangan_domisili/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-
-			<div class="col-sm-3 mt-4">
-			<div class="card surat-card text-center">
-				<div class="card-body">
-				<h5 class="card-title">SURAT KETERANGAN DOMISILI USAHA</h5><br>
-				<a href="surat_keterangan_domisili_usaha/" class="btn btn-info">BUAT SURAT</a>
-				</div>
-			</div>
-			</div>
-
-			<div class="col-sm-3 mt-4">
-			<div class="card surat-card text-center">
-				<div class="card-body">
-				<h5 class="card-title">SURAT KETERANGAN PENGHASILAN ORANG TUA</h5><br>
-				<a href="surat_keterangan_penghasilan_orang_tua/" class="btn btn-info">BUAT SURAT</a>
-				</div>
-			</div>
-			</div>
-
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN PENGANTAR</h5><br>
-		        		<a href="surat_keterangan_pengantar/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN</h5><br>
-		        		<a href="surat_keterangan/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN KEMATIAN</h5><br>
-		        		<a href="surat_keterangan_kematian/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN BERKELAKUAN BAIK</h5><br>
-		        		<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</h5><br>
-		        		<a href="surat_keterangan_kepemilikan_kendaraan_bermotor/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN PERHIASAN</h5><br>
-		        		<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT LAPOR HAJATAN</h5><br>
-		        		<a href="surat_lapor_hajatan/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT PENGANTAR SKCK</h5><br>
-		        		<a href="surat_pengantar_skck/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
-			<div class="col-sm-3 mt-4">
-		    	<div class="card surat-card text-center">
-		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN TIDAK MAMPU</h5><br>
-		        		<a href="surat_keterangan_tidak_mampu/" class="btn btn-info">BUAT SURAT</a>
-		      		</div>
-		    	</div>
-		  	</div>
 		</div>
 	</div>
 </div>

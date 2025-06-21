@@ -24,40 +24,39 @@ $suratTables = [
     'surat_keterangan_beda_identitas',
     'surat_keterangan_beda_identitas_kis',
     'surat_keterangan_penghasilan_orang_tua',
-    'surat_pengantar_hewan'
+    'surat_pengantar_hewan',
+    'surat_keterangan_kematian_dan_penguburan'
 ];
 
-$query = "";
+$unionParts = [];
+$whereClause = " WHERE status_surat='selesai'"; // Kondisi status_surat untuk setiap tabel surat
+
 $reportTitle = 'Laporan Surat Administrasi Desa - Surat Keluar';
 $reportSubtitle = '';
 $headerFontSize = '14pt';
 $headerImage = '';
 
+// Inisialisasi kondisi filter berdasarkan GET parameters
 if (isset($_GET['filter']) && !empty($_GET['filter'])) {
     $filter = $_GET['filter'];
-    $queryConditions = [];
     $headerFontSize = '12pt'; // Ukuran font lebih kecil untuk filter tertentu
 
-    foreach ($suratTables as $table) {
-        $baseSelect = "SELECT arsip_surat.nama, arsip_surat.dusun, arsip_surat.desa, arsip_surat.rw, T.no_surat, T.tanggal_surat, T.jenis_surat FROM arsip_surat LEFT JOIN {$table} T ON T.nik = arsip_surat.nik WHERE T.status_surat='selesai'";
-        $condition = '';
-
-        if ($filter == '2' && isset($_GET['tanggal'])) {
-            $condition = " AND DATE(T.tanggal_surat)='" . mysqli_real_escape_string($connect, $_GET['tanggal']) . "'";
-            $tgl = date('d-m-Y', strtotime($_GET['tanggal']));
-            $reportSubtitle = "<div align=\"center\" style=\"font-size: 12pt;\"><b>Tanggal {$tgl}</b></div>";
-        } elseif ($filter == '3' && isset($_GET['bulan']) && isset($_GET['tahun'])) {
-            $condition = " AND MONTH(T.tanggal_surat)='" . mysqli_real_escape_string($connect, $_GET['bulan']) . "' AND YEAR(T.tanggal_surat)='" . mysqli_real_escape_string($connect, $_GET['tahun']) . "'";
-            $nama_bulan = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-            $reportSubtitle = "<div align=\"center\" style=\"font-size: 12pt;\"><b>Bulan {$nama_bulan[$_GET['bulan']]} {$_GET['tahun']}</b></div>";
-        } elseif ($filter == '4' && isset($_GET['tahun'])) {
-            $condition = " AND YEAR(T.tanggal_surat)='" . mysqli_real_escape_string($connect, $_GET['tahun']) . "'";
-            $reportSubtitle = "<div align=\"center\" style=\"font-size: 12pt;\"><b>Tahun {$_GET['tahun']}</b></div>";
-        }
-        $queryConditions[] = $baseSelect . $condition;
+    if ($filter == '2' && isset($_GET['tanggal'])) {
+        $date = mysqli_real_escape_string($connect, $_GET['tanggal']);
+        $whereClause .= " AND DATE(tanggal_surat) = '{$date}'";
+        $tgl = date('d-m-Y', strtotime($_GET['tanggal']));
+        $reportSubtitle = "<div align=\"center\" style=\"font-size: 12pt;\"><b>Tanggal {$tgl}</b></div>";
+    } elseif ($filter == '3' && isset($_GET['bulan']) && isset($_GET['tahun'])) {
+        $bulan = mysqli_real_escape_string($connect, $_GET['bulan']);
+        $tahun = mysqli_real_escape_string($connect, $_GET['tahun']);
+        $whereClause .= " AND MONTH(tanggal_surat) = '{$bulan}' AND YEAR(tanggal_surat) = '{$tahun}'";
+        $nama_bulan = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        $reportSubtitle = "<div align=\"center\" style=\"font-size: 12pt;\"><b>Bulan {$nama_bulan[$_GET['bulan']]} {$_GET['tahun']}</b></div>";
+    } elseif ($filter == '4' && isset($_GET['tahun'])) {
+        $tahun = mysqli_real_escape_string($connect, $_GET['tahun']);
+        $whereClause .= " AND YEAR(tanggal_surat) = '{$tahun}'";
+        $reportSubtitle = "<div align=\"center\" style=\"font-size: 12pt;\"><b>Tahun {$_GET['tahun']}</b></div>";
     }
-    $query = implode(" UNION ", $queryConditions) . " ORDER BY tanggal_surat";
-
 } else {
     // Default case (no filter)
     $queryProfil = mysqli_query($connect, "SELECT gambar_kop FROM profil_desa LIMIT 1");
@@ -66,14 +65,39 @@ if (isset($_GET['filter']) && !empty($_GET['filter'])) {
     $headerImage = '<img src="../../assets/img/' . $gambar_kop . '" style="max-width: 120px; height: auto;">';
     $reportTitle = 'Laporan Surat Administrasi Desa'; // Mengubah judul untuk case default
     $headerFontSize = '12pt';
-
-    $queryConditions = [];
-    foreach ($suratTables as $table) {
-        $baseSelect = "SELECT arsip_surat.nama, arsip_surat.dusun, arsip_surat.desa, arsip_surat.rw, T.no_surat, T.tanggal_surat, T.jenis_surat FROM arsip_surat LEFT JOIN {$table} T ON T.nik = arsip_surat.nik WHERE T.status_surat='selesai'";
-        $queryConditions[] = $baseSelect;
-    }
-    $query = implode(" UNION ", $queryConditions) . " ORDER BY tanggal_surat";
 }
+
+// Bangun bagian UNION untuk setiap tabel surat
+foreach ($suratTables as $table) {
+    // *** Perubahan di sini: Menambahkan DISTINCT pada setiap SELECT UNION part ***
+    // Ini memastikan bahwa setiap baris dari sumbernya sudah unik sebelum digabungkan
+    $unionParts[] = "SELECT DISTINCT nik, no_surat, tanggal_surat, jenis_surat FROM {$table} {$whereClause}";
+}
+
+// Gabungkan semua bagian UNION menjadi subquery
+// Menggunakan UNION ALL untuk performa, DISTINCT/GROUP BY akan dihandle di query akhir
+$unionSubquery = "(" . implode(" UNION ALL ", $unionParts) . ") AS T_UNION";
+
+// Query utama yang akan melakukan JOIN dengan arsip_surat dan kemudian GROUP BY
+$query = "
+    SELECT
+        T_UNION.nik,
+        T_UNION.no_surat,
+        T_UNION.tanggal_surat,
+        T_UNION.jenis_surat,
+        arsip_surat.nama,
+        arsip_surat.dusun,
+        arsip_surat.rt,
+        arsip_surat.rw
+    FROM
+        {$unionSubquery}
+    LEFT JOIN
+        arsip_surat ON T_UNION.nik = arsip_surat.nik
+    WHERE arsip_surat.nama IS NOT NULL -- Pastikan hanya data yang memiliki nama (join berhasil)
+    GROUP BY T_UNION.no_surat, T_UNION.jenis_surat -- Menambahkan jenis_surat ke GROUP BY untuk memastikan keunikan jika no_surat bisa sama antar jenis surat
+    ORDER BY T_UNION.tanggal_surat ASC, T_UNION.no_surat ASC
+";
+
 ?>
 
 <html>
@@ -119,9 +143,12 @@ if (isset($_GET['filter']) && !empty($_GET['filter'])) {
     </tr>
     <?php
       $sql = mysqli_query($connect, $query);
-      $row = mysqli_num_rows($sql);
+      if (!$sql) {
+          die('Query Error: ' . mysqli_error($connect) . '<br>Query: ' . $query);
+      }
+      $row_count = mysqli_num_rows($sql);
       $no = 1; // Inisialisasi nomor
-      if($row > 0){
+      if($row_count > 0){
         while($data = mysqli_fetch_assoc($sql)){
           $tgl = date('d-m-Y', strtotime($data['tanggal_surat']));
           echo "<tr>";
@@ -130,7 +157,7 @@ if (isset($_GET['filter']) && !empty($_GET['filter'])) {
           echo "<td>".$tgl."</td>";
           echo "<td>".ucwords(strtolower($data['nama']))."</td>";
           echo "<td>".$data['jenis_surat']."</td>";
-          echo "<td> ".ucwords(strtolower($data['dusun']))."</td>";
+          echo "<td>Dusun ".ucwords(strtolower($data['dusun']))." RT ".ucwords(strtolower($data['rt']))." RW ".ucwords(strtolower($data['rw']))."</td>";
           echo "</tr>";
         }
       }else{

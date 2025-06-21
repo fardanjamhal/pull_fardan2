@@ -27,7 +27,6 @@ ini_set('display_errors', 1); // Tampilkan error di browser
       }
   }
 
-  // --- START MODIFICATION HERE ---
   // Construct the base URL for pagination links, ensuring it starts with '?' if parameters exist
   $pagination_base_url = $base_url;
   $existing_params_string = http_build_query($query_params);
@@ -35,7 +34,6 @@ ini_set('display_errors', 1); // Tampilkan error di browser
   if (!empty($existing_params_string)) {
       $pagination_base_url .= '?' . $existing_params_string;
   }
-  // --- END MODIFICATION HERE ---
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -309,7 +307,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                           'surat_keterangan_beda_identitas',
                           'surat_keterangan_beda_identitas_kis',
                           'surat_keterangan_penghasilan_orang_tua',
-                          'surat_pengantar_hewan'
+                          'surat_pengantar_hewan',
+                          'surat_keterangan_kematian_dan_penguburan'
                         ];
 
                         $query_tahun_parts = [];
@@ -362,7 +361,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
             'surat_keterangan_beda_identitas',
             'surat_keterangan_beda_identitas_kis',
             'surat_keterangan_penghasilan_orang_tua',
-            'surat_pengantar_hewan'
+            'surat_pengantar_hewan',
+            'surat_keterangan_kematian_dan_penguburan'
           ];
 
           // Array untuk menyimpan bagian UNION query
@@ -383,8 +383,9 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           }
 
           foreach ($daftar_tabel_surat as $tabel) {
+            // Menggunakan DISTINCT di dalam setiap subquery UNION untuk memastikan keunikan setiap baris dari sumbernya
             $union_parts_select[] = "
-              SELECT nik, no_surat, tanggal_surat, jenis_surat
+              SELECT DISTINCT nik, no_surat, tanggal_surat, jenis_surat
               FROM $tabel
               WHERE status_surat = 'selesai' " . $union_where_clause . "
             ";
@@ -393,10 +394,9 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           $union_subquery_sql = implode(" UNION ALL ", $union_parts_select);
 
           // Query utama menggabungkan hasil UNION dengan tabel arsip_surat untuk mendapatkan detail penduduk
-          // Menggunakan DISTINCT untuk menghindari duplikasi data surat itu sendiri jika ada di UNION ALL
           // Penting: Ganti 'arsip_surat' dengan 'penduduk' jika informasi nama/alamat ada di tabel penduduk
           $main_query_base = "
-            SELECT DISTINCT
+            SELECT
               t_union.nik,
               t_union.no_surat,
               t_union.tanggal_surat,
@@ -414,8 +414,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
 
           // Hitung total record
           // Query untuk menghitung total records harus dijalankan pada keseluruhan hasil yang sudah difilter
-          // Tidak perlu membuat subquery baru untuk COUNT, langsung hitung dari hasil main_query_base
-          $total_records_query = "SELECT COUNT(*) AS total FROM ($main_query_base) AS final_results"; // Alias berbeda untuk subquery COUNT
+          // Perbaikan: Menambahkan jenis_surat ke COUNT(DISTINCT) agar hitungan lebih akurat jika no_surat bisa sama antar jenis surat
+          $total_records_query = "SELECT COUNT(*) AS total FROM (SELECT DISTINCT no_surat, jenis_surat FROM ($main_query_base) AS temp_final_results) AS final_distinct_results";
           $total_records_result = mysqli_query($connect, $total_records_query);
           if (!$total_records_result) {
               die('Error menghitung total records: ' . mysqli_error($connect) . '<br>Query: ' . $total_records_query);
@@ -442,7 +442,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
               <?php
                 // Query untuk menampilkan data dengan pagination
                 // ORDER BY dan LIMIT diterapkan pada hasil akhir yang sudah digabungkan dan difilter
-                $query = $main_query_base . " ORDER BY t_union.tanggal_surat DESC LIMIT $offset, $limit";
+                // Perbaikan: Menambahkan t_union.jenis_surat ke GROUP BY untuk memastikan keunikan kombinasi no_surat dan jenis_surat
+                $query = $main_query_base . " GROUP BY t_union.no_surat, t_union.jenis_surat ORDER BY t_union.tanggal_surat DESC LIMIT $offset, $limit";
                 $sql = mysqli_query($connect, $query);
 
                 if (!$sql) { // Pengecekan error query
@@ -462,9 +463,9 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                       <td><?php echo $no++;?></td>
                         <td>
                           <?php echo $data['no_surat']; ?>
-                              <button 
-                                onclick="salinTeks('<?php echo $data['no_surat']; ?>')" 
-                                  title="Salin" 
+                              <button
+                                onclick="salinTeks('<?php echo $data['no_surat']; ?>')"
+                                  title="Salin"
                                   style="margin-left: 5px; background: none; border: none; cursor: pointer; font-size: 16px;">
                                     📋
                               </button>
@@ -485,13 +486,10 @@ ini_set('display_errors', 1); // Tampilkan error di browser
         </div>
 
 
-                        
-        
-
 
         <div class="row">
             <div class="col-md-6">
-                <p>Menampilkan <?php echo min($limit, $total_records - $offset); ?> dari <?php echo $total_records; ?> data.</p>
+                <p>Menampilkan <?php echo min($limit, mysqli_num_rows($sql)); ?> dari <?php echo $total_records; ?> data.</p>
             </div>
 
             <div class="col-md-6 text-right">
@@ -519,9 +517,7 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                         $start_page = max(1, $end_page - $max_pages_to_show + 1);
                     }
 
-                    // --- START MODIFICATION HERE ---
                     $first_param_char = strpos($pagination_base_url, '?') === false ? '?' : '&';
-                    // --- END MODIFICATION HERE ---
 
                     if ($page > 1): ?>
                         <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . ($page - 1) . '&limit=' . $limit; ?>">Previous</a></li>
