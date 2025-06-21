@@ -122,6 +122,7 @@
 
   <div class="form-center-wrapper">
     <div class="form-container">
+      <p>Petunjuk : beri tanda * (bintang) untuk buat baris baru pada alamat</p>
       <form action="update_profil_desa.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id_profil_desa" value="<?php echo $data['id_profil_desa']; ?>">
 
