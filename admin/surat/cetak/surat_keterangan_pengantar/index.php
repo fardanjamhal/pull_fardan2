@@ -161,10 +161,10 @@
 			<td>:</td>
 			<td style="text-align: justify;">
 				<?php
-				$alamat = $row['jalan'] . " rt " . $row['rt'] . " / rw " . $row['rw'] . ", dusun " . $row['dusun'] . " desa " . $row['desa'] . " kecamatan " . $row['kecamatan'] . " " . $row['kota'];
-				$alamat = ucwords(strtolower($alamat));
-				$alamat = str_replace(['Rt', 'Rw'], ['RT', 'RW'], $alamat);
-				echo $alamat;
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
 				?>
 			</td>
 			<tr>

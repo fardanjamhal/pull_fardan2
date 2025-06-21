@@ -199,12 +199,13 @@
 			<td>:</td>
 			<td style="text-align: justify;">
 				<?php
-				$alamat = $row['jalan'] . " rt " . $row['rt'] . " / rw " . $row['rw'] . ", dusun " . $row['dusun'] . " desa " . $row['desa'] . " kecamatan " . $row['kecamatan'] . " " . $row['kota'];
-				$alamat = ucwords(strtolower($alamat));
-				$alamat = str_replace(['Rt', 'Rw'], ['RT', 'RW'], $alamat);
-				echo $alamat;
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
 				?>
 			</td>
+
 			</tr>
 		</table>
 
@@ -225,12 +226,31 @@
 			<td class="indentasi" style="text-align: justify;">
 			&nbsp;&nbsp;Benar nama yang tersebut diatas adalah warga  
 			<?php
-				$alamat = $row['jalan'] . " desa " . $row['desa'] . " kecamatan " . $row['kecamatan'] . " " . $row['kota'];
+				$alamatParts = [];
+				// Jalan
+				if (!empty($row['jalan'])) {
+					$alamatParts[] = $row['jalan'];
+				}
+				// Desa
+				if (!empty($row['desa'])) {
+					$alamatParts[] = "Desa " . $row['desa'];
+				}
+				// Kecamatan
+				if (!empty($row['kecamatan'])) {
+					$alamatParts[] = "Kecamatan " . $row['kecamatan'];
+				}
+				// Kota (Kabupaten)
+				if (!empty($row['kota'])) {
+					$alamatParts[] = "Kabupaten " . $row['kota'];
+				}
+				// Gabungkan seluruh bagian
+				$alamat = implode(", ", $alamatParts);
+				// Kapitalisasi awal kata
 				$alamat = ucwords(strtolower($alamat));
+				// Pastikan RT dan RW tetap huruf besar jika ada di teks
 				$alamat = str_replace(['Rt', 'Rw'], ['RT', 'RW'], $alamat);
 				echo $alamat;
 				?>
-
 			yang akan membawa hewan ternak berupa :
 			</td>
 		</tr>

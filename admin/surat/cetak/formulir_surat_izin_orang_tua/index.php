@@ -262,10 +262,10 @@
 			<td>:</td>
 			<td style="text-align: justify;">
 				<?php
-				$alamat = $row['jalan'] . " rt " . $row['rt'] . " / rw " . $row['rw'] . ", dusun " . $row['dusun'];
-				$alamat = ucwords(strtolower($alamat));
-				$alamat = str_replace(['Rt', 'Rw'], ['RT', 'RW'], $alamat);
-				echo $alamat;
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
 				?>
 			</td>
 		</tr>
@@ -299,7 +299,7 @@
 					<td style="width: 4%;"></td>
 					<br>
 					<!-- Kolom Kanan -->
-					<td style="width: 46%; padding-right: 30px; vertical-align: top;">
+					<td style="width: 50%; padding-right: 30px; vertical-align: top;">
 						<!-- Tanggal di kanan -->
 						<div style="text-align: right; margin-bottom: 5px;">
 							<?php echo $rows['nama_desa']; ?>,

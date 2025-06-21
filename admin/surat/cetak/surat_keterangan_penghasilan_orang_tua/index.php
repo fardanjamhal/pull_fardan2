@@ -181,12 +181,14 @@
 				<td style="width: 3.90545%; text-align: left; vertical-align: top; height: 22.4px;">11.</td>
 				<td style="width: 30.5242%; text-align: left; vertical-align: top; height: 22.4px;">Alamat</td>
 				<td style="width: 1.2333%; text-align: center; vertical-align: top; height: 22.4px;">:</td>
-				<td style="width: 60.0206%; text-align: justify; vertical-align: top; height: 22.4px;"><?php
-				$alamat = $row['jalan'] . " rt " . $row['rt'] . " / rw " . $row['rw'] . ", dusun " . $row['dusun'] . " desa " . $row['desa'] . " kecamatan " . $row['kecamatan'] . " " . $row['kota'];
-				$alamat = ucwords(strtolower($alamat));
-				$alamat = str_replace(['Rt', 'Rw'], ['RT', 'RW'], $alamat);
-				echo $alamat;
-				?></td></td>
+				<td style="width: 60.0206%; text-align: justify; vertical-align: top; height: 22.4px;">
+					<?php
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
+				?>
+				</td></td>
 				</tr>
 				</tbody>
 				</table>

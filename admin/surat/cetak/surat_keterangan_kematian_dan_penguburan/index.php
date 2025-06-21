@@ -197,25 +197,11 @@
 			<td>:</td>
 			<td style="text-align: justify;">
 				<?php
-					$alamat = '';
-					if (!empty($row['jalan'])) {
-						$alamat .= $row['jalan'] . ' ';
-					}
-					if (!empty($row['dusun'])) {
-						$alamat .= 'Dusun ' . $row['dusun'] . ' ';
-					}
-					if (!empty($row['desa'])) {
-						$alamat .= 'Desa ' . $row['desa'] . ' ';
-					}
-					if (!empty($row['kecamatan'])) {
-						$alamat .= 'Kecamatan ' . $row['kecamatan'] . ' ';
-					}
-					if (!empty($row['kota'])) {
-						$alamat .= $row['kota'];
-					}
-						$alamat = ucwords(strtolower(trim($alamat)));
-						echo $alamat;
-					?>
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
+				?>
 			</td>
 			</tr>
 			</table>

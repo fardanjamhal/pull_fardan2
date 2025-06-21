@@ -128,7 +128,14 @@
 			<tr>
 				<td class="indentasi">Alamat</td>
 				<td>:</td>
-				<td><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></td>
+				<td>
+					<?php
+					include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+					// Pastikan $row sudah berisi data dari database sebelumnya
+					echo formatAlamatLengkap($row);
+					?>
+				</td>
 			</tr>
 			<tr>
 				<td class="indentasi">Kewarganegaraan</td>
@@ -145,9 +152,9 @@
 		</table>
 		<table width="100%">
 			<tr>
-				<td width="35%" class="indentasi">Merk / Type</td>
+				<td width="30%" class="indentasi">Merk / Type</td>
 				<td width="2%">:</td>
-				<td width="63%" style="text-transform: uppercase;"><?php echo $row['merk_type']; ?></td>
+				<td width="70%" style="text-transform: uppercase;"><?php echo $row['merk_type']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Jenis Model</td>
@@ -379,7 +386,7 @@
 									// Pastikan ini adalah path gambar yang valid
 									$url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
 									// Tampilkan gambar dalam tag <img>
-									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -66px">';
+									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -84px">';
 									echo "<br>";
 								} else {
 									echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";

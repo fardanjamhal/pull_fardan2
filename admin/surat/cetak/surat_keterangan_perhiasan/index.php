@@ -133,7 +133,14 @@
 			<tr>
 				<td class="indentasi">Alamat</td>
 				<td>:</td>
-				<td><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></td>
+				<td>
+					<?php
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
+				?>
+				</td>
 			</tr>
 		</table>
 		<br>

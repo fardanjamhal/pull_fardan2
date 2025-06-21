@@ -150,12 +150,14 @@
 			?>
 			<td><?php echo ucwords(strtolower($row['tempat_lahir'])) . ", " . $tgl . ucwords(strtolower($blnIndo[$bln])) . $thn; ?></td>
 			<td><?php echo strtoupper($row['pekerjaan']); ?></td>
-			<td><?php
-				$alamat = $row['jalan'] . " rt " . $row['rt'] . " / rw " . $row['rw'] . ", dusun " . $row['dusun'] . " desa " . $row['desa'];
-				$alamat = ucwords(strtolower($alamat));
-				$alamat = str_replace(['Rt', 'Rw'], ['RT', 'RW'], $alamat);
-				echo $alamat;
-				?></td>
+			<td>
+				<?php
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
+				?>
+				</td>
 			</tr>
 			<!-- Tambahkan baris lain jika perlu -->
 		</tbody>
