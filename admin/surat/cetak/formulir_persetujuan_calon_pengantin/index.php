@@ -88,10 +88,30 @@
 				<td>:</td>
 				<td><?php echo ucwords(strtolower($row['nik'])); ?></td>
 			</tr>
+			<?php
+				$tgl_lhr = date($row['tgl_lahir']);
+				$tgl = date('d ', strtotime($tgl_lhr));
+				$bln = date('F', strtotime($tgl_lhr));
+				$thn = date(' Y', strtotime($tgl_lhr));
+				$blnIndo = array(
+				    'January' => 'Januari',
+				    'February' => 'Februari',
+				    'March' => 'Maret',
+				    'April' => 'April',
+				    'May' => 'Mei',
+				    'June' => 'Juni',
+				    'July' => 'Juli',
+				    'August' => 'Agustus',
+				    'September' => 'September',
+				    'October' => 'Oktober',
+				    'November' => 'November',
+				    'December' => 'Desember'
+				);
+			?>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;4. Tempat dan tanggal lahir</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['tgl_lahir'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['tempat_lahir'])) . ", " . $tgl . ucwords(strtolower($blnIndo[$bln])) . $thn; ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;5. Kewarganegaraan</td>

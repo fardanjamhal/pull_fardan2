@@ -43,121 +43,82 @@
 <body class="bg-light">
 	<div>
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand ml-4 mt-1" href="../">
+	<!-- NAVBAR -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg py-1" style="background: linear-gradient(90deg, #0d47a1, #1976d2); box-shadow: 0 4px 12px rgba(0,174,255,0.4);">
+		<a class="navbar-brand d-flex align-items-center ml-3" href="#">
+			<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo" style="width: 45px; margin-right: 10px;">
+		</a>
 
-			<?php
-			include('../config/koneksi.php');
+		<button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarContent">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
-			$data = mysqli_fetch_assoc($query);
-			?>
-			<div style="position: absolute; top: 50%; left: 10%; transform: translate(-50%, -50%);">
-			<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 50px; height: auto;">
-			</div>
-			<hr>
-
-			</a>
-			<button
-				class="navbar-toggler mr-4 mt-3"
-				type="button"
-				data-toggle="collapse"
-				data-target="#navbarTogglerDemo02"
-				aria-controls="navbarTogglerDemo02"
-				aria-expanded="false"
-				aria-label="Toggle navigation"
-			>
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-				<ul
-					class="navbar-nav ml-auto mt-lg-3 mr-5 position-relative text-right"
-				>
-					<li class="nav-item">
-						<a class="nav-link" href="../">HOME</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="../surat">BUAT SURAT</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="#"
-							><i class="fas fa-info-circle"></i>&nbsp;TENTANG
-							<b>e-SuratDesa</b></a
-						>
-					</li>
-					<li class="nav-item active ml-5">
-						<?php
-						session_start();
-
-						if (empty($_SESSION['username'])) {
-							echo
-								'<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
-						} else if (isset($_SESSION['lvl'])) {
-							echo
-								'<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i> ' .
-								$_SESSION['lvl'] .
-								'</a>';
-							echo
-								'<a class="btn btn-transparent text-light" href="../login/logout.php"><i class="fas fa-power-off"></i></a>';
-						}
-						?>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		
-	</div>
-
-	<div class="container-fluid">
-		<div class="container shadow p-3 mb-5 mt-lg-5 bg-white rounded">
-			<div
-				style="
-					max-height: cover;
-					padding-top: 30px;
-					padding-bottom: 60px;
-					position: relative;
-					min-height: 100%;
-				"
-			>
-				<div class="card-body">
-					<div class="card-text">
-						<p>
-							<label style="font-weight: 700; font-size: 25px"
-								><i class="fas fa-info-circle"></i> APA ITU e-SuratDesa?</label
-							>
-							<hr />
-							<blockquote>
-								Web Aplikasi untuk pelayanan surat administrasi desa yang
-								dikembangkan oleh
-								<b
-									><a href="#" style="text-decoration: none"
-										>Desa Digital</a
-									></b
-								>
-								untuk mempermudah penduduk dalam pembuatan surat administrasi
-								desa secara online.
-								<br /><br />
-							</blockquote>
-						</p>
-						<br />
-					</div>
-					<br /><br /><br />
-			</div>
+			<div class="collapse navbar-collapse justify-content-end text-right" id="navbarContent">
+			<ul class="navbar-nav ml-auto text-right ">
+			<li class="nav-item mx-2">
+				<a class="nav-link text-light" href="../"><i class="fas fa-home"></i> Beranda</a>
+			</li>
+			<li class="nav-item mx-2">
+				<a class="nav-link text-light" href="../surat/"><i class="fas fa-envelope-open-text"></i> Buat Surat</a>
+			</li>
+			<li class="nav-item mx-2">
+				<a class="nav-link text-light" href="../tentang/"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+			</li>
+			<li class="nav-item mx-2 mt-1">
+				<?php
+				session_start();
+				if (empty($_SESSION['username'])) {
+				echo '<a class="btn btn-outline-light btn-sm" href="../login/"><i class="fas fa-sign-in-alt"></i> Login</a>';
+				} else if (isset($_SESSION['lvl'])) {
+				echo '<a class="btn btn-outline-light btn-sm mr-2" href="admin/"><i class="fas fa-user-shield"></i> ' . $_SESSION['lvl'] . '</a>';
+				echo '<a class="btn btn-danger btn-sm" href="login/logout.php"><i class="fas fa-sign-out-alt"></i></a>';
+				}
+				?>
+			</li>
+			</ul>
 		</div>
-		<div class="card-footer py-2 bg-transparent text-center">
-			<div class="footer bg-transparent text-center">
-				<span class="text-dark">
-				<strong>&copy; <span id="year"></span> 
-					<a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa</a>
-				</strong>
-				</span>
-			</div>
-			<script>
-				document.getElementById("year").textContent = new Date().getFullYear();
-			</script>
+		</nav>
+
+
 	</div>
-	</div>
+
+	<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 91vh;">
+  <div class="container shadow p-3 mb-5 bg-white rounded" style="max-width: 800px;">
+    <div style="padding-top: 30px; padding-bottom: 60px; position: relative;">
+      <div class="card-body">
+        <div class="card-text">
+          <p>
+            <label style="font-weight: 700; font-size: 25px">
+              <i class="fas fa-info-circle"></i> APA ITU DIGITALISASI?
+            </label>
+            <hr />
+            <blockquote>
+              Web Aplikasi untuk pelayanan surat administrasi desa yang
+              dikembangkan oleh
+              <b><a href="#" style="text-decoration: none">Desa Digital</a></b>
+              untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
+            </blockquote>
+          </p>
+        </div>
+      </div>
+      <div class="card-footer py-2 bg-transparent text-center">
+        <div class="footer bg-transparent text-center">
+          <span class="text-dark">
+            <strong>&copy; <span id="year"></span> 
+              <a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa</a>
+            </strong>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+	
 
 	
 
