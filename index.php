@@ -103,6 +103,7 @@
 			}
 			}
 	</style>
+
 </head>
 <body>
 
@@ -123,7 +124,6 @@
   	<img src="assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 50px; height: auto;">
 	</a>
 	<hr>
-
 
 		
 	</a>
@@ -158,38 +158,146 @@
 	
 </nav>
 
+
+			<style>
+			/* Efek logo mengambang */
+			.logo-box {
+			background: rgba(255, 255, 255, 0.05);
+			border-radius: 16px;
+			padding: 15px 25px;
+			box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+			width: fit-content;
+			}
+
+			.logo-img {
+			width: 100px;
+			height: auto;
+			}
+
+			/* Teks ketik */
+			.glow-title {
+			font-family: monospace;
+			font-weight: bold;
+			font-size: 2.5rem;
+			color: white;
+			min-height: 3.5rem;
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			position: relative;
+			}
+
+			.cursor {
+			display: inline-block;
+			color: white;
+			animation: blink 0.7s steps(1) infinite;
+			font-size: 2.5rem;
+			position: relative;
+			top: -4px;
+			}
+
+			@keyframes blink {
+			0%, 100% { opacity: 1; }
+			50% { opacity: 0; }
+			}
+
+			/* Tombol modern */
+			.btn-surat {
+			background: linear-gradient(135deg, #00c6ff, #0072ff);
+			color: white;
+			padding: 12px 30px;
+			font-size: 1.1rem;
+			font-weight: bold;
+			border-radius: 30px;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			}
+
+			.btn-surat:hover {
+			background: linear-gradient(135deg, #0072ff, #00c6ff);
+			box-shadow: 0 6px 25px rgba(0, 114, 255, 0.6);
+			transform: translateY(-2px);
+			}
+
+			@media screen and (max-width: 576px) {
+					.container {
+						padding-top: 0 !important;
+						min-height: 80vh;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+					}
+
+					.logo-box {
+						margin-bottom: 20px; /* Jarak antara logo dan teks */
+					}
+
+					.glow-title {
+						font-size: 1.3rem;
+						min-height: 2rem;
+						justify-content: center;
+						text-align: center;
+						margin-bottom: 20px; /* Jarak antara teks dan tombol */
+					}
+
+					.cursor {
+						font-size: 1.3rem;
+						top: -2px;
+					}
+
+					.logo-img {
+						width: 80px;
+					}
+
+					.btn-surat {
+						font-size: 1rem;
+						padding: 10px 20px;
+						text-align: center;
+						margin-bottom: -18px; /* Jarak jika ada elemen di bawah tombol */
+					}
+					}
+
+			</style>
+
+
 <!-- KONTEN -->
-<div class="container" style="padding-top:20vh; padding-bottom:120px" align="center">
-	<div class="glow-title mb-4">Sistem Pelayanan Administrasi</div>
+<?php
+include('config/koneksi.php');
 
-	<?php
-	include('config/koneksi.php');
+// Ambil data profil desa
+$query = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = 1");
+$row = mysqli_fetch_assoc($query);
 
-	$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
-	$data = mysqli_fetch_assoc($query);
-	?>
-	<img src="assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="width: 120px; height: auto;"><hr>
-	
-	<?php  
-		include('config/koneksi.php');
-		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
-		foreach($qTampilDesa as $row){
-	?>
-	
-	<p class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong><?php echo $row['nama_desa']; ?></strong></p>
-	<a class="text-light" style="font-size:18pt; text-transform: uppercase;"><strong><?php echo $row['kota']; ?></strong></a><hr>
-	<?php } ?>
-	<a href="surat/" class="btn btn-outline-light" style="font-size:15pt"><i class="fas fa-envelope"></i> BUAT SURAT</a>
+$nama_desa = isset($row['nama_desa']) ? strtoupper($row['nama_desa']) : 'DESA';
+$kota = isset($row['kota']) ? strtoupper($row['kota']) : 'KOTA';
+?>
+
+<!-- Tampilan HTML -->
+<div class="container text-center" style="padding-top: 18vh; padding-bottom: 100px;">
+  <!-- Logo Desa -->
+  <div class="logo-box mx-auto mb-4">
+    <img src="assets/img/<?php echo $row['logo_desa']; ?>" alt="Logo Desa" class="logo-img">
+  </div>
+<br><br>
+  <!-- Efek Teks -->
+  <div class="glow-title mb-5">
+    <span id="typewriter"></span><span class="cursor">|</span>
+  </div>
+
+  <!-- Tombol Buat Surat -->
+  <div>
+    <a href="surat/" class="btn-surat">
+      <i class="fas fa-envelope me-2"></i> BUAT SURAT
+    </a>
+  </div>
 </div>
 
 <!-- FOOTER -->
-<div class="footer bg-transparent text-center mb-3">
-  <span class="text-light">
-    <strong>&copy; <span id="year"></span> 
-      <a href="#" class="text-decoration-none text-white">Pelayanan Surat Desa</a>
-    </strong>
-  </span>
-</div>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
@@ -241,6 +349,54 @@
     "retina_detect": true
   });
 </script>
+
+
+
+
+<?php
+$nama_desa = strtoupper($row['nama_desa']);
+$kota = strtoupper($row['kota']);
+?>
+
+<!-- JavaScript -->
+<script>
+const textArray = [
+  "Sistem Pelayanan Administrasi",
+  "<?php echo $nama_desa; ?>",
+  "<?php echo $kota; ?>"
+];
+
+let typingElement = document.getElementById('typewriter');
+let i = 0;
+let j = 0;
+let isDeleting = false;
+let delay = 100;
+
+function typeEffect() {
+  let current = textArray[i];
+  if (isDeleting) {
+    typingElement.textContent = current.substring(0, j--);
+  } else {
+    typingElement.textContent = current.substring(0, j++);
+  }
+
+  if (!isDeleting && j === current.length + 1) {
+    isDeleting = true;
+    delay = 1500; // waktu jeda sebelum menghapus
+  } else if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % textArray.length;
+    delay = 300;
+  } else {
+    delay = isDeleting ? 50 : 100;
+  }
+
+  setTimeout(typeEffect, delay);
+}
+
+typeEffect();
+</script>
+
 
 
 <!-- JS -->

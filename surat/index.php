@@ -92,6 +92,48 @@
 	  	</div>
 	</navbar>
 
+<style>
+	.running-text-wrapper {
+  width: 98.5%; /* Atur sesuai kebutuhan, bisa juga pakai persentase */
+  max-width: 100%;
+  margin: 0 auto; /* Ini yang membuat div di tengah secara horizontal */
+  overflow: hidden;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  color: white;
+  padding: 10px 0;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.running-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: marquee 35s linear infinite;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@media screen and (max-width: 576px) {
+  .running-text-wrapper {
+    width: 93%;
+  }
+
+  .running-text {
+    font-size: 0.9rem;
+  }
+}
+
+
+</style>
+
 <div class="container-fluid">
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 		<div>
@@ -103,6 +145,24 @@
               	}
            	?>
 		</div>
+
+
+		<?php
+		// Ambil data profil desa
+		$query = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = 1");
+		$row = mysqli_fetch_assoc($query);
+
+		// Ubah ke huruf besar dan beri nilai default jika kosong
+		$nama_desa = isset($row['nama_desa']) ? ucwords(strtolower($row['nama_desa'])) : 'Desa';
+		$kota = isset($row['kota']) ? ucwords(strtolower($row['kota'])) : 'Kota';
+		?>
+
+		<div class="running-text-wrapper">
+		<div class="running-text">
+			Selamat Datang di Aplikasi Pelayanan Surat Administrasi <?php echo $nama_desa; ?> <?php echo $kota; ?>
+		</div>
+		</div>
+
 		<div class="row">
 
 			<style>

@@ -77,48 +77,42 @@
 			<tr>
 				<td width="40%" class="indentasi">&nbsp;&nbsp;1. Nama lengkap dan alias</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['nama']); ?></td>
+				<td><?php echo strtoupper($row['nama_suami']); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;2. Bin</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['bin']); ?></td>
+				<td><?php echo strtoupper($row['bin_suami']); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;3. Nomor Induk Kependudukan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['nik'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['nik_suami'])); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;4. Tempat dan tanggal lahir</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['tgl_lahir'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['tgl_lahir_suami'])); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;5. Kewarganegaraan</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['kewarganegaraan']); ?></td>
+				<td><?php echo strtoupper($row['kewarganegaraan_suami']); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;6. Agama</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['agama_suami'])); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;7. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['pekerjaan_suami'])); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;8. Alamat</td>
 				<td>:</td>
-				<td style="text-align: justify;">
-				<?php
-				include_once '../../../surat/cetak/helper/alamat_helper.php';
-
-				// Pastikan $row sudah berisi data dari database sebelumnya
-				echo formatAlamatLengkap($row);
-				?>
+				<td><?php echo ucwords(strtolower($row['alamat_suami'])); ?></td>
 			</td>
 			</tr>
 		</table>
@@ -132,42 +126,47 @@
 			<tr>
 				<td width="40%" class="indentasi">&nbsp;&nbsp;1. Nama lengkap dan alias</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['nama_suami']); ?></td>
+				<td><?php echo strtoupper($row['nama']); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;2. Bin</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['bin_suami']); ?></td>
+				<td><?php echo strtoupper($row['bin']); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;3. Nomor Induk Kependudukan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['nik_suami'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['nik'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;4. Tempat dan tanggal lahir</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['tgl_lahir_suami'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['tgl_lahir'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;5. Kewarganegaraan</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['kewarganegaraan_suami']); ?></td>
+				<td><?php echo strtoupper($row['kewarganegaraan']); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;6. Agama</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama_suami'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;7. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan_suami'])); ?></td>
+				<td><?php echo ucwords(strtolower($row['pekerjaan'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;8. Alamat</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['alamat_suami'])); ?></td>
+				<td><?php
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
+				?></td>
 			</tr>
 		</table>
 
