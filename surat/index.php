@@ -89,30 +89,32 @@
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  background: whitesmoke;
-  color: #00acc1;
-  padding: 10px 0;
+  background: #e3f2fd; /* Biru muda kalem */
+  color: #0d47a1; /* Biru utama */
+  padding: 8px 0;
   position: relative;
-  border-radius: 12px;
-  border: 0.2px solid #00acc1; /* Garis berwarna aqua */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid #1976d2;
+  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.2); /* shadow biru */
   text-align: center;
 }
-
 
 .running-text {
   display: inline-block;
   white-space: nowrap;
   padding-left: 100%;
-  animation: marquee 35s linear infinite;
-  font-weight: bold;
+  animation: marquee 30s linear infinite;
+  font-weight: 600;
   font-size: 1.05rem;
+  color: #0d47a1;
 }
 
+/* Animasi marquee */
 @keyframes marquee {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
+
 
 @media screen and (max-width: 576px) {
   .running-text-wrapper {
@@ -181,19 +183,21 @@
 				.card.surat-card .card-body h5 {
 				font-weight: bold;
 				font-size: 1.1rem;
-				color: #006064;
+				color: #0d47a1; /* selaras dengan warna navbar/footer */
 				}
 
 				.card.surat-card .btn-info {
-				background-color: #00acc1;
-				border-color: #00acc1;
+				background-color: #1976d2; /* biru cerah yang harmonis */
+				border-color: #1976d2;
 				font-weight: 500;
+				color: #fff;
 				}
 
 				.card.surat-card .btn-info:hover {
-				background-color: #00838f;
-				border-color: #00838f;
+				background-color: #1565c0; /* warna hover lebih gelap tapi tetap biru */
+				border-color: #1565c0;
 				}
+
 			</style>
 
 				<?php
@@ -253,18 +257,7 @@
 	</div>
 </div>
 
-	<div class="card-footer py-2 text-center">
-			<div class="footer text-center">
-				<span class="text-dark">
-				<strong>&copy; <span id="year"></span> 
-					<a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa</a>
-				</strong>
-				</span>
-			</div>
-			<script>
-				document.getElementById("year").textContent = new Date().getFullYear();
-			</script>
-	</div>
+<?php include '../surat/part/footer.php'; ?>
 
 <!-- Tambahkan file JS Bootstrap agar navbar toggle berfungsi -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
