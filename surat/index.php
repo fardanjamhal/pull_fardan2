@@ -93,19 +93,21 @@
 	</navbar>
 
 <style>
-	.running-text-wrapper {
-  width: 98.5%; /* Atur sesuai kebutuhan, bisa juga pakai persentase */
+.running-text-wrapper {
+  width: 98.5%;
   max-width: 100%;
-  margin: 0 auto; /* Ini yang membuat div di tengah secara horizontal */
+  margin: 0 auto;
   overflow: hidden;
-  background: linear-gradient(to right, #0072ff, #00c6ff);
-  color: white;
+  background: whitesmoke;
+  color: #00acc1;
   padding: 10px 0;
   position: relative;
-  border-radius: 8px;
+  border-radius: 12px;
+  border: 0.2px solid #00acc1; /* Garis berwarna aqua */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
 
 .running-text {
   display: inline-block;

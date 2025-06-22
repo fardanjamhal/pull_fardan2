@@ -201,9 +201,9 @@
 			50% { opacity: 0; }
 			}
 
-			/* Tombol modern */
+		/* Tombol modern dengan warna aqua */
 			.btn-surat {
-			background: linear-gradient(135deg, #00c6ff, #0072ff);
+			background: linear-gradient(135deg,rgb(16, 196, 196), #1de9b6); /* Aqua gradasi */
 			color: white;
 			padding: 12px 30px;
 			font-size: 1.1rem;
@@ -211,17 +211,18 @@
 			border-radius: 30px;
 			text-decoration: none;
 			transition: all 0.3s ease;
-			box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+			box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4); /* Efek glow aqua */
 			display: inline-flex;
 			align-items: center;
 			gap: 8px;
 			}
 
 			.btn-surat:hover {
-			background: linear-gradient(135deg, #0072ff, #00c6ff);
-			box-shadow: 0 6px 25px rgba(0, 114, 255, 0.6);
+			background: linear-gradient(135deg, #1de9b6, #00ffff);
+			box-shadow: 0 6px 25px rgba(0, 255, 255, 0.6); /* Hover glow lebih kuat */
 			transform: translateY(-2px);
 			}
+
 
 			@media screen and (max-width: 576px) {
 					.container {
