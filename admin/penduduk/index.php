@@ -179,6 +179,7 @@
     </ul>
   </section>
 </aside>
+
 <div class="content-wrapper">
   <section class="content-header">
     <h1>Data Penduduk</h1>
@@ -321,6 +322,7 @@
   
   <!-- Tambahkan di <head> -->
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
       <style>
         .tombol-hp {
           display: none; /* Sembunyikan di desktop */
@@ -436,7 +438,55 @@
           }
         ?>
         <br><br>
-        <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
+        
+
+        <style>
+          td {
+            vertical-align: top;
+            word-break: break-word;
+          }
+
+          .table td, .table th {
+            white-space: normal !important;
+          }
+
+          /* Batasi ukuran kolom NIK */
+          td:nth-child(2) {
+            min-width: 160px;
+            max-width: 220px;
+          }
+
+          /* Buat kolom nama lebih kecil */
+          td:nth-child(3) {
+            min-width: 140px;
+            max-width: 200px;
+          }
+
+          /* Batasi agar form tidak terlalu panjang */
+          .pilihan-surat {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 5px;
+          }
+
+          /* Form tombol surat biar tidak melebar */
+          .btn-surat {
+            font-size: 12px;
+            width: 100%;
+            padding: 4px;
+            white-space: normal;
+            text-align: left;
+          }
+
+          .btn-toggle-surat {
+            font-size: 12px;
+            margin-top: 5px;
+          }
+        </style>
+
+
+        <div class="table-responsive" style="overflow-x: auto; max-width: 100%;">
+        <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th><strong>No</strong></th>
@@ -589,6 +639,10 @@
 
           </tbody>
         </table>
+        </div>
+
+        
+
       </div>
     </div>
   </section>

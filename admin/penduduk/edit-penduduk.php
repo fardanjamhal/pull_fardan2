@@ -140,13 +140,12 @@
                       <label class="col-sm-4 control-label">Jenis Kelamin</label>
                       <div class="col-sm-8">
                         <select name="fjenis_kelamin" class="form-control">
-                          <option value="">-- PILIH JENIS KELAMIN --</option>
-                          <option value="LAKI-LAKI" <?php if($row['jenis_kelamin'] == 'LAKI-LAKI') echo 'selected'; ?>>LAKI-LAKI</option>
-                          <option value="PEREMPUAN" <?php if($row['jenis_kelamin'] == 'PEREMPUAN') echo 'selected'; ?>>PEREMPUAN</option>
+                          <option value="" <?php if (empty($row['jenis_kelamin'])) echo 'selected'; ?>>-- PILIH JENIS KELAMIN --</option>
+                          <option value="LAKI-LAKI" <?php if (strtoupper($row['jenis_kelamin']) == 'LAKI-LAKI') echo 'selected'; ?>>LAKI-LAKI</option>
+                          <option value="PEREMPUAN" <?php if (strtoupper($row['jenis_kelamin']) == 'PEREMPUAN') echo 'selected'; ?>>PEREMPUAN</option>
                         </select>
                       </div>
                     </div>
-
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Agama</label>
                       <div class="col-sm-8">

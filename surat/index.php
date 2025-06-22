@@ -22,7 +22,29 @@
 	<title>e-SuratDesa</title>
   	<link rel="stylesheet" href="../assets/fontawesome-free-5.10.2-web/css/all.css">
 	<link rel="stylesheet" href="../assets/bootstrap-4.3.1-dist/css/bootstrap.css">
-	</head>
+
+	<style>
+	html, body {
+		max-width: 100%;
+		overflow-x: hidden;
+	}
+	.row {
+		padding-left: 15px;
+		padding-right: 15px;
+		}
+
+	</style>
+
+	<style>
+	@media (max-width: 576px) {
+		.row {
+		padding-left: 15px;
+		padding-right: 15px;
+		}
+	}
+	</style>
+
+</head>
 	<body class="bg-light">
 	
 	<navbar class="navbar navbar-expand-lg navbar-dark bg-dark">
