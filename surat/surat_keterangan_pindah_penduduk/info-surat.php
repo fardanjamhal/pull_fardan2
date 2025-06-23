@@ -213,7 +213,7 @@
 
 					<div class="col-md-6 mt-2">
 					<label class="fw-semibold">Nama Pengikut</label>
-					<input type="text" name="fnama_pengikut[]" class="form-control" placeholder="NIK .." required>
+					<input type="text" name="fnama_pengikut[]" class="form-control" placeholder="Nama .." required>
 					</div>
 
 					<div class="col-md-6 mt-2">
