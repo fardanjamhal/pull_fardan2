@@ -258,7 +258,7 @@
 
 			<div class="d-flex flex-wrap justify-content-center" id="daftarSurat">
 			<?php $no = 1; foreach ($daftarSurat as $surat): ?>
-				<div class="surat-item mt-4 p-3 flex-fill" style="min-width: 420px; max-width: 320px;">
+				<div class="surat-item mt-4 p-3 flex-fill" style="min-width: 410px; max-width: 320px;">
 				<div class="card surat-card text-center h-100">
 					<div class="card-body d-flex flex-column justify-content-between">
 					<h5 class="card-title"><?= $no++ . ". " . $surat['judul']; ?></h5>
