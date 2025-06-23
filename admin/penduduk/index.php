@@ -568,7 +568,8 @@
                           'surat_keterangan_beda_identitas_kis',
                           'surat_keterangan_penghasilan_orang_tua',
                           'surat_pengantar_hewan',
-                          'surat_keterangan_kematian_dan_penguburan'
+                          'surat_keterangan_kematian_dan_penguburan',
+                          'surat_keterangan_pindah_penduduk'
                         ];
 
                         sort($surat_urls);
