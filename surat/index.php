@@ -247,25 +247,25 @@
 				});
 				?>
 
+
 			<style>
 			.surat-item {
 				width: 100%;
-				max-width: 320px;
+				max-width: 360px; /* Lebih lebar dari 320px */
+				margin-left: auto;
+				margin-right: auto;
 			}
 
 			@media (max-width: 576px) {
 				.surat-item {
-				width: 100% !important;
 				max-width: 100% !important;
-				margin-left: auto !important;
-				margin-right: auto !important;
 				}
 			}
 			</style>
 
 			<div class="d-flex flex-wrap justify-content-center" id="daftarSurat">
 			<?php $no = 1; foreach ($daftarSurat as $surat): ?>
-				<div class="surat-item mt-4 p-3 flex-fill" style="min-width: 425px; max-width: 320px;">
+				<div class="surat-item mt-3 p-2"> <!-- mt-3 dan p-2 agar tidak terlalu renggang -->
 				<div class="card surat-card text-center h-100">
 					<div class="card-body d-flex flex-column justify-content-between">
 					<h5 class="card-title"><?= $no++ . ". " . $surat['judul']; ?></h5>
@@ -276,6 +276,7 @@
 			<?php endforeach; ?>
 			</div>
 
+			
 
 		</div>
 	</div>
