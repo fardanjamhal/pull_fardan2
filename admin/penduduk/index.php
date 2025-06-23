@@ -484,7 +484,7 @@
           }
         </style>
 
-
+  
         <div class="table-responsive" style="overflow-x: auto; max-width: 100%;">
         <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
           <thead>
@@ -525,56 +525,75 @@
                 <button onclick="salinTeks('<?php echo $row['nik']; ?>')" title="Salin NIK" style="margin-left: 5px;">📋</button>
 
                 <!-- Tombol Buat Surat -->
-                <button class="btn-toggle-surat" onclick="tampilkanPilihanSurat('<?php echo $row['nik']; ?>')">Buat Surat</button>
+                <!-- Tombol Buat Surat (Memicu Modal) -->
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalSurat_<?php echo $row['nik']; ?>">
+                Buat Surat
+              </button>
 
-                <!-- Daftar Jenis Surat -->
-                <div class="pilihan-surat mt-2" id="pilihan-<?php echo $row['nik']; ?>" style="display: none;">
-                  <?php
-                    $nik = $row['nik'];
+              <!-- Modal -->
+              <div class="modal fade" id="modalSurat_<?php echo $row['nik']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalSuratLabel_<?php echo $row['nik']; ?>" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalSuratLabel_<?php echo $row['nik']; ?>">Pilih Jenis Surat</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
 
-                    $surat_urls = [
-                      'surat_keterangan',
-                      'surat_keterangan_berkelakuan_baik',
-                      'surat_keterangan_domisili',
-                      'surat_keterangan_kepemilikan_kendaraan_bermotor',
-                      'surat_keterangan_perhiasan',
-                      'surat_keterangan_usaha',
-                      'surat_lapor_hajatan',
-                      'surat_pengantar_skck',
-                      'surat_keterangan_tidak_mampu',
-                      'formulir_pengantar_nikah',
-                      'formulir_permohonan_kehendak_nikah',
-                      'formulir_persetujuan_calon_pengantin',
-                      'formulir_persetujuan_calon_pengantin_istri',
-                      'formulir_surat_izin_orang_tua',
-                      'surat_keterangan_kematian',
-                      'surat_keterangan_domisili_usaha',
-                      'surat_keterangan_pengantar',
-                      'surat_keterangan_beda_identitas',
-                      'surat_keterangan_beda_identitas_kis',
-                      'surat_keterangan_penghasilan_orang_tua',
-                      'surat_pengantar_hewan',
-                      'surat_keterangan_kematian_dan_penguburan'
-                    ];
 
-                    // Urutkan berdasarkan abjad
-                    sort($surat_urls);
+                    <div class="modal-body">
+                    <div class="list-group">
+                      <?php
+                        $nik = $row['nik'];
+                        $surat_urls = [
+                          'surat_keterangan',
+                          'surat_keterangan_berkelakuan_baik',
+                          'surat_keterangan_domisili',
+                          'surat_keterangan_kepemilikan_kendaraan_bermotor',
+                          'surat_keterangan_perhiasan',
+                          'surat_keterangan_usaha',
+                          'surat_lapor_hajatan',
+                          'surat_pengantar_skck',
+                          'surat_keterangan_tidak_mampu',
+                          'formulir_pengantar_nikah',
+                          'formulir_permohonan_kehendak_nikah',
+                          'formulir_persetujuan_calon_pengantin',
+                          'formulir_persetujuan_calon_pengantin_istri',
+                          'formulir_surat_izin_orang_tua',
+                          'surat_keterangan_kematian',
+                          'surat_keterangan_domisili_usaha',
+                          'surat_keterangan_pengantar',
+                          'surat_keterangan_beda_identitas',
+                          'surat_keterangan_beda_identitas_kis',
+                          'surat_keterangan_penghasilan_orang_tua',
+                          'surat_pengantar_hewan',
+                          'surat_keterangan_kematian_dan_penguburan'
+                        ];
 
-                    // Nomor lokal untuk daftar surat
-                    $noSurat = 1;
+                        sort($surat_urls);
+                        $noSurat = 1;
 
-                    foreach ($surat_urls as $surat) {
-                        // Ubah format teks tombol dari snake_case ke Capitalized Words
-                        $label = ucwords(str_replace('_', ' ', $surat));
-                        echo '
-                        <form action="../../surat/' . $surat . '/info-surat.php" method="post" style="margin-bottom: 10px;">
-                            <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
-                            <button type="submit" class="btn-surat">' . $noSurat++ . '. ' . $label . '</button>
-                        </form>';
-                    }
-                  ?>
-                  
+                        foreach ($surat_urls as $surat) {
+                            $label = ucwords(str_replace('_', ' ', $surat));
+                            echo '
+                              <form action="../../surat/' . $surat . '/info-surat.php" method="post" class="mb-2">
+                                <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
+                                <button type="submit" class="list-group-item list-group-item-action d-flex align-items-start">
+                                  <span class="me-2 fw-bold" style="min-width: 25px;">' . $noSurat++ . '.</span>
+                                  <span>' . $label . '</span>
+                                </button>
+                              </form>
+                            ';
+                        }
+                      ?>
+                    </div>
+                  </div>
+
+                  </div>
                 </div>
+              </div>
+
 
               </td>
 

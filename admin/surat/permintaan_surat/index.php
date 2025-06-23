@@ -158,7 +158,8 @@
                 'surat_keterangan_beda_identitas_kis' => 'id_skbis',
                 'surat_keterangan_penghasilan_orang_tua' => 'id_skpot',
                 'surat_pengantar_hewan' => 'id_sph',
-                'surat_keterangan_kematian_dan_penguburan' => 'id_skkp'
+                'surat_keterangan_kematian_dan_penguburan' => 'id_skkp',
+                'surat_keterangan_pindah_penduduk' => 'id_skpp'
               ];
 
               $unionParts = [];

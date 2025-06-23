@@ -23,6 +23,21 @@
     position: relative;
     z-index: 10; /* Pastikan header selalu di atas */
   }
+
+  .custom-btn-blue {
+  background: linear-gradient(135deg, #1976d2, #2196f3);
+  border: none;
+  color: white;
+  transition: background 0.3s ease, transform 0.2s;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+  }
+
+  .custom-btn-blue:hover {
+    background: linear-gradient(135deg, #1565c0, #1e88e5);
+    transform: translateY(-2px);
+  }
+
 </style>
 
 <div class="form-wrapper">
@@ -61,9 +76,9 @@
         </script>
 
         <div class="text-center mt-4">
-          <button type="submit" class="btn btn-info fw-semibold px-4">
-            <i class="fas fa-search"></i> CEK NIK
-          </button>
+        <button type="submit" class="btn btn-primary custom-btn-blue fw-semibold px-4">
+          <i class="fas fa-search"></i> CEK NIK
+        </button>
         </div>
       </form>
     </div>

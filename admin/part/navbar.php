@@ -1,6 +1,6 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg py-1" style="background: linear-gradient(90deg, #0d47a1, #1976d2); box-shadow: 0 4px 12px rgba(0,174,255,0.4);">
-  <a class="navbar-brand d-flex align-items-center ml-3" href="#">
+  <a class="navbar-brand d-flex align-items-center ml-3" href="">
     <img src="assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo" style="width: 45px; margin-right: 10px;">
   </a>
 
@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse justify-content-end text-right" id="navbarContent">
     <ul class="navbar-nav ml-auto text-right ">
       <li class="nav-item mx-2">
-        <a class="nav-link text-light" href="#"><i class="fas fa-home"></i> Beranda</a>
+        <a class="nav-link text-light" href=""><i class="fas fa-home"></i> Beranda</a>
       </li>
       <li class="nav-item mx-2">
         <a class="nav-link text-light" href="surat"><i class="fas fa-envelope-open-text"></i> Buat Surat</a>

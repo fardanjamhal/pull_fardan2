@@ -49,7 +49,7 @@
 	
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg py-1" style="background: linear-gradient(90deg, #0d47a1, #1976d2); box-shadow: 0 4px 12px rgba(0,174,255,0.4);">
-  <a class="navbar-brand d-flex align-items-center ml-3" href="#">
+  <a class="navbar-brand d-flex align-items-center ml-3" href="../">
     <img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo" style="width: 45px; margin-right: 10px;">
   </a>
 
@@ -74,8 +74,8 @@
         if (empty($_SESSION['username'])) {
           echo '<a class="btn btn-outline-light btn-sm" href="../login/"><i class="fas fa-sign-in-alt"></i> Login</a>';
         } else if (isset($_SESSION['lvl'])) {
-          echo '<a class="btn btn-outline-light btn-sm mr-2" href="admin/"><i class="fas fa-user-shield"></i> ' . $_SESSION['lvl'] . '</a>';
-          echo '<a class="btn btn-danger btn-sm" href="login/logout.php"><i class="fas fa-sign-out-alt"></i></a>';
+          echo '<a class="btn btn-outline-light btn-sm mr-2" href="../admin/"><i class="fas fa-user-shield"></i> ' . $_SESSION['lvl'] . '</a>';
+          echo '<a class="btn btn-danger btn-sm" href="../login/logout.php"><i class="fas fa-sign-out-alt"></i></a>';
         }
         ?>
       </li>
@@ -154,7 +154,14 @@
 
 		<div class="running-text-wrapper">
 		<div class="running-text">
-			Selamat Datang di Aplikasi Pelayanan Surat Administrasi <?php echo $nama_desa; ?> <?php echo $kota; ?>
+			Selamat Datang di Aplikasi Pelayanan Surat <?php echo $nama_desa; ?> <?php echo $kota; ?>
+		</div>
+		</div>
+
+
+		<div class="row mt-4">
+		<div class="col-md-6 offset-md-3">
+			<input type="text" id="searchSurat" class="form-control form-control-lg" placeholder="Cari jenis surat...">
 		</div>
 		</div>
 
@@ -223,7 +230,8 @@
 				"surat_keterangan_beda_identitas_kis",
 				"surat_keterangan_penghasilan_orang_tua",
 				"surat_pengantar_hewan",
-				"surat_keterangan_kematian_dan_penguburan"
+				"surat_keterangan_kematian_dan_penguburan",
+				"surat_keterangan_pindah_penduduk"
 				];
 
 				// Siapkan array baru berisi folder + judul
@@ -239,18 +247,27 @@
 				});
 				?>
 
-				<div class="row">
-				<?php $no = 1; foreach ($daftarSurat as $surat): ?>
-					<div class="col-sm-3 mt-4">
-					<div class="card surat-card text-center">
-						<div class="card-body">
-						<h5 class="card-title"><?= $no++ . ". " . $surat['judul']; ?></h5>
-						<a href="<?= $surat['folder']; ?>/" class="btn btn-info mt-3">BUAT SURAT</a>
-						</div>
+			<style>
+				@media (max-width: 576px) {
+				.surat-item {
+					margin-left: auto !important;
+					margin-right: auto !important;
+				}
+				}
+			</style>
+
+			<div class="d-flex flex-wrap justify-content-center" id="daftarSurat">
+			<?php $no = 1; foreach ($daftarSurat as $surat): ?>
+				<div class="surat-item mt-4 p-3 flex-fill" style="min-width: 425px; max-width: 320px;">
+				<div class="card surat-card text-center h-100">
+					<div class="card-body d-flex flex-column justify-content-between">
+					<h5 class="card-title"><?= $no++ . ". " . $surat['judul']; ?></h5>
+					<a href="<?= $surat['folder']; ?>/" class="btn btn-info mt-3">BUAT SURAT</a>
 					</div>
-					</div>
-				<?php endforeach; ?>
 				</div>
+				</div>
+			<?php endforeach; ?>
+			</div>
 
 
 		</div>
@@ -263,6 +280,20 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#searchSurat').on('keyup', function() {
+      var keyword = $(this).val().toLowerCase();
+      $('.surat-item').filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1);
+      });
+    });
+  });
+</script>
+
 
 </body>
 </html>
