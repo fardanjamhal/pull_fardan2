@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2025 at 01:19 AM
+-- Generation Time: Jun 24, 2025 at 09:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -206,7 +206,12 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 (227, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-23 21:47:36'),
 (228, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-23 21:53:52'),
 (229, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-23 21:56:03'),
-(230, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-24 00:17:39');
+(230, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-24 00:17:39'),
+(231, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-24 07:20:03'),
+(232, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-24 07:23:04'),
+(233, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-24 07:51:10'),
+(234, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-24 12:31:31'),
+(235, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '-', '', '', '', '', '', '2025-06-24 12:34:40');
 
 -- --------------------------------------------------------
 
@@ -1029,7 +1034,7 @@ INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `n
 (109, 'Surat Keterangan Domisili', '07/SKD/KODE-DESA/VI/2025', '7304080811110001', 203, '2025-06-23 17:26:53', 2, 'SELESAI', 1),
 (110, 'Surat Keterangan Domisili', '08/SKD/KODE-DESA/VI/2025', '7304053112900229', 220, '2025-06-23 21:06:15', 2, 'SELESAI', 1),
 (111, 'Surat Keterangan Domisili', '09/SKD/KODE-DESA/VI/2025', '7304053112900229', 221, '2025-06-23 21:07:59', 2, 'SELESAI', 1),
-(112, 'Surat Keterangan Domisili', NULL, '7304053112900229', 230, '2025-06-24 00:17:39', NULL, 'PENDING', 1);
+(112, 'Surat Keterangan Domisili', '10/SKD/KODE-DESA/VI/2025', '7304053112900229', 230, '2025-06-24 00:17:39', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1195,7 +1200,7 @@ INSERT INTO `surat_keterangan_pengantar` (`id_skp`, `jenis_surat`, `no_surat`, `
 (65, 'Surat Keterangan Pengantar', '10/SKP/KODE-DESA/VII/2025', '7304084207700001', 188, 'Tempor ut quasi ea s', '-', 'Provident inventore', '2025-06-21 21:55:39', 2, 'SELESAI', 1),
 (66, 'Surat Keterangan Pengantar', '011/SKP/KODE-DESA/VI/2025', '7304085907060001', 189, 'Ut qui aperiam sit m', '7 Hari', 'Distinctio Ducimus', '2025-06-21 21:58:12', 2, 'SELESAI', 1),
 (67, 'Surat Keterangan Pengantar', '12/SKP/KODE-DESA/VI/2025', '7304080705020001', 190, 'Molestiae reprehende', '7 Hari', 'Voluptatibus natus q', '2025-06-21 22:07:52', 2, 'SELESAI', 1),
-(68, 'Surat Keterangan Pengantar', NULL, '7371143103820001', 219, 'MELAMAR KERJA', '', 'B', '2025-06-23 20:08:13', NULL, 'PENDING', 1);
+(68, 'Surat Keterangan Pengantar', '13/SKP/KODE-DESA/VI/2025', '7371143103820001', 219, 'MELAMAR KERJA', '7 Hari', 'B', '2025-06-23 20:08:13', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1216,11 +1221,19 @@ CREATE TABLE `surat_keterangan_pengantar_rujuk_atau_cerai` (
   `kewarganegaraan2` varchar(250) NOT NULL,
   `agama2` varchar(250) NOT NULL,
   `pekerjaan2` varchar(250) NOT NULL,
+  `alamat2` varchar(250) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(20) NOT NULL DEFAULT 'PENDING',
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `surat_keterangan_pengantar_rujuk_atau_cerai`
+--
+
+INSERT INTO `surat_keterangan_pengantar_rujuk_atau_cerai` (`id_skrc`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bin`, `nama2`, `binti2`, `tempat_tgl_lahir2`, `kewarganegaraan2`, `agama2`, `pekerjaan2`, `alamat2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Pengantar Rujuk Atau Cerai', '001/SKPRC/KODE-DESA/VI/2025', '7304053112900229', 233, 'dsfdsdf', 'dfsd', 'dfdsfds', 'ddssf', 'WNI', 'Islam', 'dsdf', 'dsfsfdsdf', '2025-06-24 07:51:10', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1393,6 +1406,32 @@ CREATE TABLE `surat_keterangan_usaha` (
 
 INSERT INTO `surat_keterangan_usaha` (`id_sku`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `usaha`, `alamat_usaha`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (32, 'Surat Keterangan Usaha', '001/SKU/KODE-DESA/VI/2025', '7304080811110001', 179, 'Soluta culpa deseru', 'Commodi qui dolor ad', 'In quisquam eius iur', '2025-06-21 21:44:12', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_wali_hakim`
+--
+
+CREATE TABLE `surat_keterangan_wali_hakim` (
+  `id_skwh` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `tempat_menikah` varchar(250) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` varchar(20) NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `surat_keterangan_wali_hakim`
+--
+
+INSERT INTO `surat_keterangan_wali_hakim` (`id_skwh`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `tempat_menikah`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(2, 'Surat Keterangan Wali Hakim', '04/SKWH/KODE-DESA/VI/2025', '7304053112900229', 235, 'KUA Kecamata Binamu Kabupaten Jenenponto', '2025-06-24 12:34:40', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1726,6 +1765,16 @@ ALTER TABLE `surat_keterangan_usaha`
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
 
 --
+-- Indexes for table `surat_keterangan_wali_hakim`
+--
+ALTER TABLE `surat_keterangan_wali_hakim`
+  ADD PRIMARY KEY (`id_skwh`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`);
+
+--
 -- Indexes for table `surat_lapor_hajatan`
 --
 ALTER TABLE `surat_lapor_hajatan`
@@ -1760,7 +1809,7 @@ ALTER TABLE `surat_pengantar_skck`
 -- AUTO_INCREMENT for table `arsip_surat`
 --
 ALTER TABLE `arsip_surat`
-  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
+  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
 
 --
 -- AUTO_INCREMENT for table `dusun`
@@ -1892,7 +1941,7 @@ ALTER TABLE `surat_keterangan_pengantar`
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar_rujuk_atau_cerai`
 --
 ALTER TABLE `surat_keterangan_pengantar_rujuk_atau_cerai`
-  MODIFY `id_skrc` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_skrc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_penghasilan_orang_tua`
@@ -1923,6 +1972,12 @@ ALTER TABLE `surat_keterangan_tidak_mampu`
 --
 ALTER TABLE `surat_keterangan_usaha`
   MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_wali_hakim`
+--
+ALTER TABLE `surat_keterangan_wali_hakim`
+  MODIFY `id_skwh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `surat_lapor_hajatan`

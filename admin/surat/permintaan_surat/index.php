@@ -160,7 +160,8 @@
                 'surat_pengantar_hewan' => 'id_sph',
                 'surat_keterangan_kematian_dan_penguburan' => 'id_skkp',
                 'surat_keterangan_pindah_penduduk' => 'id_skpp',
-                'surat_keterangan_pengantar_rujuk_atau_cerai' => 'id_skrc'
+                'surat_keterangan_pengantar_rujuk_atau_cerai' => 'id_skrc',
+                'surat_keterangan_wali_hakim' => 'id_skwh'
               ];
 
               $unionParts = [];

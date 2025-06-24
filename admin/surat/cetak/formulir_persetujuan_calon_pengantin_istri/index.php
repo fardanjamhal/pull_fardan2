@@ -65,7 +65,6 @@
 			Yang bertanda tangan di bawah ini:
 			</td>
 		</table>
-		<br>
 
 		<table width="100%" style="text-transform: capitalize;">
 			<tr>

@@ -5,10 +5,10 @@
 	$id = $_GET['id']; // id_skd dari surat
 
 	$qCek = mysqli_query($connect,"
-		SELECT arsip_surat.*, surat_keterangan_kepemilikan_kendaraan_bermotor.*, surat_keterangan_kepemilikan_kendaraan_bermotor.id_arsip 
-		FROM surat_keterangan_kepemilikan_kendaraan_bermotor 
-		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_kepemilikan_kendaraan_bermotor.id_arsip 
-		WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.id_skkkb = '$id'
+		SELECT arsip_surat.*, surat_keterangan_wali_hakim.*, surat_keterangan_wali_hakim.id_arsip 
+		FROM surat_keterangan_wali_hakim 
+		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_wali_hakim.id_arsip 
+		WHERE surat_keterangan_wali_hakim.id_skwh = '$id'
 	");
 
 	while($row = mysqli_fetch_array($qCek)){
@@ -26,6 +26,7 @@
 			while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
 				// cetak data di sini
 ?>
+
 
 <html>
 <head>
@@ -66,11 +67,13 @@
 		<h4 style="font-weight:normal; margin:0;">Nomor : <?php echo $row['no_surat']; ?></h4>
 		</div>
 	<br>
+	<br>
 	<div class="clear"></div>
 	<div id="isi3">
+		
 		<table width="100%">
-			<tr>
-				<?php
+		<tr>
+			<?php
 				// Ambil nilai awal dan ubah ke huruf kecil
 				$jabatan = strtolower($rowss['jabatan']);
 				$nama_desa = strtolower($rows['nama_desa']);
@@ -105,20 +108,22 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan di bawah ini, 
 				<span style="text-transform: capitalize;"><?php echo $kalimat; ?></span>, Kecamatan 
 				<span style="text-transform: capitalize;"><?php echo ucwords($kecamatan); ?></span>, Kabupaten 
-				<span style="text-transform: capitalize;"><?php echo ucwords($kota); ?></span>, menerangkan dengan sebenarnya bahwa :
+				<span style="text-transform: capitalize;"><?php echo ucwords($kota); ?></span>, menerangkan dengan sebenarnya bahwa:
 			</td>
-			</tr>
+		</tr>
+
 		</table>
+		<br>
 		<table width="100%" style="text-transform: capitalize;">
 			<tr>
-				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
+				<td width="30%" class="indentasi">&nbsp;&nbsp;1. Nama Lengkap</td>
 				<td width="2%">:</td>
 				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Jenis Kelamin</td>
+				<td class="indentasi">&nbsp;&nbsp;2. NIK / No. KTP</td>
 				<td>:</td>
-				<td><?php echo $row['jenis_kelamin']; ?></td>
+				<td><?php echo $row['nik']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -141,123 +146,86 @@
 				);
 			?>
 			<tr>
-				<td class="indentasi">Tempat/Tgl. Lahir</td>
+				<td class="indentasi">&nbsp;&nbsp;3. Tempat / Tanggal Lahir</td>
 				<td>:</td>
-				<td><?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
+				<td><?php echo ucwords(strtolower($row['tempat_lahir'])) . ", " . $tgl . ucwords(strtolower($blnIndo[$bln])) . $thn; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Agama</td>
+				<td class="indentasi">&nbsp;&nbsp;4. Jenis Kelamin</td>
 				<td>:</td>
-				<td><?php echo $row['agama']; ?></td>
+				<td><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
 			</tr>
-			<tr>
-				<td class="indentasi">Pekerjaan</td>
-				<td>:</td>
-				<td><?php echo $row['pekerjaan']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">NIK</td>
-				<td>:</td>
-				<td><?php echo $row['nik']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Alamat</td>
-				<td>:</td>
-				<td>
-					<?php
-					include_once '../../../surat/cetak/helper/alamat_helper.php';
+			<td class="indentasi">&nbsp;&nbsp;5. Alamat / Tempat Tinggal</td>
+			<td>:</td>
+			<td style="text-align: justify;">
+				<?php
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
 
-					// Pastikan $row sudah berisi data dari database sebelumnya
-					echo formatAlamatLengkap($row);
-					?>
-				</td>
-			</tr>
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row);
+				?>
+			</td>
+			
 			<tr>
-				<td class="indentasi">Kewarganegaraan</td>
+				<td class="indentasi">&nbsp;&nbsp;6. Agama</td>
+				<td>:</td>
+				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+			</tr>
+		
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;7. Pekerjaan</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
+			</tr>
+
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;8. Kewarganegaraan</td>
 				<td>:</td>
 				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
 			</tr>
+		
+		
 		</table>
 		<br>
 		<table width="100%">
-			<tr>
-				<td class="indentasi">Bahwa sesuai dengan pengakuan orang tersebut diatas serta bukti-bukti yang ditunjukkan kepada kami, adalah benar yang menguasai kendaraan BERMOTOR roda <?php echo $row['roda']; ?> dengan ciri-ciri sebagai berikut :
-				</td>
-			</tr>
+			<?php
+		// Fungsi untuk kapitalisasi setiap kata
+		function capitalizeEachWord($string) {
+			$string = strtolower($string); // ubah semua jadi lowercase dulu
+			return ucwords($string);       // kapitalisasi huruf awal setiap kata
+		}
+		?>
+
+		<table width="100%">
+		<tr>
+			<td class="indentasi" style="text-align: justify;">
+			&nbsp;&nbsp;&nbsp;
+			Yang namanya tersebut di atas memang benar warga kami yang akan menikah di 
+			<?php echo $row['tempat_menikah']; ?>. 
+			Berhubung orang tersebut tidak memiliki Wali Nasab, kami mohon dengan hormat Bapak Kepala 
+			<?php echo $row['tempat_menikah']; ?> supaya berkenan menjadi Wali.
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: justify;">
+			<br>
+			&nbsp;&nbsp;&nbsp;
+			Demikian surat keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.
+			</td>
+		</tr>
 		</table>
-		<table width="100%">
-			<tr>
-				<td width="30%" class="indentasi">Merk / Type</td>
-				<td width="2%">:</td>
-				<td width="70%" style="text-transform: uppercase;"><?php echo $row['merk_type']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Jenis Model</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['jenis_model']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Tahun Pembuatan / CC</td>
-				<td>:</td>
-				<td><?php echo $row['tahun_pembuatan'] . "/" . $row['cc']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Warna Cat</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['warna_cat']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">No. Rangka</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['no_rangka']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">No. Mesin</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['no_mesin']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">No. POLISI</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['no_polisi']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">No. B P K B</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['no_bpkb']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Atas Nama Pemilik</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><b><?php echo $row['atas_nama_pemilik']; ?></b></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Alamat</td>
-				<td>:</td>
-				<td style="text-transform: capitalize;"><?php echo $row['alamat_pemilik']; ?></td>
-			</tr>
-		</table>
-		<table width="100%">
-			<tr>
-				<td width="31%">Surat ini dipergunakan untuk</td>
-				<td width="2%">:</td>
-				<td width="73%">Menerangkan kebenaran nama diatas sesuai pengakuannya yang saat ini menguasai kendaraan bermotor dengan ciri-ciri tersebut diatas.</td>
-			</tr>
-			<tr>
-				<td>Guna keperluan</td>
-				<td>:</td>
-				<td style="text-transform: capitalize;"><b><?php echo $row['keperluan']; ?></b></td>
-			</tr>
-		</table><br>
-		<table width="100%">
-			<tr>
-				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
-				</td>
-			</tr>
+
 		</table>
 	</div>
-	<br>
 	<table width="100%" style="text-transform: capitalize;">
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
 		<tr>
 			<td width="10%"></td>
 			<td width="30%"></td>
@@ -289,7 +257,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td align="center">TTD Bersangkutan</td>
+			<td></td>
 			<td></td>
 				<?php
 				$nama_desa_asli = strtolower($rows['nama_desa']);
@@ -352,11 +320,13 @@
 		<tr></tr>
 		<tr>
 			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $row['nama']; ?></u></b></td>
+			<td></td>
 			<td></td>
 
-			
-			<table width="100%" style="text-transform: capitalize; border-collapse: collapse; margin-top: -20px;">
+
+
+
+			<table width="100%" style="text-transform: capitalize; border-collapse: collapse;">
 			<tr>
 			<td style="vertical-align: top; padding-top: -20px; text-align: center; padding-left: 325px;">
 			<div>
@@ -387,8 +357,8 @@
 
 
 					// Query utama untuk mengambil data penduduk dan surat keterangan domisili
-					// Termasuk id_pejabat_desa dari tabel surat_keterangan_kepemilikan_kendaraan_bermotor
-					$qCek = mysqli_query($connect, "SELECT penduduk.*, surat_keterangan_kepemilikan_kendaraan_bermotor.* FROM penduduk LEFT JOIN surat_keterangan_kepemilikan_kendaraan_bermotor ON surat_keterangan_kepemilikan_kendaraan_bermotor.nik = penduduk.nik WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.id_skkkb='$id'");
+					// Termasuk id_pejabat_desa dari tabel surat_keterangan_wali_hakim
+					$qCek = mysqli_query($connect, "SELECT penduduk.*, surat_keterangan_wali_hakim.* FROM penduduk LEFT JOIN surat_keterangan_wali_hakim ON surat_keterangan_wali_hakim.nik = penduduk.nik WHERE surat_keterangan_wali_hakim.id_skwh='$id'");
 
 					// Periksa apakah query utama berhasil dan ada data surat domisili
 					if (mysqli_num_rows($qCek) > 0) {
@@ -421,7 +391,8 @@
 									// Pastikan ini adalah path gambar yang valid
 									$url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
 									// Tampilkan gambar dalam tag <img>
-									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -84px">';
+									echo "<br>";
+									echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -94px">';
 									echo "<br>";
 								} else {
 									echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
@@ -480,11 +451,12 @@
 						}
 						?>
 
-
 			</div>
 			</td>
 			</tr>
 			</table>
+			
+
 
 
 		</tr>

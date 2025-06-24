@@ -570,7 +570,8 @@
                           'surat_pengantar_hewan',
                           'surat_keterangan_kematian_dan_penguburan',
                           'surat_keterangan_pindah_penduduk',
-                          'surat_keterangan_pengantar_rujuk_atau_cerai'
+                          'surat_keterangan_pengantar_rujuk_atau_cerai',
+                          'surat_keterangan_wali_hakim'
                         ];
 
                         sort($surat_urls);
