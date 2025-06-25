@@ -1,5 +1,6 @@
 <?php
 include_once '../../../config/koneksi.php';
+date_default_timezone_set('Asia/Makassar');
 
 $id = $_GET['id'] ?? null;
 $table = $_GET['table'] ?? null;
@@ -8,7 +9,7 @@ if (!$id || !$table) {
     die("ID atau nama tabel tidak valid.");
 }
 
-// Mapping tabel ke nama kolom primary key
+// Mapping tabel ke nama kolom primary key dan kolom tanggal surat
 $primaryKeys = [
     'surat_keterangan' => 'id_sk',
     'surat_keterangan_berkelakuan_baik' => 'id_skbb',
@@ -38,19 +39,34 @@ $primaryKeys = [
     'surat_keterangan_mahar_sunrang' => 'id_skm'
 ];
 
-// Cek apakah tabel yang diminta valid
 if (!isset($primaryKeys[$table])) {
     die("Tabel tidak dikenali.");
 }
 
 $primaryKey = $primaryKeys[$table];
 
-// Validasi ID hanya boleh angka (integer)
+// Validasi ID harus integer
 if (!ctype_digit($id)) {
     die("ID tidak valid.");
 }
 
-// Gunakan prepared statement untuk keamanan
+// Ambil waktu surat dari database
+$queryTanggal = mysqli_query($connect, "SELECT tanggal_surat FROM `$table` WHERE `$primaryKey` = '$id'");
+if (!$queryTanggal || mysqli_num_rows($queryTanggal) === 0) {
+    die("Data tidak ditemukan.");
+}
+$row = mysqli_fetch_assoc($queryTanggal);
+
+$tanggalSurat = strtotime($row['tanggal_surat']);
+$sekarang = time();
+$batasDetik = 60 * 60; // 60 menit
+$selisih = $sekarang - $tanggalSurat;
+
+if ($selisih > $batasDetik) {
+    die("<script>alert('Waktu penghapusan telah habis.'); window.location.href='index.php';</script>");
+}
+
+// Gunakan prepared statement
 $stmt = mysqli_prepare($connect, "DELETE FROM `$table` WHERE `$primaryKey` = ?");
 if ($stmt) {
     mysqli_stmt_bind_param($stmt, "i", $id);

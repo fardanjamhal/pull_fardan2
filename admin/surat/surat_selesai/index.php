@@ -281,169 +281,126 @@ if (!$result) {
                         });
                         </script>
 
-                       <script>
-                        function salinTeks(teks) {
-                        navigator.clipboard.writeText(teks).then(function () {
-                            tampilkanToast("✅ Berhasil disalin: " + teks);
-                        }, function (err) {
-                            tampilkanToast("❌ Gagal menyalin");
-                        });
-                        }
-
-                        function tampilkanToast(pesan) {
-                        const toast = document.getElementById("toast-salin");
-                        toast.innerText = pesan;
-                        toast.classList.add("show");
-
-                        // Hilangkan setelah 3 detik
-                        setTimeout(() => {
-                            toast.classList.remove("show");
-                        }, 3000);
-                        }
-                        </script>
-
-                        <style>
-                        #toast-salin {
-                        position: fixed;
-                        bottom: 40px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background: linear-gradient(135deg, #4CAF50, #2E7D32);
-                        color: #fff;
-                        padding: 12px 20px;
-                        border-radius: 8px;
-                        font-size: 14px;
-                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-                        z-index: 9999;
-                        opacity: 0;
-                        pointer-events: none;
-                        transition: opacity 0.5s ease, transform 0.5s ease;
-                        }
-
-                        #toast-salin.show {
-                        opacity: 1;
-                        transform: translateX(-50%) translateY(-10px);
-                        pointer-events: auto;
-                        }
-                        </style>
-
-                        <div id="toast-salin"></div>
+                     
 
 
+                    <?php date_default_timezone_set('Asia/Makassar'); ?>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Tanggal</th>
+                                    <th>No. Surat</th>
+                                    <th>NIK</th>
+                                    <th>Nama</th>
+                                    <th>Jenis Surat</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = $offset + 1; ?>
+                                <?php if (mysqli_num_rows($result) > 0): ?>
+                                    <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                                        <?php
+                                            $tgl = date('d ', strtotime($row['tanggal_surat']));
+                                            $bln = date('F', strtotime($row['tanggal_surat']));
+                                            $thn = date(' Y', strtotime($row['tanggal_surat']));
+                                            $bulanIndo = [
+                                                'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
+                                                'April' => 'April', 'May' => 'Mei', 'June' => 'Juni',
+                                                'July' => 'Juli', 'August' => 'Agustus', 'September' => 'September',
+                                                'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
+                                            ];
 
-                     <div class="table-responsive">
-                            <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Tanggal</th>
-                                        <th>No. Surat</th>
-                                        <th>NIK</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Surat</th>
-                                        <th>Status</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = $offset + 1; ?>
-                                    <?php if (mysqli_num_rows($result) > 0): ?>
-                                        <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                                            <?php
-                                                $tgl = date('d ', strtotime($row['tanggal_surat']));
-                                                $bln = date('F', strtotime($row['tanggal_surat']));
-                                                $thn = date(' Y', strtotime($row['tanggal_surat']));
-                                                $bulanIndo = [
-                                                    'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
-                                                    'April' => 'April', 'May' => 'Mei', 'June' => 'Juni',
-                                                    'July' => 'Juli', 'August' => 'Agustus', 'September' => 'September',
-                                                    'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
-                                                ];
-                                                $folder = $jenisSuratList[$row['table_name']]['folder'];
+                                            $folder = $jenisSuratList[$row['table_name']]['folder'];
+                                            $idSurat = $row['id_surat'];
 
-                                                $waktuSurat = strtotime($row['tanggal_surat']);
-                                                $waktuSekarang = time();
-                                                $batas60menit = 60 * 60;
-                                                $selisihDetik = $batas60menit - ($waktuSekarang - $waktuSurat);
-                                                $bolehHapus = $selisihDetik > 0;
-                                                $idSurat = $row['id_surat'];
-                                            ?>
-                                            <tr>
-                                                <td><?= $no++; ?></td>
-                                                <td><?= $tgl . $bulanIndo[$bln] . $thn; ?></td>
-                                                <td>
-                                                    <?= $row['no_surat']; ?>
-                                                </td>
-                                                <td>
-                                                    <?= $row['nik']; ?>
-                                                </td>
-                                                <td style="text-transform: capitalize;"><?= htmlspecialchars($row['nama']); ?></td>
-                                                <td><?= htmlspecialchars($row['jenis_surat']); ?></td>
-                                                <td>
-                                                    <a class="btn btn-success btn-sm">
-                                                        <i class="fa fa-check"></i> <b><?= htmlspecialchars($row['status_surat']); ?></b>
+                                            // Hitung sisa waktu hapus 60 menit (3600 detik)
+                                            $waktuSurat = strtotime($row['tanggal_surat']);
+                                            $waktuSekarang = time();
+                                            $sisaDetik = 3600 - ($waktuSekarang - $waktuSurat);
+                                            $bolehHapus = $sisaDetik > 0;
+                                        ?>
+                                        <tr>
+                                            <td><?= $no++; ?></td>
+                                            <td><?= $tgl . $bulanIndo[$bln] . $thn; ?></td>
+                                            <td><?= $row['no_surat']; ?></td>
+                                            <td><?= $row['nik']; ?></td>
+                                            <td style="text-transform: capitalize;"><?= htmlspecialchars($row['nama']); ?></td>
+                                            <td><?= htmlspecialchars($row['jenis_surat']); ?></td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm">
+                                                    <i class="fa fa-check"></i> <b><?= htmlspecialchars($row['status_surat']); ?></b>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-wrap align-items-center gap-1 mb-1">
+                                                    <!-- Tombol CETAK -->
+                                                    <a target="_blank" class="btn btn-primary btn-sm"
+                                                        href="../cetak/<?= htmlspecialchars($folder); ?>/index.php?id=<?= htmlspecialchars($idSurat); ?>">
+                                                        <i class="fa fa-print"></i> <b>CETAK</b>
                                                     </a>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex flex-wrap align-items-center gap-1 mb-1">
-                                                        <!-- Tombol CETAK -->
-                                                        <a target="_blank" class="btn btn-primary btn-sm"
-                                                            href="../cetak/<?= htmlspecialchars($folder); ?>/index.php?id=<?= htmlspecialchars($idSurat); ?>">
-                                                            <i class="fa fa-print"></i> <b>CETAK</b>
-                                                        </a>
 
-                                                        <!-- Tombol HAPUS -->
-                                                        <?php if ($bolehHapus): ?>
-                                                            <a href="hapus.php?id=<?= $idSurat; ?>&table=<?= $row['table_name']; ?>"
-                                                                class="btn btn-outline-danger btn-sm"
-                                                                id="btn-hapus-<?= $idSurat; ?>"
-                                                                onclick="return confirm('Yakin ingin menghapus surat ini?')">
-                                                                <i class="fa fa-trash"></i> <b>HAPUS</b>
-                                                            </a>
-                                                        <?php endif; ?>
+                                                    <!-- Tombol HAPUS (hilang otomatis setelah 60 menit) -->
+                                                    <?php if ($bolehHapus): ?>
+                                                        <a href="hapus.php?id=<?= $idSurat; ?>&table=<?= $row['table_name']; ?>"
+                                                            class="btn btn-outline-danger btn-sm"
+                                                            id="btn-hapus-<?= $idSurat; ?>"
+                                                            onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                                            <i class="fa fa-trash"></i> <b>HAPUS</b>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                </div>
+
+                                                <?php if ($bolehHapus): ?>
+                                                    <div id="countdown-<?= $idSurat; ?>" class="text-muted small ps-1 mt-1">
+                                                        <i class="fa fa-clock-o"></i> <span>Sisa waktu hapus: </span><b></b>
                                                     </div>
 
-                                                    <?php if ($bolehHapus): ?>
-                                                        <div id="countdown-<?= $idSurat; ?>" class="text-muted small ps-1">
-                                                            <i class="fa fa-clock-o"></i> <span>Sisa waktu hapus: </span><b></b>
-                                                        </div>
+                                                    <script>
+                                                        (function () {
+                                                            let seconds = <?= $sisaDetik ?>;
+                                                            const countdownElem = document.querySelector("#countdown-<?= $idSurat; ?> b");
+                                                            const hapusBtn = document.getElementById("btn-hapus-<?= $idSurat; ?>");
+                                                            const container = document.getElementById("countdown-<?= $idSurat; ?>");
 
-                                                        <script>
-                                                            (function () {
-                                                                let seconds = <?= $selisihDetik ?>;
-                                                                const countdownElem = document.querySelector("#countdown-<?= $idSurat; ?> b");
-                                                                const hapusBtn = document.getElementById("btn-hapus-<?= $idSurat; ?>");
-                                                                const container = document.getElementById("countdown-<?= $idSurat; ?>");
-
-                                                                function updateCountdown() {
-                                                                    if (seconds <= 0) {
-                                                                        if (hapusBtn) hapusBtn.remove();
-                                                                        container.innerHTML = "";
-                                                                        return;
-                                                                    }
-
-                                                                    const mins = Math.floor(seconds / 60);
-                                                                    const secs = seconds % 60;
-                                                                    countdownElem.innerText = `${mins}m ${secs}s`;
-                                                                    seconds--;
-                                                                    setTimeout(updateCountdown, 1000);
+                                                            function updateCountdown() {
+                                                                if (seconds <= 0) {
+                                                                    if (hapusBtn) hapusBtn.remove();
+                                                                    if (container) container.remove();
+                                                                    return;
                                                                 }
 
-                                                                updateCountdown();
-                                                            })();
-                                                        </script>
-                                                    <?php endif; ?>
-                                                </td>
-                                            </tr>
-                                        <?php endwhile; ?>
-                                    <?php else: ?>
-                                        <tr>
-                                            <td colspan="8" class="text-center">Tidak ada data surat selesai ditemukan.</td>
+                                                                const mins = Math.floor(seconds / 60);
+                                                                const secs = seconds % 60;
+                                                                countdownElem.innerText = `${mins}m ${secs}s`;
+                                                                seconds--;
+                                                                setTimeout(updateCountdown, 1000);
+                                                            }
+
+                                                            updateCountdown();
+                                                        })();
+                                                    </script>
+                                                <?php endif; ?>
+                                            </td>
                                         </tr>
-                                    <?php endif; ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                    <?php endwhile; ?>
+                                <?php else: ?>
+                                    <tr>
+                                        <td colspan="8" class="text-center">Tidak ada data surat selesai ditemukan.</td>
+                                    </tr>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                 
+
+
+
+
 
 
                         <div class="text-center mt-4">
