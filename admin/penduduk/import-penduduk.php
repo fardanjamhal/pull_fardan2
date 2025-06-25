@@ -55,18 +55,25 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
             return mysqli_real_escape_string($connect, trim($item));
         }, $row);
 
-        // Ambil NIK dan validasi
+        // Validasi NIK
         $nik_asli = $data[0];
-        $nik = preg_replace('/\D/', '', $nik_asli); // Hilangkan selain angka
-
+        $nik = preg_replace('/\D/', '', $nik_asli); // Hapus non-digit
         if (strlen($nik) != 16) {
             echo "<div class='alert alert-warning'>Baris $i dilewati: NIK tidak valid ($nik_asli).</div>";
             continue;
         }
 
+        // Validasi No. KK (boleh kosong, tapi jika ada harus 16 digit)
+        $no_kk_asli = $data[13];
+        $no_kk = preg_replace('/\D/', '', $no_kk_asli);
+        if (!empty($no_kk_asli) && strlen($no_kk) != 16) {
+            echo "<div class='alert alert-warning'>Baris $i dilewati: No. KK tidak valid ($no_kk_asli).</div>";
+            continue;
+        }
+
         list(
             , $nama, $tempat_lahir, , $jenis_kelamin, $agama,
-            $jalan, $dusun, $rt, $rw, $desa, $kecamatan, $kota, $no_kk,
+            $jalan, $dusun, $rt, $rw, $desa, $kecamatan, $kota, ,
             $pend_kk, $pend_terakhir, $pend_ditempuh, $pekerjaan, $status_perkawinan,
             $status_dlm_keluarga, $kewarganegaraan, $nama_ayah, $nama_ibu
         ) = $data;
