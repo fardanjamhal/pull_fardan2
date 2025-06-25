@@ -19,7 +19,7 @@
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="../assets/img/<?php echo $favicon; ?>">
 
-	<title>e-SuratDesa</title>
+	<title>Buat Surat - <?php echo ucwords(strtolower($data['nama_desa'])); ?></title>
   	<link rel="stylesheet" href="../assets/fontawesome-free-5.10.2-web/css/all.css">
 	<link rel="stylesheet" href="../assets/bootstrap-4.3.1-dist/css/bootstrap.css">
 

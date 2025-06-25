@@ -19,7 +19,7 @@
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="../assets/img/<?php echo $favicon; ?>">
 
-	<title>e-SuratDesa</title>
+	<title>Tentang Kami - <?php echo ucwords(strtolower($data['nama_desa'])); ?></title>
 
 	<!-- Bootstrap 4 CSS -->
 	<link
