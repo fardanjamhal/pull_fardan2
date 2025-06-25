@@ -42,30 +42,37 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
             continue;
         }
 
-        // Ambil data mentah
+        // Format tanggal lahir
         $raw_tgl_lahir = $row[3];
-
-        // Tangani format tanggal lahir
         if (is_numeric($raw_tgl_lahir)) {
             $tgl_lahir = Date::excelToDateTimeObject($raw_tgl_lahir)->format('Y-m-d');
         } else {
             $tgl_lahir = date('Y-m-d', strtotime($raw_tgl_lahir));
         }
 
-        // Ambil dan amankan semua data
+        // Sanitasi data
         $data = array_map(function($item) use ($connect) {
             return mysqli_real_escape_string($connect, trim($item));
         }, $row);
 
+        // Ambil NIK dan validasi
+        $nik_asli = $data[0];
+        $nik = preg_replace('/\D/', '', $nik_asli); // Hilangkan selain angka
+
+        if (strlen($nik) != 16) {
+            echo "<div class='alert alert-warning'>Baris $i dilewati: NIK tidak valid ($nik_asli).</div>";
+            continue;
+        }
+
         list(
-            $nik, $nama, $tempat_lahir, /* skip */, $jenis_kelamin, $agama,
+            , $nama, $tempat_lahir, , $jenis_kelamin, $agama,
             $jalan, $dusun, $rt, $rw, $desa, $kecamatan, $kota, $no_kk,
             $pend_kk, $pend_terakhir, $pend_ditempuh, $pekerjaan, $status_perkawinan,
             $status_dlm_keluarga, $kewarganegaraan, $nama_ayah, $nama_ibu
         ) = $data;
 
-        if ($nik == "" || $nama == "") {
-            echo "<div class='alert alert-warning'>Baris $i dilewati karena NIK atau Nama kosong.</div>";
+        if ($nama == "") {
+            echo "<div class='alert alert-warning'>Baris $i dilewati karena Nama kosong.</div>";
             continue;
         }
 
@@ -118,7 +125,7 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
         }
     }
 
-    // Hasil akhir
+    // Ringkasan hasil
     echo "<table class='table table-bordered mt-3'>
             <tr><th>Total Baris Data</th><td>$total</td></tr>
             <tr><th>Data Baru Ditambahkan</th><td class='text-success font-weight-bold'>$ditambahkan</td></tr>
@@ -130,7 +137,6 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
 } else {
     echo "<div class='alert alert-danger'>Gagal upload file Excel.</div>";
 }
-
 ?>
 
         </div>
