@@ -470,12 +470,6 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                       <td><?php echo $no++;?></td>
                         <td>
                           <?php echo $data['no_surat']; ?>
-                              <button
-                                onclick="salinTeks('<?php echo $data['no_surat']; ?>')"
-                                  title="Salin"
-                                  style="margin-left: 5px; background: none; border: none; cursor: pointer; font-size: 16px;">
-                                    📋
-                              </button>
                          </td>
                       <td><?php echo $tgl . $blnIndo[$bln] . $thn;?></td>
                       <td><?php echo $data['nama'];?></td>

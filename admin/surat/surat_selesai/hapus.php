@@ -1,0 +1,68 @@
+<?php
+include_once '../../../config/koneksi.php';
+
+$id = $_GET['id'] ?? null;
+$table = $_GET['table'] ?? null;
+
+if (!$id || !$table) {
+    die("ID atau nama tabel tidak valid.");
+}
+
+// Mapping tabel ke nama kolom primary key
+$primaryKeys = [
+    'surat_keterangan' => 'id_sk',
+    'surat_keterangan_berkelakuan_baik' => 'id_skbb',
+    'surat_keterangan_domisili' => 'id_skd',
+    'surat_keterangan_kepemilikan_kendaraan_bermotor' => 'id_skkkb',
+    'surat_keterangan_perhiasan' => 'id_skp',
+    'surat_keterangan_usaha' => 'id_sku',
+    'surat_lapor_hajatan' => 'id_slh',
+    'surat_pengantar_skck' => 'id_sps',
+    'surat_keterangan_tidak_mampu' => 'id_sktm',
+    'formulir_pengantar_nikah' => 'id_fpn',
+    'formulir_permohonan_kehendak_nikah' => 'id_fpkn',
+    'formulir_persetujuan_calon_pengantin' => 'id_fpcp',
+    'formulir_persetujuan_calon_pengantin_istri' => 'id_fpcp2',
+    'formulir_surat_izin_orang_tua' => 'id_fsiot',
+    'surat_keterangan_kematian' => 'id_skk',
+    'surat_keterangan_domisili_usaha' => 'id_skdu',
+    'surat_keterangan_pengantar' => 'id_skp',
+    'surat_keterangan_beda_identitas' => 'id_skbi',
+    'surat_keterangan_beda_identitas_kis' => 'id_skbis',
+    'surat_keterangan_penghasilan_orang_tua' => 'id_skpot',
+    'surat_pengantar_hewan' => 'id_sph',
+    'surat_keterangan_kematian_dan_penguburan' => 'id_skkp',
+    'surat_keterangan_pindah_penduduk' => 'id_skpp',
+    'surat_keterangan_pengantar_rujuk_atau_cerai' => 'id_skrc',
+    'surat_keterangan_wali_hakim' => 'id_skwh',
+    'surat_keterangan_mahar_sunrang' => 'id_skm'
+];
+
+// Cek apakah tabel yang diminta valid
+if (!isset($primaryKeys[$table])) {
+    die("Tabel tidak dikenali.");
+}
+
+$primaryKey = $primaryKeys[$table];
+
+// Validasi ID hanya boleh angka (integer)
+if (!ctype_digit($id)) {
+    die("ID tidak valid.");
+}
+
+// Gunakan prepared statement untuk keamanan
+$stmt = mysqli_prepare($connect, "DELETE FROM `$table` WHERE `$primaryKey` = ?");
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    $success = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    if ($success) {
+        echo "<script>alert('Data berhasil dihapus.'); window.location.href='index.php';</script>";
+    } else {
+        echo "<script>alert('Gagal menghapus data.'); window.history.back();</script>";
+    }
+} else {
+    echo "<script>alert('Terjadi kesalahan saat menyiapkan query.'); window.history.back();</script>";
+}
+?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2025 at 01:34 PM
+-- Generation Time: Jun 25, 2025 at 03:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -227,7 +227,9 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 (248, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-25 18:41:34'),
 (249, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-25 18:41:41'),
 (250, '7304080505650001', 'H. Jamaluddin, S.Sos', 'Bo\'nia', '1965-05-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-25 18:50:24'),
-(251, '5313051201970002', 'Aswar', 'Balampasu', '1997-01-12', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-25 19:18:38');
+(251, '5313051201970002', 'Aswar', 'Balampasu', '1997-01-12', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-25 19:18:38'),
+(252, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-25 20:00:54'),
+(253, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-25 20:04:16');
 
 -- --------------------------------------------------------
 
@@ -238,7 +240,7 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 CREATE TABLE `dusun` (
   `id_dusun` int(11) NOT NULL,
   `nama_dusun` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `dusun`
@@ -282,7 +284,7 @@ CREATE TABLE `formulir_pengantar_nikah` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `formulir_pengantar_nikah`
@@ -320,7 +322,7 @@ CREATE TABLE `formulir_permohonan_kehendak_nikah` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `formulir_permohonan_kehendak_nikah`
@@ -354,7 +356,7 @@ CREATE TABLE `formulir_persetujuan_calon_pengantin` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `formulir_persetujuan_calon_pengantin`
@@ -391,7 +393,7 @@ CREATE TABLE `formulir_persetujuan_calon_pengantin_istri` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `formulir_persetujuan_calon_pengantin_istri`
@@ -441,7 +443,7 @@ CREATE TABLE `formulir_surat_izin_orang_tua` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `formulir_surat_izin_orang_tua`
@@ -463,7 +465,7 @@ CREATE TABLE `login` (
   `email` varchar(30) NOT NULL,
   `password` varchar(250) NOT NULL,
   `level` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `login`
@@ -485,7 +487,7 @@ CREATE TABLE `pejabat_desa` (
   `jabatan` varchar(20) NOT NULL,
   `pangkat` varchar(50) NOT NULL,
   `nip` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pejabat_desa`
@@ -526,7 +528,7 @@ CREATE TABLE `penduduk` (
   `kewarganegaraan` varchar(5) NOT NULL,
   `nama_ayah` varchar(50) NOT NULL,
   `nama_ibu` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `penduduk`
@@ -860,7 +862,7 @@ CREATE TABLE `pengikut_surat_keterangan_pindah_penduduk` (
   `nama_pengikut` varchar(100) DEFAULT NULL,
   `masa_berlaku_ktp` varchar(50) DEFAULT NULL,
   `shdk` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pengikut_surat_keterangan_pindah_penduduk`
@@ -893,7 +895,7 @@ CREATE TABLE `profil_desa` (
   `ttd_digital` varchar(350) DEFAULT NULL,
   `gambar_kop` varchar(350) DEFAULT NULL,
   `logo_desa` varchar(350) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `profil_desa`
@@ -919,7 +921,7 @@ CREATE TABLE `surat_keterangan` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan`
@@ -954,7 +956,7 @@ CREATE TABLE `surat_keterangan_beda_identitas` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_beda_identitas`
@@ -986,7 +988,7 @@ CREATE TABLE `surat_keterangan_beda_identitas_kis` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_beda_identitas_kis`
@@ -1012,7 +1014,7 @@ CREATE TABLE `surat_keterangan_berkelakuan_baik` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_berkelakuan_baik`
@@ -1037,7 +1039,7 @@ CREATE TABLE `surat_keterangan_domisili` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_domisili`
@@ -1072,7 +1074,7 @@ CREATE TABLE `surat_keterangan_domisili_usaha` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_domisili_usaha`
@@ -1106,7 +1108,7 @@ CREATE TABLE `surat_keterangan_kematian` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_kematian`
@@ -1137,7 +1139,7 @@ CREATE TABLE `surat_keterangan_kematian_dan_penguburan` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_kematian_dan_penguburan`
@@ -1175,7 +1177,7 @@ CREATE TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
@@ -1198,16 +1200,16 @@ CREATE TABLE `surat_keterangan_mahar_sunrang` (
   `id_arsip` int(11) DEFAULT NULL,
   `mahar` varchar(250) NOT NULL,
   `tempat_mahar` varchar(250) NOT NULL,
-  `tanah_utara` text NOT NULL,
-  `tanah_timur` text NOT NULL,
-  `tanah_selatan` text NOT NULL,
-  `tanah_barat` text NOT NULL,
+  `tanah_utara` mediumtext NOT NULL,
+  `tanah_timur` mediumtext NOT NULL,
+  `tanah_selatan` mediumtext NOT NULL,
+  `tanah_barat` mediumtext NOT NULL,
   `orang_tua` varchar(150) NOT NULL,
   `tempat_tgl_lahir2` varchar(150) NOT NULL,
-  `alamat2` text NOT NULL,
+  `alamat2` mediumtext NOT NULL,
   `perempuan` varchar(150) NOT NULL,
   `tempat_tgl_lahir3` varchar(150) NOT NULL,
-  `alamat3` text NOT NULL,
+  `alamat3` mediumtext NOT NULL,
   `saksi1` varchar(150) NOT NULL,
   `saksi2` varchar(150) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
@@ -1221,13 +1223,7 @@ CREATE TABLE `surat_keterangan_mahar_sunrang` (
 --
 
 INSERT INTO `surat_keterangan_mahar_sunrang` (`id_skm`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `mahar`, `tempat_mahar`, `tanah_utara`, `tanah_timur`, `tanah_selatan`, `tanah_barat`, `orang_tua`, `tempat_tgl_lahir2`, `alamat2`, `perempuan`, `tempat_tgl_lahir3`, `alamat3`, `saksi1`, `saksi2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(3, 'Surat Keterangan Mahar Sunrang', '04/SKM/KODE-DESA/VI/2025', '7304053112900229', 241, 'Tanah kering seluas ± 5 Are', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'tanah mlik badullah', 'tanah mlik ronaldo', 'tanah mlik sipato', 'tanah mlik essi', 'sangkala', 'jenepoonto / 12 juni 1966', 'adsad', 'Bu HASNI', 'Gowa / 16 agustus 2002', 'manyumbeng jeneponto', 'saksi 1', 'saksi 2', '2025-06-25 14:46:02', 2, 'SELESAI', 1),
-(5, 'Surat Keterangan Mahar Sunrang', '05/SKM/KODE-DESA/VI/2025', '7304081207150002', 243, 'Emas dengan Berat 2 Gram', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', '', '', '', '', 'dfd', 'dsfdf', 'fdssdf', 'dfdf', 'dffddfd', 'dfdf', 'dfdf', 'dfdf', '2025-06-25 15:51:35', 2, 'SELESAI', 1),
-(6, 'Surat Keterangan Mahar Sunrang', '06/SKM/KODE-DESA/VI/2025', '7304080306830002', 244, 'Tanah kering seluas ± 5 Are', 'fdfd', 'dfdf', 'fddf', 'dfdf', 'dffd', 'CRISTIANO RONDFALDO JENEPPNTP', 'DFDSF', 'DFDF', 'DFFD', 'DF', 'DFDS', 'DDFS', 'DFFDDFDDF', '2025-06-25 16:21:35', 2, 'SELESAI', 1),
-(7, 'Surat Keterangan Mahar Sunrang', '07/SKM/KODE-DESA/VI/2025', '7304053112900229', 245, 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', '2025-06-25 16:42:27', 1, 'SELESAI', 1),
-(8, 'Surat Keterangan Mahar Sunrang', '08/SKM/KODE-DESA/VI/2025', '7304053112900229', 246, 'sadad', 'adas', '', '', '', '', 'dsdsa', 'dad', 'sddas', 'dsasd', 'ddas', 'dda', 'dsasdds', '', '2025-06-25 17:06:49', 2, 'SELESAI', 1),
-(9, 'Surat Keterangan Mahar Sunrang', '09/SKM/KODE-DESA/VI/2025', '7304053112900229', 247, 'df', 'fds', 'fd', 'df', 'df', 'dfs', 'ggdf', 'dfs', 'dsf', 'df', 'df', 'df', 'dfs', 'dfs', '2025-06-25 17:22:05', 1, 'SELESAI', 1),
-(10, 'Surat Keterangan Mahar Sunrang', '10/SKM/KODE-DESA/VI/2025', '5313051201970002', 251, 'Tanah kering seluas ± 5 Are', 'Dusun Macciniayo Desa Bontomanai Kecamatan Rumbia Kabupaten Jeneponto', '', '', '', '', 'ggdf', 'df', 'df', 'dffd', 'dfd', 'fddf', 'dfdsf', 'dfd', '2025-06-25 19:18:38', 1, 'SELESAI', 1);
+(1, 'Surat Keterangan Mahar Sunrang', '04/SKM/KODE-DESA/VI/2025', '7304053112900229', 253, 'df', 'df', 'df', 'dfdf', 'dfs', 'df', 'df', 'dfs', 'df', 'df', 'df', 'dfs', 'dfs', 'dfs', '2025-06-25 20:04:16', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1248,7 +1244,7 @@ CREATE TABLE `surat_keterangan_pengantar` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_pengantar`
@@ -1289,7 +1285,7 @@ CREATE TABLE `surat_keterangan_pengantar_rujuk_atau_cerai` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(20) NOT NULL DEFAULT 'PENDING',
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_pengantar_rujuk_atau_cerai`
@@ -1334,7 +1330,7 @@ CREATE TABLE `surat_keterangan_penghasilan_orang_tua` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_penghasilan_orang_tua`
@@ -1365,7 +1361,7 @@ CREATE TABLE `surat_keterangan_perhiasan` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_perhiasan`
@@ -1386,15 +1382,15 @@ CREATE TABLE `surat_keterangan_pindah_penduduk` (
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `id_arsip` int(11) DEFAULT NULL,
-  `alamat_yang_dituju` text NOT NULL,
-  `alasan_pindah` text NOT NULL,
+  `alamat_yang_dituju` mediumtext NOT NULL,
+  `alasan_pindah` mediumtext NOT NULL,
   `tanggal_pindah` date NOT NULL,
   `jumlah_pengikut_display` int(11) DEFAULT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(20) NOT NULL DEFAULT 'PENDING',
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_pindah_penduduk`
@@ -1417,16 +1413,16 @@ INSERT INTO `surat_keterangan_pindah_penduduk` (`id_skpp`, `jenis_surat`, `no_su
 
 CREATE TABLE `surat_keterangan_tidak_mampu` (
   `id_sktm` int(11) NOT NULL,
-  `jenis_surat` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `no_surat` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `nik` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `jenis_surat` varchar(50) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
   `id_arsip` int(11) DEFAULT NULL,
-  `alamat` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `pekerjaan` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `keperluan` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `pekerjaan` varchar(100) NOT NULL,
+  `keperluan` varchar(100) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
   `id_pejabat_desa` int(11) DEFAULT NULL,
-  `status_surat` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `status_surat` varchar(20) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -1461,7 +1457,7 @@ CREATE TABLE `surat_keterangan_usaha` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_usaha`
@@ -1487,7 +1483,7 @@ CREATE TABLE `surat_keterangan_wali_hakim` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(20) NOT NULL DEFAULT 'PENDING',
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_keterangan_wali_hakim`
@@ -1520,7 +1516,7 @@ CREATE TABLE `surat_lapor_hajatan` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_lapor_hajatan`
@@ -1552,7 +1548,7 @@ CREATE TABLE `surat_pengantar_hewan` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_pengantar_hewan`
@@ -1583,7 +1579,7 @@ CREATE TABLE `surat_pengantar_skck` (
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat_pengantar_skck`
@@ -1882,7 +1878,7 @@ ALTER TABLE `surat_pengantar_skck`
 -- AUTO_INCREMENT for table `arsip_surat`
 --
 ALTER TABLE `arsip_surat`
-  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
+  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT for table `dusun`
@@ -2008,7 +2004,7 @@ ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
 -- AUTO_INCREMENT for table `surat_keterangan_mahar_sunrang`
 --
 ALTER TABLE `surat_keterangan_mahar_sunrang`
-  MODIFY `id_skm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_skm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar`
