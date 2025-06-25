@@ -29,7 +29,7 @@
 			position: relative;
 			overflow: hidden;
 			font-family: 'Poppins', sans-serif;
-			min-height: 100vh;
+			min-height: 90vh;
 			display: flex;
 			justify-content: center;
 			align-items: center;

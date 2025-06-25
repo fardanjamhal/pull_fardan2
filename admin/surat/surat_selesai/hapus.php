@@ -1,6 +1,6 @@
 <?php
 include_once '../../../config/koneksi.php';
-date_default_timezone_set('Asia/Makassar');
+date_default_timezone_set('Asia/Jakarta');
 
 $id = $_GET['id'] ?? null;
 $table = $_GET['table'] ?? null;

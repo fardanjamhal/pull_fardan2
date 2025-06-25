@@ -284,7 +284,7 @@ if (!$result) {
                      
 
 
-                    <?php date_default_timezone_set('Asia/Makassar'); ?>
+                    <?php date_default_timezone_set('Asia/Jakarta'); ?>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
                             <thead>
