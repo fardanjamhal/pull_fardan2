@@ -124,7 +124,7 @@
 
 	<div class="card">
 		<div class="card-header">
-			<a href="../" target="_blank">
+			<a href="../">
 				<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa" style="cursor: pointer;">
 			</a>
 			<h3>Login Sistem</h3>
