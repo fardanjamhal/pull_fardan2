@@ -2,9 +2,22 @@
     include ('../../config/koneksi.php');
 
     if (isset($_POST['submit'])){
-        $jenis_surat = "Surat Keterangan";
+        $jenis_surat = "Surat Keterangan Mahar Sunrang";
         $nik = $_POST['fnik'];
-        $keperluan = addslashes($_POST['fkeperluan']);
+        $mahar             = addslashes($_POST['fmahar']);
+        $tempat_mahar      = addslashes($_POST['ftempat_mahar']);
+        $tanah_utara       = addslashes($_POST['ftanah_utara']);
+        $tanah_timur       = addslashes($_POST['ftanah_timur']);
+        $tanah_selatan     = addslashes($_POST['ftanah_selatan']);
+        $tanah_barat       = addslashes($_POST['ftanah_barat']);
+        $orang_tua         = addslashes($_POST['forang_tua']);
+        $tempat_tgl_lahir2 = addslashes($_POST['ftempat_tgl_lahir2']);
+        $alamat2           = addslashes($_POST['falamat2']);
+        $perempuan         = addslashes($_POST['fperempuan']);
+        $tempat_tgl_lahir3 = addslashes($_POST['ftempat_tgl_lahir3']);
+        $alamat3           = addslashes($_POST['falamat3']);
+        $saksi1            = addslashes($_POST['fsaksi1']);
+        $saksi2            = addslashes($_POST['fsaksi2']);
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 
@@ -56,9 +69,49 @@
 
 
 
-        // Simpan ke tabel surat_keterangan_domisili dengan id_arsip
+        // Simpan ke tabel surat_keterangan_mahar__sunrang_domisili dengan id_arsip
 
-        $qTambahSurat = "INSERT INTO surat_keterangan (jenis_surat, nik, keperluan, status_surat, id_profil_desa, id_arsip) VALUES('$jenis_surat', '$nik', '$keperluan', '$status_surat', '$id_profil_desa', '$id_arsip')";
+        $qTambahSurat = "INSERT INTO surat_keterangan_mahar_sunrang (
+        jenis_surat, 
+        nik, 
+        mahar, 
+        tempat_mahar,
+        tanah_utara, 
+        tanah_timur, 
+        tanah_selatan, 
+        tanah_barat,
+        orang_tua,
+        tempat_tgl_lahir2, 
+        alamat2,
+        perempuan, 
+        tempat_tgl_lahir3, 
+        alamat3,
+        saksi1, 
+        saksi2, 
+        status_surat, 
+        id_profil_desa, 
+        id_arsip
+        ) VALUES(
+        '$jenis_surat', 
+        '$nik', 
+        '$mahar', 
+        '$tempat_mahar',
+        '$tanah_utara', 
+        '$tanah_timur', 
+        '$tanah_selatan', 
+        '$tanah_barat',
+        '$orang_tua', 
+        '$tempat_tgl_lahir2', 
+        '$alamat2',
+        '$perempuan', 
+        '$tempat_tgl_lahir3', 
+        '$alamat3',
+        '$saksi1', 
+        '$saksi2',
+        '$status_surat', 
+        '$id_profil_desa', 
+        '$id_arsip'
+        )";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
         header("location:../index.php?pesan=berhasil");
     }

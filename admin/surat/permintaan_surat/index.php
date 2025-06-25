@@ -161,7 +161,8 @@
                 'surat_keterangan_kematian_dan_penguburan' => 'id_skkp',
                 'surat_keterangan_pindah_penduduk' => 'id_skpp',
                 'surat_keterangan_pengantar_rujuk_atau_cerai' => 'id_skrc',
-                'surat_keterangan_wali_hakim' => 'id_skwh'
+                'surat_keterangan_wali_hakim' => 'id_skwh',
+                'surat_keterangan_mahar_sunrang' => 'id_skm'
               ];
 
               $unionParts = [];

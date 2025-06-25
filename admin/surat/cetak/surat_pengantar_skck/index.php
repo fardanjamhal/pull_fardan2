@@ -258,24 +258,9 @@
 			<td></td>
 			<td align="center">Pemohon,</td>
 			<td></td>
-				<?php
-				$nama_desa_asli = strtolower($rows['nama_desa']);
-
-				if (str_contains($nama_desa_asli, 'kelurahan')) {
-					// Ambil kata setelah "kelurahan"
-					$nama_desa = str_ireplace('kelurahan ', '', $nama_desa_asli);
-					$nama_desa = 'Lurah ' . ucwords($nama_desa);
-					$tampilkan = $nama_desa; // tanpa jabatan
-				} else {
-					$nama_desa = str_ireplace('desa ', '', $nama_desa_asli);
-					$nama_desa = ucwords($nama_desa);
-					$tampilkan = $rowss['jabatan'] . ' ' . $nama_desa;
-				}
+			<?php
+				include_once '../../../surat/cetak/helper/jabatan.php';
 				?>
-
-			<td align="center">
-					<?php echo $tampilkan; ?>
-			</td>
 		</tr>
 		<tr></tr>
 		<tr></tr>

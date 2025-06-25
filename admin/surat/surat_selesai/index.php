@@ -30,7 +30,8 @@ $jenisSuratList = [
     'surat_keterangan_kematian_dan_penguburan' => ['id' => 'id_skkp', 'folder' => 'surat_keterangan_kematian_dan_penguburan'],
     'surat_keterangan_pindah_penduduk' => ['id' => 'id_skpp', 'folder' => 'surat_keterangan_pindah_penduduk'],
     'surat_keterangan_pengantar_rujuk_atau_cerai' => ['id' => 'id_skrc', 'folder' => 'surat_keterangan_pengantar_rujuk_atau_cerai'],
-    'surat_keterangan_wali_hakim' => ['id' => 'id_skwh', 'folder' => 'surat_keterangan_wali_hakim']
+    'surat_keterangan_wali_hakim' => ['id' => 'id_skwh', 'folder' => 'surat_keterangan_wali_hakim'],
+    'surat_keterangan_mahar_sunrang' => ['id' => 'id_skm', 'folder' => 'surat_keterangan_mahar_sunrang']
 ];
 
 // Mengurutkan jenis surat berdasarkan nama yang lebih mudah dibaca (opsional, untuk tampilan dropdown)

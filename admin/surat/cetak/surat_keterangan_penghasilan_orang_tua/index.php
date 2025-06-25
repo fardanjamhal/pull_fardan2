@@ -525,7 +525,9 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td align="center"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?></td>
+			<?php
+				include_once '../../../surat/cetak/helper/jabatan.php';
+				?>
 		</tr>
 		<tr></tr>
 		<tr></tr>

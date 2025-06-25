@@ -28,7 +28,8 @@ $suratTables = [
     'surat_keterangan_kematian_dan_penguburan',
     'surat_keterangan_pindah_penduduk',
     'surat_keterangan_pengantar_rujuk_atau_cerai',
-    'surat_keterangan_wali_hakim'
+    'surat_keterangan_wali_hakim',
+    'surat_keterangan_mahar_sunrang'
 ];
 
 $unionParts = [];
@@ -89,15 +90,14 @@ $query = "
         T_UNION.tanggal_surat,
         T_UNION.jenis_surat,
         arsip_surat.nama,
-        arsip_surat.dusun,
-        arsip_surat.rt,
-        arsip_surat.rw
+        arsip_surat.jalan,
+        arsip_surat.dusun
     FROM
         {$unionSubquery}
     LEFT JOIN
         arsip_surat ON T_UNION.nik = arsip_surat.nik
-    WHERE arsip_surat.nama IS NOT NULL -- Pastikan hanya data yang memiliki nama (join berhasil)
-    GROUP BY T_UNION.no_surat, T_UNION.jenis_surat -- Menambahkan jenis_surat ke GROUP BY untuk memastikan keunikan jika no_surat bisa sama antar jenis surat
+    WHERE arsip_surat.nama IS NOT NULL
+    GROUP BY T_UNION.no_surat, T_UNION.jenis_surat
     ORDER BY T_UNION.tanggal_surat ASC, T_UNION.no_surat ASC
 ";
 
@@ -158,9 +158,9 @@ $query = "
           echo "<td>".$no++."</td>";
           echo "<td>".$data['no_surat']."</td>";
           echo "<td>".$tgl."</td>";
-          echo "<td>".ucwords(strtolower($data['nama']))."</td>";
+          echo "<td>" . htmlspecialchars($data['nama']) . "</td>";
           echo "<td>".$data['jenis_surat']."</td>";
-          echo "<td>Dusun ".ucwords(strtolower($data['dusun']))." RT ".ucwords(strtolower($data['rt']))." RW ".ucwords(strtolower($data['rw']))."</td>";
+          echo "<td>" . ucwords(strtolower($data['jalan'])) . " " . ucwords(strtolower($data['dusun'])) . "</td>";
           echo "</tr>";
         }
       }else{
@@ -168,6 +168,7 @@ $query = "
       }
     ?>
   </table>
+  
   <script>
     window.print();
   </script>
