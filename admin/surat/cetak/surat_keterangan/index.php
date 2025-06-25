@@ -193,12 +193,12 @@
 		</table>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surat keterangan ini dipergunakan untuk <a style="text-transform: capitalize;"><u><b><?php echo $row['keperluan']; ?>.</a></u></b></td>
+				<td class="indentasi" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surat keterangan ini dipergunakan untuk <a style="text-transform: capitalize;"><u><b><?php echo $row['keperluan']; ?>.</a></u></b></td>
 			</tr>
 		</table>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.</td>
+				<td class="indentasi" style="text-align: justify;">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.</td>
 			</tr>
 		</table>
 	</div>
