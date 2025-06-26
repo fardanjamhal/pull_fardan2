@@ -474,7 +474,21 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                       <td><?php echo $tgl . $blnIndo[$bln] . $thn;?></td>
                       <td><?php echo $data['nama'];?></td>
                       <td><?php echo $data['jenis_surat'];?></td>
-                      <td><?php echo "Dusun ".$data['dusun']." RT ".$data['rt']." RW ".$data['rw'];?></td>
+                      <td>
+                        <?php
+                          $output = [];
+                          if (!empty($data['dusun'])) {
+                            $output[] = 'Dusun ' . $data['dusun'];
+                          }
+                          if (!empty($data['rt'])) {
+                            $output[] = 'RT ' . $data['rt'];
+                          }
+                          if (!empty($data['rw'])) {
+                            $output[] = 'RW ' . $data['rw'];
+                          }
+                          echo implode(' ', $output);
+                        ?>
+                      </td>
                     </tr>
               <?php
                   }
