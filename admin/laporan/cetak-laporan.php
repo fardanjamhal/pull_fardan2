@@ -29,7 +29,8 @@ $suratTables = [
     'surat_keterangan_pindah_penduduk',
     'surat_keterangan_pengantar_rujuk_atau_cerai',
     'surat_keterangan_wali_hakim',
-    'surat_keterangan_mahar_sunrang'
+    'surat_keterangan_mahar_sunrang',
+    'surat_keterangan_jual_beli'
 ];
 
 $unionParts = [];
