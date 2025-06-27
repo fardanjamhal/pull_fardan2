@@ -72,6 +72,7 @@
                   UNION SELECT tanggal_surat FROM surat_keterangan_wali_hakim WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM surat_keterangan_mahar_sunrang WHERE status_surat='pending'
                   UNION SELECT tanggal_surat FROM surat_keterangan_jual_beli WHERE status_surat='pending'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_belum_terbit_sppt_pbb WHERE status_surat='pending'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
@@ -117,6 +118,7 @@
                   UNION SELECT tanggal_surat FROM surat_keterangan_wali_hakim WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_keterangan_mahar_sunrang WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_keterangan_jual_beli WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_belum_terbit_sppt_pbb WHERE status_surat='selesai'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;
@@ -186,6 +188,7 @@
                   UNION SELECT tanggal_surat FROM surat_keterangan_wali_hakim WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_keterangan_mahar_sunrang WHERE status_surat='selesai'
                   UNION SELECT tanggal_surat FROM surat_keterangan_jual_beli WHERE status_surat='selesai'
+                  UNION SELECT tanggal_surat FROM surat_keterangan_belum_terbit_sppt_pbb WHERE status_surat='selesai'
                   ");
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
                 echo $jumlahPermintaanSurat;

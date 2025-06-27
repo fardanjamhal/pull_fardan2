@@ -73,7 +73,7 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan dibawah ini adalah Pemerintah  
 			<span style="text-transform: capitalize;">
 				<?php echo $rows['nama_desa']; ?>
-			</span> Kecamatan 
+			</span> 
 			<span style="text-transform: capitalize;">
 				<?php echo $rows['kecamatan']; ?>
 			</span> 
@@ -111,14 +111,18 @@
 			include('../../../../config/koneksi.php');
 
 			// Ambil nama pejabat dan jabatannya dari pejabat_desa urutan pertama
-			$query = "SELECT nama_pejabat_desa, jabatan FROM pejabat_desa ORDER BY id_pejabat_desa ASC LIMIT 1";
+			$query = "SELECT nama_pejabat_desa, jabatan, nip, alamat FROM pejabat_desa ORDER BY id_pejabat_desa ASC LIMIT 1";
 			$result = mysqli_query($connect, $query);
 
 			$nama_pejabat = '';
 			$jabatan = '';
+			$nip = '';
+			$alamat = '';
 			if ($data = mysqli_fetch_assoc($result)) {
 				$nama_pejabat = $data['nama_pejabat_desa'];
 				$jabatan = $data['jabatan'];
+				$nip = $data['nip'];
+				$alamat = $data['alamat'];
 			}
 			?>
 			<tr>
@@ -130,12 +134,12 @@
 			<tr>
 				<td width="30%" style="padding-left: 40px;">Jabatan</td>
 				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo htmlspecialchars($jabatan); ?></td>
+				<td><?php echo ucwords(strtolower(htmlspecialchars($jabatan))); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" style="padding-left: 40px;">Alamat</td>
 				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $rows['nama_desa']; ?></td>
+				<td><?php echo ucwords(strtolower(htmlspecialchars($alamat))); ?></td>
 			</tr>
 
 			<td>Menerangkan bahwa :</td>

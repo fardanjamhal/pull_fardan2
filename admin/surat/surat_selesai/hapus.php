@@ -37,7 +37,8 @@ $primaryKeys = [
     'surat_keterangan_pengantar_rujuk_atau_cerai' => 'id_skrc',
     'surat_keterangan_wali_hakim' => 'id_skwh',
     'surat_keterangan_mahar_sunrang' => 'id_skm',
-    'surat_keterangan_jual_beli' => 'id_skjb'
+    'surat_keterangan_jual_beli' => 'id_skjb',
+    'surat_keterangan_belum_terbit_sppt_pbb' => 'id_skbtsp'
 ];
 
 if (!isset($primaryKeys[$table])) {

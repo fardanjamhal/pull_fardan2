@@ -213,6 +213,11 @@
           <input type="text" name="nip" value="<?php echo $data['nip']; ?>">
         </div>
 
+        <div class="form-group">
+          <label>ALAMAT</label>
+          <input type="text" name="alamat" value="<?php echo $data['alamat']; ?>">
+        </div>
+
         <button type="submit" class="btn-simpan">💾 Simpan Perubahan</button>
       </form>
     </div>

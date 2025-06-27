@@ -312,7 +312,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                           'surat_keterangan_pindah_penduduk',
                           'surat_keterangan_wali_hakim',
                           'surat_keterangan_mahar_sunrang',
-                          'surat_keterangan_jual_beli'
+                          'surat_keterangan_jual_beli',
+                          'surat_keterangan_belum_terbit_sppt_pbb'
                         ];
 
                         $query_tahun_parts = [];
@@ -371,7 +372,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
             'surat_keterangan_pengantar_rujuk_atau_cerai',
             'surat_keterangan_wali_hakim',
             'surat_keterangan_mahar_sunrang',
-            'surat_keterangan_jual_beli'
+            'surat_keterangan_jual_beli',
+            'surat_keterangan_belum_terbit_sppt_pbb'
           ];
 
           // Array untuk menyimpan bagian UNION query
