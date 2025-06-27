@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 // Pastikan user sudah login dan level diizinkan
 if (!isset($_SESSION['lvl']) || 
