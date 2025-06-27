@@ -2,6 +2,10 @@
 session_start();
 include('../../config/koneksi.php');
 
+// Tampilkan error saat development (hapus ini di production)
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 // Cek CSRF token
 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
     $_SESSION['error'] = "Token CSRF tidak valid.";
@@ -19,10 +23,10 @@ if ($id_login < 1) {
 
 // Ambil input
 $username = trim($_POST['username']);
-$password_plain = $_POST['password'];
+$password_plain = $_POST['password'] ?? '';
 $confirm_password = $_POST['confirm_password'] ?? '';
 
-// Simpan input sementara ke sesi (agar tidak hilang kalau error)
+// Simpan input sementara ke sesi (untuk form repopulate jika error)
 $_SESSION['old_username'] = $username;
 $_SESSION['old_password'] = $password_plain;
 $_SESSION['old_confirm'] = $confirm_password;
@@ -41,24 +45,23 @@ if ($password_plain !== $confirm_password) {
     exit;
 }
 
-// Ambil data lama dari database
-$stmt = $connect->prepare("SELECT username FROM login WHERE id = ?");
+// Ambil data lama dari database (tanpa get_result())
+$stmt = $connect->prepare("SELECT username, password FROM login WHERE id = ?");
 $stmt->bind_param("i", $id_login);
 $stmt->execute();
-$result = $stmt->get_result();
+$stmt->bind_result($old_username, $old_password);
+$found = $stmt->fetch();
+$stmt->close();
 
-if ($result->num_rows === 0) {
+if (!$found) {
     $_SESSION['error'] = "Data login tidak ditemukan.";
     header("Location: password.php");
     exit;
 }
 
-$data_lama = $result->fetch_assoc();
-$stmt->close();
-
-// Cek apakah username sama dan password tidak diubah
-if ($data_lama['username'] === $username && password_verify($password_plain, $data_lama['password'] ?? '')) {
-    $_SESSION['error'] = "Tidak ada perubahan pada data.";
+// Cek apakah username sama dan password tidak berubah
+if ($old_username === $username && password_verify($password_plain, $old_password)) {
+    $_SESSION['error'] = "Tidak ada perubahan yang dilakukan.";
     header("Location: password.php?id=$id_login");
     exit;
 }
@@ -74,9 +77,10 @@ if ($stmt_update->execute()) {
     $stmt_update->close();
     $connect->close();
 
-    // Bersihkan sesi lalu logout
+    // Hapus semua session & logout otomatis
     session_unset();
     session_destroy();
+
     header("Location: ../../login/index.php?pesan=password_diubah");
     exit;
 } else {
