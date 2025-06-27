@@ -1,13 +1,13 @@
 <?php
-// Aktifkan error reporting untuk diagnosa saat di hosting
+session_start();
+include('../config/koneksi.php');
+
+// Aktifkan error log saat testing (nonaktifkan di produksi)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start();
-include('../config/koneksi.php');
-
-// Validasi data input
+// Validasi input
 if (!isset($_POST['username'], $_POST['password'])) {
     header("Location: index.php?pesan=login-gagal");
     exit();
@@ -16,28 +16,24 @@ if (!isset($_POST['username'], $_POST['password'])) {
 $username = $_POST['username'];
 $password_input = $_POST['password'];
 
-// Gunakan prepared statement untuk mencegah SQL Injection
-$stmt = $connect->prepare("SELECT * FROM login WHERE username = ?");
-if (!$stmt) {
-    die("Query Error: " . $connect->error); // Debug jika prepare gagal
-}
-
+// Ambil data user
+$stmt = $connect->prepare("SELECT id, username, password, level FROM login WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
-$result = $stmt->get_result();
+$stmt->store_result();
 
-// Cek apakah user ditemukan
-if ($result->num_rows > 0) {
-    $login = $result->fetch_assoc();
+if ($stmt->num_rows > 0) {
+    // Ambil hasil
+    $stmt->bind_result($id, $db_username, $db_password, $level);
+    $stmt->fetch();
 
-    // Cek apakah password masih MD5
-    if (strlen($login['password']) === 32 && ctype_xdigit($login['password'])) {
-        // Jika cocok dengan MD5
-        if (md5($password_input) === $login['password']) {
-            // Migrasi otomatis ke password_hash
+    // Cek apakah masih md5
+    if (strlen($db_password) === 32 && ctype_xdigit($db_password)) {
+        if (md5($password_input) === $db_password) {
+            // Migrasi ke password_hash
             $new_hash = password_hash($password_input, PASSWORD_DEFAULT);
             $update = $connect->prepare("UPDATE login SET password = ? WHERE id = ?");
-            $update->bind_param("si", $new_hash, $login['id']);
+            $update->bind_param("si", $new_hash, $id);
             $update->execute();
         } else {
             header("Location: index.php?pesan=login-gagal");
@@ -45,26 +41,25 @@ if ($result->num_rows > 0) {
         }
     } else {
         // Verifikasi password hash
-        if (!password_verify($password_input, $login['password'])) {
+        if (!password_verify($password_input, $db_password)) {
             header("Location: index.php?pesan=login-gagal");
             exit();
         }
     }
 
-    // Jika login berhasil, amankan session
-    session_regenerate_id(true); // Mencegah session fixation
-    $_SESSION['username'] = $username;
+    // Login berhasil
+    session_regenerate_id(true);
+    $_SESSION['username'] = $db_username;
 
-    if ($login['level'] === "admin") {
+    if ($level === "admin") {
         $_SESSION['lvl'] = "Administrator";
-    } elseif ($login['level'] === "kades") {
+    } elseif ($level === "kades") {
         $_SESSION['lvl'] = "Kepala Desa";
     } else {
         header("Location: index.php?pesan=login-gagal");
         exit();
     }
 
-    // Arahkan ke dashboard
     header("Location: ../admin/");
     exit();
 } else {
