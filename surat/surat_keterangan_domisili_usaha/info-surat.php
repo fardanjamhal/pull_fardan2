@@ -21,7 +21,13 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN DOMISILI USAHA</b></h5></a>
+							<?php
+							$url = basename(__DIR__); // contoh: formulir_pengantar_nikah
+							$judul = strtoupper(str_replace('_', ' ', $url));
+							?>
+							<a class="col-sm-6">
+							<h5><b><?= $judul; ?></b></h5>
+							</a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>
@@ -103,7 +109,7 @@
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Alamat</label>
 						           	<div class="col-sm-12">
-						               	<textarea type="text" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $data['jalan'] . ", RT" . $data['rt'] . "/RW" . $data['rw'] . ", Dusun " . $data['dusun'] . ",\nDesa " . $data['desa'] . ", Kecamatan " . $data['kecamatan'] . ", " . $data['kota']; ?></textarea>
+						               <?php include ('../../surat/helper/alamat_helper.php'); ?>
 						           	</div>
 						        </div>
 						  	</div>

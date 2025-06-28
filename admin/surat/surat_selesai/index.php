@@ -347,11 +347,11 @@ if (!$result) {
 
                                                     <!-- Tombol HAPUS (hilang otomatis setelah 60 menit) -->
                                                     <?php if ($bolehHapus): ?>
-                                                        <a href="hapus.php?id=<?= $idSurat; ?>&table=<?= $row['table_name']; ?>"
-                                                            class="btn btn-outline-danger btn-sm"
-                                                            id="btn-hapus-<?= $idSurat; ?>"
-                                                            onclick="return confirm('Yakin ingin menghapus surat ini?')">
-                                                            <i class="fa fa-trash"></i> <b>HAPUS</b>
+                                                        <a href="hapus.php?id=<?= $idSurat; ?>&table=<?= $row['table_name']; ?>&no_surat=<?= urlencode($row['no_surat']); ?>"
+                                                        class="btn btn-outline-danger btn-sm"
+                                                        id="btn-hapus-<?= $idSurat; ?>"
+                                                        onclick="return confirm('Yakin ingin menghapus surat ini?')">
+                                                        <i class="fa fa-trash"></i> <b>HAPUS</b>
                                                         </a>
                                                     <?php endif; ?>
                                                 </div>

@@ -1,31 +1,77 @@
 <?php
-	include ('../../../../../config/koneksi.php');
+include('../../../../../config/koneksi.php');
 
-	$id 				= $_POST['id'];
-	$no_surat 			= $_POST['fno_surat'];
-	$id_pejabat_desa 	= $_POST['ft_tangan'];
-	$status_surat 		= "SELESAI";
+if (!isset($_POST['id'])) {
+    die("ID tidak ditemukan");
+}
 
-	// Cek apakah no_surat sudah ada untuk surat lain
-	$qCek = "SELECT * FROM formulir_pengantar_nikah WHERE no_surat = '$no_surat' AND id_fpn != '$id'";
-	$cekResult = mysqli_query($connect, $qCek);
+$id = (int)$_POST['id'];
+$id_pejabat_desa = mysqli_real_escape_string($connect, $_POST['ft_tangan']);
+$status_surat = "SELESAI";
 
-		if (mysqli_num_rows($cekResult) > 0) {
-			echo ("<script LANGUAGE='JavaScript'>
-				window.alert('Nomor surat sudah digunakan. Silakan gunakan nomor lain.');
-				window.location.href = 'index.php?id=$id'; // tetap di halaman sekarang
-			</script>");
-			exit();
-		}
+// Ambil tanggal surat
+$qSurat = mysqli_query($connect, "SELECT tanggal_surat FROM formulir_pengantar_nikah WHERE id_fpn = $id");
+$dSurat = mysqli_fetch_assoc($qSurat);
+$tanggal = $dSurat['tanggal_surat'];
+$bulan = date('m', strtotime($tanggal));
+$tahun = date('Y', strtotime($tanggal));
 
-	// Jika tidak duplikat, lanjutkan update
+// Mapping bulan ke romawi
+$bulan_romawi_map = [
+  '01'=>'I','02'=>'II','03'=>'III','04'=>'IV',
+  '05'=>'V','06'=>'VI','07'=>'VII','08'=>'VIII',
+  '09'=>'IX','10'=>'X','11'=>'XI','12'=>'XII'
+];
+$bulan_romawi = $bulan_romawi_map[$bulan] ?? 'X';
 
-	$qUpdate 	= "UPDATE formulir_pengantar_nikah SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' WHERE id_fpn='$id'";
-	$update 	= mysqli_query($connect, $qUpdate);
+// Ambil kode_surat dari folder
+$folder_name = basename(__DIR__);
+$folder_parts = explode('_', $folder_name);
+$kode_surat = strtoupper(implode('', array_map(fn($word) => $word[0], $folder_parts)));
 
-	if($update){
-		header('location:../../');
-	}else{
-	 	echo ("<script LANGUAGE='JavaScript'>window.alert('Gagal mengonfirmasi surat'); window.location.href='#'</script>");
-	}
+// Ambil data dari form
+$no_urut = isset($_POST['no_urut_manual']) ? (int)$_POST['no_urut_manual'] : 1;
+$kode_desa = isset($_POST['kode_desa']) ? mysqli_real_escape_string($connect, $_POST['kode_desa']) : 'KODE-DS';
+
+// Cek apakah nomor urut dan tahun sudah digunakan
+$cek = mysqli_query($connect, "
+  SELECT id 
+  FROM nomor_surat 
+  WHERE nomor_urut = $no_urut 
+  AND tahun = '$tahun'
+");
+
+if (mysqli_num_rows($cek) > 0) {
+    echo "<script>alert('Nomor urut $no_urut sudah digunakan pada tahun $tahun. Silakan pilih nomor lain.'); window.history.back();</script>";
+    exit;
+}
+
+// Format final nomor surat
+$no_surat = str_pad($no_urut, 3, '0', STR_PAD_LEFT) . "/$kode_surat/$kode_desa/$bulan_romawi/$tahun";
+
+// Update status dan nomor surat ke surat utama
+$update = mysqli_query($connect, "
+  UPDATE formulir_pengantar_nikah 
+  SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' 
+  WHERE id_fpn='$id'
+");
+
+if ($update) {
+    // Simpan ke log nomor_surat
+    $simpan = mysqli_query($connect, "
+      INSERT INTO nomor_surat (kode_surat, kode_desa, bulan, tahun, nomor_urut, nomor_lengkap)
+      VALUES ('$kode_surat', '$kode_desa', '$bulan', '$tahun', $no_urut, '$no_surat')
+    ");
+
+    if ($simpan) {
+        header('Location: ../../');
+        exit;
+    } else {
+        echo "<script>alert('Gagal menyimpan nomor surat ke log.'); window.history.back();</script>";
+        exit;
+    }
+} else {
+    echo "<script>alert('Gagal mengupdate surat.'); window.history.back();</script>";
+    exit;
+}
 ?>

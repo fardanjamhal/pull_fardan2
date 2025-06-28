@@ -120,116 +120,83 @@
                 <div class="col-md-6">
                   <div class="box-body">
 
-                     <!-- FARDAN SALIN NOMOR OTOMATIS -->
-                    <?php
-                      // Ambil id_skdukkb dari data surat sekarang (misal dari hasil query sebelumnya)
-                      $current_id = isset($row['id_skdu']) ? (int)$row['id_skdu'] : 0;
 
-                      if ($current_id > 0) {
-                          // Query nomor surat sebelumnya berdasarkan id_skdukkb yang kurang dari current_id
-                          $query = mysqli_query($connect, "
-                              SELECT no_surat 
-                              FROM surat_keterangan_domisili_usaha 
-                              WHERE id_skdu < $current_id 
-                              ORDER BY id_skdu DESC 
-                              LIMIT 1
-                          ");
 
-                          $data = mysqli_fetch_assoc($query);
-                          $last_no_surat = $data ? $data['no_surat'] : 'Data belum tersedia';
-                      } else {
-                          $last_no_surat = 'Data belum tersedia';
-                      }
-                      ?>
-
-                      <div class="form-group" style="border: none; padding-top: 7px; font-style: italic; color: red;">
-                        <label class="col-sm-3 control-label"><em>No. Surat Sebelumnya</em></label>
-                        <div class="col-sm-7">
-                          <div id="noSuratText" class="form-control" style="border: none; padding-top: 7px; font-style: italic; color: red;">
-                            <?php echo htmlspecialchars($last_no_surat); ?>
-                          </div>
-                        </div>
-                        <div class="col-sm-2" style="position: relative;">
-                          <button type="button" class="btn btn-primary" onclick="copyNoSurat()">Salin</button>
-                          <small id="copyText" style="display:none; color:green; margin-left:8px;">Tersalin</small>
-                        </div>
-                      </div>
-
-                      <script>
-                      function copyNoSurat() {
-                        const text = document.getElementById('noSuratText').innerText;
-                        const copyText = document.getElementById('copyText');
-
-                        if(text === 'Data belum tersedia') {
-                          copyText.style.display = 'none';
-                          return;
-                        }
-
-                        navigator.clipboard.writeText(text).then(() => {
-                          copyText.style.display = 'inline';
-                          setTimeout(() => {
-                            copyText.style.display = 'none';
-                          }, 2000);
-                        }).catch(() => {
-                          copyText.style.display = 'none';
-                        });
-                      }
-                      </script>
-                      <!-- FARDAN SALIN NOMOR OTOMATIS -->
-
-                    <!-- TAMBAHKAN 1 ANGKA OTOMATIS -->
+                  <!-- FARDAN SALIN NOMOR OTOMATIS -->
+                              
                      <?php
-                    $current_id = isset($row['id_skdu']) ? (int)$row['id_skdu'] : 0;
-                    $auto_no_surat = '';
+                    include('../../../../../config/koneksi.php');
 
-                    if ($current_id > 0) {
-                        $query = mysqli_query($connect, "
-                            SELECT no_surat 
-                            FROM surat_keterangan_domisili_usaha
-                            WHERE id_skdu < $current_id 
-                            ORDER BY id_skdu DESC 
-                            LIMIT 1
-                        ");
+                    // Ambil tanggal surat (default hari ini jika kosong)
+                    $tanggal = isset($row['tanggal_surat']) ? $row['tanggal_surat'] : date('Y-m-d');
+                    $bulan = date('m', strtotime($tanggal));
+                    $tahun = date('Y', strtotime($tanggal));
 
-                        $data = mysqli_fetch_assoc($query);
-                        if ($data && isset($data['no_surat'])) {
-                            $last_no_surat = trim($data['no_surat']);
-                            $parts = explode('/', $last_no_surat);
+                    // Mapping bulan ke romawi
+                    $bulan_romawi_map = [
+                      '01' => 'I', '02' => 'II', '03' => 'III', '04' => 'IV',
+                      '05' => 'V', '06' => 'VI', '07' => 'VII', '08' => 'VIII',
+                      '09' => 'IX', '10' => 'X', '11' => 'XI', '12' => 'XII'
+                    ];
+                    $bulan_romawi = $bulan_romawi_map[$bulan] ?? 'X';
 
-                            if (count($parts) > 0 && is_numeric($parts[0])) {
-                                $next_number = (int)$parts[0] + 1;
-                                $parts[0] = str_pad($next_number, 2, '0', STR_PAD_LEFT);
-                                $auto_no_surat = implode('/', $parts);
-                            } else {
-                                // Jika gagal baca format, fallback ke default format
-                                $bulan_romawi_map = [
-                                  '01' => 'I', '02' => 'II', '03' => 'III', '04' => 'IV',
-                                  '05' => 'V', '06' => 'VI', '07' => 'VII', '08' => 'VIII',
-                                  '09' => 'IX', '10' => 'X', '11' => 'XI', '12' => 'XII'
-                                ];
-                                $tanggal_surat = isset($row['tanggal_surat']) ? $row['tanggal_surat'] : date('Y-m-d');
-                                $bulan = date('m', strtotime($tanggal_surat));
-                                $tahun = date('Y', strtotime($tanggal_surat));
-                                $bulan_romawi = $bulan_romawi_map[$bulan];
-                                
-                                $kode_desa = 'KODE-DESA';
-                                $kode_surat = 'SKD';
-                                $auto_no_surat = "0001/$kode_surat/$kode_desa/$bulan_romawi/$tahun";
-                            }
-                        }
+                    // Ambil kode_surat dari nama folder
+                    $folder_name = basename(__DIR__);
+                    $folder_parts = explode('_', $folder_name);
+                    $kode_surat = strtoupper(implode('', array_map(fn($word) => $word[0], $folder_parts)));
+
+                    // Ambil kode_desa terakhir dari seluruh isi tabel nomor_surat (global, tanpa filter jenis surat)
+                    $q_kode_desa = mysqli_query($connect, "
+                        SELECT kode_desa FROM nomor_surat 
+                        ORDER BY id DESC LIMIT 1
+                    ");
+
+                    $r_kode_desa = mysqli_fetch_assoc($q_kode_desa);
+
+                    // Jika ada input dari POST, pakai itu, kalau tidak ada pakai dari query, jika tidak ada juga pakai default
+                    $kode_desa = $_POST['kode_desa'] ?? ($r_kode_desa['kode_desa'] ?? 'KODE-DS');
+
+
+                    // Ambil no urut dari input manual atau generate otomatis dari tahun
+                    if (isset($_POST['no_urut_manual'])) {
+                      $no_urut = (int)$_POST['no_urut_manual'];
+                    } else {
+                      $q = mysqli_query($connect, "
+                        SELECT MAX(nomor_urut) as max_urut 
+                        FROM nomor_surat 
+                        WHERE tahun = '$tahun'
+                      ");
+                      $r = mysqli_fetch_assoc($q);
+                      $no_urut = ($r && $r['max_urut']) ? $r['max_urut'] + 1 : 1;
                     }
+
+                    // Format nomor surat akhir
+                    $final_no_surat = str_pad($no_urut, 3, '0', STR_PAD_LEFT) . "/$kode_surat/$kode_desa/$bulan_romawi/$tahun";
                     ?>
 
-                   <div class="form-group">
-                    <label class="col-sm-3 control-label">No. Surat</label>
-                    <div class="col-sm-9">
-                      <input type="text" name="fno_surat" 
-                            value="<?php echo !empty($auto_no_surat) ? htmlspecialchars($auto_no_surat) : htmlspecialchars($row['no_surat']); ?>" 
-                            class="form-control" placeholder="Masukkan No. Surat" required>
-                    </div>
-                  </div>
+                    <!-- TAMPILAN FORM -->
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">No. Urut</label>
+                      <div class="col-sm-3">
+                        <input type="number" name="no_urut_manual" class="form-control" value="<?= $no_urut ?>" required>
+                      </div>
 
-                    <!-- TAMBAHKAN 1 ANGKA OTOMATIS -->
+                      <label class="col-sm-2 control-label">Kode Desa</label>
+                      <div class="col-sm-4">
+                        <input type="text" name="kode_desa" class="form-control" value="<?= htmlspecialchars($kode_desa) ?>" required>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">No. Surat Final</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fno_surat" class="form-control" readonly value="<?= htmlspecialchars($final_no_surat) ?>">
+                      </div>
+                    </div>
+
+
+                  <!-- FARDAN SALIN NOMOR OTOMATIS -->
+
 
 
                   </div>

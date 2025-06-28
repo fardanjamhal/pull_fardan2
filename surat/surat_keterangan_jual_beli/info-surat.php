@@ -21,7 +21,13 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN JUAL BELI</b></h5></a>
+							<?php
+							$url = basename(__DIR__); // contoh: formulir_pengantar_nikah
+							$judul = strtoupper(str_replace('_', ' ', $url));
+							?>
+							<a class="col-sm-6">
+							<h5><b><?= $judul; ?></b></h5>
+							</a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>

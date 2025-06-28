@@ -103,7 +103,7 @@
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Alamat</label>
 						           	<div class="col-sm-12">
-						               	<textarea type="text" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $data['jalan'] . ", RT" . $data['rt'] . "/RW" . $data['rw'] . ", Dusun " . $data['dusun'] . ",\nDesa " . $data['desa'] . ", Kecamatan " . $data['kecamatan'] . ", " . $data['kota']; ?></textarea>
+						               <?php include ('../../surat/helper/alamat_helper.php'); ?>
 						           	</div>
 						        </div>
 						  	</div>

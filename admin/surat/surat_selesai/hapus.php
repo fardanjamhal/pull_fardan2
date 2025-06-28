@@ -4,12 +4,13 @@ date_default_timezone_set('Asia/Jakarta');
 
 $id = $_GET['id'] ?? null;
 $table = $_GET['table'] ?? null;
+$no_surat = $_GET['no_surat'] ?? null;
 
 if (!$id || !$table) {
     die("ID atau nama tabel tidak valid.");
 }
 
-// Mapping tabel ke nama kolom primary key dan kolom tanggal surat
+// Mapping tabel ke nama kolom primary key
 $primaryKeys = [
     'surat_keterangan' => 'id_sk',
     'surat_keterangan_berkelakuan_baik' => 'id_skbb',
@@ -68,7 +69,7 @@ if ($selisih > $batasDetik) {
     die("<script>alert('Waktu penghapusan telah habis.'); window.location.href='index.php';</script>");
 }
 
-// Gunakan prepared statement
+// Hapus dari tabel jenis surat
 $stmt = mysqli_prepare($connect, "DELETE FROM `$table` WHERE `$primaryKey` = ?");
 if ($stmt) {
     mysqli_stmt_bind_param($stmt, "i", $id);
@@ -76,6 +77,16 @@ if ($stmt) {
     mysqli_stmt_close($stmt);
 
     if ($success) {
+        // Jika ada parameter no_surat, hapus dari nomor_surat
+        if ($no_surat) {
+            $stmtNomor = mysqli_prepare($connect, "DELETE FROM nomor_surat WHERE nomor_lengkap = ?");
+            if ($stmtNomor) {
+                mysqli_stmt_bind_param($stmtNomor, "s", $no_surat);
+                mysqli_stmt_execute($stmtNomor);
+                mysqli_stmt_close($stmtNomor);
+            }
+        }
+
         echo "<script>alert('Data berhasil dihapus.'); window.location.href='index.php';</script>";
     } else {
         echo "<script>alert('Gagal menghapus data.'); window.history.back();</script>";
