@@ -12,9 +12,12 @@ $id = (int)$_POST['id'];
 $id_pejabat_desa = mysqli_real_escape_string($connect, $_POST['ft_tangan']); 
 $status_surat    = "SELESAI";
 
-// ✅ Ambil tanggal surat
+// ✅ Update tanggal_surat di database ke waktu sekarang
+mysqli_query($connect, "UPDATE surat_keterangan_pengantar_rujuk_atau_cerai SET tanggal_surat = NOW() WHERE id_skrc = $id");
+// ✅ Ambil ulang tanggal_surat yang sudah diperbarui
 $qSurat = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan_pengantar_rujuk_atau_cerai WHERE id_skrc = $id");
 $dSurat = mysqli_fetch_assoc($qSurat);
+// ✅ Ambil komponen tanggal untuk ditampilkan di surat
 $tanggal = $dSurat['tanggal_surat'];
 $bulan = date('m', strtotime($tanggal));
 $tahun = date('Y', strtotime($tanggal));
@@ -28,9 +31,15 @@ $bulan_romawi_map = [
 $bulan_romawi = $bulan_romawi_map[$bulan] ?? 'X';
 
 // ✅ Ambil kode_surat otomatis dari nama folder
-$folder_name = basename(__DIR__); // contoh: surat_keterangan_pengantar_rujuk_atau_cerai
+$folder_name = basename(__DIR__); // contoh: surat_keterangan_kematian_dan_penguburan
 $folder_parts = explode('_', $folder_name);
-$kode_surat = strtoupper(implode('', array_map(fn($word) => $word[0], $folder_parts))); // Contoh: FPKN
+// Daftar kata penghubung atau kata umum yang diabaikan
+$kata_dilewati = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk', 'serta'];
+// Ambil huruf pertama dari kata-kata penting saja
+$kode_surat = strtoupper(implode('', array_map(function($word) use ($kata_dilewati) {
+    return in_array(strtolower($word), $kata_dilewati) ? '' : $word[0];
+}, $folder_parts)));
+// Contoh hasil: SKKP
 
 // ✅ Ambil data nomor urut dan kode desa dari form
 $no_urut    = isset($_POST['no_urut_manual']) ? (int)$_POST['no_urut_manual'] : 1;

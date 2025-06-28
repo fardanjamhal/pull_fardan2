@@ -246,9 +246,9 @@
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Alamat</label>
-                      <div class="col-sm-9">
-                        <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></textarea>
-                      </div>
+                      
+                      <?php include '../../../permintaan_surat/konfirmasi/helper/alamat_helper.php'?>
+
                     </div>
                       <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Formulir</b></h5>
                       <br><hr style="border-bottom: 1px solid #DCDCDC;">

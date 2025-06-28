@@ -249,11 +249,11 @@
                         <input type="text" name="fpekerjaan" style="text-transform: capitalize;" value="<?php echo $row['pekerjaan']; ?>" class="form-control" readonly>
                       </div>
                     </div>
-                    <div class="form-group">
+                   <div class="form-group">
                       <label class="col-sm-3 control-label">Alamat</label>
-                      <div class="col-sm-9">
-                        <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></textarea>
-                      </div>
+                      
+                      <?php include '../../../permintaan_surat/konfirmasi/helper/alamat_helper.php'?>
+
                     </div>
                   </div>
                 </div>

@@ -12,9 +12,12 @@ $id = (int)$_POST['id'];
 $id_pejabat_desa = mysqli_real_escape_string($connect, $_POST['ft_tangan']); 
 $status_surat    = "SELESAI";
 
-// ✅ Ambil tanggal surat
+// ✅ Update tanggal_surat di database ke waktu sekarang
+mysqli_query($connect, "UPDATE formulir_persetujuan_calon_pengantin_istri SET tanggal_surat = NOW() WHERE id_fpcp2 = $id");
+// ✅ Ambil ulang tanggal_surat yang sudah diperbarui
 $qSurat = mysqli_query($connect, "SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE id_fpcp2 = $id");
 $dSurat = mysqli_fetch_assoc($qSurat);
+// ✅ Ambil komponen tanggal untuk ditampilkan di surat
 $tanggal = $dSurat['tanggal_surat'];
 $bulan = date('m', strtotime($tanggal));
 $tahun = date('Y', strtotime($tanggal));

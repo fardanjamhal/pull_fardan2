@@ -143,8 +143,15 @@
 
                     // Ambil kode_surat dari nama folder
                     $folder_name = basename(__DIR__);
+                    // Pecah berdasarkan underscore
                     $folder_parts = explode('_', $folder_name);
-                    $kode_surat = strtoupper(implode('', array_map(fn($word) => $word[0], $folder_parts)));
+                    // Daftar kata yang diabaikan (kamu bisa tambahkan lagi)
+                    $kata_dilewati = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk'];
+                    // Ambil huruf pertama dari setiap kata kecuali yang diabaikan
+                    $kode_surat = strtoupper(implode('', array_map(function($word) use ($kata_dilewati) {
+                        return in_array(strtolower($word), $kata_dilewati) ? '' : $word[0];
+                    }, $folder_parts)));
+
 
                     // Ambil kode_desa terakhir dari seluruh isi tabel nomor_surat (global, tanpa filter jenis surat)
                     $q_kode_desa = mysqli_query($connect, "
@@ -247,9 +254,9 @@
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Alamat</label>
-                      <div class="col-sm-9">
-                        <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></textarea>
-                      </div>
+                      
+                      <?php include '../../../permintaan_surat/konfirmasi/helper/alamat_helper.php'?>
+
                     </div>
                     <br>
                   </div>

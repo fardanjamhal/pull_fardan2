@@ -12,6 +12,49 @@
      	</ol>
   </section>
   <section class="content">
+
+  <style>
+.blink-box {
+  padding: 10px;
+  background-color: #fff3cd;
+  border: 2px solid #ff9900;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 153, 0, 0.7);
+  animation: blinkGlowStrong 1.2s ease-in-out infinite;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #b35b00;
+}
+
+@keyframes blinkGlowStrong {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
+    background-color: #fff3cd;
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 153, 0, 1);
+    background-color: #ffe8a1;
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
+    background-color: #fff3cd;
+  }
+}
+</style>
+ <?php
+  $query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+  $data = mysqli_fetch_assoc($query);
+  ?>
+<div class="blink-box">
+  <strong><?php echo strtoupper($data['nama_desa']); ?></strong>
+</div>
+
+
+  
+  <br>
+
+
    	<div class="row">
       <?php 
         if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
@@ -271,7 +314,7 @@
                       ?>
                     </div><br>
                     <div style="font-size: 35pt; font-weight: 500;"><p>Halo, <strong><?php echo $_SESSION['lvl']; ?></strong></div>
-                    <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di <a href="#" style="text-decoration:none"><strong>Web Aplikasi Pelayanan Surat Administrasi Desa Online.</strong></a></p></div><br><br><br>
+                    <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di Aplikasi Pelayanan Surat Administrasi.</p></div><br><br><br>
                   </div>
         				</div>
               </form>
