@@ -121,11 +121,13 @@
         </a>
       </div>
 
-    <style>
+        <style>
       body, html {
         height: 100%;
         margin: 0;
         padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0f2f5;
       }
 
       .form-center-wrapper {
@@ -134,20 +136,19 @@
         align-items: center;
         height: 100%;
         padding: 20px;
-        background-color: #f0f2f5;
       }
 
       .form-container {
         width: 100%;
         max-width: 600px;
         background: #fff;
-        padding: 30px 25px;
+        padding: 30px;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
       }
 
       .form-group {
-        margin-bottom: 16px;
+        margin-bottom: 18px;
       }
 
       .form-group label {
@@ -157,17 +158,22 @@
         color: #333;
       }
 
-      .form-group input[type="text"] {
+      .form-group input[type="text"],
+      .form-group select {
         width: 100%;
-        padding: 10px 14px;
+        padding: 12px 14px;
         border: 1px solid #ccc;
         border-radius: 8px;
         font-size: 16px;
-        transition: border-color 0.3s;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        background-color: #fff;
+        appearance: none;
       }
 
-      .form-group input[type="text"]:focus {
+      .form-group input[type="text"]:focus,
+      .form-group select:focus {
         border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
         outline: none;
       }
 
@@ -175,13 +181,13 @@
         background-color: #007bff;
         color: #fff;
         border: none;
-        padding: 12px 20px;
+        padding: 14px 20px;
         border-radius: 8px;
         font-weight: bold;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.3s;
         width: 100%;
+        transition: background-color 0.3s;
       }
 
       .btn-simpan:hover {
@@ -189,20 +195,26 @@
       }
     </style>
 
-  <div class="form-center-wrapper">
+
+    <div class="form-center-wrapper">
     <div class="form-container">
       <form action="update_data_kades_kel.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id_pejabat_desa" value="<?php echo $data['id_pejabat_desa']; ?>">
 
         <div class="form-group">
-          <label>Nama Kades / Kelurahan</label>
-          <input type="text" name="nama_pejabat_desa" value="<?php echo $data['nama_pejabat_desa']; ?>">
+          <label>Nama Kades / Lurah</label>
+          <input type="text" name="nama_pejabat_desa" value="<?php echo $data['nama_pejabat_desa']; ?>" required>
         </div>
 
         <div class="form-group">
           <label>Jabatan</label>
-          <input type="text" name="jabatan" value="<?php echo $data['jabatan']; ?>">
+          <select name="jabatan" required>
+            <option value="">-- Pilih Jabatan --</option>
+            <option value="Lurah" <?= ($data['jabatan'] == 'Lurah') ? 'selected' : '' ?>>Lurah</option>
+            <option value="Kepala Desa" <?= ($data['jabatan'] == 'Kepala Desa') ? 'selected' : '' ?>>Kepala Desa</option>
+          </select>
         </div>
+
         <div class="form-group">
           <label>Pangkat</label>
           <input type="text" name="pangkat" value="<?php echo $data['pangkat']; ?>">
@@ -214,7 +226,7 @@
         </div>
 
         <div class="form-group">
-          <label>ALAMAT</label>
+          <label>Alamat</label>
           <input type="text" name="alamat" value="<?php echo $data['alamat']; ?>">
         </div>
 

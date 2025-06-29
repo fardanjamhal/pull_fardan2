@@ -1,85 +1,94 @@
 <?php
-include('../../../../../config/koneksi.php'); // ✅ Koneksi database
+include('../../../../../config/koneksi.php');
+include('../helper/nomor_surat.php');
 
-// ✅ Validasi awal
 if (!isset($_POST['id'])) {
     die("ID tidak ditemukan");
 }
 
 $id = (int)$_POST['id'];
+$id_pejabat_desa = mysqli_real_escape_string($connect, $_POST['ft_tangan']);
+$status_surat = "SELESAI";
 
-// ✅ Data dari form    
-$id_pejabat_desa = mysqli_real_escape_string($connect, $_POST['ft_tangan']); 
-$status_surat    = "SELESAI";
-
-// ✅ Update tanggal_surat di database ke waktu sekarang
+// Update tanggal_surat saat ini
 mysqli_query($connect, "UPDATE surat_keterangan_beda_identitas SET tanggal_surat = NOW() WHERE id_skbi = $id");
-// ✅ Ambil ulang tanggal_surat yang sudah diperbarui
+
+// Ambil tanggal_surat terbaru
 $qSurat = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan_beda_identitas WHERE id_skbi = $id");
 $dSurat = mysqli_fetch_assoc($qSurat);
-// ✅ Ambil komponen tanggal untuk ditampilkan di surat
 $tanggal = $dSurat['tanggal_surat'];
-$bulan = date('m', strtotime($tanggal));
 $tahun = date('Y', strtotime($tanggal));
 
-// ✅ Mapping bulan ke romawi
-$bulan_romawi_map = [
-    '01'=>'I','02'=>'II','03'=>'III','04'=>'IV',
-    '05'=>'V','06'=>'VI','07'=>'VII','08'=>'VIII',
-    '09'=>'IX','10'=>'X','11'=>'XI','12'=>'XII'
-];
-$bulan_romawi = $bulan_romawi_map[$bulan] ?? 'X';
+// Ambil nomor urut global berdasarkan tahun
+$q = mysqli_query($connect, "
+    SELECT MAX(nomor_urut) AS max_urut 
+    FROM nomor_surat 
+    WHERE tahun = '$tahun'
+");
+$r = mysqli_fetch_assoc($q);
+$no_urut = ($r && $r['max_urut']) ? $r['max_urut'] + 1 : 1;
 
-// ✅ Ambil kode_surat otomatis dari nama folder
-$folder_name = basename(__DIR__); // contoh: surat_keterangan_beda_identitas
+// Ambil kode desa terakhir
+$q_desa = mysqli_query($connect, "SELECT kode_desa FROM nomor_surat ORDER BY id DESC LIMIT 1");
+$r_desa = mysqli_fetch_assoc($q_desa);
+$kode_desa = $_POST['kode_desa'] ?? ($r_desa['kode_desa'] ?? 'KODE-DS');
+
+// Ambil kode_surat dari database khusus jenis surat ini (folder)
+$folder_name = basename(__DIR__);
+$q_kode = mysqli_query($connect, "
+    SELECT kode_surat 
+    FROM nomor_surat 
+    WHERE nomor_lengkap LIKE '%/$folder_name/%' 
+    ORDER BY id DESC LIMIT 1
+");
+$r_kode = mysqli_fetch_assoc($q_kode);
+
+// Stop words
+$kata_abaikan = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk', 'serta'];
 $folder_parts = explode('_', $folder_name);
-$kode_surat = strtoupper(implode('', array_map(fn($word) => $word[0], $folder_parts))); // Contoh: FPKN
+$kode_surat_default = strtoupper(implode('', array_map(function($word) use ($kata_abaikan) {
+    return in_array(strtolower($word), $kata_abaikan) ? '' : $word[0];
+}, $folder_parts)));
 
-// ✅ Ambil data nomor urut dan kode desa dari form
-$no_urut    = isset($_POST['no_urut_manual']) ? (int)$_POST['no_urut_manual'] : 1;
-$kode_desa  = isset($_POST['kode_desa']) ? mysqli_real_escape_string($connect, $_POST['kode_desa']) : 'KODE-DS';
+// Gunakan kode_surat manual jika ada, atau dari database, jika tidak ada baru default
+$kode_surat = $_POST['kode_surat'] ?? ($r_kode['kode_surat'] ?? $kode_surat_default);
 
-// ✅ Validasi nomor urut agar unik dalam tahun yang sama
-$cek = mysqli_query($connect, "SELECT id FROM nomor_surat WHERE nomor_urut = $no_urut AND tahun = '$tahun'");
+// Cek jika no_urut dan tahun sudah pernah dipakai
+$cek = mysqli_query($connect, "
+    SELECT id 
+    FROM nomor_surat 
+    WHERE nomor_urut = $no_urut 
+    AND tahun = '$tahun'
+");
+
 if (mysqli_num_rows($cek) > 0) {
-    echo "<script>alert('Nomor urut $no_urut sudah digunakan di tahun $tahun. Silakan pilih nomor lain.'); window.history.back();</script>";
+    echo "<script>alert('Nomor urut $no_urut sudah digunakan pada tahun $tahun. Silakan pilih nomor lain.'); window.history.back();</script>";
     exit;
 }
 
-// ✅ Susun nomor surat final
-$no_surat = str_pad($no_urut, 3, '0', STR_PAD_LEFT) . "/$kode_surat/$kode_desa/$bulan_romawi/$tahun";
+// Buat format nomor surat akhir
+$no_surat = generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
 
-// ✅ Update surat ke tabel utama
-$qUpdate = "
-    UPDATE surat_keterangan_beda_identitas 
-    SET no_surat='$no_surat', 
-        id_pejabat_desa='$id_pejabat_desa', 
-        status_surat='$status_surat' 
-    WHERE id_skbi='$id'
-";
-
-$update = mysqli_query($connect, $qUpdate);
+// Simpan ke tabel utama surat
+$update = mysqli_query($connect, "
+  UPDATE surat_keterangan_beda_identitas 
+  SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' 
+  WHERE id_skbi='$id'
+");
 
 if ($update) {
-    // ✅ Simpan ke tabel nomor_surat
+    // Simpan ke log
     $simpan = mysqli_query($connect, "
-        INSERT INTO nomor_surat 
-        (kode_surat, kode_desa, bulan, tahun, nomor_urut, nomor_lengkap)
-        VALUES 
-        ('$kode_surat', '$kode_desa', '$bulan', '$tahun', $no_urut, '$no_surat')
+      INSERT INTO nomor_surat (kode_surat, kode_desa, bulan, tahun, nomor_urut, nomor_lengkap)
+      VALUES ('$kode_surat', '$kode_desa', MONTH('$tanggal'), '$tahun', $no_urut, '$no_surat')
     ");
 
     if ($simpan) {
-        header('location:../../'); // ✅ Sukses
+        header('Location: ../../');
         exit;
     } else {
-        // ❌ Gagal simpan ke nomor_surat
-        $error = mysqli_error($connect);
-        echo "<script>alert('Nomor surat gagal disimpan ke log. Error: $error'); window.history.back();</script>";
-        exit;
+        echo "<script>alert('Gagal menyimpan nomor surat ke log.'); window.history.back();</script>";
     }
 } else {
-    echo "<script>alert('Gagal mengonfirmasi surat.'); window.history.back();</script>";
-    exit;
+    echo "<script>alert('Gagal mengupdate surat.'); window.history.back();</script>";
 }
-?>
