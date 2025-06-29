@@ -124,80 +124,104 @@
 
                   <!-- FARDAN SALIN NOMOR OTOMATIS -->
                           
-                    <?php
-                    include('../../../../../config/koneksi.php');
-                    include('../helper/nomor_surat.php');
+                   <?php
+                      include('../../../../../config/koneksi.php');
+                      include('../helper/nomor_surat.php');
 
-                    // Tanggal surat
-                    $tanggal = isset($row['tanggal_surat']) ? $row['tanggal_surat'] : date('Y-m-d');
-                    $tahun = date('Y', strtotime($tanggal));
-                    $bulan = date('m', strtotime($tanggal));
+                      // Tanggal surat
+                      $tanggal = isset($row['tanggal_surat']) ? $row['tanggal_surat'] : date('Y-m-d');
+                      $tahun = date('Y', strtotime($tanggal));
+                      $bulan = date('m', strtotime($tanggal));
 
-                    // Ambil no urut global (semua jenis surat)
-                    $q = mysqli_query($connect, "
-                        SELECT MAX(nomor_urut) AS max_urut 
-                        FROM nomor_surat 
-                        WHERE tahun = '$tahun'
-                    ");
-                    $r = mysqli_fetch_assoc($q);
-                    $no_urut = ($r && $r['max_urut']) ? $r['max_urut'] + 1 : 1;
+                      // Cek apakah pejabat pertama adalah LURAH
+                      $q_jabatan = mysqli_query($connect, "SELECT jabatan FROM pejabat_desa ORDER BY id_pejabat_desa ASC LIMIT 1");
+                      $r_jabatan = mysqli_fetch_assoc($q_jabatan);
+                      $is_lurah = (isset($r_jabatan['jabatan']) && strtoupper(trim($r_jabatan['jabatan'])) === 'LURAH');
 
-                    // Ambil kode desa terakhir (global)
-                    $q_desa = mysqli_query($connect, "SELECT kode_desa FROM nomor_surat ORDER BY id DESC LIMIT 1");
-                    $r_desa = mysqli_fetch_assoc($q_desa);
-                    $kode_desa = $_POST['kode_desa'] ?? ($r_desa['kode_desa'] ?? 'KODE-DS');
+                      // Nama folder sebagai nama tabel
+                      $folder_name = basename(__DIR__);
+                      $nama_tabel = $folder_name;
 
-                    // Ambil kode surat terakhir untuk jenis surat ini
-                    $folder_name = basename(__DIR__);
-                    $folder_parts = explode('_', $folder_name);
-                    $kata_dilewati = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk'];
-                    $kode_surat_default = strtoupper(implode('', array_map(function($word) use ($kata_dilewati) {
-                        return in_array(strtolower($word), $kata_dilewati) ? '' : $word[0];
-                    }, $folder_parts)));
+                      // Buat kode default dari nama folder
+                      $folder_parts = explode('_', $folder_name);
+                      $kata_dilewati = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk'];
+                      $kode_surat_default = strtoupper(implode('', array_map(function($word) use ($kata_dilewati) {
+                          return in_array(strtolower($word), $kata_dilewati) ? '' : $word[0];
+                      }, $folder_parts)));
 
-                    // Ambil kode_surat dari tabel nomor_surat berdasarkan jenis surat
-                    $q_surat = mysqli_query($connect, "
-                      SELECT ns.kode_surat 
-                      FROM nomor_surat ns
-                      JOIN surat_keterangan_wali_hakim id_skwh 
-                        ON id_skwh.no_surat = ns.nomor_lengkap
-                      ORDER BY ns.id DESC 
-                      LIMIT 1
-                    ");
+                      // Ambil kode_surat dari tabel nomor_surat berdasarkan jenis surat
+                      $q_surat = mysqli_query($connect, "
+                        SELECT ns.kode_surat 
+                        FROM nomor_surat ns
+                        JOIN $nama_tabel s 
+                          ON s.no_surat = ns.nomor_lengkap
+                        ORDER BY ns.id DESC 
+                        LIMIT 1
+                      ");
+                      $r_surat = mysqli_fetch_assoc($q_surat);
+                      $kode_surat = $_POST['kode_surat'] ?? ($r_surat['kode_surat'] ?? $kode_surat_default);
 
-                    $r_surat = mysqli_fetch_assoc($q_surat);
-                    $kode_surat = $_POST['kode_surat'] ?? ($r_surat['kode_surat'] ?? $kode_surat_default);
+                      // Ambil nomor urut
+                      if ($is_lurah) {
+                          // Nomor urut hanya untuk jenis surat ini
+                          $q_urut = mysqli_query($connect, "
+                              SELECT MAX(ns.nomor_urut) AS max_urut
+                              FROM nomor_surat ns
+                              JOIN $nama_tabel s ON s.no_surat = ns.nomor_lengkap
+                              WHERE ns.tahun = '$tahun'
+                          ");
+                      } else {
+                          // Nomor urut global
+                          $q_urut = mysqli_query($connect, "
+                              SELECT MAX(nomor_urut) AS max_urut 
+                              FROM nomor_surat 
+                              WHERE tahun = '$tahun'
+                          ");
+                      }
+                     $r_urut = mysqli_fetch_assoc($q_urut);
+                    $no_urut_otomatis = ($r_urut && $r_urut['max_urut']) ? $r_urut['max_urut'] + 1 : 1;
 
-                    // Buat nomor surat
-                    $no_surat = generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
-                    ?>
+                    // Gunakan input manual jika ada, jika tidak pakai otomatis
+                    $no_urut = isset($_POST['no_urut_manual']) && is_numeric($_POST['no_urut_manual'])
+                        ? (int) $_POST['no_urut_manual']
+                        : $no_urut_otomatis;
 
-                    <!-- FORM -->
-                    <div class="form-horizontal">
 
-                      <div class="form-group">
-                        <label class="col-sm-2 control-label">No. Urut</label>
-                        <div class="col-sm-4">
-                          <input type="number" name="no_urut_manual" class="form-control" value="<?= $no_urut ?>" required>
+                      // Ambil kode desa terakhir
+                      $q_desa = mysqli_query($connect, "SELECT kode_desa FROM nomor_surat ORDER BY id DESC LIMIT 1");
+                      $r_desa = mysqli_fetch_assoc($q_desa);
+                      $kode_desa = $_POST['kode_desa'] ?? ($r_desa['kode_desa'] ?? 'KODE-DS');
+
+                      // Buat nomor surat akhir
+                      $no_surat = generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
+                      ?>
+
+                      <!-- FORM -->
+                      <div class="form-horizontal">
+
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">No. Urut</label>
+                          <div class="col-sm-4">
+                            <input type="number" name="no_urut_manual" class="form-control" value="<?= $no_urut ?>" required>
+                          </div>
+                          <label class="col-sm-2 control-label">Kode Surat</label>
+                          <div class="col-sm-4">
+                            <input type="text" name="kode_surat" class="form-control" value="<?= htmlspecialchars($kode_surat) ?>" required>
+                          </div>
                         </div>
-                        <label class="col-sm-2 control-label">Kode Surat</label>
-                        <div class="col-sm-4">
-                          <input type="text" name="kode_surat" class="form-control" value="<?= htmlspecialchars($kode_surat) ?>" required>
+
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">No. Surat</label>
+                          <div class="col-sm-4">
+                            <input type="text" name="fno_surat" class="form-control" value="<?= htmlspecialchars($no_surat) ?>" readonly>
+                          </div>
+                          <label class="col-sm-2 control-label">Kode Desa</label>
+                          <div class="col-sm-4">
+                            <input type="text" name="kode_desa" class="form-control" value="<?= htmlspecialchars($kode_desa) ?>" required>
+                          </div>
                         </div>
+
                       </div>
-
-                      <div class="form-group">
-                        <label class="col-sm-2 control-label">No. Surat</label>
-                        <div class="col-sm-4">
-                          <input type="text" name="fno_surat" class="form-control" value="<?= htmlspecialchars($no_surat) ?>" readonly>
-                        </div>
-                        <label class="col-sm-2 control-label">Kode Desa</label>
-                        <div class="col-sm-4">
-                          <input type="text" name="kode_desa" class="form-control" value="<?= htmlspecialchars($kode_desa) ?>" required>
-                        </div>
-                      </div>
-
-                    </div>
 
                   <!-- FARDAN SALIN NOMOR OTOMATIS -->
 
