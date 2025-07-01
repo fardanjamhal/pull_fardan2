@@ -37,28 +37,30 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
     for ($i = 1; $i < count($rows); $i++) {
         $row = $rows[$i];
 
-        if (count($row) < 23) {
+        if (count($row) < 24) {
             echo "<div class='alert alert-warning'>Baris $i tidak lengkap. Dilewati.</div>";
             continue;
         }
 
-        // Format tanggal lahir
+        // Sanitasi data (hindari trim(null))
+        $data = array_map(function($item) use ($connect) {
+            return mysqli_real_escape_string($connect, trim((string) $item));
+        }, $row);
+
+        // Format dan validasi tanggal lahir
         $raw_tgl_lahir = $row[3];
         if (is_numeric($raw_tgl_lahir)) {
             $tgl_lahir = Date::excelToDateTimeObject($raw_tgl_lahir)->format('Y-m-d');
-        } else {
+        } elseif (strtotime($raw_tgl_lahir)) {
             $tgl_lahir = date('Y-m-d', strtotime($raw_tgl_lahir));
+        } else {
+            echo "<div class='alert alert-warning'>Baris $i dilewati: Tanggal lahir tidak valid.</div>";
+            continue;
         }
-
-        // Sanitasi data
-        $data = array_map(function($item) use ($connect) {
-            return mysqli_real_escape_string($connect, trim($item ?? ''));
-        }, $row);
-
 
         // Validasi NIK
         $nik_asli = $data[0];
-        $nik = preg_replace('/\D/', '', $nik_asli); // Hapus non-digit
+        $nik = preg_replace('/\D/', '', $nik_asli);
         if (strlen($nik) != 16) {
             echo "<div class='alert alert-warning'>Baris $i dilewati: NIK tidak valid ($nik_asli).</div>";
             continue;
