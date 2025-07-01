@@ -52,8 +52,9 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
 
         // Sanitasi data
         $data = array_map(function($item) use ($connect) {
-            return mysqli_real_escape_string($connect, trim($item));
+            return mysqli_real_escape_string($connect, trim($item ?? ''));
         }, $row);
+
 
         // Validasi NIK
         $nik_asli = $data[0];
