@@ -115,6 +115,45 @@
 </style>
 
 
+<style>
+  /* Gunakan font Arial dan perkecil tinggi baris */
+  table#data-table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  /* Ukuran teks dan tinggi sel */
+  table#data-table th,
+  table#data-table td {
+    font-size: 14px;
+    padding: 6px 10px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+  }
+
+  /* Warna selang-seling baris */
+  table#data-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* abu terang */
+  }
+
+  table#data-table tbody tr:nth-child(even) {
+    background-color: #eef5ff; /* biru sangat muda */
+  }
+
+  /* Judul kolom di tengah */
+  table#data-table thead th {
+    text-align: center;
+  }
+
+  /* Scroll horizontal jika diperlukan di HP */
+  .table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+</style>
+
+
 
 <div class="content-wrapper">
   <section class="content-header">
@@ -376,26 +415,52 @@
         <br><br>
         
 
-        <style>
+       <style>
           td {
             vertical-align: top;
             word-break: break-word;
           }
 
-          .table td, .table th {
+          .table td,
+          .table th {
             white-space: normal !important;
+          }
+
+          /* Pusatkan semua judul kolom */
+          .table thead th {
+            text-align: center;
+          }
+
+          /* Pusatkan teks untuk kolom No, Jenis Kelamin, dan Agama */
+          td:nth-child(1),
+          td:nth-child(5),
+          td:nth-child(6) {
+            text-align: center;
           }
 
           /* Batasi ukuran kolom NIK */
           td:nth-child(2) {
-            min-width: 160px;
-            max-width: 220px;
+            min-width: 140px;
+            max-width: 160px;
+            text-align: center;
           }
 
-          /* Buat kolom nama lebih kecil */
+          /* Buat kolom nama lebih kecil dan beri padding kanan */
           td:nth-child(3) {
             min-width: 140px;
-            max-width: 200px;
+            max-width: 180px;
+          }
+
+            /* Batasi lebar kolom Tempat/Tgl Lahir */
+          td:nth-child(4) {
+            min-width: 100px;
+            max-width: 140px;
+          }
+
+            /* Batasi lebar kolom Tempat/Tgl Lahir */
+          td:nth-child(8) {
+            min-width: 40px;
+            max-width: 60px;
           }
 
           /* Batasi agar form tidak terlalu panjang */
@@ -428,7 +493,7 @@
               <th><strong>No</strong></th>
               <th><strong>NIK</strong></th>
               <th><strong>Nama</strong></th>
-              <th><strong>Tempat/Tgl Lahir</strong></th>
+              <th><strong>Tempat / Tgl Lahir</strong></th>
               <th><strong>Jenis Kelamin</strong></th>
               <th><strong>Agama</strong></th>
               <th><strong>Alamat</strong></th>
@@ -462,7 +527,7 @@
 
                 <!-- Tombol Buat Surat -->
                 <!-- Tombol Buat Surat (Memicu Modal) -->
-              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalSurat_<?php echo $row['nik']; ?>">
+              <button type="button" class="btn btn-primary btn-sm" style="font-size:14px;" data-toggle="modal" data-target="#modalSurat_<?php echo $row['nik']; ?>">
                 Buat Surat
               </button>
 

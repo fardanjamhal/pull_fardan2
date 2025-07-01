@@ -340,7 +340,20 @@ ini_set('display_errors', 1); // Tampilkan error di browser
               </form>
             </div>
           </div>
-        </div><br><br>
+        </div><br>
+          <form class="form-inline d-inline" method="get" action="<?php echo $base_url; ?>">
+          <?php foreach ($query_params as $key => $value): ?>
+            <input type="hidden" name="<?php echo $key; ?>" value="<?php echo $value; ?>">
+          <?php endforeach; ?>
+          <label for="limit">Tampilkan:</label>
+          <select name="limit" id="limit" class="form-control ms-2 me-1" onchange="this.form.submit()">
+            <option value="10" <?php echo ($limit == 10) ? 'selected' : ''; ?>>10</option>
+            <option value="20" <?php echo ($limit == 20) ? 'selected' : ''; ?>>20</option>
+            <option value="50" <?php echo ($limit == 50) ? 'selected' : ''; ?>>50</option>
+            <option value="100" <?php echo ($limit == 100) ? 'selected' : ''; ?>>100</option>
+          </select>
+          data per halaman
+        </form>
 
        <?php
           // Daftar nama tabel surat
@@ -437,136 +450,165 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           ?>
 
 
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                  <th>No.</th>
-                  <th>No. Surat</th>
-                  <th>Tanggal</th>
-                  <th>Nama</th>
-                  <th>Jenis Surat</th>
-                  <th>Alamat</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-                // Query untuk menampilkan data dengan pagination
-                // ORDER BY dan LIMIT diterapkan pada hasil akhir yang sudah digabungkan dan difilter
-                // Perbaikan: Menambahkan t_union.jenis_surat ke GROUP BY untuk memastikan keunikan kombinasi no_surat dan jenis_surat
-                $query = $main_query_base . " GROUP BY t_union.no_surat, t_union.jenis_surat ORDER BY t_union.tanggal_surat DESC LIMIT $offset, $limit";
-                $sql = mysqli_query($connect, $query);
 
-                if (!$sql) { // Pengecekan error query
-                    die('Query Error: ' . mysqli_error($connect) . '<br>Query: ' . $query);
-                }
+       <style>
+    /* Gunakan font Arial dan perkecil tinggi baris */
+    table#data-table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-                if(mysqli_num_rows($sql) > 0){
-                  $no = $offset + 1; // Inisialisasi nomor baris
-                  while($data = mysqli_fetch_array($sql)){
-                    // $blnIndo sudah didefinisikan di atas
-                    $tgl_surat = date($data['tanggal_surat']);
-                    $tgl = date('d ', strtotime($tgl_surat));
-                    $bln = date('F', strtotime($tgl_surat));
-                    $thn = date(' Y', strtotime($tgl_surat));
-              ?>
-                    <tr>
-                      <td><?php echo $no++;?></td>
-                        <td>
-                          <?php echo $data['no_surat']; ?>
-                         </td>
-                      <td><?php echo $tgl . $blnIndo[$bln] . $thn;?></td>
-                      <td><?php echo $data['nama'];?></td>
-                      <td><?php echo $data['jenis_surat'];?></td>
-                      <td>
-                        <?php
-                          $output = [];
-                          if (!empty($data['dusun'])) {
-                            $output[] = 'Dusun ' . $data['dusun'];
-                          }
-                          if (!empty($data['rt'])) {
-                            $output[] = 'RT ' . $data['rt'];
-                          }
-                          if (!empty($data['rw'])) {
-                            $output[] = 'RW ' . $data['rw'];
-                          }
-                          echo implode(' ', $output);
-                        ?>
-                      </td>
-                    </tr>
+    /* Ukuran teks dan tinggi sel */
+    table#data-table th,
+    table#data-table td {
+      font-size: 14px;
+      padding: 6px 10px;
+      vertical-align: middle;
+      border: 1px solid #ccc;
+    }
+
+    /* Warna selang-seling baris */
+    table#data-table tbody tr:nth-child(odd) {
+      background-color: #f9f9f9; /* abu terang */
+    }
+
+    table#data-table tbody tr:nth-child(even) {
+      background-color: #eef5ff; /* biru sangat muda */
+    }
+
+    /* Judul kolom di tengah */
+    table#data-table thead th {
+      text-align: center;
+    }
+
+    /* Scroll horizontal jika diperlukan di HP */
+    .table-responsive {
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    /* Rata tengah kolom tertentu */
+    table#data-table td:nth-child(1),  /* No. */
+    table#data-table td:nth-child(3),  /* Tanggal */
+    table#data-table td:nth-child(6)   /* Alamat */
+    {
+      text-align: center;
+    }
+  </style>
+
+
+<br>
+<div class="table-responsive">
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>No. Surat</th>
+        <th>Tanggal</th>
+        <th>Nama</th>
+        <th>Jenis Surat</th>
+        <th>Alamat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+        $query = $main_query_base . " GROUP BY t_union.no_surat, t_union.jenis_surat ORDER BY t_union.tanggal_surat DESC LIMIT $offset, $limit";
+        $sql = mysqli_query($connect, $query);
+
+        if (!$sql) {
+          die('Query Error: ' . mysqli_error($connect) . '<br>Query: ' . $query);
+        }
+
+        if (mysqli_num_rows($sql) > 0) {
+          $no = $offset + 1;
+          while ($data = mysqli_fetch_array($sql)) {
+            $tgl_surat = date($data['tanggal_surat']);
+            $tgl = date('d ', strtotime($tgl_surat));
+            $bln = date('F', strtotime($tgl_surat));
+            $thn = date(' Y', strtotime($tgl_surat));
+      ?>
+        <tr>
+          <td><?php echo $no++; ?></td>
+          <td><?php echo $data['no_surat']; ?></td>
+          <td><?php echo $tgl . $blnIndo[$bln] . $thn; ?></td>
+          <td><?php echo $data['nama']; ?></td>
+          <td><?php echo $data['jenis_surat']; ?></td>
+          <td>
+            <?php
+              $output = [];
+              if (!empty($data['dusun'])) {
+                $output[] = 'Dusun ' . $data['dusun'];
+              }
+              if (!empty($data['rt'])) {
+                $output[] = 'RT ' . $data['rt'];
+              }
+              if (!empty($data['rw'])) {
+                $output[] = 'RW ' . $data['rw'];
+              }
+              echo implode(' ', $output);
+            ?>
+          </td>
+        </tr>
+      <?php
+          }
+        } else {
+          echo '<tr><td colspan="6" class="text-center">Tidak ada data laporan.</td></tr>';
+        }
+      ?>
+    </tbody>
+  </table>
+  <br><br>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#data-table').DataTable({
+      paging: false,        //❌ Aktifkan pagination
+      info: false,         // ❌ Hilangkan "Showing 1 to 10 of 10 entries"
+      searching: false,    // ❌ Hilangkan kolom Search
+      lengthChange: false  // ❌ Hilangkan dropdown "Show xx entries"
+    });
+  });
+</script>
+
+
+
+       <div class="row align-items-center mb-3">
+          <div class="col-md-4">
+            <p class="mb-0">Menampilkan <?php echo min($limit, mysqli_num_rows($sql)); ?> dari <?php echo $total_records; ?> data.</p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <ul class="pagination justify-content-center mb-0">
               <?php
-                  }
-                }else{
-                  echo '<tr><td colspan="6" class="text-center">Tidak ada data laporan.</td></tr>';
-                }
+              $max_pages_to_show = 10;
+              $first_param_char = strpos($pagination_base_url, '?') === false ? '?' : '&';
+
+              $start_page = floor(($page - 1) / $max_pages_to_show) * $max_pages_to_show + 1;
+              $end_page = min($start_page + $max_pages_to_show - 1, $total_pages);
+
+              // Tombol « (kembali ke halaman pertama dalam blok sebelumnya)
+              if ($start_page > 1) {
+                echo '<li class="page-item"><a class="page-link" href="' . $pagination_base_url . $first_param_char . 'page=' . max(1, $start_page - $max_pages_to_show) . '&limit=' . $limit . '">&laquo;</a></li>';
+              }
+
+              // Nomor halaman
+              for ($i = $start_page; $i <= $end_page; $i++) {
+                $active = ($i == $page) ? 'active' : '';
+                echo '<li class="page-item ' . $active . '"><a class="page-link" href="' . $pagination_base_url . $first_param_char . 'page=' . $i . '&limit=' . $limit . '">' . $i . '</a></li>';
+              }
+
+              // Tombol » (ke halaman selanjutnya dalam blok berikutnya)
+              if ($end_page < $total_pages) {
+                echo '<li class="page-item"><a class="page-link" href="' . $pagination_base_url . $first_param_char . 'page=' . ($start_page + $max_pages_to_show) . '&limit=' . $limit . '">&raquo;</a></li>';
+              }
               ?>
-            </tbody>
-          </table>
+            </ul>
+          </div>
+
         </div>
 
-
-
-        <div class="row">
-            <div class="col-md-6">
-                <p>Menampilkan <?php echo min($limit, mysqli_num_rows($sql)); ?> dari <?php echo $total_records; ?> data.</p>
-            </div>
-
-            <div class="col-md-6 text-right">
-                <form class="form-inline" method="get" action="<?php echo $base_url; ?>">
-                    <?php foreach ($query_params as $key => $value): ?>
-                        <input type="hidden" name="<?php echo $key; ?>" value="<?php echo $value; ?>">
-                    <?php endforeach; ?>
-                    <label for="limit">Tampilkan:</label>
-                    <select name="limit" id="limit" class="form-control" onchange="this.form.submit()">
-                        <option value="10" <?php echo ($limit == 10) ? 'selected' : ''; ?>>10</option>
-                        <option value="20" <?php echo ($limit == 20) ? 'selected' : ''; ?>>20</option>
-                        <option value="50" <?php echo ($limit == 50) ? 'selected' : ''; ?>>50</option>
-                        <option value="100" <?php echo ($limit == 100) ? 'selected' : ''; ?>>100</option>
-                    </select> data per halaman
-                </form>
-
-                <ul class="pagination">
-                    <?php
-                    $max_pages_to_show = 10; // Maksimal 10 nomor halaman yang ditampilkan
-                    $start_page = max(1, $page - floor($max_pages_to_show / 2));
-                    $end_page = min($total_pages, $start_page + $max_pages_to_show - 1);
-
-                    // Sesuaikan start_page jika end_page terlalu dekat dengan total_pages
-                    if ($end_page - $start_page + 1 < $max_pages_to_show) {
-                        $start_page = max(1, $end_page - $max_pages_to_show + 1);
-                    }
-
-                    $first_param_char = strpos($pagination_base_url, '?') === false ? '?' : '&';
-
-                    if ($page > 1): ?>
-                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . ($page - 1) . '&limit=' . $limit; ?>">Previous</a></li>
-                    <?php endif; ?>
-
-                    <?php if ($start_page > 1): ?>
-                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=1&limit=' . $limit; ?>">1</a></li>
-                        <?php if ($start_page > 2): ?>
-                            <li class="disabled"><span>...</span></li>
-                        <?php endif; ?>
-                    <?php endif; ?>
-
-                    <?php for ($i = $start_page; $i <= $end_page; $i++): ?>
-                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . $i . '&limit=' . $limit; ?>" class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a></li>
-                    <?php endfor; ?>
-
-                    <?php if ($end_page < $total_pages): ?>
-                        <?php if ($end_page < $total_pages - 1): ?>
-                            <li class="disabled"><span>...</span></li>
-                        <?php endif; ?>
-                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . $total_pages . '&limit=' . $limit; ?>"><?php echo $total_pages; ?></a></li>
-                    <?php endif; ?>
-
-                    <?php if ($page < $total_pages): ?>
-                        <li><a href="<?php echo $pagination_base_url . $first_param_char . 'page=' . ($page + 1) . '&limit=' . $limit; ?>">Next</a></li>
-                    <?php endif; ?>
-                </ul>
-
-            </div>
-        </div>
 
 
         </div>

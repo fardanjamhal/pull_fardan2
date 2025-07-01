@@ -188,6 +188,54 @@ if (!$result) {
         }
         /* --- AKHIR PENYESUAIAN --- */
     </style>
+
+    <style>
+        /* Gunakan font Arial dan tinggi baris lebih kecil */
+        table#data-table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        /* Ukuran teks dan padding sel */
+        table#data-table th,
+        table#data-table td {
+            font-size: 14px;
+            padding: 6px 10px;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+        }
+
+        /* Warna selang-seling baris */
+        table#data-table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        table#data-table tbody tr:nth-child(even) {
+            background-color: #eef5ff;
+        }
+
+        /* Judul kolom di tengah */
+        table#data-table thead th {
+            text-align: center;
+        }
+
+        /* Kolom Nomor, NIK, Status, Aksi rata tengah */
+        table#data-table td:nth-child(1),
+        table#data-table td:nth-child(2),
+        table#data-table td:nth-child(4),
+        table#data-table td:nth-child(7),
+        table#data-table td:nth-child(8) {
+            text-align: center;
+        }
+
+        /* Responsif di HP */
+        .table-responsive {
+            overflow-x: auto;
+            max-width: 100%;
+        }
+        </style>
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -400,11 +448,6 @@ if (!$result) {
 
                  
 
-
-
-
-
-
                         <div class="text-center mt-4">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-center">
@@ -445,6 +488,7 @@ if (!$result) {
                             <p>Menampilkan <?= min($limit, $total_rows - $offset); ?> dari <?= $total_rows; ?> total surat selesai.</p>
                         </div>
                     </div>
+
                 </div>
             </section>
         </div>

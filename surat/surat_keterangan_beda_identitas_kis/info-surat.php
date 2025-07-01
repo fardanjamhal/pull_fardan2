@@ -166,10 +166,10 @@
 						
 							<div class="col-sm-6">
 							<div class="form-group">
-								<label class="col-sm-12" style="font-weight: 500;">Tanggal Lahir</label>
-								<div class="col-sm-12">
-									<input type="text" id="tanggal_lahir" name="ftanggal_lahir" class="form-control" placeholder="Pilih tanggal lahir" required>
-								</div>
+							<label class="col-sm-12" style="font-weight: 500;">Tanggal Lahir</label>
+							<div class="col-sm-12">
+								<input type="date" id="tanggal_lahir" name="ftanggal_lahir" class="form-control" required>
+							</div>
 							</div>
 							</div>
 							<div class="col-sm-6">
@@ -193,17 +193,6 @@
 	</div>
 </body>
 
-<!-- Flatpickr JS -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-    flatpickr("#tanggal_lahir", {
-        dateFormat: "Y-m-d",
-        maxDate: "today",
-        defaultDate: null,
-        altInput: true,
-        altFormat: "d F Y", // Tampilan cantik: 01 Januari 2000
-    });
-</script>
 
 <?php 
 		}

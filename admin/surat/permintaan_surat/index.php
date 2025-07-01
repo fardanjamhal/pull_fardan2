@@ -112,6 +112,53 @@
         }
       </style>
 
+      <style>
+        /* Gunakan font Arial dan perkecil tinggi baris */
+        table#data-table {
+          font-family: Arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        /* Tambahan khusus untuk perataan tengah kolom tertentu */
+        #data-table td:nth-child(1),  /* Nomor */
+        #data-table td:nth-child(3),  /* NIK */
+        #data-table td:nth-child(6),  /* Status */
+        #data-table td:nth-child(7) { /* Aksi */
+          text-align: center;
+        }
+
+        /* Ukuran teks dan tinggi sel */
+        table#data-table th,
+        table#data-table td {
+          font-size: 14px;
+          padding: 6px 10px;
+          vertical-align: middle;
+          border: 1px solid #ccc;
+        }
+
+        /* Warna selang-seling baris */
+        table#data-table tbody tr:nth-child(odd) {
+          background-color: #f9f9f9; /* abu terang */
+        }
+
+        table#data-table tbody tr:nth-child(even) {
+          background-color: #eef5ff; /* biru sangat muda */
+        }
+
+        /* Judul kolom di tengah */
+        table#data-table thead th {
+          text-align: center;
+        }
+
+        /* Scroll horizontal jika diperlukan di HP */
+        .table-responsive {
+          overflow-x: auto;
+          max-width: 100%;
+        }
+      </style>
+
+
       <div class="tombol-hp">
         <a href="../../dashboard/">
           <div>
