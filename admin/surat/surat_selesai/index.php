@@ -211,7 +211,7 @@ if (!$result) {
 
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li><a href="../../dashboard/"><i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span></a></li>
+                    <li><a href="../../dashboard/"><i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;&nbsp;Dashboard</span></a></li>
                     <li>
                         <a href="../../profil_desa/">
                             <i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>

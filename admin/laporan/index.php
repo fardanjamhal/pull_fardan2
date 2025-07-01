@@ -92,7 +92,7 @@ ini_set('display_errors', 1); // Tampilkan error di browser
       <li class="header">MAIN NAVIGATION</li>
       <li>
         <a href="../dashboard/">
-          <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;Dashboard</span>
+          <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;&nbsp;Dashboard</span>
         </a>
       </li>
       <li>

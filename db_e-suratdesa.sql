@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2025 at 06:04 AM
+-- Generation Time: Jul 01, 2025 at 01:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -375,7 +375,91 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 (395, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 11:29:51'),
 (396, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 11:29:59'),
 (397, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 11:30:11'),
-(398, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 11:30:22');
+(398, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 11:30:22'),
+(399, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 19:42:00'),
+(400, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 19:47:10'),
+(401, '7304081303910003', 'Abdullah, S.pdi', 'Kaluku', '1991-03-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 19:49:22'),
+(402, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 19:53:55'),
+(403, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 20:18:53'),
+(404, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:02:57'),
+(405, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:02'),
+(406, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:07'),
+(407, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:13'),
+(408, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:18'),
+(409, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:23'),
+(410, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:29'),
+(411, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:38'),
+(412, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:44'),
+(413, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:03:50'),
+(414, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:04:02'),
+(415, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:04:08'),
+(416, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:04:15'),
+(417, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:04:23'),
+(418, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-28 21:04:28'),
+(419, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 09:12:55'),
+(420, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 09:38:42'),
+(421, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 09:40:06'),
+(422, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 09:44:42'),
+(423, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 09:45:18'),
+(424, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 09:45:28'),
+(425, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 09:53:50'),
+(426, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:13:57'),
+(427, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:17:27'),
+(428, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:22:09'),
+(429, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:25:24'),
+(430, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:30:04'),
+(431, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:33:44'),
+(432, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:38:52'),
+(433, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:38:57'),
+(434, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:45:50'),
+(435, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:51:28'),
+(436, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:55:13'),
+(437, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 10:59:49'),
+(438, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 11:41:26'),
+(439, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 13:23:29'),
+(440, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 13:25:16'),
+(441, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 13:25:58'),
+(442, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 13:39:46'),
+(443, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 13:40:06'),
+(444, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 13:47:30'),
+(445, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 14:40:22'),
+(446, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 14:45:41'),
+(447, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 14:45:57'),
+(448, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 14:54:54'),
+(449, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 14:56:11'),
+(450, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 15:02:06'),
+(451, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 15:44:49'),
+(452, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 15:44:53'),
+(453, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 15:57:49'),
+(454, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 15:58:25'),
+(455, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:09:39'),
+(456, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:12:51'),
+(457, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:16:49'),
+(458, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:21:30'),
+(459, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:30:56'),
+(460, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:34:17'),
+(461, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:43:23'),
+(462, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:46:12'),
+(463, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:48:53'),
+(464, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:51:39'),
+(465, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:55:43'),
+(466, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 16:59:14'),
+(467, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 17:02:28'),
+(468, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 17:15:08'),
+(469, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 17:19:45'),
+(470, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 17:21:52'),
+(471, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 17:25:52'),
+(472, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:02:41'),
+(473, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:09:37'),
+(474, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:09:42'),
+(475, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:24:51'),
+(476, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:24:56'),
+(477, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:35:16'),
+(478, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:35:44'),
+(479, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:48:18'),
+(480, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:49:44'),
+(481, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 20:57:21'),
+(482, '7304080506770003', 'Andi Muh. Amin, SH.', 'Jakarta', '1977-06-05', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-06-29 21:28:04');
 
 -- --------------------------------------------------------
 
@@ -432,6 +516,44 @@ CREATE TABLE `formulir_pengantar_nikah` (
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `formulir_pengantar_nikah`
+--
+
+INSERT INTO `formulir_pengantar_nikah` (`id_fpn`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `status_nikah1`, `status_nikah2`, `nama_ayah`, `nik_ayah`, `tempat_tgl_lahir_ayah`, `kewarganegaraan_ayah`, `agama_ayah`, `pekerjaan_ayah`, `alamat_ayah`, `nama_ibu`, `nik_ibu`, `tempat_tgl_lahir_ibu`, `kewarganegaraan_ibu`, `agama_ibu`, `pekerjaan_ibu`, `alamat_ibu`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(114, 'Formulir Pengantar Nikah', '018/FPN/SANGAT MEMBANTU/VI/2025', '7304080811110001', 402, 'hf', 'gfh', 'g', 'gf', 'fg', 'gf', 'gf', 'gf', 'g', 'h', 'gh', 'gh', 'gfh', 'g', 'gh', 'gh', '2025-06-28 20:21:18', 1, 'SELESAI', 1),
+(115, 'Formulir Pengantar Nikah', '023/FPN/SANGAT MEMBANTU/VI/2025', '7304080506770003', 404, 'Non voluptas rerum a', 'Rem eum accusantium ', 'Sit dolorem nisi qui', 'Reiciendis ut sed qu', 'Sit sunt nostrud est', 'Inventore sit offici', 'Fugit sapiente cons', 'Exercitationem id q', 'In officia voluptati', 'Explicabo Alias eu ', 'Tenetur sunt ut rer', 'Veniam modi volupta', 'Amet quasi vel enim', 'Omnis quod dolores m', 'Quas ut iusto quisqu', 'Dicta voluptas dolor', '2025-06-28 22:07:17', 2, 'SELESAI', 1),
+(116, 'Formulir Pengantar Nikah', '025/FPN/XXX/VI/2025', '7304080811110001', 419, 'a. Laki-laki : Jejaka, Duda, a', 'b. Perempuan : Perawan, Janda', 'DAENG PATTA', 'nik ayah', 'd', 'asd', 'ads', 'das', 'dsa', 'dsa', 'sda', 'sda', 'sad', 'asd', 'das', 'sda', '2025-06-29 09:38:06', 2, 'SELESAI', 1),
+(118, 'Formulir Pengantar Nikah', '026/CCC/XXX/VI/2025', '7304080506770003', 421, 'A explicabo Molesti', 'Recusandae Ad in pa', 'Numquam vitae adipis', 'Saepe labore quos ut', 'Ea voluptatibus magn', 'Cillum consequatur ', 'Nulla odit rem dolor', 'Ipsam anim aute impe', 'Numquam veniam sunt', 'Rerum eum irure est', 'Tempor atque id lor', 'Obcaecati velit temp', 'Facere itaque enim v', 'Omnis maiores quibus', 'Quia quia facere adi', 'In expedita quam ull', '2025-06-29 09:44:23', 2, 'SELESAI', 1),
+(119, 'Formulir Pengantar Nikah', '912/027/BARU/VI/2025', '7304080506770003', 424, 'Sapiente voluptate r', 'Pariatur Enim labor', 'Voluptatem Soluta d', 'At deserunt maiores ', 'Omnis ut eius conseq', 'Irure amet expedita', 'At qui modi error do', 'Sunt aut atque assum', 'Iste amet qui aut o', 'Eius velit culpa en', 'Ea perspiciatis sol', 'Odit doloribus quisq', 'Magnam vel atque ull', 'Dicta occaecat conse', 'Enim harum alias aut', 'Optio consequatur h', '2025-06-29 09:53:24', 2, 'SELESAI', 1),
+(120, 'Formulir Pengantar Nikah', '029/KODESURAT/DBL/VI/2025', '7304080506770003', 425, 'Labore eiusmod aut o', 'Aliquam et voluptate', 'Nostrud ullam aut ut', 'Soluta vel in omnis ', 'Perspiciatis veniam', 'Hic sed unde et sit', 'Rem sint culpa exer', 'A eaque dolor aut de', 'Rem adipisicing quam', 'Voluptatem dolorum d', 'Earum quis ullam nos', 'Aut cupiditate eius ', 'Qui eum quidem incid', 'Laudantium do optio', 'Ducimus et nesciunt', 'Ut tempore ut et pr', '2025-06-29 10:13:37', 2, 'SELESAI', 1),
+(121, 'Formulir Pengantar Nikah', '030/TTTT/DBL/VI/2025', '7304080506770003', 426, 'Error tempore aut e', 'Natus distinctio Un', 'Labore et optio vel', 'Illo aliquip in quae', 'Voluptates velit qui', 'Blanditiis minus sin', 'Consequuntur asperna', 'Provident quae labo', 'Officia omnis perfer', 'Est harum architecto', 'Et eos deserunt temp', 'Est rerum aperiam p', 'Harum ea veniam in ', 'Aliqua Esse commodi', 'Iusto ex quibusdam i', 'Iure beatae adipisci', '2025-06-29 10:17:16', 2, 'SELESAI', 1),
+(122, 'Formulir Pengantar Nikah', '031/coba/DBL/VI/2025', '7304080506770003', 427, 'Occaecat expedita an', 'Ut eaque reiciendis ', 'Adipisicing qui dolo', 'Anim pariatur Incid', 'Sed neque incidunt ', 'Unde in quos labore ', 'Ad culpa elit adip', 'Deserunt sunt dolore', 'Dolorem voluptatibus', 'Et eaque ullamco ut ', 'Cillum odit quae inc', 'Eum rem ea aut volup', 'Sint et dolor et lib', 'Consequatur aliquip', 'Quo explicabo Autem', 'Dolor facilis proide', '2025-06-29 10:21:49', 2, 'SELESAI', 1),
+(123, 'Formulir Pengantar Nikah', 'MANTAP/032/DBL/VI/2025', '7304080506770003', 428, 'Harum natus esse su', 'Incidunt doloremque', 'Sunt nihil deserunt', 'Quis elit alias qui', 'Velit a anim omnis ', 'Vel perferendis modi', 'Laboris magna quaera', 'In consequatur Nost', 'Aliqua Cupiditate d', 'Voluptatum illo volu', 'Ad quia minima volup', 'Ea iste culpa aut e', 'Qui facilis in et vo', 'Ea architecto deseru', 'Beatae harum explica', 'Optio totam in quae', '2025-06-29 10:25:17', 2, 'SELESAI', 1),
+(124, 'Formulir Pengantar Nikah', 'GANTI/033/DBL/VI/2025', '7304080506770003', 429, 'Eveniet est tempori', 'Tempor sint ut cillu', 'Fugit irure vero ad', 'Quia qui consequatur', 'Ut consequatur Reru', 'Deserunt perferendis', 'Animi nisi saepe in', 'Qui molestiae cumque', 'Aliqua Minim nihil ', 'Consequat Consectet', 'Velit sit commodo re', 'Enim laboris aut ad ', 'Et voluptas et excep', 'Ea sequi sint saepe ', 'Corporis et sapiente', 'Provident doloribus', '2025-06-29 10:29:51', 2, 'SELESAI', 1),
+(125, 'Formulir Pengantar Nikah', 'JOOS/034/DBL/VI/2025', '7304080506770003', 430, 'Aut explicabo Repre', 'Consectetur minima q', 'Id ipsum asperiore', 'Obcaecati libero eiu', 'Autem sunt sint max', 'Fugiat sapiente iust', 'In neque maiores mag', 'Eum dolores qui aliq', 'Voluptatum quod volu', 'Doloremque ab numqua', 'Laboriosam et qui r', 'Iusto reprehenderit', 'Esse laboris vitae c', 'Dolorem natus laboru', 'Voluptatibus consequ', 'Voluptatem Deserunt', '2025-06-29 10:33:35', 2, 'SELESAI', 1),
+(126, 'Formulir Pengantar Nikah', '035/FPN/DBL/VI/2025', '7304080506770003', 431, 'Adipisci quia conseq', 'Omnis omnis quis vol', 'Labore libero nostru', 'Esse hic eaque eum i', 'Aspernatur mollitia ', 'Dolor ea eiusmod sae', 'Magnam eos elit sim', 'Officia ex consequat', 'Do adipisci nulla an', 'Eveniet dolorem tem', 'Odit tenetur Nam in ', 'Proident rerum sapi', 'Autem in in dolor te', 'Nemo consequatur lab', 'Dolorem nobis dolore', 'Repellendus Exercit', '2025-06-29 10:38:43', 1, 'SELESAI', 1),
+(127, 'Formulir Pengantar Nikah', '037/BISSMILLAH/DBL/VI/2025', '7304080506770003', 432, 'Veritatis repudianda', 'Sequi eos ut Nam sin', 'Cumque aperiam sed i', 'In aliqua Aliqua E', 'Eiusmod at dicta vol', 'Doloribus est dolor ', 'Voluptate repudianda', 'Quia est eaque exped', 'Doloremque nesciunt', 'Et ullamco similique', 'Esse doloribus debi', 'Ad exercitation unde', 'Quis neque sapiente ', 'Dolor est quas esse ', 'Quo amet esse debi', 'Veniam est consequa', '2025-06-29 10:45:39', 2, 'SELESAI', 1),
+(128, 'Formulir Pengantar Nikah', '036/14HHS/DBL/VI/2025', '7304080811110001', 433, 'Voluptatem culpa la', 'Recusandae Lorem re', 'Quas id mollitia co', 'Voluptatum dolorum d', 'Quas est dolor sunt', 'Eiusmod rerum qui ap', 'Dolore iusto qui dol', 'At ad ut sit quos o', 'Ratione voluptas et ', 'Iste laborum enim qu', 'In Nam inventore ill', 'Quia vel eaque paria', 'Optio eiusmod quasi', 'Eiusmod molestias cu', 'Enim itaque pariatur', 'Non ut expedita porr', '2025-06-29 10:39:12', 2, 'SELESAI', 1),
+(129, 'Formulir Pengantar Nikah', '038/FPN/KODE-DS/VI/2025', '7304080506770003', 434, 'Aut nemo sint et ma', 'Qui quo ullam mollit', 'Totam amet veniam ', 'Iure elit accusamus', 'Quod temporibus ea l', 'Eu et facilis quis c', 'Quos dolores iusto q', 'Dolorem esse nihil ', 'Dolor in culpa quis ', 'Aliquid aut quasi it', 'Quis qui itaque nost', 'Consequuntur vel ven', 'Irure cum culpa sed', 'Id in quisquam quia ', 'Corporis esse ex ex', 'Velit nihil a sunt m', '2025-06-29 10:50:06', 2, 'SELESAI', 1),
+(130, 'Formulir Pengantar Nikah', '039/EWAKO/DBL/VI/2025', '7304080506770003', 435, 'Nihil sunt at corrup', 'Quia ducimus repudi', 'Enim consequuntur be', 'Iusto dolor dicta no', 'Est elit optio rer', 'Reprehenderit aut q', 'Deleniti natus asper', 'Laborum Occaecat ut', 'Dolor qui quis eum c', 'Omnis nostrud dolore', 'Doloribus officia so', 'Sit accusamus est i', 'Excepteur sint maxim', 'Voluptatibus quasi v', 'Est et necessitatib', 'Autem magnam reicien', '2025-06-29 10:55:03', 2, 'SELESAI', 1),
+(131, 'Formulir Pengantar Nikah', '040/TTTT/DBL/VI/2025', '7304080506770003', 436, 'Non nulla laborum A', 'Veniam in ut nostru', 'Odit itaque dolor fu', 'Nam architecto cumqu', 'Ea et et voluptatibu', 'Deserunt dolorem aut', 'Tempora sit quis tem', 'Nisi ab incidunt su', 'Sint adipisicing ei', 'Nemo ex suscipit mol', 'Pariatur In ipsum n', 'Officia ut debitis e', 'Maiores suscipit pro', 'Labore in hic repreh', 'Ab animi natus offi', 'Eveniet soluta inci', '2025-06-29 10:59:37', 2, 'SELESAI', 1),
+(132, 'Formulir Pengantar Nikah', '041/BISSMILLAH/DBL/VI/2025', '7304080506770003', 437, 'Voluptatem Neque ea', 'Non ea cupiditate ex', 'Et cum aut exercitat', 'Obcaecati voluptates', 'Aute obcaecati volup', 'Ut architecto sunt n', 'Voluptate officia la', 'Est voluptatem Sol', 'Ut cum iusto ullam a', 'Dicta accusantium po', 'Autem aliquam incidi', 'Ut nostrum dolor mod', 'Aliquam ipsa velit ', 'Cum libero aliquam v', 'Nihil facere consequ', 'Dolorum magnam sint', '2025-06-29 11:41:13', 2, 'SELESAI', 1),
+(137, 'Formulir Pengantar Nikah', '001/9966/MANTAP/VI/2025', '7304080506770003', 443, 'Ea id eius voluptate', 'Ab ut corrupti nisi', 'Nemo earum quibusdam', 'Qui non est velit ', 'Sunt voluptatem aliq', 'Corrupti non quod n', 'Perspiciatis incidu', 'Sed est pariatur Od', 'Enim exercitation pe', 'Dolore quia animi m', 'Totam ipsum harum cu', 'Assumenda distinctio', 'Dignissimos accusant', 'Aute ut dicta in con', 'Dolor expedita magna', 'Eaque ratione odit a', '2025-06-29 13:47:20', 2, 'SELESAI', 1),
+(138, 'Formulir Pengantar Nikah', '008/POOLL/MANTAP22/VI/2025', '7304080506770003', 444, 'Ipsum nisi earum ni', 'Consectetur mollitia', 'Omnis maiores eligen', 'Est consequat Vero ', 'Facere nihil vitae e', 'Aspernatur non qui q', 'Praesentium laudanti', 'Maiores officia debi', 'In laudantium moles', 'Sed deleniti nostrum', 'Praesentium non nisi', 'Fugiat porro expedit', 'Voluptatem sit quos ', 'Culpa Nam cupidatat ', 'Consequatur libero ', 'Molestiae perferendi', '2025-06-29 15:44:43', 2, 'SELESAI', 1),
+(139, 'Formulir Pengantar Nikah', '006/SUKSES/MANTAP22/VI/2025', '7304080506770003', 447, 'Eu ullamco qui sed a', 'Sunt minus id anim d', 'Laudantium nemo in ', 'Ex assumenda tenetur', 'Et sunt minus volupt', 'Laborum Ut distinct', 'Ducimus a perspicia', 'Velit temporibus del', 'Magna aute ut quod q', 'Voluptatibus nisi la', 'Cum ducimus est rer', 'Reprehenderit aspern', 'Ad tenetur sed illum', 'Est sed accusamus au', 'Ab in quia dicta err', 'Laboris ut error ut ', '2025-06-29 14:53:56', 2, 'SELESAI', 1),
+(140, 'Formulir Pengantar Nikah', '99UJICONA/017/WOOW/VI/2025', '7304080506770003', 448, 'Necessitatibus sint ', 'Nam aliquip minus in', 'Aut distinctio Dolo', 'Pariatur Qui et tem', 'Consequatur minim m', 'Quia aperiam officia', 'Temporibus ex itaque', 'Dolor modi similique', 'Impedit est ea rati', 'Consequat Magnam vo', 'Provident aspernatu', 'Dolorum hic repellen', 'Provident quidem ex', 'Aliquip culpa conse', 'Et dolor qui non exp', 'Sed duis porro provi', '2025-06-29 18:58:42', 2, 'SELESAI', 1),
+(141, 'Formulir Pengantar Nikah', 'KODEFPN/001/KODE-DS/VI/2025', '7304080506770003', 449, 'Labore itaque nulla ', 'Quis ut a ipsam anim', 'Aliquam velit quae i', 'Minus et et obcaecat', 'Cillum quibusdam fug', 'Error maiores vel ma', 'Dolore in dolor cupi', 'Molestiae id quod qu', 'Accusamus ipsum con', 'Et eaque ut sunt ve', 'Culpa dolores deleni', 'Veniam voluptatum e', 'Voluptas vitae vitae', 'Vero itaque beatae d', 'Quos adipisicing bla', 'Exercitationem delen', '2025-06-29 19:24:46', 2, 'SELESAI', 1),
+(142, 'Formulir Pengantar Nikah', '99UJICONA/018/WOOW/VI/2025', '7304080506770003', 450, 'Tempore culpa dolo', 'Beatae neque elit m', 'Minima minim cillum ', 'Porro at quisquam ve', 'Esse non amet imped', 'Velit et voluptas ma', 'A vitae eum omnis ve', 'Distinctio Officiis', 'Harum impedit do ma', 'Impedit exercitatio', 'Molestiae suscipit c', 'Eum nostrum ad do qu', 'Autem non veritatis ', 'Non praesentium temp', 'Quis molestias molli', 'Cupidatat voluptate ', '2025-06-29 18:59:07', 2, 'SELESAI', 1),
+(143, 'Formulir Pengantar Nikah', '011/PILIHAN/MANTAP/VI/2025', '7304080506770003', 451, 'Autem aut iusto cons', 'Quis ullamco culpa a', 'Itaque et voluptatib', 'Aliquam amet iste e', 'Labore nulla molesti', 'Corporis officia dol', 'Vel incididunt illo ', 'Et quasi et ullamco ', 'Eum maxime quibusdam', 'Reiciendis quisquam ', 'Laboris sint rerum q', 'Ad inventore proiden', 'Sed occaecat consect', 'Non deserunt magna n', 'Sed voluptas elit q', 'Cupiditate adipisici', '2025-06-29 20:02:33', 2, 'SELESAI', 1),
+(144, 'Formulir Pengantar Nikah', '013/PILIHAN/MANTAP/VI/2025', '7304080506770003', 472, 'Aut quis aut quasi p', 'In eu eos rerum qui', 'Ipsa blanditiis mol', 'Nesciunt irure reru', 'Eos recusandae Lab', 'Veniam atque aute d', 'Itaque deserunt occa', 'Itaque eveniet occa', 'Soluta odit ut harum', 'Commodo voluptates n', 'Nobis non modi conse', 'Qui nemo accusamus e', 'Placeat consequatur', 'Facilis consequat M', 'Excepteur architecto', 'Obcaecati ut modi ob', '2025-06-29 20:09:20', 2, 'SELESAI', 1),
+(145, 'Formulir Pengantar Nikah', 'PILIHAN/016/MANTAP/VI/2025', '7304080506770003', 473, 'Deleniti dolores in ', 'Nisi iste fuga Cons', 'Esse in do doloremqu', 'Aliquip quia veniam', 'Ut dolor do officiis', 'Expedita ea beatae d', 'Rerum enim ab perfer', 'Perferendis consequa', 'In et mollitia in et', 'Sit veritatis dolor ', 'Totam fuga Dolor do', 'Vel quae error numqu', 'Rem eveniet itaque ', 'Voluptatum magnam du', 'Aut ipsum rerum reru', 'Proident sit tempo', '2025-06-29 20:24:38', 2, 'SELESAI', 1),
+(146, 'Formulir Pengantar Nikah', 'PILIHAN/015/MANTAP/VI/2025', '7304080811110001', 474, 'Quo cupidatat error ', 'Pariatur In error r', 'Magnam numquam facil', 'Officiis vero molest', 'Est ducimus aut ull', 'Dicta et et et Nam e', 'Aute culpa velit ex', 'Qui impedit cillum ', 'Quidem eu omnis volu', 'Inventore pariatur ', 'Illum facere repreh', 'Molestias iure minim', 'Sed nihil quasi est ', 'Vero est commodi rat', 'Earum accusamus non ', 'Nostrud rerum nihil ', '2025-06-29 20:19:14', 2, 'SELESAI', 1),
+(147, 'Formulir Pengantar Nikah', 'PILIHAN/017/MANTAP/VI/2025', '7304080506770003', 475, 'Quis eu corporis ips', 'Aut suscipit eligend', 'Sequi consectetur q', 'Voluptatem est natu', 'Veniam veniam illu', 'Sit omnis voluptatem', 'Nihil qui veniam ac', 'Quas ut aliquam esse', 'Quis eiusmod omnis v', 'Magnam nostrud cupid', 'Veniam tempor enim ', 'Aut aut sint omnis ', 'A illum amet neces', 'Omnis amet fugiat ', 'A ea provident sunt', 'Molestiae quia illo ', '2025-06-29 20:26:39', 2, 'SELESAI', 1),
+(148, 'Formulir Pengantar Nikah', 'PILIHAN/018/MANTAP/VI/2025', '7304080811110001', 476, 'Dolore similique est', 'Vitae expedita dolor', 'Ut accusamus aut con', 'Repudiandae dolore o', 'Quia aut facilis sae', 'Aliquip est minus d', 'Error sint exercita', 'Et exercitation prov', 'Beatae quia similiqu', 'Ad dignissimos cillu', 'Rerum consequat Ull', 'Sequi ex sed dolorib', 'Dicta et aute recusa', 'Laboriosam ipsum i', 'Error beatae ipsam o', 'Repudiandae saepe la', '2025-06-29 20:31:08', 2, 'SELESAI', 1),
+(149, 'Formulir Pengantar Nikah', 'PILIHAN/500/MANTAP/VI/2025', '7304080506770003', 477, 'Est nisi laboris do', 'Occaecat et adipisic', 'Nam commodi pariatur', 'Voluptates sint et d', 'Nam quia sint id si', 'Laboris dolores beat', 'Dolor quas nihil off', 'Quod ut quo nihil cu', 'Placeat quod invent', 'Consectetur autem l', 'Sed vel non enim lib', 'Voluptate dolore acc', 'Irure et eligendi om', 'Consectetur ut earu', 'Sunt nisi esse magn', 'Exercitation velit r', '2025-06-29 20:35:24', 2, 'SELESAI', 1),
+(150, 'Formulir Pengantar Nikah', NULL, '7304080506770003', 478, 'Quam excepteur sit ', 'Quasi sunt quia vel', 'Voluptas consectetur', 'Aspernatur sunt inc', 'Dolore ratione quae ', 'Quia doloribus quo s', 'Consequatur volupta', 'Proident mollit des', 'Beatae ad nulla quas', 'Non reiciendis volup', 'Ut dolor iusto dolor', 'Est animi doloremqu', 'Et placeat esse es', 'Qui culpa est esse', 'Laboriosam voluptas', 'Possimus repellendu', '2025-06-29 20:35:44', NULL, 'PENDING', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -461,6 +583,22 @@ CREATE TABLE `formulir_permohonan_kehendak_nikah` (
   `status_surat` varchar(15) NOT NULL,
   `id_profil_desa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `formulir_permohonan_kehendak_nikah`
+--
+
+INSERT INTO `formulir_permohonan_kehendak_nikah` (`id_fpkn`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `kepada_yth`, `calon_suami`, `calon_istri`, `hari_tanggal`, `tempat_akad`, `delapan`, `sembilan`, `sepuluh`, `sebelas`, `dua_belas`, `tiga_belas`, `kepala_kua`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(48, 'Formulir Permohonan Kehendak Nikah', '021/FPKN/SANGAT MEMBANTU/VI/2025', '7304080811110001', 405, 'TEMPAT BARU', 'Ab ducimus reprehen', 'Alias voluptatum cum', 'Rerum ex earum dolor', 'In non sit est ad vo', 'Quibusdam soluta qui', 'Fugit enim eu in di', 'Exercitationem repud', 'Ut minima minim prae', 'Consequat Et offici', 'Minima architecto es', 'BANTAENG', '2025-06-28 21:42:35', 1, 'SELESAI', 1),
+(49, 'Formulir Permohonan Kehendak Nikah', '003/FPKN/MANTAP22/VI/2025', '7304080506770003', 422, 'TEMPAT BARU', 'Quibusdam rem dolore', 'Est et beatae dolor ', 'Reprehenderit magna', 'Nihil in nisi est e', 'Enim nulla esse nos', 'Id ab est esse dis', 'Voluptates in volupt', 'Error officia amet ', 'Fuga Quam voluptate', 'A magni aut qui minu', 'BANTAENG', '2025-06-29 14:39:03', 2, 'SELESAI', 1),
+(50, 'Formulir Permohonan Kehendak Nikah', '004/FPKN/MANTAP22/VI/2025', '7304080811110001', 423, 'dsa', 'Consequat Expedita ', 'Quas id quod pariatu', 'Ab dolor obcaecati r', 'Quia eiusmod quam ea', 'Autem voluptatem con', 'Quisquam molestiae i', 'Magnam molestiae et ', 'Officiis perspiciati', 'Magni eveniet excep', 'Qui iste ad quidem q', 'ds', '2025-06-29 14:40:05', 1, 'SELESAI', 1),
+(51, 'Formulir Permohonan Kehendak Nikah', '002/FPKN/MANTAP/VI/2025', '7304080506770003', 441, 'MAKASSAR', 'Dolor dolorem aliqua', 'Voluptatem et dolor', 'Facere quaerat sed t', 'Et in elit facilis ', 'Et dolorem aut dolor', 'Ipsa possimus omni', 'Porro est distinctio', 'Ut nostrum eos asper', 'Ut lorem autem delen', 'Accusamus cupidatat ', 'DRS MASOwww', '2025-06-29 14:38:32', 1, 'SELESAI', 1),
+(52, 'Formulir Permohonan Kehendak Nikah', '005/884GOLL/MANTAP22/VI/2025', '7304080506770003', 445, 'TEMPAT BARU', 'Quis at laboriosam ', 'Alias dolorem rerum ', 'Neque voluptatem Si', 'Aspernatur ipsum ut ', 'Duis repellendus De', 'Qui pariatur Illo q', 'Fuga Quaerat rem fa', 'In molestiae est am', 'Fugiat tempora non ', 'Beatae maiores sunt ', 'DRS MASOwww', '2025-06-29 14:45:18', 2, 'SELESAI', 1),
+(53, 'Formulir Permohonan Kehendak Nikah', '007/TESS999/MANTAP22/VI/2025', '7304080506770003', 446, 'TEMPAT BARU', 'In excepturi maxime ', 'Ut deleniti praesent', 'Praesentium aut modi', 'Anim assumenda nostr', 'Nihil hic sed numqua', 'Deleniti sint est a ', 'Quia nemo numquam eo', 'Esse non aspernatur', 'Porro ducimus tempo', 'Sed natus quia esse ', 'BANTAENG', '2025-06-29 15:44:34', 2, 'SELESAI', 1),
+(54, 'Formulir Permohonan Kehendak Nikah', 'FPKN/021/MANTAP/VI/2025', '7304080506770003', 452, 'p', 'Amet neque eaque er', 'Perspiciatis atque ', 'Et blanditiis ipsum', 'Qui voluptatum nihil', 'Consequatur Vel dol', 'Eveniet corrupti v', 'Inventore alias enim', 'Repudiandae culpa c', 'Omnis nostrud facere', 'Ipsa reprehenderit ', 'po', '2025-06-29 20:32:59', 1, 'SELESAI', 1),
+(55, 'Formulir Permohonan Kehendak Nikah', 'JOPO/502/HELLO/VI/2025', '7304080506770003', 479, 'DSFDF', 'Quibusdam temporibus', 'Sit aperiam sint o', 'Amet eum doloremque', 'Itaque laborum Omni', 'Totam quo maiores pl', 'Enim pariatur Ut qu', 'Beatae veniam unde ', 'Qui fugiat lorem qu', 'Sunt similique tota', 'Consequatur Nisi ut', 'FDDFFD', '2025-06-29 20:49:30', 2, 'SELESAI', 1),
+(56, 'Formulir Permohonan Kehendak Nikah', 'FPKN/022/MANTAP/VI/2025', '7304080506770003', 480, 'TTT', 'Magnam impedit ut q', 'Esse incidunt quo ', 'Officia aut tempora ', 'Numquam placeat vol', 'Iure amet possimus', 'Aspernatur nostrud v', 'Harum dolorem et sun', 'Officia veniam aliq', 'Fuga Non ducimus t', 'Voluptas quas rerum ', 'TTTT', '2025-06-29 20:58:09', 1, 'SELESAI', 1),
+(57, 'Formulir Permohonan Kehendak Nikah', 'FPKN/023/MANTAP/VI/2025', '7304080811110001', 481, 'JOSS', 'Est sit tempor quam', 'Officia sed dignissi', 'Et delectus et lore', 'Corrupti aliqua Al', 'Aut aut laboriosam ', 'Consequuntur porro a', 'Amet nihil magni su', 'Fugiat dolores cum d', 'Ut sed quasi exercit', 'Quo elit quis occae', 'JOSS', '2025-06-29 20:59:43', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -499,7 +637,10 @@ INSERT INTO `formulir_persetujuan_calon_pengantin` (`id_fpcp`, `jenis_surat`, `n
 (43, 'Formulir Persetujuan Calon Pengantin Istri', '06/FPCP/KODE-DESA/VI/2025', '7304085907060001', 199, 'Bin istri', 'xxxxxx', 'xxxxx', 'xxx', 'xxx', 'xxx', 'xxx', 'xx', 'xx', '2025-06-22 12:00:45', 2, 'SELESAI', 1),
 (44, 'Formulir Persetujuan Calon Pengantin', '07/FPCP/KODE-DESA/VI/2025', '7304081303910003', 201, 'bin suami', 'DD', 'DD', 'DD', 'DD', 'DD', 'DD', 'DD', 'DD', '2025-06-22 12:29:31', 2, 'SELESAI', 1),
 (45, 'Formulir Persetujuan Calon Pengantin', '007/FPCP/PENGANTIN/VI/2025', '7304080505650001', 383, 'Culpa mollitia iste', 'Neque eveniet alias', 'Sunt praesentium lab', 'Ipsam quis ad velit ', 'Ex qui repellendus ', 'Vero id obcaecati co', 'Eaque id accusantium', 'Mollitia quaerat exe', 'Reprehenderit earum ', '2025-06-28 09:57:39', 2, 'SELESAI', 1),
-(48, 'Formulir Persetujuan Calon Pengantin', '008/FPCP/PENGANTIN/VI/2025', '7304080505650001', 387, 'Consequatur veniam', 'Aliquip placeat aut', 'Laboris sunt repudia', 'Sed deserunt numquam', 'Adipisicing explicab', 'Consequuntur ut ea q', 'Adipisicing distinct', 'Natus officia esse ', 'Possimus ipsa aut ', '2025-06-28 10:42:34', 1, 'SELESAI', 1);
+(48, 'Formulir Persetujuan Calon Pengantin', '008/FPCP/PENGANTIN/VI/2025', '7304080505650001', 387, 'Consequatur veniam', 'Aliquip placeat aut', 'Laboris sunt repudia', 'Sed deserunt numquam', 'Adipisicing explicab', 'Consequuntur ut ea q', 'Adipisicing distinct', 'Natus officia esse ', 'Possimus ipsa aut ', '2025-06-28 10:42:34', 1, 'SELESAI', 1),
+(49, 'Formulir Persetujuan Calon Pengantin', '009/FPCP/MANTAP22/VI/2025', '7304080811110001', 406, 'Ratione exercitation', 'Irure quia quis iust', 'Pariatur Et minim d', 'Adipisicing fugiat ', 'Ratione aut et omnis', 'Exercitation veritat', 'Obcaecati recusandae', 'Architecto qui sapie', 'Temporibus aliqua A', '2025-06-29 15:57:39', 2, 'SELESAI', 1),
+(50, 'Formulir Persetujuan Calon Pengantin', '010/OKEFPCP/MANTAP22/VI/2025', '7304080506770003', 453, 'Soluta iure occaecat', 'Aliquip distinctio ', 'Fugiat eligendi lau', 'Consequatur aut id ', 'In proident hic et ', 'Quo esse occaecat e', 'Consequatur quis ve', 'Perferendis beatae n', 'Consectetur volupta', '2025-06-29 15:58:09', 2, 'SELESAI', 1),
+(51, 'Formulir Persetujuan Calon Pengantin', 'FPCP/019/MANTAP/VI/2025', '7304080506770003', 454, 'Modi ut voluptas mol', 'Id a in sunt quidem', 'Ut in cumque aperiam', 'Sit non sed in mole', 'Ullam unde quis quo ', 'Molestiae ut vel aut', 'Veniam molestiae as', 'In temporibus possim', 'Rerum et ut in est ', '2025-06-29 20:26:00', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -533,7 +674,9 @@ CREATE TABLE `formulir_persetujuan_calon_pengantin_istri` (
 --
 
 INSERT INTO `formulir_persetujuan_calon_pengantin_istri` (`id_fpcp2`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bin`, `nama_suami`, `bin_suami`, `nik_suami`, `tgl_lahir_suami`, `kewarganegaraan_suami`, `agama_suami`, `pekerjaan_suami`, `alamat_suami`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(47, 'Formulir Persetujuan Calon Pengantin Istri', '04/FPCPI/KODE-DESA/VI/2025', '7304081501060003', 200, 'Bin istri', 'XXX', 'XXX', 'XX', 'XX', 'XX', 'XX', 'XX', 'XX', '2025-06-22 12:13:03', 2, 'SELESAI', 1);
+(47, 'Formulir Persetujuan Calon Pengantin Istri', '04/FPCPI/KODE-DESA/VI/2025', '7304081501060003', 200, 'Bin istri', 'XXX', 'XXX', 'XX', 'XX', 'XX', 'XX', 'XX', 'XX', '2025-06-22 12:13:03', 2, 'SELESAI', 1),
+(48, 'Formulir Persetujuan Calon Pengantin Istri', '011/istri/MANTAP22/VI/2025', '7304080506770003', 407, 'Odit et enim eu in a', 'Et sed sint nostrud ', 'Cupiditate expedita ', 'Ullam tempora earum ', 'Eum minim omnis prae', 'Consequatur quas cup', 'Reprehenderit archi', 'At temporibus dolore', 'Asperiores vel tempo', '2025-06-29 16:09:26', 2, 'SELESAI', 1),
+(49, 'Formulir Persetujuan Calon Pengantin Istri', '018/FPCPI/MANTAP/VI/2025', '7304080506770003', 455, 'Expedita in rerum re', 'Ullamco culpa sed l', 'Dignissimos consequa', 'Nulla sed amet magn', 'Ut nostrud qui est ', 'Exercitation occaeca', 'Eu esse rerum quaer', 'Excepturi vero rerum', 'Magnam expedita exce', '2025-06-29 20:25:41', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -583,7 +726,9 @@ CREATE TABLE `formulir_surat_izin_orang_tua` (
 --
 
 INSERT INTO `formulir_surat_izin_orang_tua` (`id_fsiot`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bin`, `nama1`, `bin1`, `nik1`, `tempat_tgl_lahir1`, `kewarganegaraan1`, `agama1`, `pekerjaan1`, `alamat1`, `nama2`, `bin2`, `nik2`, `tempat_tgl_lahir2`, `kewarganegaraan2`, `agama2`, `pekerjaan2`, `alamat2`, `nama3`, `bin3`, `nik3`, `tempat_tgl_lahir3`, `kewarganegaraan3`, `agama3`, `pekerjaan3`, `alamat3`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(44, 'Formulir Surat Izin Orang Tua', '04/FSIOT/KODE-DESA/VI/2025', '7304080811110001', 166, 'Doloribus sed rerum ', 'Aut nulla et sit ut ', 'Eius suscipit ex con', 'Ut quasi ullamco Nam', 'Reiciendis enim ulla', 'At omnis tenetur lab', 'Commodo anim excepte', 'A consectetur aut li', 'Et corrupti sint mo', 'Animi odit nostrum ', 'Ipsam est aliquid a', 'Nemo eum sit ut et ', 'Odit dolorum in dolo', 'Ut lorem autem et es', 'Rerum odio aut dicta', 'Qui est do repudiand', 'Est culpa suscipit ', 'Ad in dolor corrupti', 'Sit dignissimos tem', 'Aut quia in cupidata', 'Ut obcaecati magna d', 'Iusto non enim moles', 'Ullam nemo ab sit a', 'Harum deserunt nulla', 'Repudiandae optio a', '2025-06-21 21:42:29', 2, 'SELESAI', 1);
+(44, 'Formulir Surat Izin Orang Tua', '04/FSIOT/KODE-DESA/VI/2025', '7304080811110001', 166, 'Doloribus sed rerum ', 'Aut nulla et sit ut ', 'Eius suscipit ex con', 'Ut quasi ullamco Nam', 'Reiciendis enim ulla', 'At omnis tenetur lab', 'Commodo anim excepte', 'A consectetur aut li', 'Et corrupti sint mo', 'Animi odit nostrum ', 'Ipsam est aliquid a', 'Nemo eum sit ut et ', 'Odit dolorum in dolo', 'Ut lorem autem et es', 'Rerum odio aut dicta', 'Qui est do repudiand', 'Est culpa suscipit ', 'Ad in dolor corrupti', 'Sit dignissimos tem', 'Aut quia in cupidata', 'Ut obcaecati magna d', 'Iusto non enim moles', 'Ullam nemo ab sit a', 'Harum deserunt nulla', 'Repudiandae optio a', '2025-06-21 21:42:29', 2, 'SELESAI', 1),
+(45, 'Formulir Surat Izin Orang Tua', '022/FSIOT/SANGAT MEMBANTU/VI/2025', '7304080811110001', 408, 'Deserunt animi tota', 'Et quia sint omnis ', 'In in amet ut enim ', 'Quibusdam in quis ip', 'Porro eaque est eaq', 'Nihil nisi exercitat', 'Ex autem hic ducimus', 'Eaque nostrud perfer', 'In nemo magnam quis ', 'Animi ducimus modi', 'Voluptatem neque non', 'Aut harum eos volup', 'Est repellendus Vit', 'Quasi architecto vel', 'Culpa quibusdam iste', 'Eveniet dolorem tem', 'Magna cum quaerat al', 'Dolor beatae dolorem', 'Anim veniam elit n', 'Qui ipsum est quam ', 'Et mollitia assumend', 'Qui non sed autem as', 'Adipisicing optio r', 'Iure cillum recusand', 'In excepteur nisi do', '2025-06-28 21:56:07', 2, 'SELESAI', 1),
+(46, 'Formulir Surat Izin Orang Tua', 'FSIOT/014/MANTAP/VI/2025', '7304080506770003', 456, 'Veniam rerum id vel', 'Praesentium numquam ', 'Non ea qui id dolor', 'Voluptatem Pariatur', 'In aliqua Voluptas ', 'Quos ratione aliquid', 'Ex quisquam est omni', 'Alias quibusdam esse', 'Sunt commodi sed ne', 'Sit numquam et omni', 'Dolore nihil rem imp', 'Minima consequuntur ', 'Ipsam in mollit quid', 'Dolores incidunt ea', 'Ad aut incidunt omn', 'Ipsa quod veniam m', 'Exercitation id fugi', 'Dolorum maxime aut v', 'Consequat Fugit do', 'Aperiam ex tempore ', 'Cumque repudiandae p', 'Qui vel obcaecati al', 'Dolor rerum est sim', 'Eiusmod sequi quis a', 'Ut dolor est praesen', '2025-06-29 20:18:08', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -629,18 +774,29 @@ CREATE TABLE `nomor_surat` (
 --
 
 INSERT INTO `nomor_surat` (`id`, `kode_surat`, `kode_desa`, `bulan`, `tahun`, `nomor_urut`, `nomor_lengkap`) VALUES
-(1, 'FPN', 'KODE-DS', '06', '2025', 1, '001/FPN/KODE-DS/VI/2025'),
-(2, 'FPN', 'JOSS', '06', '2025', 2, '002/FPN/JOSS/VI/2025'),
-(3, 'FPKN', 'MANTAP', '06', '2025', 3, '003/FPKN/MANTAP/VI/2025'),
-(4, 'FPKN', 'MANTAP', '06', '2025', 4, '004/FPKN/MANTAP/VI/2025'),
-(7, 'FPN', 'JOSS', '06', '2025', 5, '005/FPN/JOSS/VI/2025'),
-(9, 'FPKN', 'MANTAP', '06', '2025', 6, '006/FPKN/MANTAP/VI/2025'),
-(12, 'FPCP', 'PENGANTIN', '06', '2025', 7, '007/FPCP/PENGANTIN/VI/2025'),
-(15, 'FPCP', 'PENGANTIN', '06', '2025', 8, '008/FPCP/PENGANTIN/VI/2025'),
-(16, 'FPN', 'JOSS', '06', '2025', 9, '009/FPN/JOSS/VI/2025'),
-(17, 'SKU', 'KODE-DS', '06', '2025', 10, '010/SKU/KODE-DS/VI/2025'),
-(18, 'SKKDP', 'KUE-BOLU', '06', '2025', 11, '011/SKKDP/KUE-BOLU/VI/2025'),
-(19, 'SKPP', 'SANGAT MEMBANTU', '06', '2025', 12, '012/SKPP/SANGAT MEMBANTU/VI/2025');
+(1, 'KODEFPN', 'KODE-DS', '6', '2025', 7, 'KODEFPN/001/KODE-DS/VI/2025'),
+(2, 'SKDU', 'MANTAP', '6', '2025', 8, 'SKDU/008/MANTAP/VI/2025'),
+(3, 'SLH', 'MANTAP', '6', '2025', 9, 'SLH/009/MANTAP/VI/2025'),
+(4, 'SKU', 'MANTAP', '6', '2025', 10, '010/SKU/MANTAP/VI/2025'),
+(5, 'PILIHAN', 'MANTAP', '6', '2025', 11, '011/PILIHAN/MANTAP/VI/2025'),
+(6, 'SKBI', 'MANTAP', '6', '2025', 12, '012/SKBI/MANTAP/VI/2025'),
+(7, 'PILIHAN', 'MANTAP', '6', '2025', 13, '013/PILIHAN/MANTAP/VI/2025'),
+(8, 'FSIOT', 'MANTAP', '6', '2025', 14, 'FSIOT/014/MANTAP/VI/2025'),
+(9, 'PILIHAN', 'MANTAP', '6', '2025', 15, 'PILIHAN/015/MANTAP/VI/2025'),
+(10, 'SKP', 'MANTAP', '6', '2025', 16, 'SKP/016/MANTAP/VI/2025'),
+(11, 'SKD', 'MANTAP', '6', '2025', 17, 'SKD/017/MANTAP/VI/2025'),
+(12, 'PILIHAN', 'MANTAP', '6', '2025', 16, 'PILIHAN/016/MANTAP/VI/2025'),
+(13, 'FPCPI', 'MANTAP', '6', '2025', 18, '018/FPCPI/MANTAP/VI/2025'),
+(14, 'FPCP', 'MANTAP', '6', '2025', 19, 'FPCP/019/MANTAP/VI/2025'),
+(15, 'PILIHAN', 'MANTAP', '6', '2025', 17, 'PILIHAN/017/MANTAP/VI/2025'),
+(16, 'PILIHAN', 'MANTAP', '6', '2025', 18, 'PILIHAN/018/MANTAP/VI/2025'),
+(17, 'SKPOT', 'MANTAP', '6', '2025', 20, 'SKPOT/020/MANTAP/VI/2025'),
+(18, 'FPKN', 'MANTAP', '6', '2025', 21, 'FPKN/021/MANTAP/VI/2025'),
+(22, 'SKJB', 'MANTAP', '6', '2025', 22, '022/SKJB/MANTAP/VI/2025'),
+(23, 'FPKN', 'MANTAP', '6', '2025', 22, 'FPKN/022/MANTAP/VI/2025'),
+(24, 'FPKN', 'MANTAP', '6', '2025', 23, 'FPKN/023/MANTAP/VI/2025'),
+(25, '999', 'MANTAP', '6', '2025', 1, '999/001/MANTAP/VI/2025'),
+(26, '999', 'MANTAP', '6', '2025', 2, '999/002/MANTAP/VI/2025');
 
 -- --------------------------------------------------------
 
@@ -1096,7 +1252,9 @@ CREATE TABLE `surat_keterangan` (
 --
 
 INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(169, 'Surat Keterangan', '04/SK/KODE-DESA/VI/2025', '7304080811110001', 167, 'Nostrum et velit ame', '2025-06-21 21:42:36', 2, 'SELESAI', 1);
+(169, 'Surat Keterangan', '04/SK/KODE-DESA/VI/2025', '7304080811110001', 167, 'Nostrum et velit ame', '2025-06-21 21:42:36', 2, 'SELESAI', 1),
+(171, 'Surat Keterangan', '012/SKJOSKU/WOOW/VI/2025', '7304080506770003', 409, 'Labore et quas velit', '2025-06-29 16:16:40', 2, 'SELESAI', 1),
+(172, 'Surat Keterangan', NULL, '7304080506770003', 457, 'Dolor architecto cup', '2025-06-29 16:16:49', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -1131,7 +1289,8 @@ CREATE TABLE `surat_keterangan_beda_identitas` (
 --
 
 INSERT INTO `surat_keterangan_beda_identitas` (`id_skbi`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `perbedaan`, `nama_kartu_identitas`, `nama_no_identitas`, `nama2`, `tgl_lahir2`, `jenis_kelamin2`, `alamat2`, `agama2`, `pekerjaan2`, `keterangan2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(34, 'Surat Keterangan Beda Identitas', '04/SKBI/KODE-DESA/VI/2025', '7304080811110001', 168, 'Quo ipsa in dolorem', 'Enim laboris aperiam', 'Fugit pariatur Lab', 'Ullamco omnis delect', 'Quis quo nulla quam ', 'Perempuan', 'Aute consequatur do', 'Non veritatis explic', 'Do vel et ullam opti', 'Ipsam eos doloribus ', '2025-06-21 21:42:43', 2, 'SELESAI', 1);
+(34, 'Surat Keterangan Beda Identitas', '04/SKBI/KODE-DESA/VI/2025', '7304080811110001', 168, 'Quo ipsa in dolorem', 'Enim laboris aperiam', 'Fugit pariatur Lab', 'Ullamco omnis delect', 'Quis quo nulla quam ', 'Perempuan', 'Aute consequatur do', 'Non veritatis explic', 'Do vel et ullam opti', 'Ipsam eos doloribus ', '2025-06-21 21:42:43', 2, 'SELESAI', 1),
+(36, 'Surat Keterangan Beda Identitas', '012/SKBI/MANTAP/VI/2025', '7304080506770003', 410, 'Labore ut voluptatem', 'Ratione nihil eligen', 'Dolor perferendis id', 'Vero et cupiditate i', 'Sed alias consectetu', 'Laki-Laki', 'Corporis sed magni n', 'Sint mollitia molest', 'Repudiandae ut quis ', 'Maxime reiciendis om', '2025-06-29 20:09:12', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1163,7 +1322,9 @@ CREATE TABLE `surat_keterangan_beda_identitas_kis` (
 --
 
 INSERT INTO `surat_keterangan_beda_identitas_kis` (`id_skbis`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `keperluan`, `no_kartu`, `nama_di_kartu`, `nik2`, `alamat2`, `tanggal_lahir`, `faskes_tingkat`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(37, 'Surat Keterangan Beda Identitas KIS', '04/SKBIS/KODE-DESA/VI/2025', '7304080811110001', 169, 'Laboris officiis lab', 'Commodi magna volupt', 'Sequi quo et est al', 'Voluptatum possimus', 'Porro blanditiis dol', '0000-00-00', 'Ea duis et rerum dol', '2025-06-21 21:42:51', 2, 'SELESAI', 1);
+(37, 'Surat Keterangan Beda Identitas KIS', '04/SKBIS/KODE-DESA/VI/2025', '7304080811110001', 169, 'Laboris officiis lab', 'Commodi magna volupt', 'Sequi quo et est al', 'Voluptatum possimus', 'Porro blanditiis dol', '0000-00-00', 'Ea duis et rerum dol', '2025-06-21 21:42:51', 2, 'SELESAI', 1),
+(38, 'Surat Keterangan Beda Identitas KIS', '024/SKBIK/SANGAT MEMBANTU/VI/2025', '7304080506770003', 411, 'Consequatur ipsa la', 'Molestiae eiusmod in', 'Sed vitae natus prov', 'Dolore in dolores ex', 'Magni nihil earum pr', '0000-00-00', 'Iste inventore volup', '2025-06-29 09:13:10', 2, 'SELESAI', 1),
+(39, 'Surat Keterangan Beda Identitas KIS', NULL, '7304080506770003', 458, 'Voluptate minima aut', 'Quidem ipsum nisi e', 'Qui ex velit quia mi', 'Quis fugiat corrupti', 'Et aut ex qui dolore', '0000-00-00', 'Ut quia excepturi pr', '2025-06-29 16:21:30', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -1194,7 +1355,8 @@ CREATE TABLE `surat_keterangan_belum_terbit_sppt_pbb` (
 
 INSERT INTO `surat_keterangan_belum_terbit_sppt_pbb` (`id_skbtsp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `lokasi`, `tanah_utara`, `tanah_timur`, `tanah_selatan`, `tanah_barat`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (3, 'Surat Keterangan Belum Terbit SPPT PBB', '04/SKBTSP/KODE-DESA/VI/2025', '7304053112900229', 290, 'Dusun Bonton Desa Bonto Manani Kabupate Jeneponto', 'tanah mlik badullah', 'tanah mlik ronaldo', 'tanah mlik sipato', 'tanah mlik essi', '2025-06-27 09:08:59', 2, 'SELESAI', 1),
-(4, 'Surat Keterangan Belum Terbit SPPT PBB', '05/SKBTSP/KODE-DESA/VI/2025', '7304081310030001', 291, 'Dusun Bonton Desa Bonto Manani Kabupate Jeneponto', 'tanah mlik badullah', 'tanah mlik ronaldo', 'tanah mlik sipato', 'tanah mlik essi', '2025-06-27 13:06:49', 2, 'SELESAI', 1);
+(4, 'Surat Keterangan Belum Terbit SPPT PBB', '05/SKBTSP/KODE-DESA/VI/2025', '7304081310030001', 291, 'Dusun Bonton Desa Bonto Manani Kabupate Jeneponto', 'tanah mlik badullah', 'tanah mlik ronaldo', 'tanah mlik sipato', 'tanah mlik essi', '2025-06-27 13:06:49', 2, 'SELESAI', 1),
+(6, 'Surat Keterangan Belum Terbit SPPT PBB', 'SKBTSP/020/WOOW/VI/2025', '7304080506770003', 459, 'Voluptas irure Nam i', 'Occaecat sunt aut do', 'Incididunt est ad re', 'Est maiores fugiat ', 'Est corporis maxime', '2025-06-29 19:07:20', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1221,7 +1383,8 @@ CREATE TABLE `surat_keterangan_berkelakuan_baik` (
 
 INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (22, 'Surat Keterangan Berkelakuan Baik', '04/SKBB/KODE-DESA/VI', '7304080811110001', 170, 'Repudiandae eum quae', '2025-06-21 21:42:58', 2, 'SELESAI', 1),
-(24, 'Surat Keterangan Berkelakuan Baik', '05/SKBB/KODE-DESA/VI', '7304053112900229', 270, 'MELAMAR KERJA', '2025-06-26 07:04:34', 2, 'SELESAI', 1);
+(24, 'Surat Keterangan Berkelakuan Baik', '05/SKBB/KODE-DESA/VI', '7304053112900229', 270, 'MELAMAR KERJA', '2025-06-26 07:04:34', 2, 'SELESAI', 1),
+(25, 'Surat Keterangan Berkelakuan Baik', NULL, '7304080506770003', 460, 'In pariatur Quo eni', '2025-06-29 16:34:17', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -1257,7 +1420,8 @@ INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `n
 (123, 'Surat Keterangan Domisili', '13/SKD/KODE-DESA/VI/2025', '7304053112900229', 263, '2025-06-26 01:47:19', 2, 'SELESAI', 1),
 (126, 'Surat Keterangan Domisili', '14/SKD/KODE-DESA/VI/2025', '7304053112900229', 269, '2025-06-26 07:04:29', 2, 'SELESAI', 1),
 (127, 'Surat Keterangan Domisili', '001/SKD/KODE-DS/VI/2025', '7304053112900229', 293, '2025-06-27 19:56:32', 2, 'SELESAI', 1),
-(129, 'Surat Keterangan Domisili', NULL, '7304080505650001', 382, '2025-06-28 09:51:35', NULL, 'PENDING', 1);
+(129, 'Surat Keterangan Domisili', '017/SKD/SANGAT MEMBANTU/VI/2025', '7304080505650001', 382, '2025-06-28 20:16:51', 2, 'SELESAI', 1),
+(131, 'Surat Keterangan Domisili', 'SKD/017/MANTAP/VI/2025', '7304080506770003', 418, '2025-06-29 20:21:22', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1284,7 +1448,8 @@ CREATE TABLE `surat_keterangan_domisili_usaha` (
 --
 
 INSERT INTO `surat_keterangan_domisili_usaha` (`id_skdu`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `jenis_usaha`, `alamat_usaha`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(54, 'Surat Keterangan Domisili Usaha', '04/SKDU/KODE-DESA/VI/2025', '7304080811110001', 172, 'Lorem in est unde q', 'Animi omnis elit q', '2025-06-21 21:43:11', 2, 'SELESAI', 1);
+(54, 'Surat Keterangan Domisili Usaha', '04/SKDU/KODE-DESA/VI/2025', '7304080811110001', 172, 'Lorem in est unde q', 'Animi omnis elit q', '2025-06-21 21:43:11', 2, 'SELESAI', 1),
+(55, 'Surat Keterangan Domisili Usaha', 'SKDU/008/MANTAP/VI/2025', '7304080506770003', 417, 'Iusto mollitia delen', 'Nihil ducimus dolor', '2025-06-29 19:25:40', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1331,7 +1496,8 @@ CREATE TABLE `surat_keterangan_jual_beli` (
 
 INSERT INTO `surat_keterangan_jual_beli` (`id_skjb`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nik2`, `nama2`, `tempat_tgl_lahir2`, `pekerjaan2`, `alamat2`, `yang_diperjualbelikan`, `lokasi`, `informasi_objek`, `harga`, `tahun_jual_beli`, `tanah_utara`, `tanah_timur`, `tanah_selatan`, `tanah_barat`, `saksi1`, `saksi2`, `saksi3`, `saksi4`, `nama_dusun`, `kepala_dusun`, `keterangan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (1, 'Surat Keterangan Jual Beli', '04/SKJB/KODE-DESA/VI/2025', '7304080506770003', 283, 'Error occaecat tenet', 'Perferendis fugiat ', 'Voluptate recusandae', 'Sunt corrupti natu', 'Sequi voluptatem cu', 'Omnis obcaecati arch', 'Eos et veritatis pos', 'Ea dolor dolorem vol', '250,000,000', 'Tenetur is', 'Rem aspernatur ipsa', 'In aliquip iste exer', 'Voluptatum anim vel ', 'Doloremque consectet', 'Optio rerum et exce', 'Incididunt libero di', '', '', 'Voluptates consequun', 'Beatae lorem delenit', 'Apabila di kemudian hari, ternyata keluarga, anak cucu kami menggugat lokasi hak milik yang sudah kami jual, dan atau ada pihak lain yang menggugat dan atau dalam pemberian keterangan jual beli ini tidak benar maka saya / kami selaku penjual atau pembeli siap mempertanggung jawabkan sesuai peraturan perundang-undangan yang berlaku. Dalam surat keterangan jual beli ini kami kedua belah pihak bersepakat bahwa surat keterangan dapat di pergunakan dalam pengurusan Akte jual Beli / Balik Nama ke notaris atau pejabat pembuat Akte Tanah (PPAT), Tanpa menghadirkan pihak penjual ( Foto copy KTP Pihak penjual terlampir ).', '2025-06-26 15:31:49', 2, 'SELESAI', 1),
-(2, 'Surat Keterangan Jual Beli', '05/SKJB/KODE-DESA/VI/2025', '7304053112900229', 284, 'dffd', 'dd', 'df', 'df', 'PAK KUSNADI TOMPO', 'dsffd', 'dfd', 'dfsfd', '9,500,000', 'ddffd', '', '', '', '', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'Apabila di kemudian hari, ternyata keluarga, anak cucu kami menggugat lokasi hak milik yang sudah kami jual, dan atau ada pihak lain yang menggugat dan atau dalam pemberian keterangan jual beli ini tidak benar maka saya / kami selaku penjual atau pembeli siap mempertanggung jawabkan sesuai peraturan perundang-undangan yang berlaku. Dalam surat keterangan jual beli ini kami kedua belah pihak bersepakat bahwa surat keterangan dapat di pergunakan dalam pengurusan Akte jual Beli / Balik Nama ke notaris atau pejabat pembuat Akte Tanah (PPAT), Tanpa menghadirkan pihak penjual ( Foto copy KTP Pihak penjual terlampir ).', '2025-06-26 15:55:20', 2, 'SELESAI', 1);
+(2, 'Surat Keterangan Jual Beli', '05/SKJB/KODE-DESA/VI/2025', '7304053112900229', 284, 'dffd', 'dd', 'df', 'df', 'PAK KUSNADI TOMPO', 'dsffd', 'dfd', 'dfsfd', '9,500,000', 'ddffd', '', '', '', '', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'Apabila di kemudian hari, ternyata keluarga, anak cucu kami menggugat lokasi hak milik yang sudah kami jual, dan atau ada pihak lain yang menggugat dan atau dalam pemberian keterangan jual beli ini tidak benar maka saya / kami selaku penjual atau pembeli siap mempertanggung jawabkan sesuai peraturan perundang-undangan yang berlaku. Dalam surat keterangan jual beli ini kami kedua belah pihak bersepakat bahwa surat keterangan dapat di pergunakan dalam pengurusan Akte jual Beli / Balik Nama ke notaris atau pejabat pembuat Akte Tanah (PPAT), Tanpa menghadirkan pihak penjual ( Foto copy KTP Pihak penjual terlampir ).', '2025-06-26 15:55:20', 2, 'SELESAI', 1),
+(3, 'Surat Keterangan Jual Beli', '022/SKJB/MANTAP/VI/2025', '7304080506770003', 461, 'Est quis tempora eni', 'Id enim qui autem la', 'Ea est consequat In', 'Possimus rem eum ut', 'Elit sint voluptate', 'Ut incidunt adipisc', 'Pariatur In rerum a', 'Excepturi iste ullam', '11', 'Voluptatum', 'Beatae elit alias m', 'Et officiis ratione ', 'Cupidatat dolor iust', 'Sunt consequatur M', 'Qui quis do id volup', '', '', '', 'Distinctio Harum in', 'Qui vitae voluptate ', 'Reiciendis deleniti ', '2025-06-29 20:50:44', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1365,7 +1531,9 @@ CREATE TABLE `surat_keterangan_kematian` (
 --
 
 INSERT INTO `surat_keterangan_kematian` (`id_skk`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `tanggal_meninggal`, `bertempat_di`, `penyebab_kematian`, `nama_pelapor`, `nik_pelapor`, `tanggal_lahir_pelapor`, `pekerjaan_pelapor`, `alamat_pelapor`, `hubungan_pelapor`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(45, 'Surat Keterangan Kematian', '001/SKK/KODE-DESA/VI/2025', '7304080811110001', 173, 'Ipsum in quia volupt', 'Dolores a labore lab', 'Velit expedita enim ', 'Enim aliqua Cumque ', 'Ea nulla sint odit l', 'Autem ducimus verit', 'Illo et in molestiae', 'Quo est temporibus ', 'Consequatur quia au', '2025-06-21 21:43:18', 2, 'SELESAI', 1);
+(45, 'Surat Keterangan Kematian', '001/SKK/KODE-DESA/VI/2025', '7304080811110001', 173, 'Ipsum in quia volupt', 'Dolores a labore lab', 'Velit expedita enim ', 'Enim aliqua Cumque ', 'Ea nulla sint odit l', 'Autem ducimus verit', 'Illo et in molestiae', 'Quo est temporibus ', 'Consequatur quia au', '2025-06-21 21:43:18', 2, 'SELESAI', 1),
+(46, 'Surat Keterangan Kematian', '999/001/MANTAP/VI/2025', '7304080811110001', 462, 'Molestiae consequat', 'Dicta rerum illo min', 'Voluptatibus a volup', 'Vel exercitation qua', 'Aut consectetur dele', 'Aliquid rem qui tota', 'Aliquid nesciunt re', 'Aliquip debitis qui ', 'Laborum Neque aut d', '2025-06-29 21:27:38', 2, 'SELESAI', 1),
+(47, 'Surat Keterangan Kematian', '999/002/MANTAP/VI/2025', '7304080506770003', 482, 'Sit consequatur comm', 'Delectus officia cu', 'Rerum provident fug', 'Dolor reprehenderit ', 'Eius architecto enim', 'Quia voluptatibus au', 'Anim lorem ipsa ab ', 'Esse nisi doloremque', 'Ducimus voluptatum ', '2025-06-29 21:28:18', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1397,7 +1565,8 @@ CREATE TABLE `surat_keterangan_kematian_dan_penguburan` (
 
 INSERT INTO `surat_keterangan_kematian_dan_penguburan` (`id_skkp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `hari_tanggal_kematian`, `jam_pukul`, `tempat`, `hari_tanggal_dikebumikan`, `jam_pukul_dikebumikan`, `tempat_dikebumikan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (6, 'Surat Keterangan Kematian dan Penguburan', '001/SKKP/KODE-DESA/VI/2025', '7304080107740003', 193, 'sas', 'ds', 'sadsad', 'sdasd', 'sddasadsad', 'sdasd', '2025-06-21 22:21:35', 2, 'SELESAI', 1),
-(7, 'Surat Keterangan Kematian dan Penguburan', '011/SKKDP/KUE-BOLU/VI/2025', '7304080505650001', 390, 'Ullam libero cumque ', 'Dolores porro pariat', 'Rem sit molestias di', 'Ea impedit accusamu', 'In necessitatibus du', 'Magnam sed earum rep', '2025-06-28 10:47:19', 1, 'SELESAI', 1);
+(7, 'Surat Keterangan Kematian dan Penguburan', '011/SKKDP/KUE-BOLU/VI/2025', '7304080505650001', 390, 'Ullam libero cumque ', 'Dolores porro pariat', 'Rem sit molestias di', 'Ea impedit accusamu', 'In necessitatibus du', 'Magnam sed earum rep', '2025-06-28 10:47:19', 1, 'SELESAI', 1),
+(10, 'Surat Keterangan Kematian dan Penguburan', NULL, '7304080506770003', 463, 'Esse consectetur n', 'Sunt at perferendis ', 'Sit voluptas vero qu', 'Est qui pariatur E', 'Quis quo in labore l', 'Molestias nesciunt ', '2025-06-29 16:48:53', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -1436,7 +1605,8 @@ CREATE TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor` (
 
 INSERT INTO `surat_keterangan_kepemilikan_kendaraan_bermotor` (`id_skkkb`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `roda`, `merk_type`, `jenis_model`, `tahun_pembuatan`, `cc`, `warna_cat`, `no_rangka`, `no_mesin`, `no_polisi`, `no_bpkb`, `atas_nama_pemilik`, `alamat_pemilik`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (16, 'Surat Keterangan Kepemilikan Kendaraan Bermotor', '04/SKKKB/KODE-DESA/VI/2025', '7304080811110001', 174, '', 'Veniam sint ad veli', 'Reiciendis rerum eli', 'Aperiam pariatur Ni', 'Saepe dignissimos mo', 'Ipsum debitis nisi ', 'Anim id at est con', 'Esse aliquam impedi', 'Non vitae voluptatum', 'Voluptatem asperiore', 'Quibusdam ullamco au', 'Esse animi asperna', 'Est adipisicing sit', '2025-06-21 21:43:28', 2, 'SELESAI', 1),
-(17, 'Surat Keterangan Kepemilikan Kendaraan Bermotor', '05/SKKKB/KODE-DESA/VI/2025', '7304053112900229', 271, '', 'ds', 'sad', 'sd', 'sd', 'sd', 'sd', 'sd', 'sd', 'ds', 'ds', 'ds', 'dsa', '2025-06-26 07:04:47', 2, 'SELESAI', 1);
+(17, 'Surat Keterangan Kepemilikan Kendaraan Bermotor', '05/SKKKB/KODE-DESA/VI/2025', '7304053112900229', 271, '', 'ds', 'sad', 'sd', 'sd', 'sd', 'sd', 'sd', 'sd', 'ds', 'ds', 'ds', 'dsa', '2025-06-26 07:04:47', 2, 'SELESAI', 1),
+(18, 'Surat Keterangan Kepemilikan Kendaraan Bermotor', 'SKKKB/019/WOOW/VI/2025', '7304080506770003', 464, '', 'Debitis qui optio e', 'Velit minima in expe', 'Amet officia ducimu', 'Magna iusto nulla te', 'Illum commodi qui e', 'Ex veniam consectet', 'Quis obcaecati assum', 'Corporis ut officia ', 'Et dolor explicabo ', 'Non sed repellendus', 'Exercitationem ut ex', 'Nulla id voluptates ', '2025-06-29 19:06:36', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1476,7 +1646,8 @@ CREATE TABLE `surat_keterangan_mahar_sunrang` (
 
 INSERT INTO `surat_keterangan_mahar_sunrang` (`id_skm`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `mahar`, `tempat_mahar`, `tanah_utara`, `tanah_timur`, `tanah_selatan`, `tanah_barat`, `orang_tua`, `tempat_tgl_lahir2`, `alamat2`, `perempuan`, `tempat_tgl_lahir3`, `alamat3`, `saksi1`, `saksi2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (1, 'Surat Keterangan Mahar Sunrang', '04/SKJB/KODE-DESA/VI/2025', '7304053112900229', 253, 'df', 'df', 'df', 'dfdf', 'dfs', 'df', 'df', 'dfs', 'df', 'df', 'df', 'dfs', 'dfs', 'dfs', '2025-06-25 20:04:16', 2, 'SELESAI', 1),
-(3, 'Surat Keterangan Mahar Sunrang', NULL, '7304080506770003', 395, 'Et ut fuga Et dolor', 'Amet ex non esse om', 'Quasi ipsum sed off', 'Id maiores est des', 'Enim cillum ipsum iu', 'Iusto et sapiente li', 'Sunt ratione nemo ve', 'Ut accusamus impedit', 'Praesentium eos id', 'Et sapiente elit ut', 'Sit sunt quisquam a', 'Qui itaque asperiore', 'Odio at ex commodi v', 'Occaecat exercitatio', '2025-06-28 11:29:51', NULL, 'PENDING', 1);
+(3, 'Surat Keterangan Mahar Sunrang', '019/SKMS/SANGAT MEMBANTU/VI/2025', '7304080506770003', 395, 'Et ut fuga Et dolor', 'Amet ex non esse om', 'Quasi ipsum sed off', 'Id maiores est des', 'Enim cillum ipsum iu', 'Iusto et sapiente li', 'Sunt ratione nemo ve', 'Ut accusamus impedit', 'Praesentium eos id', 'Et sapiente elit ut', 'Sit sunt quisquam a', 'Qui itaque asperiore', 'Odio at ex commodi v', 'Occaecat exercitatio', '2025-06-28 20:59:02', 2, 'SELESAI', 1),
+(4, 'Surat Keterangan Mahar Sunrang', '028/SKMS/BARU/VI/2025', '7304080506770003', 412, 'Numquam minim est l', 'Deserunt in placeat', 'Aliquid sit voluptat', 'Non sed rerum sed la', 'Dolorum asperiores a', 'Qui doloribus volupt', 'Facere molestias ame', 'Minim excepturi fugi', 'Tempor et qui vero l', 'Rerum ut ex qui assu', 'Dolorem ad aliquam e', 'Molestias sit facili', 'Expedita Nam laborum', 'Dolorem commodo anim', '2025-06-29 10:02:25', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1513,7 +1684,9 @@ INSERT INTO `surat_keterangan_pengantar` (`id_skp`, `jenis_surat`, `no_surat`, `
 (66, 'Surat Keterangan Pengantar', '011/SKP/KODE-DESA/VI/2025', '7304085907060001', 189, 'Ut qui aperiam sit m', '7 Hari', 'Distinctio Ducimus', '2025-06-21 21:58:12', 2, 'SELESAI', 1),
 (67, 'Surat Keterangan Pengantar', '12/SKP/KODE-DESA/VI/2025', '7304080705020001', 190, 'Molestiae reprehende', '7 Hari', 'Voluptatibus natus q', '2025-06-21 22:07:52', 2, 'SELESAI', 1),
 (68, 'Surat Keterangan Pengantar', '13/SKP/KODE-DESA/VI/2025', '7371143103820001', 219, 'MELAMAR KERJA', '7 Hari', 'B', '2025-06-23 20:08:13', 1, 'SELESAI', 1),
-(69, 'Surat Keterangan Pengantar', '14/SKP/KODE-DESA/VI/2025', '7304053112900229', 272, 'asd', '30 Hari', 'daads', '2025-06-26 07:04:57', 2, 'SELESAI', 1);
+(69, 'Surat Keterangan Pengantar', '14/SKP/KODE-DESA/VI/2025', '7304053112900229', 272, 'asd', '30 Hari', 'daads', '2025-06-26 07:04:57', 2, 'SELESAI', 1),
+(70, 'Surat Keterangan Pengantar', '013/SKP/WOOW/VI/2025', '7304080506770003', 465, 'Eos molestias pariat', '', 'In quo pariatur Ita', '2025-06-29 16:56:04', 1, 'SELESAI', 1),
+(71, 'Surat Keterangan Pengantar', '014/SKPBERLAKU/WOOW/VI/2025', '7304080506770003', 466, 'Aliquip incididunt e', '30 Hari', 'Possimus qui incidu', '2025-06-29 16:59:30', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1547,7 +1720,9 @@ CREATE TABLE `surat_keterangan_pengantar_rujuk_atau_cerai` (
 
 INSERT INTO `surat_keterangan_pengantar_rujuk_atau_cerai` (`id_skrc`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bin`, `nama2`, `binti2`, `tempat_tgl_lahir2`, `kewarganegaraan2`, `agama2`, `pekerjaan2`, `alamat2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (1, 'Surat Keterangan Pengantar Rujuk Atau Cerai', '001/SKPRC/KODE-DESA/VI/2025', '7304053112900229', 233, 'dsfdsdf', 'dfsd', 'dfdsfds', 'ddssf', 'WNI', 'Islam', 'dsdf', 'dsfsfdsdf', '2025-06-24 07:51:10', 2, 'SELESAI', 1),
-(2, 'Surat Keterangan Pengantar Rujuk Atau Cerai', NULL, '7304080506770003', 397, 'Quas debitis expedit', 'Dolor eum perspiciat', 'Ullamco veniam ut v', 'Facere reiciendis om', 'WNA', 'Konghucu', 'Velit eos quasi aut', 'Quis quia officia es', '2025-06-28 11:30:11', NULL, 'PENDING', 1);
+(2, 'Surat Keterangan Pengantar Rujuk Atau Cerai', '015/SKPRC/SANGAT MEMBANTU/VI/2025', '7304080506770003', 397, 'Quas debitis expedit', 'Dolor eum perspiciat', 'Ullamco veniam ut v', 'Facere reiciendis om', 'WNA', 'Konghucu', 'Velit eos quasi aut', 'Quis quia officia es', '2025-06-28 11:30:11', 1, 'SELESAI', 1),
+(3, 'Surat Keterangan Pengantar Rujuk Atau Cerai', '016/SKPRC/SANGAT MEMBANTU/VI/2025', '7304081303910003', 401, 'Nama Bin', 'ds', 'dfdsfds', 'jenepoonto / 12 juni 1966', 'WNI', 'Konghucu', 'df', 'adsad', '2025-06-28 19:49:22', 2, 'SELESAI', 1),
+(4, 'Surat Keterangan Pengantar Rujuk Atau Cerai', '501/SKPRC/MANTAP/VI/2025', '7304080506770003', 467, 'Reiciendis cupidatat', 'Eos sequi illum obc', 'Ad rerum magni enim ', 'Aperiam porro volupt', 'WNA', 'Katolik', 'Fuga Fugit aliquam', 'Quia dolorem quaerat', '2025-06-29 20:36:15', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1592,7 +1767,8 @@ CREATE TABLE `surat_keterangan_penghasilan_orang_tua` (
 --
 
 INSERT INTO `surat_keterangan_penghasilan_orang_tua` (`id_skpot`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nomor_induk_siswa`, `jurusan_fakultas`, `sekolah_perguruan_tinggi`, `kelas_semester`, `nama_ayah`, `tgl_lahir2`, `nik2`, `jenis_kelamin2`, `agama2`, `pekerjaan2`, `alamat2`, `penghasilan_ayah`, `nama_ibu`, `tgl_lahir3`, `nik3`, `jenis_kelamin3`, `agama3`, `pekerjaan3`, `alamat3`, `penghasilan_ibu`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(27, 'Surat Keterangan Penghasilan Orang Tua', '04/SKPOT/KODE-DESA/VI/2025', '7304080811110001', 176, 'Sunt atque et qui el', 'Quia optio duis sus', 'Omnis omnis fugit q', 'Explicabo Sunt fug', 'Qui iure commodi bea', 'Dolore consectetur ', 'Magna aut non magni ', 'LAKI-LAKI', 'Sed alias earum ut q', 'Odit tempore et con', 'Minim est aliquid ob', 'Rp. 999,-', 'Mollitia et aperiam ', 'Incidunt excepteur ', 'Explicabo Ullam sit', 'LAKI-LAKI', 'Dignissimos quis nul', 'Reprehenderit qui q', 'Sequi cillum omnis n', 'Rp. 999,-', '2025-06-21 21:43:48', 2, 'SELESAI', 1);
+(27, 'Surat Keterangan Penghasilan Orang Tua', '04/SKPOT/KODE-DESA/VI/2025', '7304080811110001', 176, 'Sunt atque et qui el', 'Quia optio duis sus', 'Omnis omnis fugit q', 'Explicabo Sunt fug', 'Qui iure commodi bea', 'Dolore consectetur ', 'Magna aut non magni ', 'LAKI-LAKI', 'Sed alias earum ut q', 'Odit tempore et con', 'Minim est aliquid ob', 'Rp. 999,-', 'Mollitia et aperiam ', 'Incidunt excepteur ', 'Explicabo Ullam sit', 'LAKI-LAKI', 'Dignissimos quis nul', 'Reprehenderit qui q', 'Sequi cillum omnis n', 'Rp. 999,-', '2025-06-21 21:43:48', 2, 'SELESAI', 1),
+(28, 'Surat Keterangan Penghasilan Orang Tua', 'SKPOT/020/MANTAP/VI/2025', '7304080506770003', 414, 'Dolor explicabo Min', 'Enim id voluptatibus', 'Fuga Nulla in et ip', 'Veniam sit rem com', 'Sit illo nihil moll', 'Ullamco deserunt in ', 'Est ipsa facilis co', 'PEREMPUAN', 'Velit totam rerum Na', 'Labore molestiae qui', 'Rerum voluptatem ips', 'Rp. 250,-', 'Error est fugiat si', 'Necessitatibus dolor', 'Voluptas aut fugit ', 'LAKI-LAKI', 'Dolor alias sint par', 'Reprehenderit proide', 'Facilis exercitation', 'Rp. 0,-', '2025-06-29 20:31:25', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1624,7 +1800,8 @@ CREATE TABLE `surat_keterangan_perhiasan` (
 
 INSERT INTO `surat_keterangan_perhiasan` (`id_skp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `jenis_perhiasan`, `nama_perhiasan`, `berat`, `toko_perhiasan`, `lokasi_toko_perhiasan`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (15, 'Surat Keterangan Perhiasan', '005/SKP/KODE-DESA/VII/2025', '7304080811110001', 177, 'Etnik', 'Culpa ut in id sit', 'Offic', 'Enim est ad quo ea n', 'Praesentium maiores ', 'Veritatis sapiente n', '2025-06-21 21:43:57', 2, 'SELESAI', 1),
-(16, 'Surat Keterangan Perhiasan', NULL, '7304080506770003', 396, 'Berlian', 'Laboris ducimus non', 'Harum', 'Dolor non et nostrum', 'Placeat excepteur a', 'Dolore fugiat quaer', '2025-06-28 11:29:59', NULL, 'PENDING', 1);
+(16, 'Surat Keterangan Perhiasan', '020/SKP/SANGAT MEMBANTU/VI/2025', '7304080506770003', 396, 'Berlian', 'Laboris ducimus non', 'Harum', 'Dolor non et nostrum', 'Placeat excepteur a', 'Dolore fugiat quaer', '2025-06-28 20:59:52', 2, 'SELESAI', 1),
+(17, 'Surat Keterangan Perhiasan', 'SKP/016/MANTAP/VI/2025', '7304080506770003', 413, 'Berlian', 'Nisi eveniet possim', 'Dolor', 'Accusamus ut nulla a', 'Sit est officia se', 'Quibusdam id enim vo', '2025-06-29 20:21:14', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1722,7 +1899,8 @@ CREATE TABLE `surat_keterangan_usaha` (
 
 INSERT INTO `surat_keterangan_usaha` (`id_sku`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `usaha`, `alamat_usaha`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (32, 'Surat Keterangan Usaha', '001/SKU/KODE-DESA/VI/2025', '7304080811110001', 179, 'Soluta culpa deseru', 'Commodi qui dolor ad', 'In quisquam eius iur', '2025-06-21 21:44:12', 2, 'SELESAI', 1),
-(33, 'Surat Keterangan Usaha', '010/SKU/KODE-DS/VI/2025', '7304080505650001', 388, 'Tempore laudantium', 'Itaque veritatis rep', 'Ea aperiam voluptati', '2025-06-28 10:42:51', 2, 'SELESAI', 1);
+(33, 'Surat Keterangan Usaha', '010/SKU/KODE-DS/VI/2025', '7304080505650001', 388, 'Tempore laudantium', 'Itaque veritatis rep', 'Ea aperiam voluptati', '2025-06-28 10:42:51', 2, 'SELESAI', 1),
+(34, 'Surat Keterangan Usaha', '010/SKU/MANTAP/VI/2025', '7304080506770003', 416, 'Duis dolor exercitat', 'Voluptatibus vel sin', 'A adipisci facere vo', '2025-06-29 19:59:29', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1748,7 +1926,8 @@ CREATE TABLE `surat_keterangan_wali_hakim` (
 --
 
 INSERT INTO `surat_keterangan_wali_hakim` (`id_skwh`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `tempat_menikah`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(2, 'Surat Keterangan Wali Hakim', '04/SKWH/KODE-DESA/VI/2025', '7304053112900229', 235, 'KUA Kecamata Binamu Kabupaten Jenenponto', '2025-06-24 12:34:40', 2, 'SELESAI', 1);
+(2, 'Surat Keterangan Wali Hakim', '04/SKWH/KODE-DESA/VI/2025', '7304053112900229', 235, 'KUA Kecamata Binamu Kabupaten Jenenponto', '2025-06-24 12:34:40', 2, 'SELESAI', 1),
+(3, 'Surat Keterangan Wali Hakim', NULL, '7304080506770003', 468, 'Nostrum duis placeat', '2025-06-29 17:15:08', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -1781,7 +1960,8 @@ CREATE TABLE `surat_lapor_hajatan` (
 --
 
 INSERT INTO `surat_lapor_hajatan` (`id_slh`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bukti_ktp`, `bukti_kk`, `jenis_hajat`, `hari`, `tanggal`, `jenis_hiburan`, `pemilik`, `alamat_pemilik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(15, 'Surat Lapor Hajatan', '005/SLH/KODE-DESA/VII/2025', '7304080811110001', 180, 'Ut aliqua Qui p', 'Delectus nihil ', 'Tasyakuran', 'Jum\'at', '1985-03-21 00:00:00', 'Ducimus et rerum be', 'Dolor aut in vitae v', 'Ab duis maxime nesci', '2025-06-21 21:44:19', 2, 'SELESAI', 1);
+(15, 'Surat Lapor Hajatan', '005/SLH/KODE-DESA/VII/2025', '7304080811110001', 180, 'Ut aliqua Qui p', 'Delectus nihil ', 'Tasyakuran', 'Jum\'at', '1985-03-21 00:00:00', 'Ducimus et rerum be', 'Dolor aut in vitae v', 'Ab duis maxime nesci', '2025-06-21 21:44:19', 2, 'SELESAI', 1),
+(16, 'Surat Lapor Hajatan', 'SLH/009/MANTAP/VI/2025', '7304080506770003', 415, 'Dicta neque moll', 'Ut est voluptate', 'Khitanan', 'Jum\'at', '2015-09-27 00:00:00', 'Rerum rerum in aut m', 'Accusamus fugiat vo', 'Voluptatibus fuga A', '2025-06-29 19:25:47', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1814,7 +1994,8 @@ CREATE TABLE `surat_pengantar_hewan` (
 
 INSERT INTO `surat_pengantar_hewan` (`id_sph`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nama_hewan`, `jenis_kelamin_hewan`, `umur`, `warna_bulu`, `tanduk`, `tujuan`, `untuk`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (42, 'Surat Pengantar Hewan', '005/SPH/KODE-DESA/VII/2025', '7304080811110001', 181, 'Ut culpa sit sit ', 'Aut do pariatur Ess', 'Ratione ut corporis ', 'Proident quaerat il', '', 'Cupidatat necessitat', 'Ipsam accusamus rati', '2025-06-21 21:44:27', 2, 'SELESAI', 1),
-(43, 'Surat Pengantar Hewan', '06/SPH/KODE-DESA/VII/2025', '7304080811110001', 182, 'Sit rerum aliqua I', 'Aliquid irure exerci', 'Nihil laudantium cu', 'Odit et laborum Con', '', 'Consectetur vitae u', 'Molestiae voluptatib', '2025-06-21 21:44:36', 2, 'SELESAI', 1);
+(43, 'Surat Pengantar Hewan', '06/SPH/KODE-DESA/VII/2025', '7304080811110001', 182, 'Sit rerum aliqua I', 'Aliquid irure exerci', 'Nihil laudantium cu', 'Odit et laborum Con', '', 'Consectetur vitae u', 'Molestiae voluptatib', '2025-06-21 21:44:36', 2, 'SELESAI', 1),
+(44, 'Surat Pengantar Hewan', NULL, '7304080506770003', 469, 'Architecto exercitat', 'Ad deserunt maiores ', 'Aut itaque magnam ne', 'Ut aut cupiditate la', '', 'Aut aut blanditiis e', 'Qui quia excepturi v', '2025-06-29 17:19:45', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -1844,7 +2025,9 @@ CREATE TABLE `surat_pengantar_skck` (
 --
 
 INSERT INTO `surat_pengantar_skck` (`id_sps`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bukti_ktp`, `bukti_kk`, `keperluan`, `keterangan`, `masa_berlaku`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(18, 'Surat Pengantar SKCK', '001/SPS/KODE-DESA/VI/2025', '7304080811110001', 183, 'Illum maxime im', 'Ad doloribus nul', 'Permohonan SKCK', 'Ad sequi eiusmod nos', '3 Hari', '2025-06-21 21:44:43', 2, 'SELESAI', 1);
+(18, 'Surat Pengantar SKCK', '001/SPS/KODE-DESA/VI/2025', '7304080811110001', 183, 'Illum maxime im', 'Ad doloribus nul', 'Permohonan SKCK', 'Ad sequi eiusmod nos', '3 Hari', '2025-06-21 21:44:43', 2, 'SELESAI', 1),
+(20, 'Surat Pengantar SKCK', '015/SPSKEREN/WOOW/VI/2025', '7304080506770003', 470, 'Vel ullam laboru', 'Laboris laborum', 'Permohonan SKCK', 'Dolores nobis adipis', '7 Hari', '2025-06-29 17:24:59', 2, 'SELESAI', 1),
+(21, 'Surat Pengantar SKCK', '016/SPSKEREN/WOOW/VI/2025', '7304080506770003', 471, 'Ut ut dolores id', 'Debitis voluptat', 'Permohonan SKCK', 'Ipsa quisquam maxim', '30 Hari', '2025-06-29 17:26:01', 1, 'SELESAI', 1);
 
 --
 -- Indexes for dumped tables
@@ -1918,7 +2101,7 @@ ALTER TABLE `login`
 --
 ALTER TABLE `nomor_surat`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nomor_urut` (`nomor_urut`,`tahun`);
+  ADD UNIQUE KEY `kode_surat` (`kode_surat`,`nomor_urut`,`tahun`);
 
 --
 -- Indexes for table `pejabat_desa`
@@ -2163,7 +2346,7 @@ ALTER TABLE `surat_pengantar_skck`
 -- AUTO_INCREMENT for table `arsip_surat`
 --
 ALTER TABLE `arsip_surat`
-  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=399;
+  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=483;
 
 --
 -- AUTO_INCREMENT for table `dusun`
@@ -2175,31 +2358,31 @@ ALTER TABLE `dusun`
 -- AUTO_INCREMENT for table `formulir_pengantar_nikah`
 --
 ALTER TABLE `formulir_pengantar_nikah`
-  MODIFY `id_fpn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id_fpn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT for table `formulir_permohonan_kehendak_nikah`
 --
 ALTER TABLE `formulir_permohonan_kehendak_nikah`
-  MODIFY `id_fpkn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_fpkn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `formulir_persetujuan_calon_pengantin`
 --
 ALTER TABLE `formulir_persetujuan_calon_pengantin`
-  MODIFY `id_fpcp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_fpcp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `formulir_persetujuan_calon_pengantin_istri`
 --
 ALTER TABLE `formulir_persetujuan_calon_pengantin_istri`
-  MODIFY `id_fpcp2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_fpcp2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `formulir_surat_izin_orang_tua`
 --
 ALTER TABLE `formulir_surat_izin_orang_tua`
-  MODIFY `id_fsiot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_fsiot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -2211,7 +2394,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `nomor_surat`
 --
 ALTER TABLE `nomor_surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `pejabat_desa`
@@ -2241,97 +2424,97 @@ ALTER TABLE `profil_desa`
 -- AUTO_INCREMENT for table `surat_keterangan`
 --
 ALTER TABLE `surat_keterangan`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_beda_identitas`
 --
 ALTER TABLE `surat_keterangan_beda_identitas`
-  MODIFY `id_skbi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_skbi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_beda_identitas_kis`
 --
 ALTER TABLE `surat_keterangan_beda_identitas_kis`
-  MODIFY `id_skbis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_skbis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_belum_terbit_sppt_pbb`
 --
 ALTER TABLE `surat_keterangan_belum_terbit_sppt_pbb`
-  MODIFY `id_skbtsp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_skbtsp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
-  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili_usaha`
 --
 ALTER TABLE `surat_keterangan_domisili_usaha`
-  MODIFY `id_skdu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_skdu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_jual_beli`
 --
 ALTER TABLE `surat_keterangan_jual_beli`
-  MODIFY `id_skjb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_skjb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_kematian`
 --
 ALTER TABLE `surat_keterangan_kematian`
-  MODIFY `id_skk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_skk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_kematian_dan_penguburan`
 --
 ALTER TABLE `surat_keterangan_kematian_dan_penguburan`
-  MODIFY `id_skkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_skkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
 --
 ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
-  MODIFY `id_skkkb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_skkkb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_mahar_sunrang`
 --
 ALTER TABLE `surat_keterangan_mahar_sunrang`
-  MODIFY `id_skm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_skm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar`
 --
 ALTER TABLE `surat_keterangan_pengantar`
-  MODIFY `id_skp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_skp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar_rujuk_atau_cerai`
 --
 ALTER TABLE `surat_keterangan_pengantar_rujuk_atau_cerai`
-  MODIFY `id_skrc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_skrc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_penghasilan_orang_tua`
 --
 ALTER TABLE `surat_keterangan_penghasilan_orang_tua`
-  MODIFY `id_skpot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_skpot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_perhiasan`
 --
 ALTER TABLE `surat_keterangan_perhiasan`
-  MODIFY `id_skp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_skp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_pindah_penduduk`
@@ -2349,31 +2532,31 @@ ALTER TABLE `surat_keterangan_tidak_mampu`
 -- AUTO_INCREMENT for table `surat_keterangan_usaha`
 --
 ALTER TABLE `surat_keterangan_usaha`
-  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_wali_hakim`
 --
 ALTER TABLE `surat_keterangan_wali_hakim`
-  MODIFY `id_skwh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_skwh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surat_lapor_hajatan`
 --
 ALTER TABLE `surat_lapor_hajatan`
-  MODIFY `id_slh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_slh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `surat_pengantar_hewan`
 --
 ALTER TABLE `surat_pengantar_hewan`
-  MODIFY `id_sph` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_sph` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `surat_pengantar_skck`
 --
 ALTER TABLE `surat_pengantar_skck`
-  MODIFY `id_sps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_sps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
