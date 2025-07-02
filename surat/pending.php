@@ -172,7 +172,15 @@ ini_set('display_errors', 1);
     include '../config/koneksi.php'; // pastikan file koneksi dimuat
     $qProfil = mysqli_query($connect, "SELECT wa_admin FROM profil_desa LIMIT 1");
     $dataProfil = mysqli_fetch_assoc($qProfil);
+
+    // Bersihkan dan ubah ke format 62
     $no_wa = preg_replace('/[^0-9]/', '', $dataProfil['wa_admin'] ?? '');
+
+    if (substr($no_wa, 0, 1) === '0') {
+        $no_wa = '62' . substr($no_wa, 1); // ubah 08xx jadi 628xx
+    } elseif (substr($no_wa, 0, 2) !== '62') {
+        $no_wa = '62' . $no_wa; // jika tidak pakai 0 atau 62
+    }
 
     // Susun isi pesan WA
     $pesan = "Halo admin, saya ingin konfirmasi pengajuan surat:\n"
