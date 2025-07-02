@@ -260,134 +260,101 @@
   </style>
 
 
-<div id="area-cetak">
-  <div class="card-center">
+ <div id="area-cetak">
+    <div class="card-center">
+      <!-- Heading -->
+      <div class="d-flex align-items-center mb-3">
+        <i class="fas fa-check-circle me-2" style="color: #28a745; font-size: 1.6rem;"></i>
+        <h5 class="fw-semibold mb-0">&nbsp;Surat berhasil diajukan!</h5>
+      </div>
+      <p class="mb-4">
+        Terima kasih, surat Anda telah berhasil diajukan dan sedang dalam proses verifikasi.
+      </p>
 
-  
-    <div class="d-flex align-items-center mb-3">
-      <i class="fas fa-check-circle me-2" style="color: #28a745; font-size: 1.6rem;"></i>
-      <h5 class="fw-semibold mb-0">&nbsp;Surat berhasil diajukan!</h5>
+      <!-- Tabel Detail -->
+      <div class="table-responsive">
+        <table class="table table-sm table-bordered align-middle table-detail">
+          <tbody>
+            <tr><th>ID Arsip</th><td><?= htmlspecialchars($_GET['id_arsip'] ?? '-') ?></td></tr>
+            <?php $jenis_surat = ucwords(str_replace('_', ' ', $_GET['jenis'] ?? '-')); ?>
+            <tr><th>Jenis Surat</th><td><?= htmlspecialchars($jenis_surat) ?></td></tr>
+            <tr><th>Tanggal Pengajuan</th><td><?= htmlspecialchars($_GET['tanggal'] ?? '-') ?></td></tr>
+            <tr><th>Nama</th><td><?= htmlspecialchars($_GET['nama'] ?? '-') ?></td></tr>
+            <tr><th>NIK</th><td><?= htmlspecialchars($_GET['nik'] ?? '-') ?></td></tr>
+            <tr><th>Nomor Surat</th><td><em class="text-muted">Menunggu konfirmasi</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tombol -->
+      <div class="mt-4 text-end">
+        <a href="../index.php" class="btn btn-outline-primary rounded-pill">
+          <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+        <button onclick="printDiv('area-cetak', '<?= htmlspecialchars($_GET['id_arsip'] ?? 'arsip') ?>')" class="btn btn-outline-success no-print">
+          <i class="fas fa-print"></i> Cetak / Simpan PDF
+        </button>
+        <button onclick="bukaWhatsApp()" class="btn btn-success rounded-pill btn-sm">
+          <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
+        </button>
+      </div>
     </div>
+  </div>
+<?php endif; ?>
 
-    <p class="mb-4">
-      Terima kasih, surat Anda telah berhasil diajukan dan saat ini sedang dalam proses verifikasi oleh petugas.
-      Nomor surat akan diterbitkan setelah proses selesai.
-    </p>
+<?php
+// Diletakkan DI LUAR blok if, agar selalu tersedia
+$qProfil = mysqli_query($connect, "SELECT wa_admin FROM profil_desa LIMIT 1");
+$dataProfil = mysqli_fetch_assoc($qProfil);
+$no_wa = preg_replace('/[^0-9]/', '', $dataProfil['wa_admin'] ?? '');
 
-    <div class="table-responsive">
-      <table class="table table-sm table-bordered align-middle table-detail">
-        <tbody>
-          <tr>
-            <th>ID Arsip</th>
-            <td><?= htmlspecialchars($_GET['id_arsip'] ?? '-') ?></td>
-          </tr>
-			<?php
-			$jenis_surat = ucwords(str_replace('_', ' ', $_GET['jenis'] ?? '-'));
-			?>
-			<tr>
-			<th>Jenis Surat</th>
-			<td><?= htmlspecialchars($jenis_surat) ?></td>
-			</tr>
-          <tr>
-            <th>Tanggal Pengajuan</th>
-            <td><?= htmlspecialchars($_GET['tanggal'] ?? '-') ?></td>
-          </tr>
-          <tr>
-            <th>Nama</th>
-            <td><?= htmlspecialchars($_GET['nama'] ?? '-') ?></td>
-          </tr>
-          <tr>
-            <th>NIK</th>
-            <td><?= htmlspecialchars($_GET['nik'] ?? '-') ?></td>
-          </tr>
-          <tr>
-            <th>Nomor Surat</th>
-            <td><em class="text-muted">Menunggu konfirmasi</em></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+$id_arsip = $_GET['id_arsip'] ?? '-';
+$jenis    = $_GET['jenis'] ?? '-';
+$tanggal  = $_GET['tanggal'] ?? '-';
+$nama     = $_GET['nama'] ?? '-';
+$nik      = $_GET['nik'] ?? '-';
 
-	<div class="mt-4 text-end">
-	<a href="../index.php" class="btn btn-outline-primary rounded-pill">
-		<i class="fas fa-arrow-left"></i> Kembali ke Beranda
-	</a>
-	<button onclick="printDiv('area-cetak', '<?php echo htmlspecialchars($_GET['id_arsip'] ?? 'arsip'); ?>')" class="btn btn-outline-success no-print">
-		<i class="fas fa-print"></i> Cetak / Simpan PDF
-	</button>
-	<button onclick="bukaWhatsApp()" class="btn btn-success rounded-pill btn-sm">
-		<i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
-	</button>
-	</div>
+$pesan = "Halo admin, saya ingin konfirmasi pengajuan surat:\n"
+    . "\n"
+    . "*ID Arsip:* $id_arsip\n"
+    . "*Jenis Surat:* $jenis\n"
+    . "*Tanggal:* $tanggal\n"
+    . "*Nama:* $nama\n"
+    . "*NIK:* $nik\n"
+    . "Mohon bantuannya";
+$pesan_encoded = urlencode($pesan);
+?>
 
-	</div>
+<script>
+  function printDiv(divId, id_arsip) {
+    const originalTitle = document.title;
+    document.title = "arsip-" + id_arsip;
+    window.print();
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 1000);
+  }
 
-
-		<?php
-		// Ambil wa_admin dari tabel profil_desa
-		$qProfil = mysqli_query($connect, "SELECT wa_admin FROM profil_desa LIMIT 1");
-		$dataProfil = mysqli_fetch_assoc($qProfil);
-		$no_wa = preg_replace('/[^0-9]/', '', $dataProfil['wa_admin'] ?? '');
-
-		// Ambil data dari URL
-		$id_arsip = $_GET['id_arsip'] ?? '-';
-		$jenis    = $_GET['jenis'] ?? '-';
-		$tanggal  = $_GET['tanggal'] ?? '-';
-		$nama     = $_GET['nama'] ?? '-';
-		$nik      = $_GET['nik'] ?? '-';
-
-		// Susun pesan otomatis
-		$pesan = "Halo admin, saya ingin konfirmasi pengajuan surat:\n"
-		. "\n"
-		. "*ID Arsip:* $id_arsip\n"
-		. "*Jenis Surat:* $jenis\n"
-		. "*Tanggal:* $tanggal\n"
-		. "*Nama:* $nama\n"
-		. "*NIK:* $nik\n"
-		. "Mohon bantuannya";
-		$pesan_encoded = urlencode($pesan);
-		?>
-
-		<?php endif; ?>
-
-		<script>
-		function printDiv(divId, id_arsip) {
-		const originalTitle = document.title;
-		document.title = "arsip-" + id_arsip;
-		window.print();
-		setTimeout(() => {
-			document.title = originalTitle;
-		}, 1000);
-		}
-
-		function bukaWhatsApp() {
-		const nomor = "<?= $no_wa ?>";
-		const pesan = "<?= $pesan_encoded ?>";
-		const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-		const link = isMobile
-			? `https://wa.me/${nomor}?text=${pesan}`
-			: `https://web.whatsapp.com/send?phone=${nomor}&text=${pesan}`;
-		window.open(link, '_blank');
-		}
-		</script>
-
-	</div>
-
-
-	</div>
-</div>
+  function bukaWhatsApp() {
+    const nomor = "<?= $no_wa ?>";
+    const pesan = "<?= $pesan_encoded ?>";
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const link = isMobile
+      ? `https://wa.me/${nomor}?text=${pesan}`
+      : `https://web.whatsapp.com/send?phone=${nomor}&text=${pesan}`;
+    window.open(link, '_blank');
+  }
+</script>
 
 <style>
   @media print {
     html, body {
       height: auto !important;
     }
-
     .card-center {
       page-break-inside: avoid;
       height: auto !important;
     }
-
     .no-print {
       display: none !important;
     }
