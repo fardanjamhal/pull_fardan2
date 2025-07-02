@@ -381,7 +381,6 @@
     }
   </script>
 
-<?php endif; ?>
 
 
 
@@ -405,6 +404,7 @@
   });
 </script>
 
+<?php endif; ?>
 
 </body>
 </html>
