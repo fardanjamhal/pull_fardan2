@@ -350,32 +350,28 @@
 		$pesan_encoded = urlencode($pesan);
 		?>
 
+		<!-- Script tepat setelah tombol -->
 		<script>
+		function printDiv(divId, id_arsip) {
+		const originalTitle = document.title;
+		document.title = "arsip-" + id_arsip;
+		window.print();
+		setTimeout(() => {
+			document.title = originalTitle;
+		}, 1000);
+		}
+
 		function bukaWhatsApp() {
-		const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 		const nomor = "<?= $no_wa ?>";
 		const pesan = "<?= $pesan_encoded ?>";
-
+		const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 		const link = isMobile
 			? `https://wa.me/${nomor}?text=${pesan}`
 			: `https://web.whatsapp.com/send?phone=${nomor}&text=${pesan}`;
-
 		window.open(link, '_blank');
 		}
 		</script>
 
-	    <script>
-		function printDiv(divId, id_arsip) {
-		const originalTitle = document.title; // simpan judul awal
-		document.title = "arsip-" + id_arsip; // set judul sementara
-
-		window.print(); // jalankan cetak
-
-		setTimeout(() => {
-			document.title = originalTitle; // kembalikan setelah cetak
-		}, 1000); // beri jeda agar sempat tersimpan
-		}
-		</script>
 		
 	<?php endif; ?>
 
