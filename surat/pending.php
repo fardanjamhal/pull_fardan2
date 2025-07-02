@@ -112,234 +112,12 @@
 		</style>
 
 
-		<!-- Optional CSS tweak for better mobile spacing -->
-		<style>
-		@media (max-width: 991.98px) {
-			.navbar-nav .nav-item {
-			text-align: center;
-			}
-			.navbar-nav .nav-link {
-			font-size: 18px;
-			padding: 10px 0;
-			}
-			.navbar-nav .btn {
-			width: 80%;
-			margin: 0 auto;
-			}
-			/* Perkecil kotak aktif di HP */
-			.active-nav-bg {
-				display: inline-block;
-			}
-			/* Hapus efek kotak putih saat di HP */
-			.active-nav-bg {
-			background-color: transparent !important;
-			color: #ffffff !important; /* kembali ke putih */
-			padding: 0; /* opsional: hilangkan padding ekstra */
-			font-weight: normal;
-			}
-
-			.active-nav-bg i,
-			.active-nav-bg a,
-			.active-nav-bg span {
-			color: #ffffff !important;
-			}
-		}
-		</style>
-
-
-<style>
-.running-text-wrapper {
-  width: 98.5%;
-  max-width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  background: #e3f2fd; /* Biru muda kalem */
-  color: #0d47a1; /* Biru utama */
-  padding: 8px 0;
-  position: relative;
-  border-radius: 10px;
-  border: 1px solid #1976d2;
-  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.2); /* shadow biru */
-  text-align: center;
-}
-
-.running-text {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 100%;
-  animation: marquee 30s linear infinite;
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: #0d47a1;
-}
-
-/* Animasi marquee */
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-
-@media screen and (max-width: 576px) {
-  .running-text-wrapper {
-    width: 93%;
-  }
-
-  .running-text {
-    font-size: 0.9rem;
-  }
-}
-</style>
-
 <div class="container-fluid">
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 		
-		<?php
-		// Ambil data profil desa
-		$query = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = 1");
-		$row = mysqli_fetch_assoc($query);
+		<br>
 
-		// Ubah ke huruf besar dan beri nilai default jika kosong
-		$nama_desa = isset($row['nama_desa']) ? ucwords(strtolower($row['nama_desa'])) : 'Desa';
-		$kota = isset($row['kota']) ? ucwords(strtolower($row['kota'])) : 'Kota';
-		?>
-
-		<div class="running-text-wrapper">
-		<div class="running-text">
-			Selamat Datang di Aplikasi Pelayanan Surat <?php echo $nama_desa; ?> <?php echo $kota; ?>
-		</div>
-		</div>
-
-		<br><br>
-
-	<?php if (isset($_GET['pesan']) && $_GET['pesan'] == 'berhasil'): ?>
-  <style>
-    .card-center {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 25px 30px;
-      background-color: #e6f4ea;
-      border-left: 6px solid #28a745;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-    }
-
-    .card-center h5 {
-      color: #218838;
-      font-size: 1.25rem;
-    }
-
-    .card-center p {
-      font-size: 15px;
-      color: #333;
-    }
-
-    .table-detail th {
-      width: 180px;
-      font-weight: 500;
-      background-color: #f6fff8;
-    }
-
-    .table-detail td,
-    .table-detail th {
-      font-size: 14px;
-      padding: 8px 12px;
-      vertical-align: middle;
-    }
-
-    .table-detail {
-      background-color: #fff;
-      border-radius: 0.5rem;
-      overflow: hidden;
-    }
-
-    .btn-outline-primary {
-      font-size: 14px;
-      padding: 6px 14px;
-    }
-
-    @media print {
-      html, body {
-        height: auto !important;
-      }
-
-      .card-center {
-        page-break-inside: avoid;
-        height: auto !important;
-      }
-
-      .no-print {
-        display: none !important;
-      }
-    }
-  </style>
-
-  <div id="area-cetak">
-    <div class="card-center">
-      <div class="d-flex align-items-center mb-3">
-        <i class="fas fa-check-circle me-2" style="color: #28a745; font-size: 1.6rem;"></i>
-        <h5 class="fw-semibold mb-0">&nbsp;Surat berhasil diajukan!</h5>
-      </div>
-
-      <p class="mb-4">
-        Terima kasih, surat Anda telah berhasil diajukan dan saat ini sedang dalam proses verifikasi oleh petugas.
-        Nomor surat akan diterbitkan setelah proses selesai.
-      </p>
-
-      <div class="table-responsive">
-        <table class="table table-sm table-bordered align-middle table-detail">
-          <tbody>
-            <tr>
-              <th>ID Arsip</th>
-              <td><?= htmlspecialchars($_GET['id_arsip'] ?? '-') ?></td>
-            </tr>
-            <?php
-              $jenis_surat = ucwords(str_replace('_', ' ', $_GET['jenis'] ?? '-'));
-            ?>
-            <tr>
-              <th>Jenis Surat</th>
-              <td><?= htmlspecialchars($jenis_surat) ?></td>
-            </tr>
-            <tr>
-              <th>Tanggal Pengajuan</th>
-              <td><?= htmlspecialchars($_GET['tanggal'] ?? '-') ?></td>
-            </tr>
-            <tr>
-              <th>Nama</th>
-              <td><?= htmlspecialchars($_GET['nama'] ?? '-') ?></td>
-            </tr>
-            <tr>
-              <th>NIK</th>
-              <td><?= htmlspecialchars($_GET['nik'] ?? '-') ?></td>
-            </tr>
-            <tr>
-              <th>Nomor Surat</th>
-              <td><em class="text-muted">Menunggu konfirmasi</em></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="mt-4 text-end">
-        <a href="../index.php" class="btn btn-outline-primary rounded-pill">
-          <i class="fas fa-arrow-left"></i> Kembali ke Beranda
-        </a>
-        <button onclick="printDiv('area-cetak', '<?= htmlspecialchars($_GET['id_arsip'] ?? 'arsip') ?>')" class="btn btn-outline-success no-print">
-          <i class="fas fa-print"></i> Cetak / Simpan PDF
-        </button>
-        <button onclick="bukaWhatsApp()" class="btn btn-success rounded-pill btn-sm">
-          <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <?php
-    // Ambil nomor WA admin dari profil desa
-    $qProfil = mysqli_query($connect, "SELECT wa_admin FROM profil_desa LIMIT 1");
-    $dataProfil = mysqli_fetch_assoc($qProfil);
-    $no_wa = preg_replace('/[^0-9]/', '', $dataProfil['wa_admin'] ?? '');
-
+	<?php
     // Ambil data dari URL
     $id_arsip = $_GET['id_arsip'] ?? '-';
     $jenis    = $_GET['jenis'] ?? '-';
@@ -347,41 +125,168 @@
     $nama     = $_GET['nama'] ?? '-';
     $nik      = $_GET['nik'] ?? '-';
 
-    // Susun pesan WhatsApp
+    // Format jenis surat
+    $jenis_surat = ucwords(str_replace('_', ' ', $jenis));
+
+    // Ambil nomor WA admin dari database
+    include '../config/koneksi.php'; // pastikan file koneksi dimuat
+    $qProfil = mysqli_query($connect, "SELECT wa_admin FROM profil_desa LIMIT 1");
+    $dataProfil = mysqli_fetch_assoc($qProfil);
+    $no_wa = preg_replace('/[^0-9]/', '', $dataProfil['wa_admin'] ?? '');
+
+    // Susun isi pesan WA
     $pesan = "Halo admin, saya ingin konfirmasi pengajuan surat:\n"
-      . "\n"
-      . "*ID Arsip:* $id_arsip\n"
-      . "*Jenis Surat:* $jenis\n"
-      . "*Tanggal:* $tanggal\n"
-      . "*Nama:* $nama\n"
-      . "*NIK:* $nik\n"
-      . "Mohon bantuannya.";
+          . "\n"
+          . "*ID Arsip:* $id_arsip\n"
+          . "*Jenis Surat:* $jenis\n"
+          . "*Tanggal:* $tanggal\n"
+          . "*Nama:* $nama\n"
+          . "*NIK:* $nik\n"
+          . "Mohon bantuannya.";
     $pesan_encoded = urlencode($pesan);
-  ?>
+    ?>
 
-  <!-- ✅ Script berada DI LUAR blok if -->
-  <script>
-    function printDiv(divId, id_arsip) {
-      const originalTitle = document.title;
-      document.title = "arsip-" + id_arsip;
-      window.print();
-      setTimeout(() => {
-        document.title = originalTitle;
-      }, 1000);
-    }
+    <?php if (isset($_GET['pesan']) && $_GET['pesan'] == 'berhasil'): ?>
+      <style>
+        .card-center {
+          max-width: 700px;
+          margin: 40px auto;
+          padding: 25px 30px;
+          background-color: #e6f4ea;
+          border-left: 6px solid #28a745;
+          border-radius: 1rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+        }
 
-    function bukaWhatsApp() {
-      const nomor = "<?= $no_wa ?>";
-      const pesan = "<?= $pesan_encoded ?>";
-      const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      const link = isMobile
-        ? `https://wa.me/${nomor}?text=${pesan}`
-        : `https://web.whatsapp.com/send?phone=${nomor}&text=${pesan}`;
-      window.open(link, '_blank');
-    }
-  </script>
+        .card-center h5 {
+          color: #218838;
+          font-size: 1.25rem;
+        }
 
+        .card-center p {
+          font-size: 15px;
+          color: #333;
+        }
 
+        .table-detail th {
+          width: 180px;
+          font-weight: 500;
+          background-color: #f6fff8;
+        }
+
+        .table-detail td,
+        .table-detail th {
+          font-size: 14px;
+          padding: 8px 12px;
+          vertical-align: middle;
+        }
+
+        .table-detail {
+          background-color: #fff;
+          border-radius: 0.5rem;
+          overflow: hidden;
+        }
+
+        .btn-outline-primary {
+          font-size: 14px;
+          padding: 6px 14px;
+        }
+
+        @media print {
+          html, body {
+            height: auto !important;
+          }
+
+          .card-center {
+            page-break-inside: avoid;
+            height: auto !important;
+          }
+
+          .no-print {
+            display: none !important;
+          }
+        }
+      </style>
+
+      <div id="area-cetak">
+        <div class="card-center">
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-check-circle me-2" style="color: #28a745; font-size: 1.6rem;"></i>
+            <h5 class="fw-semibold mb-0">&nbsp;Surat berhasil diajukan!</h5>
+          </div>
+
+          <p class="mb-4">
+            Terima kasih, surat Anda telah berhasil diajukan dan saat ini sedang dalam proses verifikasi oleh petugas.
+            Nomor surat akan diterbitkan setelah proses selesai.
+          </p>
+
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered align-middle table-detail">
+              <tbody>
+                <tr>
+                  <th>ID Arsip</th>
+                  <td><?= htmlspecialchars($id_arsip) ?></td>
+                </tr>
+                <tr>
+                  <th>Jenis Surat</th>
+                  <td><?= htmlspecialchars($jenis_surat) ?></td>
+                </tr>
+                <tr>
+                  <th>Tanggal Pengajuan</th>
+                  <td><?= htmlspecialchars($tanggal) ?></td>
+                </tr>
+                <tr>
+                  <th>Nama</th>
+                  <td><?= htmlspecialchars($nama) ?></td>
+                </tr>
+                <tr>
+                  <th>NIK</th>
+                  <td><?= htmlspecialchars($nik) ?></td>
+                </tr>
+                <tr>
+                  <th>Nomor Surat</th>
+                  <td><em class="text-muted">Menunggu konfirmasi</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-4 text-end">
+            <a href="../index.php" class="btn btn-outline-primary rounded-pill">
+              <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+            </a>
+            <button onclick="printDiv('area-cetak', '<?= htmlspecialchars($id_arsip) ?>')" class="btn btn-outline-success no-print">
+              <i class="fas fa-print"></i> Cetak / Simpan PDF
+            </button>
+            <button onclick="bukaWhatsApp()" class="btn btn-success rounded-pill btn-sm">
+              <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <!-- ✅ Script di luar blok PHP agar selalu terbaca -->
+    <script>
+      function printDiv(divId, id_arsip) {
+        const originalTitle = document.title;
+        document.title = "arsip-" + id_arsip;
+        window.print();
+        setTimeout(() => {
+          document.title = originalTitle;
+        }, 1000);
+      }
+
+      function bukaWhatsApp() {
+        const nomor = "<?= $no_wa ?>";
+        const pesan = "<?= $pesan_encoded ?>";
+        const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const link = isMobile
+          ? `https://wa.me/${nomor}?text=${pesan}`
+          : `https://web.whatsapp.com/send?phone=${nomor}&text=${pesan}`;
+        window.open(link, '_blank');
+      }
+    </script>
 
 
 <?php include '../surat/part/footer.php'; ?>
@@ -390,21 +295,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function(){
-    $('#searchSurat').on('keyup', function() {
-      var keyword = $(this).val().toLowerCase();
-      $('.surat-item').filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1);
-      });
-    });
-  });
-</script>
-
-<?php endif; ?>
 
 </body>
 </html>
