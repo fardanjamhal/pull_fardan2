@@ -114,47 +114,6 @@
 }
 </style>
 
-
-<style>
-  /* Gunakan font Arial dan perkecil tinggi baris */
-  table#data-table {
-    font-family: Arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  /* Ukuran teks dan tinggi sel */
-  table#data-table th,
-  table#data-table td {
-    font-size: 14px;
-    padding: 6px 10px;
-    vertical-align: middle;
-    border: 1px solid #ccc;
-  }
-
-  /* Warna selang-seling baris */
-  table#data-table tbody tr:nth-child(odd) {
-    background-color: #f9f9f9; /* abu terang */
-  }
-
-  table#data-table tbody tr:nth-child(even) {
-    background-color: #eef5ff; /* biru sangat muda */
-  }
-
-  /* Judul kolom di tengah */
-  table#data-table thead th {
-    text-align: center;
-  }
-
-  /* Scroll horizontal jika diperlukan di HP */
-  .table-responsive {
-    overflow-x: auto;
-    max-width: 100%;
-  }
-</style>
-
-
-
 <div class="content-wrapper">
   <section class="content-header">
     <h1>Data Penduduk</h1>
@@ -415,75 +374,57 @@
         <br><br>
         
 
-       <style>
-          td {
-            vertical-align: top;
-            word-break: break-word;
-          }
+      <style>
+        /* Gunakan font Arial dan perkecil tinggi baris */
+        table#data-table {
+          font-family: Arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
 
-          .table td,
-          .table th {
-            white-space: normal !important;
-          }
+        /* Ukuran teks dan tinggi sel */
+        table#data-table th,
+        table#data-table td {
+          font-size: 14px;
+          padding: 6px 10px;
+          vertical-align: middle;
+          border: 1px solid #ccc;
+        }
 
-          /* Pusatkan semua judul kolom */
-          .table thead th {
-            text-align: center;
-          }
+        /* Warna selang-seling baris */
+        table#data-table tbody tr:nth-child(odd) {
+          background-color: #f9f9f9; /* abu terang */
+        }
 
-          /* Pusatkan teks untuk kolom No, Jenis Kelamin, dan Agama */
-          td:nth-child(1),
-          td:nth-child(5),
-          td:nth-child(6) {
-            text-align: center;
-          }
+        table#data-table tbody tr:nth-child(even) {
+          background-color: #eef5ff; /* biru sangat muda */
+        }
 
-          /* Batasi ukuran kolom NIK */
-          td:nth-child(2) {
-            min-width: 140px;
-            max-width: 160px;
-            text-align: center;
-          }
+        /* Judul kolom di tengah */
+        table#data-table thead th {
+          text-align: center;
+        }
 
-          /* Buat kolom nama lebih kecil dan beri padding kanan */
-          td:nth-child(3) {
-            min-width: 140px;
-            max-width: 180px;
-          }
+        /* Kolom No, NIK, Jenis Kelamin, Agama rata tengah */
+        table#data-table td:nth-child(1),  /* No */
+        table#data-table td:nth-child(2),  /* NIK */
+        table#data-table td:nth-child(5),  /* Jenis Kelamin */
+        table#data-table td:nth-child(6) { /* Agama */
+          text-align: center;
+        }
 
-            /* Batasi lebar kolom Tempat/Tgl Lahir */
-          td:nth-child(4) {
-            min-width: 100px;
-            max-width: 140px;
-          }
+        /* Kurangi lebar kolom NIK */
+        table#data-table td:nth-child(2) {
+          min-width: 160px;
+          max-width: 200px;
+        }
 
-            /* Batasi lebar kolom Tempat/Tgl Lahir */
-          td:nth-child(8) {
-            min-width: 40px;
-            max-width: 60px;
-          }
-
-          /* Batasi agar form tidak terlalu panjang */
-          .pilihan-surat {
-            max-height: 300px;
-            overflow-y: auto;
-            padding-right: 5px;
-          }
-
-          /* Form tombol surat biar tidak melebar */
-          .btn-surat {
-            font-size: 12px;
-            width: 100%;
-            padding: 4px;
-            white-space: normal;
-            text-align: left;
-          }
-
-          .btn-toggle-surat {
-            font-size: 12px;
-            margin-top: 5px;
-          }
-        </style>
+        /* Scroll horizontal jika diperlukan di HP */
+        .table-responsive {
+          overflow-x: auto;
+          max-width: 100%;
+        }
+      </style>
 
   
         <div class="table-responsive" style="overflow-x: auto; max-width: 100%;">
