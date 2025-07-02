@@ -463,7 +463,7 @@ ini_set('display_errors', 1); // Tampilkan error di browser
     table#data-table th,
     table#data-table td {
       font-size: 14px;
-      padding: 6px 10px;
+      padding: 11px 10px;
       vertical-align: middle;
       border: 1px solid #ccc;
     }
