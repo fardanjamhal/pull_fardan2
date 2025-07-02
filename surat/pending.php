@@ -348,6 +348,8 @@
 		$pesan_encoded = urlencode($pesan);
 		?>
 
+		<?php endif; ?>
+
 		<script>
 		function printDiv(divId, id_arsip) {
 		const originalTitle = document.title;
@@ -368,9 +370,6 @@
 		window.open(link, '_blank');
 		}
 		</script>
-
-		
-	<?php endif; ?>
 
 	</div>
 
