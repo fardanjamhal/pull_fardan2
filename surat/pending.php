@@ -111,6 +111,40 @@
 			}
 		</style>
 
+    <!-- Optional CSS tweak for better mobile spacing -->
+		<style>
+		@media (max-width: 991.98px) {
+			.navbar-nav .nav-item {
+			text-align: center;
+			}
+			.navbar-nav .nav-link {
+			font-size: 18px;
+			padding: 10px 0;
+			}
+			.navbar-nav .btn {
+			width: 80%;
+			margin: 0 auto;
+			}
+			/* Perkecil kotak aktif di HP */
+			.active-nav-bg {
+				display: inline-block;
+			}
+			/* Hapus efek kotak putih saat di HP */
+			.active-nav-bg {
+			background-color: transparent !important;
+			color: #ffffff !important; /* kembali ke putih */
+			padding: 0; /* opsional: hilangkan padding ekstra */
+			font-weight: normal;
+			}
+
+			.active-nav-bg i,
+			.active-nav-bg a,
+			.active-nav-bg span {
+			color: #ffffff !important;
+			}
+		}
+		</style>
+
 
 <div class="container-fluid">
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">

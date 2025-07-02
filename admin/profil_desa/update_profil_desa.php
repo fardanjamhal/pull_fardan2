@@ -17,6 +17,7 @@ $kecamatan  = $_POST['kecamatan'];
 $kota       = $_POST['kota'];
 $provinsi   = $_POST['provinsi'];
 $kode_pos   = $_POST['kode_pos'];
+$wa_admin   = $_POST['wa_admin'];
 
 // Ambil data lama dari database
 $queryLama = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '$id'");
@@ -79,6 +80,7 @@ $query = "UPDATE profil_desa SET
             kota        = '$kota',
             provinsi    = '$provinsi',
             kode_pos    = '$kode_pos',
+            wa_admin    = '$wa_admin',
             ttd_digital = '$ttd_digital',
             gambar_kop  = '$gambar_kop',
             logo_desa   = '$logo_desa'
