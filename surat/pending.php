@@ -359,8 +359,8 @@
 		}
 
 		function bukaWhatsApp() {
-		const nomor = "<?php echo $no_wa; ?>";
-		const pesan = "<?php echo $pesan_encoded; ?>";
+		const nomor = "<?= $no_wa ?>";
+		const pesan = "<?= $pesan_encoded ?>";
 		const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 		const link = isMobile
 			? `https://wa.me/${nomor}?text=${pesan}`
@@ -368,7 +368,6 @@
 		window.open(link, '_blank');
 		}
 		</script>
-
 
 		
 	<?php endif; ?>
