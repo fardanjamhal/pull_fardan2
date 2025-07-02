@@ -116,6 +116,12 @@
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 		
 		<br>
+    
+    <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
 
 	<?php
     // Ambil data dari URL
