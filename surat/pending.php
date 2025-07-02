@@ -308,12 +308,12 @@
       </table>
     </div>
 
-    <div class="mt-4 text-end">
+	<div class="mt-4 text-end">
 	<a href="../index.php" class="btn btn-outline-primary rounded-pill">
 		<i class="fas fa-arrow-left"></i> Kembali ke Beranda
 	</a>
-	<button onclick="printDiv('area-cetak', '<?= htmlspecialchars($_GET['id_arsip'] ?? 'arsip') ?>')" class="btn btn-outline-success no-print">
-    <i class="fas fa-print"></i> Cetak / Simpan PDF
+	<button onclick="printDiv('area-cetak', '<?php echo htmlspecialchars($_GET['id_arsip'] ?? 'arsip'); ?>')" class="btn btn-outline-success no-print">
+		<i class="fas fa-print"></i> Cetak / Simpan PDF
 	</button>
 	<button onclick="bukaWhatsApp()" class="btn btn-success rounded-pill btn-sm">
 		<i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
@@ -331,26 +331,23 @@
 
 		// Ambil data dari URL
 		$id_arsip = $_GET['id_arsip'] ?? '-';
-		$jenis = $_GET['jenis'] ?? '-';
-		$tanggal = $_GET['tanggal'] ?? '-';
-		$nama = $_GET['nama'] ?? '-';
-		$nik = $_GET['nik'] ?? '-';
+		$jenis    = $_GET['jenis'] ?? '-';
+		$tanggal  = $_GET['tanggal'] ?? '-';
+		$nama     = $_GET['nama'] ?? '-';
+		$nik      = $_GET['nik'] ?? '-';
 
 		// Susun pesan otomatis
 		$pesan = "Halo admin, saya ingin konfirmasi pengajuan surat:\n"
-			. "\n"
-			. "*ID Arsip:* $id_arsip\n"
-			. "*Jenis Surat:* $jenis\n"
-			. "*Tanggal:* $tanggal\n"
-			. "*Nama:* $nama\n"
-			. "*NIK:* $nik\n"
-			. "Mohon bantuannya";
-
-		// Encode untuk URL WhatsApp
+		. "\n"
+		. "*ID Arsip:* $id_arsip\n"
+		. "*Jenis Surat:* $jenis\n"
+		. "*Tanggal:* $tanggal\n"
+		. "*Nama:* $nama\n"
+		. "*NIK:* $nik\n"
+		. "Mohon bantuannya";
 		$pesan_encoded = urlencode($pesan);
 		?>
 
-		<!-- Script tepat setelah tombol -->
 		<script>
 		function printDiv(divId, id_arsip) {
 		const originalTitle = document.title;
@@ -362,8 +359,8 @@
 		}
 
 		function bukaWhatsApp() {
-		const nomor = "<?= $no_wa ?>";
-		const pesan = "<?= $pesan_encoded ?>";
+		const nomor = "<?php echo $no_wa; ?>";
+		const pesan = "<?php echo $pesan_encoded; ?>";
 		const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 		const link = isMobile
 			? `https://wa.me/${nomor}?text=${pesan}`
@@ -371,6 +368,7 @@
 		window.open(link, '_blank');
 		}
 		</script>
+
 
 		
 	<?php endif; ?>
@@ -382,17 +380,20 @@
 </div>
 
 <style>
-  /* Sembunyikan semua kecuali div cetak saat print */
   @media print {
-  html, body {
-    height: auto !important;
-  }
+    html, body {
+      height: auto !important;
+    }
 
-  .card-center {
-    page-break-inside: avoid;
-    height: auto !important;
+    .card-center {
+      page-break-inside: avoid;
+      height: auto !important;
+    }
+
+    .no-print {
+      display: none !important;
+    }
   }
-}
 </style>
 
 
