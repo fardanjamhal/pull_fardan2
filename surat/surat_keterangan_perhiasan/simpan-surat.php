@@ -65,7 +65,23 @@
 
         $qTambahSurat = "INSERT INTO surat_keterangan_perhiasan (jenis_surat, nik, jenis_perhiasan, nama_perhiasan, berat, toko_perhiasan, lokasi_toko_perhiasan, keperluan, status_surat, id_profil_desa, id_arsip) VALUES('$jenis_surat', '$nik', '$jenis_perhiasan', '$nama_perhiasan', '$berat', '$toko_perhiasan', '$lokasi_toko_perhiasan', '$keperluan', '$status_surat', '$id_profil_desa', '$id_arsip')";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
-        header("location:../index.php?pesan=berhasil");
+
+        // Ambil ID surat yang baru
+        // Ambil nama folder URL, misalnya "formulir_pengantar_nikah"
+        $folder = basename(dirname($_SERVER['PHP_SELF']));
+        $jenis_surat = ucwords(str_replace('_', ' ', $folder));
+        $tanggal = date('Y-m-d');
+        $nama = $dataPenduduk['nama'] ?? '-';
+
+        // Kirim data lewat URL termasuk id_arsip
+        header("Location: ../pending.php?pesan=berhasil" .
+            "&jenis=" . urlencode($jenis_surat) .
+            "&tanggal=$tanggal" .
+            "&nama=" . urlencode($nama) .
+            "&nik=$nik" .
+            "&id_arsip=$id_arsip");
+        exit;
+
     }
 }
 ?>
