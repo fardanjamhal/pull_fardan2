@@ -152,18 +152,18 @@
 		<br>
     
     <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-?>
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ?>
 
 
 	<?php
     // Ambil data dari URL
-    $id_arsip = $_GET['id_arsip'] ?? '-';
-    $jenis    = $_GET['jenis'] ?? '-';
-    $tanggal  = $_GET['tanggal'] ?? '-';
-    $nama     = $_GET['nama'] ?? '-';
-    $nik      = $_GET['nik'] ?? '-';
+    $id_arsip       = $_GET['id_arsip'] ?? '-';
+    $jenis          = $_GET['jenis'] ?? '-';
+    $waktu_disalin  = $_GET['waktu_disalin'] ?? '-';
+    $nama           = $_GET['nama'] ?? '-';
+    $nik            = $_GET['nik'] ?? '-';
 
     // Format jenis surat
     $jenis_surat = ucwords(str_replace('_', ' ', $jenis));
@@ -187,7 +187,7 @@ ini_set('display_errors', 1);
           . "\n"
           . "*ID Arsip:* $id_arsip\n"
           . "*Jenis Surat:* $jenis\n"
-          . "*Tanggal:* $tanggal\n"
+          . "*Tanggal:* $waktu_disalin\n"
           . "*Nama:* $nama\n"
           . "*NIK:* $nik\n"
           . "Mohon bantuannya.";
@@ -281,7 +281,7 @@ ini_set('display_errors', 1);
                 </tr>
                 <tr>
                   <th>Tanggal Pengajuan</th>
-                  <td><?= htmlspecialchars($tanggal) ?></td>
+                  <td><?= htmlspecialchars($waktu_disalin) ?></td>
                 </tr>
                 <tr>
                   <th>Nama</th>
