@@ -353,22 +353,28 @@ ini_set('display_errors', 1); // Tampilkan error di browser
          // Pastikan koneksi sudah tersedia di variabel $connect
           include '../../config/koneksi.php'; // atau sesuaikan path ke file koneksi Anda
 
-          // Ambil nama database aktif dari koneksi
-          $nama_database = mysqli_fetch_assoc(mysqli_query($connect, "SELECT DATABASE() AS db"))['db'];
+         // Ambil nama database aktif dari koneksi
+        // Ambil nama database aktif dari koneksi
+        $nama_database = mysqli_fetch_assoc(mysqli_query($connect, "SELECT DATABASE() AS db"))['db'];
 
-          // Query untuk mengambil semua tabel yang diawali surat_ atau formulir_
-          $qTabel = mysqli_query($connect, "
-              SELECT table_name 
-              FROM information_schema.tables 
-              WHERE table_schema = '$nama_database'
-                AND (table_name LIKE 'surat\\_%' OR table_name LIKE 'formulir\\_%')
-          ");
+        // Query tabel-tabel yang namanya diawali 'surat_' atau 'formulir_'
+        $qTabel = mysqli_query($connect, "
+            SELECT table_name 
+            FROM information_schema.tables 
+            WHERE table_schema = '$nama_database'
+              AND (table_name LIKE 'surat_%' OR table_name LIKE 'formulir_%')
+        ");
 
-          // Tampung hasil ke array
-          $daftar_tabel_surat = [];
-          while ($row = mysqli_fetch_assoc($qTabel)) {
-              $daftar_tabel_surat[] = $row['table_name'];
-          }
+        // Tampung ke array
+        $daftar_tabel_surat = [];
+        while ($row = mysqli_fetch_assoc($qTabel)) {
+            if (isset($row['table_name'])) {
+                $daftar_tabel_surat[] = $row['table_name'];
+            }
+        }
+
+
+
 
           // Array untuk menyimpan bagian UNION query
           $union_parts_select = [];
