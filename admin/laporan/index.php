@@ -354,25 +354,30 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           include '../../config/koneksi.php'; // atau sesuaikan path ke file koneksi Anda
 
          // Ambil nama database aktif dari koneksi
-        // Ambil nama database aktif dari koneksi
-        $nama_database = mysqli_fetch_assoc(mysqli_query($connect, "SELECT DATABASE() AS db"))['db'];
+          // Ambil nama database aktif dari koneksi
+          $qDB = mysqli_query($connect, "SELECT DATABASE() AS db");
+          $dataDB = mysqli_fetch_assoc($qDB);
+          $nama_database = $dataDB['db'] ?? '';
 
-        // Query tabel-tabel yang namanya diawali 'surat_' atau 'formulir_'
-        $qTabel = mysqli_query($connect, "
-            SELECT table_name 
-            FROM information_schema.tables 
-            WHERE table_schema = '$nama_database'
-              AND (table_name LIKE 'surat_%' OR table_name LIKE 'formulir_%')
-        ");
+          // Query untuk mengambil semua tabel yang diawali surat_ atau formulir_ dari schema aktif
+          $qTabel = mysqli_query($connect, "
+              SELECT table_name 
+              FROM information_schema.tables 
+              WHERE table_schema = '$nama_database'
+                AND (table_name LIKE 'surat\\_%' OR table_name LIKE 'formulir\\_%')
+          ");
 
-        // Tampung ke array
-        $daftar_tabel_surat = [];
-        while ($row = mysqli_fetch_assoc($qTabel)) {
-            if (isset($row['table_name'])) {
-                $daftar_tabel_surat[] = $row['table_name'];
-            }
-        }
-
+          // Tampung hasil ke array jika punya kolom `tanggal_surat`
+          $daftar_tabel_surat = [];
+          while ($row = mysqli_fetch_assoc($qTabel)) {
+              $nama_tabel = $row['table_name'];
+              
+              // Cek apakah tabel punya kolom `tanggal_surat`
+              $qKolom = mysqli_query($connect, "SHOW COLUMNS FROM `$nama_tabel` LIKE 'tanggal_surat'");
+              if (mysqli_num_rows($qKolom) > 0) {
+                  $daftar_tabel_surat[] = $nama_tabel;
+              }
+          }
 
 
 
