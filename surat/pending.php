@@ -275,9 +275,14 @@
                   <th>ID Pengajuan</th>
                   <td><?= htmlspecialchars($id_arsip) ?></td>
                 </tr>
+               <?php
+                // Misal variabel $jenis_surat sudah ada
+                $singkatan = implode('', array_map(fn($kata) => strtoupper($kata[0]), explode(' ', $jenis_surat)));
+                ?>
+
                 <tr>
                   <th>Jenis Surat</th>
-                  <td><?= htmlspecialchars($jenis_surat) ?></td>
+                  <td><?= htmlspecialchars($jenis_surat) ?> (<?= $singkatan ?>)</td>
                 </tr>
                 <tr>
                   <th>Tanggal Pengajuan</th>

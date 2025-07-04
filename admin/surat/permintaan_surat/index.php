@@ -223,7 +223,8 @@
                 'surat_keterangan_mahar_sunrang' => 'id_skm',
                 'surat_keterangan_jual_beli' => 'id_skjb',
                 'surat_keterangan_belum_terbit_sppt_pbb' => 'id_skbtsp',
-                'surat_perintah_perjalanan_dinas' => 'id_sppd'
+                'surat_perintah_perjalanan_dinas' => 'id_sppd',
+                'surat_tugas' => 'id_st'
               ];
 
               $unionParts = [];

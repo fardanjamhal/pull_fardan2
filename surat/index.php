@@ -301,7 +301,8 @@
 				"surat_keterangan_mahar_sunrang",
 				"surat_keterangan_jual_beli",
 				"surat_keterangan_belum_terbit_sppt_pbb",
-				"surat_perintah_perjalanan_dinas"
+				"surat_perintah_perjalanan_dinas",
+				"surat_tugas"
 				];
 
 				// Siapkan array baru berisi folder + judul

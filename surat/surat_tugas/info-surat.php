@@ -123,104 +123,152 @@
 							</div>
 							<h6 class="container-fluid" align="left">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-edit"></i>&nbsp;&nbsp;INFORMASI FORMULIR</h6><hr width="97%">
 							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Pejabat Berwenang yang memerintahkan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fpejabat" class="form-control" style="text-transform: capitalize;" placeholder="Isi Nama Pejabat" required>
-						           	</div>
-						        </div>
-							</div>
-							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Nama / Pegawai yang diperintahkan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['nama']; ?>" readonly>
-						           	</div>
-						        </div>
-							</div>
-							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Jabatan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fjabatan" class="form-control" style="text-transform: capitalize;" placeholder="Isi Jabatan" required>
-						           	</div>
-						        </div>
-							</div>
-							<div class="col-sm-6">
-							<label>&nbsp;&nbsp;&nbsp;&nbsp;Perjalanan Dinas yang Diperintahkan</label>
-							<!-- Tambahkan padding horizontal di sini -->
-							<div class="row px-3">
-								
-								<!-- Kolom 1: Jabatan -->
-								<div class="col-sm-6">
 								<div class="form-group">
-									<input type="text" name="fdari" id="fdari" class="form-control" style="text-transform: capitalize;" placeholder="Dari" required>
+									<label class="col-sm-12" style="font-weight: 500;">Dasar</label>
+									<div class="col-sm-12">
+									<textarea name="fdasar" class="form-control" rows="4" style="text-transform: capitalize;" placeholder="Isi Dasar" required></textarea>
+									</div>
 								</div>
-								</div>
-
-								<!-- Kolom 2: Nama Lengkap -->
-								<div class="col-sm-6">
-								<div class="form-group">
-									<input type="text" name="fke" id="fke" class="form-control" style="text-transform: capitalize;" placeholder="Ke" required>
-								</div>
-								</div>
-
-								<div class="col-sm-6">
-								<div class="form-group">
-									<input type="text" name="fkendaraan" id="fkendaraan" class="form-control" style="text-transform: capitalize;" placeholder="Kendaraan" required>
-								</div>
-								</div>
-
-							</div>
-							</div>
-							<div class="col-sm-6">
-						<label class="mb-2 ps-2">&nbsp;&nbsp;&nbsp;&nbsp;Perjalanan Dinas yang Direncanakan</label>
-						<div class="row px-3">
-							<!-- Baris 1: Selama & Ke -->
-							<div class="col-sm-6 mb-2">
-							<div class="form-group">
-								<input type="text" name="fselama" id="fselama" class="form-control" style="text-transform: capitalize;" placeholder="Tulis angka (Berapa Hari)" required>
-							</div>
-							</div>
-							<div class="col-sm-6 mb-2">
-							<div class="form-group">
-							<input type="text" name="frencanabiaya" id="frencanabiaya" class="form-control" placeholder="Rencana Biaya (Rp)" required onkeyup="formatRupiah(this)">
-							</div>
 							</div>
 
-							<!-- Baris 2: Tanggal Berangkat -->
-							<div class="col-sm-6 mb-2">
-							<div class="form-group">
-								<input type="date" name="ftgl_berangkat" id="ftgl_berangkat" class="form-control" required>
-								<small class="form-text text-muted">Tanggal Berangkat</small>
-							</div>
-							</div>
 
-							<!-- Baris 3: Tanggal Kembali -->
-							<div class="col-sm-6 mb-2">
-							<div class="form-group">
-								<input type="date" name="ftgl_kembali" id="ftgl_kembali" class="form-control" required>
-								<small class="form-text text-muted">Tanggal Kembali</small>
-							</div>
-							</div>
-						</div>
-						</div>
 						<div class="col-sm-6">
 						<div class="form-group">
-							<label class="col-sm-12" style="font-weight: 500;">Maksud Mengadakan Perjalanan</label>
-							<div class="col-sm-12">
-							<textarea name="fmaksud_mengadakan" class="form-control" rows="4" style="text-transform: capitalize;" placeholder="Isi Alasan atau Maksud Perjalanan" required></textarea>
+							<label class="col-sm-12" style="font-weight: 500;">Nama & Jabatan yang diberi tugas</label>
+
+							<div id="input-wrapper">
+							<!-- Baris pertama -->
+							<div class="col-sm-12 mb-2">
+								<div class="d-flex align-items-start justify-content-between" style="gap: 8px;">
+								<input type="text" id="idname_1" name="fnama[]" class="form-control" style="text-transform: capitalize; width: 50%;" placeholder="Nama" required>
+								<input type="text" id="idjabatan_1" name="fjabatan[]" class="form-control" style="text-transform: capitalize; width: 50%;" placeholder="Jabatan" required>
+								<!-- Tempat tombol agar tetap simetris -->
+								<div style="width: 70px;"></div>
+								</div>
 							</div>
+							</div>
+
+							<!-- Tombol tambah -->
+							<button type="button" class="btn btn-primary btn-sm mt-2" onclick="tambahBaris()">+ Tambah</button>
 						</div>
 						</div>
-						
+
+						<script>
+						const maxBaris = 9;
+
+						function tambahBaris() {
+							const wrapper = document.getElementById('input-wrapper');
+							const total = wrapper.querySelectorAll('.mb-2').length;
+
+							if (total >= maxBaris) {
+							alert('Maksimal 9 orang.');
+							return;
+							}
+
+							const urutan = total + 1;
+							const baris = document.createElement('div');
+							baris.className = 'col-sm-12 mb-2';
+
+							baris.innerHTML = `
+							<div class="d-flex align-items-start justify-content-between" style="gap: 8px;">
+								<input type="text" id="idname_${urutan}" name="fnama[]" class="form-control" style="text-transform: capitalize; width: 45%;" placeholder="Nama" required>
+								<input type="text" id="idjabatan_${urutan}" name="fjabatan[]" class="form-control" style="text-transform: capitalize; width: 45%;" placeholder="Jabatan" required>
+								<button type="button" class="btn btn-danger btn-sm btn-hapus" onclick="hapusBaris(this)">Hapus</button>
+							</div>
+							`;
+
+							wrapper.appendChild(baris);
+						}
+
+						function hapusBaris(el) {
+							const wrapper = document.getElementById('input-wrapper');
+							const total = wrapper.querySelectorAll('.mb-2').length;
+
+							if (total <= 1) {
+							alert('Minimal 1 orang harus diisi.');
+							return;
+							}
+
+							el.closest('.mb-2').remove();
+							updateIDInputs();
+						}
+
+						function updateIDInputs() {
+							const rows = document.querySelectorAll('#input-wrapper .mb-2');
+							rows.forEach((baris, i) => {
+							const index = i + 1;
+							const inputs = baris.querySelectorAll('input');
+							if (inputs[0]) inputs[0].id = `idname_${index}`;
+							if (inputs[1]) inputs[1].id = `idjabatan_${index}`;
+
+							const tombol = baris.querySelector('.btn-hapus');
+							const tombolWrapper = baris.querySelector('div:last-child');
+
+							if (i === 0) {
+								// Jika baris pertama, pastikan tidak ada tombol hapus
+								if (tombol) tombol.remove();
+								// Ganti dengan div kosong agar tetap sejajar
+								if (!tombolWrapper || tombolWrapper.tagName === 'BUTTON') {
+								const last = baris.querySelector('.d-flex');
+								last.appendChild(document.createElement('div')).style.width = '70px';
+								}
+							} else {
+								// Jika bukan baris pertama dan belum ada tombol, tambahkan tombol
+								if (!tombol) {
+								const div = baris.querySelector('.d-flex');
+								const btn = document.createElement('button');
+								btn.type = 'button';
+								btn.className = 'btn btn-danger btn-sm btn-hapus';
+								btn.textContent = 'Hapus';
+								btn.onclick = function () {
+									hapusBaris(btn);
+								};
+								div.appendChild(btn);
+								}
+							}
+							});
+						}
+
+						document.addEventListener("DOMContentLoaded", updateIDInputs);
+						</script>
+
 						<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Keterangan</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Untuk</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fketerangan" class="form-control" style="text-transform: capitalize;" placeholder="Isi keterangan" required>
+						               	<input type="text" name="funtuk" class="form-control" style="text-transform: capitalize;" placeholder="Ketik untuk apa" required>
 						           	</div>
 						    </div>
+						</div>
+
+						<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Tempat Tujuan</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="ftempat_tujuan" class="form-control" style="text-transform: capitalize;" placeholder="Isi lokasi Tujuan" required>
+						           	</div>
+						    </div>
+						</div>
+						<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Lama Penugasan</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="flama_penugasan" class="form-control" style="text-transform: capitalize;" placeholder="Contoh : 1 (satu) hari kerja" required>
+						           	</div>
+						    </div>
+						</div>
+
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-sm-12" style="font-weight: 500;">Tanggal Penugasan</label>
+							<div class="col-sm-12">
+							<div class="d-flex justify-content-between" style="gap: 8px;">
+								<input type="date" name="ftanggal_mulai" class="form-control" required>
+								<input type="date" name="ftanggal_selesai" class="form-control" required>
+							</div>
+							<small class="form-text text-muted">Isi Tanggal Mulai dan Selesai Penugasan</small>
+							</div>
+						</div>
 						</div>
 
 						</div>

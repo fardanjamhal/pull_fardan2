@@ -314,7 +314,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                           'surat_keterangan_mahar_sunrang',
                           'surat_keterangan_jual_beli',
                           'surat_keterangan_belum_terbit_sppt_pbb',
-                          'surat_perintah_perjalanan_dinas'
+                          'surat_perintah_perjalanan_dinas',
+                          'surat_tugas'
                         ];
 
                         $query_tahun_parts = [];
@@ -388,7 +389,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
             'surat_keterangan_mahar_sunrang',
             'surat_keterangan_jual_beli',
             'surat_keterangan_belum_terbit_sppt_pbb',
-            'surat_perintah_perjalanan_dinas'
+            'surat_perintah_perjalanan_dinas',
+            'surat_tugas'
           ];
 
           // Array untuk menyimpan bagian UNION query
