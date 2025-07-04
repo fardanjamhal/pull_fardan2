@@ -286,28 +286,36 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                       <option value="">Pilih</option>
                       <?php
                         // Ambil tahun dari semua tabel surat kemudian UNION dan DISTINCT
-                        $daftar_tabel_surat_filter = [];
-                        $qTabel = mysqli_query($connect, "
-                            SHOW TABLES LIKE 'surat_%'
-                        ");
-                        while ($row = mysqli_fetch_row($qTabel)) {
-                            $nama_tabel = $row[0];
-                            $qKolom = mysqli_query($connect, "SHOW COLUMNS FROM `$nama_tabel` LIKE 'tanggal_surat'");
-                            if (mysqli_num_rows($qKolom) > 0) {
-                                $daftar_tabel_surat_filter[] = $nama_tabel;
-                            }
-                        }
-
-                        $qFormulir = mysqli_query($connect, "
-                            SHOW TABLES LIKE 'formulir_%'
-                        ");
-                        while ($row = mysqli_fetch_row($qFormulir)) {
-                            $nama_tabel = $row[0];
-                            $qKolom = mysqli_query($connect, "SHOW COLUMNS FROM `$nama_tabel` LIKE 'tanggal_surat'");
-                            if (mysqli_num_rows($qKolom) > 0) {
-                                $daftar_tabel_surat_filter[] = $nama_tabel;
-                            }
-                        }
+                        $daftar_tabel_surat_filter = [
+                          'surat_keterangan',
+                          'surat_keterangan_berkelakuan_baik',
+                          'surat_keterangan_domisili',
+                          'surat_keterangan_kepemilikan_kendaraan_bermotor',
+                          'surat_keterangan_perhiasan',
+                          'surat_keterangan_usaha',
+                          'surat_lapor_hajatan',
+                          'surat_pengantar_skck',
+                          'surat_keterangan_tidak_mampu',
+                          'formulir_pengantar_nikah',
+                          'formulir_permohonan_kehendak_nikah',
+                          'formulir_persetujuan_calon_pengantin',
+                          'formulir_persetujuan_calon_pengantin_istri',
+                          'formulir_surat_izin_orang_tua',
+                          'surat_keterangan_kematian',
+                          'surat_keterangan_domisili_usaha',
+                          'surat_keterangan_pengantar',
+                          'surat_keterangan_beda_identitas',
+                          'surat_keterangan_beda_identitas_kis',
+                          'surat_keterangan_penghasilan_orang_tua',
+                          'surat_pengantar_hewan',
+                          'surat_keterangan_kematian_dan_penguburan',
+                          'surat_keterangan_pindah_penduduk',
+                          'surat_keterangan_wali_hakim',
+                          'surat_keterangan_mahar_sunrang',
+                          'surat_keterangan_jual_beli',
+                          'surat_keterangan_belum_terbit_sppt_pbb',
+                          'surat_perintah_perjalanan_dinas'
+                        ];
 
                         $query_tahun_parts = [];
                         foreach ($daftar_tabel_surat_filter as $tabel_for_year) {
@@ -350,36 +358,38 @@ ini_set('display_errors', 1); // Tampilkan error di browser
 
        <?php
           // Daftar nama tabel surat
-         // Pastikan koneksi sudah tersedia di variabel $connect
-          include '../../config/koneksi.php'; // atau sesuaikan path ke file koneksi Anda
-
-         // Ambil nama database aktif dari koneksi
-          // Ambil nama database aktif dari koneksi
-          $qDB = mysqli_query($connect, "SELECT DATABASE() AS db");
-          $dataDB = mysqli_fetch_assoc($qDB);
-          $nama_database = $dataDB['db'] ?? '';
-
-          // Query untuk mengambil semua tabel yang diawali surat_ atau formulir_ dari schema aktif
-          $qTabel = mysqli_query($connect, "
-              SELECT table_name 
-              FROM information_schema.tables 
-              WHERE table_schema = '$nama_database'
-                AND (table_name LIKE 'surat\\_%' OR table_name LIKE 'formulir\\_%')
-          ");
-
-          // Tampung hasil ke array jika punya kolom `tanggal_surat`
-          $daftar_tabel_surat = [];
-          while ($row = mysqli_fetch_assoc($qTabel)) {
-              $nama_tabel = $row['table_name'];
-              
-              // Cek apakah tabel punya kolom `tanggal_surat`
-              $qKolom = mysqli_query($connect, "SHOW COLUMNS FROM `$nama_tabel` LIKE 'tanggal_surat'");
-              if (mysqli_num_rows($qKolom) > 0) {
-                  $daftar_tabel_surat[] = $nama_tabel;
-              }
-          }
-
-
+          // Pastikan nama tabel ini sesuai dengan yang ada di database Anda
+          $daftar_tabel_surat = [
+            'surat_keterangan',
+            'surat_keterangan_berkelakuan_baik',
+            'surat_keterangan_domisili',
+            'surat_keterangan_kepemilikan_kendaraan_bermotor',
+            'surat_keterangan_perhiasan',
+            'surat_keterangan_usaha',
+            'surat_lapor_hajatan',
+            'surat_pengantar_skck',
+            'surat_keterangan_tidak_mampu',
+            'formulir_pengantar_nikah',
+            'formulir_permohonan_kehendak_nikah',
+            'formulir_persetujuan_calon_pengantin',
+            'formulir_persetujuan_calon_pengantin_istri',
+            'formulir_surat_izin_orang_tua',
+            'surat_keterangan_kematian',
+            'surat_keterangan_domisili_usaha',
+            'surat_keterangan_pengantar',
+            'surat_keterangan_beda_identitas',
+            'surat_keterangan_beda_identitas_kis',
+            'surat_keterangan_penghasilan_orang_tua',
+            'surat_pengantar_hewan',
+            'surat_keterangan_kematian_dan_penguburan',
+            'surat_keterangan_pindah_penduduk',
+            'surat_keterangan_pengantar_rujuk_atau_cerai',
+            'surat_keterangan_wali_hakim',
+            'surat_keterangan_mahar_sunrang',
+            'surat_keterangan_jual_beli',
+            'surat_keterangan_belum_terbit_sppt_pbb',
+            'surat_perintah_perjalanan_dinas'
+          ];
 
           // Array untuk menyimpan bagian UNION query
           $union_parts_select = [];
