@@ -122,8 +122,9 @@
 
         /* Tambahan khusus untuk perataan tengah kolom tertentu */
         #data-table td:nth-child(1),  /* Nomor */
+        #data-table td:nth-child(2),  /* id arsip */
         #data-table td:nth-child(3),  /* NIK */
-        #data-table td:nth-child(6),  /* Status */
+        #data-table td:nth-child(4),  /* NIK */
         #data-table td:nth-child(7) { /* Aksi */
           text-align: center;
         }
@@ -180,7 +181,9 @@
         <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th><strong>No.</strong></th> <th><strong>Tanggal</strong></th>
+              <th><strong>No.</strong></th> 
+              <th><strong>ID Pengajuan</strong></th>
+              <th><strong>Tanggal</strong></th>
               <th><strong>NIK</strong></th>
               <th><strong>Nama</strong></th>
               <th><strong>Jenis Surat</strong></th>
@@ -219,18 +222,20 @@
                 'surat_keterangan_wali_hakim' => 'id_skwh',
                 'surat_keterangan_mahar_sunrang' => 'id_skm',
                 'surat_keterangan_jual_beli' => 'id_skjb',
-                'surat_keterangan_belum_terbit_sppt_pbb' => 'id_skbtsp'
+                'surat_keterangan_belum_terbit_sppt_pbb' => 'id_skbtsp',
+                'surat_perintah_perjalanan_dinas' => 'id_sppd'
               ];
 
               $unionParts = [];
               foreach ($jenisSurat as $table => $idField) {
-                $unionParts[] = "SELECT penduduk.nama, {$table}.{$idField} AS id_surat, {$table}.no_surat, {$table}.nik, {$table}.jenis_surat, {$table}.status_surat, {$table}.tanggal_surat
-                                FROM penduduk
-                                LEFT JOIN {$table} ON {$table}.nik = penduduk.nik
-                                WHERE {$table}.status_surat='pending'";
-              }
+                  $unionParts[] = "SELECT penduduk.nama, {$table}.{$idField} AS id_surat, {$table}.no_surat, {$table}.nik, {$table}.jenis_surat, {$table}.status_surat, {$table}.id_arsip, {$table}.tanggal_surat
+                                  FROM penduduk
+                                  LEFT JOIN {$table} ON {$table}.nik = penduduk.nik
+                                  WHERE {$table}.status_surat='pending'";
+                }
 
-              $query = implode(" UNION ", $unionParts) . " ORDER BY tanggal_surat ASC";
+
+              $query = implode(" UNION ", $unionParts) . " ORDER BY tanggal_surat DESC";
               $result = mysqli_query($connect, $query);
               $no = 1;
 
@@ -254,7 +259,9 @@
                   $link = "konfirmasi/{$jenis}/index.php?id={$row['id_surat']}";
 
                   echo "<tr>
-                    <td>{$no}.</td> <td>{$tanggal}</td>
+                    <td>{$no}.</td> 
+                    <td>{$row['id_arsip']}</td>
+                    <td>{$tanggal}</td>
                     <td>{$row['nik']}</td>
                     <td style='text-transform: capitalize;'>{$row['nama']}</td>
                     <td>{$row['jenis_surat']}</td>

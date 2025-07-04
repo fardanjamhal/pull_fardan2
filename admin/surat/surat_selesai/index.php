@@ -33,7 +33,8 @@ $jenisSuratList = [
     'surat_keterangan_wali_hakim' => ['id' => 'id_skwh', 'folder' => 'surat_keterangan_wali_hakim'],
     'surat_keterangan_mahar_sunrang' => ['id' => 'id_skm', 'folder' => 'surat_keterangan_mahar_sunrang'],
     'surat_keterangan_jual_beli' => ['id' => 'id_skjb', 'folder' => 'surat_keterangan_jual_beli'],
-    'surat_keterangan_belum_terbit_sppt_pbb' => ['id' => 'id_skbtsp', 'folder' => 'surat_keterangan_belum_terbit_sppt_pbb']
+    'surat_keterangan_belum_terbit_sppt_pbb' => ['id' => 'id_skbtsp', 'folder' => 'surat_keterangan_belum_terbit_sppt_pbb'],
+    'surat_perintah_perjalanan_dinas' => ['id' => 'id_sppd', 'folder' => 'surat_perintah_perjalanan_dinas']
 ];
 
 // Mengurutkan jenis surat berdasarkan nama yang lebih mudah dibaca (opsional, untuk tampilan dropdown)
@@ -71,7 +72,7 @@ foreach ($jenisSuratList as $table => $info) {
         $escapedKeyword = mysqli_real_escape_string($connect, $keyword);
         // Mencari di NIK, Nomor Surat, dan nama dari tabel arsip_surat
         // Menggunakan alias 'nama_dari_arsip' untuk menghindari konflik nama kolom
-        $conditions[] = "(s.nik LIKE '%$escapedKeyword%' OR s.no_surat LIKE '%$escapedKeyword%' OR (SELECT ap.nama FROM arsip_surat ap WHERE ap.nik = s.nik LIMIT 1) LIKE '%$escapedKeyword%')";
+        $conditions[] = "(s.nik LIKE '%$escapedKeyword%' OR s.no_surat LIKE '%$escapedKeyword%' OR s.id_arsip LIKE '%$escapedKeyword%' OR (SELECT ap.nama FROM arsip_surat ap WHERE ap.nik = s.nik LIMIT 1) LIKE '%$escapedKeyword%')";
     }
 
     $whereStr = implode(' AND ', $conditions);
@@ -84,6 +85,7 @@ foreach ($jenisSuratList as $table => $info) {
                                 s.{$info['id']} AS id_surat,
                                 s.no_surat,
                                 s.nik,
+                                s.id_arsip,  -- ✅ Tambahkan ini
                                 s.jenis_surat,
                                 s.status_surat,
                                 s.tanggal_surat,
@@ -102,6 +104,7 @@ $final_select_query = "SELECT DISTINCT
                             id_surat,
                             no_surat,
                             nik,
+                            id_arsip,        -- ✅ Tambahkan ini juga
                             jenis_surat,
                             status_surat,
                             tanggal_surat,
@@ -223,9 +226,10 @@ if (!$result) {
         /* Kolom Nomor, NIK, Status, Aksi rata tengah */
         table#data-table td:nth-child(1),
         table#data-table td:nth-child(2),
-        table#data-table td:nth-child(4),
-        table#data-table td:nth-child(7),
-        table#data-table td:nth-child(8) {
+        table#data-table td:nth-child(3),
+        table#data-table td:nth-child(5),
+        table#data-table td:nth-child(8),
+        table#data-table td:nth-child(9) {
             text-align: center;
         }
 
@@ -311,7 +315,7 @@ if (!$result) {
                             </div>
                             <div class="form-group">
                                 <label for="keyword">Cari:</label>
-                                <input type="text" name="keyword" id="keyword" class="form-control" value="<?= htmlspecialchars($keyword) ?>" placeholder="Nama / NIK / No. Surat">
+                                <input type="text" name="keyword" id="keyword" class="form-control" value="<?= htmlspecialchars($keyword) ?>" placeholder="Ketik Kata Kunci...">
                             </div>
                             <div class="form-group">
                                 <label for="limit">Jumlah per halaman:</label>
@@ -341,6 +345,7 @@ if (!$result) {
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal</th>
+                                    <th>ID Pengajuan</th>
                                     <th>No. Surat</th>
                                     <th>NIK</th>
                                     <th>Nama</th>
@@ -376,6 +381,7 @@ if (!$result) {
                                         <tr>
                                             <td><?= $no++; ?></td>
                                             <td><?= $tgl . $bulanIndo[$bln] . $thn; ?></td>
+                                            <td><?= $row['id_arsip']; ?></td>
                                             <td><?= $row['no_surat']; ?></td>
                                             <td><?= $row['nik']; ?></td>
                                             <td style="text-transform: capitalize;"><?= htmlspecialchars($row['nama']); ?></td>

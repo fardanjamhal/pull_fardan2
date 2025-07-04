@@ -300,7 +300,8 @@
 				"surat_keterangan_wali_hakim",
 				"surat_keterangan_mahar_sunrang",
 				"surat_keterangan_jual_beli",
-				"surat_keterangan_belum_terbit_sppt_pbb"
+				"surat_keterangan_belum_terbit_sppt_pbb",
+				"surat_perintah_perjalanan_dinas"
 				];
 
 				// Siapkan array baru berisi folder + judul

@@ -272,7 +272,7 @@
             <table class="table table-sm table-bordered align-middle table-detail">
               <tbody>
                 <tr>
-                  <th>ID Arsip</th>
+                  <th>ID Pengajuan</th>
                   <td><?= htmlspecialchars($id_arsip) ?></td>
                 </tr>
                 <tr>
