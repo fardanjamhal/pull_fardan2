@@ -31,13 +31,25 @@
 </style>
 
 <?php
-  header("Content-type: application/vnd-ms-excel");
-  header("Content-Disposition: attachment; filename=Data Penduduk.xls");
-?>
+// Koneksi ke database
+include '../../config/koneksi.php'; // sesuaikan lokasi file koneksi jika berbeda
 
-<center>
-  <h2>Data Penduduk <br/></h2>
-</center>
+// Ambil nama desa dari database
+$qProfil = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
+$dataProfil = mysqli_fetch_assoc($qProfil);
+$nama_desa = $dataProfil['nama_desa'] ?? 'Desa'; // fallback jika kosong
+
+// Judul file
+$judul = "Data Penduduk";
+
+// Format nama file (hapus spasi jadi underscore + tambahkan tanggal)
+$nama_file = $judul . ' - ' . $nama_desa . ' - ' . date('Ymd_His') . '.xls';
+$nama_file = str_replace(' ', '_', $nama_file); // ganti spasi dengan underscore agar aman di semua sistem
+
+// Header untuk ekspor Excel
+header("Content-type: application/vnd-ms-excel");
+header("Content-Disposition: attachment; filename=$nama_file");
+?>
 
 <table border="1">
   <thead>
@@ -49,9 +61,15 @@
       <th>Tanggal Lahir</th>
       <th>Jenis Kelamin</th>
       <th>Agama</th>
-      <th>Alamat</th>
-      <th>No. KK</th>
-      <th>Pendidikan di KK</th>
+      <th>Jalan</th>
+      <th>Dusun</th>
+      <th>RT</th>
+      <th>RW</th>
+      <th>Desa</th>
+      <th>Kecamatan</th>
+      <th>Kabupaten</th>
+      <th>No KK</th>
+      <th>Pendidikan KK</th>
       <th>Pendidikan Terakhir</th>
       <th>Pendidikan Ditempuh</th>
       <th>Pekerjaan</th>
@@ -65,11 +83,9 @@
   <tbody>
     <?php
     include ('../../config/koneksi.php');
-
     $no = 1;
     $qTampil = mysqli_query($connect, "SELECT * FROM penduduk");
     foreach($qTampil as $row){
-      // Format tanggal lahir
       $tanggal = date('d', strtotime($row['tgl_lahir']));
       $bulan = date('F', strtotime($row['tgl_lahir']));
       $tahun = date('Y', strtotime($row['tgl_lahir']));
@@ -99,7 +115,13 @@
       <td><?php echo $tgl_lahir_formatted; ?></td>
       <td><?php echo $row['jenis_kelamin']; ?></td>
       <td><?php echo $row['agama']; ?></td>
-      <td><?php echo $row['jalan'] . ', RT' . $row['rt'] . '/RW' . $row['rw'] . ', Dusun ' . $row['dusun'] . ', Desa ' . $row['desa'] . ', Kecamatan ' . $row['kecamatan'] . ', ' . $row['kota']; ?></td>
+      <td><?php echo $row['jalan']; ?></td>
+      <td><?php echo $row['dusun']; ?></td>
+      <td><?php echo $row['rt']; ?></td>
+      <td><?php echo $row['rw']; ?></td>
+      <td><?php echo $row['desa']; ?></td>
+      <td><?php echo $row['kecamatan']; ?></td>
+      <td><?php echo $row['kota']; ?></td>
       <td class="str"><?php echo $row['no_kk']; ?></td>
       <td><?php echo $row['pend_kk']; ?></td>
       <td><?php echo $row['pend_terakhir']; ?></td>
@@ -111,10 +133,10 @@
       <td><?php echo $row['nama_ayah']; ?></td>
       <td><?php echo $row['nama_ibu']; ?></td>
     </tr>
-    <?php
-    }
-    ?>
+    <?php } ?>
   </tbody>
 </table>
+
+
 </body>
 </html>

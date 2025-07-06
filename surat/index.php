@@ -305,12 +305,27 @@
 				"surat_tugas"
 				];
 
-				// Siapkan array baru berisi folder + judul
+				// Siapkan array baru berisi folder + judul + singkatan
 				$daftarSurat = [];
+
 				foreach ($suratFolders as $folder) {
-				$judul = strtoupper(str_replace("_", " ", $folder));
-				$daftarSurat[] = ['folder' => $folder, 'judul' => $judul];
+				// Ubah underscore ke spasi, lalu kapitalisasi awal kata
+				$judul = ucwords(str_replace("_", " ", $folder));
+
+				// Buat singkatan dari huruf pertama setiap kata
+				$kata = explode(" ", $judul);
+				$singkatan = '';
+				foreach ($kata as $k) {
+					$singkatan .= strtoupper(substr($k, 0, 1));
 				}
+
+				// Gabungkan ke format: Judul (Singkatan)
+				$judulLengkap = $judul . " ($singkatan)";
+
+				// Tambahkan ke array
+				$daftarSurat[] = ['folder' => $folder, 'judul' => $judulLengkap];
+				}
+
 
 				// Urutkan berdasarkan abjad judul
 				usort($daftarSurat, function($a, $b) {
