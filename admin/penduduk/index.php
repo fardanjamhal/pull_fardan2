@@ -487,54 +487,43 @@
                     <div class="modal-body">
                     <div class="list-group">
                       <?php
-                        $nik = $row['nik'];
-                        $surat_urls = [
-                          'surat_keterangan',
-                          'surat_keterangan_berkelakuan_baik',
-                          'surat_keterangan_domisili',
-                          'surat_keterangan_kepemilikan_kendaraan_bermotor',
-                          'surat_keterangan_perhiasan',
-                          'surat_keterangan_usaha',
-                          'surat_lapor_hajatan',
-                          'surat_pengantar_skck',
-                          'surat_keterangan_tidak_mampu',
-                          'formulir_pengantar_nikah',
-                          'formulir_permohonan_kehendak_nikah',
-                          'formulir_persetujuan_calon_pengantin',
-                          'formulir_persetujuan_calon_pengantin_istri',
-                          'formulir_surat_izin_orang_tua',
-                          'surat_keterangan_kematian',
-                          'surat_keterangan_domisili_usaha',
-                          'surat_keterangan_pengantar',
-                          'surat_keterangan_beda_identitas',
-                          'surat_keterangan_beda_identitas_kis',
-                          'surat_keterangan_penghasilan_orang_tua',
-                          'surat_pengantar_hewan',
-                          'surat_keterangan_kematian_dan_penguburan',
-                          'surat_keterangan_pindah_penduduk',
-                          'surat_keterangan_pengantar_rujuk_atau_cerai',
-                          'surat_keterangan_wali_hakim',
-                          'surat_keterangan_mahar_sunrang',
-                          'surat_keterangan_jual_beli',
-                          'surat_keterangan_belum_terbit_sppt_pbb'
-                        ];
+                      $nik = $row['nik'];
 
-                        sort($surat_urls);
-                        $noSurat = 1;
+                      // Ambil semua folder dari folder ../../surat/
+                      $surat_dir = '../../surat';
+                      $surat_urls = [];
 
-                        foreach ($surat_urls as $surat) {
-                            $label = ucwords(str_replace('_', ' ', $surat));
-                            echo '
-                              <form action="../../surat/' . $surat . '/info-surat.php" method="post" class="mb-2">
-                                <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
-                                <button type="submit" class="list-group-item list-group-item-action d-flex align-items-start">
-                                  <span class="me-2 fw-bold" style="min-width: 25px;">' . $noSurat++ . '.</span>
-                                  <span>' . $label . '</span>
-                                </button>
-                              </form>
-                            ';
+                      $folders = scandir($surat_dir);
+                      foreach ($folders as $folder) {
+                        if (
+                          $folder != '.' &&
+                          $folder != '..' &&
+                          is_dir("$surat_dir/$folder") &&
+                          (strpos($folder, 'surat_') === 0 || strpos($folder, 'formulir_') === 0)
+                        ) {
+                          $surat_urls[] = $folder;
                         }
+                      }
+
+                      // Urutkan alfabetis
+                      sort($surat_urls);
+                      $noSurat = 1;
+
+                      // Tampilkan daftar tombol surat
+                      foreach ($surat_urls as $surat) {
+                          $label = ucwords(str_replace('_', ' ', $surat));
+                          echo '
+                            <form action="../../surat/' . $surat . '/info-surat.php" method="post" class="mb-2">
+                              <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
+                              <button type="submit" class="list-group-item list-group-item-action d-flex align-items-start">
+                                <span class="me-2 fw-bold" style="min-width: 25px;">' . $noSurat++ . '.</span>
+                                <span>' . $label . '</span>
+                              </button>
+                            </form>
+                          ';
+                      }
                       ?>
+
                     </div>
                   </div>
 
