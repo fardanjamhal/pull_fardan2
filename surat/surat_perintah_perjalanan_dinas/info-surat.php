@@ -177,11 +177,75 @@
 						<label class="mb-2 ps-2">&nbsp;&nbsp;&nbsp;&nbsp;Perjalanan Dinas yang Direncanakan</label>
 						<div class="row px-3">
 							<!-- Baris 1: Selama & Ke -->
+						<style>
+							.input-group-clearable {
+								position: relative;
+							}
+
+							.input-group-clearable input {
+								padding-right: 36px;
+							}
+
+							.input-group-clearable .clear-btn {
+								position: absolute;
+								top: 50%;
+								right: 10px;
+								transform: translateY(-50%);
+								background-color: #f8d7da;
+								color: #a94442;
+								border-radius: 50%;
+								width: 20px;
+								height: 20px;
+								text-align: center;
+								line-height: 18px;
+								font-size: 14px;
+								cursor: pointer;
+								font-weight: bold;
+								transition: 0.2s;
+								display: none;
+							}
+
+							.input-group-clearable .clear-btn:hover {
+								background-color: #dc3545;
+								color: #fff;
+							}
+
+							.input-group-clearable input:not(:placeholder-shown) + .clear-btn {
+								display: block;
+							}
+							</style>
+
 							<div class="col-sm-6 mb-2">
-							<div class="form-group">
-								<input type="text" name="fselama" id="fselama" class="form-control" style="text-transform: capitalize;" placeholder="Tulis angka (Berapa Hari)" required>
+							<div class="form-group input-group-clearable">
+								<input type="text" name="fselama" id="fselama" class="form-control"
+								placeholder="Tulis angka (Berapa Hari)" required autocomplete="off">
+								<span class="clear-btn" id="clearSelama">&times;</span>
 							</div>
 							</div>
+
+							<script>
+							const fselama = document.getElementById('fselama');
+							const clearSelama = document.getElementById('clearSelama');
+
+							fselama.addEventListener('input', function () {
+							const raw = this.value.replace(/[^\d]/g, '');
+							const angka = parseInt(raw);
+							if (!isNaN(angka) && angka <= 1000) {
+								this.value = `${angka} Hari`;  // bisa juga pakai pluralisasi jika diperlukan
+								clearSelama.style.display = 'block';
+							} else {
+								this.value = '';
+								clearSelama.style.display = 'none';
+							}
+							});
+
+							clearSelama.addEventListener('click', function () {
+							fselama.value = '';
+							fselama.focus();
+							clearSelama.style.display = 'none';
+							});
+							</script>
+
 							<div class="col-sm-6 mb-2">
 							<div class="form-group">
 							<input type="text" name="frencanabiaya" id="frencanabiaya" class="form-control" placeholder="Rencana Biaya (Rp)" required onkeyup="formatRupiah(this)">

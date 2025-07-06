@@ -162,7 +162,7 @@
 			}
 			?>
 			<td style="line-height: 1;">
-				<div style="display: flex;"><div style="min-width: 90px;">a. selama</div>:&nbsp;&nbsp;<?php echo htmlspecialchars($row['selama']); ?>&nbsp;Hari</div>
+				<div style="display: flex;"><div style="min-width: 90px;">a. selama</div>:&nbsp;&nbsp;<?php echo htmlspecialchars($row['selama']); ?></div>
 				<div style="display: flex;">
 				<div style="min-width: 90px;">&nbsp;&nbsp;&nbsp;Dari tanggal</div>:
 				&nbsp;<?php echo formatTanggalIndo($row['tgl_berangkat']); ?>
