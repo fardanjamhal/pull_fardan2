@@ -249,14 +249,110 @@
 						           	</div>
 						    </div>
 						</div>
+					<style>
+						.input-group-clearable {
+							position: relative;
+						}
+
+						.input-group-clearable input {
+							padding-right: 36px;
+						}
+
+						.input-group-clearable .clear-btn {
+							position: absolute;
+							top: 50%;
+							right: 20px;
+							transform: translateY(-50%);
+							background-color: #f8d7da;  /* merah muda transparan */
+							color: #a94442;
+							border-radius: 50%;
+							width: 20px;
+							height: 20px;
+							text-align: center;
+							line-height: 18px;
+							font-size: 14px;
+							cursor: pointer;
+							font-weight: bold;
+							transition: 0.2s;
+							display: none;
+						}
+
+						.input-group-clearable .clear-btn:hover {
+							background-color: #dc3545;
+							color: #fff;
+						}
+
+						.input-group-clearable input:not(:placeholder-shown) + .clear-btn {
+							display: block;
+						}
+						</style>
+
 						<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Lama Penugasan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="flama_penugasan" class="form-control" style="text-transform: capitalize;" placeholder="Contoh : 1 (satu) hari kerja" required>
-						           	</div>
-						    </div>
+						<div class="form-group">
+							<label class="col-sm-12" style="font-weight: 500;">Lama Penugasan</label>
+							<div class="col-sm-12 input-group-clearable">
+							<input type="text" id="lamaInput" name="flama_penugasan" class="form-control"
+								placeholder="Ketik angka saja..." required autocomplete="off">
+							<span class="clear-btn" id="clearBtn">&times;</span>
+							</div>
 						</div>
+						</div>
+
+						<script>
+						function angkaKeTeks(n) {
+						const satuan = ["", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan"];
+						const belasan = ["sepuluh", "sebelas", "dua belas", "tiga belas", "empat belas", "lima belas", "enam belas", "tujuh belas", "delapan belas", "sembilan belas"];
+						const puluhan = ["", "", "dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "delapan puluh", "sembilan puluh"];
+
+						if (n === 0) return "nol";
+						if (n === 1000) return "seribu";
+
+						let hasil = "";
+
+						if (n >= 100) {
+							let ratus = Math.floor(n / 100);
+							hasil += ratus === 1 ? "seratus" : satuan[ratus] + " ratus";
+							n %= 100;
+							if (n > 0) hasil += " ";
+						}
+
+						if (n >= 20) {
+							let puluh = Math.floor(n / 10);
+							hasil += puluhan[puluh];
+							n %= 10;
+							if (n > 0) hasil += " " + satuan[n];
+						} else if (n >= 10) {
+							hasil += belasan[n - 10];
+						} else if (n > 0) {
+							hasil += satuan[n];
+						}
+
+						return hasil;
+						}
+
+						const lamaInput = document.getElementById('lamaInput');
+						const clearBtn = document.getElementById('clearBtn');
+
+						lamaInput.addEventListener('input', function () {
+						const raw = this.value.replace(/[^\d]/g, '');
+						const angka = parseInt(raw);
+						if (!isNaN(angka) && angka <= 1000) {
+							const teks = angkaKeTeks(angka);
+							this.value = `${angka} (${teks}) hari kerja`;
+							clearBtn.style.display = 'block';
+						} else {
+							this.value = '';
+							clearBtn.style.display = 'none';
+						}
+						});
+
+						clearBtn.addEventListener('click', function () {
+						lamaInput.value = '';
+						lamaInput.focus();
+						clearBtn.style.display = 'none';
+						});
+						</script>
+
 
 						<div class="col-sm-6">
 						<div class="form-group">
