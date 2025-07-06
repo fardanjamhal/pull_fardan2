@@ -88,39 +88,31 @@
          	<div class="inner">
          		<h3>
               <?php
-                $qTampil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='pending' 
-                  UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='pending' 
-                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM formulir_pengantar_nikah WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM formulir_surat_izin_orang_tua WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kematian WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili_usaha WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pengantar WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_beda_identitas WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_beda_identitas_kis WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_penghasilan_orang_tua WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_pengantar_hewan WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kematian_dan_penguburan WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pindah_penduduk WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pengantar_rujuk_atau_cerai WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_wali_hakim WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_mahar_sunrang WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_jual_beli WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_belum_terbit_sppt_pbb WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_perintah_perjalanan_dinas WHERE status_surat='pending'
-                  UNION SELECT tanggal_surat FROM surat_tugas WHERE status_surat='pending'
-                  ");
-                $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
-                echo $jumlahPermintaanSurat;
+              $surat_dir = '../../surat';
+              $folders = scandir($surat_dir);
+              $union_queries = [];
+
+              foreach ($folders as $folder) {
+                if (
+                  $folder != '.' &&
+                  $folder != '..' &&
+                  is_dir("$surat_dir/$folder") &&
+                  (strpos($folder, 'surat_') === 0 || strpos($folder, 'formulir_') === 0)
+                ) {
+                  // Asumsikan nama folder == nama tabel
+                  $union_queries[] = "SELECT tanggal_surat FROM $folder WHERE status_surat='pending'";
+                }
+              }
+
+              // Gabungkan semua query UNION
+              $sql_union = implode(" UNION ", $union_queries);
+
+              // Jalankan query
+              $qTampil = mysqli_query($connect, $sql_union);
+              $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
+
+              // Tampilkan hasil
+              echo $jumlahPermintaanSurat;
               ?>
             </h3>
          		<p>Permintaan Surat</p>
@@ -136,40 +128,29 @@
          	<div class="inner">
          		<h3>
               <?php
-                $qTampil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='selesai' 
-                  UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
-                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_pengantar_nikah WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_surat_izin_orang_tua WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kematian WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili_usaha WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pengantar WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_beda_identitas WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_beda_identitas_kis WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_penghasilan_orang_tua WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_pengantar_hewan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kematian_dan_penguburan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pindah_penduduk WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pengantar_rujuk_atau_cerai WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_wali_hakim WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_mahar_sunrang WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_jual_beli WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_belum_terbit_sppt_pbb WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_perintah_perjalanan_dinas WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_tugas WHERE status_surat='selesai'
-                  ");
+                $surat_dir = '../../surat';
+                $folders = scandir($surat_dir);
+                $union_queries = [];
+
+                foreach ($folders as $folder) {
+                  if (
+                    $folder != '.' &&
+                    $folder != '..' &&
+                    is_dir("$surat_dir/$folder") &&
+                    (strpos($folder, 'surat_') === 0 || strpos($folder, 'formulir_') === 0)
+                  ) {
+                    // Asumsikan nama folder = nama tabel
+                    $union_queries[] = "SELECT tanggal_surat FROM $folder WHERE status_surat='selesai'";
+                  }
+                }
+
+                $sql_union = implode(" UNION ", $union_queries);
+
+                $qTampil = mysqli_query($connect, $sql_union);
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
+
                 echo $jumlahPermintaanSurat;
-              ?>
+                ?>
             </h3>
          		<p>Surat Selesai</p>
          	</div>
@@ -207,41 +188,30 @@
         <div class="small-box bg-yellow">
           <div class="inner">
             <h3>
-              <?php
-                $qTampil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='selesai' 
-                  UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
-                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_pengantar_nikah WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_permohonan_kehendak_nikah WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_persetujuan_calon_pengantin_istri WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM formulir_surat_izin_orang_tua WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kematian WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_domisili_usaha WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pengantar WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_beda_identitas WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_beda_identitas_kis WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_penghasilan_orang_tua WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_pengantar_hewan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_kematian_dan_penguburan WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pindah_penduduk WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_pengantar_rujuk_atau_cerai WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_wali_hakim WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_mahar_sunrang WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_jual_beli WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_keterangan_belum_terbit_sppt_pbb WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_perintah_perjalanan_dinas WHERE status_surat='selesai'
-                  UNION SELECT tanggal_surat FROM surat_tugas WHERE status_surat='selesai'
-                  ");
+             <?php
+                $surat_dir = '../../surat';
+                $folders = scandir($surat_dir);
+                $union_queries = [];
+
+                foreach ($folders as $folder) {
+                  if (
+                    $folder != '.' &&
+                    $folder != '..' &&
+                    is_dir("$surat_dir/$folder") &&
+                    (strpos($folder, 'surat_') === 0 || strpos($folder, 'formulir_') === 0)
+                  ) {
+                    // Asumsikan nama folder = nama tabel
+                    $union_queries[] = "SELECT tanggal_surat FROM $folder WHERE status_surat='selesai'";
+                  }
+                }
+
+                $sql_union = implode(" UNION ", $union_queries);
+
+                $qTampil = mysqli_query($connect, $sql_union);
                 $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
+
                 echo $jumlahPermintaanSurat;
-              ?>
+                ?>
             </h3>
             <p>Laporan Surat Administrasi Desa - Surat Keluar</p>
           </div>
