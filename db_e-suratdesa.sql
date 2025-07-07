@@ -738,7 +738,7 @@ INSERT INTO `formulir_persetujuan_calon_pengantin` (`id_fpcp`, `jenis_surat`, `n
 --
 
 CREATE TABLE `formulir_persetujuan_calon_pengantin_istri` (
-  `id_fpcp2` int(11) NOT NULL,
+  `id_fpcpi` int(11) NOT NULL,
   `jenis_surat` varchar(50) NOT NULL,
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
@@ -762,7 +762,7 @@ CREATE TABLE `formulir_persetujuan_calon_pengantin_istri` (
 -- Dumping data for table `formulir_persetujuan_calon_pengantin_istri`
 --
 
-INSERT INTO `formulir_persetujuan_calon_pengantin_istri` (`id_fpcp2`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bin`, `nama_suami`, `bin_suami`, `nik_suami`, `tgl_lahir_suami`, `kewarganegaraan_suami`, `agama_suami`, `pekerjaan_suami`, `alamat_suami`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+INSERT INTO `formulir_persetujuan_calon_pengantin_istri` (`id_fpcpi`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bin`, `nama_suami`, `bin_suami`, `nik_suami`, `tgl_lahir_suami`, `kewarganegaraan_suami`, `agama_suami`, `pekerjaan_suami`, `alamat_suami`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (47, 'Formulir Persetujuan Calon Pengantin Istri', '04/FPCPI/KODE-DESA/VI/2025', '7304081501060003', 200, 'Bin istri', 'XXX', 'XXX', 'XX', 'XX', 'XX', 'XX', 'XX', 'XX', '2025-06-22 12:13:03', 2, 'SELESAI', 1),
 (48, 'Formulir Persetujuan Calon Pengantin Istri', '011/istri/MANTAP22/VI/2025', '7304080506770003', 407, 'Odit et enim eu in a', 'Et sed sint nostrud ', 'Cupiditate expedita ', 'Ullam tempora earum ', 'Eum minim omnis prae', 'Consequatur quas cup', 'Reprehenderit archi', 'At temporibus dolore', 'Asperiores vel tempo', '2025-06-29 16:09:26', 2, 'SELESAI', 1),
 (49, 'Formulir Persetujuan Calon Pengantin Istri', '018/FPCPI/MANTAP/VI/2025', '7304080506770003', 455, 'Expedita in rerum re', 'Ullamco culpa sed l', 'Dignissimos consequa', 'Nulla sed amet magn', 'Ut nostrud qui est ', 'Exercitation occaeca', 'Eu esse rerum quaer', 'Excepturi vero rerum', 'Magnam expedita exce', '2025-06-29 20:25:41', 2, 'SELESAI', 1);
@@ -2277,7 +2277,7 @@ ALTER TABLE `formulir_persetujuan_calon_pengantin`
 -- Indexes for table `formulir_persetujuan_calon_pengantin_istri`
 --
 ALTER TABLE `formulir_persetujuan_calon_pengantin_istri`
-  ADD PRIMARY KEY (`id_fpcp2`),
+  ADD PRIMARY KEY (`id_fpcpi`),
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   ADD KEY `idx_nik` (`nik`);
@@ -2597,7 +2597,7 @@ ALTER TABLE `formulir_persetujuan_calon_pengantin`
 -- AUTO_INCREMENT for table `formulir_persetujuan_calon_pengantin_istri`
 --
 ALTER TABLE `formulir_persetujuan_calon_pengantin_istri`
-  MODIFY `id_fpcp2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_fpcpi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `formulir_surat_izin_orang_tua`

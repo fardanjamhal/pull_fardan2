@@ -193,7 +193,7 @@
 			</div>
 		</div>
 	</div>
-
+			<script src="../helper/helper-validasi-nik.js"></script>
 			<script>
 				let pengikutCount = 0;
 
@@ -212,10 +212,11 @@
 					<button type="button" class="btn btn-danger btn-sm mb-2" onclick="hapusPengikut(this)">Hapus</button>
 					</div>
 
-					<div class="col-md-6 mt-2">
+					<div class="col-md-6 mt-2"> 
 					<label class="fw-semibold">NIK Pengikut</label>
-					<input type="text" name="fnik_pengikut[]" class="form-control" placeholder="NIK .." required>
+					<input type="text" name="fnik_pengikut[]" class="form-control fnik-pengikut" placeholder="NIK .." maxlength="16" oninput="validasiNIK(this)" onkeypress="return hanyaAngka(event)" required>
 					</div>
+
 
 					<div class="col-md-6 mt-2">
 					<label class="fw-semibold">Nama Pengikut</label>

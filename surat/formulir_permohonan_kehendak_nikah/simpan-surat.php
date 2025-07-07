@@ -8,12 +8,15 @@
         $calon_istri = addslashes($_POST['fcalon_istri']);
         $hari_tanggal = addslashes($_POST['fhari_tanggal']);
         $tempat_akad = addslashes($_POST['ftempat_akad']);
-        $delapan = addslashes($_POST['fdelapan']);
-        $sembilan = addslashes($_POST['fsembilan']);
-        $sepuluh = addslashes($_POST['fsepuluh']);
-        $sebelas = addslashes($_POST['fsebelas']);
-        $dua_belas = addslashes($_POST['fdua_belas']);
-        $tiga_belas = addslashes($_POST['ftiga_belas']);
+
+        $delapan     = empty($_POST['fdelapan'])     ? '-' : addslashes($_POST['fdelapan']);
+        $sembilan    = empty($_POST['fsembilan'])    ? '-' : addslashes($_POST['fsembilan']);
+        $sepuluh     = empty($_POST['fsepuluh'])     ? '-' : addslashes($_POST['fsepuluh']);
+        $sebelas     = empty($_POST['fsebelas'])     ? '-' : addslashes($_POST['fsebelas']);
+        $dua_belas   = empty($_POST['fdua_belas'])   ? '-' : addslashes($_POST['fdua_belas']);
+        $tiga_belas  = empty($_POST['ftiga_belas'])  ? '-' : addslashes($_POST['ftiga_belas']);
+
+
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 

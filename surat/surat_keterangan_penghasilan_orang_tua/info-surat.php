@@ -165,14 +165,22 @@
 						           	</div>
 						        </div>
 							</div>
+
+							<script src="../helper/helper-validasi-nik.js"></script>
 							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">NIK</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik2" class="form-control" style="text-transform: capitalize;" placeholder="NIK" required>
-						           	</div>
-						        </div>
+							<div class="form-group">
+								<label class="col-sm-12" style="font-weight: 500;">NIK</label>
+								<div class="col-sm-12">
+								<input type="text" name="fnik2" id="fnik2"
+									class="form-control nik-input"
+									placeholder="NIK"
+									maxlength="16"
+									oninput="validasiNIK(this)"
+									onkeypress="return hanyaAngka(event)" required>
+								</div>
 							</div>
+							</div>
+
 							<div class="col-sm-6">
 							<div class="form-group">
 								<label class="col-sm-12" style="font-weight: 500;">Jenis Kelamin</label>
@@ -236,14 +244,21 @@
 						           	</div>
 						        </div>
 							</div>
+
 							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">NIK</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik3" class="form-control" style="text-transform: capitalize;" placeholder="NIK" required>
-						           	</div>
-						        </div>
+							<div class="form-group">
+								<label class="col-sm-12" style="font-weight: 500;">NIK</label>
+								<div class="col-sm-12">
+								<input type="text" name="fnik3" id="fnik3"
+									class="form-control nik-input"
+									placeholder="NIK"
+									maxlength="16"
+									oninput="validasiNIK(this)"
+									onkeypress="return hanyaAngka(event)" required>
+								</div>
 							</div>
+							</div>
+
 							<div class="col-sm-6">
 							<div class="form-group">
 								<label class="col-sm-12" style="font-weight: 500;">Jenis Kelamin</label>

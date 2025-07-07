@@ -147,14 +147,76 @@
 						           	</div>
 						        </div>
 							</div>
-							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">NIK</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik2" class="form-control" style="text-transform: capitalize;" placeholder="NIK" required>
-						           	</div>
-						        </div>
+
+							<style>
+							input.is-valid {
+								border: 2px solid #28a745;
+							}
+
+							input.is-invalid {
+								border: 2px solid #dc3545;
+							}
+
+							.shake {
+								animation: shake 0.3s;
+							}
+
+							@keyframes shake {
+								0%   { transform: translateX(0); }
+								25%  { transform: translateX(-4px); }
+								50%  { transform: translateX(4px); }
+								75%  { transform: translateX(-4px); }
+								100% { transform: translateX(0); }
+							}
+							</style>
+
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-sm-12" style="font-weight: 500;">NIK</label>
+							<div class="col-sm-12">
+							<input type="text" name="fnik2" id="fnik2"
+								class="form-control nik-input"
+								placeholder="NIK"
+								maxlength="16"
+								oninput="validasiNIK(this)"
+								onkeypress="return hanyaAngka(event)" required>
 							</div>
+						</div>
+						</div>
+
+
+						<script>
+						const nikShakeFlags = {};
+
+						function hanyaAngka(evt) {
+							const charCode = evt.which ? evt.which : event.keyCode;
+							return !(charCode > 31 && (charCode < 48 || charCode > 57));
+						}
+
+						function validasiNIK(input) {
+							const id = input.id;
+							const nik = input.value.trim();
+
+							if (nik.length === 16) {
+							input.classList.remove('is-invalid');
+							input.classList.add('is-valid');
+							} else {
+							input.classList.remove('is-valid');
+							input.classList.add('is-invalid');
+
+							// Hanya shake saat input baru mulai diketik (panjang 1 digit)
+							if (nik.length === 1 && !nikShakeFlags[id]) {
+								input.classList.add('shake');
+								nikShakeFlags[id] = true; // Tandai sudah shake
+								setTimeout(() => input.classList.remove('shake'), 300);
+							}
+							}
+						}
+						</script>
+
+
+
+
 							<div class="col-sm-6">
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Alamat di Kartu</label>

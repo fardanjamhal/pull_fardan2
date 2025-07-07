@@ -8,7 +8,7 @@
 		SELECT arsip_surat.*, formulir_persetujuan_calon_pengantin_istri.*, formulir_persetujuan_calon_pengantin_istri.id_arsip 
 		FROM formulir_persetujuan_calon_pengantin_istri 
 		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = formulir_persetujuan_calon_pengantin_istri.id_arsip 
-		WHERE formulir_persetujuan_calon_pengantin_istri.id_fpcp2 = '$id'
+		WHERE formulir_persetujuan_calon_pengantin_istri.id_fpcpi = '$id'
 	");
 
 	while($row = mysqli_fetch_array($qCek)){

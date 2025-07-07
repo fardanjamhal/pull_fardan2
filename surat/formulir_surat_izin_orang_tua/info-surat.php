@@ -148,11 +148,16 @@
 						               	<input type="text" name="fbin1" class="form-control" style="text-transform: capitalize;" placeholder="2. Bin" required>
 						           	</div>
 						        </div>
-								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik1" class="form-control" style="text-transform: capitalize;" placeholder="3. Nomor Induk Kependudukan" required>
-						           	</div>
-						        </div>
+
+								<script src="../helper/helper-validasi-nik.js"></script>
+								<div class="form-group mb-3">
+								<div class="col-sm-12">
+									<input type="text" name="fnik1" id="fnik1"
+									class="form-control nik-input" placeholder="3. Nomor Induk Kependudukan"
+									maxlength="16" oninput="validasiNIK(this)" onkeypress="return hanyaAngka(event)" required>
+								</div>
+								</div>
+
 								<div class="form-group">
 						           	<div class="col-sm-12">
 						               	<input type="text" name="ftempat_tgl_lahir1" class="form-control" style="text-transform: capitalize;" placeholder="4. Tempat dan tanggal lahir" required>
@@ -198,11 +203,15 @@
 						               	<input type="text" name="fbin2" class="form-control" style="text-transform: capitalize;" placeholder="2. Bin" required>
 						           	</div>
 						        </div>
-								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik2" class="form-control" style="text-transform: capitalize;" placeholder="3. Nomor Induk Kependudukan" required>
-						           	</div>
-						        </div>
+
+								<div class="form-group mb-3">
+								<div class="col-sm-12">
+									<input type="text" name="fnik2" id="fnik2"
+									class="form-control nik-input" placeholder="3. Nomor Induk Kependudukan"
+									maxlength="16" oninput="validasiNIK(this)" onkeypress="return hanyaAngka(event)" required>
+								</div>
+								</div>
+
 								<div class="form-group">
 						           	<div class="col-sm-12">
 						               	<input type="text" name="ftempat_tgl_lahir2" class="form-control" style="text-transform: capitalize;" placeholder="4. Tempat dan tanggal lahir" required>
@@ -249,11 +258,15 @@
 						               	<input type="text" name="fbin3" class="form-control" style="text-transform: capitalize;" placeholder="2. Bin" required>
 						           	</div>
 						        </div>
-								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik3" class="form-control" style="text-transform: capitalize;" placeholder="3. Nomor Induk Kependudukan" required>
-						           	</div>
-						        </div>
+
+								<div class="form-group mb-3">
+								<div class="col-sm-12">
+									<input type="text" name="fnik3" id="fnik3"
+									class="form-control nik-input" placeholder="3. Nomor Induk Kependudukan"
+									maxlength="16" oninput="validasiNIK(this)" onkeypress="return hanyaAngka(event)" required>
+								</div>
+								</div>
+
 								<div class="form-group">
 						           	<div class="col-sm-12">
 						               	<input type="text" name="ftempat_tgl_lahir3" class="form-control" style="text-transform: capitalize;" placeholder="4. Tempat dan tanggal lahir" required>

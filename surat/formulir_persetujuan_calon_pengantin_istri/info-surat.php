@@ -141,14 +141,20 @@
 						               	<input type="text" name="fbin_suami" class="form-control" style="text-transform: capitalize;" placeholder="Bin (Suami)" required>
 						           	</div>
 						        </div>
+
+								
+								<div class="form-group mb-3">
+								<div class="col-sm-12">
+									<input type="text" name="fnik_suami" id="fnik_suami"
+									class="form-control nik-input" placeholder="Nomor Induk Kependudukan (Suami)"
+									maxlength="16" oninput="validasiNIK(this)" onkeypress="return hanyaAngka(event)" required>
+								</div>
+								</div>
+								
+								<script src="../helper/helper-validasi-nik.js"></script>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik_suami" class="form-control" style="text-transform: capitalize;" placeholder="Nomor Induk Kependudukan (Suami)" required>
-						           	</div>
-						        </div>
-								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="ftgl_lahir_suami" class="form-control" style="text-transform: capitalize;" placeholder="Tempat dan tanggal lahir (Suami)" required>
+						               	<input type="text" name="ftgl_lahir_suami" class="form-control" placeholder="Tempat dan Tanggal Lahir (Suami)" required>
 						           	</div>
 						        </div>
 								<div class="form-group">

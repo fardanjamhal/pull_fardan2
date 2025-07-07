@@ -142,9 +142,88 @@
 								<div class="form-group col-sm-12" style="font-weight: 500;">
 									<input type="text" name="fnama_ayah" class="form-control" placeholder="Nama Ayah / Orang Tua / Wali" style="text-transform: capitalize;" required>
 								</div>
+								
+								
+								<style>
+								.form-control.valid {
+									border-color: green;
+									padding-right: 2.5rem;
+									background-image: url("data:image/svg+xml,%3Csvg fill='green' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16.17l-3.88-3.88L4 13.41l5 5 10-10-1.41-1.41z'/%3E%3C/svg%3E");
+									background-repeat: no-repeat;
+									background-position: right 10px center;
+									background-size: 20px 20px;
+								}
+
+								.form-control.invalid {
+									border-color: red;
+									animation: shake 0.3s;
+								}
+
+								.nik-msg {
+									height: 18px;
+									font-size: 13px;
+									margin-top: 4px;
+								}
+
+								.nik-msg.error {
+									color: red;
+								}
+
+								.nik-msg.success {
+									color: green;
+								}
+
+								@keyframes shake {
+									0% { transform: translateX(0); }
+									25% { transform: translateX(-5px); }
+									50% { transform: translateX(5px); }
+									75% { transform: translateX(-5px); }
+									100% { transform: translateX(0); }
+								}
+								</style>
+
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fnik_ayah" class="form-control" placeholder="NIK" style="text-transform: capitalize;" required>
+								<input type="text" name="fnik_ayah" id="fnik_ayah" class="form-control"
+										placeholder="NIK" maxlength="16" style="text-transform: capitalize;"
+										oninput="cekNIKAyah()" onkeypress="return hanyaAngka(event)" required>
+								<div id="notif-nik-ayah" class="nik-msg"></div>
 								</div>
+
+								<script>
+								function hanyaAngka(evt) {
+									var charCode = (evt.which) ? evt.which : event.keyCode;
+									return !(charCode > 31 && (charCode < 48 || charCode > 57));
+								}
+
+								function cekNIKAyah() {
+									const input = document.getElementById("fnik_ayah");
+									const msg = document.getElementById("notif-nik-ayah");
+									const nik = input.value;
+
+									if (nik.length === 0) {
+									input.classList.remove('valid', 'invalid');
+									msg.textContent = "";
+									msg.className = "nik-msg";
+									} else if (nik.length < 16) {
+									input.classList.remove('valid');
+									input.classList.add('invalid');
+									msg.textContent = "NIK harus 16 digit.";
+									msg.className = "nik-msg error";
+									} else if (!/^\d{16}$/.test(nik)) {
+									input.classList.remove('valid');
+									input.classList.add('invalid');
+									msg.textContent = "NIK hanya boleh angka.";
+									msg.className = "nik-msg error";
+									} else {
+									input.classList.remove('invalid');
+									input.classList.add('valid');
+									msg.textContent = "✅ NIK valid";
+									msg.className = "nik-msg success";
+									}
+								}
+								</script>
+
+
 								<div class="form-group col-sm-12" style="font-weight: 500;">
 									<input type="text" name="ftempat_tgl_lahir_ayah" class="form-control" placeholder="Tempat / Tgl Lahir" style="text-transform: capitalize;" required>
 								</div>
@@ -167,9 +246,42 @@
 								<div class="form-group col-sm-12" style="font-weight: 500;">
 									<input type="text" name="fnama_ibu" class="form-control" placeholder="Nama Ibu / Orang Tua / Wali" style="text-transform: capitalize;" required>
 								</div>
+
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fnik_ibu" class="form-control" placeholder="NIK" style="text-transform: capitalize;" required>
+								<input type="text" name="fnik_ibu" id="fnik_ibu" class="form-control"
+										placeholder="NIK" maxlength="16" style="text-transform: capitalize;"
+										oninput="cekNIKIbu()" onkeypress="return hanyaAngka(event)" required>
+								<div id="notif-nik-ibu" class="nik-msg"></div>
 								</div>
+								<script>
+								function cekNIKIbu() {
+									const input = document.getElementById("fnik_ibu");
+									const msg = document.getElementById("notif-nik-ibu");
+									const nik = input.value;
+
+									if (nik.length === 0) {
+									input.classList.remove('valid', 'invalid');
+									msg.textContent = "";
+									msg.className = "nik-msg";
+									} else if (nik.length < 16) {
+									input.classList.remove('valid');
+									input.classList.add('invalid');
+									msg.textContent = "NIK harus 16 digit.";
+									msg.className = "nik-msg error";
+									} else if (!/^\d{16}$/.test(nik)) {
+									input.classList.remove('valid');
+									input.classList.add('invalid');
+									msg.textContent = "NIK hanya boleh angka.";
+									msg.className = "nik-msg error";
+									} else {
+									input.classList.remove('invalid');
+									input.classList.add('valid');
+									msg.textContent = "✅ NIK valid";
+									msg.className = "nik-msg success";
+									}
+								}
+								</script>
+
 								<div class="form-group col-sm-12" style="font-weight: 500;">
 									<input type="text" name="ftempat_tgl_lahir_ibu" class="form-control" placeholder="Tempat / Tgl Lahir" style="text-transform: capitalize;" required>
 								</div>

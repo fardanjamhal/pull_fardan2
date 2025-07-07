@@ -133,9 +133,10 @@
 						           	</div>
 						        </div>
 						        <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Hari/Tanggal/Jam</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Hari / Tanggal / Jam</label>
+									<small class="text-muted fst-italic d-block mb-2">&nbsp;&nbsp;&nbsp;&nbsp;Contoh : Senin / 09 Juni 2025 / Pukul 10.00 WITA</small>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fhari_tanggal" class="form-control" style="text-transform: capitalize;" placeholder="contoh : Senin / 09 Juni 2025 / Pukul 10.00 WITA" required>
+						               	<input type="text" name="fhari_tanggal" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Hari / Tanggal / Jam" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
@@ -154,35 +155,40 @@
 								6. Paspoto 2x3 = 3 lembar, 3x4 = 2 lembar, 4x6 = 2 lembar berlatar belakang biru <br>
 								7. Fotokopi Ijazah Terakhir
 								</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fdelapan" class="form-control" style="text-transform: capitalize;" placeholder="8 .." required>
-						           	</div>
 						        </div>
+
 								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fsembilan" class="form-control" style="text-transform: capitalize;" placeholder="9 .." required>
-						           	</div>
-						        </div>
+								<div class="col-sm-12">
+									<input type="text" name="fdelapan" class="form-control" style="text-transform: capitalize;" placeholder="8 ..">
+								</div>
+								</div>
 								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fsepuluh" class="form-control" style="text-transform: capitalize;" placeholder="10 .." required>
-						           	</div>
-						        </div>
+								<div class="col-sm-12">
+									<input type="text" name="fsembilan" class="form-control" style="text-transform: capitalize;" placeholder="9 ..">
+								</div>
+								</div>
 								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fsebelas" class="form-control" style="text-transform: capitalize;" placeholder="11 .." required>
-						           	</div>
-						        </div>
+								<div class="col-sm-12">
+									<input type="text" name="fsepuluh" class="form-control" style="text-transform: capitalize;" placeholder="10 ..">
+								</div>
+								</div>
 								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fdua_belas" class="form-control" style="text-transform: capitalize;" placeholder="12 .." required>
-						           	</div>
-						        </div>
+								<div class="col-sm-12">
+									<input type="text" name="fsebelas" class="form-control" style="text-transform: capitalize;" placeholder="11 ..">
+								</div>
+								</div>
 								<div class="form-group">
-						           	<div class="col-sm-12">
-						               	<input type="text" name="ftiga_belas" class="form-control" style="text-transform: capitalize;" placeholder="13 .." required>
-						           	</div>
-						        </div>
+								<div class="col-sm-12">
+									<input type="text" name="fdua_belas" class="form-control" style="text-transform: capitalize;" placeholder="12 ..">
+								</div>
+								</div>
+								<div class="form-group">
+								<div class="col-sm-12">
+									<input type="text" name="ftiga_belas" class="form-control" style="text-transform: capitalize;" placeholder="13 ..">
+								</div>
+								</div>
+
+								
 						  	</div>
 						</div>
 						<hr width="97%">
