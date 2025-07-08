@@ -56,12 +56,13 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
         }, $row);
 
         // Validasi NIK
-        $nik_asli = $data[0];
-        $nik = preg_replace('/\D/', '', $nik_asli); // Hapus non-digit
-        if (strlen($nik) != 16) {
-            echo "<div class='alert alert-warning'>Baris $i dilewati: NIK tidak valid ($nik_asli).</div>";
+        if (!isset($data[0]) || trim($data[0]) == '') {
+            echo "<div class='alert alert-warning'>Baris $i dilewati: NIK kosong.</div>";
             continue;
         }
+        $nik_asli = $data[0];
+        $nik = preg_replace('/\D/', '', $nik_asli);
+
 
         // Validasi No. KK (boleh kosong, tapi jika ada harus 16 digit)
         $no_kk_asli = $data[13];
