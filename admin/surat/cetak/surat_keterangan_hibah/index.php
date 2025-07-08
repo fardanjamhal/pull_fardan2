@@ -332,6 +332,7 @@
 				margin-top: 33px;
 				font-weight: bold;
 				text-decoration: underline;
+				text-transform: uppercase; /* Ini yang bikin huruf jadi kapital semua */
 			}
 		</style>
 
@@ -340,12 +341,12 @@
 				<td>
 					PIHAK PERTAMA<br>
 					<span>( Pemberi Hibah )</span><br><br><br>
-					<div class="nama-ttd">LETE</div>
+					<div class="nama-ttd"><?php echo $row['nama']; ?></div>
 				</td>
 				<td>
 					PIHAK KEDUA<br>
 					<span>( Penerima Hibah )</span><br><br><br>
-					<div class="nama-ttd">MUHAMMAD HAIKAL</div>
+					<div class="nama-ttd"><?php echo $row['nama2']; ?></div>
 				</td>
 			</tr>
 		</table>
@@ -357,20 +358,6 @@
 		</td>
 		</tr>
 	</table>
-
-	<?php
-// Contoh input saksi dari database atau form
-$saksi = [
-    'CONI DG. NYITTO',
-    'SUDDIN DG TOMPO',
-    'NENI DG. JINTU',
-    'KASMA DG. SOMBA'
-];
-
-// Hapus elemen kosong jika tidak semua saksi diisi
-$saksi = array_filter($saksi);
-$jumlah_saksi = count($saksi);
-?>
 
 <?php
 // Ambil data saksi dari database
@@ -440,7 +427,7 @@ $jumlah_saksi = count($saksi);
         margin-top: 60px; /* Jarak kosong untuk tanda tangan */
         font-weight: bold;
         text-decoration: underline;
-        letter-spacing: 2px;
+		text-transform: uppercase; /* Ini yang bikin huruf jadi kapital semua */
     }
 </style>
 
@@ -495,7 +482,7 @@ $jumlah_saksi = count($saksi);
 
 						if ($id_pejabat_desa == 1) {
 							// Hanya nama Kepala Desa
-							echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . $nama . '</span>';
+							echo '<br><span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . $nama . '</span>';
 						} elseif ($id_pejabat_desa == 2) {
 							// Barcode (nama pejabat ID 2 diasumsikan adalah path barcode)
 							$barcode_path = '../../../../assets/img/barcode.png'; // ganti path sesuai lokasi barcode
@@ -536,10 +523,9 @@ $jumlah_saksi = count($saksi);
 			</table>
 			</td>
 
-			
 			<td><br><br>
 				Kepala Dusun
-				<div class="nama">GALLA DG. REWA</div>
+				<div class="nama"><?php echo $row['kepala_dusun']; ?></div>
 			</td>
     </tr>
 </table>
