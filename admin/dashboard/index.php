@@ -252,7 +252,7 @@
                       $qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
                       foreach($qTampilDesa as $row){
                     ?>
-                    <p style="font-size: 20pt; font-weight: 500; text-transform: uppercase;"><strong>DESA <?php echo $row['nama_desa']; ?></strong><hr>
+                    <p style="font-size: 20pt; font-weight: 500; text-transform: uppercase;"><strong><?php echo $row['nama_desa']; ?></strong><hr>
                     <?php  
                       }
                     ?>
