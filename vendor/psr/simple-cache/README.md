@@ -1,4 +1,5 @@
-# PHP FIG Simple Cache PSR
+PHP FIG Simple Cache PSR
+========================
 
 This repository holds all interfaces related to PSR-16.
 
