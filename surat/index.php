@@ -302,7 +302,8 @@
 				"surat_keterangan_jual_beli",
 				"surat_keterangan_belum_terbit_sppt_pbb",
 				"surat_perintah_perjalanan_dinas",
-				"surat_tugas"
+				"surat_tugas",
+				"surat_keterangan_hibah"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan

@@ -390,7 +390,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
             'surat_keterangan_jual_beli',
             'surat_keterangan_belum_terbit_sppt_pbb',
             'surat_perintah_perjalanan_dinas',
-            'surat_tugas'
+            'surat_tugas',
+            'surat_keterangan_hibah'
           ];
 
           // Array untuk menyimpan bagian UNION query

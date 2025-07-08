@@ -35,7 +35,8 @@ $jenisSuratList = [
     'surat_keterangan_jual_beli' => ['id' => 'id_skjb', 'folder' => 'surat_keterangan_jual_beli'],
     'surat_keterangan_belum_terbit_sppt_pbb' => ['id' => 'id_skbtsp', 'folder' => 'surat_keterangan_belum_terbit_sppt_pbb'],
     'surat_perintah_perjalanan_dinas' => ['id' => 'id_sppd', 'folder' => 'surat_perintah_perjalanan_dinas'],
-    'surat_tugas' => ['id' => 'id_st', 'folder' => 'surat_tugas']
+    'surat_tugas' => ['id' => 'id_st', 'folder' => 'surat_tugas'],
+    'surat_keterangan_hibah' => ['id' => 'id_skh', 'folder' => 'surat_keterangan_hibah']
 ];
 
 // Mengurutkan jenis surat berdasarkan nama yang lebih mudah dibaca (opsional, untuk tampilan dropdown)
