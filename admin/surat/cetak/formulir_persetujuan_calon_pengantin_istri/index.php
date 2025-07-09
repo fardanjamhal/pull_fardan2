@@ -206,46 +206,39 @@
 	</div>
 
 	
-	
-<table style="width: 75%; margin: 50px auto 0; text-transform: capitalize; border-collapse: collapse;">
-  <tr>
-    <!-- Kolom Kiri -->
-    <td style="width: 50%; padding-left: 30px; vertical-align: top;">
-      <br><br>Calon Suami<br><br><br><br><br> <!-- Jarak untuk tanda tangan -->
-      <u style="font-weight: bold; text-transform: uppercase;">
-        <?php echo $row['nama']; ?>
-      </u>
-    </td>
+<br>
+<div style="text-align: right; margin: 0; padding: 0; line-height: 1;">
+  <?php echo $rows['nama_desa']; ?>,
+  <?php
+    $tanggalSurat = $row['tanggal_surat'];
+    $bulanIndo = array(
+      'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
+      'April' => 'April', 'May' => 'Mei', 'June' => 'Juni',
+      'July' => 'Juli', 'August' => 'Agustus', 'September' => 'September',
+      'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
+    );
+    $tanggal = date('d', strtotime($tanggalSurat));
+    $bulan = date('F', strtotime($tanggalSurat));
+    $tahun = date('Y', strtotime($tanggalSurat));
+    echo $tanggal . ' ' . $bulanIndo[$bulan] . ' ' . $tahun;
+  ?>
+</div><!--JANGAN ADA NEWLINE DI SINI-->
+<br>
 
-    <!-- Kolom Kanan -->
-    <td style="width: 50%; padding-right: 30px;  text-align: right; vertical-align: top;">
-      <div style="margin-bottom: 10px;">
-        <?php echo $rows['nama_desa']; ?>,
-        <?php
-          $tanggalSurat = $row['tanggal_surat'];
-          $bulanIndo = array(
-            'January' => 'Januari',
-            'February' => 'Februari',
-            'March' => 'Maret',
-            'April' => 'April',
-            'May' => 'Mei',
-            'June' => 'Juni',
-            'July' => 'Juli',
-            'August' => 'Agustus',
-            'September' => 'September',
-            'October' => 'Oktober',
-            'November' => 'November',
-            'December' => 'Desember'
-          );
-          $tanggal = date('d', strtotime($tanggalSurat));
-          $bulan = date('F', strtotime($tanggalSurat));
-          $tahun = date('Y', strtotime($tanggalSurat));
-          echo $tanggal . ' ' . $bulanIndo[$bulan] . ' ' . $tahun;
-        ?>
-      </div>
-      Calon Istri<br><br><br><br><br> <!-- Jarak untuk tanda tangan -->
+<table style="width: 75%; margin: 0 auto; border-collapse: collapse; text-transform: capitalize;">
+  <tr style="height: 130px; vertical-align: bottom;">
+    <!-- Kolom Kiri -->
+    <td style="width: 50%; text-align: center; padding: 0 30px;">
+      Calon Suami<br><br><br><br><br><br>
       <u style="font-weight: bold; text-transform: uppercase;">
         <?php echo $row['nama_suami']; ?>
+      </u>
+    </td>
+    <!-- Kolom Kanan -->
+    <td style="width: 50%; text-align: center; padding: 0 30px;">
+      Calon Istri<br><br><br><br><br><br>
+      <u style="font-weight: bold; text-transform: uppercase;">
+        <?php echo $row['nama']; ?>
       </u>
     </td>
   </tr>
