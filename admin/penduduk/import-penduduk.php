@@ -67,10 +67,13 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
         // Validasi No. KK (boleh kosong, tapi jika ada harus 16 digit)
         $no_kk_asli = $data[13];
         $no_kk = preg_replace('/\D/', '', $no_kk_asli);
+
+        // Validasi: Jika diisi tapi bukan 16 digit, kosongkan saja
         if (!empty($no_kk_asli) && strlen($no_kk) != 16) {
-            echo "<div class='alert alert-warning'>Baris $i dilewati: No. KK tidak valid ($no_kk_asli).</div>";
-            continue;
+            echo "<div class='alert alert-warning'>Baris $i: No. KK tidak valid ($no_kk_asli), dikosongkan.</div>";
+            $no_kk = ''; // kosongkan daripada skip seluruh baris
         }
+
 
         list(
             , $nama, $tempat_lahir, , $jenis_kelamin, $agama,

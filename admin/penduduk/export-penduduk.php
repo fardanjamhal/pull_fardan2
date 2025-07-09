@@ -1,142 +1,128 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Export Data Penduduk</title>
-</head>
-<body>
-<style type="text/css">
-  body {
-    font-family: sans-serif;
-    text-transform: capitalize;
-  }
-  table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    text-transform: capitalize;
-  }
-  table th, table td {
-    border: 1px solid #3c3c3c;
-    padding: 3px 8px;
-  }
-  a {
-    background: blue;
-    color: #fff;
-    padding: 8px 10px;
-    text-decoration: none;
-    border-radius: 2px;
-  }
-  .str {
-    mso-number-format:\@;
-  }
-</style>
-
 <?php
-// Koneksi ke database
-include '../../config/koneksi.php'; // sesuaikan lokasi file koneksi jika berbeda
+require '../../vendor/autoload.php';
+include '../../config/koneksi.php';
 
-// Ambil nama desa dari database
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+
+// Ambil nama desa
 $qProfil = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
 $dataProfil = mysqli_fetch_assoc($qProfil);
-$nama_desa = $dataProfil['nama_desa'] ?? 'Desa'; // fallback jika kosong
+$nama_desa = $dataProfil['nama_desa'] ?? 'Desa';
 
-// Judul file
-$judul = "Data Penduduk";
+// Buat Spreadsheet baru
+$spreadsheet = new Spreadsheet();
+$sheet = $spreadsheet->getActiveSheet();
+$sheet->setTitle('Data Penduduk');
 
-// Format nama file (hapus spasi jadi underscore + tambahkan tanggal)
-$nama_file = $judul . ' - ' . $nama_desa . ' - ' . date('Ymd_His') . '.xls';
-$nama_file = str_replace(' ', '_', $nama_file); // ganti spasi dengan underscore agar aman di semua sistem
+// Header kolom
+$headers = [
+    "No", "NIK", "Nama", "Tempat Lahir", "Tanggal Lahir", "Jenis Kelamin", "Agama",
+    "Jalan", "Dusun", "RT", "RW", "Desa", "Kecamatan", "Kabupaten", "No KK",
+    "Pendidikan KK", "Pendidikan Terakhir", "Pendidikan Ditempuh", "Pekerjaan",
+    "Status Perkawinan", "Status dalam Keluarga", "Kewarganegaraan", "Nama Ayah", "Nama Ibu"
+];
 
-// Header untuk ekspor Excel
-header("Content-type: application/vnd-ms-excel");
-header("Content-Disposition: attachment; filename=$nama_file");
-?>
+// Atur header kolom
+$rowNum = 1;
+$col = 1;
+foreach ($headers as $header) {
+    $cell = Coordinate::stringFromColumnIndex($col) . $rowNum;
+    $sheet->setCellValue($cell, $header);
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>No</th>
-      <th>NIK</th>
-      <th>Nama</th>
-      <th>Tempat Lahir</th>
-      <th>Tanggal Lahir</th>
-      <th>Jenis Kelamin</th>
-      <th>Agama</th>
-      <th>Jalan</th>
-      <th>Dusun</th>
-      <th>RT</th>
-      <th>RW</th>
-      <th>Desa</th>
-      <th>Kecamatan</th>
-      <th>Kabupaten</th>
-      <th>No KK</th>
-      <th>Pendidikan KK</th>
-      <th>Pendidikan Terakhir</th>
-      <th>Pendidikan Ditempuh</th>
-      <th>Pekerjaan</th>
-      <th>Status Perkawinan</th>
-      <th>Status dalam Keluarga</th>
-      <th>Kewarganegaraan</th>
-      <th>Nama Ayah</th>
-      <th>Nama Ibu</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-    include ('../../config/koneksi.php');
-    $no = 1;
-    $qTampil = mysqli_query($connect, "SELECT * FROM penduduk");
-    foreach($qTampil as $row){
-      $tanggal = date('d', strtotime($row['tgl_lahir']));
-      $bulan = date('F', strtotime($row['tgl_lahir']));
-      $tahun = date('Y', strtotime($row['tgl_lahir']));
+    // Tambah style header: warna biru, bold, center align, middle align
+    $sheet->getStyle($cell)->getFont()->setBold(true);
+    $sheet->getStyle($cell)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+    $sheet->getStyle($cell)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+    $sheet->getStyle($cell)->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setARGB('FFCCE5FF');
+    $sheet->getRowDimension($rowNum)->setRowHeight(30); // Tinggi baris header
 
-      $bulanIndo = array(
-        'January' => 'Januari',
-        'February' => 'Februari',
-        'March' => 'Maret',
-        'April' => 'April',
-        'May' => 'Mei',
-        'June' => 'Juni',
-        'July' => 'Juli',
-        'August' => 'Agustus',
-        'September' => 'September',
-        'October' => 'Oktober',
-        'November' => 'November',
-        'December' => 'Desember'
-      );
-
-      $tgl_lahir_formatted = $tanggal . " " . $bulanIndo[$bulan] . " " . $tahun;
-    ?>
-    <tr>
-      <td><?php echo $no++; ?></td>
-      <td class="str"><?php echo $row['nik']; ?></td>
-      <td><?php echo $row['nama']; ?></td>
-      <td><?php echo $row['tempat_lahir']; ?></td>
-      <td><?php echo $tgl_lahir_formatted; ?></td>
-      <td><?php echo $row['jenis_kelamin']; ?></td>
-      <td><?php echo $row['agama']; ?></td>
-      <td><?php echo $row['jalan']; ?></td>
-      <td><?php echo $row['dusun']; ?></td>
-      <td><?php echo $row['rt']; ?></td>
-      <td><?php echo $row['rw']; ?></td>
-      <td><?php echo $row['desa']; ?></td>
-      <td><?php echo $row['kecamatan']; ?></td>
-      <td><?php echo $row['kota']; ?></td>
-      <td class="str"><?php echo $row['no_kk']; ?></td>
-      <td><?php echo $row['pend_kk']; ?></td>
-      <td><?php echo $row['pend_terakhir']; ?></td>
-      <td><?php echo $row['pend_ditempuh']; ?></td>
-      <td><?php echo $row['pekerjaan']; ?></td>
-      <td><?php echo $row['status_perkawinan']; ?></td>
-      <td><?php echo $row['status_dlm_keluarga']; ?></td>
-      <td><?php echo $row['kewarganegaraan']; ?></td>
-      <td><?php echo $row['nama_ayah']; ?></td>
-      <td><?php echo $row['nama_ibu']; ?></td>
-    </tr>
-    <?php } ?>
-  </tbody>
-</table>
+    $col++;
+}
 
 
-</body>
-</html>
+// Ambil data penduduk
+$qTampil = mysqli_query($connect, "SELECT * FROM penduduk");
+$rowNum = 2;
+$no = 1;
+while ($row = mysqli_fetch_assoc($qTampil)) {
+    $col = 1;
+
+    $data = [
+        $no++,
+        "'" . $row['nik'], // NIK sebagai teks
+        $row['nama'],
+        $row['tempat_lahir'],
+        formatTanggal($row['tgl_lahir']),
+        $row['jenis_kelamin'],
+        $row['agama'],
+        $row['jalan'],
+        $row['dusun'],
+        $row['rt'],
+        $row['rw'],
+        $row['desa'],
+        $row['kecamatan'],
+        $row['kota'],
+        "'" . $row['no_kk'], // No KK sebagai teks
+        $row['pend_kk'],
+        $row['pend_terakhir'],
+        $row['pend_ditempuh'],
+        $row['pekerjaan'],
+        $row['status_perkawinan'],
+        $row['status_dlm_keluarga'],
+        $row['kewarganegaraan'],
+        $row['nama_ayah'],
+        $row['nama_ibu']
+    ];
+
+    foreach ($data as $value) {
+        $cell = Coordinate::stringFromColumnIndex($col) . $rowNum;
+        $sheet->setCellValue($cell, $value);
+        $col++;
+    }
+
+    $rowNum++;
+}
+
+// Auto-size semua kolom kecuali RT & RW (kolom ke-10 dan 11)
+$colCount = count($headers);
+for ($i = 1; $i <= $colCount; $i++) {
+    $colLetter = Coordinate::stringFromColumnIndex($i);
+    if ($i == 10 || $i == 11) { // RT dan RW
+        $sheet->getColumnDimension($colLetter)->setWidth(10); // Atur manual agar cukup
+    } else {
+        $sheet->getColumnDimension($colLetter)->setAutoSize(true);
+    }
+}
+
+// Output ke browser
+$judul_file = "Data Penduduk - $nama_desa - " . date('d-m-Y') . ".xlsx";
+$judul_file = str_replace(' ', '_', $judul_file);
+
+header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+header("Content-Disposition: attachment; filename=\"$judul_file\"");
+header("Cache-Control: max-age=0");
+
+$writer = new Xlsx($spreadsheet);
+$writer->save("php://output");
+exit();
+
+// Fungsi format tanggal
+function formatTanggal($tanggal)
+{
+    if (!$tanggal || strtolower(trim($tanggal)) === '0000-00-00') {
+        return '';
+    }
+
+    // Coba parsing ke DateTime
+    try {
+        $date = new DateTime($tanggal);
+        return $date->format('d-m-Y'); // Format: 13-11-2020
+    } catch (Exception $e) {
+        return $tanggal; // Jika gagal, tampilkan apa adanya
+    }
+}
+
