@@ -64,7 +64,7 @@
 	<hr style="border: 1px solid #000; width: 100%;">
 	
 		<div align="center">
-		<h4 style="text-decoration: underline; margin: 0; text-transform: uppercase; font-size: 11pt;">
+		<h4 style="text-decoration: underline; margin: 0; text-transform: uppercase; font-size: 13pt;">
 				<b><?php echo $row['jenis_surat']; ?></b>
 		</h4>
 		<h4 style="font-weight:normal; margin:0;">Nomor : <?php echo $row['no_surat']; ?></h4>
