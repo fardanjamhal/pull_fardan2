@@ -65,7 +65,7 @@
 			</td>
 		</table>
 
-		<table width="100%" style="text-transform: capitalize;">
+		<table width="100%">
 			<tr>
 				<td width="16%" class="indentasi">A. Calon Suami:</td>
 				<td width="2%"></td>
@@ -125,7 +125,7 @@
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;7. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan'])); ?></td>
+				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;8. Alamat</td>
@@ -140,7 +140,7 @@
 			</td>
 			</tr>
 		</table>
-		<table width="100%" style="text-transform: capitalize;">
+		<table width="100%">
 			<tr>
 				<td width="16%" class="indentasi">B. Calon Istri:</td>
 				<td width="2%"></td>
@@ -180,7 +180,7 @@
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;7. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan_istri'])); ?></td>
+				<td><?php echo $row['pekerjaan_istri']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;8. Alamat</td>

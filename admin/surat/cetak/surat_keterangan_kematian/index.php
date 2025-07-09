@@ -110,7 +110,7 @@
 		</tr>
 		</table>
 		<br>
-		<table width="100%" style="text-transform: capitalize;">
+		<table width="100%">
 			<tr>
 				<td width="30%" class="indentasi">1. Nama</td>
 				<td width="2%">:</td>
@@ -154,7 +154,7 @@
 			<tr>
 				<td class="indentasi">5. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan'])); ?></td>
+				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<td class="indentasi">6. Alamat / Tempat Tinggal</td>
 			<td>:</td>

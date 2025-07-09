@@ -70,7 +70,7 @@
 		</table>
 
 		<!-- Table kedua -->
-		<table width="100%" style="text-transform: capitalize; margin-top: 0; border-collapse: collapse;">
+		<table width="100%" style="margin-top: 0; border-collapse: collapse;">
 		<tr>
 			<td width="16%" class="indentasi">A. 1. Nama lengkap dan alias</td>
 			<td width="2%">:</td>
@@ -104,7 +104,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. Pekerjaan</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['pekerjaan1'])); ?></td>
+			<td><?php echo $row['pekerjaan1']; ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
@@ -144,7 +144,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. Pekerjaan</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['pekerjaan2'])); ?></td>
+			<td><?php echo $row['pekerjaan2']; ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
@@ -155,7 +155,7 @@
 		</table>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adalah ayah dan ibu kandung/wali/pengampu dari:</td>
 		<!-- Table kedua -->
-		<table width="100%" style="text-transform: capitalize; margin-top: 0; border-collapse: collapse;">
+		<table width="100%" style="margin-top: 0; border-collapse: collapse;">
 		<tr>
 			<td width="16%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Nama lengkap dan alias</td>
 			<td width="2%">:</td>
@@ -189,7 +189,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. Pekerjaan</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['pekerjaan3'])); ?></td>
+			<td><?php echo $row['pekerjaan3']; ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
@@ -255,7 +255,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. Pekerjaan</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['pekerjaan'])); ?></td>
+			<td><?php echo $row['pekerjaan']; ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>

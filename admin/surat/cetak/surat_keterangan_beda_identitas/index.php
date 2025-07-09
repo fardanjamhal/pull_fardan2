@@ -108,7 +108,7 @@
 		</tr>
 		</table>
 		<br>
-		<table width="100%" style="text-transform: capitalize;">
+		<table width="100%">
 			<tr>
 				<td width="30%" class="indentasi" style="font-weight: bold;">I. Identitas dalam KK</td>
 				<td width="2%"></td>
@@ -157,7 +157,7 @@
 			<tr>
 				<td class="indentasi">5. Pekerjaan</td>
 				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
+				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">5. Agama</td>

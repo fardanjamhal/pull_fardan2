@@ -212,7 +212,7 @@
 				<tr>
 				<td width="46%" class="indentasi">Pekerjaan</td>
 				<td width="2%">:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan_ayah'])); ?></td>
+				<td><?php echo $row['pekerjaan_ayah']; ?></td>
 				</tr>
 				<tr>
 				<td width="46%" class="indentasi">Alamat</td>
@@ -251,7 +251,7 @@
 				<tr>
 				<td width="46%" class="indentasi">Pekerjaan</td>
 				<td width="2%">:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan_ibu'])); ?></td>
+				<td><?php echo $row['pekerjaan_ibu']; ?></td>
 				</tr>
 				<tr>
 				<td width="46%" class="indentasi">Alamat</td>

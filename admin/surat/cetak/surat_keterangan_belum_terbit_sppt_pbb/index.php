@@ -144,7 +144,7 @@
 			</table>
 			<br>
 			<td>Menerangkan bahwa :</td>
-			<table width="100%" style="text-transform: capitalize;">
+			<table width="100%">
 
 			<tr>
 				<td width="30%" style="padding-left: 40px;">Nama</td>
@@ -197,7 +197,7 @@
 			<tr>
 				<td width="30%" style="padding-left: 40px;">Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['pekerjaan']); ?></td>
+				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			</tr>
 			<tr>
