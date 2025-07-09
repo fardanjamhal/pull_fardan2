@@ -1,8 +1,9 @@
-# Abaikan hanya file koneksi
+# Abaikan file koneksi.php di dalam folder config
 config/koneksi.php
 
-# Abaikan vendor
+# Abaikan semua isi folder vendor
 /vendor/
 
-# Tapi jangan abaikan folder config
+# Tapi tetap lacak folder config (tanpa file koneksi.php)
 !config/
+!config/.gitkeep
