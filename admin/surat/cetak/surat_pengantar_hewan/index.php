@@ -273,7 +273,6 @@
 		padding: 12px 8px; /* atas-bawah 12px, kiri-kanan 8px */
 		text-align: center;
 		vertical-align: middle;
-		font-size: 14px;
 		}
 
 		.tabel-print th {

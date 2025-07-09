@@ -248,7 +248,6 @@
 			margin-top: 10px;
 			text-transform: uppercase; /* Ubah semua huruf jadi kapital */
 			font-weight: normal; /* Hilangkan bold */
-			font-size: 14px;
 		}
 
 		.batas-tanah td {

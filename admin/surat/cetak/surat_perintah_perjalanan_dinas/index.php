@@ -94,7 +94,6 @@
 	table.tabel-kegiatan td {
 		border: 1px solid #000; /* Garis tebal hitam */
 		padding: 8px;
-		font-size: 14px;
 		vertical-align: middle; /* Teks tengah vertikal */
 		min-height: 45px; /* Minimal tinggi baris */
 		height: 60px; /* Tinggi baris konsisten */
@@ -203,7 +202,7 @@
 		<tr>
 		<td colspan="4">
 			<div style="display: flex; justify-content: flex-end;">
-			<table style="font-size: 14px; border-collapse: collapse;">
+			<table style="border-collapse: collapse;">
 				<tr>
 				<td style="white-space: nowrap;">Dikeluarkan di</td>
 				<td style="padding: 0 5px;">:</td>

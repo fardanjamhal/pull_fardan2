@@ -229,15 +229,13 @@
 
 
 
-	
-
 	</div>
 	<br>
 	<table width="100%">
 		<tr>
 		<td colspan="4">
 			<div style="display: flex; justify-content: flex-end;">
-			<table style="font-size: 14px; border-collapse: collapse;">
+			<table style="border-collapse: collapse;">
 				<tr>
 				<td style="white-space: nowrap;">Dikeluarkan di</td>
 				<td style="padding: 0 5px;">:</td>

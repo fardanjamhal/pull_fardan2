@@ -207,7 +207,7 @@
 
 	
 	
-<table style="width: 75%; margin: 50px auto 0; text-transform: capitalize; font-size: 14px; border-collapse: collapse;">
+<table style="width: 75%; margin: 50px auto 0; text-transform: capitalize; border-collapse: collapse;">
   <tr>
     <!-- Kolom Kiri -->
     <td style="width: 50%; padding-left: 30px; vertical-align: top;">
