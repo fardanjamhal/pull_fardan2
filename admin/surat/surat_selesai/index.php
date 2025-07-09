@@ -328,7 +328,10 @@ if (!$result) {
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Cari</button>
-                            <a href="?" class="btn btn-default"><i class="fa fa-refresh"></i> Reset</a>
+                            <a href="?" class="btn btn-default"><i class="fa fa-refresh"></i> Reset</a>&nbsp;&nbsp;
+                            <a href="export-selesai.php" class="btn btn-primary mb-3" target="_blank">
+                                Export Excel
+                            </a>
                         </form>
 
                         <script>
