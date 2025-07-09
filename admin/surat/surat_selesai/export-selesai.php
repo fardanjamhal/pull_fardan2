@@ -9,39 +9,23 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
 // Daftar jenis surat
-$jenisSuratList = [
-    'surat_keterangan' => ['id' => 'id_sk'],
-    'surat_keterangan_berkelakuan_baik' => ['id' => 'id_skbb'],
-    'surat_keterangan_domisili' => ['id' => 'id_skd'],
-    'surat_keterangan_kepemilikan_kendaraan_bermotor' => ['id' => 'id_skkkb'],
-    'surat_keterangan_perhiasan' => ['id' => 'id_skp'],
-    'surat_keterangan_usaha' => ['id' => 'id_sku'],
-    'surat_lapor_hajatan' => ['id' => 'id_slh'],
-    'surat_pengantar_skck' => ['id' => 'id_sps'],
-    'surat_keterangan_tidak_mampu' => ['id' => 'id_sktm'],
-    'formulir_pengantar_nikah' => ['id' => 'id_fpn'],
-    'formulir_permohonan_kehendak_nikah' => ['id' => 'id_fpkn'],
-    'formulir_persetujuan_calon_pengantin' => ['id' => 'id_fpcp'],
-    'formulir_persetujuan_calon_pengantin_istri' => ['id' => 'id_fpcpi'],
-    'formulir_surat_izin_orang_tua' => ['id' => 'id_fsiot'],
-    'surat_keterangan_kematian' => ['id' => 'id_skk'],
-    'surat_keterangan_domisili_usaha' => ['id' => 'id_skdu'],
-    'surat_keterangan_pengantar' => ['id' => 'id_skp'],
-    'surat_keterangan_beda_identitas' => ['id' => 'id_skbi'],
-    'surat_keterangan_beda_identitas_kis' => ['id' => 'id_skbis'],
-    'surat_keterangan_penghasilan_orang_tua' => ['id' => 'id_skpot'],
-    'surat_pengantar_hewan' => ['id' => 'id_sph'],
-    'surat_keterangan_kematian_dan_penguburan' => ['id' => 'id_skkp'],
-    'surat_keterangan_pindah_penduduk' => ['id' => 'id_skpp'],
-    'surat_keterangan_pengantar_rujuk_atau_cerai' => ['id' => 'id_skrc'],
-    'surat_keterangan_wali_hakim' => ['id' => 'id_skwh'],
-    'surat_keterangan_mahar_sunrang' => ['id' => 'id_skm'],
-    'surat_keterangan_jual_beli' => ['id' => 'id_skjb'],
-    'surat_keterangan_belum_terbit_sppt_pbb' => ['id' => 'id_skbtsp'],
-    'surat_perintah_perjalanan_dinas' => ['id' => 'id_sppd'],
-    'surat_tugas' => ['id' => 'id_st'],
-    'surat_keterangan_hibah' => ['id' => 'id_skh']
-];
+// Ambil semua tabel surat dari database
+$jenisSuratList = [];
+$queryTables = mysqli_query($connect, "SHOW TABLES");
+while ($row = mysqli_fetch_array($queryTables)) {
+    $tableName = $row[0];
+    // Filter hanya tabel yang mengandung kata 'surat' atau 'formulir'
+    if (strpos($tableName, 'surat_') === 0 || strpos($tableName, 'formulir_') === 0) {
+        // Ambil singkatan dari nama tabel untuk id field
+        $explode = explode('_', $tableName);
+        $singkatan = '';
+        foreach ($explode as $part) {
+            $singkatan .= substr($part, 0, 1); // ambil huruf pertama
+        }
+        $id_field = 'id_' . strtolower($singkatan);
+        $jenisSuratList[$tableName] = $id_field;
+    }
+}
 
 // Gabungan query
 $unionQueries = [];
