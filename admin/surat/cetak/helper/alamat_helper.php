@@ -10,11 +10,17 @@ function formatAlamatLengkap($row) {
     // RT/RW
     $rt = trim($row['rt']);
     $rw = trim($row['rw']);
-    if (!empty($rt) && !empty($rw)) {
+
+    // Fungsi untuk validasi angka saja
+    function isValidRtRw($value) {
+        return preg_match('/^[0-9]+$/', $value);
+    }
+
+    if (!empty($rt) && !empty($rw) && isValidRtRw($rt) && isValidRtRw($rw)) {
         $alamatParts[] = "RT $rt / RW $rw";
-    } elseif (!empty($rt)) {
+    } elseif (!empty($rt) && isValidRtRw($rt)) {
         $alamatParts[] = "RT $rt";
-    } elseif (!empty($rw)) {
+    } elseif (!empty($rw) && isValidRtRw($rw)) {
         $alamatParts[] = "RW $rw";
     }
 
