@@ -1,3 +1,8 @@
-/vendor/
-koneksi.php
+# Abaikan hanya file koneksi
 config/koneksi.php
+
+# Abaikan vendor
+/vendor/
+
+# Tapi jangan abaikan folder config
+!config/
