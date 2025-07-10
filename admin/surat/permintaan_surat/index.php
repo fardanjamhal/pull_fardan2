@@ -75,7 +75,7 @@
 
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>Permintaan Surat</h1><br>
+    <h1>Permintaan Surat</h1>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
@@ -125,7 +125,8 @@
         #data-table td:nth-child(2),  /* id arsip */
         #data-table td:nth-child(3),  /* NIK */
         #data-table td:nth-child(4),  /* NIK */
-        #data-table td:nth-child(7) { /* Aksi */
+        #data-table td:nth-child(7),
+        #data-table td:nth-child(8) { /* Aksi */
           text-align: center;
         }
 
@@ -147,9 +148,14 @@
           background-color: #eef5ff; /* biru sangat muda */
         }
 
-        /* Judul kolom di tengah */
+         /* Judul kolom di tengah dan tinggi lebih besar */
         table#data-table thead th {
           text-align: center;
+          padding: 12px 10px; /* Tambahkan tinggi */
+          background-color: #007acc; /* Biru profesional */
+          color: white;
+          font-weight: bold;
+          border: 1px solid #005fa3;
         }
 
         /* Scroll horizontal jika diperlukan di HP */

@@ -220,9 +220,14 @@ if (!$result) {
             background-color: #eef5ff;
         }
 
-        /* Judul kolom di tengah */
+         /* Judul kolom di tengah dan tinggi lebih besar */
         table#data-table thead th {
-            text-align: center;
+          text-align: center;
+          padding: 12px 10px; /* Tambahkan tinggi */
+          background-color: #007acc; /* Biru profesional */
+          color: white;
+          font-weight: bold;
+          border: 1px solid #005fa3;
         }
 
         /* Kolom Nomor, NIK, Status, Aksi rata tengah */

@@ -374,7 +374,7 @@
         <br><br>
         
 
-      <style>
+     <style>
         /* Gunakan font Arial dan perkecil tinggi baris */
         table#data-table {
           font-family: Arial, sans-serif;
@@ -400,9 +400,14 @@
           background-color: #eef5ff; /* biru sangat muda */
         }
 
-        /* Judul kolom di tengah */
+        /* Judul kolom di tengah dan tinggi lebih besar */
         table#data-table thead th {
           text-align: center;
+          padding: 12px 10px; /* Tambahkan tinggi */
+          background-color: #007acc; /* Biru profesional */
+          color: white;
+          font-weight: bold;
+          border: 1px solid #005fa3;
         }
 
         /* Kolom No, NIK, Jenis Kelamin, Agama rata tengah */

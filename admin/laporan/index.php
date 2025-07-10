@@ -315,7 +315,8 @@ ini_set('display_errors', 1); // Tampilkan error di browser
                           'surat_keterangan_jual_beli',
                           'surat_keterangan_belum_terbit_sppt_pbb',
                           'surat_perintah_perjalanan_dinas',
-                          'surat_tugas'
+                          'surat_tugas',
+                          'surat_keterangan_hibah'
                         ];
 
                         $query_tahun_parts = [];
@@ -482,9 +483,14 @@ ini_set('display_errors', 1); // Tampilkan error di browser
       background-color: #eef5ff; /* biru sangat muda */
     }
 
-    /* Judul kolom di tengah */
+      /* Judul kolom di tengah dan tinggi lebih besar */
     table#data-table thead th {
       text-align: center;
+      padding: 12px 10px; /* Tambahkan tinggi */
+      background-color: #007acc; /* Biru profesional */
+      color: white;
+      font-weight: bold;
+      border: 1px solid #005fa3;
     }
 
     /* Scroll horizontal jika diperlukan di HP */
