@@ -3,39 +3,20 @@
 include "../../config/koneksi.php"; // Pastikan file koneksi.php ada dan berfungsi
 
 // Daftar semua tabel surat yang akan digabungkan
-$suratTables = [
-    'surat_keterangan',
-    'surat_keterangan_berkelakuan_baik',
-    'surat_keterangan_domisili',
-    'surat_keterangan_kepemilikan_kendaraan_bermotor',
-    'surat_keterangan_perhiasan',
-    'surat_keterangan_usaha',
-    'surat_lapor_hajatan',
-    'surat_pengantar_skck',
-    'surat_keterangan_tidak_mampu',
-    'formulir_pengantar_nikah',
-    'formulir_permohonan_kehendak_nikah',
-    'formulir_persetujuan_calon_pengantin',
-    'formulir_persetujuan_calon_pengantin_istri',
-    'formulir_surat_izin_orang_tua',
-    'surat_keterangan_kematian',
-    'surat_keterangan_domisili_usaha',
-    'surat_keterangan_pengantar',
-    'surat_keterangan_beda_identitas',
-    'surat_keterangan_beda_identitas_kis',
-    'surat_keterangan_penghasilan_orang_tua',
-    'surat_pengantar_hewan',
-    'surat_keterangan_kematian_dan_penguburan',
-    'surat_keterangan_pindah_penduduk',
-    'surat_keterangan_pengantar_rujuk_atau_cerai',
-    'surat_keterangan_wali_hakim',
-    'surat_keterangan_mahar_sunrang',
-    'surat_keterangan_jual_beli',
-    'surat_keterangan_belum_terbit_sppt_pbb',
-    'surat_perintah_perjalanan_dinas',
-    'surat_tugas',
-    'surat_keterangan_hibah'
-];
+$suratTables = [];
+
+$query = mysqli_query($connect, "SHOW TABLES");
+if (!$query) {
+    die("Query gagal: " . mysqli_error($connect));
+}
+
+while ($row = mysqli_fetch_row($query)) {
+    $nama_tabel = $row[0];
+
+    if (strpos($nama_tabel, 'surat_') === 0 || strpos($nama_tabel, 'formulir_') === 0) {
+        $suratTables[] = $nama_tabel;
+    }
+}
 
 $unionParts = [];
 $whereClause = " WHERE status_surat='selesai'"; // Kondisi status_surat untuk setiap tabel surat
