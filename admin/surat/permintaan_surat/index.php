@@ -200,39 +200,34 @@
           <tbody>
 
           <?php
-              $jenisSurat = [
-                'surat_keterangan' => 'id_sk',
-                'surat_keterangan_berkelakuan_baik' => 'id_skbb',
-                'surat_keterangan_domisili' => 'id_skd',
-                'surat_keterangan_kepemilikan_kendaraan_bermotor' => 'id_skkkb',
-                'surat_keterangan_perhiasan' => 'id_skp',
-                'surat_keterangan_usaha' => 'id_sku',
-                'surat_lapor_hajatan' => 'id_slh',
-                'surat_pengantar_skck' => 'id_sps',
-                'surat_keterangan_tidak_mampu' => 'id_sktm',
-                'formulir_pengantar_nikah' => 'id_fpn',
-                'formulir_permohonan_kehendak_nikah' => 'id_fpkn',
-                'formulir_persetujuan_calon_pengantin' => 'id_fpcp',
-                'formulir_persetujuan_calon_pengantin_istri' => 'id_fpcpi',
-                'formulir_surat_izin_orang_tua' => 'id_fsiot',
-                'surat_keterangan_kematian' => 'id_skk',
-                'surat_keterangan_domisili_usaha' => 'id_skdu',
-                'surat_keterangan_pengantar' => 'id_skp',
-                'surat_keterangan_beda_identitas' => 'id_skbi',
-                'surat_keterangan_beda_identitas_kis' => 'id_skbis',
-                'surat_keterangan_penghasilan_orang_tua' => 'id_skpot',
-                'surat_pengantar_hewan' => 'id_sph',
-                'surat_keterangan_kematian_dan_penguburan' => 'id_skkp',
-                'surat_keterangan_pindah_penduduk' => 'id_skpp',
-                'surat_keterangan_pengantar_rujuk_atau_cerai' => 'id_skrc',
-                'surat_keterangan_wali_hakim' => 'id_skwh',
-                'surat_keterangan_mahar_sunrang' => 'id_skm',
-                'surat_keterangan_jual_beli' => 'id_skjb',
-                'surat_keterangan_belum_terbit_sppt_pbb' => 'id_skbtsp',
-                'surat_perintah_perjalanan_dinas' => 'id_sppd',
-                'surat_tugas' => 'id_st',
-                'surat_keterangan_hibah' => 'id_skh'
-              ];
+
+            $jenisSurat = [];
+            $query = mysqli_query($connect, "SHOW TABLES");
+            if (!$query) {
+                die("Query gagal: " . mysqli_error($connect));
+            }
+
+            while ($row = mysqli_fetch_row($query)) {
+                $nama_tabel = $row[0];
+
+                // Ambil tabel yang diawali dengan surat_ atau formulir_
+                if (strpos($nama_tabel, 'surat_') === 0 || strpos($nama_tabel, 'formulir_') === 0) {
+                    // Pisahkan dengan underscore dan ambil huruf depan
+                    $parts = explode('_', $nama_tabel);
+                    $inisial = '';
+
+                    foreach ($parts as $p) {
+                        $inisial .= substr($p, 0, 1);
+                    }
+
+                    // Hasilkan id, contoh: 'id_skp', 'id_sku'
+                    $id_field = 'id_' . strtolower($inisial);
+                    $jenisSurat[$nama_tabel] = $id_field;
+                }
+            }
+
+            // Tampilkan hasil untuk cek
+            // echo "<pre>"; print_r($jenisSurat); echo "</pre>";
 
               $unionParts = [];
               foreach ($jenisSurat as $table => $idField) {

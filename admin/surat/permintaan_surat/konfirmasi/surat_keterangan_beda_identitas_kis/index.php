@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_beda_identitas_kis.* FROM penduduk LEFT JOIN surat_keterangan_beda_identitas_kis ON surat_keterangan_beda_identitas_kis.nik = penduduk.nik WHERE surat_keterangan_beda_identitas_kis.id_skbis='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_beda_identitas_kis.* FROM penduduk LEFT JOIN surat_keterangan_beda_identitas_kis ON surat_keterangan_beda_identitas_kis.nik = penduduk.nik WHERE surat_keterangan_beda_identitas_kis.id_skbik='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -354,7 +354,7 @@
                     </div>
              
                     <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_skbis']; ?>" class="form-control">
+                      <input type="hidden" name="id" value="<?php echo $row['id_skbik']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>

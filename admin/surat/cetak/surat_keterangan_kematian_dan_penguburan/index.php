@@ -8,7 +8,7 @@
 		SELECT arsip_surat.*, surat_keterangan_kematian_dan_penguburan.*, surat_keterangan_kematian_dan_penguburan.id_arsip 
 		FROM surat_keterangan_kematian_dan_penguburan 
 		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_kematian_dan_penguburan.id_arsip 
-		WHERE surat_keterangan_kematian_dan_penguburan.id_skkp = '$id'
+		WHERE surat_keterangan_kematian_dan_penguburan.id_skkdp = '$id'
 	");
 
 	while($row = mysqli_fetch_array($qCek)){
@@ -398,7 +398,7 @@
 
 					// Query utama untuk mengambil data penduduk dan surat keterangan domisili
 					// Termasuk id_pejabat_desa dari tabel surat_keterangan_kematian_dan_penguburan
-					$qCek = mysqli_query($connect, "SELECT penduduk.*, surat_keterangan_kematian_dan_penguburan.* FROM penduduk LEFT JOIN surat_keterangan_kematian_dan_penguburan ON surat_keterangan_kematian_dan_penguburan.nik = penduduk.nik WHERE surat_keterangan_kematian_dan_penguburan.id_skkp='$id'");
+					$qCek = mysqli_query($connect, "SELECT penduduk.*, surat_keterangan_kematian_dan_penguburan.* FROM penduduk LEFT JOIN surat_keterangan_kematian_dan_penguburan ON surat_keterangan_kematian_dan_penguburan.nik = penduduk.nik WHERE surat_keterangan_kematian_dan_penguburan.id_skkdp='$id'");
 
 					// Periksa apakah query utama berhasil dan ada data surat domisili
 					if (mysqli_num_rows($qCek) > 0) {

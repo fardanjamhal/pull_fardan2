@@ -1450,7 +1450,7 @@ INSERT INTO `surat_keterangan_beda_identitas` (`id_skbi`, `jenis_surat`, `no_sur
 --
 
 CREATE TABLE `surat_keterangan_beda_identitas_kis` (
-  `id_skbis` int(11) NOT NULL,
+  `id_skbik` int(11) NOT NULL,
   `jenis_surat` varchar(50) NOT NULL,
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
@@ -1472,7 +1472,7 @@ CREATE TABLE `surat_keterangan_beda_identitas_kis` (
 -- Dumping data for table `surat_keterangan_beda_identitas_kis`
 --
 
-INSERT INTO `surat_keterangan_beda_identitas_kis` (`id_skbis`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `keperluan`, `no_kartu`, `nama_di_kartu`, `nik2`, `alamat2`, `tanggal_lahir`, `faskes_tingkat`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+INSERT INTO `surat_keterangan_beda_identitas_kis` (`id_skbik`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `keperluan`, `no_kartu`, `nama_di_kartu`, `nik2`, `alamat2`, `tanggal_lahir`, `faskes_tingkat`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (37, 'Surat Keterangan Beda Identitas KIS', '04/SKBIS/KODE-DESA/VI/2025', '7304080811110001', 169, 'Laboris officiis lab', 'Commodi magna volupt', 'Sequi quo et est al', 'Voluptatum possimus', 'Porro blanditiis dol', '0000-00-00', 'Ea duis et rerum dol', '2025-06-21 21:42:51', 2, 'SELESAI', 1),
 (38, 'Surat Keterangan Beda Identitas KIS', '024/SKBIK/SANGAT MEMBANTU/VI/2025', '7304080506770003', 411, 'Consequatur ipsa la', 'Molestiae eiusmod in', 'Sed vitae natus prov', 'Dolore in dolores ex', 'Magni nihil earum pr', '0000-00-00', 'Iste inventore volup', '2025-06-29 09:13:10', 2, 'SELESAI', 1),
 (39, 'Surat Keterangan Beda Identitas KIS', 'SKBIK/001/MANTAP/VII/2025', '7304080506770003', 458, 'Voluptate minima aut', 'Quidem ipsum nisi e', 'Qui ex velit quia mi', 'Quis fugiat corrupti', 'Et aut ex qui dolore', '0000-00-00', 'Ut quia excepturi pr', '2025-07-01 23:43:17', 2, 'SELESAI', 1),
@@ -1700,7 +1700,7 @@ INSERT INTO `surat_keterangan_kematian` (`id_skk`, `jenis_surat`, `no_surat`, `n
 --
 
 CREATE TABLE `surat_keterangan_kematian_dan_penguburan` (
-  `id_skkp` int(11) NOT NULL,
+  `id_skkdp` int(11) NOT NULL,
   `jenis_surat` varchar(50) NOT NULL,
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
@@ -1721,7 +1721,7 @@ CREATE TABLE `surat_keterangan_kematian_dan_penguburan` (
 -- Dumping data for table `surat_keterangan_kematian_dan_penguburan`
 --
 
-INSERT INTO `surat_keterangan_kematian_dan_penguburan` (`id_skkp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `hari_tanggal_kematian`, `jam_pukul`, `tempat`, `hari_tanggal_dikebumikan`, `jam_pukul_dikebumikan`, `tempat_dikebumikan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+INSERT INTO `surat_keterangan_kematian_dan_penguburan` (`id_skkdp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `hari_tanggal_kematian`, `jam_pukul`, `tempat`, `hari_tanggal_dikebumikan`, `jam_pukul_dikebumikan`, `tempat_dikebumikan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (6, 'Surat Keterangan Kematian dan Penguburan', '001/SKKP/KODE-DESA/VI/2025', '7304080107740003', 193, 'sas', 'ds', 'sadsad', 'sdasd', 'sddasadsad', 'sdasd', '2025-06-21 22:21:35', 2, 'SELESAI', 1),
 (7, 'Surat Keterangan Kematian dan Penguburan', '011/SKKDP/KUE-BOLU/VI/2025', '7304080505650001', 390, 'Ullam libero cumque ', 'Dolores porro pariat', 'Rem sit molestias di', 'Ea impedit accusamu', 'In necessitatibus du', 'Magnam sed earum rep', '2025-06-28 10:47:19', 1, 'SELESAI', 1),
 (10, 'Surat Keterangan Kematian dan Penguburan', 'SKKP/001/MANTAP/VII/2025', '7304080506770003', 463, 'Esse consectetur n', 'Sunt at perferendis ', 'Sit voluptas vero qu', 'Est qui pariatur E', 'Quis quo in labore l', 'Molestias nesciunt ', '2025-07-01 23:45:13', 2, 'SELESAI', 1);
@@ -1773,7 +1773,7 @@ INSERT INTO `surat_keterangan_kepemilikan_kendaraan_bermotor` (`id_skkkb`, `jeni
 --
 
 CREATE TABLE `surat_keterangan_mahar_sunrang` (
-  `id_skm` int(11) NOT NULL,
+  `id_skms` int(11) NOT NULL,
   `jenis_surat` varchar(100) NOT NULL,
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
@@ -1802,7 +1802,7 @@ CREATE TABLE `surat_keterangan_mahar_sunrang` (
 -- Dumping data for table `surat_keterangan_mahar_sunrang`
 --
 
-INSERT INTO `surat_keterangan_mahar_sunrang` (`id_skm`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `mahar`, `tempat_mahar`, `tanah_utara`, `tanah_timur`, `tanah_selatan`, `tanah_barat`, `orang_tua`, `tempat_tgl_lahir2`, `alamat2`, `perempuan`, `tempat_tgl_lahir3`, `alamat3`, `saksi1`, `saksi2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+INSERT INTO `surat_keterangan_mahar_sunrang` (`id_skms`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `mahar`, `tempat_mahar`, `tanah_utara`, `tanah_timur`, `tanah_selatan`, `tanah_barat`, `orang_tua`, `tempat_tgl_lahir2`, `alamat2`, `perempuan`, `tempat_tgl_lahir3`, `alamat3`, `saksi1`, `saksi2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (1, 'Surat Keterangan Mahar Sunrang', '04/SKJB/KODE-DESA/VI/2025', '7304053112900229', 253, 'df', 'df', 'df', 'dfdf', 'dfs', 'df', 'df', 'dfs', 'df', 'df', 'df', 'dfs', 'dfs', 'dfs', '2025-06-25 20:04:16', 2, 'SELESAI', 1),
 (3, 'Surat Keterangan Mahar Sunrang', '019/SKMS/SANGAT MEMBANTU/VI/2025', '7304080506770003', 395, 'Et ut fuga Et dolor', 'Amet ex non esse om', 'Quasi ipsum sed off', 'Id maiores est des', 'Enim cillum ipsum iu', 'Iusto et sapiente li', 'Sunt ratione nemo ve', 'Ut accusamus impedit', 'Praesentium eos id', 'Et sapiente elit ut', 'Sit sunt quisquam a', 'Qui itaque asperiore', 'Odio at ex commodi v', 'Occaecat exercitatio', '2025-06-28 20:59:02', 2, 'SELESAI', 1),
 (4, 'Surat Keterangan Mahar Sunrang', '028/SKMS/BARU/VI/2025', '7304080506770003', 412, 'Numquam minim est l', 'Deserunt in placeat', 'Aliquid sit voluptat', 'Non sed rerum sed la', 'Dolorum asperiores a', 'Qui doloribus volupt', 'Facere molestias ame', 'Minim excepturi fugi', 'Tempor et qui vero l', 'Rerum ut ex qui assu', 'Dolorem ad aliquam e', 'Molestias sit facili', 'Expedita Nam laborum', 'Dolorem commodo anim', '2025-06-29 10:02:25', 2, 'SELESAI', 1);
@@ -1853,7 +1853,7 @@ INSERT INTO `surat_keterangan_pengantar` (`id_skp`, `jenis_surat`, `no_surat`, `
 --
 
 CREATE TABLE `surat_keterangan_pengantar_rujuk_atau_cerai` (
-  `id_skrc` int(11) NOT NULL,
+  `id_skprac` int(11) NOT NULL,
   `jenis_surat` varchar(100) NOT NULL,
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
@@ -1876,7 +1876,7 @@ CREATE TABLE `surat_keterangan_pengantar_rujuk_atau_cerai` (
 -- Dumping data for table `surat_keterangan_pengantar_rujuk_atau_cerai`
 --
 
-INSERT INTO `surat_keterangan_pengantar_rujuk_atau_cerai` (`id_skrc`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bin`, `nama2`, `binti2`, `tempat_tgl_lahir2`, `kewarganegaraan2`, `agama2`, `pekerjaan2`, `alamat2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+INSERT INTO `surat_keterangan_pengantar_rujuk_atau_cerai` (`id_skprac`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bin`, `nama2`, `binti2`, `tempat_tgl_lahir2`, `kewarganegaraan2`, `agama2`, `pekerjaan2`, `alamat2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (1, 'Surat Keterangan Pengantar Rujuk Atau Cerai', '001/SKPRC/KODE-DESA/VI/2025', '7304053112900229', 233, 'dsfdsdf', 'dfsd', 'dfdsfds', 'ddssf', 'WNI', 'Islam', 'dsdf', 'dsfsfdsdf', '2025-06-24 07:51:10', 2, 'SELESAI', 1),
 (2, 'Surat Keterangan Pengantar Rujuk Atau Cerai', '015/SKPRC/SANGAT MEMBANTU/VI/2025', '7304080506770003', 397, 'Quas debitis expedit', 'Dolor eum perspiciat', 'Ullamco veniam ut v', 'Facere reiciendis om', 'WNA', 'Konghucu', 'Velit eos quasi aut', 'Quis quia officia es', '2025-06-28 11:30:11', 1, 'SELESAI', 1),
 (3, 'Surat Keterangan Pengantar Rujuk Atau Cerai', '016/SKPRC/SANGAT MEMBANTU/VI/2025', '7304081303910003', 401, 'Nama Bin', 'ds', 'dfdsfds', 'jenepoonto / 12 juni 1966', 'WNI', 'Konghucu', 'df', 'adsad', '2025-06-28 19:49:22', 2, 'SELESAI', 1),
@@ -2401,7 +2401,7 @@ ALTER TABLE `surat_keterangan_beda_identitas`
 -- Indexes for table `surat_keterangan_beda_identitas_kis`
 --
 ALTER TABLE `surat_keterangan_beda_identitas_kis`
-  ADD PRIMARY KEY (`id_skbis`),
+  ADD PRIMARY KEY (`id_skbik`),
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   ADD KEY `idx_nik` (`nik`);
@@ -2466,7 +2466,7 @@ ALTER TABLE `surat_keterangan_kematian`
 -- Indexes for table `surat_keterangan_kematian_dan_penguburan`
 --
 ALTER TABLE `surat_keterangan_kematian_dan_penguburan`
-  ADD PRIMARY KEY (`id_skkp`),
+  ADD PRIMARY KEY (`id_skkdp`),
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
   ADD KEY `idx_nik` (`nik`);
@@ -2484,7 +2484,7 @@ ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
 -- Indexes for table `surat_keterangan_mahar_sunrang`
 --
 ALTER TABLE `surat_keterangan_mahar_sunrang`
-  ADD PRIMARY KEY (`id_skm`),
+  ADD PRIMARY KEY (`id_skms`),
   ADD KEY `idx_nik` (`nik`),
   ADD KEY `idx_id_arsip` (`id_arsip`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -2503,7 +2503,7 @@ ALTER TABLE `surat_keterangan_pengantar`
 -- Indexes for table `surat_keterangan_pengantar_rujuk_atau_cerai`
 --
 ALTER TABLE `surat_keterangan_pengantar_rujuk_atau_cerai`
-  ADD PRIMARY KEY (`id_skrc`),
+  ADD PRIMARY KEY (`id_skprac`),
   ADD KEY `idx_nik` (`nik`),
   ADD KEY `idx_id_arsip` (`id_arsip`),
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
@@ -2706,7 +2706,7 @@ ALTER TABLE `surat_keterangan_beda_identitas`
 -- AUTO_INCREMENT for table `surat_keterangan_beda_identitas_kis`
 --
 ALTER TABLE `surat_keterangan_beda_identitas_kis`
-  MODIFY `id_skbis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_skbik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_belum_terbit_sppt_pbb`
@@ -2748,7 +2748,7 @@ ALTER TABLE `surat_keterangan_kematian`
 -- AUTO_INCREMENT for table `surat_keterangan_kematian_dan_penguburan`
 --
 ALTER TABLE `surat_keterangan_kematian_dan_penguburan`
-  MODIFY `id_skkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_skkdp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
@@ -2760,7 +2760,7 @@ ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
 -- AUTO_INCREMENT for table `surat_keterangan_mahar_sunrang`
 --
 ALTER TABLE `surat_keterangan_mahar_sunrang`
-  MODIFY `id_skm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_skms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar`
@@ -2772,7 +2772,7 @@ ALTER TABLE `surat_keterangan_pengantar`
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar_rujuk_atau_cerai`
 --
 ALTER TABLE `surat_keterangan_pengantar_rujuk_atau_cerai`
-  MODIFY `id_skrc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_skprac` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_penghasilan_orang_tua`

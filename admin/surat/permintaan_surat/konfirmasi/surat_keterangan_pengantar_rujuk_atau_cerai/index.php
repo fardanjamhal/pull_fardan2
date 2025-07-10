@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_pengantar_rujuk_atau_cerai.* FROM penduduk LEFT JOIN surat_keterangan_pengantar_rujuk_atau_cerai ON surat_keterangan_pengantar_rujuk_atau_cerai.nik = penduduk.nik WHERE surat_keterangan_pengantar_rujuk_atau_cerai.id_skrc='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_pengantar_rujuk_atau_cerai.* FROM penduduk LEFT JOIN surat_keterangan_pengantar_rujuk_atau_cerai ON surat_keterangan_pengantar_rujuk_atau_cerai.nik = penduduk.nik WHERE surat_keterangan_pengantar_rujuk_atau_cerai.id_skprac='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -283,7 +283,7 @@
                       <label class="col-sm-3 control-label"></label>
                       <div class="col-sm-9">
                        <!-- Untuk Bootstrap 4 -->
-                        <button type="button" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#modalFormulir_<?php echo $row['id_skrc']; ?>">
+                        <button type="button" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#modalFormulir_<?php echo $row['id_skprac']; ?>">
                         Lihat Data Formulir
                       </button>
 
@@ -320,7 +320,7 @@
                     </div>
                 
                     <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_skrc']; ?>" class="form-control">
+                      <input type="hidden" name="id" value="<?php echo $row['id_skprac']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -343,7 +343,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="modalFormulir_<?php echo $row['id_skrc']; ?>" tabindex="-1">
+<div class="modal fade" id="modalFormulir_<?php echo $row['id_skprac']; ?>" tabindex="-1">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -353,9 +353,9 @@
 
       <div class="modal-body">
         <?php
-          // Cek lagi id_skrc ini
-          $id_skrc = $row['id_skrc'];
-          $query = mysqli_query($connect, "SELECT * FROM surat_keterangan_pengantar_rujuk_atau_cerai WHERE id_skrc = '$id_skrc'");
+          // Cek lagi id_skprac ini
+          $id_skprac = $row['id_skprac'];
+          $query = mysqli_query($connect, "SELECT * FROM surat_keterangan_pengantar_rujuk_atau_cerai WHERE id_skprac = '$id_skprac'");
           $data = mysqli_fetch_assoc($query);
 
           if ($data) {

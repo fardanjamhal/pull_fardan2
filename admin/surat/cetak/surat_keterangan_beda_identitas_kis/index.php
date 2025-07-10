@@ -8,7 +8,7 @@
 		SELECT arsip_surat.*, surat_keterangan_beda_identitas_kis.*, surat_keterangan_beda_identitas_kis.id_arsip 
 		FROM surat_keterangan_beda_identitas_kis 
 		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_beda_identitas_kis.id_arsip 
-		WHERE surat_keterangan_beda_identitas_kis.id_skbis = '$id'
+		WHERE surat_keterangan_beda_identitas_kis.id_skbik = '$id'
 	");
 
 	while($row = mysqli_fetch_array($qCek)){
@@ -383,7 +383,7 @@
 
 					// Query utama untuk mengambil data penduduk dan surat keterangan domisili
 					// Termasuk id_pejabat_desa dari tabel surat_keterangan_beda_identitas_kis
-					$qCek = mysqli_query($connect, "SELECT penduduk.*, surat_keterangan_beda_identitas_kis.* FROM penduduk LEFT JOIN surat_keterangan_beda_identitas_kis ON surat_keterangan_beda_identitas_kis.nik = penduduk.nik WHERE surat_keterangan_beda_identitas_kis.id_skbis='$id'");
+					$qCek = mysqli_query($connect, "SELECT penduduk.*, surat_keterangan_beda_identitas_kis.* FROM penduduk LEFT JOIN surat_keterangan_beda_identitas_kis ON surat_keterangan_beda_identitas_kis.nik = penduduk.nik WHERE surat_keterangan_beda_identitas_kis.id_skbik='$id'");
 
 					// Periksa apakah query utama berhasil dan ada data surat domisili
 					if (mysqli_num_rows($qCek) > 0) {

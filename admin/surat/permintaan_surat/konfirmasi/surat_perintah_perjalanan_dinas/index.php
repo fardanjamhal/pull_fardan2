@@ -9,7 +9,7 @@
   // Nama tabel = nama folder
   $nama_tabel = $folder;
 
-  // Ambil singkatan dari awalan masing-masing kata, misalnya hasil: 'id_skm'
+  // Ambil singkatan dari awalan masing-masing kata, misalnya hasil: 'id_skms'
   $potongan = explode('_', $folder);
   $singkatan = 'id_' . implode('', array_map(function($word) {
       return substr($word, 0, 1);
@@ -373,7 +373,7 @@
 
       <div class="modal-body">
         <?php
-          // Cek lagi id_skm ini
+          // Cek lagi id_skms ini
           $id_surat = $row[$id_field]; // Ambil ID dari hasil join sebelumnya
           $query = mysqli_query($connect, "SELECT * FROM `$nama_tabel` WHERE `$id_field` = '$id_surat'");
           $data = mysqli_fetch_assoc($query);

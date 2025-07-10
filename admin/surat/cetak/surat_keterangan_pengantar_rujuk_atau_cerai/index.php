@@ -8,7 +8,7 @@
 		SELECT arsip_surat.*, surat_keterangan_pengantar_rujuk_atau_cerai.*, surat_keterangan_pengantar_rujuk_atau_cerai.id_arsip 
 		FROM surat_keterangan_pengantar_rujuk_atau_cerai 
 		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_pengantar_rujuk_atau_cerai.id_arsip 
-		WHERE surat_keterangan_pengantar_rujuk_atau_cerai.id_skrc = '$id'
+		WHERE surat_keterangan_pengantar_rujuk_atau_cerai.id_skprac = '$id'
 	");
 
 	while($row = mysqli_fetch_array($qCek)){
@@ -374,7 +374,7 @@
 
 					// Query utama untuk mengambil data penduduk dan surat keterangan domisili
 					// Termasuk id_pejabat_desa dari tabel surat_keterangan_pengantar_rujuk_atau_cerai
-					$qCek = mysqli_query($connect, "SELECT penduduk.*, surat_keterangan_pengantar_rujuk_atau_cerai.* FROM penduduk LEFT JOIN surat_keterangan_pengantar_rujuk_atau_cerai ON surat_keterangan_pengantar_rujuk_atau_cerai.nik = penduduk.nik WHERE surat_keterangan_pengantar_rujuk_atau_cerai.id_skrc='$id'");
+					$qCek = mysqli_query($connect, "SELECT penduduk.*, surat_keterangan_pengantar_rujuk_atau_cerai.* FROM penduduk LEFT JOIN surat_keterangan_pengantar_rujuk_atau_cerai ON surat_keterangan_pengantar_rujuk_atau_cerai.nik = penduduk.nik WHERE surat_keterangan_pengantar_rujuk_atau_cerai.id_skprac='$id'");
 
 					// Periksa apakah query utama berhasil dan ada data surat domisili
 					if (mysqli_num_rows($qCek) > 0) {

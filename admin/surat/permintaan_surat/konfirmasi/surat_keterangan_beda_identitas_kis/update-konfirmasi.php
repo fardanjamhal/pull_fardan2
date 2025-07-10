@@ -12,7 +12,7 @@ $status_surat = "SELESAI";
 
 // Nama tabel dan kolom ID-nya (manual, bukan otomatis)
 $nama_tabel = basename(__DIR__); // contoh: surat_keterangan_beda_identitas_kis
-$kolom_id = 'id_skbis'; // Ditetapkan manual agar tidak error
+$kolom_id = 'id_skbik'; // Ditetapkan manual agar tidak error
 
 // Update tanggal surat saat ini
 mysqli_query($connect, "UPDATE $nama_tabel SET tanggal_surat = NOW() WHERE $kolom_id = $id");

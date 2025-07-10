@@ -2,13 +2,13 @@
 	include ('../../permintaan_surat/konfirmasi/part/akses.php');
 	include ('../../../../config/koneksi.php');
 
-	$id = $_GET['id']; // id_skm dari surat
+	$id = $_GET['id']; // id_skms dari surat
 
 	$qCek = mysqli_query($connect,"
 		SELECT arsip_surat.*, surat_keterangan_mahar_sunrang.*, surat_keterangan_mahar_sunrang.id_arsip 
 		FROM surat_keterangan_mahar_sunrang 
 		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_mahar_sunrang.id_arsip 
-		WHERE surat_keterangan_mahar_sunrang.id_skm = '$id'
+		WHERE surat_keterangan_mahar_sunrang.id_skms = '$id'
 	");
 
 	while($row = mysqli_fetch_array($qCek)){
@@ -442,7 +442,7 @@
 				FROM penduduk 
 				LEFT JOIN surat_keterangan_mahar_sunrang 
 					ON surat_keterangan_mahar_sunrang.nik = penduduk.nik 
-				WHERE surat_keterangan_mahar_sunrang.id_skm = '$id'
+				WHERE surat_keterangan_mahar_sunrang.id_skms = '$id'
 			");
 
 			if (mysqli_num_rows($qCek) > 0) {

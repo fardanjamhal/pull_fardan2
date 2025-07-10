@@ -414,7 +414,8 @@
         table#data-table td:nth-child(1),  /* No */
         table#data-table td:nth-child(2),  /* NIK */
         table#data-table td:nth-child(5),  /* Jenis Kelamin */
-        table#data-table td:nth-child(6) { /* Agama */
+        table#data-table td:nth-child(6),
+        table#data-table td:nth-child(8) { /* Agama */
           text-align: center;
         }
 

@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_mahar_sunrang.* FROM penduduk LEFT JOIN surat_keterangan_mahar_sunrang ON surat_keterangan_mahar_sunrang.nik = penduduk.nik WHERE surat_keterangan_mahar_sunrang.id_skm='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_mahar_sunrang.* FROM penduduk LEFT JOIN surat_keterangan_mahar_sunrang ON surat_keterangan_mahar_sunrang.nik = penduduk.nik WHERE surat_keterangan_mahar_sunrang.id_skms='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -282,7 +282,7 @@
                       <label class="col-sm-3 control-label"></label>
                       <div class="col-sm-9">
                        <!-- Untuk Bootstrap 4 -->
-                        <button type="button" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#modalFormulir_<?php echo $row['id_skm']; ?>">
+                        <button type="button" class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#modalFormulir_<?php echo $row['id_skms']; ?>">
                         Lihat Data Formulir
                       </button>
 
@@ -319,7 +319,7 @@
                     </div>
                 
                     <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_skm']; ?>" class="form-control">
+                      <input type="hidden" name="id" value="<?php echo $row['id_skms']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -341,7 +341,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="modalFormulir_<?php echo $row['id_skm']; ?>" tabindex="-1">
+<div class="modal fade" id="modalFormulir_<?php echo $row['id_skms']; ?>" tabindex="-1">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -351,9 +351,9 @@
 
       <div class="modal-body">
         <?php
-          // Cek lagi id_skm ini
-          $id_skm = $row['id_skm'];
-          $query = mysqli_query($connect, "SELECT * FROM surat_keterangan_mahar_sunrang WHERE id_skm = '$id_skm'");
+          // Cek lagi id_skms ini
+          $id_skms = $row['id_skms'];
+          $query = mysqli_query($connect, "SELECT * FROM surat_keterangan_mahar_sunrang WHERE id_skms = '$id_skms'");
           $data = mysqli_fetch_assoc($query);
 
           if ($data) {
