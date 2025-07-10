@@ -5,39 +5,34 @@ include('../part/header.php');
 include('../../../config/koneksi.php'); // Sesuaikan path ini jika perlu
 
 // Daftar jenis surat beserta ID unik dan nama foldernya
-$jenisSuratList = [
-    'surat_keterangan' => ['id' => 'id_sk', 'folder' => 'surat_keterangan'],
-    'surat_keterangan_berkelakuan_baik' => ['id' => 'id_skbb', 'folder' => 'surat_keterangan_berkelakuan_baik'],
-    'surat_keterangan_domisili' => ['id' => 'id_skd', 'folder' => 'surat_keterangan_domisili'],
-    'surat_keterangan_kepemilikan_kendaraan_bermotor' => ['id' => 'id_skkkb', 'folder' => 'surat_keterangan_kepemilikan_kendaraan_bermotor'],
-    'surat_keterangan_perhiasan' => ['id' => 'id_skp', 'folder' => 'surat_keterangan_perhiasan'],
-    'surat_keterangan_usaha' => ['id' => 'id_sku', 'folder' => 'surat_keterangan_usaha'],
-    'surat_lapor_hajatan' => ['id' => 'id_slh', 'folder' => 'surat_lapor_hajatan'],
-    'surat_pengantar_skck' => ['id' => 'id_sps', 'folder' => 'surat_pengantar_skck'],
-    'surat_keterangan_tidak_mampu' => ['id' => 'id_sktm', 'folder' => 'surat_keterangan_tidak_mampu'],
-    'formulir_pengantar_nikah' => ['id' => 'id_fpn', 'folder' => 'formulir_pengantar_nikah'],
-    'formulir_permohonan_kehendak_nikah' => ['id' => 'id_fpkn', 'folder' => 'formulir_permohonan_kehendak_nikah'],
-    'formulir_persetujuan_calon_pengantin' => ['id' => 'id_fpcp', 'folder' => 'formulir_persetujuan_calon_pengantin'],
-    'formulir_persetujuan_calon_pengantin_istri' => ['id' => 'id_fpcpi', 'folder' => 'formulir_persetujuan_calon_pengantin_istri'],
-    'formulir_surat_izin_orang_tua' => ['id' => 'id_fsiot', 'folder' => 'formulir_surat_izin_orang_tua'],
-    'surat_keterangan_kematian' => ['id' => 'id_skk', 'folder' => 'surat_keterangan_kematian'],
-    'surat_keterangan_domisili_usaha' => ['id' => 'id_skdu', 'folder' => 'surat_keterangan_domisili_usaha'],
-    'surat_keterangan_pengantar' => ['id' => 'id_skp', 'folder' => 'surat_keterangan_pengantar'],
-    'surat_keterangan_beda_identitas' => ['id' => 'id_skbi', 'folder' => 'surat_keterangan_beda_identitas'],
-    'surat_keterangan_beda_identitas_kis' => ['id' => 'id_skbik', 'folder' => 'surat_keterangan_beda_identitas_kis'],
-    'surat_keterangan_penghasilan_orang_tua' => ['id' => 'id_skpot', 'folder' => 'surat_keterangan_penghasilan_orang_tua'],
-    'surat_pengantar_hewan' => ['id' => 'id_sph', 'folder' => 'surat_pengantar_hewan'],
-    'surat_keterangan_kematian_dan_penguburan' => ['id' => 'id_skkdp', 'folder' => 'surat_keterangan_kematian_dan_penguburan'],
-    'surat_keterangan_pindah_penduduk' => ['id' => 'id_skpp', 'folder' => 'surat_keterangan_pindah_penduduk'],
-    'surat_keterangan_pengantar_rujuk_atau_cerai' => ['id' => 'id_skprac', 'folder' => 'surat_keterangan_pengantar_rujuk_atau_cerai'],
-    'surat_keterangan_wali_hakim' => ['id' => 'id_skwh', 'folder' => 'surat_keterangan_wali_hakim'],
-    'surat_keterangan_mahar_sunrang' => ['id' => 'id_skms', 'folder' => 'surat_keterangan_mahar_sunrang'],
-    'surat_keterangan_jual_beli' => ['id' => 'id_skjb', 'folder' => 'surat_keterangan_jual_beli'],
-    'surat_keterangan_belum_terbit_sppt_pbb' => ['id' => 'id_skbtsp', 'folder' => 'surat_keterangan_belum_terbit_sppt_pbb'],
-    'surat_perintah_perjalanan_dinas' => ['id' => 'id_sppd', 'folder' => 'surat_perintah_perjalanan_dinas'],
-    'surat_tugas' => ['id' => 'id_st', 'folder' => 'surat_tugas'],
-    'surat_keterangan_hibah' => ['id' => 'id_skh', 'folder' => 'surat_keterangan_hibah']
-];
+$jenisSuratList = [];
+
+// Ambil semua nama tabel dari database
+$query = mysqli_query($connect, "SHOW TABLES");
+while ($row = mysqli_fetch_row($query)) {
+    $namaTabel = $row[0];
+
+    // Cek jika nama tabel diawali "surat_" atau "formulir_"
+    if (preg_match('/^(surat|formulir)_/', $namaTabel)) {
+        $kata = explode('_', $namaTabel);
+        $prefix = $kata[0]; // surat / formulir
+        $singkatan = '';
+
+        // Ambil huruf awal dari setiap kata setelah kata pertama
+        for ($i = 1; $i < count($kata); $i++) {
+            $singkatan .= substr($kata[$i], 0, 1);
+        }
+
+        // Bentuk ID, contoh: id_skbb, id_fpn
+        $id = 'id_' . strtolower(substr($prefix, 0, 1)) . $singkatan;
+
+        // Masukkan ke array
+        $jenisSuratList[$namaTabel] = [
+            'id' => $id,
+            'folder' => $namaTabel
+        ];
+    }
+}
 
 // Mengurutkan jenis surat berdasarkan nama yang lebih mudah dibaca (opsional, untuk tampilan dropdown)
 uksort($jenisSuratList, function($a, $b) {
