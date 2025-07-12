@@ -159,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 		.toggle-password {
 			position: absolute;
 			right: 10px;
-			top: 25%;
+			top: 75%;
 			transform: translateY(-50%);
 			cursor: pointer;
 			color: #999;
