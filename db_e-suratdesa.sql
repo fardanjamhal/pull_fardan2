@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2025 at 07:08 AM
+-- Generation Time: Jul 12, 2025 at 05:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -579,7 +579,17 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 (598, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-09 20:53:41'),
 (599, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-09 20:54:22'),
 (600, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-09 23:48:20'),
-(601, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-10 12:49:02');
+(601, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-10 12:49:02'),
+(602, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-10 13:31:45'),
+(603, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-10 13:31:54'),
+(604, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-10 16:53:07'),
+(605, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-10 16:53:26'),
+(606, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 22:48:09'),
+(607, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 22:57:45'),
+(608, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:17:14'),
+(609, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:29:02'),
+(610, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:42:37'),
+(611, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:43:15');
 
 -- --------------------------------------------------------
 
@@ -871,16 +881,18 @@ CREATE TABLE `login` (
   `username` varchar(15) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(350) NOT NULL,
-  `level` varchar(10) NOT NULL
+  `level` varchar(10) NOT NULL,
+  `reset_token` varchar(250) DEFAULT NULL,
+  `reset_expired` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`) VALUES
-(1, 'Administrator', 'admin', 'admin@e-suratdesa.com', '$2y$10$chqOaXjjQ7DIHrGSdRMBNO2Qef7iKPqLA3tgxFA1wEzeuMKaRnzg.', 'admin'),
-(2, 'Kepala Desa', 'kades', 'kepaladesa@desa.id', '$2y$10$pvIAxlOZ8Uu.Y0hpT4AZhO.8hIDTwxO.6mNS874O2b1wrdj1YsCGe', 'kades');
+INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`, `reset_token`, `reset_expired`) VALUES
+(1, 'Administrator', 'admin', 'mdtmakassar@gmail.com', '$2y$10$.Vvst3DENzU9PittGkxwrurr6UIHgZ7T6KSwnlBoSr/exaHHxOpne', 'admin', '84bf66a0d78ffff19b7f8adc89092be9312726c4f6f1488564edab3b8196798b', '2025-07-12 14:09:36'),
+(2, 'Kepala Desa', 'kades', 'kepaladesa@desa.id', '$2y$10$pvIAxlOZ8Uu.Y0hpT4AZhO.8hIDTwxO.6mNS874O2b1wrdj1YsCGe', 'kades', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -963,7 +975,10 @@ INSERT INTO `nomor_surat` (`id`, `kode_surat`, `kode_desa`, `bulan`, `tahun`, `n
 (67, 'SKH', 'MANTAP', '7', '2025', 52, '052/SKH/MANTAP/VII/2025'),
 (68, '100', '099', '7', '2025', 37, '100/037/099/VII/2025'),
 (69, '100', '099', '7', '2025', 38, '100/038/099/VII/2025'),
-(70, 'SKBIK', '099', '7', '2025', 48, 'SKBIK/048/099/VII/2025');
+(72, 'SKBIK', '099', '7', '2025', 48, 'SKBIK/048/099/VII/2025'),
+(76, 'SRPBJT', '099', '7', '2025', 1, 'SRPBJT/001/099/VII/2025'),
+(77, 'SRPBJT', '099', '7', '2025', 2, 'SRPBJT/002/099/VII/2025'),
+(78, 'SRPBJT', '099', '7', '2025', 3, 'SRPBJT/003/099/VII/2025');
 
 -- --------------------------------------------------------
 
@@ -1504,7 +1519,7 @@ INSERT INTO `surat_keterangan_beda_identitas_kis` (`id_skbik`, `jenis_surat`, `n
 (39, 'Surat Keterangan Beda Identitas KIS', 'SKBIK/001/MANTAP/VII/2025', '7304080506770003', 458, 'Voluptate minima aut', 'Quidem ipsum nisi e', 'Qui ex velit quia mi', 'Quis fugiat corrupti', 'Et aut ex qui dolore', '0000-00-00', 'Ut quia excepturi pr', '2025-07-01 23:43:17', 2, 'SELESAI', 1),
 (40, 'Surat Keterangan Beda Identitas KIS', 'SKBIK/002/MANTAP/VII/2025', '7304053112900229', 485, 'r', 're', 'df', 'etr', 'dsf', '2025-07-02', 'rer', '2025-07-02 00:02:43', 2, 'SELESAI', 1),
 (42, 'Surat Keterangan Beda Identitas KIS', '047/SKBIK/MANTAP/VII/2025', '7304053112900229', 583, 'MELAMAR KERJA', '12256633225858744', '4141', '7322222222222222', 'df', '2025-07-07', 'DFDD', '2025-07-07 14:20:43', 2, 'SELESAI', 1),
-(43, 'Surat Keterangan Beda Identitas KIS', 'SKBIK/048/099/VII/2025', '7304080811110001', 601, 'sdf', 'df', 'df', '2212', 'dfs', '2025-07-10', 'df', '2025-07-10 12:54:15', 2, 'SELESAI', 1);
+(44, 'Surat Keterangan Beda Identitas KIS', 'SKBIK/048/099/VII/2025', '7304053112900229', 602, 'sdf', '123', 'dfs', '2324', 'fdsdf', '2025-07-10', 'fd', '2025-07-10 13:32:05', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1607,7 +1622,6 @@ INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `n
 (160, 'Surat Keterangan Domisili', '033/SKD/MANTAP/VII/2025', '7304053112900229', 559, '2025-07-04 17:10:52', 2, 'SELESAI', 1),
 (161, 'Surat Keterangan Domisili', '036/SKD/MANTAP/VII/2025', '7304080107740003', 569, '2025-07-06 20:31:32', 2, 'SELESAI', 1),
 (162, 'Surat Keterangan Domisili', '100/037/099/VII/2025', '7304053112900229', 597, '2025-07-09 20:53:18', 2, 'SELESAI', 1),
-(163, 'Surat Keterangan Domisili', NULL, '7304053112900229', 598, '2025-07-09 20:53:41', NULL, 'PENDING', 1),
 (164, 'Surat Keterangan Domisili', '100/038/099/VII/2025', '7304053112900229', 600, '2025-07-09 23:48:31', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
@@ -1636,8 +1650,7 @@ CREATE TABLE `surat_keterangan_domisili_usaha` (
 
 INSERT INTO `surat_keterangan_domisili_usaha` (`id_skdu`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `jenis_usaha`, `alamat_usaha`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (54, 'Surat Keterangan Domisili Usaha', '04/SKDU/KODE-DESA/VI/2025', '7304080811110001', 172, 'Lorem in est unde q', 'Animi omnis elit q', '2025-06-21 21:43:11', 2, 'SELESAI', 1),
-(55, 'Surat Keterangan Domisili Usaha', 'SKDU/008/MANTAP/VI/2025', '7304080506770003', 417, 'Iusto mollitia delen', 'Nihil ducimus dolor', '2025-06-29 19:25:40', 2, 'SELESAI', 1),
-(77, 'Surat Keterangan Domisili Usaha', NULL, '7304053112900229', 599, 'jenis', 'JL. KUMALA BALANG BERU', '2025-07-09 20:54:22', NULL, 'PENDING', 1);
+(55, 'Surat Keterangan Domisili Usaha', 'SKDU/008/MANTAP/VI/2025', '7304080506770003', 417, 'Iusto mollitia delen', 'Nihil ducimus dolor', '2025-06-29 19:25:40', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -2303,6 +2316,43 @@ INSERT INTO `surat_perintah_perjalanan_dinas` (`id_sppd`, `jenis_surat`, `no_sur
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `surat_rekomendasi_pembelian_bbm_jenis_tertentu`
+--
+
+CREATE TABLE `surat_rekomendasi_pembelian_bbm_jenis_tertentu` (
+  `id_srpbjt` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `isi_surat` text NOT NULL,
+  `keperluan_bbm` varchar(255) NOT NULL,
+  `jenis_usaha` varchar(100) NOT NULL,
+  `alokasi_volume` varchar(100) NOT NULL,
+  `sejumlah` varchar(100) NOT NULL,
+  `tempat_pengambilan` varchar(150) NOT NULL,
+  `nomor_lembaga_penyalur` varchar(50) NOT NULL,
+  `lokasi` varchar(150) NOT NULL,
+  `tabel_bbm` text NOT NULL,
+  `masa_berlaku` date NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_rekomendasi_pembelian_bbm_jenis_tertentu`
+--
+
+INSERT INTO `surat_rekomendasi_pembelian_bbm_jenis_tertentu` (`id_srpbjt`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `isi_surat`, `keperluan_bbm`, `jenis_usaha`, `alokasi_volume`, `sejumlah`, `tempat_pengambilan`, `nomor_lembaga_penyalur`, `lokasi`, `tabel_bbm`, `masa_berlaku`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(2, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/001/099/VII/2025', '7304053112900229', 609, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>No</th>\r\n<th>Jenis Alat</th>\r\n<th>Jumlah Alat</th>\r\n<th>Fungsi Alat</th>\r\n<th>BBM Jenis Tertentu</th>\r\n<th>Kebutuhan BBM Jenis Tertentu</th>\r\n<th>Jam/Hari Operasi</th>\r\n<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>1</td>\r\n<td>Mesin Pompa Air dan Hand Traktor</td>\r\n<td>2 Unit</td>\r\n<td>Menyalakan Mesin</td>\r\n<td>Pertalite / Solar</td>\r\n<td>70 Liter</td>\r\n<td>Setiap hari</td>\r\n<td>2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td><strong>70 Liter</strong></td>\r\n<td colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-11', '2025-07-12 23:29:10', 2, 'SELESAI', 1),
+(3, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/002/099/VII/2025', '7304053112900229', 610, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>No</th>\r\n<th>Jenis Alat</th>\r\n<th>Jumlah Alat</th>\r\n<th>Fungsi Alat</th>\r\n<th>BBM Jenis Tertentu</th>\r\n<th>Kebutuhan BBM Jenis Tertentu</th>\r\n<th>Jam/Hari Operasi</th>\r\n<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>1</td>\r\n<td>Mesin Pompa Air dan Hand Traktor</td>\r\n<td>2 Unit</td>\r\n<td>Menyalakan Mesin</td>\r\n<td>Pertalite / Solar</td>\r\n<td>70 Liter</td>\r\n<td>Setiap hari</td>\r\n<td>2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td><strong>70 Liter</strong></td>\r\n<td colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-11', '2025-07-12 23:42:46', 2, 'SELESAI', 1),
+(4, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/003/099/VII/2025', '7304053112900229', 611, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>No</th>\r\n<th>Jenis Alat</th>\r\n<th>Jumlah Alat</th>\r\n<th>Fungsi Alat</th>\r\n<th>BBM Jenis Tertentu</th>\r\n<th>Kebutuhan BBM Jenis Tertentu</th>\r\n<th>Jam/Hari Operasi</th>\r\n<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>1</td>\r\n<td>Mesin Pompa Air dan Hand Traktor</td>\r\n<td>2 Unit</td>\r\n<td>Menyalakan Mesin</td>\r\n<td>Pertalite / Solar</td>\r\n<td>70 Liter</td>\r\n<td>Setiap hari</td>\r\n<td>2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td><strong>70 Liter</strong></td>\r\n<td colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-07-13', '2025-07-12 23:43:25', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `surat_tugas`
 --
 
@@ -2681,6 +2731,16 @@ ALTER TABLE `surat_perintah_perjalanan_dinas`
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
 
 --
+-- Indexes for table `surat_rekomendasi_pembelian_bbm_jenis_tertentu`
+--
+ALTER TABLE `surat_rekomendasi_pembelian_bbm_jenis_tertentu`
+  ADD PRIMARY KEY (`id_srpbjt`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
 -- Indexes for table `surat_tugas`
 --
 ALTER TABLE `surat_tugas`
@@ -2698,7 +2758,7 @@ ALTER TABLE `surat_tugas`
 -- AUTO_INCREMENT for table `arsip_surat`
 --
 ALTER TABLE `arsip_surat`
-  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=602;
+  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=612;
 
 --
 -- AUTO_INCREMENT for table `dusun`
@@ -2746,7 +2806,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `nomor_surat`
 --
 ALTER TABLE `nomor_surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `pejabat_desa`
@@ -2788,7 +2848,7 @@ ALTER TABLE `surat_keterangan_beda_identitas`
 -- AUTO_INCREMENT for table `surat_keterangan_beda_identitas_kis`
 --
 ALTER TABLE `surat_keterangan_beda_identitas_kis`
-  MODIFY `id_skbik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_skbik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_belum_terbit_sppt_pbb`
@@ -2806,7 +2866,7 @@ ALTER TABLE `surat_keterangan_berkelakuan_baik`
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili_usaha`
@@ -2818,7 +2878,7 @@ ALTER TABLE `surat_keterangan_domisili_usaha`
 -- AUTO_INCREMENT for table `surat_keterangan_hibah`
 --
 ALTER TABLE `surat_keterangan_hibah`
-  MODIFY `id_skh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_skh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_jual_beli`
@@ -2921,6 +2981,12 @@ ALTER TABLE `surat_pengantar_skck`
 --
 ALTER TABLE `surat_perintah_perjalanan_dinas`
   MODIFY `id_sppd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `surat_rekomendasi_pembelian_bbm_jenis_tertentu`
+--
+ALTER TABLE `surat_rekomendasi_pembelian_bbm_jenis_tertentu`
+  MODIFY `id_srpbjt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `surat_tugas`
