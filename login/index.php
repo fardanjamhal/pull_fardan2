@@ -142,6 +142,25 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 			}
 			?>
 
+			<?php if (isset($_GET['msg'])): ?>
+			<div class="alert alert-info text-center" style="max-width: 400px; margin: 20px auto;">
+				<?php
+				switch ($_GET['msg']) {
+					case 'reset_success':
+					echo "✅ Password berhasil diubah. Silakan login.";
+					break;
+					case 'expired':
+					echo "⚠️ Token tidak valid atau kadaluarsa.";
+					break;
+					case 'invalid':
+					default:
+					echo "❌ Permintaan tidak valid.";
+					break;
+				}
+				?>
+			</div>
+			<?php endif; ?>
+
 		<div class="card mx-auto">
 			<div class="card-header">
 				<a href="../">
@@ -177,7 +196,7 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 
 				<!-- Link Forgot Password -->
 				<div class="text-right">
-				<a href="#" data-toggle="modal" data-target="#modalForgotPassword">Lupa Password?</a>
+				<a href="#" data-toggle="modal" data-target="#modalForgotPassword" style="color: #555;">Lupa Password?</a>
 				</div>
 
 			</div>
@@ -205,27 +224,71 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 
 
 <!-- Modal Forgot Password -->
+<!-- Modal -->
 <div class="modal fade" id="modalForgotPassword" tabindex="-1" role="dialog" aria-labelledby="modalForgotPasswordLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form method="post" action="reset-password.php" class="modal-content"> <!-- pastikan file ini proses reset -->
-      <div class="modal-header bg-primary text-white">
+    <form method="post" action="reset-password.php" class="modal-content">
+      <!-- Header -->
+      <div class="modal-header custom-header">
         <h5 class="modal-title" id="modalForgotPasswordLabel">Reset Password</h5>
-        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Tutup">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      
+      <!-- Body -->
       <div class="modal-body">
-        <p class="mb-3">Masukkan email Anda, kami akan mengirimkan link reset password.</p>
+        <p class="mb-3 text-secondary">Masukkan email Anda, kami akan mengirimkan link reset password.</p>
         <div class="form-group">
           <input type="email" name="email" class="form-control" placeholder="Alamat Email" required>
         </div>
       </div>
+
+      <!-- Footer -->
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary btn-block">Kirim Link Reset</button>
+        <button type="submit" class="btn custom-btn btn-block">Kirim Link Reset</button>
       </div>
     </form>
   </div>
 </div>
+
+<!-- Kustom CSS -->
+<style>
+  /* Teks link lupa password */
+  .text-muted {
+    color: #666 !important;
+    font-size: 0.9rem;
+  }
+
+  /* Header modal dengan warna netral */
+  .custom-header {
+    background-color: #f1f1f1; /* Abu terang */
+    color: #333;               /* Abu gelap */
+    border-bottom: 1px solid #ddd;
+  }
+
+  .custom-header .close {
+    color: #555;
+    opacity: 1;
+  }
+
+  .custom-header .close:hover {
+    color: #000;
+  }
+
+  /* Tombol submit dengan tema biru gelap */
+  .custom-btn {
+    background-color: #1d3557;
+    color: white;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-btn:hover {
+    background-color: #457b9d;
+  }
+</style>
 
 
 <script>
