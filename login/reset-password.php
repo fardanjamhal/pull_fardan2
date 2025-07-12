@@ -189,9 +189,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 
 <div class="wrapper">
   <div class="card">
-    <div class="card-header">
-      <h3>Reset Password</h3>
-    </div>
     <div class="card-body p-4">
       <form method="POST" action="reset-password-process.php" id="resetForm">
         <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
@@ -202,7 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-lock"></i></span>
             </div>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password Baru" required minlength="6">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password Baru" required minlength="5">
             <div class="input-group-append">
               <span class="input-group-text" onclick="toggleVisibility('password', 'eyeIcon1')" style="cursor: pointer;">
                 <i class="fas fa-eye" id="eyeIcon1"></i>
