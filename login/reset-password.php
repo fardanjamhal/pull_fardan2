@@ -202,8 +202,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
             </div>
             <input type="password" class="form-control" name="password" id="password" placeholder="Password Baru" required minlength="6">
             <div class="input-group-append">
-              <span class="input-group-text" onclick="togglePassword()" style="cursor: pointer;">
-                <i class="fas fa-eye" id="eyeIcon"></i>
+              <span class="input-group-text" onclick="toggleVisibility('password', 'eyeIcon1')" style="cursor: pointer;">
+                <i class="fas fa-eye" id="eyeIcon1"></i>
               </span>
             </div>
           </div>
@@ -217,15 +217,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
               <span class="input-group-text"><i class="fas fa-lock"></i></span>
             </div>
             <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Konfirmasi Password" required>
+            <div class="input-group-append">
+              <span class="input-group-text" onclick="toggleVisibility('confirm_password', 'eyeIcon2')" style="cursor: pointer;">
+                <i class="fas fa-eye" id="eyeIcon2"></i>
+              </span>
+            </div>
           </div>
           <div class="invalid-feedback">Konfirmasi password tidak cocok</div>
         </div>
 
+
         <button type="submit" class="btn login_btn btn-block">Simpan Password</button>
       </form>
-    </div>
-    <div class="card-footer text-center">
-      &copy; <span id="year"></span> Desa Lebang Manai Utara
     </div>
   </div>
 </div>
