@@ -2,7 +2,7 @@
 session_start();
 include('../../config/koneksi.php');
 
-// Tampilkan error saat development (hapus ini di production)
+// Tampilkan error saat development (hapus di produksi)
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -22,16 +22,17 @@ if ($id_login < 1) {
 }
 
 // Ambil input
-$username = trim($_POST['username']);
-$password_plain = $_POST['password'] ?? '';
-$confirm_password = $_POST['confirm_password'] ?? '';
+$username          = trim($_POST['username']);
+$password_plain    = $_POST['password'] ?? '';
+$confirm_password  = $_POST['confirm_password'] ?? '';
+$email             = trim($_POST['email'] ?? '');
 
-// Simpan input sementara ke sesi (untuk form repopulate jika error)
+// Simpan input ke sesi untuk repopulasi jika gagal
 $_SESSION['old_username'] = $username;
 $_SESSION['old_password'] = $password_plain;
-$_SESSION['old_confirm'] = $confirm_password;
+$_SESSION['old_confirm']  = $confirm_password;
 
-// Validasi panjang password
+// Validasi password
 if (strlen($password_plain) < 5) {
     $_SESSION['error'] = "Password minimal 5 karakter.";
     header("Location: password.php?id=$id_login");
@@ -45,11 +46,18 @@ if ($password_plain !== $confirm_password) {
     exit;
 }
 
-// Ambil data lama dari database (tanpa get_result())
-$stmt = $connect->prepare("SELECT username, password FROM login WHERE id = ?");
+// Validasi format email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['error'] = "Format email tidak valid.";
+    header("Location: password.php?id=$id_login");
+    exit;
+}
+
+// Ambil data lama
+$stmt = $connect->prepare("SELECT username, password, email FROM login WHERE id = ?");
 $stmt->bind_param("i", $id_login);
 $stmt->execute();
-$stmt->bind_result($old_username, $old_password);
+$stmt->bind_result($old_username, $old_password, $old_email);
 $found = $stmt->fetch();
 $stmt->close();
 
@@ -59,8 +67,12 @@ if (!$found) {
     exit;
 }
 
-// Cek apakah username sama dan password tidak berubah
-if ($old_username === $username && password_verify($password_plain, $old_password)) {
+// Cek apakah ada perubahan data
+if (
+    $old_username === $username &&
+    $old_email === $email &&
+    password_verify($password_plain, $old_password)
+) {
     $_SESSION['error'] = "Tidak ada perubahan yang dilakukan.";
     header("Location: password.php?id=$id_login");
     exit;
@@ -69,15 +81,15 @@ if ($old_username === $username && password_verify($password_plain, $old_passwor
 // Hash password baru
 $hashed_password = password_hash($password_plain, PASSWORD_DEFAULT);
 
-// Update ke database
-$stmt_update = $connect->prepare("UPDATE login SET username = ?, password = ? WHERE id = ?");
-$stmt_update->bind_param("ssi", $username, $hashed_password, $id_login);
+// Update data
+$stmt_update = $connect->prepare("UPDATE login SET username = ?, password = ?, email = ? WHERE id = ?");
+$stmt_update->bind_param("sssi", $username, $hashed_password, $email, $id_login);
 
 if ($stmt_update->execute()) {
     $stmt_update->close();
     $connect->close();
 
-    // Hapus semua session & logout otomatis
+    // Hapus semua session & logout
     session_unset();
     session_destroy();
 

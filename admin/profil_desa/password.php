@@ -49,12 +49,6 @@ if (empty($_SESSION['csrf_token'])) {
     }
     ?>
 
-    <div class="tombol-hp">
-      <a href="../dashboard/">
-        <div>Kembali Ke Menu</div>
-      </a>
-    </div>
-
     <div style="max-width: 500px; margin: 40px auto; padding: 30px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); background-color: #f9f9f9; font-family: sans-serif;">
       <h2 style="text-align: center; margin-bottom: 30px;">Data Login</h2>
 
@@ -63,6 +57,10 @@ if (empty($_SESSION['csrf_token'])) {
           Password berhasil diubah. Silakan login kembali.
         </div>
       <?php endif; ?>
+
+
+      <!-- Tambahkan Font Awesome (ikon) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
       <form action="proses_ganti_akun.php" method="post" autocomplete="off">
         <input type="hidden" name="id_login" value="<?= htmlspecialchars($id_login) ?>">
@@ -75,9 +73,26 @@ if (empty($_SESSION['csrf_token'])) {
           value="<?= isset($_SESSION['old_username']) ? htmlspecialchars($_SESSION['old_username']) : htmlspecialchars($data['username']); ?>"
           style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
 
-        <!-- Password Baru -->
+        <!-- Email (readonly + tombol edit) -->
+        <label for="email">Email:</label>
+        <div style="position: relative; margin-bottom: 20px;">
+          <input type="email" id="email" name="email" readonly
+            value="<?= htmlspecialchars($data['email']) ?>"
+            style="width: 100%; padding: 10px 40px 10px 10px;
+                  border: 1px solid #ccc; border-radius: 5px;
+                  background-color: #f4f1ee;  /* coklat muda */
+                  transition: border 0.3s, background-color 0.3s;">
+                  
+          <button type="button" onclick="enableEmailEdit(this)" title="Edit Email" style="
+              position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+              background: none; border: none; font-size: 18px; cursor: pointer;">
+            <i class="fa fa-edit"></i>
+          </button>
+        </div>
+
+        <!-- Password -->
         <label for="passwordInput">Password Baru:</label>
-        <div style="position: relative; width: 100%; margin-bottom: 20px;">
+        <div style="position: relative; margin-bottom: 20px;">
           <input type="password" name="password" id="passwordInput" required minlength="5"
             placeholder="Password minimal 5 karakter"
             value="<?= isset($_SESSION['old_password']) ? htmlspecialchars($_SESSION['old_password']) : ''; ?>"
@@ -91,7 +106,7 @@ if (empty($_SESSION['csrf_token'])) {
 
         <!-- Konfirmasi Password -->
         <label for="confirmPasswordInput">Konfirmasi Password:</label>
-        <div style="position: relative; width: 100%; margin-bottom: 20px;">
+        <div style="position: relative; margin-bottom: 20px;">
           <input type="password" name="confirm_password" id="confirmPasswordInput" required minlength="5"
             placeholder="Ulangi password baru"
             value="<?= isset($_SESSION['old_confirm']) ? htmlspecialchars($_SESSION['old_confirm']) : ''; ?>"
@@ -103,63 +118,55 @@ if (empty($_SESSION['csrf_token'])) {
           </button>
         </div>
 
+        <!-- Tombol Simpan -->
         <button type="submit" style="
             width: 100%; padding: 10px;
             background-color: #007bff; color: white;
             border: none; border-radius: 5px;
             font-size: 16px; cursor: pointer;">Simpan Perubahan</button>
       </form>
+
     </div>
   </section>
 </div>
 
+<!-- JS -->
 <script>
-function togglePassword(inputId, button) {
-  const input = document.getElementById(inputId);
-  const icon = button.querySelector('i');
-  if (input.type === "password") {
-    input.type = "text";
-    icon.classList.remove("fa-eye");
-    icon.classList.add("fa-eye-slash");
-  } else {
-    input.type = "password";
-    icon.classList.remove("fa-eye-slash");
-    icon.classList.add("fa-eye");
+  function togglePassword(id, el) {
+    const input = document.getElementById(id);
+    const icon = el.querySelector('i');
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    }
   }
-}
+
+  function enableEmailEdit(button) {
+    const input = document.getElementById("email");
+    const icon = button.querySelector("i");
+
+    if (input.hasAttribute("readonly")) {
+      input.removeAttribute("readonly");
+      input.style.border = "1px solid #007bff";
+      input.style.backgroundColor = "#ffffff"; // putih saat edit
+      icon.classList.remove("fa-edit");
+      icon.classList.add("fa-check");
+      input.focus();
+    } else {
+      input.setAttribute("readonly", true);
+      input.style.border = "1px solid #ccc";
+      input.style.backgroundColor = "#f4f1ee"; // kembali coklat muda
+      icon.classList.remove("fa-check");
+      icon.classList.add("fa-edit");
+    }
+  }
 </script>
 
-<style>
-.tombol-hp { display: none; }
-
-@media (max-width: 768px) {
-  .tombol-hp {
-    display: flex;
-    justify-content: flex-end;
-    padding: 16px;
-  }
-
-  .tombol-hp a {
-    text-decoration: none;
-  }
-
-  .tombol-hp div {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  .tombol-hp div:hover {
-    background-color: #0056b3;
-  }
-}
-</style>
 
 <?php 
 unset($_SESSION['old_username'], $_SESSION['old_password'], $_SESSION['old_confirm']);
