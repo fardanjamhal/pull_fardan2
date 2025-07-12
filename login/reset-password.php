@@ -15,9 +15,13 @@ require __DIR__ . '/../vendor/autoload.php';
 include '../config/koneksi.php';
 
 // Ambil nama desa dari tabel profil_desa
-$query = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
+$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
 $profil = mysqli_fetch_assoc($query);
+
+// Ambil nama desa dan favicon/logo
 $namaDesa = $profil['nama_desa'] ?? 'Desa';
+$favicon  = !empty($profil['logo_desa']) ? $profil['logo_desa'] : 'mini-logo.png';
+
 
 // === HANDLE POST: Kirim email reset password ===
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
@@ -195,6 +199,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 
 <div class="wrapper">
   <div class="card">
+    <div class="card-header">
+				<a href="../">
+					<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa">
+				</a>
+				<h3>Reset Password</h3>
+			</div>
     <div class="card-body p-4">
       <form method="POST" action="reset-password-process.php" id="resetForm">
         <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
@@ -232,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
         </div>
 
 
-        <button type="submit" class="btn login_btn btn-block">Perbaharui Password</button>
+        <button type="submit" class="btn login_btn btn-block">Simpan</button>
       </form>
     </div>
   </div>
