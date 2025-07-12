@@ -234,11 +234,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 </div>
 
 
-<!-- JS -->
 <script>
-  function togglePassword() {
-    const input = document.getElementById("password");
-    const icon = document.getElementById("eyeIcon");
+  // Fungsi untuk toggle password visibility (dua field sekaligus)
+  function togglePassword(fieldId, iconId) {
+    const input = document.getElementById(fieldId);
+    const icon = document.getElementById(iconId);
     if (input.type === "password") {
       input.type = "text";
       icon.classList.replace("fa-eye", "fa-eye-slash");
@@ -248,12 +248,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
     }
   }
 
-  // Validasi form
+  // Validasi form saat submit
   document.getElementById('resetForm').addEventListener('submit', function(e) {
     const password = document.getElementById('password');
     const confirm = document.getElementById('confirm_password');
     let valid = true;
 
+    // Validasi panjang password
     if (password.value.length < 6) {
       password.classList.add('is-invalid');
       valid = false;
@@ -261,6 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
       password.classList.remove('is-invalid');
     }
 
+    // Validasi kecocokan password
     if (password.value !== confirm.value) {
       confirm.classList.add('is-invalid');
       valid = false;
@@ -268,12 +270,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
       confirm.classList.remove('is-invalid');
     }
 
-    if (!valid) e.preventDefault();
+    if (!valid) e.preventDefault(); // Cegah submit jika validasi gagal
   });
 
-  // Tahun otomatis
+  // Tahun otomatis di footer
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 
 </body>
 </html>
