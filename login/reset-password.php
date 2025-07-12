@@ -7,8 +7,11 @@ error_reporting(E_ALL);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php'; // Pastikan path benar
+require __DIR__ . '/../vendor/autoload.php'; // Pastikan path benar
 include '../config/koneksi.php';
+
+echo file_exists(__DIR__ . '/../vendor/autoload.php') ? 'Autoload OK' : 'Autoload NOT found';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($connect, $_POST['email']);
@@ -38,12 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->isSMTP();
             $mail->Host = 'mail.dedig.id';
             $mail->SMTPAuth = true;
-            $mail->Username = '_mainaccount@dedig.id'; // Ganti sesuai
-            $mail->Password = 'C6H]Ct4c4Yu0c]';         // Ganti sesuai
+            $mail->Username = 'dontreply@dedig.id'; // Ganti sesuai
+            $mail->Password = 'Cx~E[v.KY0s)Ven3';         // Ganti sesuai
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
-            $mail->setFrom('account@dedig.id', 'Admin Aplikasi Surat');
+            $mail->setFrom('dontreply@dedig.id', 'Forgot Password');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
