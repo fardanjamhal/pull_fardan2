@@ -235,8 +235,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
       <h3 class="mt-2" style="font-size: 20px; font-weight: 600; color: #333;">Reset Password</h3>
     </div>
     <div class="card-body p-4">
+
       <form method="POST" action="reset-password-process.php" id="resetForm">
         <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
+
+        <!-- Username Baru -->
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username Baru" required minlength="3">
+          </div>
+          <div class="invalid-feedback">Username minimal 3 karakter</div>
+        </div>
 
         <!-- Password Baru -->
         <div class="form-group">
@@ -270,9 +282,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
           <div class="invalid-feedback">Konfirmasi password tidak cocok</div>
         </div>
 
-
         <button type="submit" class="btn login_btn btn-block">Simpan</button>
       </form>
+
     </div>
   </div>
 </div>
