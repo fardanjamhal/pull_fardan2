@@ -143,53 +143,6 @@ if (!$result) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
-        /* Gaya responsif untuk tombol di HP */
-        .tombol-hp {
-            display: none; /* Sembunyikan di desktop */
-        }
-
-        @media (max-width: 768px) {
-            .tombol-hp {
-                display: flex;
-                justify-content: flex-end;
-                padding: 16px;
-            }
-
-            .tombol-hp a {
-                text-decoration: none;
-            }
-
-            .tombol-hp div {
-                display: inline-block;
-                padding: 10px 20px;
-                background-color: #007BFF;
-                color: white;
-                border-radius: 4px;
-                cursor: pointer;
-                text-align: center;
-                font-weight: bold;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            }
-
-            .tombol-hp div:hover {
-                background-color: #0056b3;
-            }
-        }
-
-        /* --- PENYESUAIAN UNTUK MEMINDAHKAN MENU NAIK SEDIKIT --- */
-        /* Mengurangi padding di bagian atas seluruh konten sidebar */
-        .main-sidebar .sidebar {
-            padding-top: 0px; /* Coba 0px, 5px, atau 10px sampai Anda dapatkan yang pas */
-        }
-
-        /* Mengurangi margin di bagian atas panel pengguna (gambar dan nama) */
-        .main-sidebar .user-panel {
-            margin-top: 0px; /* Ini juga bisa disesuaikan, misalnya 0px jika ingin lebih rapat */
-        }
-        /* --- AKHIR PENYESUAIAN --- */
-    </style>
-
-    <style>
         /* Gunakan font Arial dan tinggi baris lebih kecil */
         table#data-table {
             font-family: Arial, sans-serif;
@@ -296,12 +249,7 @@ if (!$result) {
 
             <section class="content">
                 <div class="row">
-                    <div class="tombol-hp">
-                        <a href="../../dashboard/">
-                            <div>Kembali Ke Menu</div>
-                        </a>
-                    </div>
-
+                   
                     <div class="col-md-12">
                         <form method="GET" class="form-inline" style="margin-bottom: 20px;">
                             <div class="form-group">

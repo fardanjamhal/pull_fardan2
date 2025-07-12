@@ -180,47 +180,6 @@ ini_set('display_errors', 1); // Tampilkan error di browser
     <div class="row">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <style>
-        .tombol-hp {
-          display: none; /* Sembunyikan di desktop */
-        }
-
-        @media (max-width: 768px) {
-          .tombol-hp {
-            display: flex;
-            justify-content: flex-end;
-            padding: 16px;
-          }
-
-          .tombol-hp a {
-            text-decoration: none;
-          }
-
-          .tombol-hp div {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-          }
-
-          .tombol-hp div:hover {
-            background-color: #0056b3;
-          }
-        }
-      </style>
-
-      <div class="tombol-hp">
-        <a href="../dashboard/">
-          <div>
-            Kembali Ke Menu
-          </div>
-        </a>
-      </div>
 
       <div class="col-md-12">
         <div class="col-md-9">
