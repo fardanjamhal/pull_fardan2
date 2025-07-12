@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->isSMTP();
             $mail->Host = 'mail.dedig.id';                  // Bisa pakai smtp.domainkamu.com jika di hosting sendiri
             $mail->SMTPAuth = true;
-            $mail->Username = 'account@dedig.id';         // Ganti
+            $mail->Username = '_mainaccount@dedig.id';         // Ganti
             $mail->Password = 'C6H]Ct4c4Yu0c]';               // Ganti: gunakan App Password Gmail
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
