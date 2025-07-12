@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->isHTML(true);
             $mail->Subject = 'Reset Password Akun Anda';
             $mail->Body = '
-              <div style="font-family: Arial, sans-serif; background-color: #f4f6f8; padding: 0; width: 100%; margin: 0 auto; border-radius: 0; overflow: hidden; color: #333;">
+              <div style="font-family: Arial, sans-serif; background-color: #f4f6f8; padding: 0; max-width: 600px; margin: auto; border-radius: 8px; overflow: hidden; color: #333;">
                 
                 <!-- Header -->
                 <div style="background-color: #000; color: #fff; padding: 20px; text-align: center;">
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
                   </p>
 
                   <p style="font-size: 13px; color: #555;"><strong>Catatan:</strong> Link berlaku sampai <strong>' . htmlspecialchars($expire) . '</strong>.</p>
-                  <p style="font-size: 13px; color: #888;">Jika Anda tidak meminta pengaturan ulang, abaikan email ini.</p>
+                  <p style="font-size: 13px; color: #888;">Jika Anda tidak meminta pengaturan ulang, abaikan email ini. Tidak ada perubahan yang dilakukan.</p>
                 </div>
 
                 <!-- Footer -->
@@ -92,7 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
                 </div>
               </div>
             ';
-
 
             $mail->send();
             header("Location: index.php?reset=success");
