@@ -57,13 +57,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->Subject = 'Reset Password Akun Anda';
-            $mail->Body = "
-                <p>Halo,</p>
-                <p>Klik link di bawah ini untuk mengatur ulang password Anda:</p>
-                <p><a href='$resetLink'>$resetLink</a></p>
-                <p><small>Link berlaku sampai <strong>$expire</strong>.</small></p>
-                <br><p>Abaikan jika Anda tidak meminta reset.</p>
-            ";
+            $mail->Body = '
+                      <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px; border-radius: 10px; max-width: 600px; margin: auto; color: #333;">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                          <img src="https://yourdomain.com/assets/logo/' . htmlspecialchars($favicon) . '" alt="Logo Desa" style="max-height: 80px;"><br>
+                          <h2 style="margin-top: 10px; color: #2c3e50;">' . htmlspecialchars($namaDesa) . '</h2>
+                        </div>
+                        
+                        <p>Halo,</p>
+                        <p>Anda menerima email ini karena ada permintaan untuk mengatur ulang password Anda.</p>
+                        
+                        <div style="text-align: center; margin: 30px 0;">
+                          <a href="' . htmlspecialchars($resetLink) . '" style="background-color: #007bff; color: #fff; padding: 12px 20px; text-decoration: none; border-radius: 5px;">
+                            Reset Password
+                          </a>
+                        </div>
+
+                        <p>Atau salin link berikut ke browser Anda:</p>
+                        <p><a href="' . htmlspecialchars($resetLink) . '">' . htmlspecialchars($resetLink) . '</a></p>
+
+                        <p><small>Link ini berlaku hingga <strong>' . htmlspecialchars($expire) . '</strong>.</small></p>
+                        <p style="color: #888;">Jika Anda tidak merasa melakukan permintaan ini, abaikan saja email ini.</p>
+
+                        <hr style="margin: 40px 0;">
+                        <p style="text-align: center; font-size: 12px; color: #aaa;">&copy; ' . date('Y') . ' ' . htmlspecialchars($namaDesa) . '</p>
+                      </div>
+                    ';
+
 
             $mail->send();
             header("Location: index.php?reset=success");
@@ -199,10 +219,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 
 <div class="wrapper">
   <div class="card">
+    <a href="../">
+					<img src="../assets/img/<?php echo $profil['logo_desa']; ?>" alt="Logo Desa">
+			</a>
     <div class="card-header">
-				<a href="../">
-					<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa">
-				</a>
 				<h3>Reset Password</h3>
 			</div>
     <div class="card-body p-4">
