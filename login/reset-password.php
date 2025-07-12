@@ -57,35 +57,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->Subject = 'Reset Password Akun Anda';
-           $mail->Body = '
-            <div style="font-family: Arial, sans-serif; background-color: #f4f6f8; padding: 40px; border-radius: 12px; max-width: 600px; margin: auto; color: #333; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-              
-              <div style="text-align: center; margin-bottom: 25px;">
-                <img src="https://dedig.id/assets/img/' . htmlspecialchars($favicon) . '" alt="Logo Desa" style="max-height: 80px; margin-bottom: 10px;">
-                <h2 style="margin: 0; font-size: 22px; color: #2c3e50;">' . htmlspecialchars($namaDesa) . '</h2>
+            $mail->Body = '
+              <div style="font-family: Arial, sans-serif; background-color: #f4f6f8; padding: 0; max-width: 600px; margin: auto; border-radius: 8px; overflow: hidden; color: #333;">
+                
+                <!-- Header -->
+                <div style="background-color: #000; color: #fff; padding: 20px; text-align: center;">
+                  <img src="https://dedig.id/assets/img/' . htmlspecialchars($favicon) . '" alt="Logo Desa" style="max-height: 70px; margin-bottom: 10px;">
+                  <h2 style="margin: 0; font-size: 22px;">' . htmlspecialchars($namaDesa) . '</h2>
+                </div>
+
+                <!-- Body -->
+                <div style="padding: 30px;">
+                  <p style="font-size: 16px;">Halo,</p>
+                  <p style="font-size: 15px;">Kami menerima permintaan untuk mengatur ulang password Anda. Klik tombol di bawah ini untuk melanjutkan:</p>
+
+                  <div style="text-align: center; margin: 30px 0;">
+                    <a href="' . htmlspecialchars($resetLink) . '" style="background-color: #007bff; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                      Reset Password
+                    </a>
+                  </div>
+
+                  <p style="font-size: 14px;">Atau salin dan tempel link berikut di browser Anda:</p>
+                  <p style="word-break: break-all;">
+                    <a href="' . htmlspecialchars($resetLink) . '" style="color: #007bff;">' . htmlspecialchars($resetLink) . '</a>
+                  </p>
+
+                  <p style="font-size: 13px; color: #555;"><strong>Catatan:</strong> Link berlaku sampai <strong>' . htmlspecialchars($expire) . '</strong>.</p>
+                  <p style="font-size: 13px; color: #888;">Jika Anda tidak meminta pengaturan ulang, abaikan email ini. Tidak ada perubahan yang dilakukan.</p>
+                </div>
+
+                <!-- Footer -->
+                <div style="background-color: #000; color: #fff; text-align: center; padding: 15px; font-size: 12px;">
+                  &copy; ' . date('Y') . ' ' . htmlspecialchars($namaDesa) . '. All rights reserved.
+                </div>
               </div>
-
-              <p style="font-size: 16px;">Halo,</p>
-              <p style="font-size: 15px;">Kami menerima permintaan untuk mengatur ulang password Anda. Silakan klik tombol di bawah ini untuk melanjutkan proses reset:</p>
-              
-              <div style="text-align: center; margin: 30px 0;">
-                <a href="' . htmlspecialchars($resetLink) . '" style="background-color: #4a90e2; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">
-                  Reset Password
-                </a>
-              </div>
-
-              <p style="font-size: 14px;">Atau salin dan tempel link berikut ke browser Anda:</p>
-              <p style="word-break: break-all;"><a href="' . htmlspecialchars($resetLink) . '" style="color: #4a90e2;">' . htmlspecialchars($resetLink) . '</a></p>
-
-              <p style="font-size: 13px; color: #555;"><strong>Catatan:</strong> Link akan kedaluwarsa pada <strong>' . htmlspecialchars($expire) . '</strong>.</p>
-              
-              <p style="font-size: 13px; color: #888;">Jika Anda tidak merasa melakukan permintaan ini, abaikan saja email ini. Tidak ada perubahan yang dilakukan pada akun Anda.</p>
-
-              <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
-              <p style="text-align: center; font-size: 12px; color: #aaa;">&copy; ' . date('Y') . ' ' . htmlspecialchars($namaDesa) . '. Semua Hak Dilindungi.</p>
-            </div>
-          ';
-
+            ';
 
             $mail->send();
             header("Location: index.php?reset=success");
