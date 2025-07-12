@@ -233,10 +233,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
   </div>
 </div>
 
-
 <script>
-  // Fungsi untuk toggle password visibility (dua field sekaligus)
-  function togglePassword(fieldId, iconId) {
+  // Ganti nama fungsi agar cocok dengan HTML
+  function toggleVisibility(fieldId, iconId) {
     const input = document.getElementById(fieldId);
     const icon = document.getElementById(iconId);
     if (input.type === "password") {
@@ -254,7 +253,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
     const confirm = document.getElementById('confirm_password');
     let valid = true;
 
-    // Validasi panjang password
     if (password.value.length < 6) {
       password.classList.add('is-invalid');
       valid = false;
@@ -262,7 +260,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
       password.classList.remove('is-invalid');
     }
 
-    // Validasi kecocokan password
     if (password.value !== confirm.value) {
       confirm.classList.add('is-invalid');
       valid = false;
@@ -270,11 +267,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
       confirm.classList.remove('is-invalid');
     }
 
-    if (!valid) e.preventDefault(); // Cegah submit jika validasi gagal
+    if (!valid) e.preventDefault();
   });
 
-  // Tahun otomatis di footer
-  document.getElementById("year").textContent = new Date().getFullYear();
+  // Tahun otomatis di footer (jika digunakan)
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 </script>
 
 
