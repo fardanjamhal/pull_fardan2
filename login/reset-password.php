@@ -159,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 		.toggle-password {
 			position: absolute;
 			right: 10px;
-			top: 50%;
+			top: 25%;
 			transform: translateY(-50%);
 			cursor: pointer;
 			color: #999;
@@ -193,9 +193,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 
 				<button type="submit" class="btn login_btn">Simpan Password</button>
 			</form>
-		</div>
-		<div class="card-footer text-center">
-			&copy; <?= date('Y') ?> Desa Lebang Manai Utara
 		</div>
 	</div>
 </div>
