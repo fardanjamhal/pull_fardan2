@@ -110,56 +110,64 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 		<?php endif; ?>
 
 		<?php
-			if (isset($_GET['reset'])) {
-				$message = '';
-				$alertType = '';
+		// ALERT dari proses lupa password (via ?reset=...)
+		if (isset($_GET['reset'])) {
+			$message = '';
+			$alertType = '';
 
-				switch ($_GET['reset']) {
-					case 'success':
-						$message = '✅ Link reset password telah dikirim ke email Anda.';
-						$alertType = 'success';
-						break;
-					case 'fail':
-						$message = '❌ Gagal mengirim email. Silakan coba lagi nanti.';
-						$alertType = 'danger';
-						break;
-					case 'notfound':
-						$message = '⚠️ Email tidak ditemukan dalam sistem.';
-						$alertType = 'warning';
-						break;
-				}
-
-				if ($message) {
-					echo '<div class="container mt-3">
-							<div class="alert alert-' . $alertType . ' alert-dismissible fade show" role="alert">
-								' . $message . '
-								<button type="button" class="close" data-dismiss="alert" aria-label="Tutup">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-						</div>';
-				}
+			switch ($_GET['reset']) {
+				case 'success':
+					$message = '✅ Link reset password telah dikirim ke email Anda.';
+					$alertType = 'success';
+					break;
+				case 'fail':
+					$message = '❌ Gagal mengirim email. Silakan coba lagi nanti.';
+					$alertType = 'danger';
+					break;
+				case 'notfound':
+					$message = '⚠️ Email tidak ditemukan dalam sistem.';
+					$alertType = 'warning';
+					break;
 			}
-			?>
 
-			<?php if (isset($_GET['msg'])): ?>
-			<div class="alert alert-info text-center" style="max-width: 400px; margin: 20px auto;">
-				<?php
-				switch ($_GET['msg']) {
-					case 'reset_success':
-					echo "✅ Password berhasil diubah. Silakan login.";
-					break;
-					case 'expired':
-					echo "⚠️ Token tidak valid atau kadaluarsa.";
-					break;
-					case 'invalid':
-					default:
-					echo "❌ Permintaan tidak valid.";
-					break;
-				}
-				?>
-			</div>
-			<?php endif; ?>
+			if ($message) {
+				echo '<div class="container mt-3">
+						<div class="alert alert-' . $alertType . ' alert-dismissible fade show" role="alert">
+							' . $message . '
+							<button type="button" class="close" data-dismiss="alert" aria-label="Tutup">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>';
+			}
+		}
+
+		// ALERT dari hasil reset password (via ?msg=...)
+		if (isset($_GET['msg'])) {
+			$msg = $_GET['msg'];
+			$messages = [
+				'reset_success'   => ['✅ Password berhasil diubah. Silakan login.', 'success'],
+				'token_not_found' => ['❌ Token tidak ditemukan.', 'danger'],
+				'link_expired'    => ['⚠️ Link reset password sudah kadaluarsa.', 'warning'],
+				'expired'         => ['⚠️ Token tidak valid atau sudah habis masa berlaku.', 'warning'],
+				'invalid'         => ['❌ Permintaan tidak valid.', 'danger']
+			];
+
+			if (isset($messages[$msg])) {
+				[$text, $type] = $messages[$msg];
+				echo '<div class="container mt-3">
+						<div class="alert alert-' . $type . ' alert-dismissible fade show" role="alert" style="max-width: 400px; margin: 0 auto;">
+							' . $text . '
+							<button type="button" class="close" data-dismiss="alert" aria-label="Tutup">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>';
+			}
+		}
+		?>
+
+
 
 		<div class="card mx-auto">
 			<div class="card-header">

@@ -76,11 +76,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
     $data = mysqli_fetch_assoc($cek);
 
     if (!$data) {
-        die("Token tidak ditemukan.");
+    header("Location: index.php?msg=token_not_found");
+    exit;
     }
 
     if (strtotime($data['reset_expired']) < time()) {
-        die("Link sudah kadaluarsa.");
+        header("Location: index.php?msg=link_expired");
+        exit;
     }
 
     // Tampilkan form reset password
@@ -207,7 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
               </span>
             </div>
           </div>
-          <div class="invalid-feedback">Password minimal 6 karakter</div>
+          <div class="invalid-feedback">Password minimal 5 karakter</div>
         </div>
 
         <!-- Konfirmasi Password -->
@@ -227,7 +229,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
         </div>
 
 
-        <button type="submit" class="btn login_btn btn-block">Simpan Password</button>
+        <button type="submit" class="btn login_btn btn-block">Perbaharui Password</button>
       </form>
     </div>
   </div>
@@ -253,7 +255,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
     const confirm = document.getElementById('confirm_password');
     let valid = true;
 
-    if (password.value.length < 6) {
+    if (password.value.length < 5) {
       password.classList.add('is-invalid');
       valid = false;
     } else {
