@@ -3,11 +3,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Autoload dan koneksi
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php'; // pastikan path ini sesuai
-
+require '../vendor/autoload.php'; // Pastikan path benar
 include '../config/koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -18,46 +18,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $token = bin2hex(random_bytes(32));
         $expire = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
-        // Simpan token dan kadaluarsa ke DB
-        mysqli_query($connect, "UPDATE login SET reset_token='$token', reset_expired='$expire' WHERE email='$email'");
-        
-        // Buat link reset password
-        $host = $_SERVER['HTTP_HOST'];
-        $folder = dirname($_SERVER['PHP_SELF']);
-        $link = "https://$host$folder/reset-password.php?token=$token";
+        // Simpan token dan expired ke database
+        $update = mysqli_query($connect, "UPDATE login SET reset_token='$token', reset_expired='$expire' WHERE email='$email'");
 
-        // Kirim email pakai PHPMailer
+        if (!$update) {
+            header("Location: index.php?reset=fail");
+            exit;
+        }
+
+        // Buat link reset password
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        $domain = $_SERVER['HTTP_HOST'];
+        $resetLink = "$protocol://$domain/login/reset-password.php?token=$token"; // Pastikan path sesuai
+
+        // Kirim email menggunakan PHPMailer
         $mail = new PHPMailer(true);
 
         try {
-            // Konfigurasi SMTP
             $mail->isSMTP();
-            $mail->Host = 'mail.dedig.id';                  // Bisa pakai smtp.domainkamu.com jika di hosting sendiri
+            $mail->Host = 'mail.dedig.id';
             $mail->SMTPAuth = true;
-            $mail->Username = '_mainaccount@dedig.id';         // Ganti
-            $mail->Password = 'C6H]Ct4c4Yu0c]';               // Ganti: gunakan App Password Gmail
+            $mail->Username = '_mainaccount@dedig.id'; // Ganti sesuai
+            $mail->Password = 'C6H]Ct4c4Yu0c]';         // Ganti sesuai
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
-            $mail->setFrom('account@dedig.id', 'Forgot Password'); // Ganti
-            $mail->addAddress($email); // ke user yang minta reset
+            $mail->setFrom('account@dedig.id', 'Admin Aplikasi Surat');
+            $mail->addAddress($email);
 
             $mail->isHTML(true);
             $mail->Subject = 'Reset Password Akun Anda';
             $mail->Body = "
                 <p>Halo,</p>
-                <p>Klik link di bawah ini untuk mengatur ulang password Anda:</p>
-                <p><a href='$link'>$link</a></p>
-                <p><small>Link ini berlaku sampai: $expire</small></p>
+                <p>Silakan klik link di bawah ini untuk mengatur ulang password Anda:</p>
+                <p><a href='$resetLink'>$resetLink</a></p>
+                <p>Link ini hanya berlaku sampai <strong>$expire</strong>.</p>
+                <br><p>Jika Anda tidak meminta reset, abaikan email ini.</p>
             ";
 
             $mail->send();
             header("Location: index.php?reset=success");
         } catch (Exception $e) {
-            // Gagal kirim email
-            error_log("Mailer Error: " . $mail->ErrorInfo); // Untuk log error
+            error_log("Email error: " . $mail->ErrorInfo);
             header("Location: index.php?reset=fail");
         }
+
     } else {
         header("Location: index.php?reset=notfound");
     }
