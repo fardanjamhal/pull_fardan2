@@ -95,7 +95,7 @@
 
                         <div id="toast-salin"></div>
 
-<div class="wrapper">
+	<div class="wrapper">
 	<header class="main-header">
 
   	<nav class="navbar navbar-static-top">
@@ -119,4 +119,5 @@
   			</ul>
   		</div>
   	</nav>
+
 	</header>

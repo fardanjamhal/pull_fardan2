@@ -139,6 +139,12 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 					</div>
 					<button type="submit" class="btn login_btn btn-block">Login</button>
 				</form>
+
+				<!-- Link Forgot Password -->
+				<div class="text-right">
+				<a href="#" data-toggle="modal" data-target="#modalForgotPassword">Lupa Password?</a>
+				</div>
+
 			</div>
 			<div class="card-footer">
 				&copy; <span id="year"></span> Pelayanan Surat Desa
@@ -161,6 +167,58 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 	}
 	document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
+
+<!-- Modal Forgot Password -->
+<div class="modal fade" id="modalForgotPassword" tabindex="-1" role="dialog" aria-labelledby="modalForgotPasswordLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form method="post" action="reset-password.php" class="modal-content"> <!-- pastikan file ini proses reset -->
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="modalForgotPasswordLabel">Reset Password</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Tutup">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-3">Masukkan email Anda, kami akan mengirimkan link reset password.</p>
+        <div class="form-group">
+          <input type="email" name="email" class="form-control" placeholder="Alamat Email" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary btn-block">Kirim Link Reset</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<?php
+if (isset($_GET['reset'])) {
+    $status = $_GET['reset'];
+
+    echo "<div class='container mt-3'>";
+    if ($status == 'success') {
+        echo "<div class='alert alert-success text-center'>✅ Link reset password telah dikirim ke email Anda.</div>";
+    } elseif ($status == 'fail') {
+        echo "<div class='alert alert-danger text-center'>❌ Gagal mengirim email. Coba lagi atau hubungi admin.</div>";
+        echo "<script>$(document).ready(function() { $('#modalForgotPassword').modal('show'); });</script>";
+    } elseif ($status == 'notfound') {
+        echo "<div class='alert alert-warning text-center'>⚠️ Email tidak ditemukan dalam sistem.</div>";
+        echo "<script>$(document).ready(function() { $('#modalForgotPassword').modal('show'); });</script>";
+    }
+    echo "</div>";
+}
+?>
+
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.alert').forEach(el => el.remove());
+  }, 5000);
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
