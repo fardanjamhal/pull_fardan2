@@ -14,6 +14,11 @@ use PHPMailer\PHPMailer\Exception;
 require __DIR__ . '/../vendor/autoload.php';
 include '../config/koneksi.php';
 
+// Ambil nama desa dari tabel profil_desa
+$query = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
+$profil = mysqli_fetch_assoc($query);
+$namaDesa = $profil['nama_desa'] ?? 'Desa';
+
 // === HANDLE POST: Kirim email reset password ===
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     $email = mysqli_real_escape_string($connect, $_POST['email']);
@@ -43,7 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
-            $mail->setFrom('dontreply@dedig.id', 'Reset Password');
+            // Set From dengan nama desa
+            $mail->setFrom('dontreply@dedig.id', 'Aplikasi Surat | ' . $namaDesa);
             $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->Subject = 'Reset Password Akun Anda';
