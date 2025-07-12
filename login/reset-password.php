@@ -220,12 +220,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 
 <div class="wrapper">
   <div class="card">
-    <a href="../">
-					<img src="../assets/img/<?php echo $profil['logo_desa']; ?>" alt="Logo Desa">
-			</a>
-    <div class="card-header">
-				<h3>Reset Password</h3>
-			</div>
+    <div class="card-header text-center">
+      <a href="../">
+        <img src="../assets/img/<?php echo htmlspecialchars($profil['logo_desa'] ?? 'mini-logo.png'); ?>" alt="Logo Desa" style="max-height: 70px; display: block; margin: 0 auto;">
+      </a>
+      <h3 class="mt-2" style="font-size: 20px; font-weight: 600; color: #333;">Reset Password</h3>
+    </div>
     <div class="card-body p-4">
       <form method="POST" action="reset-password-process.php" id="resetForm">
         <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
