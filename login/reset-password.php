@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->SMTPAuth = true;
             $mail->Username = 'account@dedig.id';         // Ganti
             $mail->Password = 'C6H]Ct4c4Yu0c]';               // Ganti: gunakan App Password Gmail
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // atau 'ssl'
-            $mail->Port = 465;                               // atau 465 jika pakai 'ssl'
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port = 465;
 
             $mail->setFrom('account@dedig.id', 'Forgot Password'); // Ganti
             $mail->addAddress($email); // ke user yang minta reset
