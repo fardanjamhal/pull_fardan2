@@ -94,77 +94,93 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
 	<style>
-		* {
-			box-sizing: border-box;
-		}
-		html, body {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			font-family: 'Poppins', sans-serif;
-			background: #f8f9fa;
-			overflow: hidden;
-		}
-		.wrapper {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100%;
-			width: 100%;
-			padding: 15px;
-		}
-		.card {
-			width: 100%;
-			max-width: 400px;
-			border-radius: 1rem;
-			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-			background-color: #ffffff;
-		}
-		.card-header {
-			text-align: center;
-			padding: 20px 10px 10px;
-			background-color: transparent;
-		}
-		.card-header h3 {
-			color: #1d3557;
-			font-weight: 600;
-			margin-bottom: 0;
-		}
-		.form-control {
-			background-color: #f1f1f1;
-			border-left: none;
-		}
-		.login_btn {
-			background-color: #1d3557;
-			color: white;
-			border-radius: 25px;
-			font-weight: 500;
-			transition: all 0.3s;
-			width: 100%;
-		}
-		.login_btn:hover {
-			background-color: #457b9d;
-		}
-		.alert {
-			width: 100%;
-			max-width: 400px;
-			margin: 0 auto 10px auto;
-			padding: 10px;
-			border-radius: 8px;
-		}
-		.position-relative {
-			position: relative;
-		}
-		.toggle-password {
-			position: absolute;
-			right: 10px;
-			top: 75%;
-			transform: translateY(-50%);
-			cursor: pointer;
-			color: #999;
-		}
-	</style>
+	* {
+		box-sizing: border-box;
+	}
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		font-family: 'Poppins', sans-serif;
+		background: #f8f9fa;
+		overflow: hidden;
+	}
+	.wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+		padding: 15px;
+	}
+	.card {
+		width: 100%;
+		max-width: 400px;
+		border-radius: 1rem;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		background-color: #ffffff;
+	}
+	.card-header {
+		text-align: center;
+		padding: 20px 10px 10px;
+		background-color: transparent;
+	}
+	.card-header h3 {
+		color: #1d3557;
+		font-weight: 600;
+		margin-bottom: 0;
+	}
+	.input-group-text {
+		background-color: #1d3557;
+		color: #fff;
+		border: none;
+	}
+	.form-control {
+		background-color: #f1f1f1;
+		border-left: none;
+	}
+	.login_btn {
+		background-color: #1d3557;
+		color: white;
+		border-radius: 25px;
+		font-weight: 500;
+		transition: all 0.3s;
+		width: 100%;
+	}
+	.login_btn:hover {
+		background-color: #457b9d;
+	}
+	.card-footer {
+		background-color: #f1f1f1;
+		text-align: center;
+		font-size: 0.8rem;
+		color: #555;
+		padding: 10px;
+		border-top: none;
+	}
+	.alert {
+		width: 100%;
+		max-width: 400px;
+		margin: 0 auto 10px auto;
+		padding: 10px;
+		border-radius: 8px;
+	}
+	/* Style untuk validasi error */
+	.is-invalid {
+		border-color: #dc3545;
+	}
+	.invalid-feedback {
+		display: none;
+		color: #dc3545;
+		font-size: 0.85rem;
+	}
+	.is-invalid ~ .invalid-feedback {
+		display: block;
+	}
+</style>
+
 </head>
 <body>
 
