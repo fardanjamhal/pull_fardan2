@@ -1,35 +1,33 @@
 <?php
-// Aktifkan error
+// Tampilkan error saat debug
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Autoload dan koneksi DB
+// Timezone disamakan dengan database
+date_default_timezone_set("Asia/Makassar");
+
+// Autoload PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require __DIR__ . '/../vendor/autoload.php';
 include '../config/koneksi.php';
 
-// Validasi autoload
-if (!file_exists(__DIR__ . '/../vendor/autoload.php')) {
-    die("Autoload NOT found");
-}
-
 // === HANDLE POST: Kirim email reset password ===
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     $email = mysqli_real_escape_string($connect, $_POST['email']);
+    $cek = mysqli_query($connect, "SELECT * FROM login WHERE email='$email'");
 
-    $result = mysqli_query($connect, "SELECT * FROM login WHERE email='$email'");
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($cek) > 0) {
         $token = bin2hex(random_bytes(32));
         $expire = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
+        // Simpan token ke DB
         $update = mysqli_query($connect, "UPDATE login SET reset_token='$token', reset_expired='$expire' WHERE email='$email'");
-        if (!$update) {
-            die("Gagal menyimpan token ke database.");
-        }
+        if (!$update) die("Gagal menyimpan token reset.");
 
+        // Link reset
         $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
         $domain = $_SERVER['HTTP_HOST'];
         $resetLink = "$protocol://$domain/login/reset-password.php?token=$token";
@@ -40,27 +38,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->isSMTP();
             $mail->Host = 'mail.dedig.id';
             $mail->SMTPAuth = true;
-            $mail->Username = 'dontreply@dedig.id'; // Ubah sesuai akun hostingmu
-            $mail->Password = 'Cx~E[v.KY0s)Ven3';   // Ubah sesuai
+            $mail->Username = 'dontreply@dedig.id';
+            $mail->Password = 'Cx~E[v.KY0s)Ven3';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
             $mail->setFrom('dontreply@dedig.id', 'Reset Password');
             $mail->addAddress($email);
             $mail->isHTML(true);
-            $mail->Subject = 'Permintaan Reset Password';
+            $mail->Subject = 'Reset Password Akun Anda';
             $mail->Body = "
                 <p>Halo,</p>
-                <p>Untuk mereset password akun Anda, klik link berikut:</p>
+                <p>Klik link di bawah ini untuk mengatur ulang password Anda:</p>
                 <p><a href='$resetLink'>$resetLink</a></p>
-                <p><small>Link ini berlaku hingga: <strong>$expire</strong></small></p>
+                <p><small>Link berlaku sampai <strong>$expire</strong>.</small></p>
+                <br><p>Abaikan jika Anda tidak meminta reset.</p>
             ";
 
             $mail->send();
             header("Location: index.php?reset=success");
             exit;
         } catch (Exception $e) {
-            error_log("Email gagal dikirim: " . $mail->ErrorInfo);
+            error_log("Email error: " . $mail->ErrorInfo);
             header("Location: index.php?reset=fail");
             exit;
         }
@@ -70,21 +69,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     }
 }
 
-// === HANDLE GET: Tampilkan form ubah password jika token valid ===
+// === HANDLE GET: Menampilkan form reset jika token valid ===
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
     $token = mysqli_real_escape_string($connect, $_GET['token']);
-    $cek = mysqli_query($connect, "SELECT * FROM login WHERE reset_token='$token' AND reset_expired > NOW()");
+    $cek = mysqli_query($connect, "SELECT * FROM login WHERE reset_token='$token'");
+    $data = mysqli_fetch_assoc($cek);
 
-    if (mysqli_num_rows($cek) === 0) {
-        die("Link tidak valid atau sudah kadaluarsa.");
+    if (!$data) {
+        die("Token tidak ditemukan.");
     }
 
-    ?>
+    if (strtotime($data['reset_expired']) < time()) {
+        die("Link sudah kadaluarsa.");
+    }
 
+    // Tampilkan form reset password
+    ?>
     <!DOCTYPE html>
     <html>
     <head>
-        <meta charset="UTF-8">
         <title>Reset Password</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     </head>
@@ -106,5 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
     </div>
     </body>
     </html>
+    <?php
+    exit;
+}
 
-<?php } ?>
+// Jika tidak POST atau GET valid
+header("Location: index.php");
+exit;
+?>
