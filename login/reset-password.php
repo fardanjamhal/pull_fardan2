@@ -18,7 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_query($connect, "UPDATE login SET reset_token='$token', reset_expired='$expire' WHERE email='$email'");
         
         // Buat link reset password
-        $link = "../login/reset-password.php?token=$token"; // Ganti sesuai domain
+        $host = $_SERVER['HTTP_HOST'];
+        $folder = dirname($_SERVER['PHP_SELF']);
+        $link = "https://$host$folder/reset-password.php?token=$token";
 
         // Kirim email pakai PHPMailer
         $mail = new PHPMailer(true);
@@ -28,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->isSMTP();
             $mail->Host = 'mail.dedig.id';                  // Bisa pakai smtp.domainkamu.com jika di hosting sendiri
             $mail->SMTPAuth = true;
-            $mail->Username = '_mainaccount@dedig.id';         // Ganti
+            $mail->Username = 'account@dedig.id';         // Ganti
             $mail->Password = 'C6H]Ct4c4Yu0c]';               // Ganti: gunakan App Password Gmail
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // atau 'ssl'
             $mail->Port = 465;                               // atau 465 jika pakai 'ssl'
 
-            $mail->setFrom('_mainaccount@dedig.id', 'Admin Desa'); // Ganti
+            $mail->setFrom('account@dedig.id', 'Forgot Password'); // Ganti
             $mail->addAddress($email); // ke user yang minta reset
 
             $mail->isHTML(true);
