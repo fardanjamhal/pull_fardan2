@@ -20,6 +20,7 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 	<link rel="stylesheet" href="../assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/fontawesome-free-5.10.2-web/css/all.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 	<style>
 		* {
 			box-sizing: border-box;
@@ -99,6 +100,7 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 </head>
 <body>
 
+
 <div class="wrapper">
 	<div class="w-100">
 		<?php if (isset($_GET['pesan']) && $_GET['pesan'] == "login-gagal"): ?>
@@ -106,6 +108,39 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 		<?php elseif (isset($_GET['pesan']) && $_GET['pesan'] == "password_diubah"): ?>
 			<div class="alert alert-success text-center">Password berhasil diubah. Silakan login kembali.</div>
 		<?php endif; ?>
+
+		<?php
+			if (isset($_GET['reset'])) {
+				$message = '';
+				$alertType = '';
+
+				switch ($_GET['reset']) {
+					case 'success':
+						$message = '✅ Link reset password telah dikirim ke email Anda.';
+						$alertType = 'success';
+						break;
+					case 'fail':
+						$message = '❌ Gagal mengirim email. Silakan coba lagi nanti.';
+						$alertType = 'danger';
+						break;
+					case 'notfound':
+						$message = '⚠️ Email tidak ditemukan dalam sistem.';
+						$alertType = 'warning';
+						break;
+				}
+
+				if ($message) {
+					echo '<div class="container mt-3">
+							<div class="alert alert-' . $alertType . ' alert-dismissible fade show" role="alert">
+								' . $message . '
+								<button type="button" class="close" data-dismiss="alert" aria-label="Tutup">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>';
+				}
+			}
+			?>
 
 		<div class="card mx-auto">
 			<div class="card-header">
@@ -192,31 +227,15 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
   </div>
 </div>
 
-<?php
-if (isset($_GET['reset'])) {
-    $status = $_GET['reset'];
-
-    echo "<div class='container mt-3'>";
-    if ($status == 'success') {
-        echo "<div class='alert alert-success text-center'>✅ Link reset password telah dikirim ke email Anda.</div>";
-    } elseif ($status == 'fail') {
-        echo "<div class='alert alert-danger text-center'>❌ Gagal mengirim email. Coba lagi atau hubungi admin.</div>";
-        echo "<script>$(document).ready(function() { $('#modalForgotPassword').modal('show'); });</script>";
-    } elseif ($status == 'notfound') {
-        echo "<div class='alert alert-warning text-center'>⚠️ Email tidak ditemukan dalam sistem.</div>";
-        echo "<script>$(document).ready(function() { $('#modalForgotPassword').modal('show'); });</script>";
-    }
-    echo "</div>";
-}
-?>
 
 <script>
-  setTimeout(() => {
-    document.querySelectorAll('.alert').forEach(el => el.remove());
-  }, 5000);
+    // Auto hide alert dalam 5 detik
+    setTimeout(() => {
+        $('.alert').alert('close');
+    }, 5000);
 </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 

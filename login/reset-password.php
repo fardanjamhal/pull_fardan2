@@ -86,29 +86,88 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
     // Tampilkan form reset password
     ?>
     <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Reset Password</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    </head>
-    <body class="bg-light">
-    <div class="container mt-5">
-        <div class="card mx-auto" style="max-width: 400px;">
-            <div class="card-body">
-                <h4 class="card-title text-center">Reset Password</h4>
-                <form method="POST" action="reset-password-process.php">
-                    <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
-                    <div class="form-group">
-                        <label>Password Baru</label>
-                        <input type="password" name="password" class="form-control" required minlength="6">
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f4f8;
+        }
+        .card {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 38px;
+            cursor: pointer;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 420px;">
+        <div class="card-body">
+            <h4 class="card-title text-center mb-4">Reset Password</h4>
+
+            <form method="POST" action="reset-password-process.php" id="resetForm" novalidate>
+                <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
+
+                <div class="form-group position-relative">
+                    <label for="password">Password Baru</label>
+                    <input type="password" name="password" id="password" class="form-control" required minlength="6">
+                    <span class="password-toggle" onclick="togglePassword()" title="Tampilkan/Sembunyikan Password">
+                        👁️
+                    </span>
+                    <div class="invalid-feedback">
+                        Password minimal 6 karakter.
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Simpan Password</button>
-                </form>
-            </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Simpan Password</button>
+            </form>
         </div>
     </div>
-    </body>
-    </html>
+</div>
+
+<!-- Bootstrap JS + Validasi + Toggle -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Validasi Bootstrap 4
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            const form = document.getElementById('resetForm');
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+
+    // Toggle password visibility
+    function togglePassword() {
+        const input = document.getElementById("password");
+        if (input.type === "password") {
+            input.type = "text";
+        } else {
+            input.type = "password";
+        }
+    }
+</script>
+
+</body>
+</html>
     <?php
     exit;
 }
