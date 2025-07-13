@@ -45,36 +45,36 @@
 	<script src="assets/tinymce/tinymce.min.js"></script>
 	<script>
 	const defaultTable = `
-		<table style="width:100%; border-collapse: collapse;" border="1">
+		<table style="width: 100%; border-collapse: collapse;" border="1">
 		<thead>
 			<tr>
-			<th>No</th>
-			<th>Jenis Alat</th>
-			<th>Jumlah Alat</th>
-			<th>Fungsi Alat</th>
-			<th>BBM Jenis Tertentu</th>
-			<th>Kebutuhan BBM Jenis Tertentu</th>
-			<th>Jam/Hari Operasi</th>
-			<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>
+			<th style="width: 3.39%; text-align: center; padding: 8px;">No</th>
+			<th style="width: 15.03%; text-align: center;">Jenis Alat</th>
+			<th style="width: 7.76%; text-align: center;">Jumlah Alat</th>
+			<th style="width: 10.96%; text-align: center;">Fungsi Alat</th>
+			<th style="width: 10.86%; text-align: center;">BBM Jenis Tertentu</th>
+			<th style="width: 15.91%; text-align: center;">Kebutuhan BBM Jenis Tertentu</th>
+			<th style="width: 9.89%; text-align: center;">Jam/Hari Operasi</th>
+			<th style="width: 26.19%; text-align: center;">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-			<td>1</td>
-			<td>Mesin Pompa Air dan Hand Traktor</td>
-			<td>2 Unit</td>
-			<td>Menyalakan Mesin</td>
-			<td>Pertalite / Solar</td>
-			<td>70 Liter</td>
-			<td>Setiap hari</td>
-			<td>2.100 Liter/bln</td>
+			<td style="text-align: center;">1</td>
+			<td style="text-align: center;">Mesin Pompa Air dan Hand Traktor</td>
+			<td style="text-align: center;">2 Unit</td>
+			<td style="text-align: center;">Menyalakan Mesin</td>
+			<td style="text-align: center;">Pertalite / Solar</td>
+			<td style="text-align: center;">70 Liter</td>
+			<td style="text-align: center;">Setiap hari</td>
+			<td style="text-align: center;">2.100 Liter/bln</td>
 			</tr>
 		</tbody>
 		<tfoot>
 			<tr>
-			<td colspan="5"><strong>Jumlah Total Kebutuhan</strong></td>
-			<td><strong>70 Liter</strong></td>
-			<td colspan="2"><strong>2.100 Ltr/bln</strong></td>
+			<td style="text-align: center;" colspan="5"><strong>Jumlah Total Kebutuhan</strong></td>
+			<td style="text-align: center;"><strong>70 Liter</strong></td>
+			<td style="text-align: center;" colspan="2"><strong>2.100 Ltr/bln</strong></td>
 			</tr>
 		</tfoot>
 		</table>
