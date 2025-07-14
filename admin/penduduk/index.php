@@ -389,7 +389,35 @@
         }
       </style>
 
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 15px; gap: 10px;">
   
+      <!-- Form Tampilkan (Kiri) -->
+      <form method="get" class="form-inline d-flex align-items-center" style="gap: 8px;">
+        <label for="limit" class="mb-0">Tampilkan:</label>
+        <select name="limit" id="limit" onchange="this.form.submit()" class="form-control form-control-sm" style="width: auto;">
+          <option value="10" <?= (!isset($_GET['limit']) || $_GET['limit']==10) ? 'selected' : '' ?>>10</option>
+          <option value="100" <?= (isset($_GET['limit']) && $_GET['limit']==100) ? 'selected' : '' ?>>100</option>
+          <option value="200" <?= (isset($_GET['limit']) && $_GET['limit']==200) ? 'selected' : '' ?>>200</option>
+          <option value="500" <?= (isset($_GET['limit']) && $_GET['limit']==500) ? 'selected' : '' ?>>500</option>
+          <option value="1000" <?= (isset($_GET['limit']) && $_GET['limit']==1000) ? 'selected' : '' ?>>1000</option>
+        </select>
+      </form>
+
+      <!-- Form Cari (Kanan) -->
+      <form method="get" class="form-inline d-flex align-items-center" style="gap: 8px;">
+        <input type="text" name="cari" class="form-control form-control-sm" placeholder="Cari NIK atau Nama..."
+          value="<?= isset($_GET['cari']) ? htmlspecialchars($_GET['cari']) : '' ?>" style="width: 220px;">
+        
+        <!-- Pertahankan nilai limit saat submit -->
+        <input type="hidden" name="limit" value="<?= $per_halaman ?>">
+        
+        <button type="submit" class="btn btn-primary btn-sm">Cari</button>
+      </form>
+
+    </div>
+
+
+
         <div class="table-responsive" style="overflow-x: auto; max-width: 100%;">
         <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
           <thead>
@@ -413,14 +441,35 @@
             </tr>
           </thead>
           <tbody>
+            
             <?php
               include ('../../config/koneksi.php');
 
-              $no = 1;
-              $qTampil = mysqli_query($connect, "SELECT * FROM penduduk ORDER BY nama ASC");
+              $cari = isset($_GET['cari']) ? mysqli_real_escape_string($connect, $_GET['cari']) : '';
+              $where = '';
+              if (!empty($cari)) {
+                  $where = "WHERE nik LIKE '%$cari%' OR nama LIKE '%$cari%'";
+              }
+
+              // Konfigurasi paging
+              $per_halaman = isset($_GET['limit']) && in_array((int)$_GET['limit'], [10, 100, 200, 500, 1000]) 
+              ? (int)$_GET['limit'] 
+              : 10;
+              $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+              $offset = ($page - 1) * $per_halaman;
+
+              // Total data
+              $total_data = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM penduduk $where"));
+              $total_halaman = ceil($total_data / $per_halaman);
+
+              $no = $offset + 1;
+              $qTampil = mysqli_query($connect, "SELECT * FROM penduduk $where ORDER BY nama ASC LIMIT $offset, $per_halaman");
               foreach($qTampil as $row){
-                $tanggal = $row['tgl_lahir'];
+              $tanggal = $row['tgl_lahir'];
+
             ?>
+
+
             <tr>
               <td><?php echo $no++; ?></td>
 
@@ -545,6 +594,7 @@
             ?>
             
 
+          
             <script>
             function tampilkanPilihanSurat(nik) {
               const div = document.getElementById('pilihan-' + nik);
@@ -560,15 +610,101 @@
           </tbody>
         </table>
         </div>
+        </ul>
 
-        
+        <div style="margin-top:10px;">
+        <?php if ($page > 1): ?>
+          <a href="?page=<?= $page - 1 ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>">← Sebelumnya</a>
+        <?php endif; ?>
 
+        Halaman <?= $page ?> dari <?= $total_halaman ?>
+
+        <?php if ($page < $total_halaman): ?>
+          <a href="?page=<?= $page + 1 ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>">Selanjutnya →</a>
+        <?php endif; ?>
       </div>
+
+
+      <?php
+        $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
+        $cari = isset($_GET['cari']) ? $_GET['cari'] : '';
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        // Tentukan range pagination
+        $jumlah_tombol = 8;
+        $start = max(1, $page - floor($jumlah_tombol / 2));
+        $end = min($total_halaman, $start + $jumlah_tombol - 1);
+
+        if ($end - $start < $jumlah_tombol - 1) {
+            $start = max(1, $end - $jumlah_tombol + 1);
+        }
+      ?>
+
+    <div style="text-align: center;">
+      <nav aria-label="Navigasi halaman">
+        <ul class="pagination justify-content-center">
+
+          <!-- Tombol Sebelumnya -->
+          <?php if ($page > 1): ?>
+            <li class="page-item">
+              <a class="page-link" href="?page=<?= $page - 1 ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>" aria-label="Sebelumnya">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
+          <!-- Tombol Nomor Halaman -->
+          <?php for ($i = $start; $i <= $end; $i++): ?>
+            <li class="page-item <?= ($i == $page) ? 'active' : '' ?>">
+              <a class="page-link" href="?page=<?= $i ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>"><?= $i ?></a>
+            </li>
+          <?php endfor; ?>
+
+          <!-- Tombol Selanjutnya -->
+          <?php if ($page < $total_halaman): ?>
+            <li class="page-item">
+              <a class="page-link" href="?page=<?= $page + 1 ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>" aria-label="Selanjutnya">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
+      </nav>
     </div>
-  </section>
-</div>
 
 
-<?php 
-  include ('../part/footer.php');
-?>
+<script src="../../assets/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../assets/AdminLTE/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script>
+  	$.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../../assets/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Morris.js charts -->
+<script src="../../assets/AdminLTE/bower_components/raphael/raphael.min.js"></script>
+<script src="../../assets/AdminLTE/bower_components/morris.js/morris.min.js"></script>
+<!-- Sparkline -->
+<script src="../../assets/AdminLTE/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="../../assets/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../../assets/AdminLTE/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="../../assets/AdminLTE/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="../../assets/AdminLTE/bower_components/moment/min/moment.min.js"></script>
+<script src="../../assets/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="../../assets/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="../../assets/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
+<script src="../../assets/AdminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../assets/AdminLTE/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../assets/AdminLTE/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="../../assets/AdminLTE/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../assets/AdminLTE/dist/js/demo.js"></script>
+<!-- DataTable Plugin -->
