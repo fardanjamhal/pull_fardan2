@@ -618,17 +618,17 @@
         </div>
         </ul>
 
-        <div style="margin-top:10px;">
-        <?php if ($page > 1): ?>
-          <a href="?page=<?= $page - 1 ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>">← Sebelumnya</a>
-        <?php endif; ?>
+     <div style="margin-top:10px; text-align:center;">
+      <?php if ($page > 1): ?>
+        <a href="?page=<?= $page - 1 ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>">← Sebelumnya</a>
+      <?php endif; ?>
 
-        Halaman <?= $page ?> dari <?= $total_halaman ?>
+      &nbsp;&nbsp;Halaman <?= $page ?> dari <?= $total_halaman ?>&nbsp;&nbsp;
 
-        <?php if ($page < $total_halaman): ?>
-          <a href="?page=<?= $page + 1 ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>">Selanjutnya →</a>
-        <?php endif; ?>
-      </div>
+      <?php if ($page < $total_halaman): ?>
+        <a href="?page=<?= $page + 1 ?>&limit=<?= $limit ?>&cari=<?= urlencode($cari) ?>">Selanjutnya →</a>
+      <?php endif; ?>
+    </div>
 
 
       <?php

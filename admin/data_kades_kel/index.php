@@ -84,7 +84,7 @@
         padding: 12px 14px;
         border: 1px solid #ccc;
         border-radius: 8px;
-        font-size: 16px;
+        font-size: 14px;
         transition: border-color 0.3s, box-shadow 0.3s;
         background-color: #fff;
         appearance: none;
