@@ -476,18 +476,48 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           <td><?php echo $data['jenis_surat']; ?></td>
           <td>
             <?php
-              $output = [];
-              if (!empty($data['dusun'])) {
-                $output[] = 'Dusun ' . $data['dusun'];
-              }
-              if (!empty($data['rt'])) {
-                $output[] = 'RT ' . $data['rt'];
-              }
-              if (!empty($data['rw'])) {
-                $output[] = 'RW ' . $data['rw'];
-              }
-              echo implode(' ', $output);
-            ?>
+                include_once '../../config/koneksi.php'; // sesuaikan path
+
+                $output = [];
+
+                // Tentukan tipe wilayah dari profil_desa
+                $tipeWilayah = 'Desa'; // default
+                $qProfil = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
+                if ($profil = mysqli_fetch_assoc($qProfil)) {
+                    if (stripos($profil['nama_desa'], 'kelurahan') !== false) {
+                        $tipeWilayah = 'Kelurahan';
+                    }
+                }
+
+                // Dusun atau Lingkungan
+                if (!empty($data['dusun'])) {
+                    $labelDusun = ($tipeWilayah === 'Kelurahan') ? 'Lingkungan' : 'Dusun';
+                    $namaDusun = ucwords(strtolower($data['dusun']));
+                    $namaDusunLower = strtolower($namaDusun);
+
+                    if (!preg_match('/\b(dusun|lingk\.|lingkungan)\b/i', $namaDusunLower)) {
+                        $output[] = "$labelDusun $namaDusun";
+                    } else {
+                        $output[] = $namaDusun;
+                    }
+                }
+
+                // RT/RW dengan default '000' dan 3 digit
+                $rt_raw = trim($data['rt'] ?? '');
+                $rw_raw = trim($data['rw'] ?? '');
+
+                $rt_valid = (ctype_digit($rt_raw) && $rt_raw !== '') ? str_pad($rt_raw, 3, '0', STR_PAD_LEFT) : null;
+                $rw_valid = (ctype_digit($rw_raw) && $rw_raw !== '') ? str_pad($rw_raw, 3, '0', STR_PAD_LEFT) : null;
+
+                if ($rt_valid !== null || $rw_valid !== null) {
+                    $rt_display = $rt_valid ?? '000';
+                    $rw_display = $rw_valid ?? '000';
+                    $output[] = "RT $rt_display / RW $rw_display";
+                }
+
+                // Gabungkan dan tampilkan
+                echo implode(' ', $output);
+                ?>
           </td>
         </tr>
       <?php

@@ -99,7 +99,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label">Dusun</label>
+                      <label class="col-sm-4 control-label">Lingk / Dusun</label>
                       <div class="col-sm-8">
                       <input type="text" name="fdusun" class="form-control" style="text-transform: capitalize;" placeholder="Dusun">
                       </div>
@@ -117,7 +117,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-4 control-label">Desa</label>
+                      <label class="col-sm-4 control-label">Kel / Desa</label>
                       <div class="col-sm-8">
                         <input type="text" name="fdesa" class="form-control" style="text-transform: capitalize;" placeholder="Desa">
                       </div>

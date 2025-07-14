@@ -21,7 +21,7 @@ $sheet->setTitle('Data Penduduk');
 // Header kolom
 $headers = [
     "No", "NIK", "Nama", "Tempat Lahir", "Tanggal Lahir", "Jenis Kelamin", "Agama",
-    "Jalan", "Dusun", "RT", "RW", "Desa", "Kecamatan", "Kabupaten", "No KK",
+    "Jalan", "Lingk / Dusun", "RT", "RW", "Kel / Desa", "Kecamatan", "Kabupaten", "No KK",
     "Pendidikan KK", "Pendidikan Terakhir", "Pendidikan Ditempuh", "Pekerjaan",
     "Status Perkawinan", "Status dalam Keluarga", "Kewarganegaraan", "Nama Ayah", "Nama Ibu"
 ];
