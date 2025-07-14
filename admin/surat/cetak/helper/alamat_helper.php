@@ -31,9 +31,11 @@ function formatAlamatLengkap($row, $connect) {
 
     // Dusun atau Lingkungan
     if (!empty($row['dusun'])) {
-        $labelDusun = ($tipeWilayah === 'Kelurahan') ? 'Lingk.' : 'Dusun';
-        $alamatParts[] = "$labelDusun " . $row['dusun'];
+    $labelDusun = ($tipeWilayah === 'Kelurahan') ? 'Lingk.' : 'Dusun';
+    $namaDusun = ucwords(strtolower($row['dusun']));
+    $alamatParts[] = "$labelDusun $namaDusun";
     }
+
 
     if ($rt_valid || $rw_valid) {
         $rt_display = $rt_valid ?? '000';
