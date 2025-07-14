@@ -405,14 +405,21 @@
 
       <!-- Form Cari (Kanan) -->
       <form method="get" class="form-inline d-flex align-items-center" style="gap: 8px;">
-        <input type="text" name="cari" class="form-control form-control-sm" placeholder="Cari NIK atau Nama..."
-          value="<?= isset($_GET['cari']) ? htmlspecialchars($_GET['cari']) : '' ?>" style="width: 220px;">
-        
-        <!-- Pertahankan nilai limit saat submit -->
-        <input type="hidden" name="limit" value="<?= $per_halaman ?>">
-        
-        <button type="submit" class="btn btn-primary btn-sm">Cari</button>
-      </form>
+      <input type="text" name="cari" class="form-control form-control-sm" placeholder="Cari NIK atau Nama..."
+        value="<?= isset($_GET['cari']) ? htmlspecialchars($_GET['cari']) : '' ?>" style="width: 220px;">
+      
+      <!-- Pertahankan nilai limit saat submit -->
+      <input type="hidden" name="limit" value="<?= isset($_GET['limit']) ? (int)$_GET['limit'] : $per_halaman ?>">
+
+      <button type="submit" class="btn btn-primary btn-sm">Cari</button>
+
+      <!-- Tombol Reset Selalu Tampil -->
+      <a href="?limit=<?= isset($_GET['limit']) ? (int)$_GET['limit'] : $per_halaman ?>" 
+        class="btn btn-outline-secondary btn-sm" 
+        style="background-color: #f8f9fa; border-color: #ced4da;">
+        Reset
+      </a>
+    </form>
 
     </div>
 
