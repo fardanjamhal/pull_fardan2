@@ -174,7 +174,7 @@
 				include_once '../../../surat/cetak/helper/alamat_helper.php';
 
 				// Pastikan $row sudah berisi data dari database sebelumnya
-				echo formatAlamatLengkap($row);
+				echo formatAlamatLengkap($row, $connect); // ✅ benar
 				?>
 			</td>
 

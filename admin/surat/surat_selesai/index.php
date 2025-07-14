@@ -1,32 +1,21 @@
 <?php
-// Pastikan file koneksi dan akses sudah benar
 include('../part/akses.php');
 include('../part/header.php');
-include('../../../config/koneksi.php'); // Sesuaikan path ini jika perlu
+include('../../../config/koneksi.php');
 
-// Daftar jenis surat beserta ID unik dan nama foldernya
+// Ambil semua nama tabel
 $jenisSuratList = [];
-
-// Ambil semua nama tabel dari database
 $query = mysqli_query($connect, "SHOW TABLES");
 while ($row = mysqli_fetch_row($query)) {
     $namaTabel = $row[0];
-
-    // Cek jika nama tabel diawali "surat_" atau "formulir_"
     if (preg_match('/^(surat|formulir)_/', $namaTabel)) {
         $kata = explode('_', $namaTabel);
-        $prefix = $kata[0]; // surat / formulir
+        $prefix = $kata[0];
         $singkatan = '';
-
-        // Ambil huruf awal dari setiap kata setelah kata pertama
         for ($i = 1; $i < count($kata); $i++) {
             $singkatan .= substr($kata[$i], 0, 1);
         }
-
-        // Bentuk ID, contoh: id_skbb, id_fpn
         $id = 'id_' . strtolower(substr($prefix, 0, 1)) . $singkatan;
-
-        // Masukkan ke array
         $jenisSuratList[$namaTabel] = [
             'id' => $id,
             'folder' => $namaTabel
@@ -34,7 +23,7 @@ while ($row = mysqli_fetch_row($query)) {
     }
 }
 
-// Mengurutkan jenis surat berdasarkan nama yang lebih mudah dibaca (opsional, untuk tampilan dropdown)
+// Urutkan berdasarkan nama
 uksort($jenisSuratList, function($a, $b) {
     return strcmp(
         ucwords(str_replace('_', ' ', $a)),
@@ -42,95 +31,77 @@ uksort($jenisSuratList, function($a, $b) {
     );
 });
 
-
-
-// Mengambil parameter filter dari URL
+// Ambil parameter filter dan paginasi
 $filter_jenis = $_GET['jenis_surat'] ?? '';
 $keyword = $_GET['keyword'] ?? '';
-$page = $_GET['page'] ?? 1;
-$limit = $_GET['limit'] ?? 10;
-
-// Validasi dan sanitasi parameter paginasi
-$page = max(1, intval($page));
-$limit = max(1, intval($limit));
+$page = max(1, intval($_GET['page'] ?? 1));
+$limit = max(1, intval($_GET['limit'] ?? 10));
 $offset = ($page - 1) * $limit;
 
-$queries_for_union = [];
+// Bangun query untuk masing-masing tabel
+$queries = [];
 foreach ($jenisSuratList as $table => $info) {
-    // Lewati tabel jika filter jenis surat spesifik diatur dan tidak cocok
-    if ($filter_jenis && $table != $filter_jenis) {
-        continue;
-    }
+    if ($filter_jenis && $table != $filter_jenis) continue;
 
-    $conditions = ["s.status_surat='selesai'"]; // Selalu filter surat yang statusnya 'selesai'
-
-    // Tambahkan kondisi pencarian jika keyword ada
+    $where = "s.status_surat = 'selesai'";
     if ($keyword) {
-        $escapedKeyword = mysqli_real_escape_string($connect, $keyword);
-        // Mencari di NIK, Nomor Surat, dan nama dari tabel arsip_surat
-        // Menggunakan alias 'nama_dari_arsip' untuk menghindari konflik nama kolom
-        $conditions[] = "(s.nik LIKE '%$escapedKeyword%' OR s.no_surat LIKE '%$escapedKeyword%' OR s.id_arsip LIKE '%$escapedKeyword%' OR (SELECT ap.nama FROM arsip_surat ap WHERE ap.nik = s.nik LIMIT 1) LIKE '%$escapedKeyword%')";
+        $escaped = mysqli_real_escape_string($connect, $keyword);
+        $where .= " AND (
+            s.nik LIKE '%$escaped%' OR
+            s.no_surat LIKE '%$escaped%' OR
+            s.id_arsip LIKE '%$escaped%' OR
+            (SELECT ap.nama FROM arsip_surat ap WHERE ap.nik = s.nik LIMIT 1) LIKE '%$escaped%'
+        )";
     }
 
-    $whereStr = implode(' AND ', $conditions);
+    // Ambil nama terbaru dari arsip_surat per NIK
+    $queries[] = "
+        SELECT
+            s.{$info['id']} AS id_surat,
+            s.no_surat,
+            s.nik,
+            s.id_arsip,
+            s.jenis_surat,
+            s.status_surat,
+            s.tanggal_surat,
+            ars.nama,
+            '$table' AS table_name
+        FROM $table s
+        LEFT JOIN (
+            SELECT nik, nama
+            FROM arsip_surat
+            WHERE id_arsip IN (
+                SELECT MAX(id_arsip) FROM arsip_surat GROUP BY nik
+            )
+        ) ars ON ars.nik = s.nik
+        WHERE $where
+    ";
+}
 
-    // SQL Query untuk setiap tabel surat
-    // MENGAMBIL nama DARI TABEL arsip_surat dengan alias 'nama_alias'
-    // Nama kolom yang dihasilkan UNION ALL harus konsisten.
-    // Kita akan tetap menggunakan 'nama' sebagai alias akhir untuk kompatibilitas.
-    $queries_for_union[] = "SELECT
-                                s.{$info['id']} AS id_surat,
-                                s.no_surat,
-                                s.nik,
-                                s.id_arsip,  -- ✅ Tambahkan ini
-                                s.jenis_surat,
-                                s.status_surat,
-                                s.tanggal_surat,
-                                (SELECT ap.nama FROM arsip_surat ap WHERE ap.nik = s.nik ORDER BY ap.id_arsip DESC LIMIT 1) AS nama, -- DIUBAH MENJADI nama
-                                '{$table}' AS table_name
-                             FROM {$table} s
-                             WHERE $whereStr";
+if (empty($queries)) {
+    echo "Tidak ada data jenis surat ditemukan.";
+    exit;
 }
 
 // Gabungkan semua query dengan UNION ALL
-$sql_union_all = implode(' UNION ALL ', $queries_for_union);
+$sql_union_all = implode(' UNION ALL ', $queries);
 
-// Bungkus seluruh hasil UNION ALL dengan SELECT DISTINCT untuk memastikan
-// keunikan berdasarkan kombinasi id_surat dan table_name
-$final_select_query = "SELECT DISTINCT
-                            id_surat,
-                            no_surat,
-                            nik,
-                            id_arsip,        -- ✅ Tambahkan ini juga
-                            jenis_surat,
-                            status_surat,
-                            tanggal_surat,
-                            nama,
-                            table_name
-                       FROM ($sql_union_all) AS combined_unique_data";
-
-// Query untuk mendapatkan total baris untuk paginasi dari hasil yang sudah unik
-// Karena SELECT DISTINCT sudah menghasilkan kolom 'nama', query COUNT(*) tidak perlu join ulang
-$total_result_query = "SELECT COUNT(*) as total FROM ($final_select_query) AS final_combined_data_count";
+// Total data (untuk paginasi)
+$total_result_query = "SELECT COUNT(*) AS total FROM ($sql_union_all) AS total_table";
 $total_result = mysqli_query($connect, $total_result_query);
-
-// Handle error jika query total gagal
 if (!$total_result) {
-    die("Error mengambil total baris: " . mysqli_error($connect));
+    die("Error total data: " . mysqli_error($connect));
 }
 $total_rows = mysqli_fetch_assoc($total_result)['total'];
 $total_pages = ceil($total_rows / $limit);
 
-// Query untuk menampilkan data dengan paginasi
-$sql = "$final_select_query ORDER BY tanggal_surat DESC LIMIT $limit OFFSET $offset";
+// Query data dengan LIMIT
+$sql = "$sql_union_all ORDER BY tanggal_surat DESC LIMIT $limit OFFSET $offset";
 $result = mysqli_query($connect, $sql);
-
-// Handle error jika query data gagal
 if (!$result) {
     die("Error mengambil data surat: " . mysqli_error($connect));
 }
 ?>
-
 
 
 <!DOCTYPE html>

@@ -424,7 +424,6 @@
     </div>
 
 
-
         <div class="table-responsive" style="overflow-x: auto; max-width: 100%;">
         <table class="table table-striped table-bordered" id="data-table" width="100%" cellspacing="0">
           <thead>

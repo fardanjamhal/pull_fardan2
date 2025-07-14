@@ -175,7 +175,7 @@
 				<td style="text-align: justify;">
 					<?php
 					include_once '../../../surat/cetak/helper/alamat_helper.php';
-					echo strtoupper(formatAlamatLengkap($row));
+					echo formatAlamatLengkap($row, $connect); // ✅ benar
 					?>
 				</td>
 			</tr>
