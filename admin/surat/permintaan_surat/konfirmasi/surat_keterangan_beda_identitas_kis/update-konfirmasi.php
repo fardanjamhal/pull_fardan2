@@ -98,18 +98,51 @@ if (mysqli_num_rows($cek) > 0) {
 // Buat nomor surat akhir
 $no_surat = generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
 
-// Update surat
+// Ambil ID pejabat dari form pilihan tanda tangan (tetap digunakan untuk menyimpan ID saja)
+$id_pejabat_desa = mysqli_real_escape_string($connect, $_POST['ft_tangan']);
+
+// Ambil data PEJABAT baris pertama dari tabel (bukan berdasarkan ID)
+$q_pejabat = mysqli_query($connect, "
+    SELECT nama_pejabat_desa, jabatan, pangkat, nip, alamat 
+    FROM pejabat_desa 
+    ORDER BY id_pejabat_desa ASC 
+    LIMIT 1
+");
+$data_pejabat = mysqli_fetch_assoc($q_pejabat);
+
+// Siapkan variabel pejabat (baris pertama)
+$nama_pejabat_desa = $data_pejabat['nama_pejabat_desa'] ?? '';
+$jabatan           = $data_pejabat['jabatan'] ?? '';
+$pangkat           = $data_pejabat['pangkat'] ?? '';
+$nip               = $data_pejabat['nip'] ?? '';
+$alamat            = $data_pejabat['alamat'] ?? '';
+
+// Simpan ke tabel utama surat
 $update = mysqli_query($connect, "
-    UPDATE $nama_tabel 
-    SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' 
-    WHERE $kolom_id='$id'
+  UPDATE $nama_tabel 
+  SET no_surat = '$no_surat',
+      id_pejabat_desa = '$id_pejabat_desa',
+      status_surat = '$status_surat'
+  WHERE $kolom_id = '$id'
 ");
 
 if ($update) {
+    $tanggal_surat = $tanggal; // Sudah diambil sebelumnya dari surat
+
+    // Simpan ke log
     $simpan = mysqli_query($connect, "
-        INSERT INTO nomor_surat (kode_surat, kode_desa, bulan, tahun, nomor_urut, nomor_lengkap)
-        VALUES ('$kode_surat', '$kode_desa', MONTH('$tanggal'), '$tahun', $no_urut, '$no_surat')
+        INSERT INTO nomor_surat (
+            kode_surat, kode_desa, bulan, tahun, nomor_urut, nomor_lengkap,
+            id_pejabat_desa, tanggal_surat,
+            nama_pejabat_desa, jabatan, pangkat, nip, alamat
+        )
+        VALUES (
+            '$kode_surat', '$kode_desa', MONTH('$tanggal_surat'), '$tahun', $no_urut, '$no_surat',
+            '$id_pejabat_desa', '$tanggal_surat',
+            '$nama_pejabat_desa', '$jabatan', '$pangkat', '$nip', '$alamat'
+        )
     ");
+
     if ($simpan) {
         header('Location: ../../');
         exit;
@@ -119,3 +152,4 @@ if ($update) {
 } else {
     echo "<script>alert('Gagal mengupdate surat.'); window.history.back();</script>";
 }
+

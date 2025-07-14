@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2025 at 05:45 PM
+-- Generation Time: Jul 14, 2025 at 07:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -589,7 +589,36 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 (608, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:17:14'),
 (609, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:29:02'),
 (610, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:42:37'),
-(611, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:43:15');
+(611, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-12 23:43:15'),
+(612, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 10:30:03'),
+(613, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 10:36:17'),
+(614, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 10:38:55'),
+(615, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 10:41:36'),
+(616, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 10:48:51'),
+(617, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 10:57:26'),
+(618, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 10:59:17'),
+(619, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 11:02:19'),
+(620, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 11:04:43'),
+(621, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 11:05:20'),
+(622, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 11:05:31'),
+(623, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 20:59:27'),
+(624, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:09:36'),
+(625, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:10:35'),
+(626, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:17:48'),
+(627, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:19:26'),
+(628, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:21:28'),
+(629, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:34:09'),
+(630, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:34:54'),
+(631, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:36:01'),
+(632, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:43:58'),
+(633, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-13 21:44:42'),
+(634, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-14 07:48:48'),
+(635, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-14 12:18:01'),
+(636, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-14 12:25:10'),
+(637, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-14 12:35:54'),
+(638, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-14 12:40:40'),
+(639, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-14 12:40:48'),
+(640, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '1', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-14 12:53:39');
 
 -- --------------------------------------------------------
 
@@ -907,78 +936,112 @@ CREATE TABLE `nomor_surat` (
   `bulan` varchar(2) NOT NULL,
   `tahun` year(4) NOT NULL,
   `nomor_urut` int(11) NOT NULL,
-  `nomor_lengkap` varchar(50) NOT NULL
+  `nomor_lengkap` varchar(50) NOT NULL,
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `nama_pejabat_desa` varchar(100) DEFAULT NULL,
+  `jabatan` varchar(50) DEFAULT NULL,
+  `pangkat` varchar(50) DEFAULT NULL,
+  `nip` varchar(30) DEFAULT NULL,
+  `alamat` varchar(200) DEFAULT NULL,
+  `tanggal_surat` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `nomor_surat`
 --
 
-INSERT INTO `nomor_surat` (`id`, `kode_surat`, `kode_desa`, `bulan`, `tahun`, `nomor_urut`, `nomor_lengkap`) VALUES
-(1, 'KODEFPN', 'KODE-DS', '6', '2025', 7, 'KODEFPN/001/KODE-DS/VI/2025'),
-(2, 'SKDU', 'MANTAP', '6', '2025', 8, 'SKDU/008/MANTAP/VI/2025'),
-(3, 'SLH', 'MANTAP', '6', '2025', 9, 'SLH/009/MANTAP/VI/2025'),
-(4, 'SKU', 'MANTAP', '6', '2025', 10, '010/SKU/MANTAP/VI/2025'),
-(5, 'PILIHAN', 'MANTAP', '6', '2025', 11, '011/PILIHAN/MANTAP/VI/2025'),
-(6, 'SKBI', 'MANTAP', '6', '2025', 12, '012/SKBI/MANTAP/VI/2025'),
-(7, 'PILIHAN', 'MANTAP', '6', '2025', 13, '013/PILIHAN/MANTAP/VI/2025'),
-(8, 'FSIOT', 'MANTAP', '6', '2025', 14, 'FSIOT/014/MANTAP/VI/2025'),
-(9, 'PILIHAN', 'MANTAP', '6', '2025', 15, 'PILIHAN/015/MANTAP/VI/2025'),
-(10, 'SKP', 'MANTAP', '6', '2025', 16, 'SKP/016/MANTAP/VI/2025'),
-(11, 'SKD', 'MANTAP', '6', '2025', 17, 'SKD/017/MANTAP/VI/2025'),
-(12, 'PILIHAN', 'MANTAP', '6', '2025', 16, 'PILIHAN/016/MANTAP/VI/2025'),
-(13, 'FPCPI', 'MANTAP', '6', '2025', 18, '018/FPCPI/MANTAP/VI/2025'),
-(14, 'FPCP', 'MANTAP', '6', '2025', 19, 'FPCP/019/MANTAP/VI/2025'),
-(15, 'PILIHAN', 'MANTAP', '6', '2025', 17, 'PILIHAN/017/MANTAP/VI/2025'),
-(16, 'PILIHAN', 'MANTAP', '6', '2025', 18, 'PILIHAN/018/MANTAP/VI/2025'),
-(17, 'SKPOT', 'MANTAP', '6', '2025', 20, 'SKPOT/020/MANTAP/VI/2025'),
-(18, 'FPKN', 'MANTAP', '6', '2025', 21, 'FPKN/021/MANTAP/VI/2025'),
-(22, 'SKJB', 'MANTAP', '6', '2025', 22, '022/SKJB/MANTAP/VI/2025'),
-(23, 'FPKN', 'MANTAP', '6', '2025', 22, 'FPKN/022/MANTAP/VI/2025'),
-(24, 'FPKN', 'MANTAP', '6', '2025', 23, 'FPKN/023/MANTAP/VI/2025'),
-(25, '999', 'MANTAP', '6', '2025', 1, '999/001/MANTAP/VI/2025'),
-(26, '999', 'MANTAP', '6', '2025', 2, '999/002/MANTAP/VI/2025'),
-(27, 'SKBIK', 'MANTAP', '7', '2025', 1, 'SKBIK/001/MANTAP/VII/2025'),
-(28, 'SKBB', 'MANTAP', '7', '2025', 1, 'SKBB/001/MANTAP/VII/2025'),
-(29, 'SKD', 'MANTAP', '7', '2025', 18, 'SKD/018/MANTAP/VII/2025'),
-(30, 'SKKP', 'MANTAP', '7', '2025', 1, 'SKKP/001/MANTAP/VII/2025'),
-(31, 'SK', 'MANTAP', '7', '2025', 1, 'SK/001/MANTAP/VII/2025'),
-(32, 'SKBIK', 'MANTAP', '7', '2025', 2, 'SKBIK/002/MANTAP/VII/2025'),
-(33, 'PILIHAN', 'MANTAP', '7', '2025', 19, 'PILIHAN/019/MANTAP/VII/2025'),
-(34, 'PILIHAN', 'MANTAP', '7', '2025', 24, '024/PILIHAN/MANTAP/VII/2025'),
-(35, 'SKTM', 'MANTAP', '7', '2025', 25, '025/SKTM/MANTAP/VII/2025'),
-(36, 'PILIHAN', 'MANTAP', '7', '2025', 26, '026/PILIHAN/MANTAP/VII/2025'),
-(37, 'SKD', 'MANTAP', '7', '2025', 27, '027/SKD/MANTAP/VII/2025'),
-(39, 'SPPD', 'MANTAP', '7', '2025', 29, '029/SPPD/MANTAP/VII/2025'),
-(40, 'SPPD', 'MANTAP', '7', '2025', 30, '030/SPPD/MANTAP/VII/2025'),
-(41, 'SPPD', 'MANTAP', '7', '2025', 31, '031/SPPD/MANTAP/VII/2025'),
-(42, 'SPPD', 'MANTAP', '7', '2025', 32, '032/SPPD/MANTAP/VII/2025'),
-(44, 'SKD', 'MANTAP', '7', '2025', 33, '033/SKD/MANTAP/VII/2025'),
-(46, 'ST', 'MANTAP', '7', '2025', 34, '034/ST/MANTAP/VII/2025'),
-(48, 'ST', 'MANTAP', '7', '2025', 35, '035/ST/MANTAP/VII/2025'),
-(49, 'SKD', 'MANTAP', '7', '2025', 36, '036/SKD/MANTAP/VII/2025'),
-(50, 'ST', 'MANTAP', '7', '2025', 37, '037/ST/MANTAP/VII/2025'),
-(51, 'SPPD', 'MANTAP', '7', '2025', 38, '038/SPPD/MANTAP/VII/2025'),
-(52, 'SPPD', 'MANTAP', '7', '2025', 39, '039/SPPD/MANTAP/VII/2025'),
-(53, 'PILIHAN', 'MANTAP', '7', '2025', 40, '040/PILIHAN/MANTAP/VII/2025'),
-(54, 'FPKN', 'MANTAP', '7', '2025', 41, '041/FPKN/MANTAP/VII/2025'),
-(55, 'FPKN', 'MANTAP', '7', '2025', 42, '042/FPKN/MANTAP/VII/2025'),
-(56, 'FPCP', 'MANTAP', '7', '2025', 43, '043/FPCP/MANTAP/VII/2025'),
-(57, 'FPCP', 'MANTAP', '7', '2025', 44, '044/FPCP/MANTAP/VII/2025'),
-(59, 'FPCPI', 'MANTAP', '7', '2025', 45, '045/FPCPI/MANTAP/VII/2025'),
-(60, 'FSIOT', 'MANTAP', '7', '2025', 46, '046/FSIOT/MANTAP/VII/2025'),
-(61, 'SKBIK', 'MANTAP', '7', '2025', 47, '047/SKBIK/MANTAP/VII/2025'),
-(62, 'SKPOT', 'MANTAP', '7', '2025', 48, '048/SKPOT/MANTAP/VII/2025'),
-(63, 'SKPP', 'MANTAP', '7', '2025', 49, '049/SKPP/MANTAP/VII/2025'),
-(64, 'SKH', 'MANTAP', '7', '2025', 50, '050/SKH/MANTAP/VII/2025'),
-(66, 'SKH', 'MANTAP', '7', '2025', 51, '051/SKH/MANTAP/VII/2025'),
-(67, 'SKH', 'MANTAP', '7', '2025', 52, '052/SKH/MANTAP/VII/2025'),
-(68, '100', '099', '7', '2025', 37, '100/037/099/VII/2025'),
-(69, '100', '099', '7', '2025', 38, '100/038/099/VII/2025'),
-(72, 'SKBIK', '099', '7', '2025', 48, 'SKBIK/048/099/VII/2025'),
-(76, 'SRPBJT', '099', '7', '2025', 1, 'SRPBJT/001/099/VII/2025'),
-(77, 'SRPBJT', '099', '7', '2025', 2, 'SRPBJT/002/099/VII/2025'),
-(78, 'SRPBJT', '099', '7', '2025', 3, 'SRPBJT/003/099/VII/2025');
+INSERT INTO `nomor_surat` (`id`, `kode_surat`, `kode_desa`, `bulan`, `tahun`, `nomor_urut`, `nomor_lengkap`, `id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `pangkat`, `nip`, `alamat`, `tanggal_surat`) VALUES
+(1, 'KODEFPN', 'KODE-DS', '6', '2025', 7, 'KODEFPN/001/KODE-DS/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'SKDU', 'MANTAP', '6', '2025', 8, 'SKDU/008/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'SLH', 'MANTAP', '6', '2025', 9, 'SLH/009/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'SKU', 'MANTAP', '6', '2025', 10, '010/SKU/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'PILIHAN', 'MANTAP', '6', '2025', 11, '011/PILIHAN/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'SKBI', 'MANTAP', '6', '2025', 12, '012/SKBI/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'PILIHAN', 'MANTAP', '6', '2025', 13, '013/PILIHAN/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'FSIOT', 'MANTAP', '6', '2025', 14, 'FSIOT/014/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'PILIHAN', 'MANTAP', '6', '2025', 15, 'PILIHAN/015/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'SKP', 'MANTAP', '6', '2025', 16, 'SKP/016/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'SKD', 'MANTAP', '6', '2025', 17, 'SKD/017/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'PILIHAN', 'MANTAP', '6', '2025', 16, 'PILIHAN/016/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'FPCPI', 'MANTAP', '6', '2025', 18, '018/FPCPI/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'FPCP', 'MANTAP', '6', '2025', 19, 'FPCP/019/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'PILIHAN', 'MANTAP', '6', '2025', 17, 'PILIHAN/017/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 'PILIHAN', 'MANTAP', '6', '2025', 18, 'PILIHAN/018/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'SKPOT', 'MANTAP', '6', '2025', 20, 'SKPOT/020/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 'FPKN', 'MANTAP', '6', '2025', 21, 'FPKN/021/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 'SKJB', 'MANTAP', '6', '2025', 22, '022/SKJB/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(23, 'FPKN', 'MANTAP', '6', '2025', 22, 'FPKN/022/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(24, 'FPKN', 'MANTAP', '6', '2025', 23, 'FPKN/023/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(25, '999', 'MANTAP', '6', '2025', 1, '999/001/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(26, '999', 'MANTAP', '6', '2025', 2, '999/002/MANTAP/VI/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(27, 'SKBIK', 'MANTAP', '7', '2025', 1, 'SKBIK/001/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 'SKBB', 'MANTAP', '7', '2025', 1, 'SKBB/001/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, 'SKD', 'MANTAP', '7', '2025', 18, 'SKD/018/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(30, 'SKKP', 'MANTAP', '7', '2025', 1, 'SKKP/001/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(31, 'SK', 'MANTAP', '7', '2025', 1, 'SK/001/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(32, 'SKBIK', 'MANTAP', '7', '2025', 2, 'SKBIK/002/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(33, 'PILIHAN', 'MANTAP', '7', '2025', 19, 'PILIHAN/019/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(34, 'PILIHAN', 'MANTAP', '7', '2025', 24, '024/PILIHAN/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(35, 'SKTM', 'MANTAP', '7', '2025', 25, '025/SKTM/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(36, 'PILIHAN', 'MANTAP', '7', '2025', 26, '026/PILIHAN/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(37, 'SKD', 'MANTAP', '7', '2025', 27, '027/SKD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(39, 'SPPD', 'MANTAP', '7', '2025', 29, '029/SPPD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(40, 'SPPD', 'MANTAP', '7', '2025', 30, '030/SPPD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(41, 'SPPD', 'MANTAP', '7', '2025', 31, '031/SPPD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(42, 'SPPD', 'MANTAP', '7', '2025', 32, '032/SPPD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(44, 'SKD', 'MANTAP', '7', '2025', 33, '033/SKD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(46, 'ST', 'MANTAP', '7', '2025', 34, '034/ST/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(48, 'ST', 'MANTAP', '7', '2025', 35, '035/ST/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(49, 'SKD', 'MANTAP', '7', '2025', 36, '036/SKD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(50, 'ST', 'MANTAP', '7', '2025', 37, '037/ST/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(51, 'SPPD', 'MANTAP', '7', '2025', 38, '038/SPPD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(52, 'SPPD', 'MANTAP', '7', '2025', 39, '039/SPPD/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(53, 'PILIHAN', 'MANTAP', '7', '2025', 40, '040/PILIHAN/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(54, 'FPKN', 'MANTAP', '7', '2025', 41, '041/FPKN/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(55, 'FPKN', 'MANTAP', '7', '2025', 42, '042/FPKN/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(56, 'FPCP', 'MANTAP', '7', '2025', 43, '043/FPCP/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(57, 'FPCP', 'MANTAP', '7', '2025', 44, '044/FPCP/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(59, 'FPCPI', 'MANTAP', '7', '2025', 45, '045/FPCPI/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(60, 'FSIOT', 'MANTAP', '7', '2025', 46, '046/FSIOT/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(61, 'SKBIK', 'MANTAP', '7', '2025', 47, '047/SKBIK/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(62, 'SKPOT', 'MANTAP', '7', '2025', 48, '048/SKPOT/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(63, 'SKPP', 'MANTAP', '7', '2025', 49, '049/SKPP/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(64, 'SKH', 'MANTAP', '7', '2025', 50, '050/SKH/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(66, 'SKH', 'MANTAP', '7', '2025', 51, '051/SKH/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(67, 'SKH', 'MANTAP', '7', '2025', 52, '052/SKH/MANTAP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(68, '100', '099', '7', '2025', 37, '100/037/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(69, '100', '099', '7', '2025', 38, '100/038/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(72, 'SKBIK', '099', '7', '2025', 48, 'SKBIK/048/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(76, 'SRPBJT', '099', '7', '2025', 1, 'SRPBJT/001/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(77, 'SRPBJT', '099', '7', '2025', 2, 'SRPBJT/002/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(78, 'SRPBJT', '099', '7', '2025', 3, 'SRPBJT/003/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(79, 'SRPBJT', '099', '7', '2025', 4, 'SRPBJT/004/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(80, 'SRPBJT', '099', '7', '2025', 5, 'SRPBJT/005/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(81, 'SRPBJT', '099', '7', '2025', 6, 'SRPBJT/006/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(82, 'SRPBJT', '099', '7', '2025', 7, 'SRPBJT/007/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(83, 'SRPBJT', '099', '7', '2025', 8, 'SRPBJT/008/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(84, 'SRPBJT', '099', '7', '2025', 9, 'SRPBJT/009/099/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(85, '500', 'KP', '7', '2025', 10, '500/010/KP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(86, '500', 'KP', '7', '2025', 39, '500/039/KP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(87, '500', 'KP', '7', '2025', 40, '500/040/KP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(88, 'SK', 'KP', '7', '2025', 2, 'SK/002/KP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(89, 'SK', 'KP', '7', '2025', 3, 'SK/003/KP/VII/2025', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(90, 'SK', 'KP', '7', '2025', 4, 'SK/004/KP/VII/2025', 2, NULL, NULL, NULL, NULL, NULL, NULL),
+(91, 'SK', 'KP', '7', '2025', 5, 'SK/005/KP/VII/2025', 1, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00'),
+(92, 'SK', 'KP', '7', '2025', 6, 'SK/006/KP/VII/2025', 2, NULL, NULL, NULL, NULL, NULL, '2025-07-13 21:21:36'),
+(93, 'SK', 'KP', '7', '2025', 7, 'SK/007/KP/VII/2025', 1, 'LUKMAN, SE', 'Lurah', 'Pangkat Penata, III/c', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-13 21:34:17'),
+(94, 'SK', 'KP', '7', '2025', 8, 'SK/008/KP/VII/2025', 1, 'LUKMAN, SE', 'Lurah', 'Pangkat Penata, III/c', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-13 21:35:05'),
+(95, 'SK', 'KP', '7', '2025', 9, 'SK/009/KP/VII/2025', 2, 'LUKMAN, SE', 'Lurah', 'Pangkat Penata, III/c', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-13 21:36:09'),
+(96, 'SK', 'KP', '7', '2025', 10, 'SK/010/KP/VII/2025', 2, 'LUKMAN, SE', 'Lurah', 'Pangkat Penata, III/c', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-13 21:44:05'),
+(97, 'SK', 'KP', '7', '2025', 11, 'SK/011/KP/VII/2025', 1, 'LUKMAN, SE', 'Lurah', 'Pangkat Penata, III/c', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-01 21:44:49'),
+(98, 'SK', 'KP', '7', '2025', 12, 'SK/012/KP/VII/2025', 2, 'FARDAN, SE', 'Lurah', 'Pangkat Penata, III/c', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-14 07:48:54'),
+(99, 'SK', 'KP', '7', '2025', 13, 'SK/013/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat Penata, III/c', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-14 12:18:09'),
+(100, 'SK', 'KP', '7', '2025', 14, 'SK/014/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', '', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-14 12:25:17'),
+(101, 'SK', 'KP', '7', '2025', 15, 'SK/015/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', '', 'JL. BALANG BARU 3 NO 23', '2025-07-14 12:36:00'),
+(102, 'SK', 'KP', '7', '2025', 16, 'SK/016/KP/VII/2025', 1, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-14 12:41:03'),
+(103, 'SK', 'KP', '7', '2025', 17, 'SK/017/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-14 12:41:06'),
+(104, '500', 'KP', '7', '2025', 41, '500/041/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-14 12:56:06'),
+(105, '500', 'KP', '7', '2025', 42, '500/042/KP/VII/2025', 1, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-14 12:56:09');
 
 -- --------------------------------------------------------
 
@@ -1000,7 +1063,7 @@ CREATE TABLE `pejabat_desa` (
 --
 
 INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `pangkat`, `nip`, `alamat`) VALUES
-(1, 'LUKMAN, SE', 'Lurah', 'Pangkat Penata, III/c', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23'),
+(1, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23'),
 (2, '../../../../assets/img/barcode.png', 'Kepala Desa', '', '', '');
 
 -- --------------------------------------------------------
@@ -1446,7 +1509,23 @@ CREATE TABLE `surat_keterangan` (
 INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (169, 'Surat Keterangan', '04/SK/KODE-DESA/VI/2025', '7304080811110001', 167, 'Nostrum et velit ame', '2025-06-21 21:42:36', 2, 'SELESAI', 1),
 (171, 'Surat Keterangan', '012/SKJOSKU/WOOW/VI/2025', '7304080506770003', 409, 'Labore et quas velit', '2025-06-29 16:16:40', 2, 'SELESAI', 1),
-(173, 'Surat Keterangan', 'SK/001/MANTAP/VII/2025', '7304081310030001', 484, 'PENDAFTARAN', '2025-07-01 23:46:33', 1, 'SELESAI', 1);
+(173, 'Surat Keterangan', 'SK/001/MANTAP/VII/2025', '7304081310030001', 484, 'PENDAFTARAN', '2025-07-01 23:46:33', 1, 'SELESAI', 1),
+(174, 'Surat Keterangan', 'SK/002/KP/VII/2025', '7304053112900229', 624, 'MELAMAR KERJA', '2025-07-13 21:09:45', 2, 'SELESAI', 1),
+(175, 'Surat Keterangan', 'SK/003/KP/VII/2025', '7304053112900229', 625, 'MELAMAR KERJA', '2025-07-13 21:10:46', 1, 'SELESAI', 1),
+(176, 'Surat Keterangan', 'SK/004/KP/VII/2025', '7304053112900229', 626, 'PENDAFTARAN', '2025-07-13 21:18:21', 2, 'SELESAI', 1),
+(177, 'Surat Keterangan', 'SK/005/KP/VII/2025', '7304053112900229', 627, 'PENDAFTARAN', '2025-07-13 21:19:34', 1, 'SELESAI', 1),
+(178, 'Surat Keterangan', 'SK/006/KP/VII/2025', '7304053112900229', 628, 'PENDAFTARAN', '2025-07-13 21:21:36', 2, 'SELESAI', 1),
+(179, 'Surat Keterangan', 'SK/007/KP/VII/2025', '7304053112900229', 629, 'PENDAFTARAN', '2025-07-13 21:34:17', 1, 'SELESAI', 1),
+(180, 'Surat Keterangan', 'SK/008/KP/VII/2025', '7304053112900229', 630, 'MELAMAR KERJA', '2025-07-13 21:35:05', 1, 'SELESAI', 1),
+(181, 'Surat Keterangan', 'SK/009/KP/VII/2025', '7304053112900229', 631, 'MELAMAR KERJA', '2025-07-13 21:36:09', 2, 'SELESAI', 1),
+(182, 'Surat Keterangan', 'SK/010/KP/VII/2025', '7304053112900229', 632, 'MELAMAR KERJA', '2025-07-13 21:44:05', 2, 'SELESAI', 1),
+(183, 'Surat Keterangan', 'SK/011/KP/VII/2025', '7304053112900229', 633, 'PENDAFTARAN', '2025-07-13 21:44:49', 1, 'SELESAI', 1),
+(184, 'Surat Keterangan', 'SK/012/KP/VII/2025', '7304053112900229', 634, 'PENDAFTARAN', '2025-07-14 07:48:54', 2, 'SELESAI', 1),
+(185, 'Surat Keterangan', 'SK/013/KP/VII/2025', '7304053112900229', 635, 'IJAZAH', '2025-07-14 12:18:09', 2, 'SELESAI', 1),
+(186, 'Surat Keterangan', 'SK/014/KP/VII/2025', '7304053112900229', 636, 'MELAMAR KERJA', '2025-07-14 12:25:17', 2, 'SELESAI', 1),
+(187, 'Surat Keterangan', 'SK/015/KP/VII/2025', '7304053112900229', 637, 'MELAMAR KERJA', '2025-07-14 12:36:00', 2, 'SELESAI', 1),
+(188, 'Surat Keterangan', 'SK/017/KP/VII/2025', '7304053112900229', 638, 'MELAMAR KERJA', '2025-07-14 12:41:06', 2, 'SELESAI', 1),
+(189, 'Surat Keterangan', 'SK/016/KP/VII/2025', '7304053112900229', 639, 'PENDAFTARAN', '2025-07-14 12:41:03', 1, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1622,7 +1701,11 @@ INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `n
 (160, 'Surat Keterangan Domisili', '033/SKD/MANTAP/VII/2025', '7304053112900229', 559, '2025-07-04 17:10:52', 2, 'SELESAI', 1),
 (161, 'Surat Keterangan Domisili', '036/SKD/MANTAP/VII/2025', '7304080107740003', 569, '2025-07-06 20:31:32', 2, 'SELESAI', 1),
 (162, 'Surat Keterangan Domisili', '100/037/099/VII/2025', '7304053112900229', 597, '2025-07-09 20:53:18', 2, 'SELESAI', 1),
-(164, 'Surat Keterangan Domisili', '100/038/099/VII/2025', '7304053112900229', 600, '2025-07-09 23:48:31', 2, 'SELESAI', 1);
+(164, 'Surat Keterangan Domisili', '100/038/099/VII/2025', '7304053112900229', 600, '2025-07-09 23:48:31', 2, 'SELESAI', 1),
+(167, 'Surat Keterangan Domisili', '500/039/KP/VII/2025', '7304053112900229', 620, '2025-07-13 11:05:07', 2, 'SELESAI', 1),
+(168, 'Surat Keterangan Domisili', '500/042/KP/VII/2025', '7304053112900229', 621, '2025-07-14 12:56:09', 1, 'SELESAI', 1),
+(169, 'Surat Keterangan Domisili', '500/040/KP/VII/2025', '7304053112900229', 623, '2025-07-13 20:59:44', 2, 'SELESAI', 1),
+(170, 'Surat Keterangan Domisili', '500/041/KP/VII/2025', '7304053112900229', 640, '2025-07-14 12:56:06', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -2348,7 +2431,16 @@ CREATE TABLE `surat_rekomendasi_pembelian_bbm_jenis_tertentu` (
 INSERT INTO `surat_rekomendasi_pembelian_bbm_jenis_tertentu` (`id_srpbjt`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `isi_surat`, `keperluan_bbm`, `jenis_usaha`, `alokasi_volume`, `sejumlah`, `tempat_pengambilan`, `nomor_lembaga_penyalur`, `lokasi`, `tabel_bbm`, `masa_berlaku`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (2, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/001/099/VII/2025', '7304053112900229', 609, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>No</th>\r\n<th>Jenis Alat</th>\r\n<th>Jumlah Alat</th>\r\n<th>Fungsi Alat</th>\r\n<th>BBM Jenis Tertentu</th>\r\n<th>Kebutuhan BBM Jenis Tertentu</th>\r\n<th>Jam/Hari Operasi</th>\r\n<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>1</td>\r\n<td>Mesin Pompa Air dan Hand Traktor</td>\r\n<td>2 Unit</td>\r\n<td>Menyalakan Mesin</td>\r\n<td>Pertalite / Solar</td>\r\n<td>70 Liter</td>\r\n<td>Setiap hari</td>\r\n<td>2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td><strong>70 Liter</strong></td>\r\n<td colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-11', '2025-07-12 23:29:10', 2, 'SELESAI', 1),
 (3, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/002/099/VII/2025', '7304053112900229', 610, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>No</th>\r\n<th>Jenis Alat</th>\r\n<th>Jumlah Alat</th>\r\n<th>Fungsi Alat</th>\r\n<th>BBM Jenis Tertentu</th>\r\n<th>Kebutuhan BBM Jenis Tertentu</th>\r\n<th>Jam/Hari Operasi</th>\r\n<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>1</td>\r\n<td>Mesin Pompa Air dan Hand Traktor</td>\r\n<td>2 Unit</td>\r\n<td>Menyalakan Mesin</td>\r\n<td>Pertalite / Solar</td>\r\n<td>70 Liter</td>\r\n<td>Setiap hari</td>\r\n<td>2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td><strong>70 Liter</strong></td>\r\n<td colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-11', '2025-07-12 23:42:46', 2, 'SELESAI', 1),
-(4, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/003/099/VII/2025', '7304053112900229', 611, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>No</th>\r\n<th>Jenis Alat</th>\r\n<th>Jumlah Alat</th>\r\n<th>Fungsi Alat</th>\r\n<th>BBM Jenis Tertentu</th>\r\n<th>Kebutuhan BBM Jenis Tertentu</th>\r\n<th>Jam/Hari Operasi</th>\r\n<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>1</td>\r\n<td>Mesin Pompa Air dan Hand Traktor</td>\r\n<td>2 Unit</td>\r\n<td>Menyalakan Mesin</td>\r\n<td>Pertalite / Solar</td>\r\n<td>70 Liter</td>\r\n<td>Setiap hari</td>\r\n<td>2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td><strong>70 Liter</strong></td>\r\n<td colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-07-13', '2025-07-12 23:43:25', 2, 'SELESAI', 1);
+(4, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/003/099/VII/2025', '7304053112900229', 611, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>No</th>\r\n<th>Jenis Alat</th>\r\n<th>Jumlah Alat</th>\r\n<th>Fungsi Alat</th>\r\n<th>BBM Jenis Tertentu</th>\r\n<th>Kebutuhan BBM Jenis Tertentu</th>\r\n<th>Jam/Hari Operasi</th>\r\n<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>1</td>\r\n<td>Mesin Pompa Air dan Hand Traktor</td>\r\n<td>2 Unit</td>\r\n<td>Menyalakan Mesin</td>\r\n<td>Pertalite / Solar</td>\r\n<td>70 Liter</td>\r\n<td>Setiap hari</td>\r\n<td>2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td><strong>70 Liter</strong></td>\r\n<td colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-07-13', '2025-07-12 23:43:25', 2, 'SELESAI', 1),
+(5, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/004/099/VII/2025', '7304053112900229', 612, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th>No</th>\r\n<th>Jenis Alat</th>\r\n<th>Jumlah Alat</th>\r\n<th>Fungsi Alat</th>\r\n<th>BBM Jenis Tertentu</th>\r\n<th>Kebutuhan BBM Jenis Tertentu</th>\r\n<th>Jam/Hari Operasi</th>\r\n<th>Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>1</td>\r\n<td>Mesin Pompa Air dan Hand Traktor</td>\r\n<td>2 Unit</td>\r\n<td>Menyalakan Mesin</td>\r\n<td>Pertalite / Solar</td>\r\n<td>70 Liter</td>\r\n<td>Setiap hari</td>\r\n<td>2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td><strong>70 Liter</strong></td>\r\n<td colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-12', '2025-07-13 10:30:14', 2, 'SELESAI', 1),
+(6, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/005/099/VII/2025', '7304053112900229', 613, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39448%; text-align: center;\">No</th>\r\n<th style=\"width: 15.0342%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.75946%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.9602%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.8632%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.9069%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89331%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.1882%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 3.39448%; text-align: center;\">1</td>\r\n<td style=\"width: 15.0342%; text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"width: 7.75946%; text-align: center;\">2 Unit</td>\r\n<td style=\"width: 10.9602%; text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"width: 10.8632%; text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"width: 15.9069%; text-align: center;\">70 Liter</td>\r\n<td style=\"width: 9.89331%; text-align: center;\">Setiap hari</td>\r\n<td style=\"width: 26.1882%; text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"width: 48.0116%;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"width: 15.9069%;\"><strong>70 Liter</strong></td>\r\n<td style=\"width: 36.0815%;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-07-20', '2025-07-13 10:36:26', 2, 'SELESAI', 1),
+(7, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/006/099/VII/2025', '7304053112900229', 614, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-07-14', '2025-07-13 10:39:02', 2, 'SELESAI', 1),
+(8, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/007/099/VII/2025', '7304053112900229', 615, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-07-16', '2025-07-13 10:41:45', 2, 'SELESAI', 1),
+(9, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/008/099/VII/2025', '7304053112900229', 616, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-07-16', '2025-07-13 10:49:00', 1, 'SELESAI', 1),
+(10, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/009/099/VII/2025', '7304053112900229', 617, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013<br>5.&nbsp;</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin traktor Otomatis</td>\r\n<td style=\"text-align: center;\">8 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">3.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>3.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-12', '2025-07-13 10:57:55', 2, 'SELESAI', 1),
+(11, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', '500/010/KP/VII/2025', '7304053112900229', 618, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-12', '2025-07-13 11:01:50', 2, 'SELESAI', 1),
+(12, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', NULL, '7304053112900229', 619, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '0000-00-00', '2025-07-13 11:02:19', NULL, 'PENDING', 1),
+(13, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', NULL, '7304053112900229', 622, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '0000-00-00', '2025-07-13 11:05:31', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -2758,7 +2850,7 @@ ALTER TABLE `surat_tugas`
 -- AUTO_INCREMENT for table `arsip_surat`
 --
 ALTER TABLE `arsip_surat`
-  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=612;
+  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=641;
 
 --
 -- AUTO_INCREMENT for table `dusun`
@@ -2806,7 +2898,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `nomor_surat`
 --
 ALTER TABLE `nomor_surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `pejabat_desa`
@@ -2836,7 +2928,7 @@ ALTER TABLE `profil_desa`
 -- AUTO_INCREMENT for table `surat_keterangan`
 --
 ALTER TABLE `surat_keterangan`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_beda_identitas`
@@ -2866,7 +2958,7 @@ ALTER TABLE `surat_keterangan_berkelakuan_baik`
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili_usaha`
@@ -2986,7 +3078,7 @@ ALTER TABLE `surat_perintah_perjalanan_dinas`
 -- AUTO_INCREMENT for table `surat_rekomendasi_pembelian_bbm_jenis_tertentu`
 --
 ALTER TABLE `surat_rekomendasi_pembelian_bbm_jenis_tertentu`
-  MODIFY `id_srpbjt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_srpbjt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `surat_tugas`
