@@ -34,6 +34,8 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
     $ditambahkan = 0;
     $diperbarui = 0;
 
+    $errors = []; // Untuk menampung semua error
+
     for ($i = 1; $i < count($rows); $i++) {
         $row = $rows[$i];
 
@@ -70,7 +72,7 @@ if (isset($_FILES['datapenduduk']) && $_FILES['datapenduduk']['error'] == 0) {
 
         // Validasi: Jika diisi tapi bukan 16 digit, kosongkan saja
         if (!empty($no_kk_asli) && strlen($no_kk) != 16) {
-            echo "<div class='alert alert-warning'>Baris $i: No. KK tidak valid ($no_kk_asli), dikosongkan.</div>";
+            $errors[] = "Baris $i: No. KK tidak valid ($no_kk_asli), dikosongkan.";
             $no_kk = ''; // kosongkan daripada skip seluruh baris
         }
 

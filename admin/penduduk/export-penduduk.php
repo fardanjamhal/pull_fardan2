@@ -99,8 +99,8 @@ for ($i = 1; $i <= $colCount; $i++) {
 }
 
 // Output ke browser
-$judul_file = "Data Penduduk - $nama_desa - " . date('d-m-Y') . ".xlsx";
-$judul_file = str_replace(' ', '_', $judul_file);
+$judul_file = "Data Penduduk $nama_desa.xlsx";
+$judul_file = str_replace(' ', ' ', $judul_file);
 
 header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 header("Content-Disposition: attachment; filename=\"$judul_file\"");
