@@ -342,7 +342,7 @@
         /* Ukuran teks dan tinggi sel */
         table#data-table th,
         table#data-table td {
-          font-size: 14px;
+          font-size: 13px;
           padding: 6px 10px;
           vertical-align: middle;
           border: 1px solid #ccc;
@@ -378,8 +378,8 @@
 
         /* Kurangi lebar kolom NIK */
         table#data-table td:nth-child(2) {
-          min-width: 160px;
-          max-width: 200px;
+          min-width: 200px;
+          max-width: 280px;
         }
 
         /* Scroll horizontal jika diperlukan di HP */
@@ -431,7 +431,7 @@
 
                 <!-- Tombol Buat Surat -->
                 <!-- Tombol Buat Surat (Memicu Modal) -->
-              <button type="button" class="btn btn-primary btn-sm" style="font-size:14px;" data-toggle="modal" data-target="#modalSurat_<?php echo $row['nik']; ?>">
+              <button type="button" class="btn btn-primary btn-sm" style="font-size:13px;" data-toggle="modal" data-target="#modalSurat_<?php echo $row['nik']; ?>">
                 Buat Surat
               </button>
 
