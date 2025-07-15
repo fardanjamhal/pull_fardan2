@@ -105,7 +105,7 @@
         document.getElementById('progressBar').innerText = '0%';
         document.getElementById('progressText').innerText = 'Mengunggah file...';
 
-        fetch('proses-import.php', {
+        fetch('proses-import.php?v=' + Date.now(), {
             method: 'POST',
             body: formData
         })
@@ -134,48 +134,32 @@
                         return;
                     }
 
-                    fetch('proses-import.php?v=1.2', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-        step: 'process',
-        file: file,
-        index: index,
-        batch: batchSize
-    })
-})
-.then(response => response.text()) // Ambil response mentah
-.then(text => {
-    try {
-        const r = JSON.parse(text); // Coba parse jadi JSON
-        if (r.success) {
-            berhasil += r.berhasil;
-            gagal += r.gagal;
-        } else {
-            // Jika gagal, tampilkan pesan dari PHP
-            alert('Gagal proses batch:\n' + r.msg);
-        }
+                    fetch('proses-import.php?v=' + Date.now(), {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        body: new URLSearchParams({
+                            step: 'process',
+                            file: file,
+                            index: index,
+                            batch: batchSize
+                        })
+                    })
+                    .then(r => r.json())
+                    .then(r => {
+                        if (r.success) {
+                            berhasil += r.berhasil;
+                            gagal += r.gagal;
+                        }
 
-        let current = Math.min(index + batchSize - 1, total);
-        let percent = Math.round((current / total) * 100);
-        document.getElementById('progressBar').style.width = percent + '%';
-        document.getElementById('progressBar').innerText = `${percent}% - ${current} dari ${total}`;
-        document.getElementById('progressText').innerText = `Memproses: ${current} dari ${total}...`;
+                        let current = Math.min(index + batchSize - 1, total);
+                        let percent = Math.round((current / total) * 100);
+                        document.getElementById('progressBar').style.width = percent + '%';
+                        document.getElementById('progressBar').innerText = `${percent}% - ${current} dari ${total}`;
+                        document.getElementById('progressText').innerText = `Memproses: ${current} dari ${total}...`;
 
-        index += batchSize;
-        setTimeout(processBatch, 50);
-    } catch (e) {
-        // Jika JSON error, tampilkan respon mentah untuk cek isi errornya
-        console.error('Respon bukan JSON valid:\n', text);
-        alert('Respon tidak valid dari server:\n' + text);
-    }
-})
-.catch(err => {
-    // Jika fetch gagal sama sekali (misal: koneksi putus)
-    console.error('Fetch error:\n', err);
-    alert('Fetch error:\n' + err);
-});
-
+                        index += batchSize;
+                        setTimeout(processBatch, 50); // jeda kecil antar batch
+                    });
                 }
 
                 processBatch();
