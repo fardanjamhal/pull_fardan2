@@ -128,10 +128,14 @@ if ($step === 'process') {
         }
     }
 
-    $_SESSION['import_progress'] = $start + $inserted;
+   $_SESSION['import_progress'] = $start + $inserted;
 
+    // Cek jika sudah batch terakhir
     if (($start + $batchSize) >= count($rows)) {
-        @unlink($file);
+        // Optional: beri jeda atau validasi total sukses
+        if ($inserted > 0 || $gagal == 0) {
+            @unlink($file); // aman dihapus
+        }
     }
 
     echo json_encode([
