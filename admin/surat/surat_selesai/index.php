@@ -3,6 +3,28 @@ include('../part/akses.php');
 include('../part/header.php');
 include('../../../config/koneksi.php');
 
+// Ambil semua tabel surat
+$tahunList = [];
+
+$queryTables = mysqli_query($connect, "SHOW TABLES");
+while ($row = mysqli_fetch_array($queryTables)) {
+    $tableName = $row[0];
+    if (strpos($tableName, 'surat_') === 0 || strpos($tableName, 'formulir_') === 0) {
+        $sqlTahun = "SELECT DISTINCT YEAR(tanggal_surat) AS tahun 
+                     FROM $tableName 
+                     WHERE status_surat = 'selesai' AND tanggal_surat IS NOT NULL";
+        $result = mysqli_query($connect, $sqlTahun);
+        while ($r = mysqli_fetch_assoc($result)) {
+            $tahunList[] = $r['tahun'];
+        }
+    }
+}
+
+// Hapus duplikat dan urutkan menurun
+$tahunList = array_unique($tahunList);
+rsort($tahunList);
+
+
 // Ambil semua nama tabel
 $jenisSuratList = [];
 $query = mysqli_query($connect, "SHOW TABLES");
@@ -222,36 +244,82 @@ if (!$result) {
                 <div class="row">
                    
                     <div class="col-md-12">
-                        <form method="GET" class="form-inline" style="margin-bottom: 20px;">
-                            <div class="form-group">
-                                <label for="jenis_surat">Jenis Surat:</label>
-                                <select name="jenis_surat" id="jenis_surat" class="form-control">
-                                    <option value="">Semua</option>
-                                    <?php foreach ($jenisSuratList as $table => $info): ?>
-                                        <option value="<?= $table ?>" <?= ($filter_jenis == $table ? 'selected' : '') ?>>
-                                            <?= ucwords(str_replace('_', ' ', $table)) ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+
+                        <form method="GET" class="mb-3">
+                            <div class="row align-items-end">
+                                <div class="col-md-3">
+                                    <label for="jenis_surat">Jenis Surat:</label>
+                                    <select name="jenis_surat" id="jenis_surat" class="form-control">
+                                        <option value="">Semua</option>
+                                        <?php foreach ($jenisSuratList as $table => $info): ?>
+                                            <option value="<?= $table ?>" <?= ($filter_jenis == $table ? 'selected' : '') ?>>
+                                                <?= ucwords(str_replace('_', ' ', $table)) ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="keyword">Kata Kunci:</label>
+                                    <input type="text" name="keyword" id="keyword" class="form-control" value="<?= htmlspecialchars($keyword) ?>" placeholder="Ketik Kata Kunci...">
+                                </div>
+
+                               <div class="col-md-2">
+                                    <label for="limit">Jumlah per halaman:</label>
+                                    <select name="limit" id="limit" class="form-control" onchange="this.form.submit()">
+                                        <?php foreach ([10, 20, 50, 100] as $opt): ?>
+                                            <option value="<?= $opt ?>" <?= ($limit == $opt ? 'selected' : '') ?>><?= $opt ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>&nbsp;</label> <!-- Supaya tingginya sejajar -->
+                                    <div class="d-flex gap-2">
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Cari</button>
+                                        <a href="?" class="btn btn-primary"><i class="fa fa-refresh"></i> Reset</a>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExport">
+                                            <i class="fa fa-file-excel-o"></i> Export Excel
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="keyword">Cari:</label>
-                                <input type="text" name="keyword" id="keyword" class="form-control" value="<?= htmlspecialchars($keyword) ?>" placeholder="Ketik Kata Kunci...">
-                            </div>
-                            <div class="form-group">
-                                <label for="limit">Jumlah per halaman:</label>
-                                <select name="limit" id="limit" class="form-control">
-                                    <?php foreach ([10, 20, 50, 100] as $opt): ?>
-                                        <option value="<?= $opt ?>" <?= ($limit == $opt ? 'selected' : '') ?>><?= $opt ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Cari</button>
-                            <a href="?" class="btn btn-default"><i class="fa fa-refresh"></i> Reset</a>&nbsp;&nbsp;
-                            <a href="export-selesai.php" class="btn btn-primary mb-3" target="_blank">
-                                Export Excel
-                            </a>
                         </form>
+
+                        <br>
+
+                        <!-- Modal Pilih Tahun -->
+                        <div class="modal fade" id="modalExport" tabindex="-1" aria-labelledby="modalExportLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <form action="export-selesai.php" method="get" target="_blank" class="w-100">
+                            <div class="modal-content shadow-lg rounded-3">
+                                <div class="modal-header bg-primary text-white">
+                                <h5 class="modal-title" id="modalExportLabel">
+                                    <i class="fa fa-file-excel-o mr-2"></i> Export Data Surat Selesai
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                <label for="tahun" class="form-label">Pilih Tahun Surat:</label>
+                                <select name="tahun" id="tahun" class="form-control form-select" required>
+                                    <option value="">-- Pilih Tahun --</option>
+                                    <?php foreach ($tahunList as $tahun): ?>
+                                    <option value="<?= $tahun ?>"><?= $tahun ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                </div>
+
+                                <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-download mr-1"></i> Export Excel
+                                </button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        </div>
 
                         <script>
                         document.getElementById('jenis_surat').addEventListener('change', function () {

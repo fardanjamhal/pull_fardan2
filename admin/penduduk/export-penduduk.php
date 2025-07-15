@@ -7,6 +7,8 @@ use OpenSpout\Common\Entity\Style\Style;
 use OpenSpout\Common\Entity\Cell;
 use OpenSpout\Common\Entity\Row;
 use OpenSpout\Common\Entity\Style\Color;
+use OpenSpout\Writer\Common\Creator\WriterEntityFactory;
+use OpenSpout\Common\Entity\Style\CellAlignment;
 
 // Ambil nama desa
 $qProfil = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
@@ -21,11 +23,12 @@ $judul_file = str_replace(' ', ' ', $judul_file);
 $writer = new Writer();
 $writer->openToBrowser($judul_file);
 
-// Style Header
+// Buat style header manual
 $headerStyle = (new Style())
     ->setFontBold()
     ->setFontSize(12)
-    ->setBackgroundColor(Color::LIGHT_BLUE);
+    ->setCellAlignment(CellAlignment::CENTER)
+    ->setShouldWrapText(false);
 
 // Header kolom
 $headers = [
