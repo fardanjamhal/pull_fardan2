@@ -164,7 +164,7 @@
 
                 processBatch();
             } else {
-                 console.warn('Upload warning:', res.msg);
+                 
             }
         });
     });
