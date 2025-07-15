@@ -52,7 +52,7 @@
       font-weight: 600;
       font-size: 14px;
       line-height: 30px;
-      transition: width 0.4s ease-in-out;
+      transition: width 0.3s ease-in-out;
     }
 
     @keyframes fadeIn {
@@ -97,7 +97,7 @@
     let file = '';
     let total = 0;
     let index = 1;
-    let batchSize = 1000;
+    let batchSize = 100;
     let berhasil = 0;
     let gagal = 0;
 
