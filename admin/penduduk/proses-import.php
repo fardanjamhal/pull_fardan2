@@ -12,9 +12,14 @@ $step = $_POST['step'] ?? null;
 
 if ($step === 'upload') {
     if (!isset($_FILES['datapenduduk']) || $_FILES['datapenduduk']['error'] !== 0) {
-        echo json_encode(['success' => false, 'msg' => 'Gagal mengunggah file.']);
+        $error_code = $_FILES['datapenduduk']['error'] ?? 'no_file';
+        echo json_encode([
+            'success' => false,
+            'msg' => 'Gagal mengunggah file. Error code: ' . $error_code
+        ]);
         exit;
     }
+
 
     $tmpFile = $_FILES['datapenduduk']['tmp_name'];
 
