@@ -225,9 +225,10 @@
 
 		<div class="row mt-4">
 		<div class="col-md-6 offset-md-3">
-			<input type="text" id="searchSurat" class="form-control form-control-lg" placeholder="Cari jenis surat...">
+			<input type="text" id="searchSurat" class="form-control form-control-lg" placeholder="Cari jenis surat..." style="font-size: 18px;">
 		</div>
 		</div>
+
 
 		<div class="row">
 
@@ -304,7 +305,8 @@
 				"surat_perintah_perjalanan_dinas",
 				"surat_tugas",
 				"surat_keterangan_hibah",
-				"surat_rekomendasi_pembelian_bbm_jenis_tertentu"
+				"surat_rekomendasi_pembelian_bbm_jenis_tertentu",
+				"surat_pengantar"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan

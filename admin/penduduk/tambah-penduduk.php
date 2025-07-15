@@ -27,7 +27,41 @@
       </div>
     </div>
 
-    <!-- Form Import Excel -->
+  <style>
+    .progress-container {
+      margin-top: 20px;
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    #progressText {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .progress {
+      height: 30px;
+      border-radius: 15px;
+      background-color: #e9ecef;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-bar {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 30px;
+      transition: width 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+   <!-- Form Import Excel -->
     <div class="row">
       <div class="col-md-12">
         <div class="box box-primary">
@@ -35,18 +69,157 @@
             <h3 class="box-title"><i class="fa fa-upload"></i> Import Data Penduduk</h3>
           </div>
           <div class="box-body">
-            <form method="post" enctype="multipart/form-data" action="import-penduduk.php" class="form-inline">
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
               <div class="form-group">
-                <input type="file" name="datapenduduk" class="form-control" required>
+                  <input type="file" name="datapenduduk" class="form-control" required>
               </div>
-              <button type="submit" class="btn btn-primary" style="margin-left: 10px;">
-                <i class="fa fa-file-import"></i> Import .XLS
-              </button>
+              <button type="submit" class="btn btn-primary">Upload & Import</button>
             </form>
+
+           <div class="progress-container">
+              <label id="progressText" class="form-label">Memulai import...</label>
+              <div class="progress">
+                <div id="progressBar" class="progress-bar bg-primary text-white text-center"
+                    style="width: 0%">
+                  0%
+                </div>
+              </div>
+            </div>
+
+            <div id="result" class="mt-3"></div>
+
           </div>
         </div>
       </div>
     </div>
+
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        formData.append('step', 'upload');
+
+        document.querySelector('.progress-container').style.display = 'block';
+        document.getElementById('progressBar').style.width = '0%';
+        document.getElementById('progressBar').innerText = '0%';
+        document.getElementById('progressText').innerText = 'Mengunggah file...';
+
+        fetch('proses-import.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(res => {
+            if (res.success) {
+                let total = res.totalRows;
+                let file = res.file;
+                let batchSize = 1000;
+                let index = 1;
+                let berhasil = 0;
+                let gagal = 0;
+
+                function processBatch() {
+                    if (index > total) {
+                        document.getElementById('progressBar').style.width = '100%';
+                        document.getElementById('progressBar').innerText = `100% - Selesai`;
+                        document.getElementById('progressText').innerText = 'Import selesai.';
+                        document.getElementById('result').innerHTML = `
+                            <div class="alert alert-success mt-3">
+                                Import selesai.<br>
+                                Total data: <b>${total}</b><br>
+                                Berhasil: <b>${berhasil}</b><br>
+                                Gagal: <b>${gagal}</b>
+                            </div>`;
+                        return;
+                    }
+
+                    fetch('proses-import.php', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        body: new URLSearchParams({
+                            step: 'process',
+                            file: file,
+                            index: index,
+                            batch: batchSize
+                        })
+                    })
+                    .then(r => r.json())
+                    .then(r => {
+                        if (r.success) {
+                            berhasil += r.berhasil;
+                            gagal += r.gagal;
+                        }
+
+                        let current = Math.min(index + batchSize - 1, total);
+                        let percent = Math.round((current / total) * 100);
+                        document.getElementById('progressBar').style.width = percent + '%';
+                        document.getElementById('progressBar').innerText = `${percent}% - ${current} dari ${total}`;
+                        document.getElementById('progressText').innerText = `Memproses: ${current} dari ${total}...`;
+
+                        index += batchSize;
+                        setTimeout(processBatch, 50); // jeda kecil antar batch
+                    });
+                }
+
+                processBatch();
+            } else {
+                alert(res.msg);
+            }
+        });
+    });
+    </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $('#uploadForm').submit(function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        $('#result').html('');
+        $('#progressBar').css('width', '0%').text('0%');
+        $('.progress-container').show();
+
+        // Upload file terlebih dahulu
+        $.ajax({
+            url: 'upload-file.php',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(res){
+                var data = JSON.parse(res);
+                if(data.success){
+                    importData(data.file);
+                } else {
+                    $('#result').html('<div class="alert alert-danger">'+data.message+'</div>');
+                }
+            }
+        });
+
+        function importData(filePath){
+            $.ajax({
+                url: 'import-penduduk.php',
+                type: 'POST',
+                data: {file: filePath},
+                success: function(res){
+                    $('#result').html(res);
+                }
+            });
+
+            // Cek progress setiap 500ms
+            var interval = setInterval(function(){
+                $.get('get-progress.php', function(progress){
+                    var p = parseInt(progress);
+                    if(p >= 100){
+                        clearInterval(interval);
+                    }
+                    $('#progressBar').css('width', p + '%').text(p + '%');
+                });
+            }, 500);
+        }
+    });
+    </script>
 
     <!-- Form Tambah Data Penduduk -->
     <div class="row">
