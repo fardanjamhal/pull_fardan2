@@ -157,3 +157,6 @@ if ($step === 'process') {
 }
 
 echo json_encode(['success' => false, 'msg' => 'Permintaan tidak valid.']);
+
+file_put_contents(__DIR__ . '/debug-log.txt', "STEP: $step - " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+

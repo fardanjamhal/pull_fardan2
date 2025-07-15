@@ -105,11 +105,10 @@
         document.getElementById('progressBar').innerText = '0%';
         document.getElementById('progressText').innerText = 'Mengunggah file...';
 
-        fetch('proses-import.php?v=1.1', {
-          method: 'POST',
-          body: formData
+        fetch('proses-import.php', {
+            method: 'POST',
+            body: formData
         })
-
         .then(res => res.json())
         .then(res => {
             if (res.success) {
@@ -165,7 +164,7 @@
 
                 processBatch();
             } else {
-                alert(res.msg);
+                alert('RESPON DARI SERVER: ' + res.msg);
             }
         });
     });
