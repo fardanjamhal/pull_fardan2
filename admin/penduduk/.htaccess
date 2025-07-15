@@ -1,0 +1,10 @@
+# Boleh upload file besar (misal 10MB)
+php_value upload_max_filesize 10M
+php_value post_max_size 12M
+
+# Naikkan waktu eksekusi (default biasanya 30 detik)
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Hindari timeout saat upload besar
+php_value memory_limit 128M
