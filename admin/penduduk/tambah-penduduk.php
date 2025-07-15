@@ -71,7 +71,7 @@
           <div class="box-body">
             <form id="uploadForm" method="post" enctype="multipart/form-data">
               <div class="form-group">
-                  <input type="file" name="datapenduduk" class="form-control" required>
+                  <input type="file" name="datapenduduk" id="datapenduduk" class="form-control" required>
               </div>
               <button type="submit" class="btn btn-primary">Upload & Import</button>
             </form>

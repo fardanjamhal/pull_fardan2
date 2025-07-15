@@ -7,9 +7,6 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 header('Content-Type: application/json');
-
-file_put_contents("debug-import.log", "STEP: " . ($_POST['step'] ?? 'null') . PHP_EOL, FILE_APPEND);
-
 $step = $_POST['step'] ?? null;
 
 if ($step === 'upload') {
@@ -31,11 +28,12 @@ if ($step === 'upload') {
     $rows = $sheet->toArray();
 
     if (count($rows) <= 1) {
-        echo json_encode(['success' => false, 'msg' => 'Tidak ada data.']);
+        echo json_encode(['success' => false, 'msg' => 'Tidak ada data ditemukan.']);
         exit;
     }
 
     $dataDir = realpath(dirname(__FILE__) . '/../uploads/');
+    if (!is_dir($dataDir)) mkdir($dataDir);
     $dataFile = $dataDir . '/import_' . time() . '.json';
     file_put_contents($dataFile, json_encode($rows));
 
@@ -63,6 +61,8 @@ if ($step === 'process') {
     $rows = json_decode($json, true);
 
     $inserted = 0;
+    $gagal = 0;
+
     for ($i = $start; $i < $start + $batchSize && $i < count($rows); $i++) {
         $row = $rows[$i];
         if (count($row) < 23 || trim($row[0]) == '') continue;
@@ -121,42 +121,25 @@ if ($step === 'process') {
             nama_ayah='$nama_ayah',
             nama_ibu='$nama_ibu'";
 
-        mysqli_query($connect, $stmt);
-        $inserted++;
+        if (mysqli_query($connect, $stmt)) {
+            $inserted++;
+        } else {
+            $gagal++;
+        }
     }
 
-    $inserted = 0;
-        $gagal = 0;
+    $_SESSION['import_progress'] = $start + $inserted;
 
-        for ($i = $start; $i < $start + $batchSize && $i < count($rows); $i++) {
-            $row = $rows[$i];
-            if (count($row) < 23 || trim($row[0]) == '') continue;
+    if (($start + $batchSize) >= count($rows)) {
+        @unlink($file);
+    }
 
-            // ... (parsing seperti sebelumnya)
-
-            if (mysqli_query($connect, $stmt)) {
-                $inserted++;
-            } else {
-                $gagal++;
-            }
-        }
-
-       $_SESSION['import_progress'] = $start + $inserted;
-
-        // Cek apakah sudah batch terakhir, lalu hapus file
-        if (($start + $batchSize) >= count($rows)) {
-            @unlink($file); // hapus file setelah semua data selesai diproses
-        }
-
-        echo json_encode([
-            'success' => true,
-            'msg' => "Memproses data $start - " . ($start + $inserted - 1),
-            'berhasil' => $inserted,
-            'gagal' => $gagal
-        ]);
+    echo json_encode([
+        'success' => true,
+        'berhasil' => $inserted,
+        'gagal' => $gagal
+    ]);
     exit;
-
 }
 
 echo json_encode(['success' => false, 'msg' => 'Permintaan tidak valid.']);
-
