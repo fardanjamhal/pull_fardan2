@@ -43,66 +43,60 @@
 
 
 <style>
-  body, html {
-    height: 100%;
+  body {
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5;
+    background-color: #f5f6fa;
   }
 
   .form-center-wrapper {
     display: flex;
     justify-content: center;
-    padding: 15px 15px;
+    padding: 30px 15px;
   }
 
   .form-container {
     width: 100%;
-    max-width: 900px;
+    max-width: 720px;
     background: #fff;
-    padding: 25px 25px;
-    border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
   }
 
   .form-container h2 {
     text-align: center;
-    margin-bottom: 18px;
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 10px;
     color: #333;
   }
 
-  p.note {
+  .form-container .note {
     font-size: 13px;
-    color: #666;
-    margin-bottom: 20px;
     text-align: center;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 15px 20px;
+    color: #777;
+    margin-bottom: 30px;
   }
 
   .form-group {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 20px;
   }
 
   .form-group label {
+    display: block;
+    margin-bottom: 6px;
     font-size: 14px;
     font-weight: 600;
-    margin-bottom: 4px;
-    color: #333;
+    color: #444;
   }
 
   .form-group input[type="text"],
   .form-group input[type="file"] {
-    padding: 8px 10px;
+    width: 100%;
+    padding: 10px 12px;
     font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: border-color 0.2s;
   }
 
@@ -111,50 +105,56 @@
     outline: none;
   }
 
-  .form-text {
+  .form-group .form-text {
     font-size: 12px;
-    color: #777;
-    margin-top: 3px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  .form-group img.preview-img {
+    display: block;
+    margin: 8px auto; /* center secara horizontal */
+    height: 80px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    object-fit: contain;
   }
 
   .btn-simpan {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
     width: 100%;
-    transition: background 0.3s;
-    margin-top: 20px;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s;
+    cursor: pointer;
   }
 
   .btn-simpan:hover {
     background-color: #0056b3;
   }
 
-  .preview-img {
-    margin-top: 6px;
-    height: 65px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    object-fit: contain;
+  .flex-wa {
+    display: flex;
+    gap: 10px;
   }
 
-  /* Responsif padding untuk mobile */
+  .flex-wa input:first-child {
+    width: 60px;
+    text-align: center;
+    background: #f3f3f3;
+  }
+
   @media (max-width: 576px) {
     .form-container {
-      padding: 20px 15px;
-    }
-
-    .form-grid {
-      gap: 12px 10px;
+      padding: 24px 16px;
     }
 
     .btn-simpan {
-      margin-top: 16px;
+      padding: 10px;
     }
   }
 </style>
