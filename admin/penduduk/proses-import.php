@@ -11,10 +11,9 @@ header('Content-Type: application/json');
 $step = $_POST['step'] ?? null;
 
 if ($step === 'upload') {
-    if (!isset($_FILES['datapenduduk']) || empty($_FILES['datapenduduk']['tmp_name'])) {
-    // Boleh ubah msg agar tidak bikin panik
-    echo json_encode(['success' => false, 'msg' => 'Upload file belum terdeteksi.']);
-    exit;
+    if (!isset($_FILES['datapenduduk']) || $_FILES['datapenduduk']['error'] !== 0) {
+        echo json_encode(['success' => false, 'msg' => 'Upload file belum terdeteksi.']);
+        exit;
     }
 
     $tmpFile = $_FILES['datapenduduk']['tmp_name'];
