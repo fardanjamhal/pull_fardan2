@@ -164,7 +164,7 @@
 
                 processBatch();
             } else {
-                 
+                alert(res.msg);
             }
         });
     });
