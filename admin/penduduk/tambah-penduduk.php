@@ -70,11 +70,12 @@
           </div>
           <div class="box-body">
             <form id="uploadForm" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                  <input type="file" name="datapenduduk" id="datapenduduk" class="form-control" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Upload & Import</button>
-            </form>
+            <div class="form-group">
+              <input type="file" name="datapenduduk" id="datapenduduk" class="form-control" required
+                    accept=".xls,.xlsx,.csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload & Import</button>
+          </form>
 
            <div class="progress-container">
               <label id="progressText" class="form-label">Memulai import...</label>
@@ -168,6 +169,34 @@
         setTimeout(processBatch, 100); // jeda antar batch
       });
     }
+  </script>
+
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+      const fileInput = document.getElementById('datapenduduk');
+      const file = fileInput.files[0];
+
+      const allowedTypes = [
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'text/csv'
+      ];
+
+      const allowedExtensions = ['xls', 'xlsx', 'csv'];
+
+      if (!file) {
+        alert("Silakan pilih file.");
+        e.preventDefault();
+        return;
+      }
+
+      const ext = file.name.split('.').pop().toLowerCase();
+      if (!allowedTypes.includes(file.type) && !allowedExtensions.includes(ext)) {
+        alert("Format file tidak didukung. Hanya file .xls, .xlsx, atau .csv yang diperbolehkan.");
+        e.preventDefault();
+        return;
+      }
+    });
   </script>
 
 

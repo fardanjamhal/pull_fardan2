@@ -19,6 +19,10 @@ class ComposerStaticInit0d0f8b05735b58483977afa5d6eaf5d3
             'PhpOffice\\PhpSpreadsheet\\' => 25,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
+        'O' => 
+        array (
+            'OpenSpout\\' => 10,
+        ),
         'M' => 
         array (
             'Matrix\\' => 7,
@@ -59,6 +63,10 @@ class ComposerStaticInit0d0f8b05735b58483977afa5d6eaf5d3
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'OpenSpout\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/openspout/openspout/src',
         ),
         'Matrix\\' => 
         array (
