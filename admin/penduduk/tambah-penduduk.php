@@ -93,82 +93,82 @@
       </div>
     </div>
 
-  <script>
-    document.getElementById("uploadForm").addEventListener("submit", function(e) {
-        e.preventDefault();
+   <script>
+    let file = '';
+    let total = 0;
+    let index = 1;
+    let batchSize = 1000;
+    let berhasil = 0;
+    let gagal = 0;
 
-        const formData = new FormData(this);
-        formData.append('step', 'upload');
+    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+      e.preventDefault();
 
-        document.querySelector('.progress-container').style.display = 'block';
-        document.getElementById('progressBar').style.width = '0%';
-        document.getElementById('progressBar').innerText = '0%';
-        document.getElementById('progressText').innerText = 'Mengunggah file...';
+      const formData = new FormData(this);
+      formData.append('step', 'upload');
 
-        fetch('proses-import.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(res => res.json())
-        .then(res => {
-            if (res.success) {
-                let total = res.totalRows;
-                let file = res.file;
-                let batchSize = 1000;
-                let index = 1;
-                let berhasil = 0;
-                let gagal = 0;
-
-                function processBatch() {
-                    if (index > total) {
-                        document.getElementById('progressBar').style.width = '100%';
-                        document.getElementById('progressBar').innerText = `100% - Selesai`;
-                        document.getElementById('progressText').innerText = 'Import selesai.';
-                        document.getElementById('result').innerHTML = `
-                            <div class="alert alert-success mt-3">
-                                Import selesai.<br>
-                                Total data: <b>${total}</b><br>
-                                Berhasil: <b>${berhasil}</b><br>
-                                Gagal: <b>${gagal}</b>
-                            </div>`;
-                        return;
-                    }
-
-                    fetch('proses-import.php', {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                        body: new URLSearchParams({
-                            step: 'process',
-                            file: file,
-                            index: index,
-                            batch: batchSize
-                        })
-                    })
-                    .then(r => r.json())
-                    .then(r => {
-                        if (r.success) {
-                            berhasil += r.berhasil;
-                            gagal += r.gagal;
-                        }
-
-                        let current = Math.min(index + batchSize - 1, total);
-                        let percent = Math.round((current / total) * 100);
-                        document.getElementById('progressBar').style.width = percent + '%';
-                        document.getElementById('progressBar').innerText = `${percent}% - ${current} dari ${total}`;
-                        document.getElementById('progressText').innerText = `Memproses: ${current} dari ${total}...`;
-
-                        index += batchSize;
-                        setTimeout(processBatch, 50); // jeda kecil antar batch
-                    });
-                }
-
-                processBatch();
-            } else {
-                alert(res.msg);
-            }
-        });
+      fetch('proses-import.php?v=' + Date.now(), {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          file = res.file;
+          total = res.totalRows;
+          index = 1;
+          berhasil = 0;
+          gagal = 0;
+          processBatch();
+        } else {
+          alert(res.msg);
+        }
+      });
     });
-    </script>
+
+    function processBatch() {
+      if (index > total) {
+        document.getElementById('progressBar').style.width = '100%';
+        document.getElementById('progressBar').innerText = `100% - Selesai`;
+        document.getElementById('progressText').innerText = 'Import selesai.';
+        document.getElementById('result').innerHTML = `
+          <div class="alert alert-success">
+            Import selesai.<br>
+            Total data: <b>${total}</b><br>
+            Berhasil: <b>${berhasil}</b><br>
+            Gagal: <b>${gagal}</b>
+          </div>`;
+        return;
+      }
+
+      fetch('proses-import.php?v=' + Date.now(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          step: 'process',
+          file: file,
+          index: index,
+          batch: batchSize
+        })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          berhasil += res.berhasil;
+          gagal += res.gagal;
+        }
+
+        let current = Math.min(index + batchSize - 1, total);
+        let percent = Math.round((current / total) * 100);
+        document.getElementById('progressBar').style.width = percent + '%';
+        document.getElementById('progressBar').innerText = `${percent}% - ${current} dari ${total}`;
+        document.getElementById('progressText').innerText = `Memproses: ${current} dari ${total}...`;
+
+        index += batchSize;
+        setTimeout(processBatch, 100); // jeda antar batch
+      });
+    }
+  </script>
 
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
