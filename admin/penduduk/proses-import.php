@@ -8,6 +8,8 @@ use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 header('Content-Type: application/json');
 
+file_put_contents("debug-import.log", "STEP: " . ($_POST['step'] ?? 'null') . PHP_EOL, FILE_APPEND);
+
 $step = $_POST['step'] ?? null;
 
 if ($step === 'upload') {

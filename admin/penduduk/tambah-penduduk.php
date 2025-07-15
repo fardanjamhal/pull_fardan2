@@ -105,7 +105,7 @@
         document.getElementById('progressBar').innerText = '0%';
         document.getElementById('progressText').innerText = 'Mengunggah file...';
 
-        fetch('proses-import.php?v=' + Date.now(), {
+        fetch('proses-import.php', {
             method: 'POST',
             body: formData
         })
@@ -134,7 +134,7 @@
                         return;
                     }
 
-                    fetch('proses-import.php?v=' + Date.now(), {
+                    fetch('proses-import.php', {
                         method: 'POST',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         body: new URLSearchParams({
