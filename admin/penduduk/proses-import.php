@@ -11,10 +11,23 @@ header('Content-Type: application/json');
 $step = $_POST['step'] ?? null;
 
 if ($step === 'upload') {
-    if (!isset($_FILES['datapenduduk']) || $_FILES['datapenduduk']['error'] !== 0) {
-        echo json_encode(['success' => false, 'msg' => 'Proses upload dimulai...']);
+    if (empty($_FILES['datapenduduk']) || !is_uploaded_file($_FILES['datapenduduk']['tmp_name'])) {
+    echo json_encode(['success' => false, 'msg' => 'File tidak berhasil diunggah ke server.']);
+    exit;
+    }
+
+    if ($_FILES['datapenduduk']['error'] !== UPLOAD_ERR_OK) {
+        $err = $_FILES['datapenduduk']['error'];
+        $pesan = match ($err) {
+            1, 2 => 'Ukuran file terlalu besar (limit hosting).',
+            3 => 'File hanya sebagian terunggah.',
+            4 => 'Tidak ada file yang diunggah.',
+            default => 'Terjadi kesalahan saat upload. Kode error: ' . $err
+        };
+        echo json_encode(['success' => false, 'msg' => $pesan]);
         exit;
     }
+
 
     $tmpFile = $_FILES['datapenduduk']['tmp_name'];
 
