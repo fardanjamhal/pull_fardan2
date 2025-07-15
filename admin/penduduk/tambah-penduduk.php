@@ -97,7 +97,7 @@
     let file = '';
     let total = 0;
     let index = 1;
-    let batchSize = 100;
+    let batchSize = 1000;
     let berhasil = 0;
     let gagal = 0;
 
@@ -106,11 +106,6 @@
 
       const formData = new FormData(this);
       formData.append('step', 'upload');
-
-      // Tampilkan status awal
-      document.getElementById('progressBar').style.width = '0%';
-      document.getElementById('progressBar').innerText = '0%';
-      document.getElementById('progressText').innerText = 'Mengunggah file...';
 
       fetch('proses-import.php?v=' + Date.now(), {
         method: 'POST',
@@ -124,21 +119,12 @@
           index = 1;
           berhasil = 0;
           gagal = 0;
-          processBatch(); // mulai proses import batch
+          processBatch();
         } else {
-          // Tampilkan pesan error dari server
-          document.getElementById('progressText').innerHTML = `<span class="text-danger">${res.msg}</span>`;
-          document.getElementById('result').innerHTML = `<div class="alert alert-danger mt-2">${res.msg}</div>`;
+          alert(res.msg);
         }
-      })
-      .catch(err => {
-        // Jika fetch error (misalnya gagal koneksi)
-        console.error('Fetch error:', err);
-        document.getElementById('progressText').innerHTML = `<span class="text-danger">Terjadi kesalahan saat mengunggah.</span>`;
-        document.getElementById('result').innerHTML = `<div class="alert alert-danger mt-2">Terjadi kesalahan jaringan atau server tidak merespon.</div>`;
       });
     });
-
 
     function processBatch() {
       if (index > total) {
