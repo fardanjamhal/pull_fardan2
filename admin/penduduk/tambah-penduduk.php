@@ -221,7 +221,7 @@
                 if(data.success){
                     importData(data.file);
                 } else {
-                    $('#result').html('<div class="alert alert-danger">'+data.message+'</div>');
+                    $('#result').html('<div style="background-color: #cce5ff; color: #004085; padding:10px; border-radius:4px;">' + data.message + '</div>');
                 }
             }
         });

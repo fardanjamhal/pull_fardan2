@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['datapenduduk'])) {
     } else {
         echo json_encode([
             'success' => false,
-            'message' => 'Upload file belum terdeteksi.',
+            'message' => 'Upload file sedang diproses..',
             'color'   => 'orange' // tambahkan warna di sini
         ]);
     }
