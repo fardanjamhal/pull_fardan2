@@ -1,7 +1,7 @@
 <!-- FOOTER -->
 <div class="footer text-center text-white">
   <small>
-    &copy; 2025 <strong>Pelayanan Surat Desa</strong>. All rights reserved.
+    &copy; 2025 <strong>Pelayanan Surat Desa / Kelurahan</strong>. All rights reserved.
   </small>
 </div>
 

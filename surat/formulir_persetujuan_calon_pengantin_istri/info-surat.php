@@ -12,6 +12,24 @@
 		if($data['nik']==$nik){
 			$_SESSION['nik'] = $nik;
 ?>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+	.form-text.text-info {
+  background: #e8f4ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  animation: fadein 0.8s ease;
+	}
+
+	@keyframes fadein {
+	from { opacity: 0; transform: translateY(-5px); }
+	to { opacity: 1; transform: translateY(0); }
+	}
+</style>
+
 <body class="bg-light">
 	<div class="container" style="max-height:cover; padding-top:30px;  padding-bottom:60px; position:relative; min-height: 100%;">
 		<div class="row">
@@ -123,62 +141,149 @@
 								<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Bin</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fbin" class="form-control" style="text-transform: capitalize;" placeholder="Bin (Istri)" required>
+						               	<input type="text" name="fbin" class="form-control" style="text-transform: capitalize;" placeholder="Bin (Istri)" value="<?php echo $data['nama_ayah']; ?>" required>
 						           	</div>
 						        </div>
 						  	</div>
 						</div>
+
+						<script src="../../helper/helper-validasi-nik.js"></script>
+						
+						<div class="form-group mb-3">
+						<div class="col-sm-12">
+							<input type="text" name="fnik_suami" id="fnik_suami"
+							class="form-control nik-input"
+							placeholder="Nomor Induk Kependudukan (Suami)"
+							maxlength="16"
+							oninput="validasiNIK(this)"
+							onkeypress="return hanyaAngka(event)"
+							required>
+							
+							<!-- Tambahkan alert info di bawah input -->
+							<small class="form-text text-info mt-1" style="display: flex; align-items: center;">
+							<i class="fa fa-info-circle mr-2 text-primary"></i>
+							Isi NIK untuk mengambil data otomatis istri dari database.
+							</small>
+						</div>
+						</div>
+
 						<div class="row">
 						  	<div class="col-sm-12">
 								<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Calon Suami</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama_suami" class="form-control" style="text-transform: capitalize;" placeholder="Nama lengkap dan alias (Suami)" required>
+						               	<input type="text" name="fnama_suami" id="fnama_suami" class="form-control" style="text-transform: capitalize;" placeholder="Nama lengkap dan alias (Suami)" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fbin_suami" class="form-control" style="text-transform: capitalize;" placeholder="Bin (Suami)" required>
+						               	<input type="text" name="fbin_suami" id="fbin_suami" class="form-control" style="text-transform: capitalize;" placeholder="Bin (Suami)" required>
 						           	</div>
 						        </div>
-
-								
-								<div class="form-group mb-3">
-								<div class="col-sm-12">
-									<input type="text" name="fnik_suami" id="fnik_suami"
-									class="form-control nik-input" placeholder="Nomor Induk Kependudukan (Suami)"
-									maxlength="16" oninput="validasiNIK(this)" onkeypress="return hanyaAngka(event)" required>
-								</div>
-								</div>
 								
 								<script src="../helper/helper-validasi-nik.js"></script>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="ftgl_lahir_suami" class="form-control" placeholder="Tempat dan Tanggal Lahir (Suami)" required>
+						               	<input type="text" name="ftgl_lahir_suami" id="ftgl_lahir_suami" class="form-control" placeholder="Tempat dan Tanggal Lahir (Suami)" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fkewarganegaraan_suami" class="form-control" style="text-transform: capitalize;" placeholder="Kewarganegaraan (Suami)" required>
+						               	<input type="text" name="fkewarganegaraan_suami" id="fkewarganegaraan_suami" class="form-control" style="text-transform: capitalize;" placeholder="Kewarganegaraan (Suami)" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fagama_suami" class="form-control" style="text-transform: capitalize;" placeholder="Agama (Suami)" required>
+						               	<input type="text" name="fagama_suami" id="fagama_suami" class="form-control" style="text-transform: capitalize;" placeholder="Agama (Suami)" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fpekerjaan_suami" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan (Suami)" required>
+						               	<input type="text" name="fpekerjaan_suami" id="fpekerjaan_suami" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan (Suami)" required>
 						           	</div>
 						        </div>
 								<div class="form-group">
 						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat_suami" class="form-control" style="text-transform: capitalize;" placeholder="Alamat Istri (Suami)" required>
+						               	<input type="text" name="falamat_suami" id="falamat_suami" class="form-control" style="text-transform: capitalize;" placeholder="Alamat Istri (Suami)" required>
 						           	</div>
 						        </div>
 						  	</div>
 						</div>
+
+						<!-- jQuery wajib -->
+						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+						<script>
+						$('#fnik_suami').on('blur', function () {
+						var nik = $(this).val().trim();
+						if (nik.length === 16) {
+
+							// Tampilkan animasi loading
+							Swal.fire({
+							title: 'Memeriksa NIK...',
+							text: 'Mohon tunggu sebentar',
+							allowOutsideClick: false,
+							didOpen: () => {
+								Swal.showLoading();
+							}
+							});
+
+							$.ajax({
+							url: '../helper/check_nik.php',
+							type: 'POST',
+							data: { nik: nik },
+							dataType: 'json',
+							success: function (res) {
+								Swal.close(); // Tutup loading
+
+								if (res.success) {
+								$('#fnama_suami').val(res.data.nama);
+								$('#fbin_suami').val(res.data.nama_ayah || '');
+								$('#ftgl_lahir_suami').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+								$('#fkewarganegaraan_suami').val(res.data.kewarganegaraan);
+								$('#fagama_suami').val(res.data.agama);
+								$('#fpekerjaan_suami').val(res.data.pekerjaan);
+								$('#falamat_suami').val(res.data.alamat);
+								} else {
+								Swal.fire({
+									icon: 'warning',
+									title: 'NIK Tidak Ditemukan',
+									text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
+									confirmButtonText: 'Tutup'
+								});
+								}
+							},
+							error: function () {
+								Swal.close(); // Tutup loading jika error
+
+								Swal.fire({
+								icon: 'error',
+								title: 'Kesalahan Server',
+								text: 'Gagal mengambil data. Coba beberapa saat lagi.',
+								confirmButtonText: 'Tutup'
+								});
+							}
+							});
+						}
+						});
+
+						$('#fnik_suami').on('input', function () {
+						var nik = $(this).val().trim();
+
+						// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+						if (nik === '') {
+							$('#fnama_suami').val('');
+							$('#fbin_suami').val('');
+							$('#ftgl_lahir_suami').val('');
+							$('#fkewarganegaraan_suami').val('');
+							$('#fagama_suami').val('');
+							$('#fpekerjaan_suami').val('');
+							$('#falamat_suami').val('');
+						}
+						});
+
+						</script>
+
 						<hr width="97%">
 						<div class="container-fluid">
 		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/formulir_persetujuan_calon_pengantin_istri/'">

@@ -209,7 +209,7 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 
 			</div>
 			<div class="card-footer">
-				&copy; <span id="year"></span> Pelayanan Surat Desa
+				&copy; <span id="year"></span> Pelayanan Surat Desa / Kelurahan
 			</div>
 		</div>
 	</div>

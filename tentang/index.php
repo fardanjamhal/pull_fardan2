@@ -163,7 +163,7 @@
         <div class="footer bg-transparent text-center">
           <span class="text-dark">
             <strong>&copy; <span id="year"></span> 
-              <a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa</a>
+              <a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa / Kelurahan</a>
             </strong>
           </span>
         </div>

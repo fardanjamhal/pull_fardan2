@@ -78,7 +78,7 @@
       <form action="info-surat.php" method="post" onsubmit="return validasiNIK()">
         <?php 
         if (isset($_GET['pesan']) && $_GET['pesan'] == "gagal") {
-            echo "<div class='alert alert-danger text-center rounded-3'>NIK Anda tidak terdaftar. Silahkan hubungi Kantor Desa!</div>";
+            echo "<div class='alert alert-danger text-center rounded-3'>NIK Anda tidak terdaftar. Silahkan hubungi Admin!</div>";
         }
 
         include('../../config/koneksi.php');
