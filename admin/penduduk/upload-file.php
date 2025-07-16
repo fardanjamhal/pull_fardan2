@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['datapenduduk'])) {
     if (move_uploaded_file($file['tmp_name'], $target)) {
         echo json_encode(['success' => true, 'file' => 'uploads/' . $name]);
     } else {
-        echo json_encode(['success' => false, 'message' => 'Gagal mengunggah file.']);
+        echo json_encode(['success' => false, 'message' => 'Upload file belum terdeteksi.']);
     }
 } else {
     echo json_encode(['success' => false, 'message' => 'Permintaan tidak valid.']);

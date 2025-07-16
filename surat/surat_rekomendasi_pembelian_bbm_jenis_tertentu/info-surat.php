@@ -1,3 +1,74 @@
+<?php
+// BARIS PERTAMA FILE, TANPA SPASI ATAU BARIS KOSONG DI ATASNYA
+// Pastikan session_start() ada di paling atas dari script yang menggunakan session
+// atau di file koneksi.php jika itu selalu di-include pertama kali.
+
+// Include koneksi database terlebih dahulu
+include ('../../config/koneksi.php'); // Pastikan file ini tidak menghasilkan output HTML apapun
+
+// --- MULAI LOGIKA PEMROSESAN NIK ---
+// Semua validasi, query database, dan kondisi redirect harus ada di sini
+// SEBELUM ada output HTML atau include file yang menghasilkan output HTML (seperti header.php)
+
+// Cek apakah data NIK dikirim via POST dan tidak kosong
+if (isset($_POST['fnik']) && !empty($_POST['fnik'])) {
+    $nik = $_POST['fnik'];
+
+    // Gunakan Prepared Statements untuk mencegah SQL Injection
+    $stmt = mysqli_prepare($connect, "SELECT nik, nama, jenis_kelamin, tempat_lahir, tgl_lahir, agama, pekerjaan, kewarganegaraan FROM penduduk WHERE nik = ?");
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "s", $nik); // 's' menandakan tipe data string
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt); // Penting untuk mysqli_stmt_num_rows()
+
+        // Periksa apakah NIK ditemukan
+        if (mysqli_stmt_num_rows($stmt) > 0) {
+            mysqli_stmt_bind_result($stmt, $data_nik, $data_nama, $data_jenis_kelamin, $data_tempat_lahir, $data_tgl_lahir, $data_agama, $data_pekerjaan, $data_kewarganegaraan);
+            mysqli_stmt_fetch($stmt);
+
+            // Karena kita sudah query WHERE nik = ?, $data_nik pasti sama dengan $nik
+            // Validasi $data['nik'] == $nik menjadi redundant, kita bisa langsung set session
+            $_SESSION['nik'] = $data_nik;
+            // Kita juga bisa menyimpan data penduduk lainnya di session jika diperlukan
+            $_SESSION['penduduk_data'] = [
+                'nama' => $data_nama,
+                'jenis_kelamin' => $data_jenis_kelamin,
+                'tempat_lahir' => $data_tempat_lahir,
+                'tgl_lahir' => $data_tgl_lahir,
+                'agama' => $data_agama,
+                'pekerjaan' => $data_pekerjaan,
+                'kewarganegaraan' => $data_kewarganegaraan
+            ];
+
+            // Setelah semua pemrosesan PHP selesai, baru lanjutkan ke tampilan HTML.
+            // Tidak ada redirect di sini karena NIK ditemukan, dan kita akan menampilkan form.
+
+        } else {
+            // NIK tidak ditemukan di database
+            header("location:index.php?pesan=gagal");
+            exit(); // Penting! Hentikan eksekusi script
+        }
+        mysqli_stmt_close($stmt); // Tutup statement
+    } else {
+        // Jika ada error saat mempersiapkan statement (misal: query salah)
+        $_SESSION['pesan_error'] = "Terjadi kesalahan sistem. Mohon coba lagi nanti.";
+        error_log("MySQLi Prepare Error: " . mysqli_error($connect)); // Log error untuk debugging
+        header("Location: index.php");
+        exit(); // Penting! Hentikan eksekusi script
+    }
+} else {
+    // Jika NIK tidak dikirim atau kosong dari form (misalnya user langsung akses halaman ini)
+    $_SESSION['pesan_error'] = "Mohon masukkan NIK Anda!";
+    header("Location: index.php");
+    exit(); // Penting! Hentikan eksekusi script
+}
+// --- AKHIR LOGIKA PEMROSESAN NIK ---
+
+// --- MULAI OUTPUT HTML ---
+// HTML baru dimulai di sini, setelah semua kemungkinan redirect ditangani.
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -379,7 +450,6 @@ if ($row > 0) {
 	}
 </script>
 
-
 <?php
     }
 } else {
@@ -387,5 +457,6 @@ if ($row > 0) {
 }
 include ('../part/footer.php');
 ?>
+
 </body>
 </html>
