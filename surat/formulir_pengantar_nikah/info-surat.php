@@ -12,6 +12,62 @@
 		if($data['nik']==$nik){
 			$_SESSION['nik'] = $nik;
 ?>
+
+		<style>
+								.form-control.valid {
+									border-color: green;
+									padding-right: 2.5rem;
+									background-image: url("data:image/svg+xml,%3Csvg fill='green' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16.17l-3.88-3.88L4 13.41l5 5 10-10-1.41-1.41z'/%3E%3C/svg%3E");
+									background-repeat: no-repeat;
+									background-position: right 10px center;
+									background-size: 20px 20px;
+								}
+
+								.form-control.invalid {
+									border-color: red;
+									animation: shake 0.3s;
+								}
+
+								.nik-msg {
+									height: 18px;
+									font-size: 13px;
+									margin-top: 4px;
+								}
+
+								.nik-msg.error {
+									color: red;
+								}
+
+								.nik-msg.success {
+									color: green;
+								}
+
+								@keyframes shake {
+									0% { transform: translateX(0); }
+									25% { transform: translateX(-5px); }
+									50% { transform: translateX(5px); }
+									75% { transform: translateX(-5px); }
+									100% { transform: translateX(0); }
+								}
+								</style>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+	.form-text.text-info {
+  background: #e8f4ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  animation: fadein 0.8s ease;
+	}
+
+	@keyframes fadein {
+	from { opacity: 0; transform: translateY(-5px); }
+	to { opacity: 1; transform: translateY(0); }
+	}
+</style>
+
 <body class="bg-light">
 	<div class="container" style="max-height:cover; padding-top:30px;  padding-bottom:60px; position:relative; min-height: 100%;">
 		<div class="row">
@@ -140,164 +196,229 @@
 							<!-- Kolom Kiri: Ayah -->
 							<div class="col-sm-6">
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fnama_ayah" class="form-control" placeholder="Nama Ayah / Orang Tua / Wali" style="text-transform: capitalize;" required>
-								</div>
-								
-								
-								<style>
-								.form-control.valid {
-									border-color: green;
-									padding-right: 2.5rem;
-									background-image: url("data:image/svg+xml,%3Csvg fill='green' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16.17l-3.88-3.88L4 13.41l5 5 10-10-1.41-1.41z'/%3E%3C/svg%3E");
-									background-repeat: no-repeat;
-									background-position: right 10px center;
-									background-size: 20px 20px;
-								}
-
-								.form-control.invalid {
-									border-color: red;
-									animation: shake 0.3s;
-								}
-
-								.nik-msg {
-									height: 18px;
-									font-size: 13px;
-									margin-top: 4px;
-								}
-
-								.nik-msg.error {
-									color: red;
-								}
-
-								.nik-msg.success {
-									color: green;
-								}
-
-								@keyframes shake {
-									0% { transform: translateX(0); }
-									25% { transform: translateX(-5px); }
-									50% { transform: translateX(5px); }
-									75% { transform: translateX(-5px); }
-									100% { transform: translateX(0); }
-								}
-								</style>
-
-								<div class="form-group col-sm-12" style="font-weight: 500;">
-								<input type="text" name="fnik_ayah" id="fnik_ayah" class="form-control"
-										placeholder="NIK" maxlength="16" style="text-transform: capitalize;"
-										oninput="cekNIKAyah()" onkeypress="return hanyaAngka(event)" required>
-								<div id="notif-nik-ayah" class="nik-msg"></div>
+									<input type="text" name="fnama_ayah" id="fnama_ayah" class="form-control" placeholder="Nama Ayah / Orang Tua / Wali" style="text-transform: capitalize;" required>
 								</div>
 
-								<script>
-								function hanyaAngka(evt) {
-									var charCode = (evt.which) ? evt.which : event.keyCode;
-									return !(charCode > 31 && (charCode < 48 || charCode > 57));
-								}
+								<script src="../../helper/helper-validasi-nik.js"></script>
 
-								function cekNIKAyah() {
-									const input = document.getElementById("fnik_ayah");
-									const msg = document.getElementById("notif-nik-ayah");
-									const nik = input.value;
-
-									if (nik.length === 0) {
-									input.classList.remove('valid', 'invalid');
-									msg.textContent = "";
-									msg.className = "nik-msg";
-									} else if (nik.length < 16) {
-									input.classList.remove('valid');
-									input.classList.add('invalid');
-									msg.textContent = "NIK harus 16 digit.";
-									msg.className = "nik-msg error";
-									} else if (!/^\d{16}$/.test(nik)) {
-									input.classList.remove('valid');
-									input.classList.add('invalid');
-									msg.textContent = "NIK hanya boleh angka.";
-									msg.className = "nik-msg error";
-									} else {
-									input.classList.remove('invalid');
-									input.classList.add('valid');
-									msg.textContent = "✅ NIK valid";
-									msg.className = "nik-msg success";
-									}
-								}
-								</script>
-
+								<div class="form-group mb-3">
+								<div class="col-sm-12">
+									<input type="text" name="fnik_ayah" id="fnik_ayah"
+									class="form-control nik-input"
+									placeholder="NIK"
+									maxlength="16"
+									oninput="validasiNIK(this)"
+									onkeypress="return hanyaAngka(event)"
+									required>
+									
+									<!-- Tambahkan alert info di bawah input -->
+									<small class="form-text text-info mt-1" style="display: flex; align-items: center;">
+									<i class="fa fa-info-circle mr-2 text-primary"></i>
+									Isi NIK untuk mengambil data otomatis istri dari database.
+									</small>
+								</div>
+								</div>
 
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="ftempat_tgl_lahir_ayah" class="form-control" placeholder="Tempat / Tgl Lahir" style="text-transform: capitalize;" required>
+									<input type="text" name="ftempat_tgl_lahir_ayah" id="ftempat_tgl_lahir_ayah" class="form-control" placeholder="Tempat / Tgl Lahir" style="text-transform: capitalize;" required>
 								</div>
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fkewarganegaraan_ayah" class="form-control" placeholder="Kewarganegaraan" style="text-transform: capitalize;" required>
+									<input type="text" name="fkewarganegaraan_ayah" id="fkewarganegaraan_ayah" class="form-control" placeholder="Kewarganegaraan" style="text-transform: capitalize;" required>
 								</div>
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fagama_ayah" class="form-control" placeholder="Agama" style="text-transform: capitalize;" required>
+									<input type="text" name="fagama_ayah" id="fagama_ayah" class="form-control" placeholder="Agama" style="text-transform: capitalize;" required>
 								</div>
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fpekerjaan_ayah" class="form-control" placeholder="Pekerjaan" style="text-transform: capitalize;" required>
+									<input type="text" name="fpekerjaan_ayah" id="fpekerjaan_ayah" class="form-control" placeholder="Pekerjaan" style="text-transform: capitalize;" required>
 								</div>
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="falamat_ayah" class="form-control" placeholder="Alamat" style="text-transform: capitalize;" required>
+									<input type="text" name="falamat_ayah" id="falamat_ayah" class="form-control" placeholder="Alamat" style="text-transform: capitalize;" required>
 								</div>
 							</div>
+
+							<!-- jQuery wajib -->
+							<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+							<script>
+							$('#fnik_ayah').on('blur', function () {
+							var nik = $(this).val().trim();
+							if (nik.length === 16) {
+
+								// Tampilkan animasi loading
+								Swal.fire({
+								title: 'Memeriksa NIK...',
+								text: 'Mohon tunggu sebentar',
+								allowOutsideClick: false,
+								didOpen: () => {
+									Swal.showLoading();
+								}
+								});
+
+								$.ajax({
+								url: '../helper/check_nik.php',
+								type: 'POST',
+								data: { nik: nik },
+								dataType: 'json',
+								success: function (res) {
+									Swal.close(); // Tutup loading
+
+									if (res.success) {
+									$('#fnama_ayah').val(res.data.nama);
+									$('#ftempat_tgl_lahir_ayah').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+									$('#fkewarganegaraan_ayah').val(res.data.kewarganegaraan);
+									$('#fagama_ayah').val(res.data.agama);
+									$('#fpekerjaan_ayah').val(res.data.pekerjaan);
+									$('#falamat_ayah').val(res.data.alamat);
+									} else {
+									Swal.fire({
+										icon: 'warning',
+										title: 'NIK Tidak Ditemukan',
+										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
+										confirmButtonText: 'Tutup'
+									});
+									}
+								},
+								error: function () {
+									Swal.close(); // Tutup loading jika error
+
+									Swal.fire({
+									icon: 'error',
+									title: 'Kesalahan Server',
+									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
+									confirmButtonText: 'Tutup'
+									});
+								}
+								});
+							}
+							});
+
+							$('#fnik_ayah').on('input', function () {
+							var nik = $(this).val().trim();
+
+							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+							if (nik === '') {
+								$('#fnama_ayah').val('');
+								$('#ftempat_tgl_lahir_ayah').val('');
+								$('#fkewarganegaraan_ayah').val('');
+								$('#fagama_ayah').val('');
+								$('#fpekerjaan_ayah').val('');
+								$('#falamat_ayah').val('');
+							}
+							});
+
+							</script>
+
 
 							<!-- Kolom Kanan: Ibu -->
 							<div class="col-sm-6">
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fnama_ibu" class="form-control" placeholder="Nama Ibu / Orang Tua / Wali" style="text-transform: capitalize;" required>
+									<input type="text" name="fnama_ibu" id="fnama_ibu" class="form-control" placeholder="Nama Ibu / Orang Tua / Wali" style="text-transform: capitalize;" required>
+								</div>
+
+								<div class="form-group mb-3">
+								<div class="col-sm-12">
+									<input type="text" name="fnik_ibu" id="fnik_ibu"
+									class="form-control nik-input"
+									placeholder="NIK"
+									maxlength="16"
+									oninput="validasiNIK(this)"
+									onkeypress="return hanyaAngka(event)"
+									required>
+									
+									<!-- Tambahkan alert info di bawah input -->
+									<small class="form-text text-info mt-1" style="display: flex; align-items: center;">
+									<i class="fa fa-info-circle mr-2 text-primary"></i>
+									Isi NIK untuk mengambil data otomatis istri dari database.
+									</small>
+								</div>
 								</div>
 
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-								<input type="text" name="fnik_ibu" id="fnik_ibu" class="form-control"
-										placeholder="NIK" maxlength="16" style="text-transform: capitalize;"
-										oninput="cekNIKIbu()" onkeypress="return hanyaAngka(event)" required>
-								<div id="notif-nik-ibu" class="nik-msg"></div>
-								</div>
-								<script>
-								function cekNIKIbu() {
-									const input = document.getElementById("fnik_ibu");
-									const msg = document.getElementById("notif-nik-ibu");
-									const nik = input.value;
-
-									if (nik.length === 0) {
-									input.classList.remove('valid', 'invalid');
-									msg.textContent = "";
-									msg.className = "nik-msg";
-									} else if (nik.length < 16) {
-									input.classList.remove('valid');
-									input.classList.add('invalid');
-									msg.textContent = "NIK harus 16 digit.";
-									msg.className = "nik-msg error";
-									} else if (!/^\d{16}$/.test(nik)) {
-									input.classList.remove('valid');
-									input.classList.add('invalid');
-									msg.textContent = "NIK hanya boleh angka.";
-									msg.className = "nik-msg error";
-									} else {
-									input.classList.remove('invalid');
-									input.classList.add('valid');
-									msg.textContent = "✅ NIK valid";
-									msg.className = "nik-msg success";
-									}
-								}
-								</script>
-
-								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="ftempat_tgl_lahir_ibu" class="form-control" placeholder="Tempat / Tgl Lahir" style="text-transform: capitalize;" required>
+									<input type="text" name="ftempat_tgl_lahir_ibu" id="ftempat_tgl_lahir_ibu" class="form-control" placeholder="Tempat / Tgl Lahir" style="text-transform: capitalize;" required>
 								</div>
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fkewarganegaraan_ibu" class="form-control" placeholder="Kewarganegaraan" style="text-transform: capitalize;" required>
+									<input type="text" name="fkewarganegaraan_ibu" id="fkewarganegaraan_ibu" class="form-control" placeholder="Kewarganegaraan" style="text-transform: capitalize;" required>
 								</div>
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fagama_ibu" class="form-control" placeholder="Agama" style="text-transform: capitalize;" required>
+									<input type="text" name="fagama_ibu" id="fagama_ibu" class="form-control" placeholder="Agama" style="text-transform: capitalize;" required>
 								</div>
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fpekerjaan_ibu" class="form-control" placeholder="Pekerjaan" style="text-transform: capitalize;" required>
+									<input type="text" name="fpekerjaan_ibu" id="fpekerjaan_ibu" class="form-control" placeholder="Pekerjaan" style="text-transform: capitalize;" required>
 								</div>
 								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="falamat_ibu" class="form-control" placeholder="Alamat" style="text-transform: capitalize;" required>
+									<input type="text" name="falamat_ibu" id="falamat_ibu" class="form-control" placeholder="Alamat" style="text-transform: capitalize;" required>
 								</div>
 							</div>
+
+							<script>
+							$('#fnik_ibu').on('blur', function () {
+							var nik = $(this).val().trim();
+							if (nik.length === 16) {
+
+								// Tampilkan animasi loading
+								Swal.fire({
+								title: 'Memeriksa NIK...',
+								text: 'Mohon tunggu sebentar',
+								allowOutsideClick: false,
+								didOpen: () => {
+									Swal.showLoading();
+								}
+								});
+
+								$.ajax({
+								url: '../helper/check_nik.php',
+								type: 'POST',
+								data: { nik: nik },
+								dataType: 'json',
+								success: function (res) {
+									Swal.close(); // Tutup loading
+
+									if (res.success) {
+									$('#fnama_ibu').val(res.data.nama);
+									$('#ftempat_tgl_lahir_ibu').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+									$('#fkewarganegaraan_ibu').val(res.data.kewarganegaraan);
+									$('#fagama_ibu').val(res.data.agama);
+									$('#fpekerjaan_ibu').val(res.data.pekerjaan);
+									$('#falamat_ibu').val(res.data.alamat);
+									} else {
+									Swal.fire({
+										icon: 'warning',
+										title: 'NIK Tidak Ditemukan',
+										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
+										confirmButtonText: 'Tutup'
+									});
+									}
+								},
+								error: function () {
+									Swal.close(); // Tutup loading jika error
+
+									Swal.fire({
+									icon: 'error',
+									title: 'Kesalahan Server',
+									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
+									confirmButtonText: 'Tutup'
+									});
+								}
+								});
+							}
+							});
+
+							$('#fnik_ibu').on('input', function () {
+							var nik = $(this).val().trim();
+
+							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+							if (nik === '') {
+								$('#fnama_ibu').val('');
+								$('#ftempat_tgl_lahir_ibu').val('');
+								$('#fkewarganegaraan_ibu').val('');
+								$('#fagama_ibu').val('');
+								$('#fpekerjaan_ibu').val('');
+								$('#falamat_ibu').val('');
+							}
+							});
+
+							</script>
+
 						</div>
 
 						

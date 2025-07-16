@@ -135,6 +135,8 @@ $alamat            = $data_pejabat['alamat'] ?? '';
 $update = mysqli_query($connect, "
   UPDATE $nama_tabel 
   SET no_surat = '$no_surat',
+      kepada_yth = '$kepada_yth',
+      kepala_kua = '$kepala_kua',
       id_pejabat_desa = '$id_pejabat_desa',
       status_surat = '$status_surat'
   WHERE $kolom_id = '$id'

@@ -101,19 +101,14 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dengan hormat, kami mengajukan permohonan kehendak nikah untuk atas nama:
 			</div>
 			<tr>
-				<td width="16%" class="indentasi">Nama</td>
+				<td width="16%" class="indentasi">Calon Suami</td>
 				<td width="2%">:</td>
-				<td width="50%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Calon Suami</td>
-				<td>:</td>
-				<td><?php echo $row['calon_suami']; ?></td>
+				<td width="50%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['calon_suami']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Calon Istri</td>
 				<td>:</td>
-				<td><?php echo $row['calon_istri']; ?></td>
+				<td style="text-transform: uppercase; font-weight: bold;"><?php echo $row['calon_istri']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Hari/Tanggal/Jam</td>

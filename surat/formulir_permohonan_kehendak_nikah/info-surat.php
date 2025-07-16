@@ -123,7 +123,7 @@
 								<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Calon Suami </label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fcalon_suami" class="form-control" style="text-transform: capitalize;" placeholder="Nama" required>
+						               	<input type="text" name="fcalon_suami" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['nama']; ?>" placeholder="Nama" required>
 						           	</div>
 						        </div>
 								<div class="form-group">

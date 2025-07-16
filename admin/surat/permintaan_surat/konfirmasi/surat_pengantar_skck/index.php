@@ -333,6 +333,7 @@
               <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
+
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">
@@ -343,7 +344,7 @@
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Masa Berlaku</label>
-                      <div class="col-sm-8">
+                      <div class="col-sm-9">
                         <select name="fmasa_berlaku" class="form-control" required>
                           <option value="">-- Masa Berlaku--</option>
                           <option value="-">-</option>
@@ -356,6 +357,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">

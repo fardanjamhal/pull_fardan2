@@ -163,7 +163,7 @@
         <div class="footer bg-transparent text-center">
           <span class="text-dark">
             <strong>&copy; <span id="year"></span> 
-              <a href="#" class="text-decoration-none text-dark">Pelayanan Surat Desa / Kelurahan</a>
+              <a href="#" class="text-decoration-none text-dark">Pelayanan Surat</a>
             </strong>
           </span>
         </div>
@@ -175,10 +175,6 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
-	
-
-	
 
 	<!-- Bootstrap JS dependencies agar navbar toggle berfungsi -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -59,8 +59,20 @@ if (!function_exists('formatAlamatLengkap')) {
 
         // Kota
         if (!empty($data['kota'])) {
-            $alamat[] = ucwords(strtolower($data['kota']));
-        }
+                // Ubah ke huruf kecil semua untuk pengecekan
+                $namaKotaAsli = $data['kota'];
+                $namaKota = strtolower(trim($namaKotaAsli));
+
+                // Cek apakah sudah diawali 'kabupaten' atau 'kota'
+                if (!preg_match('/^(kabupaten|kota)\s/i', $namaKota)) {
+                    $namaKota = 'Kabupaten ' . ucwords($namaKota);
+                } else {
+                    $namaKota = ucwords($namaKota);
+                }
+
+                $alamat[] = $namaKota;
+            }
+
 
         // Gabungkan jadi satu baris
         return implode(" ", $alamat);
