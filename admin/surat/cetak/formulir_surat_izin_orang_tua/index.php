@@ -89,26 +89,26 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Tempat dan tanggal lahir</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['tempat_tgl_lahir1'])); ?></td>
+			<td><?php echo strtoupper($row['tempat_tgl_lahir1']); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Kewarganegaraan</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['kewarganegaraan1'])); ?></td>
+			<td><?php echo strtoupper($row['kewarganegaraan1']); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. Agama</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['agama1'])); ?></td>
+			<td><?php echo strtoupper($row['agama1']); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. Pekerjaan</td>
 			<td>:</td>
-			<td><?php echo $row['pekerjaan1']; ?></td>
+			<td><?php echo strtoupper($row['pekerjaan1']); ?></td>
 		</tr>
 		<tr>
-			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
-			<td>:</td>
+			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
+			<td style="vertical-align: top;">:</td>
 			<td><?php echo ucwords(strtolower($row['alamat1'])); ?></td>
 		</tr>
 		<tr>
@@ -129,26 +129,27 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Tempat dan tanggal lahir</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['tempat_tgl_lahir2'])); ?></td>
+			<td><?php echo strtoupper($row['tempat_tgl_lahir2']); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Kewarganegaraan</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['kewarganegaraan2'])); ?></td>
+			<td><?php echo strtoupper($row['kewarganegaraan2']); ?></td>
+
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. Agama</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['agama2'])); ?></td>
+			<td><?php echo strtoupper($row['agama2']); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. Pekerjaan</td>
 			<td>:</td>
-			<td><?php echo $row['pekerjaan2']; ?></td>
+			<td><?php echo strtoupper($row['pekerjaan2']); ?></td>
 		</tr>
 		<tr>
-			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
-			<td>:</td>
+			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
+			<td style="vertical-align: top;">:</td>
 			<td><?php echo ucwords(strtolower($row['alamat2'])); ?></td>
 		</tr>
 		<!-- dst... -->
@@ -174,7 +175,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Tempat dan tanggal lahir</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['tempat_tgl_lahir3'])); ?></td>
+			<td><?php echo strtoupper($row['tempat_tgl_lahir3']); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Kewarganegaraan</td>
@@ -184,16 +185,16 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. Agama</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['agama3'])); ?></td>
+			<td><?php echo strtoupper($row['agama3']); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. Pekerjaan</td>
 			<td>:</td>
-			<td><?php echo $row['pekerjaan3']; ?></td>
+			<td><?php echo strtoupper($row['pekerjaan3']); ?></td>
 		</tr>
 		<tr>
-			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
-			<td>:</td>
+			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
+			<td style="vertical-align: top;">:</td>
 			<td><?php echo ucwords(strtolower($row['alamat3'])); ?></td>
 		</tr>
 		<!-- dst... -->
@@ -240,7 +241,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Tempat dan tanggal lahir</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['tempat_lahir'])) . ", " . $tgl . ucwords(strtolower($blnIndo[$bln])) . $thn; ?></td>
+			<td><?php echo strtoupper($row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Kewarganegaraan</td>
@@ -250,16 +251,16 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. Agama</td>
 			<td>:</td>
-			<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+			<td><?php echo strtoupper($row['agama']); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. Pekerjaan</td>
 			<td>:</td>
-			<td><?php echo $row['pekerjaan']; ?></td>
+			<td><?php echo strtoupper($row['pekerjaan']); ?></td>
 		</tr>
 		<tr>
-			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
-			<td>:</td>
+			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
+			<td style="vertical-align: top;">:</td>
 			<td style="text-align: justify;">
 				<?php
 				include_once '../../../surat/cetak/helper/alamat_helper.php';

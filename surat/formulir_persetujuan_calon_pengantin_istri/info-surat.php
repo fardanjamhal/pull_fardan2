@@ -30,6 +30,51 @@
 	}
 </style>
 
+<style>
+  .container-fluid {
+  text-align: center; /* Pusatkan semua isi di tengah horizontal */
+	}
+  /* Gaya umum semua input */
+  input, textarea, select {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 49%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    background-color: #fff;
+  }
+
+  /* Input fokus (agar terlihat aktif) */
+  input:focus, textarea:focus, select:focus {
+    border-color: #7aa7ff;
+    box-shadow: 0 0 4px rgba(122, 167, 255, 0.4);
+  }
+
+  /* Input invalid (required belum diisi) - soft warning */
+  input:required:invalid,
+  textarea:required:invalid,
+  select:required:invalid {
+    border: 1.5px solid #e07c7c; /* merah muda lembut */
+    background-color: #fff7f7;
+  }
+
+  /* Input valid */
+  input:required:valid,
+  textarea:required:valid,
+  select:required:valid {
+    border: 1.5px solid #7acb9a; /* hijau lembut */
+    background-color: #f6fef9;
+  }
+
+  /* Tambahan: Placeholder biar elegan */
+  input::placeholder, textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+</style>
+
 <body class="bg-light">
 	<div class="container" style="max-height:cover; padding-top:30px;  padding-bottom:60px; position:relative; min-height: 100%;">
 		<div class="row">
