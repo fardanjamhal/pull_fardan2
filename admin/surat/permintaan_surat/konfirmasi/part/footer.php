@@ -2,7 +2,7 @@
     <div class="footer bg-transparent text-center mb-3">
   <span class="text-light">
     <strong>&copy; <span id="year"></span> 
-      <a href="#" class="text-decoration-none text-white">Pelayanan Surat Desa</a>
+      <a href="#" class="text-decoration-none text-white">Pelayanan Surat</a>
     </strong>
   </span>
 </div>
