@@ -42,6 +42,13 @@
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
+
+	<style>
+		td {
+			vertical-align: top;
+			}
+	</style>
+	
 </head>
 <body>
 <div>
@@ -156,7 +163,7 @@
 			<tr>
 				<td class="indentasi">5. Agama</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">6. Pekerjaan</td>
@@ -206,7 +213,7 @@
 			<tr>
 				<td class="indentasi">11. Kewarganegaraan</td>
 				<td>:</td>
-				<td style="font-weight:">
+				<td>
 					<?php echo strtoupper($row['kewarganegaraan2']); ?>
 				</td>
 			</tr>

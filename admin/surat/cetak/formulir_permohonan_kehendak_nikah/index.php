@@ -113,12 +113,12 @@
 			<tr>
 				<td class="indentasi">Hari/Tanggal/Jam</td>
 				<td>:</td>
-				<td><?php echo $row['hari_tanggal']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['hari_tanggal']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Tempat akad nikah</td>
 				<td>:</td>
-				<td><?php echo $row['tempat_akad']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['tempat_akad']; ?></td>
 			</tr>
 		</table>
 

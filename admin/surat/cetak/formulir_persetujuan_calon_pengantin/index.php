@@ -75,7 +75,7 @@
 			<tr>
 				<td width="40%" class="indentasi">&nbsp;&nbsp;1. Nama lengkap dan alias</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['nama']); ?></td>
+				<td style="font-weight: bold;"><?php echo strtoupper($row['nama']); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;2. Bin</td>
@@ -120,17 +120,17 @@
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;6. Agama</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" class="indentasi">&nbsp;&nbsp;7. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
-				<td width="30%" class="indentasi">&nbsp;&nbsp;8. Alamat</td>
-				<td>:</td>
-				<td style="text-align: justify;">
+				<td width="30%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;8. Alamat</td>
+				<td style="vertical-align: top;">:</td>
+				<td style="vertical-align: top;">
 				<?php
 				include_once '../../../surat/cetak/helper/alamat_helper.php';
 
@@ -150,7 +150,7 @@
 			<tr>
 				<td width="40%" class="indentasi">&nbsp;&nbsp;1. Nama lengkap dan alias</td>
 				<td>:</td>
-				<td><?php echo strtoupper($row['nama_istri']); ?></td>
+				<td style="font-weight: bold;"><?php echo strtoupper($row['nama_istri']); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;2. Bin</td>
@@ -175,17 +175,17 @@
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;6. Agama</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama_istri'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama_istri'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">&nbsp;&nbsp;7. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan_istri']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan_istri']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">&nbsp;&nbsp;8. Alamat</td>
-				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['alamat_istri'])); ?></td>
+				<td class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;8. Alamat</td>
+				<td style="vertical-align: top;">:</td>
+				<td style="vertical-align: top;"><?php echo ucwords(strtolower($row['alamat_istri'])); ?></td>
 			</tr>
 		</table>
 

@@ -41,6 +41,13 @@
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
+
+	<style>
+		td {
+			vertical-align: top;
+			}
+	</style>
+	
 </head>
 <body>
 <div>
@@ -239,9 +246,9 @@
 		</table>
 		<table width="100%">
 			<tr>
-				<td width="31%">Surat ini dipergunakan untuk</td>
+				<td width="30%">Surat ini dipergunakan untuk</td>
 				<td width="2%">:</td>
-				<td width="73%">Menerangkan kebenaran nama diatas sesuai pengakuannya yang saat ini menguasai kendaraan bermotor dengan ciri-ciri tersebut diatas.</td>
+				<td>Menerangkan kebenaran nama diatas sesuai pengakuannya yang saat ini menguasai kendaraan bermotor dengan ciri-ciri tersebut diatas.</td>
 			</tr>
 			<tr>
 				<td>Guna keperluan</td>

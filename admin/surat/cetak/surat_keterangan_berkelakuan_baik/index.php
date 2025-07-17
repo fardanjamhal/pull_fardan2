@@ -152,21 +152,21 @@
 			<tr>
 				<td class="indentasi">Jenis Kelamin</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Agama</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
 			</tr>
-			<td class="indentasi">Alamat</td>
-			<td>:</td>
-			<td style="text-align: justify;">
+			<td class="indentasi" style="vertical-align: top;">Alamat</td>
+			<td style="vertical-align: top;">:</td>
+			<td style="vertical-align: top;">
 			<?php
 				include_once '../../../surat/cetak/helper/alamat_helper.php';
 

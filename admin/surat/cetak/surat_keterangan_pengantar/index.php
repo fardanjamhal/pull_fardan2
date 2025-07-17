@@ -42,6 +42,13 @@
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
+
+	<style>
+		td {
+			vertical-align: top;
+			}
+	</style>
+
 </head>
 <body>
 <div>
@@ -170,12 +177,12 @@
 			<tr>
 				<td class="indentasi">5. Agama</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">6. Jenis Kelamin</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">7. Pekerjaan</td>
@@ -215,7 +222,7 @@
 			<tr>
 				<td class="indentasi">11. Berlaku</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['berlaku'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['berlaku'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">12. Golongan Darah</td>

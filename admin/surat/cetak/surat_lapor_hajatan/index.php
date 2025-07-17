@@ -41,6 +41,13 @@
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
+
+	<style>
+		td {
+			vertical-align: top;
+			}
+	</style>
+
 </head>
 <body>
 <div>
@@ -119,7 +126,7 @@
 			<tr>
 				<td class="indentasi">Jenis Kelamin</td>
 				<td>:</td>
-				<td><?php echo $row['jenis_kelamin']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -159,12 +166,12 @@
 			<tr>
 				<td class="indentasi">Agama</td>
 				<td>:</td>
-				<td><?php echo $row['agama']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['agama']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Alamat</td>
@@ -241,7 +248,7 @@
 			<tr>
 				<td class="indentasi">Jenis Hiburan</td>
 				<td>:</td>
-				<td><?php echo $row['jenis_hiburan']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['jenis_hiburan']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Pemilik</td>

@@ -157,12 +157,12 @@
 			<tr>
 				<td class="indentasi">5. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">5. Agama</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
 			</tr>
 			<td class="indentasi">6. Alamat / Tempat Tinggal</td>
 			<td>:</td>
@@ -197,22 +197,22 @@
 			<tr>
 				<td class="indentasi">10. Jenis Kelamin </td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['jenis_kelamin2'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['jenis_kelamin2'])); ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">11. Alamat / Tempat Tinggal </td>
-				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['alamat2'])); ?></td>
+				<td class="indentasi" style="vertical-align: top;">11. Alamat / Tempat Tinggal </td>
+				<td style="vertical-align: top;">:</td>
+				<td style="vertical-align: top;"><?php echo ucwords(strtolower($row['alamat2'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">12. Agama </td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['agama2'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama2'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">13. Pekerjaan  </td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['pekerjaan2'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['pekerjaan2'])); ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">14. Keterangan  </td>

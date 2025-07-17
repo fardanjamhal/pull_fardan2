@@ -79,7 +79,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Bin</td>
 			<td>:</td>
-			<td style="text-transform: uppercase; font-weight: bold;"><?php echo ucwords(strtolower($row['bin1'])); ?></td>
+			<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['bin1'])); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Nomor Induk Kependudukan</td>
@@ -119,7 +119,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Bin</td>
 			<td>:</td>
-			<td style="text-transform: uppercase; font-weight: bold;"><?php echo ucwords(strtolower($row['bin2'])); ?></td>
+			<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['bin2'])); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Nomor Induk Kependudukan</td>
@@ -165,7 +165,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Bin</td>
 			<td>:</td>
-			<td style="text-transform: uppercase; font-weight: bold;"><?php echo ucwords(strtolower($row['bin3'])); ?></td>
+			<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['bin3'])); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Nomor Induk Kependudukan</td>
@@ -210,7 +210,7 @@
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Bin</td>
 			<td>:</td>
-			<td style="text-transform: uppercase; font-weight: bold;"><?php echo ucwords(strtolower($row['bin'])); ?></td>
+			<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['bin'])); ?></td>
 		</tr>
 		<tr>
 			<td width="40%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Nomor Induk Kependudukan</td>

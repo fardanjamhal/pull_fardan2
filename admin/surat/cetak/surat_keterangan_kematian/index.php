@@ -41,6 +41,13 @@
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
+
+	<style>
+		td {
+			vertical-align: top;
+			}
+	</style>
+
 </head>
 <body>
 <div>
@@ -124,7 +131,7 @@
 			<tr>
 				<td class="indentasi">3. Jenis Kelamin</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -154,7 +161,7 @@
 			<tr>
 				<td class="indentasi">5. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<td class="indentasi">6. Alamat / Tempat Tinggal</td>
 			<td>:</td>
@@ -172,17 +179,17 @@
 			<tr>
 				<td width="30%" class="indentasi">7. Hari / Tanggal / Jam</td>
 				<td width="2%">:</td>
-				<td width="68%"><?php echo $row['tanggal_meninggal']; ?></td>
+				<td width="68%" style="text-transform: uppercase;"><?php echo $row['tanggal_meninggal']; ?></td>
 			</tr>
 			<tr>
 				<td style="padding-right:8px; text-transform:none;">8. Bertempat di</td>
 				<td>:</td>
-				<td><?php echo $row['bertempat_di']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['bertempat_di']; ?></td>
 			</tr>
 			<tr>
 				<td style="padding-right:8px; text-transform:none;">9. Penyebab Kematian</td>
 				<td>:</td>
-				<td><?php echo $row['penyebab_kematian']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['penyebab_kematian']; ?></td>
 			</tr>
 		</table>
 		<h4 style="font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;Surat keterangan ini dibuat berdasarkan keterangan pelapor:</h4>
@@ -190,7 +197,7 @@
 			<tr>
 				<td width="30%" class="indentasi">10. Nama Lengkap</td>
 				<td width="2%">:</td>
-				<td width="68%"><?php echo $row['nama_pelapor']; ?></td>
+				<td width="68%" style="font-weight: bold;"><?php echo $row['nama_pelapor']; ?></td>
 			</tr>
 			<tr>
 				<td style="padding-right:8px; text-transform:none;">11. NIK / No. KTP</td>
@@ -205,7 +212,7 @@
 			<tr>
 				<td style="padding-right:8px; text-transform:none;">13. Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan_pelapor']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan_pelapor']; ?></td>
 			</tr>
 			<tr>
 				<td style="padding-right:8px; text-transform:none;">14. Alamat</td>
@@ -215,7 +222,7 @@
 			<tr>
 				<td style="padding-right:8px; text-transform:none;">15. Hubungan</td>
 				<td>:</td>
-				<td><?php echo $row['hubungan_pelapor']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['hubungan_pelapor']; ?></td>
 			</tr>
 		</table>
 		<br>

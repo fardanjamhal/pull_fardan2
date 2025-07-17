@@ -133,12 +133,12 @@
 			<tr>
 				<td width="30%" style="padding-left: 40px;">Jabatan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower(htmlspecialchars($jabatan))); ?></td>
+				<td style="text-transform: uppercase;;"><?php echo ucwords(strtolower(htmlspecialchars($jabatan))); ?></td>
 			</tr>
 			<tr>
-				<td width="30%" style="padding-left: 40px;">Alamat</td>
-				<td>:</td>
-				<td><?php echo ucwords(strtolower(htmlspecialchars($alamat))); ?></td>
+				<td width="30%" style="padding-left: 40px; vertical-align: top;">Alamat</td>
+				<td style="vertical-align: top;">:</td>
+				<td style="text-transform: uppercase; vertical-align: top;"><?php echo ucwords(strtolower(htmlspecialchars($alamat))); ?></td>
 			</tr>
 
 			</table>
@@ -197,13 +197,13 @@
 			<tr>
 				<td width="30%" style="padding-left: 40px;">Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			</tr>
 			<tr>
-			<td width="30%" style="padding-left: 40px;">Alamat</td>
-			<td>:</td>
-			<td style="text-align: justify;">
+			<td width="30%" style="padding-left: 40px;" style="vertical-align: top;">Alamat</td>
+			<td style="vertical-align: top;">:</td>
+			<td style="vertical-align: top;">
 				<?php
 				include_once '../../../surat/cetak/helper/alamat_helper.php';
 

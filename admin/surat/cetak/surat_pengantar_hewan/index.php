@@ -41,6 +41,13 @@
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
+
+	<style>
+		td {
+			vertical-align: top;
+			}
+	</style>
+
 </head>
 <body>
 <div>
@@ -134,12 +141,12 @@
 			<tr>
 				<td width="30%" style="padding-left: 40px;">Jabatan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower(htmlspecialchars($jabatan))); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower(htmlspecialchars($jabatan))); ?></td>
 			</tr>
 			<tr>
 				<td width="30%" style="padding-left: 40px;">Alamat</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower(htmlspecialchars($alamat))); ?></td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower(htmlspecialchars($alamat))); ?></td>
 			</tr>
 
 			<td>Menerangkan bahwa :</td>
