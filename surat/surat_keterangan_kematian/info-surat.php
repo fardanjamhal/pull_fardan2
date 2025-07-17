@@ -12,6 +12,69 @@
 		if($data['nik']==$nik){
 			$_SESSION['nik'] = $nik;
 ?>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+	.form-text.text-info {
+  background: #e8f4ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  animation: fadein 0.8s ease;
+	}
+
+	@keyframes fadein {
+	from { opacity: 0; transform: translateY(-5px); }
+	to { opacity: 1; transform: translateY(0); }
+	}
+</style>
+
+<style>
+  .container-fluid {
+  text-align: center; /* Pusatkan semua isi di tengah horizontal */
+	}
+  /* Gaya umum semua input */
+  input, textarea, select {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 49%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    background-color: #fff;
+  }
+
+  /* Input fokus (agar terlihat aktif) */
+  input:focus, textarea:focus, select:focus {
+    border-color: #7aa7ff;
+    box-shadow: 0 0 4px rgba(122, 167, 255, 0.4);
+  }
+
+  /* Input invalid (required belum diisi) - soft warning */
+  input:required:invalid,
+  textarea:required:invalid,
+  select:required:invalid {
+    border: 1.5px solid #e07c7c; /* merah muda lembut */
+    background-color: #fff7f7;
+  }
+
+  /* Input valid */
+  input:required:valid,
+  textarea:required:valid,
+  select:required:valid {
+    border: 1.5px solid #7acb9a; /* hijau lembut */
+    background-color: #f6fef9;
+  }
+
+  /* Tambahan: Placeholder biar elegan */
+  input::placeholder, textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+</style>
+
 <body class="bg-light">
 	<div class="container" style="max-height:cover; padding-top:30px;  padding-bottom:60px; position:relative; min-height: 100%;">
 		<div class="row">
@@ -143,31 +206,116 @@
 							    <div class="form-group">
 									<label class="col-sm-12" style="font-weight: 500;">Pelapor:</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Nama Lengkap" required>
+						               	<input type="text" name="fnama_pelapor" id="fnama_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Nama Lengkap" required>
+						           	</div>
+									<br>
+
+									<div class="form-group mb-3">
+									<div class="col-sm-12">
+										<input type="text" name="fnik_pelapor" id="fnik_pelapor"
+										class="form-control nik-input"
+										placeholder="NIK"
+										maxlength="16"
+										oninput="validasiNIK(this)"
+										onkeypress="return hanyaAngka(event)"
+										required>
+										
+										<!-- Tambahkan alert info di bawah input -->
+										<small class="form-text text-info mt-1" style="display: flex; align-items: center;">
+										<i class="fa fa-info-circle mr-2 text-primary"></i>
+										Isi NIK untuk mengambil data otomatis istri dari database.
+										</small>
+									</div>
+									</div>
+
+									<br>
+									<div class="col-sm-12">
+						               	<input type="text" name="ftanggal_lahir_pelapor" id="ftanggal_lahir_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Tanggal Lahir" required>
 						           	</div>
 									<br>
 									<div class="col-sm-12">
-						               	<input type="text" name="fnik_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="NIK / No. KTP" required>
+						               	<input type="text" name="fpekerjaan_pelapor" id="fpekerjaan_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" required>
 						           	</div>
 									<br>
 									<div class="col-sm-12">
-						               	<input type="text" name="ftanggal_lahir_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Tanggal Lahir" required>
+						               	<input type="text" name="falamat_pelapor" id="falamat_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Alamat / Tempat Tinggal" required>
 						           	</div>
 									<br>
 									<div class="col-sm-12">
-						               	<input type="text" name="fpekerjaan_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" required>
-						           	</div>
-									<br>
-									<div class="col-sm-12">
-						               	<input type="text" name="falamat_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Alamat / Tempat Tinggal" required>
-						           	</div>
-									<br>
-									<div class="col-sm-12">
-						               	<input type="text" name="fhubungan_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Hubungan dengan yang mati" required>
+						               	<input type="text" name="fhubungan_pelapor" id="fhubungan_pelapor" class="form-control" style="text-transform: capitalize;" placeholder="Hubungan dengan yang mati" required>
 						           	</div>
 						        </div>
 							</div>
 						</div>
+
+						<!-- jQuery wajib -->
+							<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+							<script>
+							$('#fnik_pelapor').on('blur', function () {
+							var nik = $(this).val().trim();
+							if (nik.length === 16) {
+
+								// Tampilkan animasi loading
+								Swal.fire({
+								title: 'Memeriksa NIK...',
+								text: 'Mohon tunggu sebentar',
+								allowOutsideClick: false,
+								didOpen: () => {
+									Swal.showLoading();
+								}
+								});
+
+								$.ajax({
+								url: '../helper/check_nik.php',
+								type: 'POST',
+								data: { nik: nik },
+								dataType: 'json',
+								success: function (res) {
+									Swal.close(); // Tutup loading
+
+									if (res.success) {
+									$('#fnama_pelapor').val(res.data.nama);
+									$('#ftanggal_lahir_pelapor').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+									$('#fpekerjaan_pelapor').val(res.data.pekerjaan);
+									$('#falamat_pelapor').val(res.data.alamat);
+									} else {
+									Swal.fire({
+										icon: 'warning',
+										title: 'NIK Tidak Ditemukan',
+										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
+										confirmButtonText: 'Tutup'
+									});
+									}
+								},
+								error: function () {
+									Swal.close(); // Tutup loading jika error
+
+									Swal.fire({
+									icon: 'error',
+									title: 'Kesalahan Server',
+									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
+									confirmButtonText: 'Tutup'
+									});
+								}
+								});
+							}
+							});
+
+							$('#fnik_pelapor').on('input', function () {
+							var nik = $(this).val().trim();
+
+							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+							if (nik === '') {
+								$('#fnama_pelapor').val('');
+								$('#ftanggal_lahir_pelapor').val('');
+								$('#fpekerjaan_pelapor').val('');
+								$('#falamat_pelapor').val('');
+							}
+							});
+
+							</script>
+
+
 						<hr width="97%">
 						<div class="container-fluid">
 		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/surat_keterangan_kematian/'">

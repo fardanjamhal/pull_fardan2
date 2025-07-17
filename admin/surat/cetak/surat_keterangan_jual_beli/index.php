@@ -170,8 +170,8 @@
 				<td><?php echo strtoupper($row['pekerjaan']); ?></td>
 			</tr>
 			<tr>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALAMAT</td>
-				<td>:</td>
+				<td style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALAMAT</td>
+				<td style="vertical-align: top;">:</td>
 				<td style="text-align: justify;">
 					<?php
 					include_once '../../../surat/cetak/helper/alamat_helper.php';
@@ -211,8 +211,8 @@
 				<td><?php echo strtoupper($row['pekerjaan2']); ?></td>
 			</tr>
 			<tr>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALAMAT</td>
-				<td>:</td>
+				<td style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALAMAT</td>
+				<td style="vertical-align: top;">:</td>
 				<td><?php echo strtoupper($row['alamat2']); ?></td>
 			</tr>
 		</table>

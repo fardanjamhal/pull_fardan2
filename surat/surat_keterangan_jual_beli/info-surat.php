@@ -186,22 +186,30 @@
 							</div>
 						</div>
 						<br>
+
 						<h6 class="container-fluid" align="left"><i class="fas fa-edit"></i> INFORMASI PIHAK II</h6><hr width="97%">
 						<div class="row px-3">
+
+						 <!-- NAMA -->
 						<div class="col-sm-6">
 							<div class="form-group">
-							<label for="fnama2" style="font-weight: 500;">NAMA<br>
-							</label>
+							<label for="fnama2" style="font-weight: 500;">NAMA</label>
 							<input type="text" name="fnama2" id="fnama2" class="form-control" style="text-transform: capitalize;" placeholder="Nama Lengkap" required>
 							</div>
 						</div>
+
+						<!-- NIK -->
 						<div class="col-sm-6">
 							<div class="form-group">
-							<label for="fnik2" style="font-weight: 500;">NIK<br>
-							</label>
-							<input type="text" name="fnik2" id="fnik2" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan NIK" required>
+							<label for="fnik2" style="font-weight: 500;">NIK</label>
+							<input type="text" name="fnik2" id="fnik2" class="form-control nik-input" placeholder="NIK" maxlength="16" oninput="validasiNIK(this)" onkeypress="return hanyaAngka(event)" required>
+							<small class="form-text text-info mt-1 d-flex align-items-center">
+								<i class="fa fa-info-circle mr-2 text-primary"></i>
+								Isi NIK untuk mengambil data otomatis istri dari database.
+							</small>
 							</div>
 						</div>
+
 						<div class="col-sm-6">
 							<div class="form-group">
 							<label for="ftempat_tgl_lahir2" style="font-weight: 500;">Tempat / Tanggal Lahir<br>
@@ -253,6 +261,73 @@
 									placeholder="Contoh: 1,000,000" required>
 							</div>
 						</div>
+
+						<!-- jQuery wajib -->
+						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+						<script>
+							$('#fnik2').on('blur', function () {
+							var nik = $(this).val().trim();
+							if (nik.length === 16) {
+
+								// Tampilkan animasi loading
+								Swal.fire({
+								title: 'Memeriksa NIK...',
+								text: 'Mohon tunggu sebentar',
+								allowOutsideClick: false,
+								didOpen: () => {
+									Swal.showLoading();
+								}
+								});
+
+								$.ajax({
+								url: '../helper/check_nik.php',
+								type: 'POST',
+								data: { nik: nik },
+								dataType: 'json',
+								success: function (res) {
+									Swal.close(); // Tutup loading
+
+									if (res.success) {
+									$('#fnama2').val(res.data.nama);
+									$('#ftempat_tgl_lahir2').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+									$('#fpekerjaan2').val(res.data.pekerjaan);
+									$('#falamat2').val(res.data.alamat);
+									} else {
+									Swal.fire({
+										icon: 'warning',
+										title: 'NIK Tidak Ditemukan',
+										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
+										confirmButtonText: 'Tutup'
+									});
+									}
+								},
+								error: function () {
+									Swal.close(); // Tutup loading jika error
+
+									Swal.fire({
+									icon: 'error',
+									title: 'Kesalahan Server',
+									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
+									confirmButtonText: 'Tutup'
+									});
+								}
+								});
+							}
+							});
+
+							$('#fnik2').on('input', function () {
+							var nik = $(this).val().trim();
+
+							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+							if (nik === '') {
+								$('#fnama2').val('');
+								$('#ftempat_tgl_lahir2').val('');
+								$('#fpekerjaan2').val('');
+								$('#falamat2').val('');
+							}
+							});
+
+						</script>
 
 						<script>
 						// Format angka saat diketik
@@ -341,8 +416,8 @@
 								</div>
 							</div>
 						</div>
-						
 						</div>
+
 
 						<br><br>
 
