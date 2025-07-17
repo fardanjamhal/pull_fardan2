@@ -188,6 +188,61 @@ if (!$result) {
         }
         </style>
 
+        <style>
+        /* Gaya dasar sidebar */
+        .sidebar-menu li a {
+        color: #333;
+        padding: 10px 15px;
+        display: block;
+        }
+
+        .sidebar-menu li.active > a {
+        background-color: #007bff !important;
+        color: #fff !important;
+        }
+
+        .sidebar-menu li a {
+        color: #333;
+        display: block;
+        padding: 10px 15px;
+        transition: background-color 0.3s, color 0.3s;
+        border-radius: 8px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        }
+
+        /* Efek hover */
+        .sidebar-menu li a:hover {
+        background-color: #e6f0ff;
+        color: #007bff;
+        }
+
+        /* Menu aktif */
+        .sidebar-menu li.active > a {
+        background-color: #007bff; /* biru keren */
+        color: #fff; /* teks putih */
+        font-weight: bold;
+        }
+
+        /* Ikon dalam menu */
+        .sidebar-menu li a i {
+        font-size: 16px; /* ikon diperbesar */
+        color: #fff; /* ikon putih */
+        transition: color 0.3s;
+        }
+
+        /* Hover dan aktif ikon */
+        .sidebar-menu li a:hover i {
+        color: #007bff;
+        }
+
+        .sidebar-menu li.active i {
+        color: #fff;
+        }
+        </style>
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">

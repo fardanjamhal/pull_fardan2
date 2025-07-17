@@ -19,42 +19,47 @@ ini_set('display_errors', 1);
   </section>
   <section class="content">
 
-  <style>
+<style>
 .blink-box {
-  padding: 10px;
-  background-color: #fff3cd;
-  border: 2px solid #ff9900;
-  border-radius: 15px;
-  box-shadow: 0 0 25px rgba(255, 153, 0, 0.7);
-  animation: blinkGlowStrong 1.2s ease-in-out infinite;
+  padding: 14px 24px;
+  background: linear-gradient(to right, #e3f2fd, #bbdefb);
+  border: 1px solid #64b5f6;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(100, 181, 246, 0.4);
+  animation: softBlink 2s ease-in-out infinite;
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
-  color: #b35b00;
+  color: #0d47a1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
 }
 
-@keyframes blinkGlowStrong {
+@keyframes softBlink {
   0% {
-    box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
-    background-color: #fff3cd;
+    box-shadow: 0 0 6px rgba(100, 181, 246, 0.3);
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 40px rgba(255, 153, 0, 1);
-    background-color: #ffe8a1;
+    box-shadow: 0 0 20px rgba(100, 181, 246, 0.7);
+    transform: scale(1.02);
   }
   100% {
-    box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
-    background-color: #fff3cd;
+    box-shadow: 0 0 6px rgba(100, 181, 246, 0.3);
+    transform: scale(1);
   }
 }
 </style>
- <?php
-  $query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
-  $data = mysqli_fetch_assoc($query);
-  ?>
+
+<?php
+$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+$data = mysqli_fetch_assoc($query);
+?>
+
 <div class="blink-box">
-  <strong><?php echo strtoupper($data['nama_desa']); ?></strong>
+  <?php echo strtoupper($data['nama_desa']); ?>
 </div>
+
 
   <br>
    	<div class="row">
