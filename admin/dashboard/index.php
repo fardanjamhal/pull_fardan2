@@ -56,43 +56,64 @@ ini_set('display_errors', 1);
   <strong><?php echo strtoupper($data['nama_desa']); ?></strong>
 </div>
 
-
-  
   <br>
-
-
    	<div class="row">
       <?php 
         if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
       ?>
 
-     	<div class="col-lg-4 col-xs-6">
-        <div class="small-box" style="background-color:#007bff; color:white;">
-          <div class="inner">
-            <h3>
+     	<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div style="
+            background: linear-gradient(135deg, #007bff, #5fa8ff);
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            padding: 24px;
+            min-height: 160px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+          ">
+          <div style="position: absolute; top: -20px; right: -20px; opacity: 0.1; font-size: 120px;">
+            <i class="fas fa-users"></i>
+          </div>
+
+          <div style="position: relative; z-index: 1;">
+            <h3 style="font-size: 36px; margin: 0; font-weight: bold;">
               <?php
                 include ('../../config/koneksi.php');
-
                 $qTampil = mysqli_query($connect, "SELECT * FROM penduduk");
-                $jumlahPenduduk = mysqli_num_rows($qTampil);
-                echo $jumlahPenduduk;
+                echo mysqli_num_rows($qTampil);
               ?>
             </h3>
-            <p>Data Penduduk</p>
+            <p style="margin: 5px 0 15px; font-size: 16px;">Data Penduduk</p>
+            <a href="../penduduk/" style="color: white; text-decoration: underline; font-weight: 500;">
+              Lihat detail <i class="fa fa-arrow-circle-right"></i>
+            </a>
           </div>
-          <div class="icon">
-            <i class="fas fa-users" style="font-size:70px"></i>
-          </div>
-          <a href="../penduduk/" class="small-box-footer" style="color:white;">
-            Lihat detail <i class="fa fa-arrow-circle-right"></i>
-          </a>
         </div>
       </div>
 
-      <div class="col-lg-4 col-xs-6">
-       	<div class="small-box bg-green">
-         	<div class="inner">
-         		<h3>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div style="
+            background: linear-gradient(135deg, #28a745, #74db94); /* Hijau */
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(40, 167, 69, 0.2);
+            position: relative;
+            overflow: hidden;
+            padding: 24px;
+            min-height: 160px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+          ">
+          <div style="position: absolute; top: -20px; right: -20px; opacity: 0.1; font-size: 120px;">
+            <i class="fas fa-envelope-open-text"></i>
+          </div>
+
+          <div style="position: relative; z-index: 1;">
+            <h3 style="font-size: 36px; margin: 0; font-weight: bold;">
               <?php
               $surat_dir = '../../surat';
               $folders = scandir($surat_dir);
@@ -110,62 +131,86 @@ ini_set('display_errors', 1);
                 }
               }
 
-              // Gabungkan semua query UNION
-              $sql_union = implode(" UNION ", $union_queries);
+              $jumlahPermintaanSurat = 0;
+              if (!empty($union_queries)) {
+                include('../../config/koneksi.php');
+                $sql_union = implode(" UNION ", $union_queries);
+                $qTampil = mysqli_query($connect, $sql_union);
+                if ($qTampil) {
+                  $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
+                }
+              }
 
-              // Jalankan query
-              $qTampil = mysqli_query($connect, $sql_union);
-              $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
-
-              // Tampilkan hasil
               echo $jumlahPermintaanSurat;
               ?>
             </h3>
-         		<p>Permintaan Surat</p>
-         	</div>
-         	<div class="icon">
-         		<i class="fas fa-envelope-open-text" style="font-size:70px"></i>
-         	</div>
-         	<a href="../surat/permintaan_surat/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
-       	</div>
+            <p style="margin: 5px 0 15px; font-size: 16px;">Permintaan Surat</p>
+            <a href="../surat/permintaan_surat/" style="color: white; text-decoration: underline; font-weight: 500;">
+              Lihat detail <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-4 col-xs-6">
-       	<div class="small-box bg-yellow">
-         	<div class="inner">
-         		<h3>
+
+
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div style="
+            background: linear-gradient(135deg, #ff9800, #ff5722); /* Oranye cerah ke oranye kemerahan */
+            color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.35);
+            position: relative;
+            overflow: hidden;
+            padding: 24px;
+            min-height: 160px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+          ">
+          <!-- Icon besar sebagai latar dekoratif -->
+          <div style="position: absolute; top: -20px; right: -20px; opacity: 0.15; font-size: 120px;">
+            <i class="fas fa-envelope"></i>
+          </div>
+
+          <div style="position: relative; z-index: 1;">
+            <h3 style="font-size: 36px; margin: 0; font-weight: bold; color: #fff;">
               <?php
-                $surat_dir = '../../surat';
-                $folders = scandir($surat_dir);
-                $union_queries = [];
+              $surat_dir = '../../surat';
+              $folders = scandir($surat_dir);
+              $union_queries = [];
 
-                foreach ($folders as $folder) {
-                  if (
-                    $folder != '.' &&
-                    $folder != '..' &&
-                    is_dir("$surat_dir/$folder") &&
-                    (strpos($folder, 'surat_') === 0 || strpos($folder, 'formulir_') === 0)
-                  ) {
-                    // Asumsikan nama folder = nama tabel
-                    $union_queries[] = "SELECT tanggal_surat FROM $folder WHERE status_surat='selesai'";
-                  }
+              foreach ($folders as $folder) {
+                if (
+                  $folder != '.' &&
+                  $folder != '..' &&
+                  is_dir("$surat_dir/$folder") &&
+                  (strpos($folder, 'surat_') === 0 || strpos($folder, 'formulir_') === 0)
+                ) {
+                  $union_queries[] = "SELECT tanggal_surat FROM $folder WHERE status_surat='selesai'";
                 }
+              }
 
+              $jumlahSelesai = 0;
+              if (!empty($union_queries)) {
+                include('../../config/koneksi.php');
                 $sql_union = implode(" UNION ", $union_queries);
-
                 $qTampil = mysqli_query($connect, $sql_union);
-                $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
+                if ($qTampil) {
+                  $jumlahSelesai = mysqli_num_rows($qTampil);
+                }
+              }
 
-                echo $jumlahPermintaanSurat;
-                ?>
+              echo $jumlahSelesai;
+              ?>
             </h3>
-         		<p>Surat Selesai</p>
-         	</div>
-         	<div class="icon">
-         		<i class="fas fa-envelope" style="font-size:70px"></i>
-         	</div>
-         	<a href="../surat/surat_selesai/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
-       	</div>
+            <p style="margin: 5px 0 15px; font-size: 16px; color: #fff;">Surat Selesai</p>
+            <a href="../surat/surat_selesai/" style="color: #fff; text-decoration: underline; font-weight: 500;">
+              Lihat detail <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
       </div>
+      <br>
+
       <?php 
         } else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
       ?>
