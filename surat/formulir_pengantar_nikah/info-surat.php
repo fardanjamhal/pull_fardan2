@@ -68,51 +68,7 @@
 	}
 </style>
 
-<style>
-  .container-fluid {
-  text-align: center; /* Pusatkan semua isi di tengah horizontal */
-	}
-  /* Gaya umum semua input */
-  input, textarea, select {
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    width: 49%;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    outline: none;
-    background-color: #fff;
-  }
-
-  /* Input fokus (agar terlihat aktif) */
-  input:focus, textarea:focus, select:focus {
-    border-color: #7aa7ff;
-    box-shadow: 0 0 4px rgba(122, 167, 255, 0.4);
-  }
-
-  /* Input invalid (required belum diisi) - soft warning */
-  input:required:invalid,
-  textarea:required:invalid,
-  select:required:invalid {
-    border: 1.5px solid #e07c7c; /* merah muda lembut */
-    background-color: #fff7f7;
-  }
-
-  /* Input valid */
-  input:required:valid,
-  textarea:required:valid,
-  select:required:valid {
-    border: 1.5px solid #7acb9a; /* hijau lembut */
-    background-color: #f6fef9;
-  }
-
-  /* Tambahan: Placeholder biar elegan */
-  input::placeholder, textarea::placeholder {
-    color: #aaa;
-    font-style: italic;
-  }
-</style>
-
+<link rel="stylesheet" href="../helper/form-style.css">
 
 <body class="bg-light">
 	<div class="container" style="max-height:cover; padding-top:30px;  padding-bottom:60px; position:relative; min-height: 100%;">
@@ -241,10 +197,6 @@
 						<div class="row">
 							<!-- Kolom Kiri: Ayah -->
 							<div class="col-sm-6">
-								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fnama_ayah" id="fnama_ayah" class="form-control" placeholder="Nama Ayah / Orang Tua / Wali" style="text-transform: capitalize;" required>
-								</div>
-
 								<script src="../../helper/helper-validasi-nik.js"></script>
 
 								<div class="form-group mb-3">
@@ -263,6 +215,10 @@
 									Isi NIK untuk mengambil data otomatis istri dari database.
 									</small>
 								</div>
+								</div>
+
+								<div class="form-group col-sm-12" style="font-weight: 500;">
+									<input type="text" name="fnama_ayah" id="fnama_ayah" class="form-control" placeholder="Nama Ayah / Orang Tua / Wali" style="text-transform: capitalize;" required>
 								</div>
 
 								<div class="form-group col-sm-12" style="font-weight: 500;">
@@ -353,13 +309,10 @@
 							});
 
 							</script>
-
+							
 
 							<!-- Kolom Kanan: Ibu -->
 							<div class="col-sm-6">
-								<div class="form-group col-sm-12" style="font-weight: 500;">
-									<input type="text" name="fnama_ibu" id="fnama_ibu" class="form-control" placeholder="Nama Ibu / Orang Tua / Wali" style="text-transform: capitalize;" required>
-								</div>
 
 								<div class="form-group mb-3">
 								<div class="col-sm-12">
@@ -377,6 +330,10 @@
 									Isi NIK untuk mengambil data otomatis istri dari database.
 									</small>
 								</div>
+								</div>
+
+								<div class="form-group col-sm-12" style="font-weight: 500;">
+									<input type="text" name="fnama_ibu" id="fnama_ibu" class="form-control" placeholder="Nama Ibu / Orang Tua / Wali" style="text-transform: capitalize;" required>
 								</div>
 
 								<div class="form-group col-sm-12" style="font-weight: 500;">
