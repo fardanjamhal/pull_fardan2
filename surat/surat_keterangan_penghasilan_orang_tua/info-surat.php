@@ -13,6 +13,23 @@
 			$_SESSION['nik'] = $nik;
 ?>
 
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+	.form-text.text-info {
+  background: #e8f4ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  animation: fadein 0.8s ease;
+	}
+
+	@keyframes fadein {
+	from { opacity: 0; transform: translateY(-5px); }
+	to { opacity: 1; transform: translateY(0); }
+	}
+</style>
+
 <link rel="stylesheet" href="../helper/form-style.css">
 
 <body class="bg-light">
@@ -152,11 +169,32 @@
 						        </div>
 							</div>
 							<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i>Data Ayah &nbsp;&nbsp;</h6><hr width="97%">
+
+							<script src="../helper/helper-validasi-nik.js"></script>
+							<div class="col-sm-6">
+							<div class="form-group">
+								<label class="col-sm-12" style="font-weight: 500;">NIK Istri</label>
+								<div class="col-sm-12">
+								<input type="text" name="fnik2" id="fnik2"
+									class="form-control nik-input"
+									placeholder="NIK"
+									maxlength="16"
+									oninput="validasiNIK(this)"
+									onkeypress="return hanyaAngka(event)"
+									required>
+								<small class="form-text text-info mt-1 d-flex align-items-center">
+									<i class="fa fa-info-circle mr-2 text-primary"></i>
+									Isi NIK untuk mengambil data otomatis istri dari database.
+								</small>
+								</div>
+							</div>
+							</div>
+							
 							<div class="col-sm-6">
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Nama Ayah</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama_ayah" class="form-control" style="text-transform: capitalize;" placeholder="Nama Ayah" required>
+						               	<input type="text" name="fnama_ayah" id="fnama_ayah" class="form-control" style="text-transform: capitalize;" placeholder="Nama Ayah" required>
 						           	</div>
 						        </div>
 							</div>
@@ -164,31 +202,16 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Tempat / Tanggal Lahir</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="ftgl_lahir2" class="form-control" style="text-transform: capitalize;" placeholder="Tempat / Tanggal Lahir" required>
+						               	<input type="text" name="ftgl_lahir2" id="ftgl_lahir2" class="form-control" style="text-transform: capitalize;" placeholder="Tempat / Tanggal Lahir" required>
 						           	</div>
 						        </div>
-							</div>
-
-							<script src="../helper/helper-validasi-nik.js"></script>
-							<div class="col-sm-6">
-							<div class="form-group">
-								<label class="col-sm-12" style="font-weight: 500;">NIK</label>
-								<div class="col-sm-12">
-								<input type="text" name="fnik2" id="fnik2"
-									class="form-control nik-input"
-									placeholder="NIK"
-									maxlength="16"
-									oninput="validasiNIK(this)"
-									onkeypress="return hanyaAngka(event)" required>
-								</div>
-							</div>
 							</div>
 
 							<div class="col-sm-6">
 							<div class="form-group">
 								<label class="col-sm-12" style="font-weight: 500;">Jenis Kelamin</label>
 								<div class="col-sm-12">
-								<select name="fjenis_kelamin2" class="form-control" required>
+								<select name="fjenis_kelamin2" id="fjenis_kelamin2" class="form-control" required>
 									<option value="" disabled selected>Pilih Jenis Kelamin</option>
 									<option value="LAKI-LAKI">LAKI-LAKI</option>
 									<option value="PEREMPUAN">PEREMPUAN</option>
@@ -201,7 +224,7 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Agama</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fagama2" class="form-control" style="text-transform: capitalize;" placeholder="Agama" required>
+						               	<input type="text" name="fagama2" id="fagama2" class="form-control" style="text-transform: capitalize;" placeholder="Agama" required>
 						           	</div>
 						        </div>
 							</div>
@@ -209,7 +232,7 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Pekerjaan</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fpekerjaan2" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" required>
+						               	<input type="text" name="fpekerjaan2" id="fpekerjaan2" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" required>
 						           	</div>
 						        </div>
 							</div>
@@ -217,7 +240,7 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Alamat</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat2" class="form-control" style="text-transform: capitalize;" placeholder="Alamat" required>
+						               	<input type="text" name="falamat2" id="falamat2" class="form-control" style="text-transform: capitalize;" placeholder="Alamat" required>
 						           	</div>
 						        </div>
 							</div>
@@ -231,11 +254,102 @@
 								</div>
 							</div>
 							<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i>Data Ibu &nbsp;&nbsp;</h6><hr width="97%">
+
+							<div class="col-sm-6">
+							<div class="form-group">
+								<label class="col-sm-12" style="font-weight: 500;">NIK Istri</label>
+								<div class="col-sm-12">
+								<input type="text" name="fnik3" id="fnik3"
+									class="form-control nik-input"
+									placeholder="NIK"
+									maxlength="16"
+									oninput="validasiNIK(this)"
+									onkeypress="return hanyaAngka(event)"
+									required>
+								<small class="form-text text-info mt-1 d-flex align-items-center">
+									<i class="fa fa-info-circle mr-2 text-primary"></i>
+									Isi NIK untuk mengambil data otomatis istri dari database.
+								</small>
+								</div>
+							</div>
+							</div>
+
+
+							<!-- jQuery wajib -->
+							<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+							<script>
+							$('#fnik2').on('blur', function () {
+							var nik = $(this).val().trim();
+							if (nik.length === 16) {
+
+								// Tampilkan animasi loading
+								Swal.fire({
+								title: 'Memeriksa NIK...',
+								text: 'Mohon tunggu sebentar',
+								allowOutsideClick: false,
+								didOpen: () => {
+									Swal.showLoading();
+								}
+								});
+
+								$.ajax({
+								url: '../helper/check_nik.php',
+								type: 'POST',
+								data: { nik: nik },
+								dataType: 'json',
+								success: function (res) {
+									Swal.close(); // Tutup loading
+
+									if (res.success) {
+									$('#fnama_ayah').val(res.data.nama);
+									$('#ftgl_lahir2').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+									$('#fjenis_kelamin2').val(res.data.jenis_kelamin);
+									$('#fagama2').val(res.data.agama);
+									$('#fpekerjaan2').val(res.data.pekerjaan);
+									$('#falamat2').val(res.data.alamat);
+									} else {
+									Swal.fire({
+										icon: 'warning',
+										title: 'NIK Tidak Ditemukan',
+										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
+										confirmButtonText: 'Tutup'
+									});
+									}
+								},
+								error: function () {
+									Swal.close(); // Tutup loading jika error
+
+									Swal.fire({
+									icon: 'error',
+									title: 'Kesalahan Server',
+									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
+									confirmButtonText: 'Tutup'
+									});
+								}
+								});
+							}
+							});
+
+							$('#fnik_ayah').on('input', function () {
+							var nik = $(this).val().trim();
+
+							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+							if (nik === '') {
+								$('#fnama_ayah').val('');
+								$('#ftgl_lahir2').val('');
+								$('#fjenis_kelamin2').val('');
+								$('#fagama2').val('');
+								$('#fpekerjaan2').val('');
+								$('#falamat2').val('');
+							}
+							});
+							</script>
+
 							<div class="col-sm-6">
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Nama Ibu</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama_ibu" class="form-control" style="text-transform: capitalize;" placeholder="Nama Ayah" required>
+						               	<input type="text" name="fnama_ibu" id="fnama_ibu" class="form-control" style="text-transform: capitalize;" placeholder="Nama Ayah" required>
 						           	</div>
 						        </div>
 							</div>
@@ -243,30 +357,16 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Tempat / Tanggal Lahir</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="ftgl_lahir3" class="form-control" style="text-transform: capitalize;" placeholder="Tempat / Tanggal Lahir" required>
+						               	<input type="text" name="ftgl_lahir3" id="ftgl_lahir3" class="form-control" style="text-transform: capitalize;" placeholder="Tempat / Tanggal Lahir" required>
 						           	</div>
 						        </div>
 							</div>
 
 							<div class="col-sm-6">
 							<div class="form-group">
-								<label class="col-sm-12" style="font-weight: 500;">NIK</label>
-								<div class="col-sm-12">
-								<input type="text" name="fnik3" id="fnik3"
-									class="form-control nik-input"
-									placeholder="NIK"
-									maxlength="16"
-									oninput="validasiNIK(this)"
-									onkeypress="return hanyaAngka(event)" required>
-								</div>
-							</div>
-							</div>
-
-							<div class="col-sm-6">
-							<div class="form-group">
 								<label class="col-sm-12" style="font-weight: 500;">Jenis Kelamin</label>
 								<div class="col-sm-12">
-								<select name="fjenis_kelamin3" class="form-control" required>
+								<select name="fjenis_kelamin3" id="fjenis_kelamin3" class="form-control" required>
 									<option value="" disabled selected>Pilih Jenis Kelamin</option>
 									<option value="LAKI-LAKI">LAKI-LAKI</option>
 									<option value="PEREMPUAN">PEREMPUAN</option>
@@ -278,7 +378,7 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Agama</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fagama3" class="form-control" style="text-transform: capitalize;" placeholder="Agama" required>
+						               	<input type="text" name="fagama3" id="fagama3" class="form-control" style="text-transform: capitalize;" placeholder="Agama" required>
 						           	</div>
 						        </div>
 							</div>
@@ -286,7 +386,7 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Pekerjaan</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fpekerjaan3" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" required>
+						               	<input type="text" name="fpekerjaan3" id="fpekerjaan3" class="form-control" style="text-transform: capitalize;" placeholder="Pekerjaan" required>
 						           	</div>
 						        </div>
 							</div>
@@ -294,7 +394,7 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Alamat</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat3" class="form-control" style="text-transform: capitalize;" placeholder="Alamat" required>
+						               	<input type="text" name="falamat3" id="falamat3" class="form-control" style="text-transform: capitalize;" placeholder="Alamat" required>
 						           	</div>
 						        </div>
 							</div>
@@ -306,7 +406,76 @@
 								<small id="terbilang_ibu" class="form-text text-muted"></small>
 							</div>
 							</div>
-						</div>
+							</div>
+
+							<script>
+							$('#fnik3').on('blur', function () {
+							var nik = $(this).val().trim();
+							if (nik.length === 16) {
+
+								// Tampilkan animasi loading
+								Swal.fire({
+								title: 'Memeriksa NIK...',
+								text: 'Mohon tunggu sebentar',
+								allowOutsideClick: false,
+								didOpen: () => {
+									Swal.showLoading();
+								}
+								});
+
+								$.ajax({
+								url: '../helper/check_nik.php',
+								type: 'POST',
+								data: { nik: nik },
+								dataType: 'json',
+								success: function (res) {
+									Swal.close(); // Tutup loading
+
+									if (res.success) {
+									$('#fnama_ibu').val(res.data.nama);
+									$('#ftgl_lahir3').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+									$('#fjenis_kelamin3').val(res.data.jenis_kelamin);
+									$('#fagama3').val(res.data.agama);
+									$('#fpekerjaan3').val(res.data.pekerjaan);
+									$('#falamat3').val(res.data.alamat);
+									} else {
+									Swal.fire({
+										icon: 'warning',
+										title: 'NIK Tidak Ditemukan',
+										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
+										confirmButtonText: 'Tutup'
+									});
+									}
+								},
+								error: function () {
+									Swal.close(); // Tutup loading jika error
+
+									Swal.fire({
+									icon: 'error',
+									title: 'Kesalahan Server',
+									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
+									confirmButtonText: 'Tutup'
+									});
+								}
+								});
+							}
+							});
+
+							$('#fnik_ayah').on('input', function () {
+							var nik = $(this).val().trim();
+
+							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+							if (nik === '') {
+								$('#fnama_ibu').val('');
+								$('#ftgl_lahir3').val('');
+								$('#fjenis_kelamin3').val('');
+								$('#fagama3').val('');
+								$('#fpekerjaan3').val('');
+								$('#falamat3').val('');
+							}
+							});
+							</script>
+
 						</div>
 						<hr width="97%">
 						<div class="container-fluid">

@@ -263,28 +263,31 @@
 		<table style="width: 100%;">
 			<tr>
 				<td style="text-align: right;">
-					<?php echo $rows['nama_desa']; ?>, 
-					<?php
-						$tanggalSurat = $row['tanggal_surat'];
-						$bulanIndo = array(
-							'January' => 'Januari',
-							'February' => 'Februari',
-							'March' => 'Maret',
-							'April' => 'April',
-							'May' => 'Mei',
-							'June' => 'Juni',
-							'July' => 'Juli',
-							'August' => 'Agustus',
-							'September' => 'September',
-							'October' => 'Oktober',
-							'November' => 'November',
-							'December' => 'Desember'
-						);
-						$tanggal = date('d', strtotime($tanggalSurat));
-						$bulan = date('F', strtotime($tanggalSurat));
-						$tahun = date('Y', strtotime($tanggalSurat));
-						echo $tanggal . ' ' . $bulanIndo[$bulan] . ' ' . $tahun;
-					?>
+					 <?php
+						include '../../cetak/helper/tanda_tangan_pejabat.php';
+
+						$table = basename(__DIR__);
+						function buatSingkatanID($nama_tabel) {
+						$bagian = explode('_', $nama_tabel);
+						$singkatan = '';
+						foreach ($bagian as $b) {
+							$singkatan .= substr($b, 0, 1);
+						}
+						return 'id_' . strtolower($singkatan);
+						}
+
+						$id_column = buatSingkatanID($table);
+						$id = $_GET['id'] ?? '';
+
+						if (!$id || !$table) {
+						die("ID atau nama tabel tidak valid.");
+						}
+
+						$query = mysqli_query($connect, "SELECT * FROM `$table` WHERE `$id_column` = '$id'");
+						$data = mysqli_fetch_assoc($query);
+						$no_surat = $data['no_surat'] ?? '';
+						echo formatTempatTanggalSurat($connect, $no_surat) . '<br>';
+						?>
 				</td>
 			</tr>
 		</table>
@@ -426,76 +429,117 @@
 	</td>
 
 	</table>
-		<br><br><br>
+		<br><br><br><br>
 
 	
 		<table width="100%" style="text-transform: capitalize; border-collapse: collapse;">
 		<tr>
-			<td style="text-align: center; padding: 0;">
+			<td style="text-align: center; padding: 5;">
 			<div style="display: inline-block;">
-			<?php
-			$id = $_GET['id'];
 
-			// Ambil semua data pejabat
-			$pejabat_data = [];
-			$qAllPejabat = mysqli_query($connect, "SELECT id_pejabat_desa, jabatan, nama_pejabat_desa, pangkat, nip FROM pejabat_desa ORDER BY id_pejabat_desa ASC");
-			while ($row_pejabat = mysqli_fetch_assoc($qAllPejabat)) {
-				$pejabat_data[$row_pejabat['id_pejabat_desa']] = $row_pejabat;
-			}
+			 <?php
+				$id = $_GET['id'];
 
-			// Ambil data surat dan penduduk
-			$qCek = mysqli_query($connect, "
-				SELECT penduduk.*, surat_keterangan_mahar_sunrang.* 
-				FROM penduduk 
-				LEFT JOIN surat_keterangan_mahar_sunrang 
-					ON surat_keterangan_mahar_sunrang.nik = penduduk.nik 
-				WHERE surat_keterangan_mahar_sunrang.id_skms = '$id'
-			");
+				$nama_pejabat_terpilih = '';
+				$jabatan_pejabat_terpilih = '';
 
-			if (mysqli_num_rows($qCek) > 0) {
+				$pejabat_data = [];
+				$qAllPejabat = mysqli_query($connect, "SELECT id_pejabat_desa, jabatan, nama_pejabat_desa FROM pejabat_desa ORDER BY id_pejabat_desa ASC");
+				if ($qAllPejabat) {
+				while ($row_pejabat = mysqli_fetch_assoc($qAllPejabat)) {
+					$pejabat_data[$row_pejabat['id_pejabat_desa']] = [
+					'jabatan' => $row_pejabat['jabatan'],
+					'nama' => $row_pejabat['nama_pejabat_desa']
+					];
+				}
+				} else {
+				echo "<p>Error saat mengambil data pejabat desa: " . mysqli_error($connect) . "</p>";
+				}
+
+				$folder = basename(dirname(__FILE__));
+				$tabel_surat = $folder;
+				$kata = explode('_', $folder);
+				$singkatan = '';
+				foreach ($kata as $k) {
+				$singkatan .= substr($k, 0, 1);
+				}
+				$kolom_id = 'id_' . $singkatan;
+
+				$id = $_GET['id'] ?? '';
+				$qCek = mysqli_query($connect, "
+				SELECT penduduk.*, $tabel_surat.*
+				FROM penduduk
+				LEFT JOIN $tabel_surat ON $tabel_surat.nik = penduduk.nik
+				WHERE $tabel_surat.$kolom_id = '$id'
+				");
+
+				if (mysqli_num_rows($qCek) > 0) {
 				$row = mysqli_fetch_array($qCek);
 				$id_pejabat_desa = $row['id_pejabat_desa'];
 
+				$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
+				$rows_desa = mysqli_fetch_array($qTampilDesa);
+
 				if (isset($pejabat_data[$id_pejabat_desa])) {
-					$nama = htmlspecialchars($pejabat_data[$id_pejabat_desa]['nama_pejabat_desa']);
+					$current_pejabat = $pejabat_data[$id_pejabat_desa];
+					$nama_pejabat_terpilih = $current_pejabat['nama'];
+					$jabatan_pejabat_terpilih = $current_pejabat['jabatan'];
 
 					if ($id_pejabat_desa == 1) {
-						// Hanya nama Kepala Desa
-						echo '<span style="font-weight: bold; text-decoration: underline;">' . $nama . '</span>';
+					echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
+						htmlspecialchars($nama_pejabat_terpilih) . 
+					'</span>';
 					} elseif ($id_pejabat_desa == 2) {
-						// Barcode (nama pejabat ID 2 diasumsikan adalah path barcode)
-						$barcode_path = '../../../../assets/img/barcode.png'; // ganti path sesuai lokasi barcode
-						$nama_kades = htmlspecialchars($pejabat_data[1]['nama_pejabat_desa'] ?? '---');
-
-						echo '<br><img src="' . $barcode_path . '?' . time() . '" alt="Barcode" style="max-width: 80px; margin-top: -74px"><br>';
-						echo '<span style="font-weight: bold; text-decoration: underline;">' . $nama_kades . '</span>';
+					if (isset($pejabat_data[1])) {
+						$url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
+						echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -82px">';
+						echo "<br>";
+					} else {
+						echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
 					}
-				} else {
-					echo "<p>Pejabat dengan ID {$id_pejabat_desa} tidak ditemukan.</p>";
-				}
-			} else {
-				// Jika tidak ada surat, tampilkan pejabat default ID 1
-				echo '<span style="font-weight: bold; text-decoration: underline;">' . 
-					htmlspecialchars($pejabat_data[1]['nama_pejabat_desa'] ?? '---') . 
-				'</span>';
-			}
-			?>
 
-			<br>
-			<?php
-			// Tampilkan pangkat dan NIP pejabat ID 1
-			if (isset($pejabat_data[1])) {
-				$pangkat = trim($pejabat_data[1]['pangkat']);
-				$nip = trim($pejabat_data[1]['nip']);
+					if (isset($pejabat_data[2])) {
+						echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
+						htmlspecialchars($pejabat_data[1]['nama']) . 
+						'</span>';
+					} else {
+						echo "Detail Pejabat ID 2 tidak ditemukan dalam data pre-fetched.<br>";
+					}
+					} else {
+					// ID lainnya jika dibutuhkan
+					}
+
+				} else {
+					echo "<p>Detail pejabat desa dengan ID **{$id_pejabat_desa}** tidak ditemukan di database (dari data pre-fetched).</p>";
+				}
+
+				} else {
+				echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . 
+					htmlspecialchars($pejabat_data[1]['nama']) . 
+				'</span>';
+				}
+				?>
+
+				<br>
+				<?php
+				$id = 1;
+				$query = "SELECT pangkat, nip FROM pejabat_desa WHERE id_pejabat_desa = '$id'";
+				$result = mysqli_query($connect, $query);
+
+				if ($data = mysqli_fetch_assoc($result)) {
+				$pangkat = trim($data['pangkat']);
+				$nip = trim($data['nip']);
 
 				if (!empty($pangkat)) {
 					echo '<span style="text-transform: none;">' . htmlspecialchars($pangkat) . '</span><br>';
 				}
-				echo '<span style="text-transform: none;">' . htmlspecialchars($nip) . '</span>';
-			} else {
-				echo "Data pejabat ID 1 tidak ditemukan.";
-			}
-			?>
+
+				echo '<span style="text-transform: none;">' . htmlspecialchars($nip) . '</span><br>';
+				} else {
+				echo "Data tidak ditemukan.";
+				}
+				?>
+
 			</div>
 			</td>
 		</tr>

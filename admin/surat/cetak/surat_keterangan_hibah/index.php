@@ -297,33 +297,37 @@
 			</td>
 		</table>
 
-		<table style="width: 100%;">
+		<table width="100%" style="text-transform: capitalize; border-collapse: collapse;">
 			<tr>
-				<td style="text-align: right;">
-					<?php echo $rows['nama_desa']; ?>, 
-					<?php
-						$tanggalSurat = $row['tanggal_surat'];
-						$bulanIndo = array(
-							'January' => 'Januari',
-							'February' => 'Februari',
-							'March' => 'Maret',
-							'April' => 'April',
-							'May' => 'Mei',
-							'June' => 'Juni',
-							'July' => 'Juli',
-							'August' => 'Agustus',
-							'September' => 'September',
-							'October' => 'Oktober',
-							'November' => 'November',
-							'December' => 'Desember'
-						);
-						$tanggal = date('d', strtotime($tanggalSurat));
-						$bulan = date('F', strtotime($tanggalSurat));
-						$tahun = date('Y', strtotime($tanggalSurat));
-						echo $tanggal . ' ' . $bulanIndo[$bulan] . ' ' . $tahun;
-					?>
-				</td>
-			</tr>
+			<td style="width: 50%;"></td>
+			<td style="vertical-align: top; padding-top: 20px; text-align: center;">
+				<?php
+				include '../../cetak/helper/tanda_tangan_pejabat.php';
+
+				$table = basename(__DIR__);
+				function buatSingkatanID($nama_tabel) {
+				$bagian = explode('_', $nama_tabel);
+				$singkatan = '';
+				foreach ($bagian as $b) {
+					$singkatan .= substr($b, 0, 1);
+				}
+				return 'id_' . strtolower($singkatan);
+				}
+
+				$id_column = buatSingkatanID($table);
+				$id = $_GET['id'] ?? '';
+
+				if (!$id || !$table) {
+				die("ID atau nama tabel tidak valid.");
+				}
+
+				$query = mysqli_query($connect, "SELECT * FROM `$table` WHERE `$id_column` = '$id'");
+				$data = mysqli_fetch_assoc($query);
+				$no_surat = $data['no_surat'] ?? '';
+				echo formatTempatTanggalSurat($connect, $no_surat);
+				?>
+			</td>
+		</tr>
 		</table>
 
 		<style>

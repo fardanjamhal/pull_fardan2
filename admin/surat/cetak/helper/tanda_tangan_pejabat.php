@@ -5,6 +5,10 @@ function formatTempatTanggalSurat(mysqli $connect, string $no_surat): string
     $q_desa = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
     $r_desa = mysqli_fetch_assoc($q_desa);
     $nama_desa = $r_desa['nama_desa'] ?? 'Desa/Kelurahan';
+    // Hilangkan kata "desa" atau "kelurahan" (tidak peka huruf besar/kecil)
+    $nama_desa = str_ireplace(['desa', 'kelurahan'], '', $nama_desa);
+    // Hilangkan spasi berlebih di depan/belakang
+    $nama_desa = trim($nama_desa);
 
     $tanggal_surat = null;
 
