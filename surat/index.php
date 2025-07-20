@@ -306,7 +306,8 @@
 				"surat_tugas",
 				"surat_keterangan_hibah",
 				"surat_rekomendasi_pembelian_bbm_jenis_tertentu",
-				"surat_pengantar"
+				"surat_pengantar",
+				"surat_keterangan_ganti_pekerjaan"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan

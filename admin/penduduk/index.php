@@ -490,24 +490,24 @@
                 Buat Surat
               </button>
 
-              <!-- Modal -->
-              <div class="modal fade" id="modalSurat_<?php echo $row['nik']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalSuratLabel_<?php echo $row['nik']; ?>" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="modalSuratLabel_<?php echo $row['nik']; ?>">Pilih Jenis Surat</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
+             <!-- Modal -->
+            <div class="modal fade" id="modalSurat_<?php echo $row['nik']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalSuratLabel_<?php echo $row['nik']; ?>" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalSuratLabel_<?php echo $row['nik']; ?>">Pilih Jenis Surat</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
 
+                  <div class="modal-body">
+                    <!-- Input Pencarian -->
+                    <input type="text" class="form-control mb-3" id="searchSurat_<?php echo $row['nik']; ?>" placeholder="Cari jenis surat...">
 
-                    <div class="modal-body">
-                    <div class="list-group">
+                    <div class="list-group" id="listSurat_<?php echo $row['nik']; ?>">
                       <?php
                       $nik = $row['nik'];
-
-                      // Ambil semua folder dari folder ../../surat/
                       $surat_dir = '../../surat';
                       $surat_urls = [];
 
@@ -523,31 +523,44 @@
                         }
                       }
 
-                      // Urutkan alfabetis
                       sort($surat_urls);
                       $noSurat = 1;
 
-                      // Tampilkan daftar tombol surat
                       foreach ($surat_urls as $surat) {
-                          $label = ucwords(str_replace('_', ' ', $surat));
-                          echo '
-                            <form action="../../surat/' . $surat . '/info-surat.php" method="post" class="mb-2">
-                              <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
-                              <button type="submit" class="list-group-item list-group-item-action d-flex align-items-start">
-                                <span class="me-2 fw-bold" style="min-width: 25px;">' . $noSurat++ . '.</span>
-                                <span>' . $label . '</span>
-                              </button>
-                            </form>
-                          ';
+                        $label = ucwords(str_replace('_', ' ', $surat));
+                        echo '
+                          <form action="../../surat/' . $surat . '/info-surat.php" method="post" class="mb-2 surat-item">
+                            <input type="hidden" name="fnik" value="' . htmlspecialchars($nik) . '">
+                            <button type="submit" class="list-group-item list-group-item-action d-flex align-items-start">
+                              <span class="me-2 fw-bold" style="min-width: 25px;">' . $noSurat++ . '.</span>
+                              <span class="surat-label">' . $label . '</span>
+                            </button>
+                          </form>
+                        ';
                       }
                       ?>
-
                     </div>
-                  </div>
-
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!-- Script pencarian -->
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const input = document.getElementById('searchSurat_<?php echo $row['nik']; ?>');
+                const listItems = document.querySelectorAll('#listSurat_<?php echo $row['nik']; ?> .surat-item');
+
+                input.addEventListener('keyup', function () {
+                  const keyword = this.value.toLowerCase();
+                  listItems.forEach(item => {
+                    const label = item.querySelector('.surat-label').textContent.toLowerCase();
+                    item.style.display = label.includes(keyword) ? '' : 'none';
+                  });
+                });
+              });
+            </script>
+
 
 
               </td>

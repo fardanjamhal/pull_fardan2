@@ -21,8 +21,11 @@ function formatAlamatLengkap($row, $connect) {
     $rw = trim($row['rw']);
 
     // Validasi hanya angka
+   if (!function_exists('isValidRtRw')) {
     function isValidRtRw($value) {
-        return preg_match('/^[0-9]+$/', $value);
+        // isi fungsi, contoh:
+        return preg_match('/^\d{1,3}$/', $value);
+    }
     }
 
     // Default nilai jika kosong
