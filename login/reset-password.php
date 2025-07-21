@@ -45,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         $mail = new PHPMailer(true);
         try {
             $mail->isSMTP();
-            $mail->Host = 'mail.dedig.id';
+            $mail->Host = 'mail.mentorcpns.id';
             $mail->SMTPAuth = true;
-            $mail->Username = 'dontreply@dedig.id';
+            $mail->Username = '_mainaccount@mentorcpns.id';
             $mail->Password = '@Gowa151121';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
