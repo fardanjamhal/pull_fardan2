@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->Port = 465;
 
             // Set From dengan nama desa
-            $mail->setFrom('dontreply@dedig.id', 'Aplikasi Surat | ' . $namaDesa);
+            $mail->setFrom('reset@mentorcpns.id', 'Aplikasi Surat | ' . $namaDesa);
             $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->Subject = 'Reset Password Akun Anda';
