@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->Host = 'mail.dedig.id';
             $mail->SMTPAuth = true;
             $mail->Username = 'dontreply@dedig.id';
-            $mail->Password = 'Cx~E[v.KY0s)Ven3';
+            $mail->Password = '@Makassar123';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
