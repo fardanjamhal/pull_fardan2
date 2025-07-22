@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['token'])) {
 <html lang="id">
 <head>
 	<meta charset="UTF-8">
-	<title>Reset Password | <?php echo isset($data['nama_desa']) ? ucwords(strtolower($data['nama_desa'])) : 'Desa'; ?></title>
+	<title>Reset Password | <?php echo isset($data['nama_desa']) ? ucwords(strtolower($data['nama_desa'])) : 'account'; ?></title>
 	<link rel="shortcut icon" href="../assets/img/<?php echo $favicon; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
