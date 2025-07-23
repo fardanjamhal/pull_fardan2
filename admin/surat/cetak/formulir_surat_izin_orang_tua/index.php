@@ -109,7 +109,13 @@
 		<tr>
 			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
 			<td style="vertical-align: top;">:</td>
-			<td><?php echo ucwords(strtolower($row['alamat1'])); ?></td>
+			<td><?php
+				$alamat = ucwords(strtolower($row['alamat1']));
+				// Ubah 'Rt' dan 'Rw' jadi huruf besar semua
+				$alamat = preg_replace('/\bRt\b/i', 'RT', $alamat);
+				$alamat = preg_replace('/\bRw\b/i', 'RW', $alamat);
+				echo $alamat;
+			?></td>
 		</tr>
 		<tr>
 			<td width="16%" class="indentasi">B. 1. Nama lengkap dan alias</td>
@@ -150,7 +156,13 @@
 		<tr>
 			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
 			<td style="vertical-align: top;">:</td>
-			<td><td><?php echo $row['alamat2']; ?></td></td>
+			<td><?php
+				$alamat = ucwords(strtolower($row['alamat2']));
+				// Ubah 'Rt' dan 'Rw' jadi huruf besar semua
+				$alamat = preg_replace('/\bRt\b/i', 'RT', $alamat);
+				$alamat = preg_replace('/\bRw\b/i', 'RW', $alamat);
+				echo $alamat;
+			?></td>
 		</tr>
 		<!-- dst... -->
 		</table>
@@ -195,7 +207,13 @@
 		<tr>
 			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
 			<td style="vertical-align: top;">:</td>
-			<td><td><?php echo $row['alamat3']; ?></td></td>
+			<td><?php
+				$alamat = ucwords(strtolower($row['alamat3']));
+				// Ubah 'Rt' dan 'Rw' jadi huruf besar semua
+				$alamat = preg_replace('/\bRt\b/i', 'RT', $alamat);
+				$alamat = preg_replace('/\bRw\b/i', 'RW', $alamat);
+				echo $alamat;
+			?></td>
 		</tr>
 		<!-- dst... -->
 		</table>
