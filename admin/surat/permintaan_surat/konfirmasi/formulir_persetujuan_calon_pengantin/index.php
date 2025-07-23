@@ -100,8 +100,19 @@
                   $tahun      = $r_salin['tahun'] ?? date('Y');
                   $tanggal    = isset($row['tanggal_surat']) ? $row['tanggal_surat'] : date('Y-m-d');
 
-                  // Ambil nomor_lengkap terakhir, bukan generate
-                  $no_surat = $r_salin['nomor_lengkap'] ?? generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
+                    // Nama folder sebagai nama tabel
+                      $folder_name = basename(__DIR__);
+                      $nama_tabel = $folder_name;
+                      // Ambil inisial kode_surat_url dari nama folder (misal: surat_keterangan_domisili → SKD)
+                      $folder_parts = explode('_', $folder_name);
+                      $kata_dilewati = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk'];
+                      $kode_surat_url = strtoupper(implode('', array_map(function($word) use ($kata_dilewati) {
+                          return in_array(strtolower($word), $kata_dilewati) ? '' : $word[0];
+                      }, $folder_parts)));
+
+                   // Buat nomor surat akhir
+                      $no_surat = generate_nomor_surat($kode_surat, $kode_surat_url, $kode_desa, $no_urut, $tanggal);
+
                   ?>
 
                       <!-- FORM -->
@@ -123,13 +134,41 @@
                           <div class="col-sm-4">
                             <input type="text" name="fno_surat" class="form-control" value="<?= htmlspecialchars($no_surat) ?>" readonly>
                           </div>
-                          <label class="col-sm-2 control-label">Kode Desa</label>
+                          <label class="col-sm-2 control-label">Kode Desa / Kel</label>
                           <div class="col-sm-4">
                             <input type="text" name="kode_desa" class="form-control" value="<?= htmlspecialchars($kode_desa) ?>" required>
                           </div>
                         </div>
 
                       </div>
+
+                      <script>
+                      function updateNomorSuratLive() {
+                        const kodeSurat = document.querySelector('[name="kode_surat"]').value.trim().toUpperCase();
+                        const kodeDesa = document.querySelector('[name="kode_desa"]').value.trim().toUpperCase();
+                        const tanggal = new Date();
+                        const bulan = String(tanggal.getMonth() + 1).padStart(2, '0');
+                        const tahun = tanggal.getFullYear();
+
+                        if (kodeSurat && kodeDesa) {
+                          // Ambil nomor urut dari server via AJAX
+                          fetch(`../helper/get_no_urut.php?kode_surat=${kodeSurat}`)
+                            .then(response => response.text())
+                            .then(noUrut => {
+                              document.querySelector('[name="no_urut_manual"]').value = noUrut;
+                              const hasil = `${kodeSurat}/${noUrut}/${kodeDesa}/${bulan}/${tahun}`;
+                              document.querySelector('[name="fno_surat"]').value = hasil;
+                            });
+                        } else {
+                          document.querySelector('[name="fno_surat"]').value = '';
+                        }
+                      }
+
+                      document.addEventListener('DOMContentLoaded', function () {
+                        document.querySelector('[name="kode_surat"]').addEventListener('input', updateNomorSuratLive);
+                        document.querySelector('[name="kode_desa"]').addEventListener('input', updateNomorSuratLive);
+                      });
+                      </script>
                   
                   <!-- FARDAN SALIN NOMOR OTOMATIS -->
 

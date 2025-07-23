@@ -1,5 +1,5 @@
 <?php
-function generate_nomor_surat($kode_surat, $kode_desa, $nomor_urut, $tanggal)
+function generate_nomor_surat($kode_surat, $kode_surat_url, $kode_desa, $nomor_urut, $tanggal)
 {
     include('../../../../../config/koneksi.php'); // Sesuaikan path jika perlu
 
@@ -22,6 +22,7 @@ function generate_nomor_surat($kode_surat, $kode_desa, $nomor_urut, $tanggal)
 
     // Format berdasarkan jabatan
     if ($jabatan === 'lurah') {
+        /*return "$kode_surat/$kode_surat_url/$nomor_urut_padded/$kode_desa/$bulan_romawi/$tahun";*/
         return "$kode_surat/$nomor_urut_padded/$kode_desa/$bulan_romawi/$tahun";
     } else {
         return "$nomor_urut_padded/$kode_surat/$kode_desa/$bulan_romawi/$tahun";

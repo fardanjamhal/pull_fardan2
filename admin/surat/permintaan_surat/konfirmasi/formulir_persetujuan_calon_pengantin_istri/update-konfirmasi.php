@@ -108,8 +108,18 @@ if (mysqli_num_rows($cek) > 0) {
 }
 */
 
+ // Nama folder sebagai nama tabel
+                      $folder_name = basename(__DIR__);
+                      $nama_tabel = $folder_name;
+// Ambil inisial kode_surat_url dari nama folder (misal: surat_keterangan_domisili → SKD)
+                      $folder_parts = explode('_', $folder_name);
+                      $kata_dilewati = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk'];
+                      $kode_surat_url = strtoupper(implode('', array_map(function($word) use ($kata_dilewati) {
+                          return in_array(strtolower($word), $kata_dilewati) ? '' : $word[0];
+                      }, $folder_parts)));
+
 // Buat format nomor surat akhir
-$no_surat = generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
+$no_surat = generate_nomor_surat($kode_surat, $kode_surat_url, $kode_desa, $no_urut, $tanggal);
 
 // Ambil ID pejabat dari form pilihan tanda tangan (tetap digunakan untuk menyimpan ID saja)
 $id_pejabat_desa = mysqli_real_escape_string($connect, $_POST['ft_tangan']);

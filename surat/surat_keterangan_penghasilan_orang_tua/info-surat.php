@@ -173,7 +173,7 @@
 							<script src="../helper/helper-validasi-nik.js"></script>
 							<div class="col-sm-6">
 							<div class="form-group">
-								<label class="col-sm-12" style="font-weight: 500;">NIK Istri</label>
+								<label class="col-sm-12" style="font-weight: 500;">NIK Ayah</label>
 								<div class="col-sm-12">
 								<input type="text" name="fnik2" id="fnik2"
 									class="form-control nik-input"
@@ -257,7 +257,7 @@
 
 							<div class="col-sm-6">
 							<div class="form-group">
-								<label class="col-sm-12" style="font-weight: 500;">NIK Istri</label>
+								<label class="col-sm-12" style="font-weight: 500;">NIK Ibu</label>
 								<div class="col-sm-12">
 								<input type="text" name="fnik3" id="fnik3"
 									class="form-control nik-input"
