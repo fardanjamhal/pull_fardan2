@@ -150,7 +150,7 @@
 		<tr>
 			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
 			<td style="vertical-align: top;">:</td>
-			<td><?php echo ucwords(strtolower($row['alamat2'])); ?></td>
+			<td><td><?php echo $row['alamat2']; ?></td></td>
 		</tr>
 		<!-- dst... -->
 		</table>
@@ -195,7 +195,7 @@
 		<tr>
 			<td width="40%" class="indentasi" style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. Alamat</td>
 			<td style="vertical-align: top;">:</td>
-			<td><?php echo ucwords(strtolower($row['alamat3'])); ?></td>
+			<td><td><?php echo $row['alamat3']; ?></td></td>
 		</tr>
 		<!-- dst... -->
 		</table>
