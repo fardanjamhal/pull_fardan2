@@ -90,77 +90,40 @@
 
                  <!-- FARDAN SALIN NOMOR OTOMATIS -->
                  
-                    <?php
-                      include('../../../../../config/koneksi.php');
-                      include('../helper/nomor_surat.php');
+                  <?php
+                  include('../../../../../config/koneksi.php');
+                  include('../helper/nomor_surat.php');
 
-                      // Tanggal surat
-                      $tanggal = isset($row['tanggal_surat']) ? $row['tanggal_surat'] : date('Y-m-d');
-                      $tahun = date('Y', strtotime($tanggal));
-                      $bulan = date('m', strtotime($tanggal));
+                  // Nama folder sebagai nama tabel
+                  $folder_name = 'formulir_pengantar_nikah'; // Pastikan sesuai dengan folder suratnya
+                  $nama_tabel = $folder_name;
 
-                      // Cek apakah pejabat pertama adalah LURAH
-                      $q_jabatan = mysqli_query($connect, "SELECT jabatan FROM pejabat_desa ORDER BY id_pejabat_desa ASC LIMIT 1");
-                      $r_jabatan = mysqli_fetch_assoc($q_jabatan);
-                      $is_lurah = (isset($r_jabatan['jabatan']) && strtoupper(trim($r_jabatan['jabatan'])) === 'LURAH');
+                  // Ambil nomor terakhir dari jenis surat ini
+                  $q_salin = mysqli_query($connect, "
+                    SELECT ns.nomor_lengkap, ns.kode_surat, ns.kode_desa, ns.nomor_urut, ns.tahun
+                    FROM nomor_surat ns
+                    JOIN $nama_tabel s ON s.no_surat = ns.nomor_lengkap
+                    WHERE ns.nomor_lengkap IS NOT NULL
+                    ORDER BY ns.id DESC
+                    LIMIT 1
+                  ");
 
-                      // Nama folder sebagai nama tabel
-                      $folder_name = basename(__DIR__);
-                      $nama_tabel = $folder_name;
+                  $r_salin = ($q_salin && mysqli_num_rows($q_salin) > 0) ? mysqli_fetch_assoc($q_salin) : [];
 
-                      // Buat kode default dari nama folder
-                      $folder_parts = explode('_', $folder_name);
-                      $kata_dilewati = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk'];
-                      $kode_surat_default = strtoupper(implode('', array_map(function($word) use ($kata_dilewati) {
-                          return in_array(strtolower($word), $kata_dilewati) ? '' : $word[0];
-                      }, $folder_parts)));
+                  // Siapkan nilai default jika kosong
+                  $kode_surat = $_POST['kode_surat'] ?? ($r_salin['kode_surat'] ?? 'XXX');
+                  $kode_desa  = $_POST['kode_desa']  ?? ($r_salin['kode_desa']  ?? 'KODE-DS');
+                  $no_urut    = isset($_POST['no_urut_manual']) && is_numeric($_POST['no_urut_manual'])
+                                  ? (int) $_POST['no_urut_manual']
+                                  : ($r_salin['nomor_urut'] ?? 1);
+                  $tahun      = $r_salin['tahun'] ?? date('Y');
+                  $tanggal    = isset($row['tanggal_surat']) ? $row['tanggal_surat'] : date('Y-m-d');
 
-                      // Ambil kode_surat dari tabel nomor_surat berdasarkan jenis surat
-                      $q_surat = mysqli_query($connect, "
-                        SELECT ns.kode_surat 
-                        FROM nomor_surat ns
-                        JOIN $nama_tabel s 
-                          ON s.no_surat = ns.nomor_lengkap
-                        ORDER BY ns.id DESC 
-                        LIMIT 1
-                      ");
-                      $r_surat = mysqli_fetch_assoc($q_surat);
-                      $kode_surat = $_POST['kode_surat'] ?? ($r_surat['kode_surat'] ?? $kode_surat_default);
-
-                      // Ambil nomor urut
-                      if ($is_lurah) {
-                          // Nomor urut hanya untuk jenis surat ini
-                          $q_urut = mysqli_query($connect, "
-                              SELECT MAX(ns.nomor_urut) AS max_urut
-                              FROM nomor_surat ns
-                              JOIN $nama_tabel s ON s.no_surat = ns.nomor_lengkap
-                              WHERE ns.tahun = '$tahun'
-                          ");
-                      } else {
-                          // Nomor urut global
-                          $q_urut = mysqli_query($connect, "
-                              SELECT MAX(nomor_urut) AS max_urut 
-                              FROM nomor_surat 
-                              WHERE tahun = '$tahun'
-                          ");
-                      }
-                     $r_urut = mysqli_fetch_assoc($q_urut);
-                    $no_urut_otomatis = ($r_urut && $r_urut['max_urut']) ? $r_urut['max_urut'] + 1 : 1;
-
-                    // Gunakan input manual jika ada, jika tidak pakai otomatis
-                    $no_urut = isset($_POST['no_urut_manual']) && is_numeric($_POST['no_urut_manual'])
-                        ? (int) $_POST['no_urut_manual']
-                        : $no_urut_otomatis;
+                  // Ambil nomor_lengkap terakhir, bukan generate
+                  $no_surat = $r_salin['nomor_lengkap'] ?? generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
+                  ?>
 
 
-                      // Ambil kode desa terakhir
-                      $q_desa = mysqli_query($connect, "SELECT kode_desa FROM nomor_surat ORDER BY id DESC LIMIT 1");
-                      $r_desa = mysqli_fetch_assoc($q_desa);
-                      $kode_desa = $_POST['kode_desa'] ?? ($r_desa['kode_desa'] ?? 'KODE-DS');
-
-                      // Buat nomor surat akhir
-                      $no_surat = generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
-                      ?>
 
                       <!-- FORM -->
                       <div class="form-horizontal">

@@ -27,9 +27,29 @@ if (isset($_GET['id']) && isset($_GET['jenis'])) {
 
     // Cek apakah jenis dari URL ada dalam hasil tabel
     if (array_key_exists($jenis, $jenisSurat)) {
-        $table = $jenis; // nama tabel langsung dari URL
-        $id_col = $jenisSurat[$jenis]; // id kolom yang dibentuk otomatis
+        $table = $jenis;
+        $id_col = $jenisSurat[$jenis];
 
+        // Ambil no_surat dari tabel utama
+        $qNoSurat = mysqli_query($connect, "SELECT no_surat FROM `$table` WHERE `$id_col` = '$id'");
+        $rowSurat = mysqli_fetch_assoc($qNoSurat);
+        $no_surat = $rowSurat['no_surat'] ?? null;
+
+        // Jika ada, hapus juga dari nomor_surat (hanya 1 entri terakhir)
+        if ($no_surat) {
+            $qHapusNomor = mysqli_query($connect, "
+                SELECT id FROM nomor_surat 
+                WHERE nomor_lengkap = '$no_surat' 
+                ORDER BY id DESC LIMIT 1
+            ");
+            if ($qHapusNomor && mysqli_num_rows($qHapusNomor) > 0) {
+                $rowNomor = mysqli_fetch_assoc($qHapusNomor);
+                $id_nomor = $rowNomor['id'];
+                mysqli_query($connect, "DELETE FROM nomor_surat WHERE id = $id_nomor");
+            }
+        }
+
+        // Hapus dari tabel utama surat
         $deleteQuery = "DELETE FROM `$table` WHERE `$id_col` = '$id'";
         $result = mysqli_query($connect, $deleteQuery);
 

@@ -101,11 +101,12 @@ if ($is_lurah) {
     ");
 }
 
-
+/*
 if (mysqli_num_rows($cek) > 0) {
     echo "<script>alert('Nomor urut $no_urut sudah digunakan pada tahun $tahun. Silakan pilih nomor lain.'); window.history.back();</script>";
     exit;
 }
+*/
 
 // Buat format nomor surat akhir
 $no_surat = generate_nomor_surat($kode_surat, $kode_desa, $no_urut, $tanggal);
@@ -138,30 +139,50 @@ $update = mysqli_query($connect, "
   WHERE $kolom_id = '$id'
 ");
 
-if ($update) {
-    $tanggal_surat = $tanggal; // Sudah diambil sebelumnya dari surat
 
-    // Simpan ke log
-    $simpan = mysqli_query($connect, "
+
+// Tambahkan prefix statis "N1-" di nomor surat
+$no_surat_final = 'N1-' . $no_surat;
+
+// Update ke tabel jenis surat
+$update = mysqli_query($connect, "
+  UPDATE $nama_tabel 
+  SET no_surat = '$no_surat_final',
+      id_pejabat_desa = '$id_pejabat_desa',
+      status_surat = '$status_surat'
+  WHERE $kolom_id = '$id'
+");
+
+// Update ke tabel jenis surat
+$update = mysqli_query($connect, "
+  UPDATE $nama_tabel 
+  SET no_surat = '$no_surat_final',
+      id_pejabat_desa = '$id_pejabat_desa',
+      status_surat = '$status_surat'
+  WHERE $kolom_id = '$id'
+");
+
+if ($update) {
+    // Simpan juga ke tabel nomor_surat
+    mysqli_query($connect, "
         INSERT INTO nomor_surat (
-            kode_surat, kode_desa, bulan, tahun, nomor_urut, nomor_lengkap,
-            id_pejabat_desa, tanggal_surat,
-            nama_pejabat_desa, jabatan, pangkat, nip, alamat
-        )
-        VALUES (
-            '$kode_surat', '$kode_desa', MONTH('$tanggal_surat'), '$tahun', $no_urut, '$no_surat',
-            '$id_pejabat_desa', '$tanggal_surat',
-            '$nama_pejabat_desa', '$jabatan', '$pangkat', '$nip', '$alamat'
+            kode_surat, 
+            kode_desa, 
+            tahun, 
+            nomor_urut, 
+            nomor_lengkap, 
+            tanggal_surat
+        ) VALUES (
+            '$kode_surat',
+            '$kode_desa',
+            '$tahun',
+            '$no_urut',
+            '$no_surat_final',
+            '$tanggal'
         )
     ");
 
-    if ($simpan) {
-        header('Location: ../../');
-        exit;
-    } else {
-        echo "<script>alert('Gagal menyimpan nomor surat ke log.'); window.history.back();</script>";
-    }
-} else {
-    echo "<script>alert('Gagal mengupdate surat.'); window.history.back();</script>";
+    header('Location: ../../');
+    exit;
 }
 
