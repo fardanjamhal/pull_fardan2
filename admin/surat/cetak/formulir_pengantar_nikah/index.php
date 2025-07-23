@@ -217,7 +217,17 @@
 				<tr>
 				<td width="46%" class="indentasi" style="vertical-align: top;">Alamat</td>
 				<td width="2%" style="vertical-align: top;">:</td>
-				<td><?php echo ucwords(strtolower($row['alamat_ayah'])); ?></td>
+				<td>
+					 <?php
+						$alamat = ucwords(strtolower($row['alamat_ayah']));
+
+						// Ubah "Rt" diikuti angka langsung menjadi "RT" (misal Rt002 → RT002)
+						$alamat = preg_replace('/\brt(\d{1,3})\b/i', 'RT$1', $alamat);
+						$alamat = preg_replace('/\brw(\d{1,3})\b/i', 'RW$1', $alamat);
+
+						echo $alamat;
+					?>
+				</td>
 				</tr>
 		</table>
 		
@@ -256,7 +266,17 @@
 				<tr>
 				<td width="46%" class="indentasi" style="vertical-align: top;">Alamat</td>
 				<td width="2%" style="vertical-align: top;">:</td>
-				<td><?php echo ucwords(strtolower($row['alamat_ibu'])); ?></td>
+				<td>
+					 <?php
+						$alamat = ucwords(strtolower($row['alamat_ibu']));
+
+						// Ubah "Rt" diikuti angka langsung menjadi "RT" (misal Rt002 → RT002)
+						$alamat = preg_replace('/\brt(\d{1,3})\b/i', 'RT$1', $alamat);
+						$alamat = preg_replace('/\brw(\d{1,3})\b/i', 'RW$1', $alamat);
+
+						echo $alamat;
+					?>
+				</td>
 				</tr>
 		</table>
 
