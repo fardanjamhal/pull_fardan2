@@ -241,7 +241,19 @@
 	<tr>
 		<td style="width: 50%; text-align: left;">
 		Diketahui :<br>
-		Imam <?php include_once '../../../surat/cetak/helper/jabatan_tampilkan.php'; ?><br><br><br><br><br><br>
+		Imam 
+		<?php
+		ob_start(); // mulai tampung output
+		include_once '../../../surat/cetak/helper/jabatan_tampilkan.php';
+		$hasil = ob_get_clean(); // ambil hasil output
+
+		// Hilangkan kata "kepala" (huruf besar kecil tidak masalah)
+		$hasil_bersih = str_ireplace('kepala', '', $hasil);
+
+		echo $hasil_bersih;
+		?>
+
+		<br><br><br><br><br><br>
 		<u><b><?php echo strtoupper($row['nama_imam_lurah']); ?></b></u>
 		</td>
 
