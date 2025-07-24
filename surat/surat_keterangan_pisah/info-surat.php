@@ -24,7 +24,13 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN PENGANTAR SKCK</b></h5></a>
+							<?php
+							$url = basename(__DIR__); // contoh: formulir_pengantar_nikah
+							$judul = strtoupper(str_replace('_', ' ', $url));
+							?>
+							<a class="col-sm-6">
+							<h5><b><?= $judul; ?></b></h5>
+							</a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>
@@ -118,58 +124,48 @@
 						           	</div>
 						        </div>
 							</div>
+							
+
+						<!-- Tujuan -->
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-sm-12" style="font-weight: 500;">Nama Pasangan</label>
+							<div class="col-sm-12">
+							<div class="input-group">
+								<input type="text" id="fnama_pasangan" name="fnama_pasangan" class="form-control" placeholder="Masukkan Nama Pasangan" required>
+							</div>
+							</div>
 						</div>
-						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Bukti KTP / KK</h6><hr width="97%">
-						<div class="row">
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Bukti KTP</label>
-						           	<div class="col-sm-12">
-				                        <script>
-				                          	function hanyaAngka(evt){
-				                            	var charCode = (evt.which) ? evt.which : event.keyCode
-				                            	if (charCode > 31 && (charCode < 48 || charCode > 57))
-				                            	return false;
-				                            	return true;
-				                          	}
-				                        </script>
-						               	<input type="text" name="fbukti_ktp" class="form-control" maxlength="16" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nomor KTP" value="<?php echo $data['nik']; ?>" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Bukti KK (Opsional)</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fbukti_kk" class="form-control" maxlength="16" onkeypress="return hanyaAngka(event)" placeholder="Masukkan Nomor KK (Opsional)">
-						           	</div>
-						        </div>
-						  	</div>
 						</div>
-						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
-						<div class="row">
-						  	<div class="col-sm-12">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Keperluan Surat</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fkeperluan" class="form-control" style="text-transform: capitalize;" value="Permohonan SKCK" readonly>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-12">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Keterangan Surat</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fketerangan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Keterangan Surat" required>
-						           	</div>
-						        </div>
-						  	</div>
+
+						<!-- Maksud untuk -->
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-sm-12" style="font-weight: 500;">Alasan Pisah</label>
+							<div class="col-sm-12">
+							<div class="input-group">
+								<input type="text" id="falasan_pisah" name="falasan_pisah" class="form-control" placeholder="Isi Alasan Pisah" required>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-sm-12" style="font-weight: 500;">Nama Imam Desa / Lurah</label>
+							<div class="col-sm-12">
+							<div class="input-group">
+								<input type="text" id="fnama_imam_lurah" name="fnama_imam_lurah" class="form-control" placeholder="Nama Imam" required>
+							</div>
+							</div>
+						</div>
+						</div>
+
+
 						</div>
 						<hr width="97%">
 						<div class="container-fluid">
-		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/surat_pengantar_skck/'">
+		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/surat_keterangan_domisili_usaha/'">
 		                	<input type="submit" name="submit" class="btn btn-info" value="Submit">
 		              	</div>
 					</form>
