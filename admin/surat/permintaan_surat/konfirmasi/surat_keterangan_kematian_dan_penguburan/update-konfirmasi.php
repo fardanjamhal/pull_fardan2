@@ -14,7 +14,7 @@ $status_surat = "SELESAI";
 $nama_tabel = basename(__DIR__);
 
 // Buat ID kolom dari singkatan huruf kecil nama folder
-$stopwords = ['dan', 'atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk', 'serta'];
+$stopwords = ['atau', 'yang', 'dengan', 'ke', 'di', 'dari', 'untuk', 'serta'];
 $singkatan = implode('', array_map(function($word) use ($stopwords) {
     return in_array(strtolower($word), $stopwords) ? '' : strtolower($word[0]);
 }, explode('_', $nama_tabel)));
