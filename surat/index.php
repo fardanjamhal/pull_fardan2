@@ -314,7 +314,8 @@
 				"surat_keterangan_sudah_nikah",
 				"surat_keterangan_merantau",
 				"surat_keterangan_masih_hidup",
-				"surat_keterangan_belum_memiliki_rumah"
+				"surat_keterangan_belum_memiliki_rumah",
+				"surat_keterangan_belum_memiliki_kwh"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan
