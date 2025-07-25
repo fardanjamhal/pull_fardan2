@@ -135,6 +135,13 @@ if (!$result) {
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Tom Select CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+
+<!-- Tom Select JS -->
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+
+
     <style>
         /* Gunakan font Arial dan tinggi baris lebih kecil */
         table#data-table {
@@ -243,6 +250,29 @@ if (!$result) {
         }
         </style>
 
+        <style>
+        /* Saat opsi dipilih dan tampil di area input TomSelect */
+        .ts-control {
+        background-color: #e9f4ff; /* Biru muda */
+        border: 1px solid #0d6efd; /* Biru Bootstrap */
+        color: #0d6efd;
+        font-weight: 500;
+        }
+
+        /* Saat opsi dipilih di dropdown list */
+        .ts-dropdown .active {
+        background-color: #0d6efd !important;
+        color: white !important;
+        }
+
+        /* Hover effect juga biru */
+        .ts-dropdown .option:hover {
+        background-color: #cce5ff;
+        color: #000;
+        }
+        </style>
+
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -302,17 +332,50 @@ if (!$result) {
 
                         <form method="GET" class="mb-3">
                             <div class="row align-items-end">
+
+                                <?php 
+                                // Ambil jumlah surat selesai per jenis tabel
+                                function kolomAda($koneksi, $tabel, $kolom) {
+                                    $cek = mysqli_query($koneksi, "SHOW COLUMNS FROM `$tabel` LIKE '$kolom'");
+                                    return mysqli_num_rows($cek) > 0;
+                                }
+
+                                $jumlahPerJenis = [];
+
+                                foreach ($jenisSuratList as $table => $info) {
+                                    if (kolomAda($connect, $table, 'no_surat')) {
+                                        $query = mysqli_query($connect, "SELECT COUNT(*) AS total FROM `$table` WHERE no_surat IS NOT NULL AND no_surat != ''");
+                                        $row = mysqli_fetch_assoc($query);
+                                        $jumlahPerJenis[$table] = $row['total'];
+                                    } else {
+                                        $jumlahPerJenis[$table] = 0;
+                                    }
+                                }
+
+                                ?>
                                 <div class="col-md-3">
-                                    <label for="jenis_surat">Jenis Surat:</label>
-                                    <select name="jenis_surat" id="jenis_surat" class="form-control">
-                                        <option value="">Semua</option>
-                                        <?php foreach ($jenisSuratList as $table => $info): ?>
-                                            <option value="<?= $table ?>" <?= ($filter_jenis == $table ? 'selected' : '') ?>>
-                                                <?= ucwords(str_replace('_', ' ', $table)) ?>
-                                            </option>
-                                        <?php endforeach; ?>
+                                    <label for="jenis_surat" class="form-label">Jenis Surat:</label>
+                                    <select name="jenis_surat" id="jenis_surat" class="tom-select">
+                                     <option value="">Semua</option>
+                                    <?php foreach ($jenisSuratList as $table => $info): ?>
+                                        <?php $jumlah = $jumlahPerJenis[$table] ?? 0; ?>
+                                        <option value="<?= $table ?>" <?= ($filter_jenis == $table ? 'selected' : '') ?>>
+                                            <?= ucwords(str_replace('_', ' ', $table)) ?> (<?= $jumlah ?>)
+                                        </option>
+                                    <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <script>
+                                new TomSelect('#jenis_surat', {
+                                    create: false,
+                                    sortField: {
+                                        field: "text",
+                                        direction: "asc"
+                                    },
+                                    placeholder: "Ketik atau pilih jenis surat..."
+                                });
+                                </script>
+
 
                                 <div class="col-md-3">
                                     <label for="keyword">Kata Kunci:</label>

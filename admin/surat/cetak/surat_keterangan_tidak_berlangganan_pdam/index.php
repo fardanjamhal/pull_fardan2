@@ -219,30 +219,34 @@
 
 		</table>
 		<br>
-		<table width="100%">
-			<div style="text-align: justify; line-height: 1.5;">
-			<p style="text-indent: 40px;">
-				Benar yang Namanya tersebut di atas adalah warga 
-				<?= formatAlamatLengkap($row, $connect); ?>.
-				Surat Keterangan ini diberikan kepada yang bersangkutan untuk mengurus
-				perubahan status pekerjaan pada KK dan KTP dari sebelumnya
-				<strong><?= ucwords(strtolower($row['pekerjaan'])) ?></strong> menjadi
-				<strong><?= ucwords(strtolower($row['pekerjaan_sekarang'])) ?></strong>.
-			</p>
+		<table width="100%" style="line-height: 1.5;">
+		<tr>
+			<td style="text-align: justify; text-indent: 35px; padding-bottom: 10px;">
+			Bahwa yang tersebut namanya diatas  adalah Penduduk/Warga kami yang berdomisili di <?php
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
 
-			<p style="text-indent: 40px;">
-				Demikian Surat Keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan seperlunya.
-			</p>
-			</div>
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row, $connect); // ✅ benar
+				?>, benar-benar <b>tidak berlangganan PDAM</b> sampai dikeluarkannya surat keterangan ini.
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: justify; text-indent: 35px;">
+			Demikian Surat Keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan seperlunya.
+			</td>
+		</tr>
 		</table>
-		
+
 	</div>
 
+	<table width="100%" style="margin-top: 30px; margin-left: 10%;">
+	<tr>
+		<td style="width: 50%; text-align: left;">
+		
+		</td>
 
-	<table width="100%" style="text-transform: capitalize; border-collapse: collapse;">
-  	<tr>
-    <td style="width: 50%;"></td>
-    <td style="vertical-align: top; padding-top: 20px; text-align: center;">
+		<td style="width: 50%; text-align: left;">
+
 		 <?php
         include '../../cetak/helper/tanda_tangan_pejabat.php';
 
@@ -268,15 +272,13 @@
         $no_surat = $data['no_surat'] ?? '';
 		echo formatTempatTanggalSurat($connect, $no_surat) . '<br>';
         ?>
-      <?php include_once '../../../surat/cetak/helper/jabatan_tampilkan.php'; ?>
-    </td>
-  </tr>
-</table>
+      	<?php include '../../../surat/cetak/helper/jabatan_tampilkan.php'; ?>
+		
+		<br>
+		<b></b><br><br><br><br><br>
+		
+		<div>
 
-<table width="100%" style="text-transform: capitalize; border-collapse: collapse; margin-top: 62px;">
-  <tr>
-    <td style="vertical-align: top; padding-top: 20px; text-align: center; padding-left: 325px;">
-      <div>
         <?php
         $id = $_GET['id'];
 
@@ -380,10 +382,10 @@
         }
         ?>
       </div>
-    </td>
-  </tr>
-</table>
 
+		</td>
+	</tr>
+	</table>
 
 </div>
 <script>
