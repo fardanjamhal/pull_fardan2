@@ -69,7 +69,7 @@ function formatAlamatLengkap($row, $connect) {
 
     // Kota
     if (!empty($row['kota'])) {
-        $alamatParts[] = "Kab. " . $row['kota'];
+        $alamatParts[] = "Kabupaten " . $row['kota'];
     }
 
     // Gabungkan dan format kapitalisasi
