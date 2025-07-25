@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2025 at 05:14 PM
+-- Generation Time: Jul 25, 2025 at 05:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -781,7 +781,44 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 (799, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:05:19'),
 (800, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:05:25'),
 (801, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:05:30'),
-(802, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:05:38');
+(802, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:05:38'),
+(803, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:35:26'),
+(804, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:37:09'),
+(805, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:44:27'),
+(806, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-23 23:51:11'),
+(807, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:10:18'),
+(808, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:13:09'),
+(809, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:15:04'),
+(810, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:15:36'),
+(811, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:17:15'),
+(812, '7304080811110001', 'A. Rezky Anas Fahri', 'Jeneponto', '2011-11-08', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:44:08'),
+(813, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:45:17'),
+(814, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:45:47'),
+(815, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 00:47:56'),
+(816, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 01:19:53'),
+(817, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 01:20:04'),
+(818, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 01:20:42'),
+(819, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 01:25:29'),
+(820, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 01:43:58'),
+(821, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 01:50:53'),
+(822, '7304081310030001', 'A. Wahyu Arifin Nur', 'Jeneponto', '2003-10-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-24 01:54:14'),
+(823, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-24 07:37:09'),
+(824, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-24 18:29:10'),
+(825, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-24 18:30:07'),
+(826, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-24 19:19:23'),
+(827, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-24 19:19:39'),
+(828, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-24 19:36:26'),
+(829, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 09:58:21'),
+(830, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 09:58:33'),
+(831, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 09:59:13'),
+(832, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 10:01:09'),
+(833, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 10:32:18'),
+(834, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 10:34:38'),
+(835, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 10:34:55'),
+(836, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 10:35:05'),
+(837, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 10:37:43'),
+(838, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 11:15:27'),
+(839, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 11:20:13');
 
 -- --------------------------------------------------------
 
@@ -887,7 +924,16 @@ INSERT INTO `formulir_pengantar_nikah` (`id_fpn`, `jenis_surat`, `no_surat`, `ni
 (164, 'Formulir Pengantar Nikah', '055/FPN/KP/VII/2025', '7304053112900229', 715, ']', ']', 'A ISWAN AFANDI SP', '7304012101800001', 'ALLU, 21-01-1980', 'WNI', 'ISLAM', 'mahasiswa', 'Bonstos Lingkungan Sawitto Kelurahan Pallengu Kecamatan Bangkala Kabupaten Jeneponto', 'A ISWAN AFANDI SP', '7304012101800001', 'ALLU, 21-01-1980', 'WNI', 'ISLAM', 'mahasiswa', 'Bonstos Lingkungan Sawitto Kelurahan Pallengu Kecamatan Bangkala Kabupaten Jeneponto', '2025-07-23 18:32:23', 2, 'SELESAI', 1),
 (187, 'Formulir Pengantar Nikah', '058/FPN/KP/VII/2025', '7304080811110001', 786, 'Voluptate Nam sint m', 'Qui sint delectus e', 'Qui qui excepturi fa', 'In delectus aut', 'Consequatur qui quia', 'Nostrud eius invento', 'Eaque animi reprehe', 'Non corrupti repreh', 'Numquam a autem null', 'Ratione laborum Nam', 'Nostrud qui sit ', 'Perspiciatis deleni', 'Ducimus fuga Vel v', 'Dolore laboris dicta', 'Enim fugit commodi ', 'Est aut sed corporis', '2025-07-23 23:01:11', 2, 'SELESAI', 1),
 (188, 'Formulir Pengantar Nikah', '059/FPN/KP/VII/2025', '7304080811110001', 792, 'Atque dolorem ut fug', 'Duis officiis dolore', 'Labore irure cillum ', 'Dolores sed ipsa', 'Saepe in laudantium', 'Accusantium corrupti', 'Aut et aut unde aspe', 'Est laboris quidem ', 'Vel enim quia commod', 'Consequat Libero cu', 'Deleniti officia', 'A in tenetur volupta', 'Id minim ex eum eve', 'Nostrum illum rerum', 'Alias quia voluptatu', 'Officia quidem rerum', '2025-07-23 23:02:58', 2, 'SELESAI', 1),
-(189, 'Formulir Pengantar Nikah', NULL, '7304080811110001', 798, 'Officia aliquip ad m', 'Excepturi mollitia n', 'Consectetur nemo est', 'Eum rerum ipsam ', 'Rem velit assumenda', 'Quia dolor aut ad do', 'Fuga In dolor qui e', 'Qui beatae repudiand', 'Laudantium magnam i', 'Ducimus voluptas vo', 'Sed ullamco cupi', 'Possimus sint molli', 'Sapiente praesentium', 'Et eos tempore accu', 'Dolore voluptas magn', 'Quam ipsam aute qui ', '2025-07-23 23:05:14', NULL, 'PENDING', 1);
+(189, 'Formulir Pengantar Nikah', '500/060/KP/VII/2025', '7304080811110001', 798, 'Officia aliquip ad m', 'Excepturi mollitia n', 'Consectetur nemo est', 'Eum rerum ipsam ', 'Rem velit assumenda', 'Quia dolor aut ad do', 'Fuga In dolor qui e', 'Qui beatae repudiand', 'Laudantium magnam i', 'Ducimus voluptas vo', 'Sed ullamco cupi', 'Possimus sint molli', 'Sapiente praesentium', 'Et eos tempore accu', 'Dolore voluptas magn', 'Quam ipsam aute qui ', '2025-07-23 23:34:48', 2, 'SELESAI', 1),
+(191, 'Formulir Pengantar Nikah', '500//061/KP/VII/2025', '7304080811110001', 806, 'Beatae amet amet v', 'Eos dolore amet qui', 'Mollit officia debit', 'Rerum ut laborio', 'Sed corrupti distin', 'Soluta quae ut exped', 'Necessitatibus et qu', 'Exercitation ut illu', 'Modi dolores hic vel', 'Sit cumque non reic', 'Qui veritatis vo', 'Expedita sequi deser', 'Qui ad perspiciatis', 'In minus distinctio', 'Fuga Est delectus ', 'Rerum odio architect', '2025-07-24 00:09:54', 2, 'SELESAI', 1),
+(192, 'Formulir Pengantar Nikah', '500//062/KP/VII/2025', '7304080811110001', 807, 'Expedita cupiditate ', 'Commodi voluptates u', 'Dignissimos est duci', 'Eius qui tempori', 'Ipsa proident sapi', 'Voluptatem deserunt', 'Est non veniam aliq', 'A dolor ullamco repr', 'Ad ut veritatis nece', 'Repellendus Volupta', 'Sit saepe in tot', 'Rerum corrupti erro', 'Vel nulla est perfer', 'Quia nulla at hic la', 'Eos necessitatibus ', 'Ut Nam distinctio H', '2025-07-24 00:11:44', 2, 'SELESAI', 1),
+(193, 'Formulir Pengantar Nikah', '500//063/KP/VII/2025', '7304080811110001', 808, 'Amet beatae ipsum q', 'Velit ut sit quis n', 'Et corporis repudian', 'Veniam sint cil', 'Repudiandae perspici', 'Qui quod incidunt h', 'Beatae enim magni qu', 'Minim ipsum aut veli', 'Ipsum nisi exercitat', 'Autem dolorum tempor', 'Ab incidunt non', 'Nihil excepturi qui ', 'Delectus quia ipsa', 'Pariatur Assumenda ', 'Qui dolorem aliquam ', 'Aut earum qui reicie', '2025-07-24 00:13:14', 2, 'SELESAI', 1),
+(194, 'Formulir Pengantar Nikah', '500/FPN/064/KP/VII/2025', '7304080811110001', 809, 'Minim enim laudantiu', 'Lorem eum ea commodo', 'Ut debitis tenetur f', 'Delectus animi', 'Quas et qui commodo ', 'Aperiam vel dolor si', 'Aliqua Assumenda of', 'Aliquip id sequi qui', 'Vel et eos quis eos', 'Aut veniam illum r', 'Neque fuga Quia', 'Sequi vero eaque tem', 'Libero odio commodo ', 'Iste deleniti aliqui', 'Nulla eos ut cum et', 'Laboriosam aliquip ', '2025-07-24 00:15:08', 2, 'SELESAI', 1),
+(195, 'Formulir Pengantar Nikah', '500/FPN/065/KP/VII/2025', '7304080811110001', 810, 'Magni et nemo conseq', 'Ad qui quas ab inven', 'Aliquam ullamco non ', 'Inventore necess', 'Velit ea ut dolore e', 'Totam quos fugit ma', 'Autem ducimus volup', 'Sit laboris sunt ni', 'Velit laborum Ad qu', 'Maxime culpa unde vo', 'Sed non perferen', 'Minus commodi ad vol', 'Quis quas consectetu', 'Consectetur deleniti', 'Veritatis sint sit ', 'Et neque veritatis i', '2025-07-24 00:15:47', 2, 'SELESAI', 1),
+(196, 'Formulir Pengantar Nikah', '500/066/KP/VII/2025', '7304080811110001', 811, 'Iure non ex quod qui', 'Labore officiis sed ', 'Rem mollit est amet', 'Commodi magna qu', 'Ea vero eaque nostru', 'Reiciendis incididun', 'In quae qui et in la', 'Nulla in lorem et et', 'Tempore ipsum natus', 'Cupidatat voluptas a', 'Ut dolor vero co', 'Accusamus repudianda', 'Voluptas qui excepte', 'Mollit accusamus est', 'Autem sapiente dolor', 'Elit mollit in volu', '2025-07-24 00:17:29', 2, 'SELESAI', 1),
+(197, 'Formulir Pengantar Nikah', '5001/068/KP/VII/2025', '7304080811110001', 812, 'Esse velit dolore a', 'Dolore labore ipsum ', 'Aliquam error sint u', 'Dolore Nam nostr', 'Sequi consequatur N', 'Sed nobis unde quos ', 'Officiis tempore do', 'Recusandae Et ut qu', 'Ea perspiciatis adi', 'Do cillum est occae', 'Eos ratione dolo', 'Pariatur Id eum qu', 'Eu sunt dolore tempo', 'Debitis sint quia vo', 'Sit inventore dolor', 'Soluta sunt Nam non ', '2025-07-24 01:19:32', 2, 'SELESAI', 1),
+(198, 'Formulir Pengantar Nikah', '500/069/KP/VII/2025', '7304081310030001', 816, 'Provident quis ipsu', 'Sit quo aut exercit', 'Quia nisi ut aut qui', 'Iure est fuga O', 'Voluptatem ex deseru', 'Libero aliqua Repre', 'Voluptate facere et ', 'Ipsa illo est opti', 'Omnis sed cillum sun', 'Dolorem ad duis cons', 'Laborum Corrupt', 'Doloremque quo maior', 'Adipisci in nobis qu', 'Neque et irure eos s', 'Enim sunt pariatur ', 'Sed amet voluptatum', '2025-07-24 01:20:25', 2, 'SELESAI', 1),
+(199, 'Formulir Pengantar Nikah', '100/039/KP/VII/2025', '7304081310030001', 818, 'Optio dolores eos ', 'Anim quos officia no', 'Quos atque quia perf', 'Dolores culpa no', 'Enim nihil aspernatu', 'Non ut vel ut odio v', 'Dolores nihil quam q', 'Dicta aute consequat', 'Perferendis consequa', 'Iure dolores ut moll', 'Aut ratione id c', 'Officia quas aut dui', 'Reiciendis consequat', 'Velit ex nulla nisi ', 'Nemo adipisci irure ', 'Culpa minus eaque re', '2025-07-24 01:32:37', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -1337,7 +1383,35 @@ INSERT INTO `nomor_surat` (`id`, `kode_surat`, `kode_desa`, `bulan`, `tahun`, `n
 (163, 'FPN', 'KP', '7', '2025', 56, '056/FPN/KP/VII/2025', 2, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-23 19:36:48'),
 (165, 'SKBB', 'KP', '7', '2025', 57, '057/SKBB/KP/VII/2025', 2, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-23 20:19:44'),
 (205, 'FPN', 'KP', '7', '2025', 58, '058/FPN/KP/VII/2025', 2, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-23 23:01:11'),
-(210, 'FPN', 'KP', '7', '2025', 59, '059/FPN/KP/VII/2025', 2, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-23 23:02:58');
+(210, 'FPN', 'KP', '7', '2025', 59, '059/FPN/KP/VII/2025', 2, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-23 23:02:58'),
+(216, '500', 'KP', '7', '2025', 60, '500/060/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-23 23:34:48'),
+(218, '500', 'KP', '7', '2025', 61, '500//061/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 00:09:54'),
+(219, '500', 'KP', '7', '2025', 62, '500//062/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 00:11:44'),
+(220, '500', 'KP', '7', '2025', 63, '500//063/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 00:13:14'),
+(221, '500', 'KP', '7', '2025', 64, '500/FPN/064/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 00:15:08'),
+(222, '500', 'KP', '7', '2025', 65, '500/FPN/065/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 00:15:47'),
+(223, '500', 'KP', '7', '2025', 66, '500/066/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 00:17:29'),
+(224, '500', 'KP', '7', '2025', 10, '500/SLH/010/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 00:45:02'),
+(225, '500', 'KP', '7', '2025', 67, '500/SLH/067/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 00:45:54'),
+(226, '5001', 'KP', '7', '2025', 68, '5001/068/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 01:19:32'),
+(227, '500', 'KP', '7', '2025', 69, '500/069/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 01:20:25'),
+(228, '500', 'KP', '7', '2025', 1, '500/001/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 01:25:17'),
+(229, '100', 'KP', '7', '2025', 39, '100/039/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 01:32:37'),
+(230, 'SKMS', 'KP', '7', '2025', 70, '070/SKMS/KP/VII/2025', 2, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 01:41:22'),
+(231, '250', 'KP', '7', '2025', 71, '071/250/KP/VII/2025', 2, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 01:50:31'),
+(232, 'SKMS', 'KP', '7', '2025', 72, '072/SKMS/KP/VII/2025', 2, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 01:54:03'),
+(234, '500', 'KP', '7', '2025', 70, '500/070/KP/VII/2025', 1, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 07:07:19'),
+(235, '100', 'KP', '7', '2025', 40, '100/040/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 07:07:39'),
+(236, '100', 'KP', '7', '2025', 41, '100/041/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 07:11:53'),
+(237, '100', 'KP', '7', '2025', 42, '100/042/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 07:11:58'),
+(238, '100', 'KP', '7', '2025', 43, '100/043/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 07:12:05'),
+(239, '500', 'KP', '7', '2025', 71, '500/071/SKD/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 07:36:49'),
+(240, 'SKP', 'KP', '7', '2025', 17, 'SKP/017/SKP/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 18:38:04'),
+(242, 'SKP', 'KP', '7', '2025', 73, '073/SKP/KP/VII/2025', 1, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-24 19:36:34'),
+(244, 'SKBN', 'KP', '7', '2025', 1, 'SKBN/001/SKBN/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 10:01:43'),
+(245, 'SKJ', 'KP', '7', '2025', 1, 'SKJ/001/SKJ/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 10:37:54'),
+(246, 'SKJ', 'KP', '7', '2025', 2, 'SKJ/002/SKJ/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 11:15:38'),
+(247, 'SKJ', 'KP', '7', '2025', 3, 'SKJ/003/SKJ/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 11:20:20');
 
 -- --------------------------------------------------------
 
@@ -1359,7 +1433,7 @@ CREATE TABLE `pejabat_desa` (
 --
 
 INSERT INTO `pejabat_desa` (`id_pejabat_desa`, `nama_pejabat_desa`, `jabatan`, `pangkat`, `nip`, `alamat`) VALUES
-(1, 'FATAN BARU, SE', 'Kepala Desa', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23'),
+(1, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23'),
 (2, '../../../../assets/img/barcode.png', 'Kepala Desa', '', '', '');
 
 -- --------------------------------------------------------
@@ -12031,6 +12105,32 @@ INSERT INTO `surat_keterangan_beda_identitas_kis` (`id_skbik`, `jenis_surat`, `n
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `surat_keterangan_belum_nikah`
+--
+
+CREATE TABLE `surat_keterangan_belum_nikah` (
+  `id_skbn` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `nama_imam_lurah` varchar(120) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_belum_nikah`
+--
+
+INSERT INTO `surat_keterangan_belum_nikah` (`id_skbn`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nama_imam_lurah`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(3, 'Surat Keterangan Belum Nikah', 'SKBN/001/SKBN/KP/VII/2025', '7304053112900229', 832, 'DG NGITUNG', '2025-07-25 10:01:43', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `surat_keterangan_belum_terbit_sppt_pbb`
 --
 
@@ -12134,7 +12234,11 @@ INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `n
 (167, 'Surat Keterangan Domisili', '500/039/KP/VII/2025', '7304053112900229', 620, '2025-07-13 11:05:07', 2, 'SELESAI', 1),
 (168, 'Surat Keterangan Domisili', '500/042/KP/VII/2025', '7304053112900229', 621, '2025-07-14 12:56:09', 1, 'SELESAI', 1),
 (169, 'Surat Keterangan Domisili', '500/040/KP/VII/2025', '7304053112900229', 623, '2025-07-13 20:59:44', 2, 'SELESAI', 1),
-(170, 'Surat Keterangan Domisili', '500/041/KP/VII/2025', '7304053112900229', 640, '2025-07-14 12:56:06', 2, 'SELESAI', 1);
+(170, 'Surat Keterangan Domisili', '500/041/KP/VII/2025', '7304053112900229', 640, '2025-07-14 12:56:06', 2, 'SELESAI', 1),
+(173, 'Surat Keterangan Domisili', '500/071/SKD/KP/VII/2025', '7304080811110001', 803, '2025-07-24 07:36:49', 2, 'SELESAI', 1),
+(174, 'Surat Keterangan Domisili', '100/043/KP/VII/2025', '7304080811110001', 805, '2025-07-24 07:12:05', 2, 'SELESAI', 1),
+(175, 'Surat Keterangan Domisili', '500/070/KP/VII/2025', '7304081310030001', 817, '2025-07-24 07:07:19', 1, 'SELESAI', 1),
+(176, 'Surat Keterangan Domisili', NULL, '7304053112900229', 823, '2025-07-24 07:37:09', NULL, 'PENDING', 1);
 
 -- --------------------------------------------------------
 
@@ -12234,6 +12338,38 @@ INSERT INTO `surat_keterangan_hibah` (`id_skh`, `jenis_surat`, `no_surat`, `nik`
 (2, 'Surat Keterangan Hibah', '050/SKH/MANTAP/VII/2025', '7304053112900229', 593, 'DG TAYANG', 'jENEPONTO, 21-03-1996', 'Petani', 'BONTOSUNGGU', 'Pihak Pertama benar memiliki Sebidang/Sepetak Tanah (Perumahan) yang hibahkan kepada Pihak Kedua. Tanah (Perumahan) tersebut terletak di Lompodepa, Dusun Kancuna Desa Lebang Manai Utara Kec. Rumbia Kab. Jeneponto dengan luas Lebar depan ± 13 M, Lebar belakang ± 11 M dan Panjang ± 15 M.', '9222200', 'tanah mlik badullah', 'tanah mlik ronaldo', 'tanah mlik sipato', 'tanah mlik essi', 'PAK KUSNADI DUSUN', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'h', '', '2025-07-08 15:55:17', 2, 'SELESAI', 1),
 (4, 'Surat Keterangan Hibah', '051/SKH/MANTAP/VII/2025', '7304053112900229', 595, 'ds', 'jENEPONTO, 21-03-1996', 'dsd', 'adsad', 'Pihak Pertama benar memiliki Sebidang/Sepetak Tanah (Perumahan) yang hibahkan kepada Pihak Kedua. Tanah (Perumahan) tersebut terletak di Lompodepa, Dusun Kancuna Desa Lebang Manai Utara Kec. Rumbia Kab. Jeneponto dengan luas Lebar depan ± 13 M, Lebar belakang ± 11 M dan Panjang ± 15 M.', '9222200', 'tanah mlik badullah', 'tanah mlik ronaldo', 'tanah mlik sipato', 'tanah mlik essi', 'PAK KUSNADI DUSUN', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', 'PAK KUSNADI TOMPO', '2025-07-08 19:35:10', 2, 'SELESAI', 1),
 (5, 'Surat Keterangan Hibah', '052/SKH/MANTAP/VII/2025', '7304053112900229', 596, 'df', 'hd', 'fd', 'gf', 'Pihak Pertama benar memiliki Sebidang/Sepetak Tanah (Perumahan) yang hibahkan kepada Pihak Kedua. Tanah (Perumahan) tersebut terletak di Lompodepa, Dusun Kancuna Desa Lebang Manai Utara Kec. Rumbia Kab. Jeneponto dengan luas Lebar depan ± 13 M, Lebar belakang ± 11 M dan Panjang ± 15 M.', 'fjfj', 'ghj', 'gh', 'hg', 'hg', 'hgghhghh', 'hjgj', '', '', '', '2025-07-08 20:44:07', 1, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_janda`
+--
+
+CREATE TABLE `surat_keterangan_janda` (
+  `id_skj` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `nama_pasangan` varchar(120) DEFAULT NULL,
+  `alasan_pisah` varchar(250) DEFAULT NULL,
+  `keterangan_tambahan` varchar(120) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_janda`
+--
+
+INSERT INTO `surat_keterangan_janda` (`id_skj`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nama_pasangan`, `alasan_pisah`, `keterangan_tambahan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(2, 'Surat Keterangan Janda', NULL, '7304053112900229', 835, 'fd', 'MENINGGAL', 'fd', '2025-07-25 10:34:55', NULL, 'PENDING', 1),
+(3, 'Surat Keterangan Janda', 'SKJ/001/SKJ/KP/VII/2025', '7304053112900229', 836, 'dsfdf', 'CERAI', 'dfdfdffd', '2025-07-25 10:37:54', 2, 'SELESAI', 1),
+(4, 'Surat Keterangan Janda', NULL, '7304053112900229', 837, 'fh', 'CERAI', 'gfg', '2025-07-25 10:37:43', NULL, 'PENDING', 1),
+(5, 'Surat Keterangan Janda', 'SKJ/002/SKJ/KP/VII/2025', '7304053112900229', 838, 'BASO', 'MENINGGAL', '21 Agustus 2021', '2025-07-25 11:15:38', 2, 'SELESAI', 1),
+(6, 'Surat Keterangan Janda', 'SKJ/003/SKJ/KP/VII/2025', '7304053112900229', 839, 'BASO', 'CERAI', '21 Agustus 2021', '2025-07-25 11:20:20', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12434,7 +12570,11 @@ CREATE TABLE `surat_keterangan_mahar_sunrang` (
 INSERT INTO `surat_keterangan_mahar_sunrang` (`id_skms`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `mahar`, `tempat_mahar`, `tanah_utara`, `tanah_timur`, `tanah_selatan`, `tanah_barat`, `orang_tua`, `tempat_tgl_lahir2`, `alamat2`, `perempuan`, `tempat_tgl_lahir3`, `alamat3`, `saksi1`, `saksi2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (1, 'Surat Keterangan Mahar Sunrang', '04/SKJB/KODE-DESA/VI/2025', '7304053112900229', 253, 'df', 'df', 'df', 'dfdf', 'dfs', 'df', 'df', 'dfs', 'df', 'df', 'df', 'dfs', 'dfs', 'dfs', '2025-06-25 20:04:16', 2, 'SELESAI', 1),
 (3, 'Surat Keterangan Mahar Sunrang', '019/SKMS/SANGAT MEMBANTU/VI/2025', '7304080506770003', 395, 'Et ut fuga Et dolor', 'Amet ex non esse om', 'Quasi ipsum sed off', 'Id maiores est des', 'Enim cillum ipsum iu', 'Iusto et sapiente li', 'Sunt ratione nemo ve', 'Ut accusamus impedit', 'Praesentium eos id', 'Et sapiente elit ut', 'Sit sunt quisquam a', 'Qui itaque asperiore', 'Odio at ex commodi v', 'Occaecat exercitatio', '2025-06-28 20:59:02', 2, 'SELESAI', 1),
-(4, 'Surat Keterangan Mahar Sunrang', '028/SKMS/BARU/VI/2025', '7304080506770003', 412, 'Numquam minim est l', 'Deserunt in placeat', 'Aliquid sit voluptat', 'Non sed rerum sed la', 'Dolorum asperiores a', 'Qui doloribus volupt', 'Facere molestias ame', 'Minim excepturi fugi', 'Tempor et qui vero l', 'Rerum ut ex qui assu', 'Dolorem ad aliquam e', 'Molestias sit facili', 'Expedita Nam laborum', 'Dolorem commodo anim', '2025-06-29 10:02:25', 2, 'SELESAI', 1);
+(4, 'Surat Keterangan Mahar Sunrang', '028/SKMS/BARU/VI/2025', '7304080506770003', 412, 'Numquam minim est l', 'Deserunt in placeat', 'Aliquid sit voluptat', 'Non sed rerum sed la', 'Dolorum asperiores a', 'Qui doloribus volupt', 'Facere molestias ame', 'Minim excepturi fugi', 'Tempor et qui vero l', 'Rerum ut ex qui assu', 'Dolorem ad aliquam e', 'Molestias sit facili', 'Expedita Nam laborum', 'Dolorem commodo anim', '2025-06-29 10:02:25', 2, 'SELESAI', 1),
+(5, 'Surat Keterangan Mahar Sunrang', '500/001/KP/VII/2025', '7304081310030001', 815, 'Quisquam dolor imped', 'Quia reprehenderit d', 'Totam nihil quaerat ', 'Qui dolore voluptas ', 'Voluptate sed ab rem', 'Optio possimus num', 'Ullam vitae at sed q', 'Optio a necessitati', 'Doloremque consectet', 'Eos rerum voluptatem', 'Sunt voluptate vitae', 'Dolorem voluptas vol', 'Pariatur In commodi', 'Voluptatem officia o', '2025-07-24 01:25:17', 2, 'SELESAI', 1),
+(6, 'Surat Keterangan Mahar Sunrang', '070/SKMS/KP/VII/2025', '7304081310030001', 819, 'Nisi fuga Error sed', 'Proident illo anim ', 'Est quos suscipit ad', 'Assumenda vitae occa', 'Minus voluptas volup', 'Amet animi deserun', 'Reprehenderit conse', 'Nostrud fugit conse', 'Aut officia providen', 'In eius non sunt ea', 'Consequuntur qui pra', 'Voluptas sed omnis q', 'Aliquam commodi cons', 'Provident facilis v', '2025-07-24 01:41:22', 2, 'SELESAI', 1),
+(7, 'Surat Keterangan Mahar Sunrang', '071/250/KP/VII/2025', '7304081310030001', 820, 'Et suscipit tempora ', 'Necessitatibus inven', 'Dignissimos nemo a a', 'Aute aute exercitati', 'Architecto quis esse', 'Autem molestiae eum ', 'Soluta nisi reprehen', 'Ipsum quaerat in mi', 'A in provident volu', 'Excepteur laborum A', 'Quaerat et quaerat d', 'Sequi nobis odit qua', 'Officiis dolor fuga', 'Aliquid quia molesti', '2025-07-24 01:50:31', 2, 'SELESAI', 1),
+(8, 'Surat Keterangan Mahar Sunrang', '072/SKMS/KP/VII/2025', '7304081310030001', 821, 'Vitae facilis consec', 'Et ad quibusdam volu', 'Totam quae enim dolo', 'Officia elit exerci', 'Inventore consequunt', 'Fuga Elit animi e', 'Vel amet voluptas e', 'Harum nesciunt id p', 'Labore ut doloribus ', 'Aliquip est libero l', 'In consequatur place', 'Similique perspiciat', 'Quas corporis conseq', 'Quo totam nisi maxim', '2025-07-24 01:54:03', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12632,6 +12772,35 @@ INSERT INTO `surat_keterangan_pindah_penduduk` (`id_skpp`, `jenis_surat`, `no_su
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `surat_keterangan_pisah`
+--
+
+CREATE TABLE `surat_keterangan_pisah` (
+  `id_skp` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `nama_pasangan` varchar(120) DEFAULT NULL,
+  `alasan_pisah` varchar(250) DEFAULT NULL,
+  `nama_imam_lurah` varchar(120) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_pisah`
+--
+
+INSERT INTO `surat_keterangan_pisah` (`id_skp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nama_pasangan`, `alasan_pisah`, `nama_imam_lurah`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Pisah', 'SKP/017/SKP/KP/VII/2025', '7304053112900229', 825, 'BASO', 'karena mau', 'pallengu', '2025-07-24 18:38:04', 2, 'SELESAI', 1),
+(4, 'Surat Keterangan Pisah', '073/SKP/KP/VII/2025', '7304053112900229', 828, 'sdf', 'dfs', 'dsf', '2025-07-24 19:36:34', 1, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `surat_keterangan_tidak_mampu`
 --
 
@@ -12753,7 +12922,9 @@ CREATE TABLE `surat_lapor_hajatan` (
 INSERT INTO `surat_lapor_hajatan` (`id_slh`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `bukti_ktp`, `bukti_kk`, `jenis_hajat`, `hari`, `tanggal`, `jenis_hiburan`, `pemilik`, `alamat_pemilik`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (15, 'Surat Lapor Hajatan', '005/SLH/KODE-DESA/VII/2025', '7304080811110001', 180, 'Ut aliqua Qui p', 'Delectus nihil ', 'Tasyakuran', 'Jum\'at', '1985-03-21 00:00:00', 'Ducimus et rerum be', 'Dolor aut in vitae v', 'Ab duis maxime nesci', '2025-06-21 21:44:19', 2, 'SELESAI', 1),
 (16, 'Surat Lapor Hajatan', 'SLH/009/MANTAP/VI/2025', '7304080506770003', 415, 'Dicta neque moll', 'Ut est voluptate', 'Khitanan', 'Jum\'at', '2015-09-27 00:00:00', 'Rerum rerum in aut m', 'Accusamus fugiat vo', 'Voluptatibus fuga A', '2025-06-29 19:25:47', 1, 'SELESAI', 1),
-(17, 'Surat Lapor Hajatan', NULL, '7304053112900229', 687, '6678', '', 'Pernikahan', 'Senin', '2025-07-17 00:00:00', 'uli', '68', 'uk', '2025-07-17 23:32:56', NULL, 'PENDING', 1);
+(17, 'Surat Lapor Hajatan', '500/SLH/010/KP/VII/2025', '7304053112900229', 687, '6678', '', 'Pernikahan', 'Senin', '2025-07-17 00:00:00', 'uli', '68', 'uk', '2025-07-24 00:45:02', 2, 'SELESAI', 1),
+(18, 'Surat Lapor Hajatan', '500/SLH/067/KP/VII/2025', '7304081310030001', 813, 'Cupidatat ducimu', 'Aut voluptatem t', 'Khitanan', 'Senin', '1982-11-13 00:00:00', 'Amet mollitia ad vo', 'Impedit adipisicing', 'Labore consequatur n', '2025-07-24 00:45:54', 2, 'SELESAI', 1),
+(19, 'Surat Lapor Hajatan', '100/040/KP/VII/2025', '7304081310030001', 814, 'Aut occaecat ess', 'Id qui consectet', 'Khitanan', 'Senin', '1995-08-12 00:00:00', 'Ut et non ea aut mag', 'Molestias in irure n', 'Consequuntur quo odi', '2025-07-24 07:07:39', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12935,8 +13106,8 @@ INSERT INTO `surat_rekomendasi_pembelian_bbm_jenis_tertentu` (`id_srpbjt`, `jeni
 (9, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/008/099/VII/2025', '7304053112900229', 616, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-07-16', '2025-07-13 10:49:00', 1, 'SELESAI', 1),
 (10, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', 'SRPBJT/009/099/VII/2025', '7304053112900229', 617, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013<br>5.&nbsp;</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin traktor Otomatis</td>\r\n<td style=\"text-align: center;\">8 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">3.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>3.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-12', '2025-07-13 10:57:55', 2, 'SELESAI', 1),
 (11, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', '500/010/KP/VII/2025', '7304053112900229', 618, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '2025-08-12', '2025-07-13 11:01:50', 2, 'SELESAI', 1),
-(12, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', NULL, '7304053112900229', 619, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '0000-00-00', '2025-07-13 11:02:19', NULL, 'PENDING', 1),
-(13, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', NULL, '7304053112900229', 622, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '0000-00-00', '2025-07-13 11:05:31', NULL, 'PENDING', 1),
+(12, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', '100/042/KP/VII/2025', '7304053112900229', 619, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '0000-00-00', '2025-07-24 07:11:58', 2, 'SELESAI', 1),
+(13, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', '100/041/KP/VII/2025', '7304053112900229', 622, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '0000-00-00', '2025-07-24 07:11:53', 2, 'SELESAI', 1),
 (14, 'Surat Rekomendasi Pembelian Bbm Jenis Tertentu', '500/011/KP/VII/2025', '7304053112900229', 654, '<p>1. Undang-Undang Nomor 22 Tahun 2001 Tentang Minyak dan Gas Bumi<br>2. Undang-Undang Nomor 32 Tahun 2004 Tentang Pemerintah Daerah<br>3. Perpres Nomor 15 Tahun 2012 Tentang Harga Jual Eceran dan Penggunaan Bahan Bakar Tertentu<br>4. Peraturan Mentri Energi Dan Sumber Daya Mineral Republik Indonesia No 01 Tahun 2013</p>', 'BBM Jenis Tertentu (Pertalite)', 'Usaha Mikro', 'Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)', '450 liter/minggu', 'Lembaga Penyalur', '74.923.02', 'SPBU ANDI SOSE Paccelanga', '<table style=\"width: 100%; border-collapse: collapse;\" border=\"1\">\r\n<thead>\r\n<tr>\r\n<th style=\"width: 3.39%; text-align: center; padding: 8px;\">No</th>\r\n<th style=\"width: 15.03%; text-align: center;\">Jenis Alat</th>\r\n<th style=\"width: 7.76%; text-align: center;\">Jumlah Alat</th>\r\n<th style=\"width: 10.96%; text-align: center;\">Fungsi Alat</th>\r\n<th style=\"width: 10.86%; text-align: center;\">BBM Jenis Tertentu</th>\r\n<th style=\"width: 15.91%; text-align: center;\">Kebutuhan BBM Jenis Tertentu</th>\r\n<th style=\"width: 9.89%; text-align: center;\">Jam/Hari Operasi</th>\r\n<th style=\"width: 26.19%; text-align: center;\">Konsumsi BBM Jenis Tertentu Per (Jam/Hari/Minggu/Bulan)</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td style=\"text-align: center;\">1</td>\r\n<td style=\"text-align: center;\">Mesin Pompa Air dan Hand Traktor</td>\r\n<td style=\"text-align: center;\">2 Unit</td>\r\n<td style=\"text-align: center;\">Menyalakan Mesin</td>\r\n<td style=\"text-align: center;\">Pertalite / Solar</td>\r\n<td style=\"text-align: center;\">70 Liter</td>\r\n<td style=\"text-align: center;\">Setiap hari</td>\r\n<td style=\"text-align: center;\">2.100 Liter/bln</td>\r\n</tr>\r\n</tbody>\r\n<tfoot>\r\n<tr>\r\n<td style=\"text-align: center;\" colspan=\"5\"><strong>Jumlah Total Kebutuhan</strong></td>\r\n<td style=\"text-align: center;\"><strong>70 Liter</strong></td>\r\n<td style=\"text-align: center;\" colspan=\"2\"><strong>2.100 Ltr/bln</strong></td>\r\n</tr>\r\n</tfoot>\r\n</table>', '0000-00-00', '2025-07-16 11:11:39', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
@@ -13128,6 +13299,16 @@ ALTER TABLE `surat_keterangan_beda_identitas_kis`
   ADD KEY `idx_nik` (`nik`);
 
 --
+-- Indexes for table `surat_keterangan_belum_nikah`
+--
+ALTER TABLE `surat_keterangan_belum_nikah`
+  ADD PRIMARY KEY (`id_skbn`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
 -- Indexes for table `surat_keterangan_belum_terbit_sppt_pbb`
 --
 ALTER TABLE `surat_keterangan_belum_terbit_sppt_pbb`
@@ -13179,6 +13360,16 @@ ALTER TABLE `surat_keterangan_ganti_pekerjaan`
 --
 ALTER TABLE `surat_keterangan_hibah`
   ADD PRIMARY KEY (`id_skh`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_janda`
+--
+ALTER TABLE `surat_keterangan_janda`
+  ADD PRIMARY KEY (`id_skj`),
   ADD KEY `idx_nik` (`nik`),
   ADD KEY `idx_id_arsip` (`id_arsip`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -13276,6 +13467,16 @@ ALTER TABLE `surat_keterangan_pindah_penduduk`
   ADD KEY `idx_nik` (`nik`),
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`);
+
+--
+-- Indexes for table `surat_keterangan_pisah`
+--
+ALTER TABLE `surat_keterangan_pisah`
+  ADD PRIMARY KEY (`id_skp`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
 
 --
 -- Indexes for table `surat_keterangan_tidak_mampu`
@@ -13377,7 +13578,7 @@ ALTER TABLE `surat_tugas`
 -- AUTO_INCREMENT for table `arsip_surat`
 --
 ALTER TABLE `arsip_surat`
-  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=803;
+  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=840;
 
 --
 -- AUTO_INCREMENT for table `dusun`
@@ -13389,7 +13590,7 @@ ALTER TABLE `dusun`
 -- AUTO_INCREMENT for table `formulir_pengantar_nikah`
 --
 ALTER TABLE `formulir_pengantar_nikah`
-  MODIFY `id_fpn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `id_fpn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT for table `formulir_permohonan_kehendak_nikah`
@@ -13431,7 +13632,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `nomor_surat`
 --
 ALTER TABLE `nomor_surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 
 --
 -- AUTO_INCREMENT for table `pejabat_desa`
@@ -13476,6 +13677,12 @@ ALTER TABLE `surat_keterangan_beda_identitas_kis`
   MODIFY `id_skbik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
+-- AUTO_INCREMENT for table `surat_keterangan_belum_nikah`
+--
+ALTER TABLE `surat_keterangan_belum_nikah`
+  MODIFY `id_skbn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `surat_keterangan_belum_terbit_sppt_pbb`
 --
 ALTER TABLE `surat_keterangan_belum_terbit_sppt_pbb`
@@ -13491,7 +13698,7 @@ ALTER TABLE `surat_keterangan_berkelakuan_baik`
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili_usaha`
@@ -13510,6 +13717,12 @@ ALTER TABLE `surat_keterangan_ganti_pekerjaan`
 --
 ALTER TABLE `surat_keterangan_hibah`
   MODIFY `id_skh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_janda`
+--
+ALTER TABLE `surat_keterangan_janda`
+  MODIFY `id_skj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_jual_beli`
@@ -13539,7 +13752,7 @@ ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
 -- AUTO_INCREMENT for table `surat_keterangan_mahar_sunrang`
 --
 ALTER TABLE `surat_keterangan_mahar_sunrang`
-  MODIFY `id_skms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_skms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar`
@@ -13572,6 +13785,12 @@ ALTER TABLE `surat_keterangan_pindah_penduduk`
   MODIFY `id_skpp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
+-- AUTO_INCREMENT for table `surat_keterangan_pisah`
+--
+ALTER TABLE `surat_keterangan_pisah`
+  MODIFY `id_skp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `surat_keterangan_tidak_mampu`
 --
 ALTER TABLE `surat_keterangan_tidak_mampu`
@@ -13593,7 +13812,7 @@ ALTER TABLE `surat_keterangan_wali_hakim`
 -- AUTO_INCREMENT for table `surat_lapor_hajatan`
 --
 ALTER TABLE `surat_lapor_hajatan`
-  MODIFY `id_slh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_slh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `surat_pengantar`

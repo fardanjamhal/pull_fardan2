@@ -309,7 +309,8 @@
 				"surat_pengantar",
 				"surat_keterangan_ganti_pekerjaan",
 				"surat_keterangan_pisah",
-				"surat_keterangan_belum_nikah"
+				"surat_keterangan_belum_nikah",
+				"surat_keterangan_janda"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan
