@@ -311,7 +311,8 @@
 				"surat_keterangan_pisah",
 				"surat_keterangan_belum_nikah",
 				"surat_keterangan_janda",
-				"surat_keterangan_sudah_nikah"
+				"surat_keterangan_sudah_nikah",
+				"surat_keterangan_merantau"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan
