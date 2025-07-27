@@ -158,30 +158,77 @@
 		</style>
 	</div>
 
+<br>
+  <!-- PDF Viewer -->
+  <div class="container">
+  <h1><i class="fas fa-book"></i> PEDOMAN TEKNIS PENGGUNAAN INOVASI “SI PALLENGU”</h1>
+  <p><strong>Sistem Informasi Pelayanan Elektronik untuk Desa dan Kelurahan</strong></p>
+  <hr>
 
-	<div class="card-text text-center px-3">
-	<br>
-	<p>
-		<label style="font-weight: 700; font-size: 25px;">
-		<i class="fas fa-info-circle"></i> MANUAL BOOK INOVASI SI PALLENGU
-		</label>
-		<blockquote class="blockquote" style="font-size: 16px;">
-		Sistem Informasi Pelayanan Elektronik untuk Desa dan Kelurahan
-		</blockquote>
-	</p>
-	</div>
+	<h2>1. Pendahuluan</h2>
+	<p>SI PALLENGU adalah sistem pelayanan surat-menyurat digital yang dirancang khusus untuk kebutuhan pemerintah desa dan kelurahan. Aplikasi ini membantu mempercepat proses pembuatan surat, pengarsipan, dan pelacakan layanan secara elektronik. Pedoman ini disusun sebagai acuan penggunaan aplikasi oleh operator/admin desa.</p>
 
-	<!-- PDF Viewer -->
-	<div class="pdf-container my-4">
-	<iframe src="https://drive.google.com/file/d/1sUevvv0jY6yPzP_5pmvOAo421JNMAWVH/preview" 
-        width="100%" height="600px" style="border: none; border-radius: 10px;">
-	</iframe>
-		
-	<div class="text-center mt-2">
-		<a href="https://drive.google.com/file/d/1sUevvv0jY6yPzP_5pmvOAo421JNMAWVH/view?usp=sharing" target="_blank" class="btn btn-outline-primary btn-sm">
-		<i class="fas fa-download"></i> Unduh Manual Book (PDF)
-		</a>
-	</div>
+	<h2>2. Persyaratan Sistem</h2>
+	<ul>
+		<li>Perangkat komputer/laptop minimal RAM 2 GB</li>
+		<li>Browser modern (Chrome, Firefox, Edge)</li>
+		<li>Koneksi internet lokal/Wi-Fi (jika diakses bersama)</li>
+		<li>Hosting PHP dan MySQL (jika digunakan online)</li>
+	</ul>
+
+	<h2>3. Akses Login</h2>
+	<ol>
+		<li>Buka browser dan arahkan ke alamat sistem (contoh: https://pallengu.dedig.id/).</li>
+		<li>Masukkan username dan password operator yang telah dibuat oleh admin desa.</li>
+		<li>Klik “Login” untuk masuk ke dashboard.</li>
+	</ol>
+
+	<h2>4. Navigasi Utama</h2>
+	<ul>
+		<li>Beranda</li>
+		<li>Profil Desa</li>
+		<li>Data Kades / Kelurahan</li>
+		<li>Data Penduduk</li>
+		<li>Permintaan Surat</li>
+		<li>Surat Selesai</li>
+		<li>Laporan</li>
+	</ul>
+
+	<h2>5. Cara Membuat Surat</h2>
+	<ol>
+		<li>Pilih menu Buat Surat pada halaman awal.</li>
+		<li>Pilih jenis surat (misalnya: Surat Domisili, Surat Keterangan Usaha).</li>
+		<li>Isi form dengan lengkap. Data penduduk bisa ditarik otomatis melalui NIK.</li>
+		<li>Submit dan simpan ID pengajuan.</li>
+		<li>Surat bisa dicetak langsung atau dikonfirmasi untuk finalisasi.</li>
+	</ol>
+
+	<h2>6. Konfirmasi & Cetak Surat</h2>
+	<ul>
+		<li>Akses menu Konfirmasi untuk menyelesaikan surat yang belum diproses.</li>
+		<li>Setelah konfirmasi, surat dapat dicetak dalam format PDF dan diberikan ke warga.</li>
+		<li>Surat otomatis masuk ke Arsip.</li>
+	</ul>
+
+	<h2>7. Pengarsipan Otomatis</h2>
+	<p>Setiap surat yang telah selesai dikonfirmasi akan otomatis tersimpan dalam menu Arsip Surat, lengkap dengan tanggal, nama, dan jenis surat. Ini memudahkan pengecekan ulang jika diperlukan.</p>
+
+	<h2>8. Manajemen Pejabat & Penandatangan</h2>
+	<ul>
+		<li>Admin dapat mengatur pejabat aktif di menu Pengaturan > Pejabat.</li>
+		<li>Surat akan otomatis mencantumkan nama, jabatan, NIP (jika ada), dan tanda tangan pejabat aktif sesuai tanggal surat.</li>
+	</ul>
+
+	<h2>9. Keamanan dan Backup</h2>
+	<ul>
+		<li>Lakukan backup database secara berkala.</li>
+		<li>Gunakan password yang kuat untuk akun admin.</li>
+		<li>Jangan izinkan publik mengakses folder admin tanpa hak.</li>
+	</ul>
+
+	<h2>10. Penutup</h2>
+	<p>SI PALLENGU dirancang agar mudah digunakan oleh perangkat desa tanpa keahlian teknis tinggi. Dengan mengikuti pedoman ini, diharapkan operator dapat mengoperasikan sistem secara maksimal dan menjaga pelayanan tetap cepat, tepat, dan terdokumentasi.</p>
+
 	</div>
 
 
