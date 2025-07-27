@@ -197,65 +197,104 @@
       <div class="col-md-12">
         <br><br>
         <table class="table table-striped table-bordered table-responsive" id="data-table" width="100%" cellspacing="0">
-          <thead>
-            <tr>
-              <th><strong>No.</strong></th> 
-              <th><strong>ID Pengajuan</strong></th>
-              <th><strong>Tanggal</strong></th>
-              <th><strong>NIK</strong></th>
-              <th><strong>Nama</strong></th>
-              <th><strong>Jenis Surat</strong></th>
-              <th><strong>Status</strong></th>
-              <th><strong>Aksi</strong></th>
-            </tr>
-          </thead>
           <tbody>
 
+          <?php if (isset($_GET['status']) && $_GET['status'] == 'berhasil'): ?>
+                  <div id="flash-message" style="
+                      background-color: #d4edda;
+                      color: #155724;
+                      border: 1px solid #c3e6cb;
+                      padding: 10px 20px;
+                      border-radius: 5px;
+                      margin-bottom: 15px;
+                      font-weight: bold;
+                      animation: fadeOut 3s forwards;
+                  ">
+                      ✅ Surat berhasil dihapus!
+                  </div>
+              <?php endif; ?>
+
           <?php
+          include_once '../../../config/koneksi.php'; // pastikan koneksi
 
-            $jenisSurat = [];
-            $query = mysqli_query($connect, "SHOW TABLES");
-            if (!$query) {
-                die("Query gagal: " . mysqli_error($connect));
-            }
+          // Ambil semua tabel jenis surat
+          $jenisSurat = [];
+          $query = mysqli_query($connect, "SHOW TABLES");
+          if (!$query) {
+              die("Query gagal: " . mysqli_error($connect));
+          }
 
-            while ($row = mysqli_fetch_row($query)) {
-                $nama_tabel = $row[0];
+          while ($row = mysqli_fetch_row($query)) {
+              $nama_tabel = $row[0];
+              if (strpos($nama_tabel, 'surat_') === 0 || strpos($nama_tabel, 'formulir_') === 0) {
+                  $parts = explode('_', $nama_tabel);
+                  $inisial = '';
+                  foreach ($parts as $p) {
+                      $inisial .= substr($p, 0, 1);
+                  }
+                  $id_field = 'id_' . strtolower($inisial);
+                  $jenisSurat[$nama_tabel] = $id_field;
+              }
+          }
 
-                // Ambil tabel yang diawali dengan surat_ atau formulir_
-                if (strpos($nama_tabel, 'surat_') === 0 || strpos($nama_tabel, 'formulir_') === 0) {
-                    // Pisahkan dengan underscore dan ambil huruf depan
-                    $parts = explode('_', $nama_tabel);
-                    $inisial = '';
+          // Buat bagian UNION
+          $unionParts = [];
+          foreach ($jenisSurat as $table => $idField) {
+              $unionParts[] = "SELECT penduduk.nama, {$table}.{$idField} AS id_surat, {$table}.no_surat, {$table}.nik, {$table}.jenis_surat, {$table}.status_surat, {$table}.id_arsip, {$table}.tanggal_surat
+                              FROM penduduk
+                              LEFT JOIN {$table} ON {$table}.nik = penduduk.nik
+                              WHERE {$table}.status_surat='pending'";
+          }
 
-                    foreach ($parts as $p) {
-                        $inisial .= substr($p, 0, 1);
-                    }
+          // Handle pagination dan limit
+          $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
+          $halaman = isset($_GET['hal']) ? (int)$_GET['hal'] : 1;
+          $offset = ($halaman - 1) * $limit;
 
-                    // Hasilkan id, contoh: 'id_skp', 'id_sku'
-                    $id_field = 'id_' . strtolower($inisial);
-                    $jenisSurat[$nama_tabel] = $id_field;
-                }
-            }
+          // Ambil total data
+          $totalQuery = implode(" UNION ALL ", $unionParts);
+          $totalResult = mysqli_query($connect, $totalQuery);
+          $totalData = mysqli_num_rows($totalResult);
+          $totalHalaman = ceil($totalData / $limit);
 
-            // Tampilkan hasil untuk cek
-            // echo "<pre>"; print_r($jenisSurat); echo "</pre>";
+          // Query untuk ditampilkan di halaman ini
+          $pagedQuery = $totalQuery . " ORDER BY tanggal_surat DESC LIMIT $limit OFFSET $offset";
+          $result = mysqli_query($connect, $pagedQuery);
+          $no = $offset + 1;
+          ?>
 
-              $unionParts = [];
-              foreach ($jenisSurat as $table => $idField) {
-                  $unionParts[] = "SELECT penduduk.nama, {$table}.{$idField} AS id_surat, {$table}.no_surat, {$table}.nik, {$table}.jenis_surat, {$table}.status_surat, {$table}.id_arsip, {$table}.tanggal_surat
-                                  FROM penduduk
-                                  LEFT JOIN {$table} ON {$table}.nik = penduduk.nik
-                                  WHERE {$table}.status_surat='pending'";
-                }
+        <!-- Filter jumlah data tampil -->
+        <form method="get" class="d-flex align-items-center gap-2 mb-3" style="flex-wrap: wrap;">
+          <label for="limit" class="mb-0 fw-semibold">Tampilkan :&nbsp;</label>
+          <select name="limit" id="limit" class="form-select form-select-sm w-auto" onchange="this.form.submit()">
+            <option value="10" <?= ($limit == 10 ? 'selected' : '') ?>>10</option>
+            <option value="20" <?= ($limit == 20 ? 'selected' : '') ?>>20</option>
+            <option value="50" <?= ($limit == 50 ? 'selected' : '') ?>>50</option>
+            <option value="100" <?= ($limit == 100 ? 'selected' : '') ?>>100</option>
+          </select>
+          <span class="text-muted small"> data per halaman</span>
+          <input type="hidden" name="hal" value="1">
+        </form>
 
 
-              $query = implode(" UNION ", $unionParts) . " ORDER BY tanggal_surat DESC";
-              $result = mysqli_query($connect, $query);
-              $no = 1;
-
-              if ($result && $result->num_rows > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
+          <!-- Tabel hasil -->
+          <table class="table" id="data-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>ID Pengajuan</th>
+                <th>Tanggal</th>
+                <th>NIK</th>
+                <th>Nama</th>
+                <th>Jenis Surat</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+          <?php
+          if ($result && $result->num_rows > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
                   $datetime = strtotime($row['tanggal_surat']);
                   $tgl = date('d', $datetime);
                   $bln = date('F', $datetime);
@@ -263,10 +302,10 @@
                   $jam = date('H:i:s', $datetime);
 
                   $blnIndo = [
-                    'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
-                    'April' => 'April', 'May' => 'Mei', 'June' => 'Juni',
-                    'July' => 'Juli', 'August' => 'Agustus', 'September' => 'September',
-                    'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
+                      'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
+                      'April' => 'April', 'May' => 'Mei', 'June' => 'Juni',
+                      'July' => 'Juli', 'August' => 'Agustus', 'September' => 'September',
+                      'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
                   ];
 
                   $tanggal = "$tgl {$blnIndo[$bln]} $thn pukul $jam";
@@ -295,34 +334,60 @@
                     </td>
                   </tr>";
                   $no++;
-                }
-              } else {
-                      echo "<tr>
-                        <td colspan='7' style='text-align: center; color: #999; padding: 30px;'>
-                          <i class='fa fa-inbox' style='font-size: 24px; color: #ccc;'></i><br>
-                          <span style='font-size: 16px; font-style: italic;'>📭 Permintaan surat saat ini kosong</span>
-                        </td>
-                      </tr>";
-                    } 
-              ?>
+              }
+          } else {
+              echo "<tr>
+                <td colspan='8' style='text-align: center; color: #999; padding: 30px;'>
+                  <i class='fa fa-inbox' style='font-size: 24px; color: #ccc;'></i><br>
+                  <span style='font-size: 16px; font-style: italic;'>📭 Permintaan surat saat ini kosong</span>
+                </td>
+              </tr>";
+          }
+          ?>
+            </tbody>
+          </table>
 
-                  
+          <?php if ($totalHalaman > 1): ?>
+          <div class="text-center mt-4">
+            <nav aria-label="Page navigation">
+              <ul class="pagination d-flex justify-content-center flex-wrap">
+                <?php
+                  if ($halaman > 1) {
+                    $prev = $halaman - 1;
+                    echo "<li class='page-item'><a class='page-link' href='?hal=$prev&limit=$limit'>Previous</a></li>";
+                  }
+
+                  $start = max(1, $halaman - 3);
+                  $end = min($totalHalaman, $start + 7);
+
+                  if ($start > 1) {
+                    echo "<li class='page-item'><a class='page-link' href='?hal=1&limit=$limit'>1</a></li>";
+                    if ($start > 2) echo "<li class='page-item disabled'><span class='page-link'>...</span></li>";
+                  }
+
+                  for ($i = $start; $i <= $end; $i++) {
+                    $active = ($i == $halaman) ? 'active' : '';
+                    echo "<li class='page-item $active'><a class='page-link' href='?hal=$i&limit=$limit'>$i</a></li>";
+                  }
+
+                  if ($end < $totalHalaman) {
+                    if ($end < $totalHalaman - 1) echo "<li class='page-item disabled'><span class='page-link'>...</span></li>";
+                    echo "<li class='page-item'><a class='page-link' href='?hal=$totalHalaman&limit=$limit'>$totalHalaman</a></li>";
+                  }
+
+                  if ($halaman < $totalHalaman) {
+                    $next = $halaman + 1;
+                    echo "<li class='page-item'><a class='page-link' href='?hal=$next&limit=$limit'>Next</a></li>";
+                  }
+                ?>
+              </ul>
+            </nav>
+          </div>
+        <?php endif; ?>
+
+
           </tbody>
 
-                <?php if (isset($_GET['status']) && $_GET['status'] == 'berhasil'): ?>
-                  <div id="flash-message" style="
-                      background-color: #d4edda;
-                      color: #155724;
-                      border: 1px solid #c3e6cb;
-                      padding: 10px 20px;
-                      border-radius: 5px;
-                      margin-bottom: 15px;
-                      font-weight: bold;
-                      animation: fadeOut 3s forwards;
-                  ">
-                      ✅ Surat berhasil dihapus!
-                  </div>
-              <?php endif; ?>
 
         </table>
       </div>
