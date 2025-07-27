@@ -316,7 +316,8 @@
 				"surat_keterangan_masih_hidup",
 				"surat_keterangan_belum_memiliki_rumah",
 				"surat_keterangan_belum_memiliki_kwh",
-				"surat_keterangan_tidak_berlangganan_pdam"
+				"surat_keterangan_tidak_berlangganan_pdam",
+				"surat_keterangan_kelahiran"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan

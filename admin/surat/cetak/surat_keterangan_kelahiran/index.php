@@ -4,11 +4,26 @@
 
 	$id = $_GET['id']; // id_skd dari surat
 
+	// Ambil nama folder sebagai nama tabel
+	$table = basename(__DIR__); // contoh: surat_pengantar
+
+	// Buat ID kolom dari singkatan nama tabel
+	function buatIdKolom($namaTabel) {
+		$singkatan = '';
+		foreach (explode('_', $namaTabel) as $kata) {
+			$singkatan .= substr($kata, 0, 1);
+		}
+		return 'id_' . strtolower($singkatan);
+	}
+
+	$idKolom = buatIdKolom($table);
+
+	// Bangun query dinamis
 	$qCek = mysqli_query($connect,"
-		SELECT arsip_surat.*, surat_keterangan_kematian_dan_penguburan.*, surat_keterangan_kematian_dan_penguburan.id_arsip 
-		FROM surat_keterangan_kematian_dan_penguburan 
-		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_kematian_dan_penguburan.id_arsip 
-		WHERE surat_keterangan_kematian_dan_penguburan.id_skkdp = '$id'
+		SELECT arsip_surat.*, $table.*, $table.id_arsip 
+		FROM $table 
+		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = $table.id_arsip 
+		WHERE $table.$idKolom = '$id'
 	");
 
 	while($row = mysqli_fetch_array($qCek)){
@@ -26,6 +41,7 @@
 			while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
 				// cetak data di sini
 ?>
+
 
 <html>
 <head>
@@ -67,44 +83,20 @@
 	</table>
 
 	<hr style="border: 1px solid #000; width: 100%;">
-	<br>
 		<div align="center">
 		<h4 style="text-decoration: underline; margin: 0; text-transform: uppercase;"><b><?php echo $row['jenis_surat']; ?></b></h4>
 		<h4 style="font-weight:normal; margin:0;">Nomor : <?php echo $row['no_surat']; ?></h4>
 		</div>
-	<div class="clear"></div>
-	<div id="isi3">
+	<br>
 		<table width="100%">
-		<tr>
-			<td style="text-align: justify;">
-			Yang bertanda tangan dibawah ini : 
-			</td>
-		</tr>
-		<br>
+			<tr>
+				<td class="indentasi">Yang bertanda tangan di bawah ini:
+				</td>
+			</tr>
 		</table>
-
-		<style>
-		.tabel-print {
-			width: 100%;
-			border-collapse: collapse;
-			font-size: 9pt; /* font lebih kecil */
-		}
-
-		.tabel-print th,
-		.tabel-print td {
-			border: 1px solid #000;
-			padding: 4px 6px;
-			text-align: left;
-			vertical-align: top;
-		}
-
-		.tabel-print th {
-			background-color: #f0f0f0;
-			text-align: center;
-		}
-		</style>
-
+		<br>
 		<table width="100%" style="text-transform: capitalize;">
+
 			<?php
 			include('../../../../config/koneksi.php');
 
@@ -114,182 +106,114 @@
 
 			$nama_pejabat = '';
 			$jabatan = '';
-			$nip = '';
 			if ($data = mysqli_fetch_assoc($result)) {
 				$nama_pejabat = $data['nama_pejabat_desa'];
 				$jabatan = $data['jabatan'];
 				$nip = $data['nip'];
 			}
 			?>
+
 			<tr>
-				<td width="30%" style="padding-left: 40px;">Nama</td>
+				<td width="30%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nama</td>
 				<td width="2%">:</td>
-				<td width="60%"><strong><?php echo htmlspecialchars($nama_pejabat); ?></strong></td>
-			</tr>
-
-			<tr>
-				<td width="30%" style="padding-left: 40px;">Nip</td>
-				<td>:</td>
-				<?php
-				// Ambil hanya angka dan spasi dari $nip
-				$nip_bersih = trim(preg_replace("/[^\d\s]/", "", $nip));
-				?>
-
-				<td style="text-transform: uppercase;">
-				<?php echo htmlspecialchars($nip_bersih); ?>
+				<td width="68%">
+					<strong style="text-transform: uppercase;">
+						<?php echo htmlspecialchars($nama_pejabat); ?>
+					</strong><br>
 				</td>
 			</tr>
 
+			<?php if (!empty(trim($nip))) { ?>
 			<tr>
-				<td width="30%" style="padding-left: 40px;">Jabatan</td>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nip</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;">
+					<?php echo preg_replace('/[^0-9\s]/', '', $nip); ?>
+				</td>
+			</tr>
+			<?php } ?>
+
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jabatan</td>
 				<td>:</td>
 				<td style="text-transform: uppercase;"><?php echo htmlspecialchars($jabatan); ?></td>
 			</tr>
-			</table>
-			<br>
-			<td>Dengan ini menerangkan bahwa :</td>
-			<table width="100%" style="text-transform: capitalize;">
-
+		</table>
+		<br>
+	<div class="clear"></div>
+	<div id="isi3">
+		<table width="100%">
 			<tr>
-				<td width="30%" style="padding-left: 40px;">Nama</td>
-				<td width="2%">:</td>
-				<td width="60%"><strong><?php echo strtoupper($row['nama']); ?></strong></td>
-			</tr>
-			<tr>
-				<td width="30%" style="padding-left: 40px;">Jenis Kelamin</td>
-				<td>:</td>
-				<td><?php echo strtoupper($row['nik']); ?></td>
-			</tr>
-			<?php
-				$tgl_lhr = date($row['tgl_lahir']);
-				$tgl = date('d ', strtotime($tgl_lhr));
-				$bln = date('F', strtotime($tgl_lhr));
-				$thn = date(' Y', strtotime($tgl_lhr));
-				$blnIndo = array(
-				    'January' => 'Januari',
-				    'February' => 'Februari',
-				    'March' => 'Maret',
-				    'April' => 'April',
-				    'May' => 'Mei',
-				    'June' => 'Juni',
-				    'July' => 'Juli',
-				    'August' => 'Agustus',
-				    'September' => 'September',
-				    'October' => 'Oktober',
-				    'November' => 'November',
-				    'December' => 'Desember'
-				);
-			?>
-			<tr>
-				<td width="30%" style="padding-left: 40px;">Tempat/Tanggal Lahir</td>
-				<td>:</td>
-				<td>
-				<?php 
-					// Gabungkan tempat lahir dan tanggal lahir dulu
-					$tempat_tgl = $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn;
-					// Buat semua jadi lowercase dulu supaya rapi
-					$tempat_tgl_lower = strtolower($tempat_tgl);
-					// Lalu ubah huruf awal setiap kata jadi kapital
-					echo ucwords($tempat_tgl_lower);
-				?>
+				<td class="indentasi">Dengan ini menerangkan bahwa:
 				</td>
-			<tr>
-				<td width="30%" style="padding-left: 40px;">Jenis Kelamin</td>
-				<td>:</td>
-				<td><?php echo strtoupper($row['jenis_kelamin']); ?></td>
 			</tr>
-			<tr>
-				<td width="30%" style="padding-left: 40px;">Pekerjaan Semasa Hidup</td>
-				<td>:</td>
-				<td><?php echo strtoupper($row['pekerjaan']); ?></td>
-			</tr>
-			</tr>
-			<tr>
-			<td width="30%" style="padding-left: 40px;">Alamat pada KTP</td>
-			<td>:</td>
-			<td style="text-align: justify;">
-				<?php
-				include_once '../../../surat/cetak/helper/alamat_helper.php';
-
-				// Pastikan $row sudah berisi data dari database sebelumnya
-				echo formatAlamatLengkap($row, $connect); // ✅ benar
-				?>
-			</td>
-			</tr>
-			</table>
-		
-		<table width="100%">
-			<?php
-		// Fungsi untuk kapitalisasi setiap kata
-		function capitalizeEachWord($string) {
-			$string = strtolower($string); // ubah semua jadi lowercase dulu
-			return ucwords($string);       // kapitalisasi huruf awal setiap kata
-		}
-		?>
-
-		<br>
-		<table width="100%">
-		<tr>
-			<td>Telah Meninggal Pada</td>
-			<td>:</td>
-			<td width="60%"><?php echo strtoupper($row['pekerjaan']); ?></td>
-		</tr>
-		<tr>
-			<td width="30%" style="padding-left: 40px;">Hari / Tanggal</td>
-			<td width="2%">:</td>
-			<td width="60%"><?php echo ucwords(strtolower($row['hari_tanggal_kematian'])); ?></td>
-		</tr>
-		<tr>
-			<td width="30%" style="padding-left: 40px;">Jam / Pukul</td>
-			<td width="2%">:</td>
-			<td width="60%"><?php echo ucwords(strtolower($row['jam_pukul'])); ?></td>
-		</tr>
-		<tr>
-			<td width="30%" style="padding-left: 40px;">Tempat</td>
-			<td width="2%">:</td>
-			<td width="60%"><?php echo ucwords(strtolower($row['tempat'])); ?></td>
-		</tr>
-			
 		</table>
 		<br>
-		
-		<td>Dikuburkan / Dikebumikan pada :</td>
 		<table width="100%">
-		<tr>
-			<td width="30%" style="padding-left: 40px;">Hari / Tanggal</td>
-			<td width="2%">:</td>
-			<td width="60%"><?php echo ucwords(strtolower($row['hari_tanggal_dikebumikan'])); ?></td>
-		</tr>
-		<tr>
-			<td width="30%" style="padding-left: 40px;">Jam / Pukul</td>
-			<td width="2%">:</td>
-			<td width="60%"><?php echo ucwords(strtolower($row['jam_pukul_dikebumikan'])); ?></td>
-		</tr>
-		<tr>
-			<td width="30%" style="padding-left: 40px;">Tempat</td>
-			<td width="2%">:</td>
-			<td width="60%"><?php echo ucwords(strtolower($row['tempat_dikebumikan'])); ?></td>
-		</tr>
-			
+			<tr>
+				<td width="30%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nama</td>
+				<td width="2%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_bayi']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tempat Tanggal Lahir</td>
+				<td>:</td>
+				<td><?php echo $row['ttl_bayi']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jenis Kelamin</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agama</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alamat</td>
+				<td>:</td>
+				<td style="text-transform: capitalize;"><?= ucwords(strtolower($row['alamat'])) ?></td>
+			</tr>
 		</table>
 		<br>
-		
+		<table width="100%">
+			<tr>
+				<td class="indentasi">Orang tersebut diatas adalah anak dari :
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table width="100%">
+			<tr>
+				<td width="30%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nama Ayah</td>
+				<td width="2%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_ayah']; ?></td>
+			</tr>
+			<tr>
+				<td width="30%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nama Ibu</td>
+				<td width="2%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_ibu']; ?></td>
+			</tr>
+		</table>
+		<br>
 		<table width="100%">
 		<tr>
-			<td class="indentasi" style="text-align: justify;" colspan="2">
-			&nbsp;&nbsp;Demikian Surat Keterangan ini dibuat dengan sebenarnya dan diberikan kepada yang bersangkutan untuk dipergunakan seperlunya.
+			<td style="text-align: justify; text-indent: 35px;">
+			Demikian Surat Keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan seperlunya.
 			</td>
 		</tr>
-		</table>
-
 		</table>
 	</div>
 
+	<table width="100%" style="margin-top: 20px; margin-left: 10%;">
+	<tr>
+		<td style="width: 30%; text-align: left;">
+		
+		</td>
 
-<table width="100%" style="text-transform: capitalize; border-collapse: collapse;">
-  	<tr>
-    <td style="width: 50%;"></td>
-    <td style="vertical-align: top; padding-top: 20px; text-align: center;">
+		<td style="width: 70%; text-align: center;">
+
 		 <?php
         include '../../cetak/helper/tanda_tangan_pejabat.php';
 
@@ -315,15 +239,13 @@
         $no_surat = $data['no_surat'] ?? '';
 		echo formatTempatTanggalSurat($connect, $no_surat) . '<br>';
         ?>
-      <?php include_once '../../../surat/cetak/helper/jabatan_tampilkan.php'; ?>
-    </td>
-  </tr>
-</table>
+      	<?php include '../../../surat/cetak/helper/jabatan_tampilkan.php'; ?>
+		
+		<br>
+		<b></b><br><br><br><br><br>
+		
+		<div>
 
-<table width="100%" style="text-transform: capitalize; border-collapse: collapse; margin-top: 62px;">
-  <tr>
-    <td style="vertical-align: top; padding-top: 20px; text-align: center; padding-left: 325px;">
-      <div>
         <?php
         $id = $_GET['id'];
 
@@ -379,7 +301,7 @@
             } elseif ($id_pejabat_desa == 2) {
               if (isset($pejabat_data[1])) {
                 $url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
-                echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -82px">';
+                echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -86px">';
                 echo "<br>";
               } else {
                 echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
@@ -427,12 +349,10 @@
         }
         ?>
       </div>
-    </td>
-  </tr>
-</table>
 
-
-
+		</td>
+	</tr>
+	</table>
 
 </div>
 <script>
