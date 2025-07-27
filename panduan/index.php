@@ -19,7 +19,7 @@
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="../assets/img/<?php echo $favicon; ?>">
 
-	<title>Tentang Kami - <?php echo ucwords(strtolower($data['nama_desa'])); ?></title>
+	<title>PANDUAN TEKNIS INOVASI SIPALLENGU</title>
 
 	<!-- Bootstrap 4 CSS -->
 	<link
@@ -79,7 +79,7 @@
 				<i class="fas fa-headset"></i> Hubungi Kami
 				</a>
 			</li>
-			 <li class="nav-item mx-lg-2 my-1 my-lg-0">
+			<li class="nav-item mx-lg-2 my-1 my-lg-0">
 				<a class="nav-link text-light" href="../panduan">
 				<i class="fas fa-book"></i> Panduan Teknis
 				</a>
@@ -148,37 +148,42 @@
 		}
 		</style>
 
+		<style>
+		.pdf-container {
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			padding: 15px;
+			background: #fff;
+			border-radius: 10px;
+		}
+		</style>
 	</div>
 
-	<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 91vh;">
-  <div class="container shadow p-3 mb-5 bg-white rounded" style="max-width: 800px;">
-    <div style="padding-top: 30px; padding-bottom: 60px; position: relative;">
-      <div class="card-body">
-        <div class="card-text">
-          <p>
-            <label style="font-weight: 700; font-size: 25px">
-              <i class="fas fa-info-circle"></i> APA ITU DIGITALISASI?
-            </label>
-            <hr />
-            <blockquote>
-              Web Aplikasi untuk pelayanan surat administrasi desa dan kelurahan yang telah
-              dikembangkan untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
-            </blockquote>
-          </p>
-        </div>
-      </div>
-      <div class="card-footer py-2 bg-transparent text-center">
-        <div class="footer bg-transparent text-center">
-          <span class="text-dark">
-            <strong>&copy; <span id="year"></span> 
-              <a href="#" class="text-decoration-none text-dark">Pelayanan Surat</a>
-            </strong>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+	<div class="card-text text-center px-3">
+	<br>
+	<p>
+		<label style="font-weight: 700; font-size: 25px;">
+		<i class="fas fa-info-circle"></i> MANUAL BOOK INOVASI SI PALLENGU
+		</label>
+		<blockquote class="blockquote" style="font-size: 16px;">
+		Sistem Informasi Pelayanan Elektronik untuk Desa dan Kelurahan
+		</blockquote>
+	</p>
+	</div>
+
+	<!-- PDF Viewer -->
+	<div class="pdf-container my-4">
+	<iframe src="https://drive.google.com/file/d/1sUevvv0jY6yPzP_5pmvOAo421JNMAWVH/preview" 
+        width="100%" height="600px" style="border: none; border-radius: 10px;">
+	</iframe>
+		
+	<div class="text-center mt-2">
+		<a href="https://drive.google.com/file/d/1sUevvv0jY6yPzP_5pmvOAo421JNMAWVH/view?usp=sharing" target="_blank" class="btn btn-outline-primary btn-sm">
+		<i class="fas fa-download"></i> Unduh Manual Book (PDF)
+		</a>
+	</div>
+	</div>
+
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();

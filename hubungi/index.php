@@ -19,7 +19,7 @@
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="../assets/img/<?php echo $favicon; ?>">
 
-	<title>Tentang Kami - <?php echo ucwords(strtolower($data['nama_desa'])); ?></title>
+	<title>Hubungi Kami- <?php echo ucwords(strtolower($data['nama_desa'])); ?></title>
 
 	<!-- Bootstrap 4 CSS -->
 	<link
@@ -75,7 +75,7 @@
 				</a>
 			</li>
 			<li class="nav-item mx-lg-2 my-1 my-lg-0">
-				<a class="nav-link text-light" href="../hubungi">
+				<a class="nav-link text-light" href="">
 				<i class="fas fa-headset"></i> Hubungi Kami
 				</a>
 			</li>
@@ -150,35 +150,98 @@
 
 	</div>
 
+	<?php
+		include '../config/koneksi.php'; // sesuaikan path jika perlu
+
+		// Ambil email dari user login (misalnya user id = 1, atau bisa juga session)
+		$queryEmail = mysqli_query($connect, "SELECT email FROM login WHERE id = 1");
+		$dataEmail = mysqli_fetch_assoc($queryEmail);
+		$email = $dataEmail['email'] ?? '-';
+
+		// Ambil nomor WA dan akun media sosial dari profil desa
+		$queryProfil = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+		$dataProfil = mysqli_fetch_assoc($queryProfil);
+		$wa = $dataProfil['wa_admin'] ?? '-';
+		$instagram = $dataProfil['instagram'] ?? '#';
+		$facebook = $dataProfil['facebook'] ?? '#';
+		?>
+
 	<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 91vh;">
-  <div class="container shadow p-3 mb-5 bg-white rounded" style="max-width: 800px;">
-    <div style="padding-top: 30px; padding-bottom: 60px; position: relative;">
-      <div class="card-body">
-        <div class="card-text">
-          <p>
-            <label style="font-weight: 700; font-size: 25px">
-              <i class="fas fa-info-circle"></i> APA ITU DIGITALISASI?
-            </label>
-            <hr />
-            <blockquote>
-              Web Aplikasi untuk pelayanan surat administrasi desa dan kelurahan yang telah
-              dikembangkan untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
-            </blockquote>
-          </p>
-        </div>
-      </div>
-      <div class="card-footer py-2 bg-transparent text-center">
-        <div class="footer bg-transparent text-center">
-          <span class="text-dark">
-            <strong>&copy; <span id="year"></span> 
-              <a href="#" class="text-decoration-none text-dark">Pelayanan Surat</a>
-            </strong>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+	<div class="container shadow p-3 mb-5 bg-white rounded" style="max-width: 800px;">
+		<div class="py-4 px-3">
+		<h3 class="text-center mb-4"><i class="fas fa-headset"></i> Hubungi Kami</h3>
+
+		<style>
+		.kontak-item {
+			display: flex;
+			gap: 10px;
+		}
+
+		.kontak-label {
+			min-width: 100px;
+			font-weight: 500;
+		}
+		</style>
+
+		<ul class="list-group list-group-flush">
+		<li class="list-group-item">
+			<div class="kontak-item">
+			<div class="kontak-label"><i class="fas fa-envelope text-danger"></i> Email</div>
+			<div>: <?= $email ?></div>
+			</div>
+		</li>
+		<?php
+		$telpRaw = $dataProfil['wa_admin'] ?? '';
+
+		// Ganti awalan 62 jadi 0 dan bersihkan simbol
+		$telpDisplay = preg_replace('/^62/', '0', preg_replace('/[^0-9]/', '', $telpRaw));
+
+		// Tambahkan spasi tiap 4 digit
+		$telpDisplay = trim(chunk_split($telpDisplay, 4, ' '));
+		?>
+
+		<li class="list-group-item">
+		<div class="kontak-item">
+			<div class="kontak-label"><i class="fas fa-phone-alt text-primary"></i> Telepon</div>
+			<div>: <?= $telpDisplay ?></div>
+		</div>
+		</li>
+
+		<?php
+		// Ambil dari database, misalnya: 6281234567890
+		$waRaw = $dataProfil['wa_admin'] ?? '';
+
+		// Ganti awalan 62 ke 0
+		$waDisplay = preg_replace('/^62/', '0', preg_replace('/[^0-9]/', '', $waRaw));
+
+		// Tambahkan spasi setiap 4 digit
+		$waDisplay = trim(chunk_split($waDisplay, 4, ' '));
+		?>
+
+		<li class="list-group-item">
+		<div class="kontak-item">
+			<div class="kontak-label"><i class="fab fa-whatsapp text-success"></i> WhatsApp</div>
+			<div>: <?= $waDisplay ?></div>
+		</div>
+		</li>
+
+		<li class="list-group-item">
+			<div class="kontak-item">
+			<div class="kontak-label"><i class="fab fa-instagram text-danger"></i> Instagram</div>
+			<div>: @sipallengu</div>
+			</div>
+		</li>
+		<li class="list-group-item">
+			<div class="kontak-item">
+			<div class="kontak-label"><i class="fab fa-facebook text-primary"></i> Facebook</div>
+			<div>: facebook.com/sipallengu</div>
+			</div>
+		</li>
+		</ul>
+
+		</div>
+	</div>
+	</div>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();

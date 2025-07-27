@@ -78,6 +78,16 @@
 				<i class="fas fa-info-circle"></i> Tentang Kami
 				</a>
 			</li>
+			<li class="nav-item mx-lg-2 my-1 my-lg-0">
+				<a class="nav-link text-light" href="../hubungi">
+				<i class="fas fa-headset"></i> Hubungi Kami
+				</a>
+			</li>
+			 <li class="nav-item mx-lg-2 my-1 my-lg-0">
+				<a class="nav-link text-light" href="../panduan">
+				<i class="fas fa-book"></i> Panduan Teknis
+				</a>
+			</li>
 			<li class="nav-item mx-2 mt-1">
 				<?php
 				session_start();
