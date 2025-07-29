@@ -201,7 +201,7 @@
 				<td width="3%"></td>
 				<td width="3%" style="vertical-align: top;">-</td>
 				<td width="94%" style="text-align: justify;">
-					Orang yang namanya tersebut di atas adalah benar warga Desa kami dan berdomisili sesuai alamat yang telah dicantumkan.
+					Orang yang namanya tersebut di atas adalah benar warga kami dan berdomisili sesuai alamat yang telah dicantumkan.
 				</td>
 			</tr>
 			<tr>
@@ -230,29 +230,25 @@
 				<td>Surat Keterangan ini dipergunakan untuk <span style="text-transform: capitalize;"><?php echo htmlspecialchars($row['keperluan']); ?></span></td> 
 			</tr>
 		</table>
-		<table width="100%">
+		<br>
+		<table width="100%" style="text-align: justify;">
 			<tr>
 				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
 				</td>
 			</tr>
 		</table>
 	</div>
-	<br>
-	<table width="100%" style="text-transform: capitalize;">
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr>
-			<td width="10%"></td>
-			<td width="30%"></td>
-			<td width="10%"></td>
-			<td align="center">
-				<?php
+
+
+	<table width="100%" style="margin-top: 30px; margin-left: 10%;">
+	<tr>
+		<td style="width: 30%; text-align: left;">
+
+		</td>
+
+		<td style="width: 70%; text-align: center;">
+
+		 <?php
         include '../../cetak/helper/tanda_tangan_pejabat.php';
 
         $table = basename(__DIR__);
@@ -277,67 +273,14 @@
         $no_surat = $data['no_surat'] ?? '';
 		echo formatTempatTanggalSurat($connect, $no_surat) . '<br>';
         ?>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td align="center">TTD. bersangkutan</td>
-			<td></td>
-			<?php
-				include_once '../../../surat/cetak/helper/jabatan.php';
-				?>
-		</tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr>
-			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $row['nama']; ?></u></b></td>
-			<td></td>
-			
-			<table width="100%" style="text-transform: capitalize; border-collapse: collapse; margin-top: -40px;">
-			<tr>
-			<td style="vertical-align: top; padding-top: 20px; text-align: center; padding-left: 325px; ">
-			<div>
+      	<?php include '../../../surat/cetak/helper/jabatan_tampilkan.php'; ?>
+		
+		<br>
+		<b></b><br><br><br><br><br>
+		
+		<div>
 
-			<?php
+        <?php
         $id = $_GET['id'];
 
         $nama_pejabat_terpilih = '';
@@ -392,7 +335,7 @@
             } elseif ($id_pejabat_desa == 2) {
               if (isset($pejabat_data[1])) {
                 $url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
-                echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -82px">';
+                echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -88px">';
                 echo "<br>";
               } else {
                 echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
@@ -439,15 +382,16 @@
           echo "Data tidak ditemukan.";
         }
         ?>
+      </div>
 
-
-			</div>
-			</td>
-			</tr>
-			</table>
-
-		</tr>
+		</td>
+	</tr>
 	</table>
+
+	
+
+
+
 </div>
 <script>
 	window.print();
