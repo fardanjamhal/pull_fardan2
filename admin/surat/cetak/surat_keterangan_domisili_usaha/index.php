@@ -208,8 +208,8 @@
 
 		<table width="100%" cellpadding="5">
 		<tr>
-			<td style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahwa yang bersangkutan benar berdomisili di 
+			<td style="text-align: justify; text-indent: 30px;">
+			Bahwa yang bersangkutan benar berdomisili di 
 			<?php echo $row['alamat_domisili']; ?> dan benar memiliki usaha 
 			<?php echo '<strong>' . ucwords(strtolower($row['jenis_usaha'])) . '</strong>'; ?> 
 			yang beralamat di 
@@ -217,8 +217,8 @@
 			</td>
 		</tr>
 		<tr>
-			<td style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat keterangan ini dibuat dengan sebenarnya untuk dipergunakan sebagaimana mestinya.
+			<td style="text-align: justify; text-indent: 30px;">
+			Demikian surat keterangan ini dibuat dengan sebenarnya untuk dipergunakan sebagaimana mestinya.
 			</td>
 		</tr>
 		</table>

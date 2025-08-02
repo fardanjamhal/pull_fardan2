@@ -212,11 +212,15 @@
 				<td>:</td>
 				<td><?php echo strtoupper(htmlspecialchars($row['keterangan'])); ?></td>
 			</tr>
+			
+			<!--
 			<tr>
 				<td class="indentasi">Masa Berlaku</td>
 				<td>:</td>
 				<td><?php echo strtoupper(htmlspecialchars($row['masa_berlaku'])); ?></td>
 			</tr>
+			-->
+
 		</table>
 		<br>
 		<table width="100%">

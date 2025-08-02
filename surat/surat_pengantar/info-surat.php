@@ -124,7 +124,23 @@
 						           	</div>
 						        </div>
 							</div>
-							
+						
+						<!-- Judul Surat Pengantar -->
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label class="col-sm-12" style="font-weight: 500;">Judul Surat Pengantar</label>
+							<div class="col-sm-12">
+							<div class="input-group">
+								<input type="text" id="fsurat_pengantar" name="fsurat_pengantar" class="form-control" value="SURAT PENGANTAR" required>
+								<div class="input-group-append">
+								<button type="button" class="btn btn-outline-secondary" style="width: 40px;" onclick="isiDefaultSurat()">
+									<i class="fas fa-sync-alt"></i>
+								</button>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
 
 						<!-- Tujuan -->
 						<div class="col-sm-6">
@@ -168,6 +184,10 @@
 
 						function isiDefaultMaksud() {
 							document.getElementById('fmaksud_untuk').value = 'Mengurus Izin Pembentukan Badan Usaha Dagang dan Perbengkelan';
+						}
+
+							function isiDefaultSurat() {
+							document.getElementById('fsurat_pengantar').value = 'SURAT PENGANTAR';
 						}
 						</script>
 

@@ -9,6 +9,7 @@
         $jenis_surat = ucwords(str_replace('_', ' ', $folder));
         $nik = $_POST['fnik'];
 
+        $surat_pengantar = addslashes($_POST['fsurat_pengantar']);
         $tujuan = addslashes($_POST['ftujuan']);
         $maksud_untuk = addslashes($_POST['fmaksud_untuk']);
         
@@ -65,14 +66,18 @@
         $qTambahSurat = "INSERT INTO `$nama_tabel` 
         (
         jenis_surat, 
-        nik, tujuan, 
+        nik, 
+        surat_pengantar,
+        tujuan, 
         maksud_untuk, 
         status_surat, 
         id_profil_desa, 
         id_arsip
         ) VALUES(
         '$jenis_surat', 
-        '$nik', '$tujuan', 
+        '$nik', 
+        '$surat_pengantar',
+        '$tujuan', 
         '$maksud_untuk', 
         '$status_surat', 
         '$id_profil_desa', 

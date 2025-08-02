@@ -324,6 +324,8 @@
                         <input type="text" name="fkeperluan" style="text-transform: uppercase;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
                       </div>
                     </div>
+                    
+                    <!--
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Masa Berlaku</label>
                       <div class="col-sm-9">
@@ -337,6 +339,8 @@
                         </select>
                       </div>
                     </div>
+                    -->
+
                   </div>
                 </div>
 
