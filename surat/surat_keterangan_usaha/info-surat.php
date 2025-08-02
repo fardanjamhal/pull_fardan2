@@ -124,21 +124,21 @@
 						<div class="row">
 						  	<div class="col-sm-12">
 						  		<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Usaha</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Usaha</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fusaha" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Usaha" required>
+						               	<input type="text" name="fusaha" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Jenis Usaha" required>
 						           	</div>
 						        </div>
 						        <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Alamat Lengkap Usaha</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Lama Usaha</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat_usaha" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Alamat Lengkap Usaha (Jalan, Nomor, RT/RW, Dusun, Desa, Kecamatan, Kota)" required>
+						               	<input type="text" name="falamat_usaha" class="form-control" style="text-transform: capitalize;" placeholder="Lama Usaha" required>
 						           	</div>
 						        </div>
 						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Keperluan Surat</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Alamat Usaha</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fkeperluan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Keperluan Surat" required>
+						               	<input type="text" name="fkeperluan" class="form-control" style="text-transform: capitalize;" placeholder="Alamat Usaha" required>
 						           	</div>
 						        </div>
 						  	</div>

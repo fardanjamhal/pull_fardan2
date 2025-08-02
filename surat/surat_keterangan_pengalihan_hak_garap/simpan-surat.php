@@ -2,13 +2,26 @@
     include ('../../config/koneksi.php');
 
     if (isset($_POST['submit'])){
-        $jenis_surat = "Surat Keterangan Domisili Usaha";
+         // Ambil nama folder dari URL (misalnya: "surat_keterangan_domisili_usaha")
+        $folder = basename(dirname($_SERVER['PHP_SELF']));
+        // Ubah garis bawah (_) jadi spasi, lalu huruf awal tiap kata jadi kapital
+        $jenis_surat = ucwords(str_replace('_', ' ', $folder));
         $nik = $_POST['fnik'];
-        $alamat_domisili = addslashes($_POST['falamat_domisili']);
-        $jenis_usaha = addslashes($_POST['fjenis_usaha']);
-        $alamat_usaha = addslashes($_POST['falamat_usaha']);
+
+        // Proses input dari form
+        $isi_surat             = addslashes($_POST['fisi_surat']);
+        $keperluan_bbm         = addslashes($_POST['fkeperluan_bbm']);
+        $jenis_usaha           = addslashes($_POST['fjenis_usaha']);
+        $alokasi_volume        = addslashes($_POST['falokasi_volume']);
+        $sejumlah              = addslashes($_POST['fsejumlah']);
+        $tempat_pengambilan    = addslashes($_POST['ftempat_pengambilan']);
+        $nomor_lembaga_penyalur = addslashes($_POST['fnomor_lembaga_penyalur']);
+        $lokasi                = addslashes($_POST['flokasi']);
+        $tabel_bbm             = addslashes($_POST['ftabel_bbm']);
+
         $status_surat = "PENDING";
         $id_profil_desa = "1";
+
 
         // Ambil data dari tabel penduduk berdasarkan NIK
     $qPenduduk = mysqli_query($connect, "SELECT * FROM penduduk WHERE nik = '$nik'");
@@ -58,12 +71,48 @@
 
 
         // Simpan ke tabel surat_keterangan_domisili dengan id_arsip
+        // 1. Ambil nama folder = nama tabel (misalnya: surat_keterangan_domisili_usaha)
+        $nama_tabel = basename(dirname($_SERVER['PHP_SELF']));
 
-        $qTambahSurat = "INSERT INTO surat_keterangan_domisili_usaha (jenis_surat, nik, jenis_usaha, alamat_domisili, alamat_usaha, status_surat, id_profil_desa, id_arsip) VALUES('$jenis_surat', '$nik', '$jenis_usaha', '$alamat_domisili', '$alamat_usaha', '$status_surat', '$id_profil_desa', '$id_arsip')";
+        $qTambahSurat = "INSERT INTO `$nama_tabel` (
+        jenis_surat, 
+        nik,
+
+        isi_surat,
+        keperluan_bbm,
+        jenis_usaha,
+        alokasi_volume,
+        sejumlah,
+        tempat_pengambilan,
+        nomor_lembaga_penyalur,
+        lokasi,
+        tabel_bbm,
+
+        status_surat, 
+        id_profil_desa, 
+        id_arsip
+        ) VALUES(
+        '$jenis_surat', 
+        '$nik', 
+
+        '$isi_surat',
+        '$keperluan_bbm',
+        '$jenis_usaha',
+        '$alokasi_volume',
+        '$sejumlah',
+        '$tempat_pengambilan',
+        '$nomor_lembaga_penyalur',
+        '$lokasi',
+        '$tabel_bbm',
+
+        '$status_surat', 
+        '$id_profil_desa', 
+        '$id_arsip'
+        )";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
 
         // Ambil ID surat yang baru
-         include_once '../helper/waktu_disalin.php'; // sesuaikan dengan lokasi sebenarnya
+        include_once '../helper/waktu_disalin.php'; // sesuaikan dengan lokasi sebenarnya
         $nama = $dataPenduduk['nama'] ?? '-';
         redirectKePending($id_arsip, $nik, $nama);
 

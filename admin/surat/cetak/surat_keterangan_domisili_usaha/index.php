@@ -206,24 +206,24 @@
 		}
 		?>
 
-		<table width="100%">
+		<table width="100%" cellpadding="5">
 		<tr>
-			<td class="indentasi" style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahwa yang bersangkutan benar merupakan warga kami yang berdomisili di
-			<?php echo htmlspecialchars(capitalizeEachWord($row['jalan'])); ?> Dusun
-			<?php echo htmlspecialchars(capitalizeEachWord($row['dusun'])); ?> Desa 
-			<?php echo htmlspecialchars(capitalizeEachWord($rows['nama_desa'])); ?> Kecamatan 
-			<?php echo htmlspecialchars(capitalizeEachWord($rows['kecamatan'])); ?>
-			<?php echo htmlspecialchars(capitalizeEachWord($rows['kota'])); ?>.  
+			<td style="text-align: justify;">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahwa yang bersangkutan benar berdomisili di 
+			<?php echo $row['alamat_domisili']; ?> dan benar memiliki usaha 
+			<?php echo '<strong>' . ucwords(strtolower($row['jenis_usaha'])) . '</strong>'; ?> 
+			yang beralamat di 
+			<?php echo '<strong>' . ucwords(strtolower($row['alamat_usaha'])) . '</strong>'; ?>.
 			</td>
 		</tr>
-		</table> <br>
-			<tr>
-				<td class="indentasi">Orang tersebut di atas adalah benar-benar warga <?php echo htmlspecialchars(capitalizeEachWord($rows['nama_desa'])); ?> yang memiliki usaha <?php echo '<strong>' . ucwords(strtolower($row['jenis_usaha'])) . '</strong>'; ?>
-				 di <?php echo '<strong>' . ucwords(strtolower($row['alamat_usaha'])) . '</strong>'; ?>
-				 Kecamatan <?php echo htmlspecialchars(capitalizeEachWord($rows['kecamatan'])); ?> <?php echo htmlspecialchars(capitalizeEachWord($rows['kota'])); ?>.</td>
-			</tr>
+		<tr>
+			<td style="text-align: justify;">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat keterangan ini dibuat dengan sebenarnya untuk dipergunakan sebagaimana mestinya.
+			</td>
+		</tr>
 		</table>
+
+
 	</div>
 	<br>
 

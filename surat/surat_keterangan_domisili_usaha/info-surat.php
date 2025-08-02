@@ -126,6 +126,14 @@
 							</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Alamat Domisili</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="falamat_domisili" class="form-control" style="text-transform: capitalize;" placeholder="Alamat Domisili" required>
+						           	</div>
+						        </div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Usaha</label>
 						           	<div class="col-sm-12">
 						               	<input type="text" name="fjenis_usaha" class="form-control" style="text-transform: capitalize;" placeholder="Jenis Usaha" required>

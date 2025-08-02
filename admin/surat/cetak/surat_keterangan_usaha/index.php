@@ -75,57 +75,73 @@
 	<br>
 	<div class="clear"></div>
 	<div id="isi3">
-		<table width="100%">
 		<tr>
-			<?php
-				// Ambil nilai awal dan ubah ke huruf kecil
-				$jabatan = strtolower($rowss['jabatan']);
-				$nama_desa = strtolower($rows['nama_desa']);
-				$kecamatan = strtolower($rows['kecamatan']);
-				$kota = strtolower($rows['kota']); // Asumsikan ini nama kabupaten
-
-				// Bersihkan pengulangan kata "desa" atau "kelurahan" ganda
-				$nama_desa = preg_replace('/\b(desa|kelurahan)\s+\1\b/i', '$1', $nama_desa);
-
-				// Atasi "kelurahan"
-				if (strpos($nama_desa, 'kelurahan') !== false) {
-					$final_jabatan = 'Lurah';
-					$nama_desa = trim(str_ireplace('kelurahan', '', $nama_desa));
-				} else {
-					$final_jabatan = ucwords($rowss['jabatan']);
-					$nama_desa = trim(str_ireplace('desa', '', $nama_desa));
-				}
-
-				// Hindari "kecamatan kecamatan"
-				$kecamatan = trim(preg_replace('/\b(kecamatan)\s+\1\b/i', '$1', $kecamatan));
-				$kecamatan = trim(str_ireplace('kecamatan', '', $kecamatan));
-
-				// Hindari "kabupaten kabupaten"
-				$kota = trim(preg_replace('/\b(kabupaten)\s+\1\b/i', '$1', $kota));
-				$kota = trim(str_ireplace('kabupaten', '', $kota));
-
-				// Gabungkan kalimat
-				$kalimat = trim($final_jabatan . ' ' . ucwords($nama_desa));
-				?>
-
-			<td style="text-align: justify;">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan di bawah ini, 
-				<span style="text-transform: capitalize;"><?php echo $kalimat; ?></span>, Kecamatan 
-				<span style="text-transform: capitalize;"><?php echo ucwords($kecamatan); ?></span>, Kabupaten 
-				<span style="text-transform: capitalize;"><?php echo ucwords($kota); ?></span>, menerangkan dengan sebenarnya bahwa :
-			</td>
-		</tr>
+				<td class="indentasi">Yang bertanda tangan di bawah ini:
+				</td>
+			</tr>
+	<table width="100%">
 		</table>
 		<br>
+		<table width="100%" style="text-transform: capitalize;">
+
+			<?php
+			include('../../../../config/koneksi.php');
+
+			// Ambil nama pejabat dan jabatannya dari pejabat_desa urutan pertama
+			$query = "SELECT nama_pejabat_desa, jabatan, nip FROM pejabat_desa ORDER BY id_pejabat_desa ASC LIMIT 1";
+			$result = mysqli_query($connect, $query);
+
+			$nama_pejabat = '';
+			$jabatan = '';
+			if ($data = mysqli_fetch_assoc($result)) {
+				$nama_pejabat = $data['nama_pejabat_desa'];
+				$jabatan = $data['jabatan'];
+				$nip = $data['nip'];
+			}
+			?>
+
+			<tr>
+				<td width="30%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nama</td>
+				<td width="2%">:</td>
+				<td width="68%">
+					<strong style="text-transform: uppercase;">
+						<?php echo htmlspecialchars($nama_pejabat); ?>
+					</strong><br>
+				</td>
+			</tr>
+
+			<?php if (!empty(trim($nip))) { ?>
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nip</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;">
+					<?php echo preg_replace('/[^0-9\s]/', '', $nip); ?>
+				</td>
+			</tr>
+			<?php } ?>
+
+			<tr>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jabatan</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo htmlspecialchars($jabatan); ?></td>
+			</tr>
+		</table>
+		<br>
+			<tr>
+				<td class="indentasi">Dengan ini menerangkan bahwa :
+				</td>
+			</tr>
+		<br><br>
+		
 
 		<table width="100%" style="text-transform: capitalize;">
 			<tr>
-				<td width="30%" class="indentasi">Nama</td>
+				<td width="30%" class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nama</td>
 				<td width="2%">:</td>
 				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">NIK</td>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NIK</td>
 				<td>:</td>
 				<td><?php echo $row['nik']; ?></td>
 			</tr>
@@ -150,26 +166,21 @@
 				);
 			?>
 			<tr>
-				<td class="indentasi">Tempat/Tgl. Lahir</td>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tempat/Tgl. Lahir</td>
 				<td>:</td>
 				<td><?php echo ucwords(strtolower($row['tempat_lahir'])) . ", " . $tgl . ucwords(strtolower($blnIndo[$bln])) . $thn; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Jenis Kelamin</td>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jenis Kelamin</td>
 				<td>:</td>
 				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Agama</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Pekerjaan</td>
+				<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pekerjaan</td>
 				<td>:</td>
 				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['pekerjaan'])); ?></td>
 			</tr>
-			<td class="indentasi">Alamat</td>
+			<td class="indentasi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alamat</td>
 			<td>:</td>
 			<td style="text-align: justify;">
 				<?php
@@ -179,11 +190,6 @@
 				echo formatAlamatLengkap($row, $connect); // ✅ benar
 				?>
 			</td>
-			<tr>
-				<td class="indentasi">Kewarganegaraan</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
-			</tr>
 		</table>
 
 
@@ -191,49 +197,35 @@
 		<table width="100%">
 		<tr>
 			<td style="text-align: justify;">
-				<b>Dengan ini menerangkan bahwa:</b>
+				Bahwa yang tersebut namanya diatas adalah benar-benar mempunyai <b>USAHA :</b>
 			</td>
 		</tr>
 		</table>
 		<br>
 		<table width="100%">
 			<tr>
-				<td width="3%"></td>
-				<td width="3%" style="vertical-align: top;">-</td>
-				<td width="94%" style="text-align: justify;">
-					Orang yang namanya tersebut di atas adalah benar warga kami dan berdomisili sesuai alamat yang telah dicantumkan.
+				<td width="30%" style="text-align: justify; padding-left: 30px;">1. Jenis Usaha</td>
+				<td width="3%" style="vertical-align: top;">:</td>
+				<td width="80%" style="text-align: justify;"><b><span style="text-transform: capitalize;"><?php echo htmlspecialchars($row['usaha']); ?></span></b>
 				</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td style="vertical-align: top;">-</td>
-				<td style="text-align: justify;">
-					Yang bersangkutan juga benar memiliki kegiatan usaha yang berlokasi di 
-					<span><?php echo ucwords(strtolower(htmlspecialchars($row['alamat_usaha']))); ?></span>.
+				<td style="text-align: justify; padding-left: 30px;">2. Lama Usaha</td>
+				<td style="vertical-align: top;">:</td>
+				<td style="text-align: justify;"><?php echo htmlspecialchars($row['alamat_usaha']); ?>
 				</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td style="vertical-align: top;">-</td>
-				<td style="text-align: justify;">
-					Adapun jenis usaha yang dijalankan adalah <span style="text-transform: capitalize;"><?php echo htmlspecialchars($row['usaha']); ?></span>
+				<td style="text-align: justify; padding-left: 30px;">3. Alamat Usaha</td>
+				<td style="vertical-align: top;">:</td>
+				<td style="text-align: justify;"><?php echo htmlspecialchars($row['keperluan']); ?>
 				</td>
-			</tr>
-		</table>
-		<table width="100%">
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
-			<tr>
-				<td width="3%"></td>
-				<td width="3%">-</td>
-				<td>Surat Keterangan ini dipergunakan untuk <span style="text-transform: capitalize;"><?php echo htmlspecialchars($row['keperluan']); ?></span></td> 
 			</tr>
 		</table>
 		<br>
 		<table width="100%" style="text-align: justify;">
 			<tr>
-				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
+				<td class="indentasi">Demikian surat keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan seperlunya.
 				</td>
 			</tr>
 		</table>

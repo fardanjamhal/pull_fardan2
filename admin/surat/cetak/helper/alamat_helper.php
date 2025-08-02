@@ -66,6 +66,11 @@ function formatAlamatLengkap($row, $connect) {
             $alamatParts[] = "Desa " . $row['desa'];
         }
     }
+    
+     // Kecamatan
+    if (!empty($row['kecamatan'])) {
+        $alamatParts[] = "Kecamatan " . $row['kecamatan'];
+    }
 
     // Kota
     if (!empty($row['kota'])) {
