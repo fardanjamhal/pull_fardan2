@@ -224,7 +224,7 @@
 		<?php if (strtolower($row['alasan_pisah']) == 'meninggal'): ?>
 		<tr>
 		<td style="text-align: justify; text-indent: 35px; padding-bottom: 10px;">
-			Bahwa yang tersebut namanya di atas benar-benar merupakan seorang janda dari almarhum suaminya yang bernama <b><?php echo ucwords(strtolower($row['nama_pasangan'])); ?></b>, yang telah meninggal dunia pada tanggal <?php echo ucwords(strtolower($row['keterangan_tambahan'])); ?>, dan sampai saat ini yang bersangkutan belum menikah kembali.
+			Bahwa yang tersebut namanya di atas benar-benar merupakan seorang janda dari almarhum suaminya yang bernama <b><?php echo $row['nama_pasangan']; ?></b>, yang telah meninggal dunia pada tanggal <?php echo ucwords(strtolower($row['keterangan_tambahan'])); ?>, dan sampai saat ini yang bersangkutan belum menikah kembali.
 		</td>
 		</tr>
 		<?php elseif (strtolower($row['alasan_pisah']) == 'cerai'): ?>

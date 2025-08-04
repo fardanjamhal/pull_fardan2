@@ -22,31 +22,30 @@ ini_set('display_errors', 1);
 <style>
 .blink-box {
   padding: 14px 24px;
-  background: linear-gradient(to right, #e3f2fd, #bbdefb);
-  border: 1px solid #64b5f6;
+  background: linear-gradient(to right, #fff3e0, #ffe0b2);
+  background-size: 200% 200%;
+  border: 1px solid #ffa726;
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(100, 181, 246, 0.4);
-  animation: softBlink 2s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(255, 167, 38, 0.3);
+  animation: colorPulse 5s ease-in-out infinite;
   text-align: center;
   font-weight: 600;
   font-size: 18px;
-  color: #0d47a1;
+  color: #e65100;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 20px;
 }
 
-@keyframes softBlink {
+/* Efek perubahan warna gradasi halus */
+@keyframes colorPulse {
   0% {
-    box-shadow: 0 0 6px rgba(100, 181, 246, 0.3);
-    transform: scale(1);
+    background-position: 0% 50%;
   }
   50% {
-    box-shadow: 0 0 20px rgba(100, 181, 246, 0.7);
-    transform: scale(1.02);
+    background-position: 100% 50%;
   }
   100% {
-    box-shadow: 0 0 6px rgba(100, 181, 246, 0.3);
-    transform: scale(1);
+    background-position: 0% 50%;
   }
 }
 </style>
