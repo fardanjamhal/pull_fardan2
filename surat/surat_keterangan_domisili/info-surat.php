@@ -125,6 +125,16 @@
 						        </div>
 							</div>
 						</div>
+
+							<div class="col-sm-6">
+							    <div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Alamat Domisili</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="falamat_domisili" class="form-control" style="text-transform: capitalize;" placeholder="Alama Domisili" required>
+						           	</div>
+						        </div>
+							</div>
+
 						<hr width="97%">
 						<div class="container-fluid">
 		                	<input type="button" class="btn btn-warning" value="Batal" onclick="window.location.href='../../surat/surat_keterangan_domisili/'">

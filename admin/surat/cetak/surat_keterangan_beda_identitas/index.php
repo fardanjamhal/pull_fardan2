@@ -41,6 +41,13 @@
   			font-family: "Times New Roman", Times, serif;
   		}
 	</style>
+
+	<style>
+		td {
+			vertical-align: top;
+			}
+	</style>
+
 </head>
 <body>
 <div>
@@ -235,7 +242,7 @@
 		<table width="100%">
 		<tr>
 			<td class="indentasi" style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adalah benar-benar warga Desa <?php echo $rows['nama_desa']; ?> dan merupakan orang yang sama namun terdapat perbedaan  <?php echo $row['perbedaan']; ?> seperti tersebut di atas. Adapun data yang benar dan dipakai seperti yang tercantum di Kartu Keluarga (KK).
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bersangkutan adalah benar-benar warga kami dan merupakan orang yang sama, namun terdapat perbedaan pada <b><?php echo $row['perbedaan']; ?></b> sebagaimana telah disebutkan di atas. Adapun data yang benar dan digunakan adalah yang tercantum dalam Kartu Keluarga (KK).
 			<br><br>
 			Demikian surat ini dibuat untuk dipergunakan sebagaimana mestinya.
 			</td>

@@ -45,10 +45,12 @@
 	</style>
 
 	<style>
-		td {
-			vertical-align: top;
-			}
+	td {
+		vertical-align: top;
+		line-height: 1.5;
+	}
 	</style>
+
 
 </head>
 <body>
@@ -120,7 +122,7 @@
 		</tr>
 		</table>
 		<br>
-		<table width="100%" style="vertical-align: top;">
+		<table width="100%" style="vertical-align: top; padding-left: 30px;">
 			<tr>
 				<td width="30%" class="indentasi">Nama</td>
 				<td width="2%">:</td>
@@ -196,22 +198,20 @@
 			return ucwords($string);       // kapitalisasi huruf awal setiap kata
 		}
 		?>
-
 		<table width="100%">
 		<tr>
-			<td class="indentasi" style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahwa yang bersangkutan benar merupakan warga kami yang berdomisili di
-			<?php echo htmlspecialchars(capitalizeEachWord($row['jalan'])); ?> Dusun
-			<?php echo htmlspecialchars(capitalizeEachWord($row['dusun'])); ?> Desa 
-			<?php echo htmlspecialchars(capitalizeEachWord($rows['nama_desa'])); ?> Kecamatan 
-			<?php echo htmlspecialchars(capitalizeEachWord($rows['kecamatan'])); ?>
-			<?php echo htmlspecialchars(capitalizeEachWord($rows['kota'])); ?>.  
-			</td>
+		<td style="text-align: justify; text-indent: 30px;">
+			Bahwa yang bersangkutan benar-benar berdomisili di <b><?php echo htmlspecialchars(capitalizeEachWord($row['alamat_domisili'])); ?></b>.
+		</td>
 		</tr>
-		</table> <br>
-			<tr>
-				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.</td>
-			</tr>
+		<tr>
+		<td style="text-align: justify; text-indent: 30px;">
+			Demikian surat keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.
+		</td>
+		</tr>
+		</table>
+
+
 		</table>
 	</div>
 	<br>

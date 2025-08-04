@@ -162,7 +162,7 @@
 							    <div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Tempat / Tanggal Lahir </label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="ftgl_lahir2" class="form-control" style="text-transform: capitalize;" placeholder="Tempat / Tanggal Lahir" required>
+						               	<input type="text" name="ftgl_lahir2" class="form-control" style="text-transform: capitalize;" placeholder="Contoh : Jeneponto, 14 Juni 1998" required>
 						           	</div>
 						        </div>
 							</div>
@@ -180,9 +180,9 @@
 						</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Alamat / Tempat Tinggal</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Alamat</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="falamat2" class="form-control" style="text-transform: capitalize;" placeholder="Alamat / Tempat Tinggal" required>
+						               	<input type="text" name="falamat2" class="form-control" style="text-transform: capitalize;" placeholder="Alamat" required>
 						           	</div>
 						        </div>
 							</div>

@@ -4,6 +4,7 @@ include ('../../config/koneksi.php');
 if (isset($_POST['submit'])) {
     $jenis_surat = "Surat Keterangan Domisili";
     $nik = mysqli_real_escape_string($connect, $_POST['fnik']);
+    $alamat_domisili = addslashes($_POST['falamat_domisili']);
     $status_surat = "PENDING";
     $id_profil_desa = "1";
     
@@ -57,9 +58,9 @@ if (isset($_POST['submit'])) {
 
         // Simpan ke tabel surat_keterangan_domisili dengan id_arsip
         $qTambahSurat = "INSERT INTO surat_keterangan_domisili (
-            jenis_surat, nik, status_surat, id_profil_desa, id_arsip
+            jenis_surat, nik, alamat_domisili, status_surat, id_profil_desa, id_arsip
         ) VALUES (
-            '$jenis_surat', '$nik', '$status_surat', '$id_profil_desa', '$id_arsip'
+            '$jenis_surat', '$nik', '$alamat_domisili', '$status_surat', '$id_profil_desa', '$id_arsip'
         )";
         mysqli_query($connect, $qTambahSurat);
     }
