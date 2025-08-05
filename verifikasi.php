@@ -128,6 +128,32 @@ while ($row = mysqli_fetch_array($tables_result)) {
       font-size: 0.95rem;
       color: #6c757d;
     }
+
+    .info-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+      }
+
+      .info-label,
+      .info-value {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        flex: 1 1 100%;
+      }
+
+      @media (min-width: 576px) {
+        .info-label {
+          flex: 0 0 40%;
+        }
+
+        .info-value {
+          flex: 0 0 60%;
+          text-align: right;
+        }
+      }
   </style>
 </head>
 <body>
