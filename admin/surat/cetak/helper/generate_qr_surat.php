@@ -67,7 +67,7 @@ $nama_kades    = $data_nomor['nama_pejabat_desa'] ?? '-';
 $jabatan       = $data_nomor['jabatan'] ?? '-';
 
 // --- ISI QR CODE ---
-$baseURL = 'http://' . $_SERVER['HTTP_HOST'] . '/aplikasi-surat-web/';
+$baseURL = 'http://' . $_SERVER['HTTP_HOST'] . '/';
 $linkVerifikasi = $baseURL . 'verifikasi.php?kode=' . urlencode($nomor_lengkap);
 
 $isiQR = <<<TEXT
