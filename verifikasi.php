@@ -10,6 +10,7 @@ if (!$kode) {
 $query_desa = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
 $profil_desa = mysqli_fetch_assoc($query_desa);
 $nama_desa = $profil_desa['nama_desa'] ?? 'Desa';
+$favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 
 // Ambil data dari tabel nomor_surat
 $query = mysqli_query($connect, "SELECT * FROM nomor_surat WHERE nomor_lengkap = '$kode'");
@@ -65,6 +66,7 @@ while ($row = mysqli_fetch_array($tables_result)) {
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="assets/img/<?php echo $favicon; ?>">
   <title>Validasi Surat | <?= htmlspecialchars($nama_desa) ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 5 CDN -->
