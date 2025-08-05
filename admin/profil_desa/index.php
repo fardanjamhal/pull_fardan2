@@ -217,6 +217,7 @@
           <small class="form-text">Tanpa angka 0 di depan. Contoh: <strong>81234567890</strong></small>
         </div>
 
+        <!-- 
         <div class="form-group">
           <label>Tanda Tangan Digital</label>
           <input type="file" name="ttd_digital">
@@ -224,6 +225,7 @@
             <img src="../../assets/img/barcode.png?<?= time(); ?>" alt="TTD Digital" class="preview-img">
           <?php endif; ?>
         </div>
+        -->
 
         <div class="form-group">
           <label>Gambar Kop Surat</label>
