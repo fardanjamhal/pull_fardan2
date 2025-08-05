@@ -357,7 +357,7 @@
             } elseif ($id_pejabat_desa == 2) {
               if (isset($pejabat_data[1])) {
                 $url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
-                 echo "<img src=\"../helper/generate_qr_surat.php?id=$id_surat&jenis=$jenis_surat\" width=\"90\" alt=\"QR Code\" style=\"margin: -75px auto 5px; \">";
+                 echo "<img src=\"../helper/generate_qr_surat.php?id=$id_surat&jenis=$jenis_surat\" width=\"90\" alt=\"QR Code\" style=\"margin: -90px auto 0px; \">";
                 echo "<br>";
               } else {
                 echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";

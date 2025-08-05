@@ -4,11 +4,26 @@
 
 	$id = $_GET['id']; // id_skd dari surat
 
+	// Ambil nama folder sebagai nama tabel
+	$table = basename(__DIR__); // contoh: surat_pengantar
+
+	// Buat ID kolom dari singkatan nama tabel
+	function buatIdKolom($namaTabel) {
+		$singkatan = '';
+		foreach (explode('_', $namaTabel) as $kata) {
+			$singkatan .= substr($kata, 0, 1);
+		}
+		return 'id_' . strtolower($singkatan);
+	}
+
+	$idKolom = buatIdKolom($table);
+
+	// Bangun query dinamis
 	$qCek = mysqli_query($connect,"
-		SELECT arsip_surat.*, surat_keterangan_domisili.*, surat_keterangan_domisili.id_arsip 
-		FROM surat_keterangan_domisili 
-		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = surat_keterangan_domisili.id_arsip 
-		WHERE surat_keterangan_domisili.id_skd = '$id'
+		SELECT arsip_surat.*, $table.*, $table.id_arsip 
+		FROM $table 
+		LEFT JOIN arsip_surat ON arsip_surat.id_arsip = $table.id_arsip 
+		WHERE $table.$idKolom = '$id'
 	");
 
 	while($row = mysqli_fetch_array($qCek)){
@@ -28,7 +43,6 @@
 ?>
 
 
-
 <html>
 <head>
 	<link rel="shortcut icon" href="../../../../assets/img/mini-logo.png">
@@ -45,11 +59,10 @@
 	</style>
 
 	<style>
-	td {
-		vertical-align: top;
-	}
+		td {
+			vertical-align: top;
+			}
 	</style>
-
 
 </head>
 <body>
@@ -75,8 +88,7 @@
 		<h4 style="text-decoration: underline; margin: 0; text-transform: uppercase;"><b><?php echo $row['jenis_surat']; ?></b></h4>
 		<h4 style="font-weight:normal; margin:0;">Nomor : <?php echo $row['no_surat']; ?></h4>
 		</div>
-	<br>
-	<br>
+		<br>
 	<div class="clear"></div>
 	<div id="isi3">
 		<table width="100%">
@@ -113,65 +125,48 @@
 				?>
 
 			<td style="text-align: justify;">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan di bawah ini, 
-				<span style="text-transform: capitalize;"><?php echo $kalimat; ?></span>, Kecamatan 
-				<span style="text-transform: capitalize;"><?php echo ucwords($kecamatan); ?></span>, Kabupaten 
-				<span style="text-transform: capitalize;"><?php echo ucwords($kota); ?></span>, menerangkan dengan sebenarnya bahwa :
+				Yang bertanda tangan di bawah ini, kami masing-masing :
 			</td>
 		</tr>
 		</table>
-		<br>
-		<table width="100%" style="vertical-align: top; padding-left: 30px;">
+		<table width="100%">
 			<tr>
-				<td width="30%" class="indentasi">Nama</td>
+				<td width="2%">1. </td>
+				<td width="15%">Nama</td>
 				<td width="2%">:</td>
-				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
+				<td width="70%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">NIK</td>
+				<td width="2%"></td>
+				<td class="indentasi">Umur</td>
 				<td>:</td>
-				<td><?php echo $row['nik']; ?></td>
+				<td>
+					<?php
+						$tgl_lahir = $row['tgl_lahir'];
+						if ($tgl_lahir && $tgl_lahir !== '0000-00-00') {
+							$lahir = new DateTime($tgl_lahir);
+							$sekarang = new DateTime(); // tanggal hari ini
+							$umur = $sekarang->diff($lahir)->y;
+							echo $umur . ' Tahun';
+						} else {
+							echo '-';
+						}
+					?>
+					</td>
 			</tr>
-			<?php
-				$tgl_lhr = date($row['tgl_lahir']);
-				$tgl = date('d ', strtotime($tgl_lhr));
-				$bln = date('F', strtotime($tgl_lhr));
-				$thn = date(' Y', strtotime($tgl_lhr));
-				$blnIndo = array(
-				    'January' => 'Januari',
-				    'February' => 'Februari',
-				    'March' => 'Maret',
-				    'April' => 'April',
-				    'May' => 'Mei',
-				    'June' => 'Juni',
-				    'July' => 'Juli',
-				    'August' => 'Agustus',
-				    'September' => 'September',
-				    'October' => 'Oktober',
-				    'November' => 'November',
-				    'December' => 'Desember'
-				);
-			?>
 			<tr>
-				<td class="indentasi">Tempat/Tgl. Lahir</td>
+				<td width="2%"></td>
+				<td class="indentasi">Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo ucwords(strtolower($row['tempat_lahir'])) . ", " . $tgl . ucwords(strtolower($blnIndo[$bln])) . $thn; ?></td>
+				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
+				<td width="2%"></td>
 				<td class="indentasi">Jenis Kelamin</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['jenis_kelamin'])); ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Agama</td>
 				<td>:</td>
 				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
 			</tr>
-			<tr>
-				<td class="indentasi">Pekerjaan</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['pekerjaan']; ?></td>
-			</tr>
+			<td width="2%"></td>
 			<td class="indentasi">Alamat</td>
 			<td>:</td>
 			<td style="text-align: justify;">
@@ -182,13 +177,52 @@
 				echo formatAlamatLengkap($row, $connect); // ✅ benar
 				?>
 			</td>
-			<tr>
-				<td class="indentasi">Kewarganegaraan</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
-			</tr>
 		</table>
-		<br><br>
+		<td><span style="display: inline-block; padding-left: 20px;"><strong><em>(Disebut pihak Pertama)</em></strong></span></td>
+		<br>
+		<table width="100%">
+			<tr>
+				<td width="2%">2. </td>
+				<td width="15%">Nama</td>
+				<td width="2%">:</td>
+				<td width="70%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama2']; ?></td>
+			</tr>
+			<tr>
+				<td width="2%"></td>
+				<td class="indentasi">Umur</td>
+				<td>:</td>
+				<td>
+					<?php
+						$tgl_lahir = $row['tgl_lahir'];
+						if ($tgl_lahir && $tgl_lahir !== '0000-00-00') {
+							$lahir = new DateTime($tgl_lahir);
+							$sekarang = new DateTime(); // tanggal hari ini
+							$umur = $sekarang->diff($lahir)->y;
+							echo $umur . ' Tahun';
+						} else {
+							echo '-';
+						}
+					?>
+					</td>
+			</tr>
+			<tr>
+				<td width="2%"></td>
+				<td class="indentasi">Pekerjaan</td>
+				<td>:</td>
+				<td><?php echo $row['pekerjaan2']; ?></td>
+			</tr>
+			<tr>
+				<td width="2%"></td>
+				<td class="indentasi">Jenis Kelamin</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama2'])); ?></td>
+			</tr>
+				<td width="2%"></td>
+				<td class="indentasi">Alamat</td>
+				<td>:</td>
+				<td><?php echo $row['alamat2']; ?></td>
+		</table>
+		<td><span style="display: inline-block; padding-left: 20px;"><strong><em>(Disebut pihak Kedua)</em></strong></span></td>
 		<table width="100%">
 			<?php
 		// Fungsi untuk kapitalisasi setiap kata
@@ -197,64 +231,113 @@
 			return ucwords($string);       // kapitalisasi huruf awal setiap kata
 		}
 		?>
+
 		<table width="100%">
-		<tr>
-		<td style="text-align: justify; text-indent: 30px;">
-			Bahwa yang bersangkutan benar-benar berdomisili di <b><?php echo htmlspecialchars(capitalizeEachWord($row['alamat_domisili'])); ?></b>.
-		</td>
-		</tr>
-		<tr>
-		<td style="text-align: justify; text-indent: 30px;">
-			Demikian surat keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.
-		</td>
-		</tr>
-		</table>
-
-
+		<?php echo $row['isi_surat']; ?>
 		</table>
 	</div>
+
+		<table style="width: 100%;">
+			<tr>
+				<td style="text-align: right;">
+					 <?php
+						include '../../cetak/helper/tanda_tangan_pejabat.php';
+
+						$table = basename(__DIR__);
+						function buatSingkatanID($nama_tabel) {
+						$bagian = explode('_', $nama_tabel);
+						$singkatan = '';
+						foreach ($bagian as $b) {
+							$singkatan .= substr($b, 0, 1);
+						}
+						return 'id_' . strtolower($singkatan);
+						}
+
+						$id_column = buatSingkatanID($table);
+						$id = $_GET['id'] ?? '';
+
+						if (!$id || !$table) {
+						die("ID atau nama tabel tidak valid.");
+						}
+
+						$query = mysqli_query($connect, "SELECT * FROM `$table` WHERE `$id_column` = '$id'");
+						$data = mysqli_fetch_assoc($query);
+						$no_surat = $data['no_surat'] ?? '';
+						echo formatTempatTanggalSurat($connect, $no_surat) . '<br>';
+						?>
+				</td>
+			</tr>
+		</table>
+	
+
+	<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td style="text-align: center; width: 50%;">
+		PIHAK I (PERTAMA)<br><br><br><br>
+		<span style="text-transform: uppercase; font-weight: bold; text-decoration: underline;"><?php echo $row['nama']; ?></span>
+		</td>
+		<td style="text-align: center; width: 50%;">
+		PIHAK II (KEDUA)<br><br><br><br>
+		<span style="text-transform: uppercase; font-weight: bold; text-decoration: underline;"><?php echo $row['nama2']; ?></span>
+		</td>
+	</tr>
+	</table>
 	<br>
 
+	<?php
+		// Ambil data saksi dari $row
+		$saksiList = [];
+		for ($i = 1; $i <= 4; $i++) {
+			$key = 'saksi' . $i;
+			if (!empty($row[$key])) {
+				$saksiList[] = strtoupper($row[$key]); // huruf besar semua
+			}
+		}
 
-	<table width="100%" style="text-transform: capitalize; border-collapse: collapse;">
-  	<tr>
-    <td style="width: 50%;"></td>
-    <td style="vertical-align: top; padding-top: 20px; text-align: center;">
-		 <?php
-        include '../../cetak/helper/tanda_tangan_pejabat.php';
+		$jumlahSaksi = count($saksiList);
 
-        $table = basename(__DIR__);
-        function buatSingkatanID($nama_tabel) {
-          $bagian = explode('_', $nama_tabel);
-          $singkatan = '';
-          foreach ($bagian as $b) {
-            $singkatan .= substr($b, 0, 1);
-          }
-          return 'id_' . strtolower($singkatan);
-        }
+		if ($jumlahSaksi > 0) {
+			echo '<div><b>SAKSI-SAKSI</b></div>';
+			echo '<table width="100%" cellspacing="0" style="border-collapse: collapse; width: 100%;">';
+			echo '<tbody>';
 
-        $id_column = buatSingkatanID($table);
-        $id = $_GET['id'] ?? '';
+			foreach ($saksiList as $index => $nama) {
+				$no = $index + 1;
+				echo '<tr>';
+				echo '<td style="text-transform: uppercase;">' . $no . '. ' . htmlspecialchars($nama) . '</td>';
 
-        if (!$id || !$table) {
-          die("ID atau nama tabel tidak valid.");
-        }
+				if ($no % 2 == 1) {
+					// Ganjil → di kolom tengah
+					echo '<td style="text-align: center;">' . $no . '. (..........................)</td>';
+					echo '<td></td>';
+				} else {
+					// Genap → di kolom kanan
+					echo '<td></td>';
+					echo '<td style="text-align: center;">' . $no . '. (..........................)</td>';
+				}
 
-        $query = mysqli_query($connect, "SELECT * FROM `$table` WHERE `$id_column` = '$id'");
-        $data = mysqli_fetch_assoc($query);
-        $no_surat = $data['no_surat'] ?? '';
-		echo formatTempatTanggalSurat($connect, $no_surat) . '<br>';
-        ?>
-      <?php include_once '../../../surat/cetak/helper/jabatan_tampilkan.php'; ?>
-    </td>
-  </tr>
-</table>
+				echo '</tr>';
+			}
 
-<table width="100%" style="text-transform: capitalize; border-collapse: collapse; margin-top: 62px;">
+			echo '</tbody>';
+			echo '</table>';
+		}
+		?>
+
+		<div style="text-align: center;">
+		Diketahui,
+		</div>
+
+		<div style="text-align: center;">
+		<?php include_once '../../../surat/cetak/helper/jabatan.php'; ?>
+		</div>
+
+		<br><br><br>
+
+<table width="100%" style="text-transform: capitalize; border-collapse: collapse;">
   <tr>
-    <td style="vertical-align: top; padding-top: 20px; text-align: center; padding-left: 325px;">
+    <td style="vertical-align: top; padding-top: 20px; text-align: center; margin: 0 auto;">
       <div>
-
 	  	<!-- kode barcode FARDAN -->
 		<?php
 		$id_surat = isset($_GET['id']) ? intval($_GET['id']) : null;
@@ -324,7 +407,7 @@
             } elseif ($id_pejabat_desa == 2) {
               if (isset($pejabat_data[1])) {
                 $url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
-                 echo "<img src=\"../helper/generate_qr_surat.php?id=$id_surat&jenis=$jenis_surat\" width=\"90\" alt=\"QR Code\" style=\"margin: -80px auto 4px; \">";
+                 echo "<img src=\"../helper/generate_qr_surat.php?id=$id_surat&jenis=$jenis_surat\" width=\"75\" alt=\"QR Code\" style=\"margin: -73px auto 2px; \">";
                 echo "<br>";
               } else {
                 echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";
@@ -375,6 +458,8 @@
     </td>
   </tr>
 </table>
+
+
 
 
 </div>

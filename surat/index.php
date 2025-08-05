@@ -328,7 +328,8 @@
 				"surat_keterangan_belum_memiliki_kwh",
 				"surat_keterangan_tidak_berlangganan_pdam",
 				"surat_keterangan_kelahiran",
-				"surat_keterangan_pengalihan_hak_garap"
+				"surat_keterangan_pengalihan_hak_garap",
+				"surat_pernyataan_kesepakatan_bersama"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan
