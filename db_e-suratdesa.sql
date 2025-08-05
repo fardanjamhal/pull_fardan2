@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2025 at 05:25 AM
+-- Generation Time: Aug 04, 2025 at 03:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -818,7 +818,49 @@ INSERT INTO `arsip_surat` (`id_arsip`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir
 (836, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 10:35:05'),
 (837, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 10:37:43'),
 (838, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 11:15:27'),
-(839, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 11:20:13');
+(839, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 11:20:13'),
+(840, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 13:56:14'),
+(841, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 13:57:19'),
+(842, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 13:57:40'),
+(843, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 14:01:03'),
+(844, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 14:46:29'),
+(845, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 14:47:59'),
+(846, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 18:49:09'),
+(847, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 18:49:26'),
+(848, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 19:20:45'),
+(849, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 19:22:25'),
+(850, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 19:27:59'),
+(851, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 19:29:39'),
+(852, '7304041301120002', 'Rendi', 'Bo\'nia', '2012-01-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-25 19:29:47'),
+(853, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 21:50:33'),
+(854, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 21:54:09'),
+(855, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 21:55:34'),
+(856, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 22:12:23'),
+(857, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 22:13:33'),
+(858, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 23:21:25'),
+(859, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 23:29:31'),
+(860, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-25 23:30:36'),
+(861, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 08:58:20'),
+(862, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 08:58:28'),
+(863, '7304041301120002', 'Rendi', 'Bo\'nia', '2012-01-13', 'Laki-Laki', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', '', '', '2025-07-27 08:58:38'),
+(864, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 08:58:47'),
+(865, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 09:28:25'),
+(866, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 11:35:13'),
+(867, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 11:37:27'),
+(868, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 11:38:02'),
+(869, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 11:38:54'),
+(870, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 11:39:13'),
+(871, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-07-27 15:22:08'),
+(872, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-02 13:15:02'),
+(873, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-02 13:34:30'),
+(874, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-02 13:53:36'),
+(875, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-02 14:10:04'),
+(876, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-02 14:12:24'),
+(877, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-02 14:17:36'),
+(878, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-02 14:19:44'),
+(879, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-04 07:30:58'),
+(880, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-04 07:53:05'),
+(881, '7304053112900229', 'Ali', 'Camba Jawa', '1990-12-31', 'LAKI-LAKI', 'Islam', '', 'Bo\'nia', '', '', 'Bungungoe', 'Turatea', 'Jeneponto', '', '', '', '', '', '', '', '', 'AYAH', 'RINA DG JPA', '2025-08-04 12:01:37');
 
 -- --------------------------------------------------------
 
@@ -1212,7 +1254,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`, `reset_token`, `reset_expired`) VALUES
-(1, 'Administrator', 'admin', 'mdtmakassar@gmail.com', '$2y$10$.Vvst3DENzU9PittGkxwrurr6UIHgZ7T6KSwnlBoSr/exaHHxOpne', 'admin', '84bf66a0d78ffff19b7f8adc89092be9312726c4f6f1488564edab3b8196798b', '2025-07-12 14:09:36'),
+(1, 'Administrator', 'admin', 'sipallengu@gmail.com', '$2y$10$QqnY1gG42riuoMAi3eA.FeaAovT3VymA4s0R0Deoo.AJSiq.czxrC', 'admin', '84bf66a0d78ffff19b7f8adc89092be9312726c4f6f1488564edab3b8196798b', '2025-07-12 14:09:36'),
 (2, 'Kepala Desa', 'kades', 'kepaladesa@desa.id', '$2y$10$pvIAxlOZ8Uu.Y0hpT4AZhO.8hIDTwxO.6mNS874O2b1wrdj1YsCGe', 'kades', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -1411,7 +1453,26 @@ INSERT INTO `nomor_surat` (`id`, `kode_surat`, `kode_desa`, `bulan`, `tahun`, `n
 (244, 'SKBN', 'KP', '7', '2025', 1, 'SKBN/001/SKBN/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 10:01:43'),
 (245, 'SKJ', 'KP', '7', '2025', 1, 'SKJ/001/SKJ/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 10:37:54'),
 (246, 'SKJ', 'KP', '7', '2025', 2, 'SKJ/002/SKJ/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 11:15:38'),
-(247, 'SKJ', 'KP', '7', '2025', 3, 'SKJ/003/SKJ/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 11:20:20');
+(247, 'SKJ', 'KP', '7', '2025', 3, 'SKJ/003/SKJ/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 11:20:20'),
+(248, 'SKSN', 'KP', '7', '2025', 1, 'SKSN/001/SKSN/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 13:58:38'),
+(250, 'SKKP', 'KP', '7', '2025', 2, 'SKKP/002/SKKP/KP/VII/2025', 1, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 14:47:23'),
+(251, 'SKKP', 'KP', '7', '2025', 3, 'SKKP/003/SKKP/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 14:48:57'),
+(252, 'SKM', 'KP', '7', '2025', 1, 'SKM/001/SKM/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 18:52:31'),
+(253, 'SKMH', 'KP', '7', '2025', 1, 'SKMH/001/SKMH/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 19:31:22'),
+(254, 'SKBMR', 'KP', '7', '2025', 1, 'SKBMR/001/SKBMR/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 21:56:33'),
+(255, 'SKBMK', 'KP', '7', '2025', 1, 'SKBMK/001/SKBMK/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 22:14:15'),
+(256, 'SKGP', 'KP', '7', '2025', 5, 'SKGP/005/SKGP/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 23:21:32'),
+(257, 'SKTBP', 'KP', '7', '2025', 1, 'SKTBP/001/SKTBP/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-25 23:31:31'),
+(258, 'SKK', 'KP', '7', '2025', 1, 'SKK/001/SKK/KP/VII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-07-27 11:44:37'),
+(259, 'SKU', 'KP', '8', '2025', 11, 'SKU/011/SKU/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-02 13:15:09'),
+(260, 'SKDU', 'KP', '8', '2025', 9, 'SKDU/009/SKDU/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-02 13:34:43'),
+(261, 'SPS', 'KP', '8', '2025', 4, 'SPS/004/SPS/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-02 13:56:40'),
+(262, 'SP', 'KP', '8', '2025', 4, 'SP/004/SP/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-02 14:12:31'),
+(263, 'SP', 'KP', '8', '2025', 5, 'SP/005/SP/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-02 14:17:54'),
+(264, 'SP', 'KP', '8', '2025', 6, 'SP/006/SP/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-02 14:19:54'),
+(265, 'SKBI', 'KP', '8', '2025', 13, 'SKBI/013/SKBI/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-04 07:31:06'),
+(266, '500', 'KP', '8', '2025', 72, '500/072/SKD/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-04 07:55:01'),
+(267, 'SKJ', 'KP', '8', '2025', 4, 'SKJ/004/SKJ/KP/VIII/2025', 2, 'FATAN BARU, SE', 'Lurah', 'Pangkat penata III/e', 'Nip. 19840728201001 1 019', 'JL. BALANG BARU 3 NO 23', '2025-08-04 12:01:46');
 
 -- --------------------------------------------------------
 
@@ -12062,7 +12123,8 @@ CREATE TABLE `surat_keterangan_beda_identitas` (
 
 INSERT INTO `surat_keterangan_beda_identitas` (`id_skbi`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `perbedaan`, `nama_kartu_identitas`, `nama_no_identitas`, `nama2`, `tgl_lahir2`, `jenis_kelamin2`, `alamat2`, `agama2`, `pekerjaan2`, `keterangan2`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (34, 'Surat Keterangan Beda Identitas', '04/SKBI/KODE-DESA/VI/2025', '7304080811110001', 168, 'Quo ipsa in dolorem', 'Enim laboris aperiam', 'Fugit pariatur Lab', 'Ullamco omnis delect', 'Quis quo nulla quam ', 'Perempuan', 'Aute consequatur do', 'Non veritatis explic', 'Do vel et ullam opti', 'Ipsam eos doloribus ', '2025-06-21 21:42:43', 2, 'SELESAI', 1),
-(36, 'Surat Keterangan Beda Identitas', '012/SKBI/MANTAP/VI/2025', '7304080506770003', 410, 'Labore ut voluptatem', 'Ratione nihil eligen', 'Dolor perferendis id', 'Vero et cupiditate i', 'Sed alias consectetu', 'Laki-Laki', 'Corporis sed magni n', 'Sint mollitia molest', 'Repudiandae ut quis ', 'Maxime reiciendis om', '2025-06-29 20:09:12', 1, 'SELESAI', 1);
+(36, 'Surat Keterangan Beda Identitas', '012/SKBI/MANTAP/VI/2025', '7304080506770003', 410, 'Labore ut voluptatem', 'Ratione nihil eligen', 'Dolor perferendis id', 'Vero et cupiditate i', 'Sed alias consectetu', 'Laki-Laki', 'Corporis sed magni n', 'Sint mollitia molest', 'Repudiandae ut quis ', 'Maxime reiciendis om', '2025-06-29 20:09:12', 1, 'SELESAI', 1),
+(37, 'Surat Keterangan Beda Identitas', 'SKBI/013/SKBI/KP/VIII/2025', '7304053112900229', 879, 'naMA', 'BPJS', 'FDSFD', 'GDRF', 'GRFF', 'Laki-Laki', 'RGGER', 'GREE', 'REG', 'GRE', '2025-08-04 07:31:06', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12101,6 +12163,57 @@ INSERT INTO `surat_keterangan_beda_identitas_kis` (`id_skbik`, `jenis_surat`, `n
 (42, 'Surat Keterangan Beda Identitas KIS', '047/SKBIK/MANTAP/VII/2025', '7304053112900229', 583, 'MELAMAR KERJA', '12256633225858744', '4141', '7322222222222222', 'df', '2025-07-07', 'DFDD', '2025-07-07 14:20:43', 2, 'SELESAI', 1),
 (44, 'Surat Keterangan Beda Identitas KIS', 'SKBIK/048/099/VII/2025', '7304053112900229', 602, 'sdf', '123', 'dfs', '2324', 'fdsdf', '2025-07-10', 'fd', '2025-07-10 13:32:05', 2, 'SELESAI', 1),
 (45, 'Surat Keterangan Beda Identitas KIS', 'SKBIK/049/KP/VII/2025', '7304053112900229', 697, ']', ']', ']', '0000000000000000', '0900', '2025-07-21', '[', '2025-07-21 00:06:48', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_belum_memiliki_kwh`
+--
+
+CREATE TABLE `surat_keterangan_belum_memiliki_kwh` (
+  `id_skbmk` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_belum_memiliki_kwh`
+--
+
+INSERT INTO `surat_keterangan_belum_memiliki_kwh` (`id_skbmk`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Belum Memiliki Kwh', 'SKBMK/001/SKBMK/KP/VII/2025', '7304053112900229', 857, '2025-07-25 22:14:15', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_belum_memiliki_rumah`
+--
+
+CREATE TABLE `surat_keterangan_belum_memiliki_rumah` (
+  `id_skbmr` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `nama_imam_lurah` varchar(120) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_belum_memiliki_rumah`
+--
+
+INSERT INTO `surat_keterangan_belum_memiliki_rumah` (`id_skbmr`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nama_imam_lurah`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Belum Memiliki Rumah', 'SKBMR/001/SKBMR/KP/VII/2025', '7304053112900229', 855, 'DG NGITUNG', '2025-07-25 21:56:33', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12200,6 +12313,7 @@ CREATE TABLE `surat_keterangan_domisili` (
   `jenis_surat` varchar(50) NOT NULL,
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
+  `alamat_domisili` text DEFAULT NULL,
   `id_arsip` int(11) DEFAULT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
   `id_pejabat_desa` int(11) DEFAULT NULL,
@@ -12211,34 +12325,39 @@ CREATE TABLE `surat_keterangan_domisili` (
 -- Dumping data for table `surat_keterangan_domisili`
 --
 
-INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(106, 'Surat Keterangan Domisili', '04/SKD/KODE-DESA/VI/2025', '7304080811110001', 171, '2025-06-21 21:43:04', 2, 'SELESAI', 1),
-(107, 'Surat Keterangan Domisili', '05/SKD/KODE-DESA/VI/2025', '7304082511030004', 197, '2025-06-22 09:03:12', 2, 'SELESAI', 1),
-(108, 'Surat Keterangan Domisili', '06/SKD/KODE-DESA/VI/2025', '7304053112900229', 202, '2025-06-22 22:31:16', 2, 'SELESAI', 1),
-(109, 'Surat Keterangan Domisili', '07/SKD/KODE-DESA/VI/2025', '7304080811110001', 203, '2025-06-23 17:26:53', 2, 'SELESAI', 1),
-(110, 'Surat Keterangan Domisili', '08/SKD/KODE-DESA/VI/2025', '7304053112900229', 220, '2025-06-23 21:06:15', 2, 'SELESAI', 1),
-(111, 'Surat Keterangan Domisili', '09/SKD/KODE-DESA/VI/2025', '7304053112900229', 221, '2025-06-23 21:07:59', 2, 'SELESAI', 1),
-(112, 'Surat Keterangan Domisili', '10/SKD/KODE-DESA/VI/2025', '7304053112900229', 230, '2025-06-24 00:17:39', 2, 'SELESAI', 1),
-(122, 'Surat Keterangan Domisili', '12/SKD/KODE-DESA/VI/2025', '7304053112900229', 262, '2025-06-26 01:41:50', 1, 'SELESAI', 1),
-(123, 'Surat Keterangan Domisili', '13/SKD/KODE-DESA/VI/2025', '7304053112900229', 263, '2025-06-26 01:47:19', 2, 'SELESAI', 1),
-(126, 'Surat Keterangan Domisili', '14/SKD/KODE-DESA/VI/2025', '7304053112900229', 269, '2025-06-26 07:04:29', 2, 'SELESAI', 1),
-(127, 'Surat Keterangan Domisili', '001/SKD/KODE-DS/VI/2025', '7304053112900229', 293, '2025-06-27 19:56:32', 2, 'SELESAI', 1),
-(129, 'Surat Keterangan Domisili', '017/SKD/SANGAT MEMBANTU/VI/2025', '7304080505650001', 382, '2025-06-28 20:16:51', 2, 'SELESAI', 1),
-(131, 'Surat Keterangan Domisili', 'SKD/017/MANTAP/VI/2025', '7304080506770003', 418, '2025-06-29 20:21:22', 1, 'SELESAI', 1),
-(132, 'Surat Keterangan Domisili', 'SKD/018/MANTAP/VII/2025', '7304081310030001', 483, '2025-07-01 23:44:55', 1, 'SELESAI', 1),
-(145, 'Surat Keterangan Domisili', '027/SKD/MANTAP/VII/2025', '7304053112900229', 524, '2025-07-03 21:53:57', 2, 'SELESAI', 1),
-(160, 'Surat Keterangan Domisili', '033/SKD/MANTAP/VII/2025', '7304053112900229', 559, '2025-07-04 17:10:52', 2, 'SELESAI', 1),
-(161, 'Surat Keterangan Domisili', '036/SKD/MANTAP/VII/2025', '7304080107740003', 569, '2025-07-06 20:31:32', 2, 'SELESAI', 1),
-(162, 'Surat Keterangan Domisili', '100/037/099/VII/2025', '7304053112900229', 597, '2025-07-09 20:53:18', 2, 'SELESAI', 1),
-(164, 'Surat Keterangan Domisili', '100/038/099/VII/2025', '7304053112900229', 600, '2025-07-09 23:48:31', 2, 'SELESAI', 1),
-(167, 'Surat Keterangan Domisili', '500/039/KP/VII/2025', '7304053112900229', 620, '2025-07-13 11:05:07', 2, 'SELESAI', 1),
-(168, 'Surat Keterangan Domisili', '500/042/KP/VII/2025', '7304053112900229', 621, '2025-07-14 12:56:09', 1, 'SELESAI', 1),
-(169, 'Surat Keterangan Domisili', '500/040/KP/VII/2025', '7304053112900229', 623, '2025-07-13 20:59:44', 2, 'SELESAI', 1),
-(170, 'Surat Keterangan Domisili', '500/041/KP/VII/2025', '7304053112900229', 640, '2025-07-14 12:56:06', 2, 'SELESAI', 1),
-(173, 'Surat Keterangan Domisili', '500/071/SKD/KP/VII/2025', '7304080811110001', 803, '2025-07-24 07:36:49', 2, 'SELESAI', 1),
-(174, 'Surat Keterangan Domisili', '100/043/KP/VII/2025', '7304080811110001', 805, '2025-07-24 07:12:05', 2, 'SELESAI', 1),
-(175, 'Surat Keterangan Domisili', '500/070/KP/VII/2025', '7304081310030001', 817, '2025-07-24 07:07:19', 1, 'SELESAI', 1),
-(176, 'Surat Keterangan Domisili', NULL, '7304053112900229', 823, '2025-07-24 07:37:09', NULL, 'PENDING', 1);
+INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `nik`, `alamat_domisili`, `id_arsip`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(106, 'Surat Keterangan Domisili', '04/SKD/KODE-DESA/VI/2025', '7304080811110001', NULL, 171, '2025-06-21 21:43:04', 2, 'SELESAI', 1),
+(107, 'Surat Keterangan Domisili', '05/SKD/KODE-DESA/VI/2025', '7304082511030004', NULL, 197, '2025-06-22 09:03:12', 2, 'SELESAI', 1),
+(108, 'Surat Keterangan Domisili', '06/SKD/KODE-DESA/VI/2025', '7304053112900229', NULL, 202, '2025-06-22 22:31:16', 2, 'SELESAI', 1),
+(109, 'Surat Keterangan Domisili', '07/SKD/KODE-DESA/VI/2025', '7304080811110001', NULL, 203, '2025-06-23 17:26:53', 2, 'SELESAI', 1),
+(110, 'Surat Keterangan Domisili', '08/SKD/KODE-DESA/VI/2025', '7304053112900229', NULL, 220, '2025-06-23 21:06:15', 2, 'SELESAI', 1),
+(111, 'Surat Keterangan Domisili', '09/SKD/KODE-DESA/VI/2025', '7304053112900229', NULL, 221, '2025-06-23 21:07:59', 2, 'SELESAI', 1),
+(112, 'Surat Keterangan Domisili', '10/SKD/KODE-DESA/VI/2025', '7304053112900229', NULL, 230, '2025-06-24 00:17:39', 2, 'SELESAI', 1),
+(122, 'Surat Keterangan Domisili', '12/SKD/KODE-DESA/VI/2025', '7304053112900229', NULL, 262, '2025-06-26 01:41:50', 1, 'SELESAI', 1),
+(123, 'Surat Keterangan Domisili', '13/SKD/KODE-DESA/VI/2025', '7304053112900229', NULL, 263, '2025-06-26 01:47:19', 2, 'SELESAI', 1),
+(126, 'Surat Keterangan Domisili', '14/SKD/KODE-DESA/VI/2025', '7304053112900229', NULL, 269, '2025-06-26 07:04:29', 2, 'SELESAI', 1),
+(127, 'Surat Keterangan Domisili', '001/SKD/KODE-DS/VI/2025', '7304053112900229', NULL, 293, '2025-06-27 19:56:32', 2, 'SELESAI', 1),
+(129, 'Surat Keterangan Domisili', '017/SKD/SANGAT MEMBANTU/VI/2025', '7304080505650001', NULL, 382, '2025-06-28 20:16:51', 2, 'SELESAI', 1),
+(131, 'Surat Keterangan Domisili', 'SKD/017/MANTAP/VI/2025', '7304080506770003', NULL, 418, '2025-06-29 20:21:22', 1, 'SELESAI', 1),
+(132, 'Surat Keterangan Domisili', 'SKD/018/MANTAP/VII/2025', '7304081310030001', NULL, 483, '2025-07-01 23:44:55', 1, 'SELESAI', 1),
+(145, 'Surat Keterangan Domisili', '027/SKD/MANTAP/VII/2025', '7304053112900229', NULL, 524, '2025-07-03 21:53:57', 2, 'SELESAI', 1),
+(160, 'Surat Keterangan Domisili', '033/SKD/MANTAP/VII/2025', '7304053112900229', NULL, 559, '2025-07-04 17:10:52', 2, 'SELESAI', 1),
+(161, 'Surat Keterangan Domisili', '036/SKD/MANTAP/VII/2025', '7304080107740003', NULL, 569, '2025-07-06 20:31:32', 2, 'SELESAI', 1),
+(162, 'Surat Keterangan Domisili', '100/037/099/VII/2025', '7304053112900229', NULL, 597, '2025-07-09 20:53:18', 2, 'SELESAI', 1),
+(164, 'Surat Keterangan Domisili', '100/038/099/VII/2025', '7304053112900229', NULL, 600, '2025-07-09 23:48:31', 2, 'SELESAI', 1),
+(167, 'Surat Keterangan Domisili', '500/039/KP/VII/2025', '7304053112900229', NULL, 620, '2025-07-13 11:05:07', 2, 'SELESAI', 1),
+(168, 'Surat Keterangan Domisili', '500/042/KP/VII/2025', '7304053112900229', NULL, 621, '2025-07-14 12:56:09', 1, 'SELESAI', 1),
+(169, 'Surat Keterangan Domisili', '500/040/KP/VII/2025', '7304053112900229', NULL, 623, '2025-07-13 20:59:44', 2, 'SELESAI', 1),
+(170, 'Surat Keterangan Domisili', '500/041/KP/VII/2025', '7304053112900229', NULL, 640, '2025-07-14 12:56:06', 2, 'SELESAI', 1),
+(173, 'Surat Keterangan Domisili', '500/071/SKD/KP/VII/2025', '7304080811110001', NULL, 803, '2025-07-24 07:36:49', 2, 'SELESAI', 1),
+(174, 'Surat Keterangan Domisili', '100/043/KP/VII/2025', '7304080811110001', NULL, 805, '2025-07-24 07:12:05', 2, 'SELESAI', 1),
+(175, 'Surat Keterangan Domisili', '500/070/KP/VII/2025', '7304081310030001', NULL, 817, '2025-07-24 07:07:19', 1, 'SELESAI', 1),
+(176, 'Surat Keterangan Domisili', NULL, '7304053112900229', NULL, 823, '2025-07-24 07:37:09', NULL, 'PENDING', 1),
+(180, 'Surat Keterangan Domisili', NULL, '7304053112900229', NULL, 862, '2025-07-27 08:58:28', NULL, 'PENDING', 1),
+(181, 'Surat Keterangan Domisili', NULL, '7304041301120002', NULL, 863, '2025-07-27 08:58:38', NULL, 'PENDING', 1),
+(182, 'Surat Keterangan Domisili', NULL, '7304053112900229', NULL, 864, '2025-07-27 08:58:47', NULL, 'PENDING', 1),
+(183, 'Surat Keterangan Domisili', NULL, '7304053112900229', NULL, 871, '2025-07-27 15:22:08', NULL, 'PENDING', 1),
+(184, 'Surat Keterangan Domisili', '500/072/SKD/KP/VIII/2025', '7304053112900229', 'PAJERO', 880, '2025-08-04 07:55:01', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12252,6 +12371,7 @@ CREATE TABLE `surat_keterangan_domisili_usaha` (
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `id_arsip` int(11) DEFAULT NULL,
+  `alamat_domisili` varchar(255) DEFAULT NULL,
   `jenis_usaha` varchar(50) NOT NULL,
   `alamat_usaha` varchar(50) NOT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
@@ -12264,9 +12384,10 @@ CREATE TABLE `surat_keterangan_domisili_usaha` (
 -- Dumping data for table `surat_keterangan_domisili_usaha`
 --
 
-INSERT INTO `surat_keterangan_domisili_usaha` (`id_skdu`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `jenis_usaha`, `alamat_usaha`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(54, 'Surat Keterangan Domisili Usaha', '04/SKDU/KODE-DESA/VI/2025', '7304080811110001', 172, 'Lorem in est unde q', 'Animi omnis elit q', '2025-06-21 21:43:11', 2, 'SELESAI', 1),
-(55, 'Surat Keterangan Domisili Usaha', 'SKDU/008/MANTAP/VI/2025', '7304080506770003', 417, 'Iusto mollitia delen', 'Nihil ducimus dolor', '2025-06-29 19:25:40', 2, 'SELESAI', 1);
+INSERT INTO `surat_keterangan_domisili_usaha` (`id_skdu`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `alamat_domisili`, `jenis_usaha`, `alamat_usaha`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(54, 'Surat Keterangan Domisili Usaha', '04/SKDU/KODE-DESA/VI/2025', '7304080811110001', 172, NULL, 'Lorem in est unde q', 'Animi omnis elit q', '2025-06-21 21:43:11', 2, 'SELESAI', 1),
+(55, 'Surat Keterangan Domisili Usaha', 'SKDU/008/MANTAP/VI/2025', '7304080506770003', 417, NULL, 'Iusto mollitia delen', 'Nihil ducimus dolor', '2025-06-29 19:25:40', 2, 'SELESAI', 1),
+(78, 'Surat Keterangan Domisili Usaha', 'SKDU/009/SKDU/KP/VIII/2025', '7304053112900229', 873, 'PAJERO', 'FGH', 'FGFG', '2025-08-02 13:34:43', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12295,7 +12416,8 @@ INSERT INTO `surat_keterangan_ganti_pekerjaan` (`id_skgp`, `jenis_surat`, `no_su
 (4, 'Surat Keterangan Ganti Pekerjaan', 'SKGP/002/KP/VII/2025', '7304053112900229', 693, 'BURUH HARIAN LEPAS', '2025-07-20 13:43:59', 1, 'SELESAI', 1),
 (5, 'Surat Keterangan Ganti Pekerjaan', 'SKGP/001/KP/VII/2025', '7304053112900229', 694, 'PELAJAR', '2025-07-20 13:43:52', 2, 'SELESAI', 1),
 (6, 'Surat Keterangan Ganti Pekerjaan', 'SKGP/003/KP/VII/2025', '7304012101800001', 695, 'BURUH HARIAN LEPAS', '2025-07-20 14:16:44', 2, 'SELESAI', 1),
-(7, 'Surat Keterangan Ganti Pekerjaan', 'SKGP/004/KP/VII/2025', '7304053112900229', 712, 'BURUH HARIAN LEPAS', '2025-07-21 00:57:53', 2, 'SELESAI', 1);
+(7, 'Surat Keterangan Ganti Pekerjaan', 'SKGP/004/KP/VII/2025', '7304053112900229', 712, 'BURUH HARIAN LEPAS', '2025-07-21 00:57:53', 2, 'SELESAI', 1),
+(8, 'Surat Keterangan Ganti Pekerjaan', 'SKGP/005/SKGP/KP/VII/2025', '7304053112900229', 858, 'BURUH HARIAN LEPAS', '2025-07-25 23:21:32', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12369,7 +12491,8 @@ INSERT INTO `surat_keterangan_janda` (`id_skj`, `jenis_surat`, `no_surat`, `nik`
 (3, 'Surat Keterangan Janda', 'SKJ/001/SKJ/KP/VII/2025', '7304053112900229', 836, 'dsfdf', 'CERAI', 'dfdfdffd', '2025-07-25 10:37:54', 2, 'SELESAI', 1),
 (4, 'Surat Keterangan Janda', NULL, '7304053112900229', 837, 'fh', 'CERAI', 'gfg', '2025-07-25 10:37:43', NULL, 'PENDING', 1),
 (5, 'Surat Keterangan Janda', 'SKJ/002/SKJ/KP/VII/2025', '7304053112900229', 838, 'BASO', 'MENINGGAL', '21 Agustus 2021', '2025-07-25 11:15:38', 2, 'SELESAI', 1),
-(6, 'Surat Keterangan Janda', 'SKJ/003/SKJ/KP/VII/2025', '7304053112900229', 839, 'BASO', 'CERAI', '21 Agustus 2021', '2025-07-25 11:20:20', 2, 'SELESAI', 1);
+(6, 'Surat Keterangan Janda', 'SKJ/003/SKJ/KP/VII/2025', '7304053112900229', 839, 'BASO', 'CERAI', '21 Agustus 2021', '2025-07-25 11:20:20', 2, 'SELESAI', 1),
+(7, 'Surat Keterangan Janda', 'SKJ/004/SKJ/KP/VIII/2025', '7304053112900229', 881, 'Arfa, S.Pd., M.Pd', 'MENINGGAL', '21 Agustus 2021', '2025-08-04 12:01:46', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12420,6 +12543,38 @@ INSERT INTO `surat_keterangan_jual_beli` (`id_skjb`, `jenis_surat`, `no_surat`, 
 (3, 'Surat Keterangan Jual Beli', '022/SKJB/MANTAP/VI/2025', '7304080506770003', 461, 'Est quis tempora eni', 'Id enim qui autem la', 'Ea est consequat In', 'Possimus rem eum ut', 'Elit sint voluptate', 'Ut incidunt adipisc', 'Pariatur In rerum a', 'Excepturi iste ullam', '11', 'Voluptatum', 'Beatae elit alias m', 'Et officiis ratione ', 'Cupidatat dolor iust', 'Sunt consequatur M', 'Qui quis do id volup', '', '', '', 'Distinctio Harum in', 'Qui vitae voluptate ', 'Reiciendis deleniti ', '2025-06-29 20:50:44', 2, 'SELESAI', 1),
 (4, 'Surat Keterangan Jual Beli', 'SKJB/023/KP/VII/2025', '7304053112900229', 679, '7304012101800001', 'A ISWAN AFANDI SP', 'ALLU, 21-01-1980', 'mahasiswa', 'Bonstos Lingkungan Sawitto Kelurahan Pallengu Kecamatan Bangkala Kabupaten Jeneponto', '0p', 'p0', '09p', '0', '0', '', '', '', '', '0', '', '', '', '0p9', 'p0', 'Apabila di kemudian hari, ternyata keluarga, anak cucu kami menggugat lokasi hak milik yang sudah kami jual, dan atau ada pihak lain yang menggugat dan atau dalam pemberian keterangan jual beli ini tidak benar maka saya / kami selaku penjual atau pembeli siap mempertanggung jawabkan sesuai peraturan perundang-undangan yang berlaku. Dalam surat keterangan jual beli ini kami kedua belah pihak bersepakat bahwa surat keterangan dapat di pergunakan dalam pengurusan Akte jual Beli / Balik Nama ke notaris atau pejabat pembuat Akte Tanah (PPAT), Tanpa menghadirkan pihak penjual ( Foto copy KTP Pihak penjual terlampir ).', '2025-07-17 08:25:17', 2, 'SELESAI', 1),
 (5, 'Surat Keterangan Jual Beli', 'SKJB/024/KP/VII/2025', '7304053112900229', 680, '7304012101800001', 'A ISWAN AFANDI SP', 'ALLU, 21-01-1980', 'mahasiswa', 'Bonstos Lingkungan Sawitto Kelurahan Pallengu Kecamatan Bangkala Kabupaten Jeneponto', '87', 'i', '87', '78', '87', '7887', '', '', 'kuku', 'uk', '', '', '', 'uk', 'uk', 'Apabila di kemudian hari, ternyata keluarga, anak cucu kami menggugat lokasi hak milik yang sudah kami jual, dan atau ada pihak lain yang menggugat dan atau dalam pemberian keterangan jual beli ini tidak benar maka saya / kami selaku penjual atau pembeli siap mempertanggung jawabkan sesuai peraturan perundang-undangan yang berlaku. Dalam surat keterangan jual beli ini kami kedua belah pihak bersepakat bahwa surat keterangan dapat di pergunakan dalam pengurusan Akte jual Beli / Balik Nama ke notaris atau pejabat pembuat Akte Tanah (PPAT), Tanpa menghadirkan pihak penjual ( Foto copy KTP Pihak penjual terlampir ).', '2025-07-17 08:26:26', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_kelahiran`
+--
+
+CREATE TABLE `surat_keterangan_kelahiran` (
+  `id_skk` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `nama_bayi` varchar(100) NOT NULL,
+  `ttl_bayi` varchar(100) NOT NULL,
+  `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL,
+  `agama` varchar(20) NOT NULL,
+  `alamat` text NOT NULL,
+  `nama_ayah` varchar(100) NOT NULL,
+  `nama_ibu` varchar(100) NOT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_kelahiran`
+--
+
+INSERT INTO `surat_keterangan_kelahiran` (`id_skk`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nama_bayi`, `ttl_bayi`, `jenis_kelamin`, `agama`, `alamat`, `nama_ayah`, `nama_ibu`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Kelahiran', 'SKK/001/SKK/KP/VII/2025', '7304053112900229', 870, 'gfj', 'hfjjuy', 'Laki-laki', 'Islam', 'hjg', 'gj', 'gjgh', '2025-07-27 11:44:37', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12489,7 +12644,9 @@ CREATE TABLE `surat_keterangan_kematian_dan_penguburan` (
 INSERT INTO `surat_keterangan_kematian_dan_penguburan` (`id_skkdp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `hari_tanggal_kematian`, `jam_pukul`, `tempat`, `hari_tanggal_dikebumikan`, `jam_pukul_dikebumikan`, `tempat_dikebumikan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (6, 'Surat Keterangan Kematian dan Penguburan', '001/SKKP/KODE-DESA/VI/2025', '7304080107740003', 193, 'sas', 'ds', 'sadsad', 'sdasd', 'sddasadsad', 'sdasd', '2025-06-21 22:21:35', 2, 'SELESAI', 1),
 (7, 'Surat Keterangan Kematian dan Penguburan', '011/SKKDP/KUE-BOLU/VI/2025', '7304080505650001', 390, 'Ullam libero cumque ', 'Dolores porro pariat', 'Rem sit molestias di', 'Ea impedit accusamu', 'In necessitatibus du', 'Magnam sed earum rep', '2025-06-28 10:47:19', 1, 'SELESAI', 1),
-(10, 'Surat Keterangan Kematian dan Penguburan', 'SKKP/001/MANTAP/VII/2025', '7304080506770003', 463, 'Esse consectetur n', 'Sunt at perferendis ', 'Sit voluptas vero qu', 'Est qui pariatur E', 'Quis quo in labore l', 'Molestias nesciunt ', '2025-07-01 23:45:13', 2, 'SELESAI', 1);
+(10, 'Surat Keterangan Kematian dan Penguburan', 'SKKP/001/MANTAP/VII/2025', '7304080506770003', 463, 'Esse consectetur n', 'Sunt at perferendis ', 'Sit voluptas vero qu', 'Est qui pariatur E', 'Quis quo in labore l', 'Molestias nesciunt ', '2025-07-01 23:45:13', 2, 'SELESAI', 1),
+(11, 'Surat Keterangan Kematian dan Penguburan', 'SKKP/002/SKKP/KP/VII/2025', '7304053112900229', 844, 'dfg', 'd', 'dfg', 'df', 'fd', 'f', '2025-07-25 14:47:23', 1, 'SELESAI', 1),
+(12, 'Surat Keterangan Kematian dan Penguburan', 'SKKP/003/SKKP/KP/VII/2025', '7304053112900229', 845, 'reer', 'sfd', 'bfedged', 'fg', 'd', 'ree', '2025-07-25 14:48:57', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12575,6 +12732,76 @@ INSERT INTO `surat_keterangan_mahar_sunrang` (`id_skms`, `jenis_surat`, `no_sura
 (6, 'Surat Keterangan Mahar Sunrang', '070/SKMS/KP/VII/2025', '7304081310030001', 819, 'Nisi fuga Error sed', 'Proident illo anim ', 'Est quos suscipit ad', 'Assumenda vitae occa', 'Minus voluptas volup', 'Amet animi deserun', 'Reprehenderit conse', 'Nostrud fugit conse', 'Aut officia providen', 'In eius non sunt ea', 'Consequuntur qui pra', 'Voluptas sed omnis q', 'Aliquam commodi cons', 'Provident facilis v', '2025-07-24 01:41:22', 2, 'SELESAI', 1),
 (7, 'Surat Keterangan Mahar Sunrang', '071/250/KP/VII/2025', '7304081310030001', 820, 'Et suscipit tempora ', 'Necessitatibus inven', 'Dignissimos nemo a a', 'Aute aute exercitati', 'Architecto quis esse', 'Autem molestiae eum ', 'Soluta nisi reprehen', 'Ipsum quaerat in mi', 'A in provident volu', 'Excepteur laborum A', 'Quaerat et quaerat d', 'Sequi nobis odit qua', 'Officiis dolor fuga', 'Aliquid quia molesti', '2025-07-24 01:50:31', 2, 'SELESAI', 1),
 (8, 'Surat Keterangan Mahar Sunrang', '072/SKMS/KP/VII/2025', '7304081310030001', 821, 'Vitae facilis consec', 'Et ad quibusdam volu', 'Totam quae enim dolo', 'Officia elit exerci', 'Inventore consequunt', 'Fuga Elit animi e', 'Vel amet voluptas e', 'Harum nesciunt id p', 'Labore ut doloribus ', 'Aliquip est libero l', 'In consequatur place', 'Similique perspiciat', 'Quas corporis conseq', 'Quo totam nisi maxim', '2025-07-24 01:54:03', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_masih_hidup`
+--
+
+CREATE TABLE `surat_keterangan_masih_hidup` (
+  `id_skmh` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_masih_hidup`
+--
+
+INSERT INTO `surat_keterangan_masih_hidup` (`id_skmh`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(2, 'Surat Keterangan Masih Hidup', 'SKMH/001/SKMH/KP/VII/2025', '7304041301120002', 852, '2025-07-25 19:31:22', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_merantau`
+--
+
+CREATE TABLE `surat_keterangan_merantau` (
+  `id_skm` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `daerah` varchar(120) DEFAULT NULL,
+  `alasan_merantau` varchar(250) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_merantau`
+--
+
+INSERT INTO `surat_keterangan_merantau` (`id_skm`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `daerah`, `alasan_merantau`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Merantau', 'SKM/001/SKM/KP/VII/2025', '7304053112900229', 847, 'jenepoonto', 'mencari pekerjaan', '2025-07-25 18:52:31', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_pengalihan_hak_garap`
+--
+
+CREATE TABLE `surat_keterangan_pengalihan_hak_garap` (
+  `id_skphg` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -12801,6 +13028,57 @@ INSERT INTO `surat_keterangan_pisah` (`id_skp`, `jenis_surat`, `no_surat`, `nik`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `surat_keterangan_sudah_nikah`
+--
+
+CREATE TABLE `surat_keterangan_sudah_nikah` (
+  `id_sksn` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `nama_imam_lurah` varchar(120) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_sudah_nikah`
+--
+
+INSERT INTO `surat_keterangan_sudah_nikah` (`id_sksn`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `nama_imam_lurah`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(2, 'Surat Keterangan Sudah Nikah', 'SKSN/001/SKSN/KP/VII/2025', '7304053112900229', 842, 'DG NGITUNG', '2025-07-25 13:58:38', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keterangan_tidak_berlangganan_pdam`
+--
+
+CREATE TABLE `surat_keterangan_tidak_berlangganan_pdam` (
+  `id_sktbp` int(11) NOT NULL,
+  `jenis_surat` varchar(100) NOT NULL,
+  `no_surat` varchar(100) DEFAULT NULL,
+  `nik` varchar(20) NOT NULL,
+  `id_arsip` int(11) DEFAULT NULL,
+  `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
+  `id_pejabat_desa` int(11) DEFAULT NULL,
+  `status_surat` enum('PENDING','SELESAI') NOT NULL DEFAULT 'PENDING',
+  `id_profil_desa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `surat_keterangan_tidak_berlangganan_pdam`
+--
+
+INSERT INTO `surat_keterangan_tidak_berlangganan_pdam` (`id_sktbp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(1, 'Surat Keterangan Tidak Berlangganan Pdam', 'SKTBP/001/SKTBP/KP/VII/2025', '7304053112900229', 860, '2025-07-25 23:31:31', 2, 'SELESAI', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `surat_keterangan_tidak_mampu`
 --
 
@@ -12845,9 +13123,9 @@ CREATE TABLE `surat_keterangan_usaha` (
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `id_arsip` int(11) DEFAULT NULL,
-  `usaha` varchar(30) DEFAULT NULL,
+  `usaha` varchar(250) DEFAULT NULL,
   `alamat_usaha` varchar(200) NOT NULL,
-  `keperluan` varchar(50) NOT NULL,
+  `keperluan` varchar(250) DEFAULT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
   `id_pejabat_desa` int(11) DEFAULT NULL,
   `status_surat` varchar(15) NOT NULL,
@@ -12861,7 +13139,9 @@ CREATE TABLE `surat_keterangan_usaha` (
 INSERT INTO `surat_keterangan_usaha` (`id_sku`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `usaha`, `alamat_usaha`, `keperluan`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
 (32, 'Surat Keterangan Usaha', '001/SKU/KODE-DESA/VI/2025', '7304080811110001', 179, 'Soluta culpa deseru', 'Commodi qui dolor ad', 'In quisquam eius iur', '2025-06-21 21:44:12', 2, 'SELESAI', 1),
 (33, 'Surat Keterangan Usaha', '010/SKU/KODE-DS/VI/2025', '7304080505650001', 388, 'Tempore laudantium', 'Itaque veritatis rep', 'Ea aperiam voluptati', '2025-06-28 10:42:51', 2, 'SELESAI', 1),
-(34, 'Surat Keterangan Usaha', '010/SKU/MANTAP/VI/2025', '7304080506770003', 416, 'Duis dolor exercitat', 'Voluptatibus vel sin', 'A adipisci facere vo', '2025-06-29 19:59:29', 2, 'SELESAI', 1);
+(34, 'Surat Keterangan Usaha', '010/SKU/MANTAP/VI/2025', '7304080506770003', 416, 'Duis dolor exercitat', 'Voluptatibus vel sin', 'A adipisci facere vo', '2025-06-29 19:59:29', 2, 'SELESAI', 1),
+(36, 'Surat Keterangan Usaha', NULL, '7304053112900229', 865, '[\'', '[\'', '-0', '2025-07-27 09:28:25', NULL, 'PENDING', 1),
+(37, 'Surat Keterangan Usaha', 'SKU/011/SKU/KP/VIII/2025', '7304053112900229', 872, 'JUKA TEBANG', 'Tahun 1988 - Sekarang', 'JL. JAKARTA', '2025-08-02 13:15:09', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -12938,6 +13218,7 @@ CREATE TABLE `surat_pengantar` (
   `no_surat` varchar(100) DEFAULT NULL,
   `nik` varchar(20) NOT NULL,
   `id_arsip` int(11) DEFAULT NULL,
+  `surat_pengantar` varchar(255) DEFAULT NULL,
   `tujuan` varchar(120) DEFAULT NULL,
   `maksud_untuk` varchar(120) DEFAULT NULL,
   `tanggal_surat` datetime NOT NULL DEFAULT current_timestamp(),
@@ -12950,10 +13231,13 @@ CREATE TABLE `surat_pengantar` (
 -- Dumping data for table `surat_pengantar`
 --
 
-INSERT INTO `surat_pengantar` (`id_sp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `tujuan`, `maksud_untuk`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
-(8, 'Surat Pengantar', 'SP/003/KP/VII/2025', '7304053112900229', 648, 'Kantor DPM PTSP Kab. Jeneponto', 'Mengurus Izin Pembentukan Badan Usaha Dagang dan Perbengkelan', '2025-07-17 22:19:38', 2, 'SELESAI', 1),
-(10, 'Surat Pengantar', 'SP/002/KP/VII/2025', '7304053112900229', 649, 'Kantor DPM PTSP Kab. Jeneponto', 'Mengurus Izin Pembentukan Badan Usaha Dagang dan Perbengkelan', '2025-07-16 06:53:35', 1, 'SELESAI', 1),
-(13, 'Surat Pengantar', 'SP/001/KP/VII/2025', '7304053112900229', 652, 'Kantor DPM PTSP Kab. Jeneponto', 'Mengurus Izin Pembentukan Badan Usaha Dagang dan Perbengkelan', '2025-07-16 05:37:55', 2, 'SELESAI', 1);
+INSERT INTO `surat_pengantar` (`id_sp`, `jenis_surat`, `no_surat`, `nik`, `id_arsip`, `surat_pengantar`, `tujuan`, `maksud_untuk`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`) VALUES
+(8, 'Surat Pengantar', 'SP/003/KP/VII/2025', '7304053112900229', 648, NULL, 'Kantor DPM PTSP Kab. Jeneponto', 'Mengurus Izin Pembentukan Badan Usaha Dagang dan Perbengkelan', '2025-07-17 22:19:38', 2, 'SELESAI', 1),
+(10, 'Surat Pengantar', 'SP/002/KP/VII/2025', '7304053112900229', 649, NULL, 'Kantor DPM PTSP Kab. Jeneponto', 'Mengurus Izin Pembentukan Badan Usaha Dagang dan Perbengkelan', '2025-07-16 06:53:35', 1, 'SELESAI', 1),
+(13, 'Surat Pengantar', 'SP/001/KP/VII/2025', '7304053112900229', 652, NULL, 'Kantor DPM PTSP Kab. Jeneponto', 'Mengurus Izin Pembentukan Badan Usaha Dagang dan Perbengkelan', '2025-07-16 05:37:55', 2, 'SELESAI', 1),
+(15, 'Surat Pengantar', 'SP/004/SP/KP/VIII/2025', '7304053112900229', 876, 'Kantor DPM PTSP Kab. Jeneponto', 'SURAT PENGANTAR MAKANAN', 'Mengurus Izin Pembentukan Badan Usaha Dagang dan Perbengkelan', '2025-08-02 14:12:31', 2, 'SELESAI', 1),
+(16, 'Surat Pengantar', 'SP/005/SP/KP/VIII/2025', '7304053112900229', 877, 'SURAT PENGANTAR MAKANAN', 'dfsdfgsd', 'fdgfds', '2025-08-02 14:17:54', 2, 'SELESAI', 1),
+(17, 'Surat Pengantar', 'SP/006/SP/KP/VIII/2025', '7304053112900229', 878, 'SURAT PENGANTAR', 'fhdfhhdfhf', 'fdg', '2025-08-02 14:19:54', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -13021,7 +13305,8 @@ INSERT INTO `surat_pengantar_skck` (`id_sps`, `jenis_surat`, `no_surat`, `nik`, 
 (21, 'Surat Pengantar SKCK', '016/SPSKEREN/WOOW/VI/2025', '7304080506770003', 471, 'Ut ut dolores id', 'Debitis voluptat', 'Permohonan SKCK', 'Ipsa quisquam maxim', '30 Hari', '2025-06-29 17:26:01', 1, 'SELESAI', 1),
 (22, 'Surat Pengantar SKCK', 'SPS/001/KP/VII/2025', '7304053112900229', 670, '255447', '1222222', 'Permohonan SKCK', '2122121', NULL, '2025-07-17 00:03:53', 1, 'SELESAI', 1),
 (23, 'Surat Pengantar SKCK', 'SPS/002/KP/VII/2025', '7304053112900229', 672, '232', '71332554777', 'Permohonan SKCK', 'MELAMAR KERJA', '30 Hari', '2025-07-17 00:09:23', 2, 'SELESAI', 1),
-(24, 'Surat Pengantar SKCK', 'SPS/003/KP/VII/2025', '7304041301120002', 673, '333', '', 'Permohonan SKCK', 'd', '7 Hari', '2025-07-17 00:15:36', 2, 'SELESAI', 1);
+(24, 'Surat Pengantar SKCK', 'SPS/003/KP/VII/2025', '7304041301120002', 673, '333', '', 'Permohonan SKCK', 'd', '7 Hari', '2025-07-17 00:15:36', 2, 'SELESAI', 1),
+(25, 'Surat Pengantar SKCK', 'SPS/004/SPS/KP/VIII/2025', '7304053112900229', 874, '7304053112900229', '213212312', 'Permohonan SKCK', 'dcdc', '', '2025-08-02 13:56:40', 2, 'SELESAI', 1);
 
 -- --------------------------------------------------------
 
@@ -13299,6 +13584,26 @@ ALTER TABLE `surat_keterangan_beda_identitas_kis`
   ADD KEY `idx_nik` (`nik`);
 
 --
+-- Indexes for table `surat_keterangan_belum_memiliki_kwh`
+--
+ALTER TABLE `surat_keterangan_belum_memiliki_kwh`
+  ADD PRIMARY KEY (`id_skbmk`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_belum_memiliki_rumah`
+--
+ALTER TABLE `surat_keterangan_belum_memiliki_rumah`
+  ADD PRIMARY KEY (`id_skbmr`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
 -- Indexes for table `surat_keterangan_belum_nikah`
 --
 ALTER TABLE `surat_keterangan_belum_nikah`
@@ -13386,6 +13691,16 @@ ALTER TABLE `surat_keterangan_jual_beli`
   ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
 
 --
+-- Indexes for table `surat_keterangan_kelahiran`
+--
+ALTER TABLE `surat_keterangan_kelahiran`
+  ADD PRIMARY KEY (`id_skk`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
 -- Indexes for table `surat_keterangan_kematian`
 --
 ALTER TABLE `surat_keterangan_kematian`
@@ -13417,6 +13732,36 @@ ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
 --
 ALTER TABLE `surat_keterangan_mahar_sunrang`
   ADD PRIMARY KEY (`id_skms`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_masih_hidup`
+--
+ALTER TABLE `surat_keterangan_masih_hidup`
+  ADD PRIMARY KEY (`id_skmh`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_merantau`
+--
+ALTER TABLE `surat_keterangan_merantau`
+  ADD PRIMARY KEY (`id_skm`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_pengalihan_hak_garap`
+--
+ALTER TABLE `surat_keterangan_pengalihan_hak_garap`
+  ADD PRIMARY KEY (`id_skphg`),
   ADD KEY `idx_nik` (`nik`),
   ADD KEY `idx_id_arsip` (`id_arsip`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -13473,6 +13818,26 @@ ALTER TABLE `surat_keterangan_pindah_penduduk`
 --
 ALTER TABLE `surat_keterangan_pisah`
   ADD PRIMARY KEY (`id_skp`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_sudah_nikah`
+--
+ALTER TABLE `surat_keterangan_sudah_nikah`
+  ADD PRIMARY KEY (`id_sksn`),
+  ADD KEY `idx_nik` (`nik`),
+  ADD KEY `idx_id_arsip` (`id_arsip`),
+  ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
+  ADD KEY `idx_id_profil_desa` (`id_profil_desa`);
+
+--
+-- Indexes for table `surat_keterangan_tidak_berlangganan_pdam`
+--
+ALTER TABLE `surat_keterangan_tidak_berlangganan_pdam`
+  ADD PRIMARY KEY (`id_sktbp`),
   ADD KEY `idx_nik` (`nik`),
   ADD KEY `idx_id_arsip` (`id_arsip`),
   ADD KEY `idx_id_pejabat_desa` (`id_pejabat_desa`),
@@ -13578,7 +13943,7 @@ ALTER TABLE `surat_tugas`
 -- AUTO_INCREMENT for table `arsip_surat`
 --
 ALTER TABLE `arsip_surat`
-  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=840;
+  MODIFY `id_arsip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=882;
 
 --
 -- AUTO_INCREMENT for table `dusun`
@@ -13632,7 +13997,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `nomor_surat`
 --
 ALTER TABLE `nomor_surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=268;
 
 --
 -- AUTO_INCREMENT for table `pejabat_desa`
@@ -13668,13 +14033,25 @@ ALTER TABLE `surat_keterangan`
 -- AUTO_INCREMENT for table `surat_keterangan_beda_identitas`
 --
 ALTER TABLE `surat_keterangan_beda_identitas`
-  MODIFY `id_skbi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_skbi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_beda_identitas_kis`
 --
 ALTER TABLE `surat_keterangan_beda_identitas_kis`
   MODIFY `id_skbik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_belum_memiliki_kwh`
+--
+ALTER TABLE `surat_keterangan_belum_memiliki_kwh`
+  MODIFY `id_skbmk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_belum_memiliki_rumah`
+--
+ALTER TABLE `surat_keterangan_belum_memiliki_rumah`
+  MODIFY `id_skbmr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_belum_nikah`
@@ -13698,19 +14075,19 @@ ALTER TABLE `surat_keterangan_berkelakuan_baik`
 -- AUTO_INCREMENT for table `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_domisili_usaha`
 --
 ALTER TABLE `surat_keterangan_domisili_usaha`
-  MODIFY `id_skdu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id_skdu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_ganti_pekerjaan`
 --
 ALTER TABLE `surat_keterangan_ganti_pekerjaan`
-  MODIFY `id_skgp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_skgp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_hibah`
@@ -13722,13 +14099,19 @@ ALTER TABLE `surat_keterangan_hibah`
 -- AUTO_INCREMENT for table `surat_keterangan_janda`
 --
 ALTER TABLE `surat_keterangan_janda`
-  MODIFY `id_skj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_skj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_jual_beli`
 --
 ALTER TABLE `surat_keterangan_jual_beli`
   MODIFY `id_skjb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_kelahiran`
+--
+ALTER TABLE `surat_keterangan_kelahiran`
+  MODIFY `id_skk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_kematian`
@@ -13740,7 +14123,7 @@ ALTER TABLE `surat_keterangan_kematian`
 -- AUTO_INCREMENT for table `surat_keterangan_kematian_dan_penguburan`
 --
 ALTER TABLE `surat_keterangan_kematian_dan_penguburan`
-  MODIFY `id_skkdp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_skkdp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_kepemilikan_kendaraan_bermotor`
@@ -13753,6 +14136,24 @@ ALTER TABLE `surat_keterangan_kepemilikan_kendaraan_bermotor`
 --
 ALTER TABLE `surat_keterangan_mahar_sunrang`
   MODIFY `id_skms` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_masih_hidup`
+--
+ALTER TABLE `surat_keterangan_masih_hidup`
+  MODIFY `id_skmh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_merantau`
+--
+ALTER TABLE `surat_keterangan_merantau`
+  MODIFY `id_skm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_pengalihan_hak_garap`
+--
+ALTER TABLE `surat_keterangan_pengalihan_hak_garap`
+  MODIFY `id_skphg` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_pengantar`
@@ -13791,6 +14192,18 @@ ALTER TABLE `surat_keterangan_pisah`
   MODIFY `id_skp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `surat_keterangan_sudah_nikah`
+--
+ALTER TABLE `surat_keterangan_sudah_nikah`
+  MODIFY `id_sksn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `surat_keterangan_tidak_berlangganan_pdam`
+--
+ALTER TABLE `surat_keterangan_tidak_berlangganan_pdam`
+  MODIFY `id_sktbp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `surat_keterangan_tidak_mampu`
 --
 ALTER TABLE `surat_keterangan_tidak_mampu`
@@ -13800,7 +14213,7 @@ ALTER TABLE `surat_keterangan_tidak_mampu`
 -- AUTO_INCREMENT for table `surat_keterangan_usaha`
 --
 ALTER TABLE `surat_keterangan_usaha`
-  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_sku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `surat_keterangan_wali_hakim`
@@ -13818,7 +14231,7 @@ ALTER TABLE `surat_lapor_hajatan`
 -- AUTO_INCREMENT for table `surat_pengantar`
 --
 ALTER TABLE `surat_pengantar`
-  MODIFY `id_sp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_sp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `surat_pengantar_hewan`
@@ -13830,7 +14243,7 @@ ALTER TABLE `surat_pengantar_hewan`
 -- AUTO_INCREMENT for table `surat_pengantar_skck`
 --
 ALTER TABLE `surat_pengantar_skck`
-  MODIFY `id_sps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_sps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `surat_perintah_perjalanan_dinas`

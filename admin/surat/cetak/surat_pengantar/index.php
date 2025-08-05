@@ -283,6 +283,21 @@
   <tr>
     <td style="vertical-align: top; padding-top: 20px; text-align: center; padding-left: 325px;">
       <div>
+
+	  	<!-- kode barcode FARDAN -->
+		<?php
+		$id_surat = isset($_GET['id']) ? intval($_GET['id']) : null;
+
+		if (!$id_surat) {
+			http_response_code(400);
+			exit('ID tidak valid.');
+		}
+
+		// Ambil nama folder sebagai jenis surat, contoh: surat_keterangan
+		$jenis_surat = basename(dirname(__FILE__));
+		?>
+		<!-- kode barcode FARDAN -->
+
         <?php
         $id = $_GET['id'];
 
@@ -338,7 +353,7 @@
             } elseif ($id_pejabat_desa == 2) {
               if (isset($pejabat_data[1])) {
                 $url_gambar = htmlspecialchars($pejabat_data[2]['nama']);
-                echo '<img src="' . $url_gambar . '?' . time() . '" alt="Barcode Pejabat" style="max-width: 80px;  margin-top: -82px">';
+                echo "<img src=\"../helper/generate_qr_surat.php?id=$id_surat&jenis=$jenis_surat\" width=\"90\" alt=\"QR Code\" style=\"margin: -75px auto 5px; \">";
                 echo "<br>";
               } else {
                 echo "Detail Pejabat ID 1 tidak ditemukan dalam data pre-fetched.<br>";

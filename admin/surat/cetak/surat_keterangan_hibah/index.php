@@ -465,6 +465,21 @@ $jumlah_saksi = count($saksi);
 			<tr>
 				<td style="text-align: center; padding: 0;">
 				<div style="display: inline-block;">
+
+				<!-- kode barcode FARDAN -->
+				<?php
+				$id_surat = isset($_GET['id']) ? intval($_GET['id']) : null;
+
+				if (!$id_surat) {
+					http_response_code(400);
+					exit('ID tidak valid.');
+				}
+
+				// Ambil nama folder sebagai jenis surat, contoh: surat_keterangan
+				$jenis_surat = basename(dirname(__FILE__));
+				?>
+				<!-- kode barcode FARDAN -->
+
 				<?php
 				$id = $_GET['id'];
 
@@ -499,7 +514,11 @@ $jumlah_saksi = count($saksi);
 							$barcode_path = '../../../../assets/img/barcode.png'; // ganti path sesuai lokasi barcode
 							$nama_kades = htmlspecialchars($pejabat_data[1]['nama_pejabat_desa'] ?? '---');
 
-							echo '<br><img src="' . $barcode_path . '?' . time() . '" alt="Barcode" style="max-width: 80px; margin-top: -74px"><br>';
+							echo '
+							<div style="text-align: center; margin-top: -52px;">
+								<img src="../helper/generate_qr_surat.php?id=' . $id_surat . '&jenis=' . $jenis_surat . '" width="80" alt="QR Code" style="margin-top: -5px;">
+							</div>';
+
 							echo '<span style="font-weight: bold; text-decoration: underline; text-decoration-skip-ink: none;">' . $nama_kades . '</span>';
 						}
 					} else {
@@ -532,6 +551,8 @@ $jumlah_saksi = count($saksi);
 				</td>
 			</tr>
 			</table>
+
+			
 			</td>
 
 			<td><br><br>
