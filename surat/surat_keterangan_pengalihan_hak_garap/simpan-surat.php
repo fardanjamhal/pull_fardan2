@@ -9,15 +9,29 @@
         $nik = $_POST['fnik'];
 
         // Proses input dari form
-        $isi_surat             = addslashes($_POST['fisi_surat']);
-        $keperluan_bbm         = addslashes($_POST['fkeperluan_bbm']);
-        $jenis_usaha           = addslashes($_POST['fjenis_usaha']);
-        $alokasi_volume        = addslashes($_POST['falokasi_volume']);
-        $sejumlah              = addslashes($_POST['fsejumlah']);
-        $tempat_pengambilan    = addslashes($_POST['ftempat_pengambilan']);
-        $nomor_lembaga_penyalur = addslashes($_POST['fnomor_lembaga_penyalur']);
-        $lokasi                = addslashes($_POST['flokasi']);
-        $tabel_bbm             = addslashes($_POST['ftabel_bbm']);
+        $isi_surat            = addslashes($_POST['fisi_surat']);
+        $tanah_utara          = addslashes($_POST['ftanah_utara']);
+        $tanah_timur          = addslashes($_POST['ftanah_timur']);
+        $tanah_selatan        = addslashes($_POST['ftanah_selatan']);
+        $tanah_barat          = addslashes($_POST['ftanah_barat']);
+
+        $nik2                 = addslashes($_POST['fnik2']);
+        $nama2                = addslashes($_POST['fnama2']);
+        $tempat_tgl_lahir2    = addslashes($_POST['ftempat_tgl_lahir2']);
+        $pekerjaan2           = addslashes($_POST['fpekerjaan2']);
+        $alamat2              = addslashes($_POST['falamat2']);
+
+        $isi_surat2           = addslashes($_POST['fisi_surat2']);
+
+        $nama_saksi1          = addslashes($_POST['nama_saksi1']);
+        $umur_saksi1          = addslashes($_POST['umur_saksi1']);
+        $alamat_saksi1        = addslashes($_POST['alamat_saksi1']);
+        $pekerjaan_saksi1     = addslashes($_POST['pekerjaan_saksi1']);
+
+        $nama_saksi2          = addslashes($_POST['nama_saksi2']);
+        $umur_saksi2          = addslashes($_POST['umur_saksi2']);
+        $alamat_saksi2        = addslashes($_POST['alamat_saksi2']);
+        $pekerjaan_saksi2     = addslashes($_POST['pekerjaan_saksi2']);
 
         $status_surat = "PENDING";
         $id_profil_desa = "1";
@@ -79,14 +93,11 @@
         nik,
 
         isi_surat,
-        keperluan_bbm,
-        jenis_usaha,
-        alokasi_volume,
-        sejumlah,
-        tempat_pengambilan,
-        nomor_lembaga_penyalur,
-        lokasi,
-        tabel_bbm,
+        tanah_utara, tanah_timur, tanah_selatan, tanah_barat,
+        nik2, nama2, tempat_tgl_lahir2, pekerjaan2, alamat2,
+        isi_surat2,
+        nama_saksi1, umur_saksi1, alamat_saksi1, pekerjaan_saksi1,
+        nama_saksi2, umur_saksi2, alamat_saksi2, pekerjaan_saksi2,
 
         status_surat, 
         id_profil_desa, 
@@ -96,14 +107,11 @@
         '$nik', 
 
         '$isi_surat',
-        '$keperluan_bbm',
-        '$jenis_usaha',
-        '$alokasi_volume',
-        '$sejumlah',
-        '$tempat_pengambilan',
-        '$nomor_lembaga_penyalur',
-        '$lokasi',
-        '$tabel_bbm',
+        '$tanah_utara', '$tanah_timur', '$tanah_selatan', '$tanah_barat',
+        '$nik2', '$nama2', '$tempat_tgl_lahir2', '$pekerjaan2', '$alamat2',
+        '$isi_surat2',
+        '$nama_saksi1', '$umur_saksi1', '$alamat_saksi1', '$pekerjaan_saksi1',
+        '$nama_saksi2', '$umur_saksi2', '$alamat_saksi2', '$pekerjaan_saksi2',
 
         '$status_surat', 
         '$id_profil_desa', 

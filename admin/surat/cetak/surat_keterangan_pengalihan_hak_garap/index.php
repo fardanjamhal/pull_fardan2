@@ -124,23 +124,50 @@
 				$kalimat = trim($final_jabatan . ' ' . ucwords($nama_desa));
 				?>
 
-			<td style="text-align: justify;">
+			<td style="text-align: justify; font-size: 10.5pt;">
 				Yang bertanda tangan di bawah ini, kami masing-masing :
 			</td>
 		</tr>
 		</table>
-		<table width="100%">
+		<table width="100%" style="font-size: 10.5pt;">
 			<tr>
-				<td width="2%">1. </td>
-				<td width="15%">Nama</td>
-				<td width="2%">:</td>
-				<td width="70%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
+				<td width="1%"></td>
+				<td width="21%">Nama</td>
+				<td width="1%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
+			</tr>
+			<?php
+				$tgl_lhr = date($row['tgl_lahir']);
+				$tgl = date('d ', strtotime($tgl_lhr));
+				$bln = date('F', strtotime($tgl_lhr));
+				$thn = date(' Y', strtotime($tgl_lhr));
+				$blnIndo = array(
+				    'January' => 'Januari',
+				    'February' => 'Februari',
+				    'March' => 'Maret',
+				    'April' => 'April',
+				    'May' => 'Mei',
+				    'June' => 'Juni',
+				    'July' => 'Juli',
+				    'August' => 'Agustus',
+				    'September' => 'September',
+				    'October' => 'Oktober',
+				    'November' => 'November',
+				    'December' => 'Desember'
+				);
+			?>
+			<tr>
+				<td width="1%"></td>
+				<td class="indentasi">Tempat/Tgl Lahir</td>
+				<td>:</td>
+				<td><?php echo ucwords(strtolower($row['tempat_lahir'])) . ", " . $tgl . ucwords(strtolower($blnIndo[$bln])) . $thn; ?></td>
 			</tr>
 			<tr>
 				<td width="2%"></td>
-				<td class="indentasi">Umur</td>
+				<td class="indentasi">NIK/Umur</td>
 				<td>:</td>
 				<td>
+					<?php echo $row['nik']; ?> / 
 					<?php
 						$tgl_lahir = $row['tgl_lahir'];
 						if ($tgl_lahir && $tgl_lahir !== '0000-00-00') {
@@ -160,12 +187,6 @@
 				<td>:</td>
 				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
-			<tr>
-				<td width="2%"></td>
-				<td class="indentasi">Jenis Kelamin</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama'])); ?></td>
-			</tr>
 			<td width="2%"></td>
 			<td class="indentasi">Alamat</td>
 			<td>:</td>
@@ -178,32 +199,79 @@
 				?>
 			</td>
 		</table>
-		<td><span style="display: inline-block; padding-left: 20px;"><strong><em>(Disebut pihak Pertama)</em></strong></span></td>
+
+		<td>
+		<div style="margin:0;padding:0"><?php echo $row['isi_surat']; ?></div>
+		</td>
+
+		<table width="100%" style="font-size: 10.5pt;">
+		<tr>
+			<td width="1%"></td>
+			<td width="21%">Sebelah Utara</td>
+			<td width="1%">:</td>
+			<td width="68%"><?= htmlspecialchars($row['tanah_utara']) ?></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td>Sebelah Timur</td>
+			<td>:</td>
+			<td><?= htmlspecialchars($row['tanah_timur']) ?></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td>Sebelah Selatan</td>
+			<td>:</td>
+			<td><?= htmlspecialchars($row['tanah_selatan']) ?></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td>Sebelah Barat</td>
+			<td>:</td>
+			<td><?= htmlspecialchars($row['tanah_barat']) ?></td>
+		</tr>
+		</table>
 		<br>
-		<table width="100%">
+
+		<table width="100%" style="font-size: 10.5pt;">
 			<tr>
-				<td width="2%">2. </td>
-				<td width="15%">Nama</td>
-				<td width="2%">:</td>
-				<td width="70%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama2']; ?></td>
+				<td width="1%"></td>
+				<td width="21%">Nama</td>
+				<td width="1%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama2']; ?></td>
+			</tr>
+			<tr>
+				<td width="1%"></td>
+				<td class="indentasi">Tempat/Tgl Lahir</td>
+				<td>:</td>
+				<td>
+					<?php echo $row['tempat_tgl_lahir2']; ?> / 
+				</td>
 			</tr>
 			<tr>
 				<td width="2%"></td>
-				<td class="indentasi">Umur</td>
+				<td class="indentasi">NIK/Umur</td>
 				<td>:</td>
-				<td>
-					<?php
-						$tgl_lahir = $row['tgl_lahir'];
-						if ($tgl_lahir && $tgl_lahir !== '0000-00-00') {
-							$lahir = new DateTime($tgl_lahir);
-							$sekarang = new DateTime(); // tanggal hari ini
-							$umur = $sekarang->diff($lahir)->y;
-							echo $umur . ' Tahun';
-						} else {
-							echo '-';
+				<td><?php echo $row['nik2']; ?>
+				<?php
+					// Pisahkan tempat dan tanggal
+					$tempat_tgl = explode(',', $row['tempat_tgl_lahir2']);
+
+					// Ambil tanggal lahir
+					$tgl_lahir = isset($tempat_tgl[1]) ? trim($tempat_tgl[1]) : '';
+
+					// Format harus DD-MM-YYYY, ubah ke YYYY-MM-DD untuk diproses
+					$umur = '-';
+					if (!empty($tgl_lahir)) {
+						$tgl = DateTime::createFromFormat('d-m-Y', $tgl_lahir);
+						if ($tgl) {
+							$sekarang = new DateTime();
+							$selisih = $sekarang->diff($tgl);
+							$umur = $selisih->y . ' Tahun';
 						}
+					}
 					?>
-					</td>
+					<?php echo $umur; ?>
+				</td>
 			</tr>
 			<tr>
 				<td width="2%"></td>
@@ -211,18 +279,16 @@
 				<td>:</td>
 				<td><?php echo $row['pekerjaan2']; ?></td>
 			</tr>
-			<tr>
-				<td width="2%"></td>
-				<td class="indentasi">Jenis Kelamin</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo ucwords(strtolower($row['agama2'])); ?></td>
-			</tr>
-				<td width="2%"></td>
-				<td class="indentasi">Alamat</td>
-				<td>:</td>
-				<td><?php echo $row['alamat2']; ?></td>
+			<td width="2%"></td>
+			<td class="indentasi">Alamat</td>
+			<td>:</td>
+			<td><?php echo $row['alamat2']; ?></td>
 		</table>
-		<td><span style="display: inline-block; padding-left: 20px;"><strong><em>(Disebut pihak Kedua)</em></strong></span></td>
+
+		<td>
+		<div style="margin:0;padding:0"><?php echo $row['isi_surat2']; ?></div>
+		</td>
+
 		<table width="100%">
 			<?php
 		// Fungsi untuk kapitalisasi setiap kata
@@ -232,14 +298,11 @@
 		}
 		?>
 
-		<table width="100%">
-		<?php echo $row['isi_surat']; ?>
-		</table>
-	</div>
+		</div>
 
 		<table style="width: 100%;">
 			<tr>
-				<td style="text-align: right;">
+				<td style="text-align: right; font-size: 10.5pt;">
 					 <?php
 						include '../../cetak/helper/tanda_tangan_pejabat.php';
 
@@ -269,60 +332,74 @@
 			</tr>
 		</table>
 	
-
 	<table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
-		<td style="text-align: center; width: 50%;">
+		<td style="text-align: center; width: 50%; font-size: 10.5pt;">
 		PIHAK II (KEDUA)<br><br><br><br>
 		<span style="text-transform: uppercase; font-weight: bold; text-decoration: underline;"><?php echo $row['nama2']; ?></span>
 		</td>
-		<td style="text-align: center; width: 50%;">
+		<td style="text-align: center; width: 50%; font-size: 10.5pt;">
 		PIHAK I (PERTAMA)<br><br><br><br>
 		<span style="text-transform: uppercase; font-weight: bold; text-decoration: underline;"><?php echo $row['nama']; ?></span>
 		</td>
 	</tr>
+
+	
+	<table width="100%">
+	<tr>
+		<td align="center" style="font-size: 10.5pt;">
+		<b>Saksi-Saksi</b>
+		</td>
+	</tr>
 	</table>
-	<br>
 
-	<?php
-		// Ambil data saksi dari $row
-		$saksiList = [];
-		for ($i = 1; $i <= 4; $i++) {
-			$key = 'saksi' . $i;
-			if (!empty($row[$key])) {
-				$saksiList[] = strtoupper($row[$key]); // huruf besar semua
-			}
-		}
+	</table>
+		<table border="0" width="100%" style="font-size: 10.5pt;">
+		<tr>
+			<!-- Kolom Kiri: Saksi 1 -->
+			<td width="50%" valign="top">
+			<table border="0">
+				<tr>
+				<td>Nama</td><td>:</td><td><?= htmlspecialchars($data['nama_saksi1']) ?></td>
+				</tr>
+				<tr>
+				<td>Umur</td><td>:</td><td><?= htmlspecialchars($data['umur_saksi1']) ?> tahun</td>
+				</tr>
+				<tr>
+				<td>Alamat</td><td>:</td><td><?= htmlspecialchars($data['alamat_saksi1']) ?></td>
+				</tr>
+				<tr>
+				<td>Pekerjaan</td><td>:</td><td><?= htmlspecialchars($data['pekerjaan_saksi1']) ?></td>
+				</tr>
+				<tr>
+				<td>TTD</td><td>:</td><td></td>
+				</tr>
+			</table>
+			</td>
 
-		$jumlahSaksi = count($saksiList);
+			<!-- Kolom Kanan: Saksi 2 -->
+			<td width="50%" valign="top">
+			<table border="0">
+				<tr>
+				<td>Nama</td><td>:</td><td><?= htmlspecialchars($data['nama_saksi2']) ?></td>
+				</tr>
+				<tr>
+				<td>Umur</td><td>:</td><td><?= htmlspecialchars($data['umur_saksi2']) ?> tahun</td>
+				</tr>
+				<tr>
+				<td>Alamat</td><td>:</td><td><?= htmlspecialchars($data['alamat_saksi2']) ?></td>
+				</tr>
+				<tr>
+				<td>Pekerjaan</td><td>:</td><td><?= htmlspecialchars($data['pekerjaan_saksi2']) ?></td>
+				</tr>
+				<tr>
+				<td>TTD</td><td>:</td><td></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		</table>
 
-		if ($jumlahSaksi > 0) {
-			echo '<div><b>SAKSI-SAKSI</b></div>';
-			echo '<table width="100%" cellspacing="0" style="border-collapse: collapse; width: 100%;">';
-			echo '<tbody>';
-
-			foreach ($saksiList as $index => $nama) {
-				$no = $index + 1;
-				echo '<tr>';
-				echo '<td style="text-transform: uppercase;">' . $no . '. ' . htmlspecialchars($nama) . '</td>';
-
-				if ($no % 2 == 1) {
-					// Ganjil → di kolom tengah
-					echo '<td style="text-align: center;">' . $no . '. (..........................)</td>';
-					echo '<td></td>';
-				} else {
-					// Genap → di kolom kanan
-					echo '<td></td>';
-					echo '<td style="text-align: center;">' . $no . '. (..........................)</td>';
-				}
-
-				echo '</tr>';
-			}
-
-			echo '</tbody>';
-			echo '</table>';
-		}
-		?>
 
 		<div style="text-align: center;">
 		Diketahui,

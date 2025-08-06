@@ -81,7 +81,11 @@ if (isset($_POST['fnik']) && !empty($_POST['fnik'])) {
 	<script src="/assets/tinymce/tinymce.min.js"></script>
 
 	<script>
-		const defaultText = `Selaku PIHAK PERTAMA yang menguasai sebidang tanah yang terletak di Lingkungan/Dusun ……………, Kelurahan/Desa……………………, Kecamatan ……………………., Kabupaten Jeneponto, seluas ……………. M2 dengan NOP PBB …………………………………………. dengan batas-batas sebagai berikut :`;
+		const defaultText = `
+		<div style="font-size:10.5pt; margin:0; padding:0;">
+		Selaku PIHAK PERTAMA yang menguasai sebidang tanah yang terletak di Lingkungan/Dusun ……………, Kelurahan/Desa……………………, Kecamatan ……………………., Kabupaten Jeneponto, seluas ……………. M2 dengan NOP PBB …………………………………………. dengan batas-batas sebagai berikut :
+		</div>
+		`;
 
 		tinymce.init({
 			selector: '#isiSurat',
@@ -111,47 +115,16 @@ if (isset($_POST['fnik']) && !empty($_POST['fnik'])) {
 
 	<script>
 		const defaultText2 = `
-		<style>
-			.pernyataan-container {
-			font-family: 'Times New Roman', serif;
-			font-size: 16px;
-			line-height: 1.8;
-			text-align: justify;
-			margin: 20px;
-			}
-
-			.pernyataan-container p {
-			margin-bottom: 16px;
-			}
-
-			.pernyataan-container ol {
-			padding-left: 20px;
-			margin-top: 0;
-			}
-
-			.pernyataan-container ol li {
-			margin-bottom: 10px;
-			}
-
-			.pernyataan-container .judul {
-			font-weight: bold;
-			text-transform: uppercase;
-			}
-		</style>
-
-		<div class="pernyataan-container">
-			<p><span class="judul">Selanjutnya disebut PIHAK KEDUA</span> atau pihak menerima penyerahan penguasaan atas sebidang tanah;</p>
-
-			<p>Hal-hal sebagai berikut :</p>
-
-			<ol type="a">
-			<li>PIHAK PERTAMA dengan ini mengalihkan hak dan kepentingan atas bidang tanah tersebut, serta benda-benda yang ada diatasnya kepada PIHAK KEDUA dengan cara memberikan/pengalihan hak garap kepada PIHAK PERTAMA;</li>
-			<li>Pengalihan penguasaan segala hak dan kepentingan di atas sebidang tanah beserta benda-benda yang ada diatasnya sebagaimana tersebut pada butir (a) yang disepakati dan ditetapkan oleh kedua belah pihak, baik PIHAK PERTAMA maupun PIHAK KEDUA dengan cara memberikan/pengalihan hak garap;</li>
-			<li>PIHAK PERTAMA menjamin kepada PIHAK KEDUA bahwa tanah tersebut tidak dalam jaminan dan tidak tersangkut dengan suatu perkara atau sengketa dengan pihak lain;</li>
-			<li>Tanda Tangan Para Saksi sekaligus merupakan pernyataan para saksi.</li>
-			</ol>
-
-			<p>Demikian Surat Pernyataan ini dibuat untuk dipergunakan sebagaimana mestinya.</p>
+		<div align="justify" style="font-size:10.5pt; margin:0; padding:0;">
+		<strong><u>Selanjutnya disebut PIHAK KEDUA</u></strong> atau pihak menerima penyerahan penguasaan atas sebidang tanah;<br>
+		Hal-hal sebagai berikut :<br>
+		<ol type="a" style="margin:0;padding-left:18px">
+		<li>PIHAK PERTAMA dengan ini mengalihkan hak dan kepentingan atas bidang tanah tersebut, serta benda-benda yang ada di atasnya kepada PIHAK KEDUA dengan cara memberikan/pengalihan hak garap kepada PIHAK PERTAMA;</li>
+		<li>Pengalihan penguasaan segala hak dan kepentingan di atas sebidang tanah beserta benda-benda yang ada di atasnya sebagaimana tersebut pada butir (a) yang disepakati dan ditetapkan oleh kedua belah pihak, baik PIHAK PERTAMA maupun PIHAK KEDUA dengan cara memberikan/pengalihan hak garap;</li>
+		<li>PIHAK PERTAMA menjamin kepada PIHAK KEDUA bahwa tanah tersebut tidak dalam jaminan dan tidak tersangkut dengan suatu perkara atau sengketa dengan pihak lain;</li>
+		<li>Tanda Tangan Para Saksi sekaligus merupakan pernyataan para saksi.</li>
+		</ol>
+		Demikian Surat Pernyataan ini dibuat untuk dipergunakan sebagaimana mestinya.
 		</div>
 		`;
 
@@ -460,6 +433,55 @@ if ($row > 0) {
 
 				<br>
 
+			<table width="100%" border="0" cellspacing="10" cellpadding="0">
+				<tr>
+					<!-- Kolom Saksi 1 -->
+					<td width="50%" valign="top">
+					<b>Saksi 1</b>
+					<table>
+						<tr>
+						<td width="2%">Nama</td>
+						<td width="48%"><input type="text" name="nama_saksi1" size="35"></td>
+						</tr>
+						<tr>
+						<td>Umur</td>
+						<td><input type="number" name="umur_saksi1" size="10"></td>
+						</tr>
+						<tr>
+						<td>Alamat</td>
+						<td><textarea name="alamat_saksi1" rows="2" cols="35"></textarea></td>
+						</tr>
+						<tr>
+						<td>Pekerjaan</td>
+						<td><input type="text" name="pekerjaan_saksi1" size="35"></td>
+						</tr>
+					</table>
+					</td>
+
+					<!-- Kolom Saksi 2 -->
+					<td width="50%" valign="top">
+					<b>Saksi 2</b>
+					<table>
+						<tr>
+						<td width="2%">Nama</td>
+						<td width="48%"><input type="text" name="nama_saksi2" size="35"></td>
+						</tr>
+						<tr>
+						<td>Umur</td>
+						<td><input type="number" name="umur_saksi2" size="10"></td>
+						</tr>
+						<tr>
+						<td>Alamat</td>
+						<td><textarea name="alamat_saksi2" rows="2" cols="35"></textarea></td>
+						</tr>
+						<tr>
+						<td>Pekerjaan</td>
+						<td><input type="text" name="pekerjaan_saksi2" size="35"></td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+				</table>
 
                 <!-- Tombol -->
                 <hr>
@@ -471,61 +493,6 @@ if ($row > 0) {
     </div>
 </div>
 
-<script>
-	function isiDefaultJenisUsaha() {
-	const defaultText = "Usaha Mikro";
-	document.getElementById('jenisUsaha').value = defaultText;
-	}
-</script>
-
-<script>
-	function isiDefaultBbm() {
-	const defaultText = "BBM Jenis Tertentu (Pertalite)";
-	document.getElementById('keperluanBbm').value = defaultText;
-	}
-</script>
-
-<script>
-    const defaultAlokasiVolume = "Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)";
-    
-    // Isi default saat halaman dimuat
-    window.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('alokasiVolume').value = defaultAlokasiVolume;
-    });
-
-    // Fungsi reset ke default
-    function isiDefaultalokasiVolume() {
-        document.getElementById('alokasiVolume').value = defaultAlokasiVolume;
-    }
-</script>
-
-<script>
-	function isiDefaultsejumlah() {
-	const defaultText = "450 liter/minggu";
-	document.getElementById('sejumlah').value = defaultText;
-	}
-</script>
-
-<script>
-	function isiDefaulttempatPengambilan() {
-	const defaultText = "Lembaga Penyalur";
-	document.getElementById('tempatPengambilan').value = defaultText;
-	}
-</script>
-
-<script>
-	function isiDefaultnomorLembagaPenyalur() {
-	const defaultText = "74.923.02";
-	document.getElementById('nomorLembagaPenyalur').value = defaultText;
-	}
-</script>
-
-<script>
-	function isiDefaultlokasi() {
-	const defaultText = "SPBU ANDI SOSE Paccelanga";
-	document.getElementById('lokasi').value = defaultText;
-	}
-</script>
 
 <?php
     }
