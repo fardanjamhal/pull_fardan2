@@ -202,19 +202,23 @@
 			</tr>
 		</table>
 		<br>
-		<table width="100%">
+		<table width="100%" style="line-height: 1.5;">
 		<tr>
-			<td style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adalah benar yang bersangkutan merupakan warga Desa <?php echo ucwords(strtolower($row['desa'])); ?> Kecamatan <?php echo ucwords(strtolower($row['kecamatan'])); ?> <?php echo ucwords(strtolower($row['kota'])); ?> dan berdasarkan data serta pengamatan kami, yang bersangkutan tergolong dalam keluarga yang <b><?php echo strtoupper('tidak mampu'); ?></b> secara ekonomi.
+			<td style="text-align: justify; text-indent: 30px;">
+			Adalah benar yang bersangkutan merupakan warga 
+			<?php
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+				echo formatAlamatLengkap($row, $connect);
+			?> 
+			dan berdasarkan data serta pengamatan kami, yang bersangkutan tergolong dalam keluarga yang 
+			<b><?php echo strtoupper('tidak mampu'); ?></b> secara ekonomi.
 			</td>
 		</tr>
-		</table>
-		<br>
-		<table width="100%">
-			<tr>
-				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
-				</td>
-			</tr>
+		<tr>
+			<td style="text-align: justify; text-indent: 30px; padding-top: 10px;">
+			Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
+			</td>
+		</tr>
 		</table>
 	</div>
 	<br>
