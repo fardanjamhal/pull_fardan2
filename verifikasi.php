@@ -71,19 +71,27 @@ while ($row = mysqli_fetch_array($tables_result)) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts: Noto Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      background: #f8f9fa;
+      background: #f0f2f5;
+      font-family: 'Noto Sans', sans-serif;
       padding: 40px 15px;
+      font-size: 15px;
+      color: #212529;
     }
 
     .card {
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
-      border: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      background-color: #fff;
     }
 
     .header {
-      background: linear-gradient(135deg, #198754, #28a745);
+      background: linear-gradient(135deg, #01497c, #2a6f97); /* biru elegan */
       color: white;
       padding: 25px;
       border-radius: 8px 8px 0 0;
@@ -91,69 +99,56 @@ while ($row = mysqli_fetch_array($tables_result)) {
     }
 
     .header i {
-      font-size: 40px;
+      font-size: 36px;
     }
 
     .section-title {
-      border-bottom: 1px solid #dee2e6;
+      border-bottom: 2px solid #dee2e6;
       padding-bottom: 6px;
       margin-bottom: 20px;
       font-weight: 600;
+      color: #01497c;
     }
 
     .info-item {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
       padding: 8px 0;
-      border-bottom: 1px dashed #ddd;
+      border-bottom: 1px dashed #ccc;
     }
 
     .info-item:last-child {
       border-bottom: none;
     }
 
-    .info-label {
-      font-weight: 500;
-      color: #555;
-      min-width: 150px;
+    .info-label,
+    .info-value {
+      word-break: break-word;
+      overflow-wrap: break-word;
+      flex: 1 1 100%;
     }
 
-    .info-value {
-      text-align: right;
-      font-weight: 500;
-      color: #212529;
+    @media (min-width: 576px) {
+      .info-label {
+        flex: 0 0 40%;
+        font-weight: 500;
+        color: #444;
+      }
+
+      .info-value {
+        flex: 0 0 60%;
+        text-align: right;
+        font-weight: 500;
+        color: #212529;
+      }
     }
 
     .footer-note {
       font-size: 0.95rem;
       color: #6c757d;
+      margin-top: 20px;
     }
-
-    .info-item {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 8px 0;
-    border-bottom: 1px dashed #ddd;
-      }
-
-      .info-label,
-      .info-value {
-        word-break: break-word;
-        overflow-wrap: break-word;
-        flex: 1 1 100%;
-      }
-
-      @media (min-width: 576px) {
-        .info-label {
-          flex: 0 0 40%;
-        }
-
-        .info-value {
-          flex: 0 0 60%;
-          text-align: right;
-        }
-      }
   </style>
 </head>
 <body>
@@ -192,7 +187,19 @@ while ($row = mysqli_fetch_array($tables_result)) {
       <h5 class="section-title mt-4">Data Penduduk</h5>
       <div class="info-item">
         <div class="info-label">NIK</div>
-        <div class="info-value"><?= htmlspecialchars($data_penduduk['nik']) ?></div>
+        <div class="info-value">
+          <?php
+            $nik = $data_penduduk['nik'];
+            // Pastikan panjang NIK sesuai, lalu sensor
+            if (strlen($nik) === 16) {
+                $sensor = substr($nik, 0, 6) . str_repeat('*', 6) . substr($nik, -4);
+            } else {
+                // fallback: tampilkan saja NIK apa adanya atau sensor semua
+                $sensor = str_repeat('*', strlen($nik));
+            }
+            echo htmlspecialchars($sensor);
+          ?>
+        </div>
       </div>
       <div class="info-item">
         <div class="info-label">Nama</div>
