@@ -218,23 +218,43 @@
 			</tr>
 
 		</table>
+		
 		<br>
-		<table width="100%">
-			<div style="text-align: justify; line-height: 1.5;">
-			<p style="text-indent: 40px;">
-				Benar yang Namanya tersebut di atas adalah warga 
-				<?= formatAlamatLengkap($row, $connect); ?>.
-				Surat Keterangan ini diberikan kepada yang bersangkutan untuk mengurus
-				perubahan status pekerjaan pada KK dan KTP dari sebelumnya
-				<strong><?= ucwords(strtolower($row['pekerjaan'])) ?></strong> menjadi
-				<strong><?= ucwords(strtolower($row['pekerjaan_sekarang'])) ?></strong>.
-			</p>
 
-			<p style="text-indent: 40px;">
+		<table width="100%" style="line-height: 1.5;">
+		<tr>
+			<td style="text-align: justify;">
+
+			<span style="display: block; text-indent: 30px; margin-bottom: 10px;">
+				Benar yang bersangkutan merupakan warga <?= formatAlamatLengkap($row, $connect); ?>.
+			</span>
+
+			<span style="display: block; text-indent: 30px; margin-bottom: 10px;">
+				Surat ini dibuat sebagai keterangan untuk perubahan data pekerjaan pada KTP/KK, dari:
+			</span>
+
+			<table style="margin-left: 30px; margin-bottom: 10px;">
+				<tr>
+				<td width="45%"><b>Pekerjaan Lama</b></td>
+				<td width="2%">:</td>
+				<td><b><?= strtoupper($row['pekerjaan']) ?></b></td>
+				</tr>
+				<tr>
+				<td><b>Pekerjaan Baru</b></td>
+				<td>:</td>
+				<td><b><?= strtoupper($row['pekerjaan_sekarang']) ?></b></td>
+				</tr>
+			</table>
+
+			<span style="display: block; text-indent: 30px;">
 				Demikian Surat Keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan seperlunya.
-			</p>
-			</div>
+			</span>
+
+			</td>
+		</tr>
 		</table>
+
+
 		
 	</div>
 
