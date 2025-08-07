@@ -194,7 +194,12 @@ $id = $_GET['id'] ?? '';
 		<table width="100%">
 		<tr>
 			<td style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adalah benar yang bersangkutan merupakan warga Desa <?php echo ucwords(strtolower($row['desa'])); ?> Kecamatan <?php echo ucwords(strtolower($row['kecamatan'])); ?> <?php echo ucwords(strtolower($row['kota'])); ?> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adalah benar yang bersangkutan merupakan warga <?php
+				include_once '../../../surat/cetak/helper/alamat_helper.php';
+
+				// Pastikan $row sudah berisi data dari database sebelumnya
+				echo formatAlamatLengkap($row, $connect); // ✅ benar
+				?>. 
 			</td>
 		</tr>
 		</table>
