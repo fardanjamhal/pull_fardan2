@@ -116,7 +116,7 @@ if (isset($_POST['fnik']) && !empty($_POST['fnik'])) {
 	<script>
 		const defaultText2 = `
 		<div align="justify" style="font-size:10.5pt; margin:0; padding:0;">
-		<strong><u>Selanjutnya disebut PIHAK KEDUA</u></strong> atau pihak menerima penyerahan penguasaan atas sebidang tanah;<br>
+		<strong>Selanjutnya disebut PIHAK KEDUA</strong> atau pihak menerima penyerahan penguasaan atas sebidang tanah;<br>
 		Hal-hal sebagai berikut :<br>
 		<ol type="a" style="margin:0;padding-left:18px">
 		<li>PIHAK PERTAMA dengan ini mengalihkan hak dan kepentingan atas bidang tanah tersebut, serta benda-benda yang ada diatasnya kepada PIHAK KEDUA dengan cara memberikan kompensasi kepada PIHAK PERTAMA;</li>
