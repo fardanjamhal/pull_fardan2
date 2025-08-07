@@ -205,7 +205,7 @@ $id = $_GET['id'] ?? '';
 		</table>
 		<table width="100%">
 			<tr>
-				<td class="indentasi" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surat keterangan ini dipergunakan untuk <a style="text-transform: capitalize;"><u><b><?php echo $row['keperluan']; ?>.</a></u></b></td>
+				<td class="indentasi" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surat keterangan ini dipergunakan untuk <a style="text-transform: capitalize;"><b><?php echo $row['keperluan']; ?>.</a></b></td>
 			</tr>
 		</table>
 		<table width="100%">
