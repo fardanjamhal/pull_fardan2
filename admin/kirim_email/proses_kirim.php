@@ -67,7 +67,7 @@ if (isset($_POST['kirim'])) {
         <div style="padding: 30px;">
           <p style="font-size: 16px;">Yth. Bapak/Ibu,</p>
 
-          <p style="font-size: 15px;">Dengan hormat, berikut ini kami sampaikan dokumen dari Pemerintah <b>' . htmlspecialchars($namaDesa) . '</b> dengan judul:</p>
+          <p style="font-size: 15px;">Dengan hormat, berikut ini kami sampaikan dokumen dari Pemerintah <b>' . htmlspecialchars($namaDesa) . '</b> dengan judul :</p>
 
           <p style="font-size: 16px; background-color: #e9f3ff; padding: 10px 15px; border-left: 4px solid #007bff; margin: 20px 0;">
             <b>' . htmlspecialchars($judul) . '</b>
@@ -97,9 +97,13 @@ if (isset($_POST['kirim'])) {
       // Simpan ke database
       mysqli_query($connect, "INSERT INTO kirim_email (judul, email_tujuan, file_surat, tanggal_kirim) VALUES ('$judul', '$email', '$nama_file', NOW())");
 
-      echo "<script>alert('Email berhasil dikirim'); window.location='index.php';</script>";
+      header("Location: index.php?status=success");
+      exit();
     } catch (Exception $e) {
-      echo "Gagal mengirim email. Error: {$mail->ErrorInfo}";
+      $error = urlencode($mail->ErrorInfo);
+      header("Location: index.php?status=error&msg=$error");
+      exit();
+
     }
   } else {
     echo "Gagal upload file.";

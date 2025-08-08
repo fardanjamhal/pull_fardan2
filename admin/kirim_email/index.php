@@ -247,6 +247,21 @@ $query = mysqli_query($connect, "SELECT * FROM kirim_email ORDER BY tanggal_kiri
   }
 </script>
 
+<?php
+if (isset($_GET['status'])) {
+  if ($_GET['status'] == 'success') {
+    echo "<div style='background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px;'>
+            ✅ Email berhasil dikirim.
+          </div>";
+  } elseif ($_GET['status'] == 'error') {
+    $msg = htmlspecialchars($_GET['msg']);
+    echo "<div style='background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;'>
+            ❌ Gagal mengirim email. Error: $msg
+          </div>";
+  }
+}
+?>
+
 
 <!-- Tabel Riwayat Pengiriman Email -->
   <h3>Riwayat Pengiriman Email</h3>
@@ -262,7 +277,7 @@ $query = mysqli_query($connect, "SELECT * FROM kirim_email ORDER BY tanggal_kiri
     </thead>
     <tbody>
       <?php
-      $limit = 5;
+      $limit = 10;
       $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
       $start = ($page - 1) * $limit;
 
