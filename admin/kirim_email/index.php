@@ -24,6 +24,7 @@ $query = mysqli_query($connect, "SELECT * FROM kirim_email ORDER BY tanggal_kiri
 ?>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
   .table-container {
@@ -264,7 +265,6 @@ if (isset($_GET['status'])) {
 
 
 <!-- Tabel Riwayat Pengiriman Email -->
-  <h3>Riwayat Pengiriman Email</h3>
   <table>
     <thead>
       <tr>
@@ -285,6 +285,7 @@ if (isset($_GET['status'])) {
       $query = mysqli_query($connect, "SELECT * FROM kirim_email ORDER BY tanggal_kirim DESC LIMIT $start, $limit");
       $no = $start + 1;
 
+      if (mysqli_num_rows($query) > 0) {
       while ($data = mysqli_fetch_assoc($query)) {
         echo "<tr>
           <td>{$no}</td>
@@ -304,6 +305,15 @@ if (isset($_GET['status'])) {
         </tr>";
         $no++;
       }
+    } else {
+      echo "<tr>
+              <td colspan='6' style='text-align: center; color: #888; padding: 20px;'>
+                <i class='fas fa-envelope-open-text' style='font-size: 18px;'></i><br>
+                Belum ada data dikirim.
+              </td>
+            </tr>";
+    }
+
 
 
       ?>
