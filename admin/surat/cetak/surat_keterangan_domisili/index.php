@@ -200,7 +200,7 @@
 		<table width="100%">
 		<tr>
 		<td style="text-align: justify; text-indent: 30px;">
-			Bahwa yang bersangkutan benar-benar berdomisili di <b><?php echo htmlspecialchars(capitalizeEachWord($row['alamat_domisili'])); ?></b>.
+			Bahwa yang bersangkutan benar-benar berdomisili di <b><?php echo $row['alamat_domisili']; ?></b>.
 		</td>
 		</tr>
 		<tr>
