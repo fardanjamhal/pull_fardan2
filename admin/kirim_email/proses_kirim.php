@@ -41,20 +41,35 @@ if (isset($_POST['kirim'])) {
       $mail->setFrom('admin@dedig.id', 'Aplikasi Surat Desa');
       $mail->addAddress($email);
       $mail->addAttachment($lokasi_simpan);
+
+      // Ambil nama desa dari tabel profil_desa
+      $qProfil = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
+      $profil = mysqli_fetch_assoc($qProfil);
+      $nama_desa = $profil['nama_desa'];
+
       $mail->isHTML(true);
       $mail->Subject = $judul;
+
+      // Template email dengan gaya profesional
       $mail->Body = '
-                    <p>Yth. Bapak/Ibu,</p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #cce5ff; padding: 20px; background-color: #f4faff; color: #003366;">
+          <h2 style="color: #0066cc; border-bottom: 1px solid #cce5ff; padding-bottom: 10px;">Pengiriman Surat Desa</h2>
 
-                    <p>Berikut ini kami kirimkan surat dengan judul: <b>' . htmlspecialchars($judul) . '</b>.</p>
+          <p>Yth. Bapak/Ibu,</p>
 
-                    <p>Silakan periksa lampiran untuk melihat isi surat tersebut.</p>
+          <p>Dengan hormat, kami informasikan bahwa telah dikirimkan surat dengan judul:</p>
 
-                    <p>Terima kasih atas perhatian dan kerjasamanya.</p>
+          <p style="font-size: 16px;"><b>' . htmlspecialchars($judul) . '</b></p>
 
-                    <br>
-                    <p>Hormat kami</p>
-                  ';
+          <p>Silakan periksa lampiran untuk melihat isi surat tersebut.</p>
+
+          <p>Terima kasih atas perhatian dan kerjasamanya.</p>
+
+          <br><br>
+          <p>Hormat kami,</p>
+          <p style="font-weight: bold; color: #004085;">Pemerintah Desa ' . htmlspecialchars($nama_desa) . '</p>
+        </div>
+      ';
 
 
       $mail->send();
