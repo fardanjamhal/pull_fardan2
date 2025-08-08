@@ -52,24 +52,41 @@ if (isset($_POST['kirim'])) {
 
       // Template email dengan gaya profesional
       $mail->Body = '
-        <div style="text-align: center; font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #cce5ff; padding: 20px; background-color: #f4faff; color: #003366;">
-          <h2 style="text-align: center; color: #0066cc; border-bottom: 1px solid #cce5ff; padding-bottom: 10px;">Pengiriman Dokumen</h2>
+      <div style="font-family: Arial, sans-serif; background-color: #f4f6f8; padding: 0; max-width: 600px; margin: auto; border-radius: 8px; overflow: hidden; color: #333;">
 
-          <p>Yth. Bapak/Ibu,</p>
-
-          <p>Dengan hormat, kami informasikan bahwa telah dikirimkan surat dengan judul:</p>
-
-          <p style="font-size: 16px;"><b>' . htmlspecialchars($judul) . '</b></p>
-
-          <p>Silakan periksa lampiran untuk melihat isi surat tersebut.</p>
-
-          <p>Terima kasih atas perhatian dan kerjasamanya.</p>
-
-          <br><br>
-          <p>Hormat kami,</p>
-          <p style="font-weight: bold; color: #004085;">Pemerintah Desa ' . htmlspecialchars($nama_desa) . '</p>
+        <!-- Header -->
+        <div style="background-color: #000; color: #fff; padding: 20px; text-align: center;">
+          <img src="https://dedig.id/assets/img/' . htmlspecialchars($favicon) . '" alt="Logo Desa" style="max-height: 70px; margin-bottom: 10px;">
+          <h2 style="margin: 0; font-size: 22px;">' . htmlspecialchars($namaDesa) . '</h2>
         </div>
-      ';
+
+        <!-- Body -->
+        <div style="padding: 30px;">
+          <p style="font-size: 16px;">Yth. Bapak/Ibu,</p>
+
+          <p style="font-size: 15px;">Dengan hormat, berikut ini kami sampaikan dokumen dari Pemerintah <b>' . htmlspecialchars($namaDesa) . '</b> dengan judul:</p>
+
+          <p style="font-size: 16px; background-color: #e9f3ff; padding: 10px 15px; border-left: 4px solid #007bff; margin: 20px 0;">
+            <b>' . htmlspecialchars($judul) . '</b>
+          </p>
+
+          <p style="font-size: 14px;">Silakan periksa lampiran untuk melihat isi surat tersebut.</p>
+
+          <p style="font-size: 14px;">Terima kasih atas perhatian dan kerjasamanya.</p>
+
+          <br>
+          <p style="font-size: 14px;">Hormat kami,</p>
+          <p style="font-size: 15px; font-weight: bold; color: #004085;">Pemerintah Desa ' . htmlspecialchars($namaDesa) . '</p>
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color: #000; color: #fff; text-align: center; padding: 15px; font-size: 12px;">
+          &copy; ' . date('Y') . ' Pemerintah Desa ' . htmlspecialchars($namaDesa) . '. All rights reserved.
+        </div>
+
+      </div>
+    ';
+
 
 
       $mail->send();
