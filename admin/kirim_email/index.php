@@ -273,6 +273,7 @@ if (isset($_GET['status'])) {
         <th>Email Tujuan</th>
         <th>File</th>
         <th>Tanggal Kirim</th>
+        <th>Hapus</th>
       </tr>
     </thead>
     <tbody>
@@ -295,7 +296,9 @@ if (isset($_GET['status'])) {
             <form action='hapus_file.php' method='POST' onsubmit=\"return confirm('Yakin ingin menghapus surat ini?');\">
               <input type='hidden' name='id' value='{$data['id']}'>
               <input type='hidden' name='file_surat' value='{$data['file_surat']}'>
-              <button type='submit'>🗑 Hapus</button>
+              <button type='submit' class='btn btn-danger btn-sm'>
+                <i class='fas fa-trash-alt'></i> Hapus
+              </button>
             </form>
           </td>
         </tr>";
