@@ -52,8 +52,8 @@ if (isset($_POST['kirim'])) {
 
       // Template email dengan gaya profesional
       $mail->Body = '
-        <div style="font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #cce5ff; padding: 20px; background-color: #f4faff; color: #003366;">
-          <h2 style="color: #0066cc; border-bottom: 1px solid #cce5ff; padding-bottom: 10px;">Pengiriman Surat Desa</h2>
+        <div style="text-align: center; font-family: Arial, sans-serif; max-width: 600px; border: 1px solid #cce5ff; padding: 20px; background-color: #f4faff; color: #003366;">
+          <h2 style="text-align: center; color: #0066cc; border-bottom: 1px solid #cce5ff; padding-bottom: 10px;">Pengiriman Dokumen</h2>
 
           <p>Yth. Bapak/Ibu,</p>
 
