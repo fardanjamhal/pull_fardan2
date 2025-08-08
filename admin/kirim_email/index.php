@@ -291,9 +291,18 @@ if (isset($_GET['status'])) {
           <td>{$data['email_tujuan']}</td>
           <td><a href='uploads/{$data['file_surat']}' target='_blank'>Lihat File</a></td>
           <td>{$data['tanggal_kirim']}</td>
+          <td>
+            <form action='hapus_file.php' method='POST' onsubmit=\"return confirm('Yakin ingin menghapus surat ini?');\">
+              <input type='hidden' name='id' value='{$data['id']}'>
+              <input type='hidden' name='file_surat' value='{$data['file_surat']}'>
+              <button type='submit'>🗑 Hapus</button>
+            </form>
+          </td>
         </tr>";
         $no++;
       }
+
+
       ?>
     </tbody>
   </table>
