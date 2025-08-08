@@ -15,6 +15,14 @@ require '../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../../vendor/phpmailer/phpmailer/src/SMTP.php';
 include '../../config/koneksi.php';
 
+// Ambil nama desa dari tabel profil_desa
+$query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
+$profil = mysqli_fetch_assoc($query);
+
+// Ambil nama desa dan favicon/logo
+$namaDesa = $profil['nama_desa'] ?? 'Desa';
+$favicon  = !empty($profil['logo_desa']) ? $profil['logo_desa'] : 'mini-logo.png';
+
 if (isset($_POST['kirim'])) {
   $judul = $_POST['judul'];
   $email = $_POST['email_tujuan'];
@@ -41,11 +49,6 @@ if (isset($_POST['kirim'])) {
       $mail->setFrom('admin@dedig.id', 'Aplikasi Surat Desa');
       $mail->addAddress($email);
       $mail->addAttachment($lokasi_simpan);
-
-      // Ambil nama desa dari tabel profil_desa
-      $qProfil = mysqli_query($connect, "SELECT nama_desa FROM profil_desa LIMIT 1");
-      $profil = mysqli_fetch_assoc($qProfil);
-      $nama_desa = $profil['nama_desa'];
 
       $mail->isHTML(true);
       $mail->Subject = $judul;
@@ -76,12 +79,12 @@ if (isset($_POST['kirim'])) {
 
           <br>
           <p style="font-size: 14px;">Hormat kami,</p>
-          <p style="font-size: 15px; font-weight: bold; color: #004085;">Pemerintah Desa ' . htmlspecialchars($namaDesa) . '</p>
+          <p style="font-size: 15px; font-weight: bold; color: #004085;">Pemerintah ' . htmlspecialchars($namaDesa) . '</p>
         </div>
 
         <!-- Footer -->
         <div style="background-color: #000; color: #fff; text-align: center; padding: 15px; font-size: 12px;">
-          &copy; ' . date('Y') . ' Pemerintah Desa ' . htmlspecialchars($namaDesa) . '. All rights reserved.
+          &copy; ' . date('Y') . ' Pemerintah ' . htmlspecialchars($namaDesa) . '. All rights reserved.
         </div>
 
       </div>
