@@ -104,25 +104,29 @@ if (isset($_POST['fnik']) && !empty($_POST['fnik'])) {
 		branding: false,
 		setup: function (editor) {
 			editor.on('init', function () {
-				const defaultText = `<p style="text-align: justify;">
-				Setelah dilakukan mediasi secara kekeluargaan yang bertempat di Kantor ................ terkait hutang antara Pihak Pertama dan Pihak Kedua, maka disepakati hal-hal sebagai berikut:
+				const defaultText = `<p style="text-align: justify; text-indent: 30px;">
+				Kami yang bertanda tangan di bawah ini, Para ahli waris dari almarhumah <strong>…………</strong> dengan sesungguhnya dan sanggup diangkat sumpah bahwa almarhumah <strong>…………</strong> yang bertempat tinggal terakhir di <strong>…………</strong> Desa/Kel <strong>…………</strong> Kecamatan <strong>…………</strong> Kabupaten <strong>…………</strong> pada tanggal <strong>…………</strong> telah meninggal dunia di <strong>…………</strong>.
 				</p>
 
-				<ol style="padding-left: 20px; text-align: justify;">
-				<li>
-					Pihak Kedua bersedia membayarkan pinjaman pokok paling lambat pada tanggal 30 Oktober 2025 sebesar Rp5.000.000,- (lima juta rupiah).
-				</li>
-				<li>
-					Pihak Kedua berjanji akan membayarkan bunga pinjaman setiap tanggal 1, dimulai pada bulan November 2025, sebesar Rp200.000,- (dua ratus ribu rupiah) per bulan, atas sisa pinjaman sebesar Rp32.236.000,- (tiga puluh dua juta dua ratus tiga puluh enam ribu rupiah).
-				</li>
-				<li>
-					Pihak Kedua berjanji akan menaati seluruh kesepakatan yang telah dibuat, dan apabila melanggarnya, maka bersedia dituntut sesuai dengan hukum dan ketentuan peraturan perundang-undangan yang berlaku di Negara Kesatuan Republik Indonesia.
-				</li>
+				<p style="text-align: justify; text-indent: 30px;">
+				Dari hasil perkawinan almarhumah <strong>…………</strong> dengan suaminya Almarhum <strong>…………</strong> telah dilahirkan anak-anak, yakni:
+				</p>
+
+				<ol style="padding-left: 50px; text-align: justify;">
+				<li>…………</li>
+				<li>…………</li>
+				<li>…………</li>
+				<li>…………</li>
 				</ol>
 
-				<p style="text-align: justify;">
-				Demikian Surat Pernyataan Kesepakatan Bersama ini dibuat tanpa adanya paksaan atau intimidasi dari pihak manapun. Apabila di kemudian hari isi pernyataan ini tidak benar, maka kami bersedia untuk dituntut sesuai dengan hukum yang berlaku.
+				<p style="text-align: justify; text-indent: 30px;">
+				Demikian kami sebagai ke <strong>…………</strong> (<strong>..</strong>) orang anak adalah salah satunya ahli waris dari mendiang almarhumah <strong>…………</strong> dan Almarhum <strong>…………</strong> dan menyatakan bahwa tidak ada lagi ahli waris yang tidak dimasukkan dalam daftar ahli waris.
+				</p>
+
+				<p style="text-align: justify; text-indent: 30px;">
+				Bilamana di kemudian hari surat keterangan ini tidak benar serta ada ahli waris yang disembunyikan/tidak tercantum dalam surat keterangan ini, maka segala risiko dan akibat hukum yang ditimbulkan akan ditanggung oleh para ahli waris yang tersebut dalam Surat Keterangan Ahli Waris ini.
 				</p>`;
+
 
 				editor.setContent(defaultText); // <- ini harus di bawah deklarasi defaultText
 			});
@@ -132,8 +136,82 @@ if (isset($_POST['fnik']) && !empty($_POST['fnik'])) {
 		// Fungsi reset ke default
 		function resetIsiSurat() {
 			tinymce.get('isiSurat').setContent(defaultText);
-		}
-	</script>
+				}
+		</script>
+
+
+		<script>
+			// Pindahkan defaultText ke luar agar global
+			const defaultText = `<!-- Awal bagian PARA AHLI WARIS -->
+			<p><b>PARA AHLI WARIS TERSEBUT :</b></p>
+			<table width="80%" cellspacing="0">
+			<tr>
+				<td width="40%">1. MARWATI (Istri Almarhum)</td>
+				<td width="60%" align="right">(.....................)</td>
+			</tr>
+			<tr>
+				<td width="40%">2. RUDI</td>
+				<td width="60%" align="left">(.....................)</td>
+			</tr>
+			<tr>
+				<td width="40%">3. RINA</td>
+				<td width="60%" align="right">(.....................)</td>
+			</tr>
+			<tr>
+				<td width="40%">4. RAHMAT</td>
+				<td width="60%" align="left">(.....................)</td>
+			</tr>
+			</table>
+
+
+			<!-- Awal bagian SAKSI-SAKSI -->
+			<p align="center"><b>SAKSI - SAKSI</b></p>
+			<table width="100%" cellspacing="0">
+			<tr>
+				<td width="50%" align="center">Kepala Lingkungan ...........<br><br><br><br></td>
+				<td width="50%" align="center">Imam ...........<br><br><br><br></td>
+			</tr>
+			<tr>
+				<td align="center" valign="bottom">...........</td>
+				<td align="center" valign="bottom">...........</td>
+			</tr>
+			</table>
+			`;
+
+			tinymce.init({
+				selector: '#isiSurat2',
+				height: 600,
+				menubar: true,
+				plugins: [
+					'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor',
+					'searchreplace', 'visualblocks', 'fullscreen',
+					'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount', 'export'
+				],
+				toolbar: 'undo redo | styles | bold italic underline strikethrough forecolor backcolor | ' +
+						'alignleft aligncenter alignright alignjustify | ' +
+						'bullist numlist outdent indent | ' +
+						'link image media table | removeformat | preview print export | code help',
+				style_formats: [
+					{ title: 'Judul 1', block: 'h1' },
+					{ title: 'Judul 2', block: 'h2' },
+					{ title: 'Paragraf', block: 'p' },
+					{ title: 'Kode', inline: 'code' }
+				],
+				content_style: 'body { font-family: Arial, sans-serif; font-size: 14px }',
+				branding: false,
+				setup: function (editor) {
+					editor.on('init', function () {
+						editor.setContent(defaultText);
+					});
+				}
+			});
+
+			// Fungsi reset ke default
+			function resetIsiSurat2() {
+				tinymce.get('isiSurat2').setContent(defaultText);
+			}
+		</script>
+
 
 	<!-- SweetAlert2 -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -242,105 +320,26 @@ if ($row > 0) {
 				<br><br>
 
 				<!-- Data Informasi -->
-                <h6><i class="fas fa-edit"></i> DATA PIHAK KE 2</h6><hr>
-
-				<div class="row">
-							<!-- Kolom Kiri: Ayah -->
-								<div class="col-sm-12">
-
-								<div class="mb-3">
-									<input type="text" name="fnama2" id="fnama2" class="form-control" placeholder="Nama" style="text-transform: capitalize;" required>
-								</div>
-								<div class="mb-3">
-									<input type="text" name="fumur2" id="fumur2" class="form-control" placeholder="Umur" style="text-transform: capitalize;" required>
-								</div>
-								<div class="mb-3">
-									<input type="text" name="fpekerjaan2" id="fpekerjaan2" class="form-control" placeholder="Pekerjaan" style="text-transform: capitalize;" required>
-								</div>
-								<div class="mb-3">
-									<input type="text" name="fagama2" id="fagama2" class="form-control" placeholder="Agama" style="text-transform: capitalize;" required>
-								</div>
-								<div class="mb-3">
-									<input type="text" name="falamat2" id="falamat2" class="form-control" placeholder="Alamat" style="text-transform: capitalize;" required>
-								</div>
-								</div>
-						</div>
-
-				<br>
-				<!-- Dasar Hukum -->
+                <h6><i class="fas fa-edit"></i> ISI SURAT</h6><hr>
+				<!-- Isi Surat -->
 				<div class="form-group">
-					<label>ISI SURAT</label>
 					<small class="form-text text-muted mb-2">*Tahan <strong>SHIFT</strong> dan tekan <strong>ENTER</strong> untuk membuat baris baru.</small>
 					<textarea id="isiSurat" name="fisi_surat" rows="8" class="form-control"></textarea>
 					<button type="button" class="btn btn-warning mt-2" onclick="resetIsiSurat()">🔄 Reset ke Default</button>
 				</div>
 
-                <br>
-
-				<div class="form-group">
-					<label>Nama Saksi</label>
-					<div id="saksi-container"></div>
-					<button type="button" class="btn btn-sm btn-primary mt-2" onclick="tambahSaksi()">➕ Tambah Saksi</button>
-					</div>
-
-					<script>
-					let jumlahSaksi = 0;
-					const maxSaksi = 4;
-
-					function tambahSaksi() {
-						if (jumlahSaksi >= maxSaksi) {
-						alert("Maksimal 4 saksi.");
-						return;
-						}
-
-						jumlahSaksi++;
-
-						const container = document.getElementById("saksi-container");
-
-						const div = document.createElement("div");
-						div.className = "form-row align-items-center mb-2";
-						div.id = `saksi-${jumlahSaksi}`;
-
-						div.innerHTML = `
-						<div class="col-auto">
-							<span>${jumlahSaksi}.</span>
-						</div>
-						<div class="col">
-							<input type="text" name="saksi[]" class="form-control form-control-sm" placeholder="Nama Saksi ${jumlahSaksi}" required>
-						</div>
-						<div class="col-auto">
-							<button type="button" class="btn btn-sm btn-danger" onclick="hapusSaksi(${jumlahSaksi})">🗑️</button>
-						</div>
-						`;
-
-						container.appendChild(div);
-					}
-
-					function hapusSaksi(no) {
-						const el = document.getElementById(`saksi-${no}`);
-						if (el) {
-						el.remove();
-						jumlahSaksi--;
-						perbaruiNomorSaksi();
-						}
-					}
-
-					function perbaruiNomorSaksi() {
-						const container = document.getElementById("saksi-container");
-						const items = container.querySelectorAll(".form-row");
-
-						jumlahSaksi = items.length;
-
-						items.forEach((item, index) => {
-						item.id = `saksi-${index + 1}`;
-						item.querySelector("span").textContent = `${index + 1}.`;
-						item.querySelector("input").placeholder = `Nama Saksi ${index + 1}`;
-						});
-					}
-					</script>
-
-
 				<br>
+
+				<!-- Data Informasi -->
+                <h6><i class="fas fa-edit"></i> AHLI WARIS & SAKSI</h6><hr>
+				<!-- Isi Surat -->
+				<div class="form-group">
+					<small class="form-text text-muted mb-2">*Tahan <strong>SHIFT</strong> dan tekan <strong>ENTER</strong> untuk membuat baris baru.</small>
+					<textarea id="isiSurat2" name="fisi_surat2" rows="8" class="form-control"></textarea>
+					<button type="button" class="btn btn-warning mt-2" onclick="resetIsiSurat2()">🔄 Reset ke Default</button>
+				</div>
+
+
 			
                 <!-- Tombol -->
                 <hr>
@@ -352,61 +351,6 @@ if ($row > 0) {
     </div>
 </div>
 
-<script>
-	function isiDefaultJenisUsaha() {
-	const defaultText = "Usaha Mikro";
-	document.getElementById('jenisUsaha').value = defaultText;
-	}
-</script>
-
-<script>
-	function isiDefaultBbm() {
-	const defaultText = "BBM Jenis Tertentu (Pertalite)";
-	document.getElementById('keperluanBbm').value = defaultText;
-	}
-</script>
-
-<script>
-    const defaultAlokasiVolume = "Diberikan Alokasi Volume bensin (Pertalite) Ron 88/minyak Solar (Gas Oil)";
-    
-    // Isi default saat halaman dimuat
-    window.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('alokasiVolume').value = defaultAlokasiVolume;
-    });
-
-    // Fungsi reset ke default
-    function isiDefaultalokasiVolume() {
-        document.getElementById('alokasiVolume').value = defaultAlokasiVolume;
-    }
-</script>
-
-<script>
-	function isiDefaultsejumlah() {
-	const defaultText = "450 liter/minggu";
-	document.getElementById('sejumlah').value = defaultText;
-	}
-</script>
-
-<script>
-	function isiDefaulttempatPengambilan() {
-	const defaultText = "Lembaga Penyalur";
-	document.getElementById('tempatPengambilan').value = defaultText;
-	}
-</script>
-
-<script>
-	function isiDefaultnomorLembagaPenyalur() {
-	const defaultText = "74.923.02";
-	document.getElementById('nomorLembagaPenyalur').value = defaultText;
-	}
-</script>
-
-<script>
-	function isiDefaultlokasi() {
-	const defaultText = "SPBU ANDI SOSE Paccelanga";
-	document.getElementById('lokasi').value = defaultText;
-	}
-</script>
 
 <?php
     }

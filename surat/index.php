@@ -330,7 +330,8 @@
 				"surat_keterangan_kelahiran",
 				"surat_keterangan_pengalihan_hak_garap",
 				"surat_pernyataan_kesepakatan_bersama",
-				"surat_keterangan_pengoperan_hak_garap"
+				"surat_keterangan_pengoperan_hak_garap",
+				"surat_keterangan_ahli_waris"
 				];
 
 				// Siapkan array baru berisi folder + judul + singkatan
