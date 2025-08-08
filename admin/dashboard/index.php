@@ -19,33 +19,50 @@ ini_set('display_errors', 1);
   </section>
   <section class="content">
 
+<!-- Tambahkan Google Font untuk dot-style -->
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+
 <style>
-.blink-box {
-  padding: 14px 24px;
-  background: linear-gradient(to right, #fff3e0, #ffe0b2);
-  background-size: 200% 200%;
-  border: 1px solid #ffa726;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 167, 38, 0.3);
-  animation: colorPulse 5s ease-in-out infinite;
+.shine-card {
+  padding: 18px 32px;
+  border-radius: 16px;
+  background: #1e1e1e;
+  position: relative;
   text-align: center;
-  font-weight: 600;
-  font-size: 18px;
-  color: #e65100;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'DotGothic16', monospace;
+  box-shadow: 0 8px 24px rgba(255, 193, 7, 0.15);
+  overflow: hidden;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-/* Efek perubahan warna gradasi halus */
-@keyframes colorPulse {
+/* Shine effect */
+.shine-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shineMove 5s ease-in-out infinite;
+}
+
+@keyframes shineMove {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    left: -75%;
   }
   100% {
-    background-position: 0% 50%;
+    left: 125%;
   }
 }
 </style>
@@ -55,9 +72,11 @@ $query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
 $data = mysqli_fetch_assoc($query);
 ?>
 
-<div class="blink-box">
+<div class="shine-card">
   <?php echo strtoupper($data['nama_desa']); ?>
 </div>
+
+
 
 
   <br>
