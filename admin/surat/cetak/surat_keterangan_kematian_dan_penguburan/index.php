@@ -268,7 +268,7 @@
 		<tr>
 			<td width="30%" style="padding-left: 40px;">Tempat</td>
 			<td width="2%">:</td>
-			<td width="60%"><?php echo ucwords(strtolower($row['tempat_dikebumikan'])); ?></td>
+			<td width="60%"><?php echo $row['tempat_dikebumikan']; ?></td>
 		</tr>
 			
 		</table>
