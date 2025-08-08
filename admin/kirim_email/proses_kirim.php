@@ -28,6 +28,8 @@ if (isset($_POST['kirim'])) {
     $mail = new PHPMailer(true);
 
     try {
+      $mail->SMTPDebug = 2; // atau 3 untuk lebih detail
+
       $mail->isSMTP();
       $mail->Host = 'mail.mentorcpns.id';
       $mail->SMTPAuth = true;
@@ -36,7 +38,7 @@ if (isset($_POST['kirim'])) {
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
       $mail->Port = 465;
 
-      $mail->setFrom('desaanda@gmail.com', 'Aplikasi Surat Desa');
+      $mail->setFrom('admin@dedig.id', 'Aplikasi Surat Desa');
       $mail->addAddress($email);
       $mail->addAttachment($lokasi_simpan);
       $mail->isHTML(true);
