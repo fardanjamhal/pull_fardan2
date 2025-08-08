@@ -1,4 +1,12 @@
 <?php
+// Tampilkan error saat debug
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Timezone disamakan dengan database
+date_default_timezone_set("Asia/Makassar");
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
