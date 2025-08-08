@@ -232,7 +232,7 @@
 		<tr>
 			<td>Telah Meninggal Pada</td>
 			<td>:</td>
-			<td width="60%"><?php echo strtoupper($row['pekerjaan']); ?></td>
+			<td width="60%"></td>
 		</tr>
 		<tr>
 			<td width="30%" style="padding-left: 40px;">Hari / Tanggal</td>
