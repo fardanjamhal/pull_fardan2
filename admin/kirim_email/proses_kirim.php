@@ -28,7 +28,7 @@ if (isset($_POST['kirim'])) {
     $mail = new PHPMailer(true);
 
     try {
-      $mail->SMTPDebug = 2; // atau 3 untuk lebih detail
+      
 
       $mail->isSMTP();
       $mail->Host = 'mail.mentorcpns.id';
@@ -43,7 +43,19 @@ if (isset($_POST['kirim'])) {
       $mail->addAttachment($lokasi_simpan);
       $mail->isHTML(true);
       $mail->Subject = $judul;
-      $mail->Body = 'Berikut ini kami kirimkan surat berjudul <b>' . $judul . '</b>. Terima kasih.';
+      $mail->Body = '
+                    <p>Yth. Bapak/Ibu,</p>
+
+                    <p>Berikut ini kami kirimkan surat dengan judul: <b>' . htmlspecialchars($judul) . '</b>.</p>
+
+                    <p>Silakan periksa lampiran untuk melihat isi surat tersebut.</p>
+
+                    <p>Terima kasih atas perhatian dan kerjasamanya.</p>
+
+                    <br>
+                    <p>Hormat kami</p>
+                  ';
+
 
       $mail->send();
 
