@@ -1,7 +1,11 @@
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 </script>
+
 </footer>
 <script src="../../assets/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../../assets/AdminLTE/bower_components/jquery-ui/jquery-ui.min.js"></script>
@@ -10,9 +14,11 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../../assets/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <!-- Morris.js charts -->
-<script src="../../assets/AdminLTE/bower_components/raphael/raphael.min.js"></script>
-<script src="../../assets/AdminLTE/bower_components/morris.js/morris.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
 <!-- Sparkline -->
 <script src="../../assets/AdminLTE/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -33,8 +39,12 @@
 <script src="../../assets/AdminLTE/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../assets/AdminLTE/dist/js/adminlte.min.js"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- 
 <script src="../../assets/AdminLTE/dist/js/pages/dashboard.js"></script>
+-->
+
 <!-- AdminLTE for demo purposes -->
 <script src="../../assets/AdminLTE/dist/js/demo.js"></script>
 <!-- DataTable Plugin -->

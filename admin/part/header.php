@@ -39,61 +39,14 @@
  	<!-- Font Awesome v5.8.2 -->
  	<link rel="stylesheet" href="../../assets/fontawesome-free-5.10.2-web/css/all.css">
  	<!-- CSS DataTable -->
- 	<link rel="stylesheet" href="../../assets/datatables/jquery.dataTables.css" />
- 	<link rel="stylesheet" href="../../assets/datatables/dataTables.bootstrap.css" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap.min.css">
+
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-
-<script>
-                        function salinTeks(teks) {
-                        navigator.clipboard.writeText(teks).then(function () {
-                            tampilkanToast("✅ Berhasil disalin: " + teks);
-                        }, function (err) {
-                            tampilkanToast("❌ Gagal menyalin");
-                        });
-                        }
-
-                        function tampilkanToast(pesan) {
-                        const toast = document.getElementById("toast-salin");
-                        toast.innerText = pesan;
-                        toast.classList.add("show");
-
-                        // Hilangkan setelah 3 detik
-                        setTimeout(() => {
-                            toast.classList.remove("show");
-                        }, 3000);
-                        }
-                        </script>
-
-                        <style>
-                        #toast-salin {
-                        position: fixed;
-                        bottom: 40px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background: linear-gradient(135deg, #4CAF50, #2E7D32);
-                        color: #fff;
-                        padding: 12px 20px;
-                        border-radius: 8px;
-                        font-size: 14px;
-                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-                        z-index: 9999;
-                        opacity: 0;
-                        pointer-events: none;
-                        transition: opacity 0.5s ease, transform 0.5s ease;
-                        }
-
-                        #toast-salin.show {
-                        opacity: 1;
-                        transform: translateX(-50%) translateY(-10px);
-                        pointer-events: auto;
-                        }
-                        </style>
-
-                        <div id="toast-salin"></div>
 
 	<div class="wrapper">
 	<header class="main-header">

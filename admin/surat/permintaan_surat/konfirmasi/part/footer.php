@@ -18,9 +18,13 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../../../../../assets/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <!-- Morris.js charts -->
+<!--
 <script src="../../../../../assets/AdminLTE/bower_components/raphael/raphael.min.js"></script>
 <script src="../../../../../assets/AdminLTE/bower_components/morris.js/morris.min.js"></script>
+-->
+
 <!-- Sparkline -->
 <script src="../../../../../assets/AdminLTE/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -41,8 +45,12 @@
 <script src="../../../../../assets/AdminLTE/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../../../../assets/AdminLTE/dist/js/adminlte.min.js"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!--
 <script src="../../../../../assets/AdminLTE/dist/js/pages/dashboard.js"></script>
+-->
+
 <!-- AdminLTE for demo purposes -->
 <script src="../../../../../assets/AdminLTE/dist/js/demo.js"></script>
 </script>

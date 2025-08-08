@@ -101,6 +101,12 @@
         </a>
       </li>
 
+      <li class="<?= ($current_path == 'kirim_email') ? 'active' : '' ?>">
+        <a href="../kirim_email/">
+          <i class="fas fa-envelope"></i> <span>&nbsp;&nbsp;&nbsp;Kirim Email</span>
+        </a>
+      </li>
+
       <li class="<?= ($current_path == 'permintaan_surat') ? 'active' : '' ?>">
         <a href="../surat/permintaan_surat/">
           <i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span>
@@ -118,13 +124,6 @@
           <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span>
         </a>
       </li>
-
-      <li class="<?= ($current_path == 'kirim_email') ? 'active' : '' ?>">
-        <a href="../kirim_email/">
-          <i class="fas fa-envelope"></i> <span>&nbsp;&nbsp;&nbsp;Kirim Email</span>
-        </a>
-      </li>
-
 
     </ul>
   </section>

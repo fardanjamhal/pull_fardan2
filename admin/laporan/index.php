@@ -165,6 +165,11 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           <i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span>
         </a>
       </li>
+      <li class="<?= ($current_path == 'kirim_email') ? 'active' : '' ?>">
+        <a href="../kirim_email/">
+          <i class="fas fa-envelope"></i> <span>&nbsp;&nbsp;&nbsp;Kirim Email</span>
+        </a>
+      </li>
       <?php
         if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
       ?>

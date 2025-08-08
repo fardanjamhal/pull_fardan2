@@ -308,6 +308,11 @@ if (!$result) {
                         </a>
                     </li>
                     <li><a href="../../penduduk/"><i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span></a></li>
+                    <li class="<?= ($current_path == 'kirim_email') ? 'active' : '' ?>">
+                        <a href="../../kirim_email/">
+                        <i class="fas fa-envelope"></i> <span>&nbsp;&nbsp;&nbsp;Kirim Email</span>
+                        </a>
+                    </li>
                     <li><a href="../../surat/permintaan_surat/"><i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span></a></li>
                     <li class="active"><a href="../../surat/surat_selesai/"><i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span></a></li>
                     <li><a href="../../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span></a></li>
