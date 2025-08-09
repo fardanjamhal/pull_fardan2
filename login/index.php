@@ -159,8 +159,17 @@ html, body {
 @media (max-width: 768px) {
     .card {
         max-width: 400px; /* tetap sama */
-        min-height: 500px;
+        min-height: 550px;
     }
+	.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    width: 100%;
+	margin-bottom: -78px;
+	}
     .card-body form {
         max-width: 300px;
     }
