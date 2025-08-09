@@ -260,11 +260,6 @@
 		<br>
 		<table width="100%" style="margin-left: 40px;">
 			<tr>
-				<td width="30%" class="indentasi">Alamat Nikah</td>
-				<td width="2%">:</td>
-				<td width="68%"><?php echo $row['alamat_nikah']; ?></td>
-			</tr>
-			<tr>
 				<td width="30%" class="indentasi">Hari/Tgl/Thn</td>
 				<td width="2%">:</td>
 				<?php
@@ -310,8 +305,14 @@
 						: '-';
 					?>
 				</td>
-
 			</tr>
+
+			<tr>
+				<td width="30%" class="indentasi">Alamat Nikah</td>
+				<td width="2%">:</td>
+				<td width="68%"><?php echo $row['alamat_nikah']; ?></td>
+			</tr>
+
 			<tr>
 				<td width="30%" class="indentasi">Wali Yang Menikahkan</td>
 				<td width="2%">:</td>
