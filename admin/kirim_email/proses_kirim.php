@@ -39,14 +39,14 @@ if (isset($_POST['kirim'])) {
       
 
       $mail->isSMTP();
-      $mail->Host = 'mail.mentorcpns.id';
+      $mail->Host = 'smtp.gmail.com';
       $mail->SMTPAuth = true;
-      $mail->Username = '_mainaccount@mentorcpns.id';
-      $mail->Password = '@Gowa151121';
+      $mail->Username = 'sipallengu@gmail.com';
+      $mail->Password = 'cxfi pvck yicu omlk';
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
       $mail->Port = 465;
 
-      $mail->setFrom('admin@dedig.id', 'Aplikasi Surat Desa');
+      $mail->setFrom('sipallengu@gmail.com', 'Aplikasi Surat');
       $mail->addAddress($email);
       $mail->addAttachment($lokasi_simpan);
 

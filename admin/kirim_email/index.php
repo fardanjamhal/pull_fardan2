@@ -33,6 +33,12 @@ $query = mysqli_query($connect, "SELECT * FROM kirim_email ORDER BY tanggal_kiri
     font-family: 'Segoe UI', sans-serif;
   }
 
+   /* 🔹 Bungkus tabel dengan scroll horizontal */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth di iOS */
+  }
+
   h3 {
     text-align: center;
     color: #333;
@@ -265,6 +271,7 @@ if (isset($_GET['status'])) {
 
 
 <!-- Tabel Riwayat Pengiriman Email -->
+ <div class="table-responsive">
   <table>
     <thead>
       <tr>
@@ -319,6 +326,7 @@ if (isset($_GET['status'])) {
       ?>
     </tbody>
   </table>
+  </div>
 
   <?php
   $result = mysqli_query($connect, "SELECT COUNT(*) AS total FROM kirim_email");
