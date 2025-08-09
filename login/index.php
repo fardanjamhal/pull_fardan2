@@ -168,7 +168,7 @@ html, body {
     align-items: center;
     padding: 40px 20px;
     width: 100%;
-	margin-bottom: -78px;
+	margin-bottom: -58px;
 	}
     .card-body form {
         max-width: 300px;
