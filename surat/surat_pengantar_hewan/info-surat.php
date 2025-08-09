@@ -128,12 +128,16 @@
 						        </div>
 							</div>
 							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">JENIS KELAMIN</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fjenis_kelamin_hewan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Jenis Kelamin.." required>
-						           	</div>
-						        </div>
+								<div class="form-group">
+									<label class="col-sm-12" style="font-weight: 500;">JENIS KELAMIN</label>
+									<div class="col-sm-12">
+										<select name="fjenis_kelamin_hewan" class="form-control" required>
+											<option value="">-- Pilih Jenis Kelamin --</option>
+											<option value="Jantan">Jantan</option>
+											<option value="Betina">Betina</option>
+										</select>
+									</div>
+								</div>
 							</div>
 							<div class="col-sm-6">
 							    <div class="form-group">
@@ -154,12 +158,24 @@
 							<div class="col-sm-6">
 							<div class="form-group" style="background-color: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
 								<label class="col-sm-12" style="font-weight: 500; color: #1565c0;">
+								TANDUK
+								</label>
+								<div class="col-sm-12">
+								<input type="text" name="ftanduk" class="form-control"
+										style="text-transform: capitalize; border: 1px solid #90caf9; background-color: #ffffff;"
+										placeholder="Masukkan tanduk" required>
+								</div>
+							</div>
+							</div>
+							<div class="col-sm-6">
+							<div class="form-group" style="background-color: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+								<label class="col-sm-12" style="font-weight: 500; color: #1565c0;">
 								TUJUAN
 								</label>
 								<div class="col-sm-12">
 								<input type="text" name="ftujuan" class="form-control"
 										style="text-transform: capitalize; border: 1px solid #90caf9; background-color: #ffffff;"
-										placeholder="Masukkan Tanduk.." required>
+										placeholder="Masukkan Tujuan.." required>
 								</div>
 							</div>
 							</div>

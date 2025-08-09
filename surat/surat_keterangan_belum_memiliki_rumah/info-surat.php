@@ -125,19 +125,6 @@
 						        </div>
 							</div>
 							
-
-						<div class="col-sm-6">
-						<div class="form-group">
-							<label class="col-sm-12" style="font-weight: 500;">Nama Imam Desa / Lurah</label>
-							<div class="col-sm-12">
-							<div class="input-group">
-								<input type="text" id="fnama_imam_lurah" name="fnama_imam_lurah" class="form-control" placeholder="Nama Imam" required>
-							</div>
-							</div>
-						</div>
-						</div>
-
-
 						</div>
 						<hr width="97%">
 						<div class="container-fluid">

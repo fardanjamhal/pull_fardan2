@@ -385,7 +385,7 @@
 
         <table class="table" style="width: 100%;">
  
-          <tr><td>Nama Imam</td><td>:</td><td><?= nl2br($data['nama_imam_lurah']) ?></td></tr>
+          
           
         </table>
 
