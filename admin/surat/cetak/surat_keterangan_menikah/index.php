@@ -308,7 +308,7 @@
 			</tr>
 
 			<tr>
-				<td width="30%" class="indentasi">Alamat Nikah</td>
+				<td width="30%" class="indentasi">Tempat</td>
 				<td width="2%">:</td>
 				<td width="68%"><?php echo $row['alamat_nikah']; ?></td>
 			</tr>
