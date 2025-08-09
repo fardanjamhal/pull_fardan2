@@ -41,13 +41,72 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 			width: 100%;
 			padding: 15px;
 		}
-		.card {
-			width: 100%;
-			max-width: 400px;
-			border-radius: 1rem;
-			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-			background-color: #ffffff;
+.card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background-image: url('../assets/img/bupati_jeneponto2.jpg');
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    overflow: hidden;
+    color: white;
+    position: relative;
+
+    /* Efek fade-in awal */
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Efek shine overlay */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transform: skewX(-25deg);
+}
+
+/* Animasi shine saat hover */
+.card:hover::after {
+    animation: shine 1s ease;
+}
+
+/* Efek hover parallax */
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+
+		
+
+		.card * {
+			position: relative;
+			z-index: 1;
 		}
+
+
 		.card-header {
 			text-align: center;
 			padding: 20px 10px 10px;
@@ -55,7 +114,7 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 		}
 		.card-header img {
 			width: 100px;
-			margin-bottom: 10px;
+			margin-bottom: 300px;
 		}
 		.card-header h3 {
 			color: #1d3557;
@@ -171,10 +230,16 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 
 		<div class="card mx-auto">
 			<div class="card-header">
+
 				<a href="../">
 					<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa">
 				</a>
-				<h3>Login Sistem</h3>
+
+				<br><br>
+				
+				<h3></h3>
+				
+
 			</div>
 			<div class="card-body p-4">
 				<form method="post" action="aksi-login.php">
