@@ -94,22 +94,12 @@
 		<tr>
 			<?php
 				// Ambil nilai awal dan ubah ke huruf kecil
-				$jabatan = strtolower($rowss['jabatan']);
 				$nama_desa = strtolower($rows['nama_desa']);
 				$kecamatan = strtolower($rows['kecamatan']);
 				$kota = strtolower($rows['kota']); // Asumsikan ini nama kabupaten
 
 				// Bersihkan pengulangan kata "desa" atau "kelurahan" ganda
 				$nama_desa = preg_replace('/\b(desa|kelurahan)\s+\1\b/i', '$1', $nama_desa);
-
-				// Atasi "kelurahan"
-				if (strpos($nama_desa, 'kelurahan') !== false) {
-					$final_jabatan = 'Kelurahan';
-					$nama_desa = trim(str_ireplace('kelurahan', '', $nama_desa));
-				} else {
-					$final_jabatan = ucwords($rowss['jabatan']);
-					$nama_desa = trim(str_ireplace('desa', '', $nama_desa));
-				}
 
 				// Hindari "kecamatan kecamatan"
 				$kecamatan = trim(preg_replace('/\b(kecamatan)\s+\1\b/i', '$1', $kecamatan));
@@ -118,14 +108,11 @@
 				// Hindari "kabupaten kabupaten"
 				$kota = trim(preg_replace('/\b(kabupaten)\s+\1\b/i', '$1', $kota));
 				$kota = trim(str_ireplace('kabupaten', '', $kota));
-
-				// Gabungkan kalimat
-				$kalimat = trim($final_jabatan . ' ' . ucwords($nama_desa));
 				?>
 
 			<td style="text-align: justify;">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bertanda tangan di bawah ini adalah Pemerintah
-				<span style="text-transform: capitalize;"><?php echo $kalimat; ?></span> Kecamatan 
+				<span style="text-transform: capitalize;"><?php echo $nama_desa; ?></span> Kecamatan 
 				<span style="text-transform: capitalize;"><?php echo ucwords($kecamatan); ?></span> Kabupaten 
 				<span style="text-transform: capitalize;"><?php echo ucwords($kota); ?></span> menerangkan bahwa:
 			</td>
