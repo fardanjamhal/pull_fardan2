@@ -159,7 +159,7 @@ html, body {
 @media (max-width: 768px) {
     .card {
         max-width: 400px; /* tetap sama */
-        min-height: 540px;
+        min-height: 500px;
     }
     .card-body form {
         max-width: 300px;
