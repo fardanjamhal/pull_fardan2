@@ -166,6 +166,21 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 		color: white;              /* teks jadi putih */
 	}
 
+	/* Mobile: pastikan sama dengan desktop */
+	@media (max-width: 768px) {
+		.card {
+			max-width: 400px; /* tetap sama */
+			min-height: 550px;
+		}
+		.card-body form {
+			max-width: 300px;
+		}
+		.login_btn {
+			max-width: 300px;
+			margin: 0 auto;
+		}
+	}
+
 </style>
 
 
