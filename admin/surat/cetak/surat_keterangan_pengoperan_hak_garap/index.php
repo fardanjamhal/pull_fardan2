@@ -244,7 +244,7 @@
 				<td class="indentasi">Tempat/Tgl Lahir</td>
 				<td>:</td>
 				<td>
-					<?php echo $row['tempat_tgl_lahir2']; ?> / 
+					<?php echo $row['tempat_tgl_lahir2']; ?> 
 				</td>
 			</tr>
 			<tr>
