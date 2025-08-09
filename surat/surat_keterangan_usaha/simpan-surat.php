@@ -5,6 +5,7 @@
         $jenis_surat = "Surat Keterangan Usaha";
         $nik = $_POST['fnik'];
         $usaha = addslashes($_POST['fusaha']);
+        $luaslahan = addslashes($_POST['fluaslahan']);
         $alamat_usaha = addslashes($_POST['falamat_usaha']);
         $keperluan = addslashes($_POST['fkeperluan']);
         $status_surat = "PENDING";
@@ -60,7 +61,7 @@
 
         // Simpan ke tabel surat_keterangan_domisili dengan id_arsip
 
-        $qTambahSurat = "INSERT INTO surat_keterangan_usaha (jenis_surat, nik, usaha, alamat_usaha, keperluan, status_surat, id_profil_desa, id_arsip) VALUES('$jenis_surat', '$nik', '$usaha', '$alamat_usaha', '$keperluan', '$status_surat', '$id_profil_desa', '$id_arsip')";
+        $qTambahSurat = "INSERT INTO surat_keterangan_usaha (jenis_surat, nik, usaha, luaslahan, alamat_usaha, keperluan, status_surat, id_profil_desa, id_arsip) VALUES('$jenis_surat', '$nik', '$usaha', '$luaslahan', '$alamat_usaha', '$keperluan', '$status_surat', '$id_profil_desa', '$id_arsip')";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
 
         // Ambil ID surat yang baru

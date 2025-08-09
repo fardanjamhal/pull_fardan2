@@ -135,6 +135,12 @@
 						               	<input type="text" name="falamat_usaha" class="form-control" style="text-transform: capitalize;" placeholder="Lama Usaha" required>
 						           	</div>
 						        </div>
+								<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Luas Lahan Usaha</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="fluaslahan" class="form-control" placeholder="Isi Luas Lahan" required>
+						           	</div>
+						        </div>
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Alamat Usaha</label>
 						           	<div class="col-sm-12">

@@ -216,7 +216,13 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: justify; padding-left: 30px;">3. Alamat Usaha</td>
+				<td style="text-align: justify; padding-left: 30px;">3. Luas Lahan Usaha</td>
+				<td style="vertical-align: top;">:</td>
+				<td style="text-align: justify;"><?php echo htmlspecialchars($row['luaslahan']); ?>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align: justify; padding-left: 30px;">4. Alamat Usaha</td>
 				<td style="vertical-align: top;">:</td>
 				<td style="text-align: justify;"><?php echo htmlspecialchars($row['keperluan']); ?>
 				</td>
