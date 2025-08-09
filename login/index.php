@@ -21,141 +21,154 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 	<link rel="stylesheet" href="../assets/fontawesome-free-5.10.2-web/css/all.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-	<style>
-		* {
-			box-sizing: border-box;
-		}
-		html, body {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			font-family: 'Poppins', sans-serif;
-			background: #f8f9fa;
-			overflow: hidden;
-		}
-		.wrapper {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100%;
-			width: 100%;
-			padding: 15px;
-		}
-.card {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    background-image: url('../assets/img/bupati_jeneponto2.jpg');
-    background-size: contain;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-color: #fff;
-    overflow: hidden;
-    color: white;
-    position: relative;
-
-    /* Efek fade-in awal */
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-/* Efek shine overlay */
-.card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-    transform: skewX(-25deg);
-}
-
-/* Animasi shine saat hover */
-.card:hover::after {
-    animation: shine 1s ease;
-}
-
-/* Efek hover parallax */
-.card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
-}
-
-/* Keyframes */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+	
+<style>
+    * {
+        box-sizing: border-box;
     }
-}
-
-@keyframes shine {
-    100% {
-        left: 125%;
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #f8f9fa;
+        overflow: hidden;
     }
-}
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        padding: 15px;
+    }
+    .card {
+        width: 100%;
+        max-width: 400px;
+		min-height: 550px; /* tinggi minimum card */
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        background-image: url('../assets/img/bupati_jeneponto2.jpg');
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-color: #fff;
+        overflow: hidden;
+        color: white;
+        position: relative;
+        opacity: 0;
+        transform: translateY(-10px);
+        animation: fadeInUp 0.8s ease forwards;
+		display: flex;
+		justify-content: center; /* horizontal center */
+		align-items: center;     /* vertical center */
+		flex-direction: column;  /* supaya teks di bawah logo */
+		background-color: transparent;
+    }
+    .card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+        transform: skewX(-25deg);
+    }
+    .card:hover::after {
+        animation: shine 1s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+    }
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes shine {
+        100% {
+            left: 125%;
+        }
+    }
+    .card * {
+        position: relative;
+        z-index: 1;
+    }
+    .card-header {
+        text-align: center;
+        padding: 20px 10px 10px;
+        background-color: transparent;
+    }
+    .card-header img {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+    .card-body form {
+        width: 100%;
+        max-width: 300px;
+    }
+    .input-group-text {
+        background-color: #1d3557;
+        color: #fff;
+        border: none;
+    }
+    .form-control {
+        background-color: #f1f1f1;
+        border-left: none;
+    }
+    .login_btn {
+        background-color: #1d3557;
+        color: white;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s;
+    }
+    .login_btn:hover {
+        background-color: #457b9d;
+    }
+    .card-footer {
+        text-align: center;
+        font-size: 0.8rem;
+        color: #1b1b1bff;
+        padding: 10px;
+        border-top: none;
+    }
+    .alert {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 10px auto;
+        padding: 10px;
+        border-radius: 8px;
+    }
 
-		
+	.login_btn {
+    background-color: transparent; /* transparan */
+    border: 2px solid #1d3557;     /* garis pinggir */
+    color: #1d3557;                /* warna teks */
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+	}
 
-		.card * {
-			position: relative;
-			z-index: 1;
-		}
+	.login_btn:hover {
+		background-color: #1d3557; /* isi warna saat hover */
+		color: white;              /* teks jadi putih */
+	}
+
+</style>
 
 
-		.card-header {
-			text-align: center;
-			padding: 20px 10px 10px;
-			background-color: transparent;
-		}
-		.card-header img {
-			width: 100px;
-			margin-bottom: 300px;
-		}
-		.card-header h3 {
-			color: #1d3557;
-			font-weight: 600;
-			margin-bottom: 0;
-		}
-		.input-group-text {
-			background-color: #1d3557;
-			color: #fff;
-			border: none;
-		}
-		.form-control {
-			background-color: #f1f1f1;
-			border-left: none;
-		}
-		.login_btn {
-			background-color: #1d3557;
-			color: white;
-			border-radius: 25px;
-			font-weight: 500;
-			transition: all 0.3s;
-		}
-		.login_btn:hover {
-			background-color: #457b9d;
-		}
-		.card-footer {
-			background-color: #f1f1f1;
-			text-align: center;
-			font-size: 0.8rem;
-			color: #555;
-			padding: 10px;
-			border-top: none;
-		}
-		.alert {
-			width: 100%;
-			max-width: 400px;
-			margin: 0 auto 10px auto;
-			padding: 10px;
-			border-radius: 8px;
-		}
-	</style>
 </head>
 <body>
 
@@ -227,7 +240,6 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 		?>
 
 
-
 		<div class="card mx-auto">
 			<div class="card-header">
 
@@ -239,7 +251,7 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 				
 				<h3></h3>
 				
-
+			<br><br><br>
 			</div>
 			<div class="card-body p-4">
 				<form method="post" action="aksi-login.php">
@@ -264,6 +276,7 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 							</div>
 						</div>
 					</div>
+					<br><br><br>
 					<button type="submit" class="btn login_btn btn-block">Login</button>
 				</form>
 
@@ -277,6 +290,8 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 				&copy; <span id="year"></span> Pelayanan Surat
 			</div>
 		</div>
+
+
 	</div>
 </div>
 
