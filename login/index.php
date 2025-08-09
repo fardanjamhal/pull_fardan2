@@ -170,7 +170,7 @@ $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
 	@media (max-width: 768px) {
 		.card {
 			max-width: 400px; /* tetap sama */
-			min-height: 500px;
+			min-height: 400px;
 		}
 		.card-body form {
 			max-width: 300px;
