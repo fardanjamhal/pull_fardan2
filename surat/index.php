@@ -104,22 +104,22 @@
 		</nav>
 
 		 <style>
-				/* Tampilan nav aktif: latar putih, teks biru */
-			.active-nav-bg {
-				background-color: #ffffff; /* latar putih */
-				color: #0d47a1 !important; /* teks biru */
-				border-radius: 6px;
-				font-weight: 600;
-				transition: all 0.3s ease;
-			}
+		/* Tampilan nav aktif: latar putih, teks biru */
+      .active-nav-bg {
+        background-color: #ffffff; /* latar putih */
+        color: #0d47a1 !important; /* teks biru */
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
 
-			/* Jika link di dalam elemen .active-nav-bg */
-			.active-nav-bg i,
-			.active-nav-bg span,
-			.active-nav-bg a {
-				color: #0d47a1 !important; /* pastikan icon/teks juga biru */
-			}
-		</style>
+      /* Jika link di dalam elemen .active-nav-bg */
+      .active-nav-bg i,
+      .active-nav-bg span,
+      .active-nav-bg a {
+        color: #0d47a1 !important; /* pastikan icon/teks juga biru */
+      }
+	  </style>
 
 
 		<!-- Optional CSS tweak for better mobile spacing -->
@@ -135,10 +135,6 @@
 			.navbar-nav .btn {
 			width: 80%;
 			margin: 0 auto;
-			}
-			/* Perkecil kotak aktif di HP */
-			.active-nav-bg {
-				display: inline-block;
 			}
 			/* Hapus efek kotak putih saat di HP */
 			.active-nav-bg {
@@ -156,52 +152,107 @@
 		}
 		</style>
 
+		<style>
+		/* ====== GLOBAL ====== */
+		body {
+		background: #f4f7fb;
+		font-family: 'Segoe UI', sans-serif;
+		color: #333;
+		}
 
-<style>
-.running-text-wrapper {
-  width: 98.5%;
-  max-width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  background: #e3f2fd; /* Biru muda kalem */
-  color: #0d47a1; /* Biru utama */
-  padding: 8px 0;
-  position: relative;
-  border-radius: 10px;
-  border: 1px solid #1976d2;
-  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.2); /* shadow biru */
-  text-align: center;
-}
+		/* ====== NAVBAR ====== */
+		.navbar {
+		background: rgba(13, 71, 161, 0.85);
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid rgba(255,255,255,0.1);
+		}
+		.navbar-brand img {
+		border-radius: 50%;
+		box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+		}
+		.nav-link {
+		font-weight: 500;
+		transition: 0.3s;
+		}
+		.nav-link:hover {
+		color: #ffeb3b !important;
+		}
 
-.running-text {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 100%;
-  animation: marquee 30s linear infinite;
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: #0d47a1;
-}
+		/* ====== SEARCH BOX ====== */
+		#searchSurat {
+		border-radius: 50px;
+		padding: 12px 20px;
+		border: 1px solid #ddd;
+		box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+		transition: 0.3s;
+		}
+		#searchSurat:focus {
+		border-color: #1976d2;
+		box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+		}
 
-/* Animasi marquee */
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
+		/* ====== RUNNING TEXT ====== */
+		.running-text-wrapper {
+		width: 95%;
+		margin: 15px auto;
+		padding: 8px 0;
+		border-radius: 30px;
+		background: linear-gradient(90deg, #e3f2fd, #bbdefb);
+		overflow: hidden;
+		box-shadow: 0 3px 10px rgba(25, 118, 210, 0.1);
+		}
+		.running-text {
+		white-space: nowrap;
+		animation: marquee 18s linear infinite;
+		font-weight: 500;
+		color: #0d47a1;
+		}
+		@keyframes marquee {
+		0% { transform: translateX(100%) }
+		100% { transform: translateX(-100%) }
+		}
 
+		/* ====== CARD SURAT ====== */
+		.card.surat-card {
+		background: #fff;
+		border-radius: 16px;
+		border: none;
+		padding-top: 80px;
+		box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+		position: relative;
+		overflow: hidden;
+		transition: all 0.3s ease;
+		}
+		.card.surat-card::before {
+		content: '';
+		position: absolute;
+		top: -40px;
+		right: -40px;
+		width: 120px;
+		height: 120px;
+		background: rgba(25, 118, 210, 0.08);
+		border-radius: 50%;
+		}
+		.card.surat-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+		}
+		.card.surat-card h5 {
+		font-size: 1.05rem;
+		color: #0d47a1;
+		}
+		.card.surat-card .btn-info {
+		border-radius: 50px;
+		font-weight: 500;
+		padding: 8px 20px;
+		background: linear-gradient(90deg, #1976d2, #0d47a1);
+		border: none;
+		}
+		.card.surat-card .btn-info:hover {
+		background: linear-gradient(90deg, #1565c0, #0d47a1);
+		}
+		</style>
 
-@media screen and (max-width: 576px) {
-  .running-text-wrapper {
-    width: 93%;
-  }
-
-  .running-text {
-    font-size: 0.9rem;
-  }
-}
-
-
-</style>
 
 <div class="container-fluid">
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
@@ -232,13 +283,11 @@
 		</div>
 		</div>
 
-
 		<div class="row mt-4">
-		<div class="col-md-6 offset-md-3">
-			<input type="text" id="searchSurat" class="form-control form-control-lg" placeholder="Cari jenis surat..." style="font-size: 18px;">
+			<div class="col-md-6 offset-md-3">
+				<input type="text" id="searchSurat" class="form-control form-control-lg" placeholder="🔍 Cari jenis surat...">
+			</div>
 		</div>
-		</div>
-
 
 		<div class="row">
 
@@ -381,18 +430,16 @@
 
 			<div class="d-flex flex-wrap justify-content-center" id="daftarSurat">
 			<?php $no = 1; foreach ($daftarSurat as $surat): ?>
-				<div class="surat-item mt-3 p-2"> <!-- mt-3 dan p-2 agar tidak terlalu renggang -->
+				<div class="surat-item mt-4 p-2">
 				<div class="card surat-card text-center h-100">
 					<div class="card-body d-flex flex-column justify-content-between">
-					<h5 class="card-title"><?= $no++ . ". " . $surat['judul']; ?></h5>
-					<a href="<?= $surat['folder']; ?>/" class="btn btn-info mt-3">BUAT SURAT</a>
+					<h5><?= $no++ . ". " . $surat['judul']; ?></h5>
+					<a href="<?= $surat['folder']; ?>/" class="btn btn-info mt-3">Buat Surat</a>
 					</div>
 				</div>
 				</div>
 			<?php endforeach; ?>
 			</div>
-
-			
 
 		</div>
 	</div>

@@ -150,32 +150,58 @@
 
 	</div>
 
+	<style>
+		.about-card {
+			background: rgba(255,255,255,0.85);
+			backdrop-filter: blur(12px);
+			max-width: 800px;
+			border-radius: 20px;
+			border: 1px solid rgba(255,255,255,0.3);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.about-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+		}
+
+		.icon-wrapper {
+			color: #1976d2;
+			background: rgba(25,118,210,0.1);
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+			border-radius: 50%;
+			transition: background 0.3s ease;
+		}
+
+		.icon-wrapper:hover {
+			background: rgba(25,118,210,0.2);
+		}
+
+		h2 {
+			color: #0d47a1;
+		}
+	</style>
+
 	<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 91vh;">
-  <div class="container shadow p-3 mb-5 bg-white rounded" style="max-width: 800px;">
-    <div style="padding-top: 30px; padding-bottom: 60px; position: relative;">
-      <div class="card-body">
-        <div class="card-text">
-          <p>
-            <label style="font-weight: 700; font-size: 25px">
-              <i class="fas fa-info-circle"></i> APA ITU DIGITALISASI?
-            </label>
-            <hr />
-            <blockquote>
-              Web Aplikasi untuk pelayanan surat administrasi desa dan kelurahan yang telah
-              dikembangkan untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
-            </blockquote>
-          </p>
-        </div>
+  	<div class="about-card shadow-lg p-4 mb-5 rounded">
+    <div class="text-center">
+      <div class="icon-wrapper mb-3">
+        <i class="fas fa-info-circle fa-4x"></i>
       </div>
-      <div class="card-footer py-2 bg-transparent text-center">
-        <div class="footer bg-transparent text-center">
-          <span class="text-dark">
-            <strong>&copy; <span id="year"></span> 
-              <a href="#" class="text-decoration-none text-dark">Pelayanan Surat</a>
-            </strong>
-          </span>
-        </div>
-      </div>
+      <h2 class="font-weight-bold mb-3">APA ITU DIGITALISASI?</h2>
+      <p class="lead">
+        Web Aplikasi untuk pelayanan surat administrasi desa dan kelurahan yang dikembangkan 
+        untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
+      </p>
+    </div>
+    <div class="text-center mt-4">
+      <small class="text-muted">
+        &copy; <span id="year"></span> 
+        <a href="#" class="text-dark font-weight-bold">Pelayanan Surat</a>
+      </small>
     </div>
   </div>
 </div>

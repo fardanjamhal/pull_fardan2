@@ -159,77 +159,84 @@
 	</div>
 
 <br>
-  <!-- PDF Viewer -->
-  <div class="container">
-  <h1><i class="fas fa-book"></i> PEDOMAN TEKNIS PENGGUNAAN INOVASI “SI PALLENGU”</h1>
-  <p><strong>Sistem Informasi Pelayanan Elektronik untuk Desa dan Kelurahan</strong></p>
-  <hr>
+ <!-- PDF Viewer - Pedoman Teknis -->
+<div class="container py-5">
+  <div class="p-4 shadow-lg rounded-4 bg-white">
+    <h1 class="text-primary fw-bold mb-2">
+      <i class="fas fa-book-open"></i> Pedoman Teknis Penggunaan Inovasi “SI PALLENGU”
+    </h1>
+    <p class="text-muted mb-4">
+      <strong>Sistem Informasi Pelayanan Elektronik untuk Desa dan Kelurahan</strong>
+    </p>
+    <hr>
 
-	<h2>1. Pendahuluan</h2>
-	<p>SI PALLENGU adalah sistem pelayanan surat-menyurat digital yang dirancang khusus untuk kebutuhan pemerintah desa dan kelurahan. Aplikasi ini membantu mempercepat proses pembuatan surat, pengarsipan, dan pelacakan layanan secara elektronik. Pedoman ini disusun sebagai acuan penggunaan aplikasi oleh operator/admin desa.</p>
+    <!-- Section -->
+    <section class="mb-4">
+      <h4 class="text-primary"><i class="fas fa-info-circle"></i> 1. Pendahuluan</h4>
+      <p>SI PALLENGU adalah sistem pelayanan surat-menyurat digital yang dirancang untuk mempercepat pembuatan surat, pengarsipan, dan pelacakan layanan. Pedoman ini menjadi acuan bagi operator/admin desa.</p>
+    </section>
 
-	<h2>2. Persyaratan Sistem</h2>
-	<ul>
-		<li>Perangkat komputer/laptop minimal RAM 2 GB</li>
-		<li>Browser modern (Chrome, Firefox, Edge)</li>
-		<li>Koneksi internet lokal/Wi-Fi (jika diakses bersama)</li>
-		<li>Hosting PHP dan MySQL (jika digunakan online)</li>
-	</ul>
+    <section class="mb-4">
+      <h4 class="text-primary"><i class="fas fa-desktop"></i> 2. Persyaratan Sistem</h4>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="fas fa-memory text-success"></i> RAM minimal 2 GB</li>
+        <li class="list-group-item"><i class="fas fa-globe text-success"></i> Browser modern (Chrome, Firefox, Edge)</li>
+        <li class="list-group-item"><i class="fas fa-wifi text-success"></i> Koneksi internet/Wi-Fi</li>
+        <li class="list-group-item"><i class="fas fa-database text-success"></i> Hosting PHP & MySQL (jika online)</li>
+      </ul>
+    </section>
 
-	<h2>3. Akses Login</h2>
-	<ol>
-		<li>Buka browser dan arahkan ke alamat sistem (contoh: https://pallengu.dedig.id/).</li>
-		<li>Masukkan username dan password operator yang telah dibuat oleh admin desa.</li>
-		<li>Klik “Login” untuk masuk ke dashboard.</li>
-	</ol>
+    <section class="mb-4">
+      <h4 class="text-primary"><i class="fas fa-sign-in-alt"></i> 3. Akses Login</h4>
+      <ol class="ps-3">
+        <li>Buka browser dan akses alamat sistem (contoh: <a href="https://pallengu.dedig.id/">pallengu.dedig.id</a>).</li>
+        <li>Masukkan username & password operator.</li>
+        <li>Klik <b>Login</b> untuk masuk ke dashboard.</li>
+      </ol>
+    </section>
 
-	<h2>4. Navigasi Utama</h2>
-	<ul>
-		<li>Beranda</li>
-		<li>Profil Desa</li>
-		<li>Data Kades / Kelurahan</li>
-		<li>Data Penduduk</li>
-		<li>Permintaan Surat</li>
-		<li>Surat Selesai</li>
-		<li>Laporan</li>
-	</ul>
+    <section class="mb-4">
+      <h4 class="text-primary"><i class="fas fa-bars"></i> 4. Navigasi Utama</h4>
+      <div class="row g-2">
+        <div class="col-md-4"><span class="badge bg-primary">Beranda</span></div>
+        <div class="col-md-4"><span class="badge bg-primary">Profil Desa</span></div>
+        <div class="col-md-4"><span class="badge bg-primary">Data Penduduk</span></div>
+        <div class="col-md-4"><span class="badge bg-primary">Permintaan Surat</span></div>
+        <div class="col-md-4"><span class="badge bg-primary">Surat Selesai</span></div>
+        <div class="col-md-4"><span class="badge bg-primary">Laporan</span></div>
+      </div>
+    </section>
 
-	<h2>5. Cara Membuat Surat</h2>
-	<ol>
-		<li>Pilih menu Buat Surat pada halaman awal.</li>
-		<li>Pilih jenis surat (misalnya: Surat Domisili, Surat Keterangan Usaha).</li>
-		<li>Isi form dengan lengkap. Data penduduk bisa ditarik otomatis melalui NIK.</li>
-		<li>Submit dan simpan ID pengajuan.</li>
-		<li>Surat bisa dicetak langsung atau dikonfirmasi untuk finalisasi.</li>
-	</ol>
+    <section class="mb-4">
+      <h4 class="text-primary"><i class="fas fa-file-alt"></i> 5. Cara Membuat Surat</h4>
+      <ol class="ps-3">
+        <li>Pilih menu <b>Buat Surat</b> pada halaman awal.</li>
+        <li>Pilih jenis surat (misal: Surat Domisili, Surat Keterangan Usaha).</li>
+        <li>Isi form lengkap (data bisa otomatis melalui NIK).</li>
+        <li>Simpan ID pengajuan.</li>
+        <li>Cetak langsung atau konfirmasi untuk finalisasi.</li>
+      </ol>
+    </section>
 
-	<h2>6. Konfirmasi & Cetak Surat</h2>
-	<ul>
-		<li>Akses menu Konfirmasi untuk menyelesaikan surat yang belum diproses.</li>
-		<li>Setelah konfirmasi, surat dapat dicetak dalam format PDF dan diberikan ke warga.</li>
-		<li>Surat otomatis masuk ke Arsip.</li>
-	</ul>
+    <!-- ...lanjutan section sesuai urutan... -->
 
-	<h2>7. Pengarsipan Otomatis</h2>
-	<p>Setiap surat yang telah selesai dikonfirmasi akan otomatis tersimpan dalam menu Arsip Surat, lengkap dengan tanggal, nama, dan jenis surat. Ini memudahkan pengecekan ulang jika diperlukan.</p>
+  </div>
+</div>
 
-	<h2>8. Manajemen Pejabat & Penandatangan</h2>
-	<ul>
-		<li>Admin dapat mengatur pejabat aktif di menu Pengaturan > Pejabat.</li>
-		<li>Surat akan otomatis mencantumkan nama, jabatan, NIP (jika ada), dan tanda tangan pejabat aktif sesuai tanggal surat.</li>
-	</ul>
+<style>
+  h1, h4 {
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .list-group-item {
+    border: none;
+    padding-left: 0;
+  }
+  section {
+    border-left: 4px solid #1976d2;
+    padding-left: 15px;
+  }
+</style>
 
-	<h2>9. Keamanan dan Backup</h2>
-	<ul>
-		<li>Lakukan backup database secara berkala.</li>
-		<li>Gunakan password yang kuat untuk akun admin.</li>
-		<li>Jangan izinkan publik mengakses folder admin tanpa hak.</li>
-	</ul>
-
-	<h2>10. Penutup</h2>
-	<p>SI PALLENGU dirancang agar mudah digunakan oleh perangkat desa tanpa keahlian teknis tinggi. Dengan mengikuti pedoman ini, diharapkan operator dapat mengoperasikan sistem secara maksimal dan menjaga pelayanan tetap cepat, tepat, dan terdokumentasi.</p>
-
-	</div>
 
 
 	<!-- Bootstrap JS dependencies agar navbar toggle berfungsi -->

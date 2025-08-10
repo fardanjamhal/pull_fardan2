@@ -167,81 +167,124 @@
 		?>
 
 	<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 91vh;">
-	<div class="container shadow p-3 mb-5 bg-white rounded" style="max-width: 800px;">
-		<div class="py-4 px-3">
-		<h3 class="text-center mb-4"><i class="fas fa-headset"></i> Hubungi Kami</h3>
+  	<div class="contact-card shadow-lg p-4 mb-5 rounded">
+    <h3 class="text-center mb-4 text-primary font-weight-bold">
+      <i class="fas fa-headset"></i> Hubungi Kami
+    </h3>
 
-		<style>
-		.kontak-item {
-			display: flex;
-			gap: 10px;
-		}
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="icon-circle bg-danger">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-info">
+          <strong>Email</strong>
+          <span><?= $email ?></span>
+        </div>
+      </div>
 
-		.kontak-label {
-			min-width: 100px;
-			font-weight: 500;
-		}
-		</style>
+      <div class="contact-item">
+        <div class="icon-circle bg-primary">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="contact-info">
+          <strong>Telepon</strong>
+          <span><?= $wa ?></span>
+        </div>
+      </div>
 
-		<ul class="list-group list-group-flush">
-		<li class="list-group-item">
-			<div class="kontak-item">
-			<div class="kontak-label"><i class="fas fa-envelope text-danger"></i> Email</div>
-			<div>: <?= $email ?></div>
-			</div>
-		</li>
-		<?php
-		$telpRaw = $dataProfil['wa_admin'] ?? '';
+      <div class="contact-item">
+        <div class="icon-circle bg-success">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="contact-info">
+          <strong>WhatsApp</strong>
+          <span><?= $wa ?></span>
+        </div>
+      </div>
 
-		// Ganti awalan 62 jadi 0 dan bersihkan simbol
-		$telpDisplay = preg_replace('/^62/', '0', preg_replace('/[^0-9]/', '', $telpRaw));
+      <div class="contact-item">
+        <div class="icon-circle bg-danger">
+          <i class="fab fa-instagram"></i>
+        </div>
+        <div class="contact-info">
+          <strong>Instagram</strong>
+          <span>@sipallengu</span>
+        </div>
+      </div>
 
-		// Tambahkan spasi tiap 4 digit
-		$telpDisplay = trim(chunk_split($telpDisplay, 4, ' '));
-		?>
+      <div class="contact-item">
+        <div class="icon-circle bg-primary">
+          <i class="fab fa-facebook"></i>
+        </div>
+        <div class="contact-info">
+          <strong>Facebook</strong>
+          <span>facebook.com/sipallengu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-		<li class="list-group-item">
-		<div class="kontak-item">
-			<div class="kontak-label"><i class="fas fa-phone-alt text-primary"></i> Telepon</div>
-			<div>: <?= $telpDisplay ?></div>
-		</div>
-		</li>
+<style>
+  .contact-card {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(12px);
+    width: 100%;              /* Ambil lebar penuh */
+  	max-width: 600px;        /* Naik dari 850px ke 1100px */
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-		<?php
-		// Ambil dari database, misalnya: 6281234567890
-		$waRaw = $dataProfil['wa_admin'] ?? '';
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
 
-		// Ganti awalan 62 ke 0
-		$waDisplay = preg_replace('/^62/', '0', preg_replace('/[^0-9]/', '', $waRaw));
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
 
-		// Tambahkan spasi setiap 4 digit
-		$waDisplay = trim(chunk_split($waDisplay, 4, ' '));
-		?>
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.7);
+    transition: background 0.3s ease;
+  }
 
-		<li class="list-group-item">
-		<div class="kontak-item">
-			<div class="kontak-label"><i class="fab fa-whatsapp text-success"></i> WhatsApp</div>
-			<div>: <?= $waDisplay ?></div>
-		</div>
-		</li>
+  .contact-item:hover {
+    background: rgba(25,118,210,0.05);
+  }
 
-		<li class="list-group-item">
-			<div class="kontak-item">
-			<div class="kontak-label"><i class="fab fa-instagram text-danger"></i> Instagram</div>
-			<div>: @sipallengu</div>
-			</div>
-		</li>
-		<li class="list-group-item">
-			<div class="kontak-item">
-			<div class="kontak-label"><i class="fab fa-facebook text-primary"></i> Facebook</div>
-			<div>: facebook.com/sipallengu</div>
-			</div>
-		</li>
-		</ul>
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+  }
 
-		</div>
-	</div>
-	</div>
+  .contact-info strong {
+    display: block;
+    font-size: 16px;
+    color: #0d47a1;
+  }
+
+  .contact-info span {
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+
 
 	<!-- Bootstrap JS dependencies agar navbar toggle berfungsi -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
