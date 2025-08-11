@@ -1,0 +1,22 @@
+Cek: qr_1_surat_keterangan_ahli_waris.png (umur: 6s)
+Cek: qr_1_surat_keterangan_menikah.png (umur: 61s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_1_surat_keterangan_menikah.png
+Cek: qr_2_surat_keterangan_ahli_waris.png (umur: 12s)
+Cek: qr_2_surat_keterangan_belum_memiliki_rumah.png (umur: 48s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_2_surat_keterangan_belum_memiliki_rumah.png
+Cek: qr_39_surat_keterangan_usaha.png (umur: 56s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_39_surat_keterangan_usaha.png
+Cek: qr_3_surat_keterangan_ahli_waris.png (umur: 24s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_3_surat_keterangan_ahli_waris.png
+Cek: qr_45_surat_pengantar_hewan.png (umur: 41s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_45_surat_pengantar_hewan.png
+Cek: qr_46_surat_pengantar_hewan.png (umur: 46s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_46_surat_pengantar_hewan.png
+Cek: qr_4_surat_keterangan_ahli_waris.png (umur: 32s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_4_surat_keterangan_ahli_waris.png
+Cek: qr_1_surat_keterangan_ahli_waris.png (umur: 85s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_1_surat_keterangan_ahli_waris.png
+Cek: qr_1_surat_keterangan_menikah.png (umur: 13s)
+Cek: qr_2_surat_keterangan_ahli_waris.png (umur: 91s)
+Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_2_surat_keterangan_ahli_waris.png
+Cek: qr_5_surat_keterangan_janda.png (umur: 7s)

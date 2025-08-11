@@ -9,7 +9,17 @@ include('../config/koneksi.php');
 $query = mysqli_query($connect, "SELECT * FROM profil_desa LIMIT 1");
 $data = mysqli_fetch_assoc($query);
 $favicon = !empty($data['logo_desa']) ? $data['logo_desa'] : 'mini-logo.png';
+
+include_once __DIR__ . '/../admin/surat/cetak/helper/hapus_qr_lama.php';
+
+if (!isset($_SESSION['last_qr_cleanup']) || $_SESSION['last_qr_cleanup'] !== date('Y-m-d')) {
+    // Arahkan ke folder QR sesuai lokasi sebenarnya
+    hapusQrLama(__DIR__ . '/../admin/surat/qr/', 15); // 15 hari
+    $_SESSION['last_qr_cleanup'] = date('Y-m-d');
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
