@@ -20,3 +20,19 @@ Cek: qr_1_surat_keterangan_menikah.png (umur: 13s)
 Cek: qr_2_surat_keterangan_ahli_waris.png (umur: 91s)
 Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_2_surat_keterangan_ahli_waris.png
 Cek: qr_5_surat_keterangan_janda.png (umur: 7s)
+[2025-08-12 04:59:07] Cek: qr_1_surat_keterangan_menikah.png (umur: 82502s)
+[2025-08-12 04:59:07] Cek: qr_5_surat_keterangan_janda.png (umur: 82496s)
+[2025-08-12 04:59:07] Tidak ada file yang dihapus.
+[2025-08-12 04:59:55] Cek: qr_1_surat_keterangan_menikah.png (umur: 82550s)
+[2025-08-12 04:59:55] Cek: qr_33_surat_keterangan_tidak_mampu.png (umur: 27s)
+[2025-08-12 04:59:55] Cek: qr_5_surat_keterangan_janda.png (umur: 82544s)
+[2025-08-12 04:59:55] Tidak ada file yang dihapus.
+[2025-09-04 01:13:06] Cek: qr_1_surat_keterangan_menikah.png (umur: 2056141s)
+[2025-09-04 01:13:06] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_1_surat_keterangan_menikah.png
+[2025-09-04 01:13:06] Cek: qr_33_surat_keterangan_tidak_mampu.png (umur: 1973554s)
+[2025-09-04 01:13:06] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_33_surat_keterangan_tidak_mampu.png
+[2025-09-04 01:13:06] Cek: qr_5_surat_keterangan_janda.png (umur: 2056135s)
+[2025-09-04 01:13:06] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_5_surat_keterangan_janda.png
+[2025-09-04 01:35:05] Tidak ada file yang dihapus.
+[2025-09-04 01:48:00] Tidak ada file yang dihapus.
+[2025-09-07 02:17:10] Tidak ada file yang dihapus.

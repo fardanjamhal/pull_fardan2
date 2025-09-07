@@ -33,163 +33,120 @@ if (!isset($_SESSION['last_qr_cleanup']) || $_SESSION['last_qr_cleanup'] !== dat
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 	
 <style>
-    * {
-    box-sizing: border-box;
-}
 html, body {
     height: 100%;
     margin: 0;
-    padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: #f8f9fa;
-}
-.wrapper {
+    background: linear-gradient(#457b9d, #1d3557); 
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+}
+
+/* Wrapper full center */
+.wrapper {
     width: 100%;
     padding: 15px;
 }
+
+/* Card Glassmorphism */
 .card {
     width: 100%;
-    max-width: 400px;
-    min-height: 570px;
+    max-width: 420px;
+    min-height: 420px;
     border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    background-image: url('../assets/img/bupati_jeneponto2.jpg');
-    background-size: contain;
-    background-position: top center; /* gambar di atas dan tengah horizontal */
-    background-repeat: no-repeat;
-    background-color: #f1f1f1;
-    overflow: hidden;
-    color: white;
-    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    color: #1d3557;
+    animation: fadeInUp 0.9s ease forwards;
+    transform: translateY(20px);
     opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeInUp 0.8s ease forwards;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-}
-.card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-    transform: skewX(-25deg);
-}
-.card:hover::after {
-    animation: shine 1s ease;
-}
-.card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
 }
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { transform: translateY(0); opacity: 1; }
 }
-@keyframes shine {
-    100% {
-        left: 125%;
-    }
-}
-.card * {
-    position: relative;
-    z-index: 1;
-}
+
 .card-header {
     text-align: center;
-    padding: 20px 10px 10px;
-    background-color: transparent;
+    padding: 25px 15px 10px;
+    border-bottom: none;
 }
 .card-header img {
-    width: 100px;
-    margin-bottom: -100px;
+    width: 80px;
+    margin-bottom: 10px;
 }
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    width: 100%;
-	margin-bottom: -78px;
+.card-header h5 {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #1d3557;
 }
-.card-body form {
-    width: 100%;
-    max-width: 300px;
+
+/* Input */
+.form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-left: none;
+    transition: all 0.3s ease;
 }
+.form-control:focus {
+    background: #fff;
+    border-color: #457b9d;
+    box-shadow: 0 0 0 0.2rem rgba(69,123,157,0.25);
+}
+
+/* Icon input */
 .input-group-text {
-    background-color: #1d3557;
+    background: #1d3557;
     color: #fff;
     border: none;
 }
-.form-control {
-    background-color: #f1f1f1;
-    border-left: none;
-}
+
+/* Tombol */
 .login_btn {
-    background-color: transparent; /* transparan */
-    border: 2px solid #1d3557;     /* garis pinggir */
-    color: #1d3557;                /* warna teks */
+    background: #1d3557;
+    border: none;
+    color: #fff;
     border-radius: 25px;
     font-weight: 500;
+    padding: 10px;
     transition: all 0.3s ease;
-    width: 100%;
 }
 .login_btn:hover {
-    background-color: #1d3557;
-    color: white;
+    background: #457b9d;
+    color: #fff;
+    transform: translateY(-2px);
 }
+
+/* Link */
+a {
+    color: #1d3557;
+    font-size: 0.9rem;
+}
+a:hover {
+    color: #457b9d;
+    text-decoration: none;
+}
+
+/* Footer */
 .card-footer {
     text-align: center;
-    font-size: 0.8rem;
-    color: #1b1b1bff;
-    padding: 10px;
+    font-size: 0.85rem;
+    color: #555;
+    background: transparent;
     border-top: none;
 }
+
+/* Alert smooth */
 .alert {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto 10px auto;
-    padding: 10px;
-    border-radius: 8px;
+    animation: fadeIn 0.5s ease;
 }
-
-/* Mobile: pastikan sama dengan desktop */
-@media (max-width: 768px) {
-    .card {
-        max-width: 400px; /* tetap sama */
-        min-height: 550px;
-    }
-	.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    width: 100%;
-	margin-bottom: -44px;
-	}
-    .card-body form {
-        max-width: 300px;
-    }
-    .login_btn {
-        max-width: 300px;
-        margin: 0 auto;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
 </style>
+
 
 
 </head>
@@ -268,11 +225,7 @@ html, body {
 				<a href="../">
 					<img src="../assets/img/<?php echo $data['logo_desa']; ?>" alt="Logo Desa">
 				</a>
-
-				<br><br>
-				
-				<h3></h3>
-				<br><br><br><br><br>
+				<br>
 			</div>
 			<div class="card-body p-4">
 				<form method="post" action="aksi-login.php">
@@ -297,7 +250,7 @@ html, body {
 							</div>
 						</div>
 					</div>
-					<br><br><br>
+					<br>
 					<button type="submit" class="btn login_btn btn-block">Login</button>
 				</form>
 
