@@ -245,7 +245,7 @@
 
        <div class="form-group">
         <label>Background Home</label>
-        <input type="file" name="gambar_home" accept="image/png" required>
+        <input type="file" name="gambar_home" accept="image/png">
         <?php if (!empty($data['gambar_home'])): ?>
           <img src="../../assets/img/<?= htmlspecialchars($data['gambar_home']); ?>?<?= time(); ?>"  alt="Background Home" class="preview-img" style="max-width:150px; margin-top:10px;">
         <?php endif; ?>
