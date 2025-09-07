@@ -283,9 +283,9 @@ if (!$result) {
                 <div class="user-panel" style="margin-top: 0px;">
                     <div class="pull-left image">
                         <?php if ($_SESSION['lvl'] == 'Administrator'): ?>
-                            <img src="../../../assets/img/ava-admin-female.png" class="img-circle" alt="User Image">
+                            <img src="../../../assets/img/<?php echo htmlspecialchars($data['logo_desa']); ?>" alt="Logo Desa">
                         <?php elseif ($_SESSION['lvl'] == 'Kepala Desa'): ?>
-                            <img src="../../../assets/img/ava-kades.png" class="img-circle" alt="User Image">
+                            <img src="../../../assets/img/<?php echo htmlspecialchars($data['logo_desa']); ?>" alt="Logo Desa">
                         <?php endif; ?>
                     </div>
                     <div class="pull-left info">
