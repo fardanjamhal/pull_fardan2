@@ -59,9 +59,9 @@
       <div class="pull-left image">
         <?php  
           if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
-            echo '<img src="../../assets/img/ava-admin-female.png" class="img-circle" alt="User Image">';
+            echo '<img src="../../assets/img/' . htmlspecialchars($data['logo_desa']) . '" alt="Logo Desa">';
           } else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
-            echo '<img src="../../assets/img/ava-kades.png" class="img-circle" alt="User Image">';
+            echo '<img src="../../assets/img/' . htmlspecialchars($data['logo_desa']) . '" alt="Logo Desa">';
           }
         ?>
       </div>
