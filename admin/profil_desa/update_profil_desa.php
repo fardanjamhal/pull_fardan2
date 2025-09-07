@@ -26,6 +26,7 @@ $dataLama  = mysqli_fetch_assoc($queryLama);
 $ttdDigital = $dataLama['ttd_digital'];
 $logoLama  = $dataLama['logo_desa'];
 $kopLama   = $dataLama['gambar_kop'];
+$gambar_home   = $dataLama['gambar_home'];
 
 $targetDir = "../../assets/img/";
 
@@ -71,6 +72,18 @@ if (!empty($_FILES['logo_desa']['name'])) {
     }
 }
 
+// --- Upload Background Home
+$gambar_home = $gambarHomeLama; // default pakai lama dari database
+if (!empty($_FILES['gambar_home']['name'])) {
+    $temp_file   = $_FILES['gambar_home']['tmp_name'];
+    $tujuan_file = $targetDir . "dedig.png"; // pakai nama tetap
+
+    if (move_uploaded_file($temp_file, $tujuan_file)) {
+        $gambar_home = "dedig.png"; // simpan nama file ke database
+    }
+}
+
+
 // --- Update Data
 $query = "UPDATE profil_desa SET 
             nama_desa   = '$nama_desa',
@@ -83,7 +96,8 @@ $query = "UPDATE profil_desa SET
             wa_admin    = '$wa_admin',
             ttd_digital = '$ttd_digital',
             gambar_kop  = '$gambar_kop',
-            logo_desa   = '$logo_desa'
+            logo_desa   = '$logo_desa',
+            gambar_home = '$gambar_home'
           WHERE id_profil_desa = '$id'";
 
 if (mysqli_query($connect, $query)) {

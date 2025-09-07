@@ -28,7 +28,7 @@
       min-height: 80vh;
       overflow-x: hidden;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('assets/img/dedig.png') center center / cover no-repeat;
+      background: url('assets/img/dedig.png?<?= time(); ?>') center center / cover no-repeat;
 	  background-size: cover;
 	  background-attachment: fixed;
     }
