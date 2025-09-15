@@ -158,7 +158,8 @@ $update = mysqli_query($connect, "
   UPDATE $nama_tabel 
   SET no_surat = '$no_surat',
       id_pejabat_desa = '$id_pejabat_desa',
-      status_surat = '$status_surat'
+      status_surat = '$status_surat',
+      masa_berlaku = " . ($masa_berlaku_baru ? "'$masa_berlaku_baru'" : "NULL") . "
   WHERE $kolom_id = '$id'
 ");
 

@@ -117,7 +117,7 @@
 		<br>
 		<table width="100%">
 			<tr>
-				<td width="30%" class="indentasi" style="font-weight: bold;">I. Identitas dalam KK</td>
+				<td width="30%" class="indentasi" style="font-weight: bold;">I. Identitas eKTP</td>
 				<td width="2%"></td>
 				<td width="68%" style="text-transform: uppercase; font-weight: bold;"></td>
 			</tr>
@@ -242,7 +242,7 @@
 		<table width="100%">
 		<tr>
 			<td class="indentasi" style="text-align: justify;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bersangkutan adalah benar-benar warga kami dan merupakan orang yang sama, namun terdapat perbedaan pada <b><?php echo $row['perbedaan']; ?></b> sebagaimana telah disebutkan di atas. Adapun data yang benar dan digunakan adalah yang tercantum dalam Kartu Keluarga (KK).
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yang bersangkutan adalah benar-benar warga kami dan merupakan orang yang sama, namun terdapat perbedaan pada <b><?php echo $row['perbedaan']; ?></b> sebagaimana telah disebutkan di atas. Adapun data yang benar dan digunakan adalah yang tercantum dalam identitas eKTP.
 			<br><br>
 			Demikian surat ini dibuat untuk dipergunakan sebagaimana mestinya.
 			</td>
