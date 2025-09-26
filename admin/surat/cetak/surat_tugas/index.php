@@ -85,7 +85,7 @@
 	<br>
 		<div align="center">
 		<h4 style="text-decoration: underline; margin: 0; text-transform: uppercase;"><b><?php echo $row['jenis_surat']; ?></b></h4>
-		<h4 style="font-weight:normal; margin:0;"><?php echo $row['no_surat']; ?></h4>
+		<h4 style="font-weight:normal; margin:0;">Nomor : <?php echo $row['no_surat']; ?></h4>
 		</div>
 	<br>
 	<div class="clear"></div>
@@ -120,8 +120,8 @@
 
 		<table class="table-tiga-kolom">
 		<tr>
-			<td>Dasar</td>
-			<td>:</td>
+			<td style="text-align:center; vertical-align:top;">Dasar</td>
+			<td style="text-align:center; vertical-align:top;">:</td>
 			<td><?php echo htmlspecialchars($row['dasar']); ?></td>
 		</tr>
 		</table>

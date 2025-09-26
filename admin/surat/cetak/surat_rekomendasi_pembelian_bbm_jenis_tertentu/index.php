@@ -70,7 +70,7 @@
 	<br>
 		<div align="center">
 		<h4 style="text-decoration: underline; margin: 0; text-transform: uppercase;"><b><?php echo $row['jenis_surat']; ?></b></h4>
-		<h4 style="font-weight:normal; margin:0;"><?php echo $row['no_surat']; ?></h4>
+		<h4 style="font-weight:normal; margin:0;">Nomor : <?php echo $row['no_surat']; ?></h4>
 		</div>
 	<div class="clear"></div>
 	<div id="isi3">
