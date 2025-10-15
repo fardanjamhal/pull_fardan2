@@ -58,20 +58,20 @@
     <div class="user-panel">
       <div class="pull-left image">
         <?php  
-          if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
-            echo '<img src="../../assets/img/' . htmlspecialchars($data['logo_desa']) . '" alt="Logo Desa">';
-          } else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
+          if (isset($_SESSION['lvl']) && in_array($_SESSION['lvl'], ['Administrator', 'Kepala Desa'])) {
             echo '<img src="../../assets/img/' . htmlspecialchars($data['logo_desa']) . '" alt="Logo Desa">';
           }
         ?>
       </div>
       <div class="pull-left info">
-        <p><?php echo $_SESSION['lvl']; ?></p>
+        <p><?php echo htmlspecialchars($_SESSION['lvl'] ?? ''); ?></p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
-   <?php
-    $current_path = basename(dirname($_SERVER['PHP_SELF'])); // folder aktif
+
+    <?php
+      $current_path = basename(dirname($_SERVER['PHP_SELF'])); // folder aktif
+      $level = $_SESSION['lvl'] ?? '';
     ?>
 
     <ul class="sidebar-menu" data-widget="tree">
@@ -107,11 +107,13 @@
         </a>
       </li>
 
+      <?php if ($level != 'Administrator') : ?>
       <li class="<?= ($current_path == 'permintaan_surat') ? 'active' : '' ?>">
         <a href="../surat/permintaan_surat/">
           <i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span>
         </a>
       </li>
+      <?php endif; ?>
 
       <li class="<?= ($current_path == 'surat_selesai') ? 'active' : '' ?>">
         <a href="../surat/surat_selesai/">
@@ -124,7 +126,7 @@
           <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span>
         </a>
       </li>
-
     </ul>
   </section>
 </aside>
+

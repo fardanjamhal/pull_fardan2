@@ -56,3 +56,121 @@ Cek: qr_5_surat_keterangan_janda.png (umur: 7s)
 [2025-09-26 14:35:46] Cek: qr_5_surat_keterangan_jual_beli.png (umur: 731201s)
 [2025-09-26 14:35:46] Cek: qr_5_surat_rekomendasi_pembelian_bbm_jenis_tertentu.png (umur: 942779s)
 [2025-09-26 14:35:46] Tidak ada file yang dihapus.
+[2025-10-14 23:51:25] Cek: qr_12_surat_rekomendasi_pembelian_bbm_jenis_tertentu.png (umur: 2531323s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_12_surat_rekomendasi_pembelian_bbm_jenis_tertentu.png
+[2025-10-14 23:51:25] Cek: qr_15_surat_rekomendasi_pembelian_bbm_jenis_tertentu.png (umur: 1588522s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_15_surat_rekomendasi_pembelian_bbm_jenis_tertentu.png
+[2025-10-14 23:51:25] Cek: qr_1_surat_keterangan_menikah.png (umur: 1588341s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_1_surat_keterangan_menikah.png
+[2025-10-14 23:51:25] Cek: qr_39_surat_keterangan_beda_identitas.png (umur: 2531446s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_39_surat_keterangan_beda_identitas.png
+[2025-10-14 23:51:25] Cek: qr_3_surat_keterangan_jual_beli.png (umur: 2319690s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_3_surat_keterangan_jual_beli.png
+[2025-10-14 23:51:25] Cek: qr_4_surat_keterangan_jual_beli.png (umur: 2319727s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_4_surat_keterangan_jual_beli.png
+[2025-10-14 23:51:25] Cek: qr_5_surat_keterangan_jual_beli.png (umur: 2319740s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_5_surat_keterangan_jual_beli.png
+[2025-10-14 23:51:25] Cek: qr_5_surat_rekomendasi_pembelian_bbm_jenis_tertentu.png (umur: 2531318s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_5_surat_rekomendasi_pembelian_bbm_jenis_tertentu.png
+[2025-10-14 23:51:25] Cek: qr_7_surat_tugas.png (umur: 1588194s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_7_surat_tugas.png
+[2025-10-14 23:51:25] Cek: qr_8_surat_tugas.png (umur: 1587855s)
+[2025-10-14 23:51:25] Dihapus: C:\xampp\htdocs\aplikasi-surat-web\login/../admin/surat/qr/qr_8_surat_tugas.png
+[2025-10-15 00:00:37] Tidak ada file yang dihapus.
+[2025-10-15 00:02:47] Tidak ada file yang dihapus.
+[2025-10-15 00:04:58] Tidak ada file yang dihapus.
+[2025-10-15 00:05:03] Tidak ada file yang dihapus.
+[2025-10-15 00:09:17] Tidak ada file yang dihapus.
+[2025-10-15 00:09:37] Tidak ada file yang dihapus.
+[2025-10-15 00:10:02] Tidak ada file yang dihapus.
+[2025-10-15 00:10:18] Tidak ada file yang dihapus.
+[2025-10-15 00:14:08] Tidak ada file yang dihapus.
+[2025-10-15 00:54:39] Tidak ada file yang dihapus.
+[2025-10-15 00:54:46] Tidak ada file yang dihapus.
+[2025-10-15 00:55:03] Tidak ada file yang dihapus.
+[2025-10-15 00:56:18] Tidak ada file yang dihapus.
+[2025-10-15 01:08:04] Tidak ada file yang dihapus.
+[2025-10-15 01:08:16] Tidak ada file yang dihapus.
+[2025-10-15 01:08:26] Tidak ada file yang dihapus.
+[2025-10-15 01:08:33] Tidak ada file yang dihapus.
+[2025-10-15 01:12:33] Tidak ada file yang dihapus.
+[2025-10-15 01:12:46] Tidak ada file yang dihapus.
+[2025-10-15 01:17:17] Tidak ada file yang dihapus.
+[2025-10-15 01:17:34] Tidak ada file yang dihapus.
+[2025-10-15 01:17:45] Tidak ada file yang dihapus.
+[2025-10-15 01:24:45] Tidak ada file yang dihapus.
+[2025-10-15 01:24:54] Tidak ada file yang dihapus.
+[2025-10-15 01:26:21] Tidak ada file yang dihapus.
+[2025-10-15 01:27:15] Tidak ada file yang dihapus.
+[2025-10-15 01:30:53] Tidak ada file yang dihapus.
+[2025-10-15 01:30:59] Tidak ada file yang dihapus.
+[2025-10-15 01:31:05] Tidak ada file yang dihapus.
+[2025-10-15 01:38:09] Tidak ada file yang dihapus.
+[2025-10-15 01:38:55] Tidak ada file yang dihapus.
+[2025-10-15 01:39:01] Tidak ada file yang dihapus.
+[2025-10-15 01:39:07] Tidak ada file yang dihapus.
+[2025-10-15 01:39:17] Tidak ada file yang dihapus.
+[2025-10-15 01:39:33] Tidak ada file yang dihapus.
+[2025-10-15 01:39:43] Tidak ada file yang dihapus.
+[2025-10-15 01:40:12] Tidak ada file yang dihapus.
+[2025-10-15 01:40:15] Tidak ada file yang dihapus.
+[2025-10-15 01:43:14] Cek: qr_8_surat_tugas.png (umur: 6s)
+[2025-10-15 01:43:14] Tidak ada file yang dihapus.
+[2025-10-15 01:43:42] Cek: qr_8_surat_tugas.png (umur: 34s)
+[2025-10-15 01:43:42] Tidak ada file yang dihapus.
+[2025-10-15 01:48:56] Cek: qr_8_surat_tugas.png (umur: 348s)
+[2025-10-15 01:48:56] Tidak ada file yang dihapus.
+[2025-10-15 01:49:17] Cek: qr_8_surat_tugas.png (umur: 369s)
+[2025-10-15 01:49:17] Tidak ada file yang dihapus.
+[2025-10-15 01:49:30] Cek: qr_8_surat_tugas.png (umur: 382s)
+[2025-10-15 01:49:30] Tidak ada file yang dihapus.
+[2025-10-15 01:55:16] Cek: qr_8_surat_tugas.png (umur: 728s)
+[2025-10-15 01:55:16] Tidak ada file yang dihapus.
+[2025-10-15 01:55:30] Cek: qr_8_surat_tugas.png (umur: 742s)
+[2025-10-15 01:55:30] Tidak ada file yang dihapus.
+[2025-10-15 12:40:23] Cek: qr_8_surat_tugas.png (umur: 39435s)
+[2025-10-15 12:40:23] Tidak ada file yang dihapus.
+[2025-10-15 13:29:28] Cek: qr_8_surat_tugas.png (umur: 42380s)
+[2025-10-15 13:29:28] Tidak ada file yang dihapus.
+[2025-10-15 13:29:34] Cek: qr_8_surat_tugas.png (umur: 42386s)
+[2025-10-15 13:29:34] Tidak ada file yang dihapus.
+[2025-10-15 13:30:25] Cek: qr_8_surat_tugas.png (umur: 42437s)
+[2025-10-15 13:30:25] Tidak ada file yang dihapus.
+[2025-10-15 13:30:30] Cek: qr_8_surat_tugas.png (umur: 42442s)
+[2025-10-15 13:30:30] Tidak ada file yang dihapus.
+[2025-10-15 13:30:43] Cek: qr_8_surat_tugas.png (umur: 42455s)
+[2025-10-15 13:30:43] Tidak ada file yang dihapus.
+[2025-10-15 13:30:50] Cek: qr_8_surat_tugas.png (umur: 42462s)
+[2025-10-15 13:30:50] Tidak ada file yang dihapus.
+[2025-10-15 13:31:28] Cek: qr_8_surat_tugas.png (umur: 42500s)
+[2025-10-15 13:31:28] Tidak ada file yang dihapus.
+[2025-10-15 13:32:16] Cek: qr_8_surat_tugas.png (umur: 42548s)
+[2025-10-15 13:32:16] Tidak ada file yang dihapus.
+[2025-10-15 13:32:26] Cek: qr_8_surat_tugas.png (umur: 42558s)
+[2025-10-15 13:32:26] Tidak ada file yang dihapus.
+[2025-10-15 13:41:51] Cek: qr_8_surat_tugas.png (umur: 43123s)
+[2025-10-15 13:41:51] Tidak ada file yang dihapus.
+[2025-10-15 13:44:13] Cek: qr_8_surat_tugas.png (umur: 43265s)
+[2025-10-15 13:44:13] Tidak ada file yang dihapus.
+[2025-10-15 13:44:27] Cek: qr_8_surat_tugas.png (umur: 43279s)
+[2025-10-15 13:44:27] Tidak ada file yang dihapus.
+[2025-10-15 13:54:52] Cek: qr_8_surat_tugas.png (umur: 43904s)
+[2025-10-15 13:54:52] Tidak ada file yang dihapus.
+[2025-10-15 14:02:59] Cek: qr_8_surat_tugas.png (umur: 44391s)
+[2025-10-15 14:02:59] Tidak ada file yang dihapus.
+[2025-10-15 14:05:24] Cek: qr_8_surat_tugas.png (umur: 44536s)
+[2025-10-15 14:05:24] Tidak ada file yang dihapus.
+[2025-10-15 14:05:51] Cek: qr_8_surat_tugas.png (umur: 44563s)
+[2025-10-15 14:05:51] Tidak ada file yang dihapus.
+[2025-10-15 14:06:06] Cek: qr_8_surat_tugas.png (umur: 44578s)
+[2025-10-15 14:06:06] Tidak ada file yang dihapus.
+[2025-10-15 14:06:34] Cek: qr_8_surat_tugas.png (umur: 44606s)
+[2025-10-15 14:06:34] Tidak ada file yang dihapus.
+[2025-10-15 14:14:03] Cek: qr_8_surat_tugas.png (umur: 45055s)
+[2025-10-15 14:14:03] Tidak ada file yang dihapus.
+[2025-10-15 14:14:16] Cek: qr_8_surat_tugas.png (umur: 45068s)
+[2025-10-15 14:14:16] Tidak ada file yang dihapus.
+[2025-10-15 14:14:30] Cek: qr_8_surat_tugas.png (umur: 45082s)
+[2025-10-15 14:14:30] Tidak ada file yang dihapus.
+[2025-10-15 14:14:48] Cek: qr_8_surat_tugas.png (umur: 45100s)
+[2025-10-15 14:14:48] Tidak ada file yang dihapus.

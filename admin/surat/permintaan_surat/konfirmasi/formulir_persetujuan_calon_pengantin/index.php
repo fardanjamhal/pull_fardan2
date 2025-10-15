@@ -2,6 +2,7 @@
   include ('../part/akses.php');
   include ('../../../../../config/koneksi.php');
   include ('../part/header.php');
+  include ('../helper/cek_akses_permintaan.php');
 
   $id = $_GET['id'];
   $qCek = mysqli_query($connect,"SELECT penduduk.*, formulir_persetujuan_calon_pengantin.* FROM penduduk LEFT JOIN formulir_persetujuan_calon_pengantin ON formulir_persetujuan_calon_pengantin.nik = penduduk.nik WHERE formulir_persetujuan_calon_pengantin.id_fpcp='$id'");

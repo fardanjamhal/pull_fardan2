@@ -2,6 +2,7 @@
   include ('../part/akses.php');
   include ('../../../../../config/koneksi.php');
   include ('../part/header.php');
+  include ('../helper/cek_akses_permintaan.php');
 
   $id = $_GET['id'];
   $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan_pengantar_rujuk_atau_cerai.* FROM penduduk LEFT JOIN surat_keterangan_pengantar_rujuk_atau_cerai ON surat_keterangan_pengantar_rujuk_atau_cerai.nik = penduduk.nik WHERE surat_keterangan_pengantar_rujuk_atau_cerai.id_skprac='$id'");

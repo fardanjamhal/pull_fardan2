@@ -131,9 +131,7 @@ ini_set('display_errors', 1); // Tampilkan error di browser
     <div class="user-panel">
       <div class="pull-left image">
         <?php
-          if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
-            echo '<img src="../../assets/img/' . htmlspecialchars($data['logo_desa']) . '" alt="Logo Desa">';
-          }else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
+          if (isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator' || $_SESSION['lvl'] == 'Kepala Desa')) {
             echo '<img src="../../assets/img/' . htmlspecialchars($data['logo_desa']) . '" alt="Logo Desa">';
           }
         ?>
@@ -143,57 +141,72 @@ ini_set('display_errors', 1); // Tampilkan error di browser
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
+
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
+
       <li>
         <a href="../dashboard/">
           <i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;&nbsp;Dashboard</span>
         </a>
       </li>
+
       <li>
         <a href="../profil_desa/">
           <i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
         </a>
       </li>
+
       <li>
-   			<a href="../data_kades_kel/">
-     			<i class="fa fa-user"></i> <span>&nbsp;Data Kades / Kelurahan</span>
-   			</a>
-   		</li>
+        <a href="../data_kades_kel/">
+          <i class="fa fa-user"></i> <span>&nbsp;Data Kades / Kelurahan</span>
+        </a>
+      </li>
+
       <li>
         <a href="../penduduk/">
           <i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span>
         </a>
       </li>
+
       <li class="<?= ($current_path == 'kirim_email') ? 'active' : '' ?>">
         <a href="../kirim_email/">
           <i class="fas fa-envelope"></i> <span>&nbsp;&nbsp;&nbsp;Kirim Email</span>
         </a>
       </li>
-      <?php
-        if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
-      ?>
-      <li>
-        <a href="../surat/permintaan_surat/">
-          <i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span>
-        </a>
-      </li>
-      <li>
-        <a href="../surat/surat_selesai/">
-          <i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span>
-        </a>
-      </li>
-      <?php
-        }else{
 
-        }
-      ?>
+      <?php if (isset($_SESSION['lvl']) && $_SESSION['lvl'] == 'Kepala Desa'): ?>
+        <!-- KEPALA DESA: semua menu termasuk Permintaan Surat -->
+        <li>
+          <a href="../surat/permintaan_surat/">
+            <i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span>
+          </a>
+        </li>
+        <li>
+          <a href="../surat/surat_selesai/">
+            <i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span>
+          </a>
+        </li>
+
+      <?php elseif (isset($_SESSION['lvl']) && $_SESSION['lvl'] == 'Administrator'): ?>
+        <!-- ADMINISTRATOR: semua menu kecuali Permintaan Surat -->
+        <li>
+          <a href="../surat/surat_selesai/">
+            <i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span>
+          </a>
+        </li>
+      <?php endif; ?>
+
       <li class="active">
-        <a href="#"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span></a>
+        <a href="../laporan/">
+          <i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span>
+        </a>
       </li>
     </ul>
   </section>
 </aside>
+
+
 <div class="content-wrapper">
   <section class="content-header">
     <?php
@@ -228,7 +241,7 @@ ini_set('display_errors', 1); // Tampilkan error di browser
           $title_suffix = ' (Tahun '.$_GET['tahun'].')';
         }
       }
-      echo '<h1>Laporan Surat Administrasi Desa - Surat Keluar'.$title_suffix.'</h1>';
+      echo '<h1>Laporan Surat Administrasi - Surat Keluar'.$title_suffix.'</h1>';
     ?>
     <h1></h1>
     <ol class="breadcrumb">

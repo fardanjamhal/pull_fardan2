@@ -2,7 +2,10 @@
   include ('../../../config/koneksi.php');
   include ('../part/akses.php');
   include ('../part/header.php');
+  include ('../../../admin/surat/permintaan_surat/konfirmasi/helper/cek_akses_permintaan.php');
+
 ?>
+
 
 <style>
   /* Gaya dasar sidebar */

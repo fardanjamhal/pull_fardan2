@@ -289,33 +289,42 @@ if (!$result) {
                         <?php endif; ?>
                     </div>
                     <div class="pull-left info">
-                        <p><?= $_SESSION['lvl']; ?></p>
+                        <p><?= htmlspecialchars($_SESSION['lvl']); ?></p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
 
+                <?php
+                // Dapatkan level user dari session
+                $level = $_SESSION['lvl'] ?? '';
+                $current_path = basename(dirname($_SERVER['PHP_SELF']));
+                ?>
+
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li><a href="../../dashboard/"><i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;&nbsp;Dashboard</span></a></li>
-                    <li>
-                        <a href="../../profil_desa/">
-                            <i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../../data_kades_kel/">
-                            <i class="fa fa-user"></i> <span>&nbsp;Data Kades / Kelurahan</span>
-                        </a>
-                    </li>
-                    <li><a href="../../penduduk/"><i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span></a></li>
-                    <li class="<?= ($current_path == 'kirim_email') ? 'active' : '' ?>">
-                        <a href="../../kirim_email/">
-                        <i class="fas fa-envelope"></i> <span>&nbsp;&nbsp;&nbsp;Kirim Email</span>
-                        </a>
-                    </li>
-                    <li><a href="../../surat/permintaan_surat/"><i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span></a></li>
-                    <li class="active"><a href="../../surat/surat_selesai/"><i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span></a></li>
-                    <li><a href="../../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span></a></li>
+
+                    <?php if ($level == 'Administrator'): ?>
+                        <!-- Kondisi untuk ADMINISTRATOR -->
+                        <li><a href="../../dashboard/"><i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;&nbsp;Dashboard</span></a></li>
+                        <li><a href="../../profil_desa/"><i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span></a></li>
+                        <li><a href="../../data_kades_kel/"><i class="fa fa-user"></i> <span>&nbsp;Data Kades / Kelurahan</span></a></li>
+                        <li><a href="../../penduduk/"><i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span></a></li>
+                        <li><a href="../../kirim_email/"><i class="fas fa-envelope"></i> <span>&nbsp;&nbsp;&nbsp;Kirim Email</span></a></li>
+                        <!-- ❌ Menu Permintaan Surat disembunyikan untuk Administrator -->
+                        <li class="active"><a href="../../surat/surat_selesai/"><i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span></a></li>
+                        <li><a href="../../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span></a></li>
+
+                    <?php elseif ($level == 'Kepala Desa'): ?>
+                        <!-- Kondisi untuk KEPALA DESA -->
+                        <li><a href="../../dashboard/"><i class="fas fa-tachometer-alt"></i> <span>&nbsp;&nbsp;&nbsp;Dashboard</span></a></li>
+                        <li><a href="../../profil_desa/"><i class="fa fa-home"></i> <span>&nbsp;Profil Desa</span></a></li>
+                        <li><a href="../../data_kades_kel/"><i class="fa fa-user"></i> <span>&nbsp;Data Kades / Kelurahan</span></a></li>
+                        <li><a href="../../penduduk/"><i class="fa fa-users"></i> <span>&nbsp;Data Penduduk</span></a></li>
+                        <li><a href="../../kirim_email/"><i class="fas fa-envelope"></i> <span>&nbsp;&nbsp;&nbsp;Kirim Email</span></a></li>
+                        <li><a href="../../surat/permintaan_surat/"><i class="fa fa-file-alt"></i> <span>&nbsp;Permintaan Surat</span></a></li>
+                        <li class="active"><a href="../../surat/surat_selesai/"><i class="fa fa-check-circle"></i> <span>&nbsp;Surat Selesai</span></a></li>
+                        <li><a href="../../laporan/"><i class="fas fa-chart-line"></i> <span>&nbsp;&nbsp;&nbsp;Laporan</span></a></li>
+                    <?php endif; ?>
                 </ul>
             </section>
         </aside>

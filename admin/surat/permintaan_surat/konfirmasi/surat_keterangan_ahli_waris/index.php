@@ -2,6 +2,7 @@
   include ('../part/akses.php');
   include ('../../../../../config/koneksi.php');
   include ('../part/header.php');
+  include ('../helper/cek_akses_permintaan.php');
 
   // Ambil nama folder surat dari URL
   $folder = basename(dirname($_SERVER['PHP_SELF'])); // contoh: 'surat_keterangan_mahar_sunrang'
