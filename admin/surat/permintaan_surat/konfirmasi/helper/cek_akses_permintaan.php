@@ -11,7 +11,7 @@ if (!isset($_SESSION['lvl'])) {
 if ($_SESSION['lvl'] == 'Administrator') {
     echo "<script>
         alert('Anda tidak diberi akses ke halaman ini!');
-        window.location.href='../../../../dashboard/';
+        window.location.href='../../dashboard/';
     </script>";
     exit;
 }
