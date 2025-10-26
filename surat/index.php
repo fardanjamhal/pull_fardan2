@@ -203,7 +203,7 @@
 		}
 		.running-text {
 		white-space: nowrap;
-		animation: marquee 18s linear infinite;
+		animation: marquee 69s linear infinite;
 		font-weight: 500;
 		color: #0d47a1;
 		}

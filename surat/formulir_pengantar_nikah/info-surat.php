@@ -193,29 +193,68 @@
 						        </div>
 								<br>
 
+								<style>
+									#list_nik_ayah {
+										max-height: 350px; /* Tinggi maksimal */
+										overflow-y: auto;  /* Scroll vertikal */
+										border: 1px solid #ced4da;
+										background: white;
+										border-radius: 4px;
+									}
+
+									#list_nik_ayah .list-group-item {
+										cursor: pointer;
+										padding: 8px 12px;
+									}
+
+									#list_nik_ayah .list-group-item:hover {
+										background: #007bff;
+										color: white;
+									}
+
+										#list_nik_ibu {
+										max-height: 350px; /* Tinggi maksimal */
+										overflow-y: auto;  /* Scroll vertikal */
+										border: 1px solid #ced4da;
+										background: white;
+										border-radius: 4px;
+									}
+
+									#list_nik_ibu .list-group-item {
+										cursor: pointer;
+										padding: 8px 12px;
+									}
+
+									#list_nik_ibu .list-group-item:hover {
+										background: #007bff;
+										color: white;
+									}
+								</style>
 
 						<div class="row">
 							<!-- Kolom Kiri: Ayah -->
 							<div class="col-sm-6">
 								<script src="../../helper/helper-validasi-nik.js"></script>
 
-								<div class="form-group mb-3">
-								<div class="col-sm-12">
-									<input type="text" name="fnik_ayah" id="fnik_ayah"
-									class="form-control nik-input"
-									placeholder="NIK"
-									maxlength="16"
-									oninput="validasiNIK(this)"
-									onkeypress="return hanyaAngka(event)"
-									required>
-									
-									<!-- Tambahkan alert info di bawah input -->
-									<small class="form-text text-info mt-1" style="display: flex; align-items: center;">
-									<i class="fa fa-info-circle mr-2 text-primary"></i>
-									Isi NIK untuk mengambil data otomatis istri dari database.
-									</small>
+								<div class="form-group mb-3 position-relative">
+									<div class="col-sm-12">
+										<input type="text" name="fnik_ayah" id="fnik_ayah"
+										class="form-control"
+										placeholder="Ketik NIK atau Nama..."
+										autocomplete="off"
+										required>
+
+										<!-- LIST HASIL PENCARIAN -->
+										<div id="list_nik_ayah" class="list-group" 
+											style="position:absolute; width:100%; z-index:999; display:none;"></div>
+
+										<small class="form-text text-info mt-1">
+											<i class="fa fa-info-circle mr-2 text-primary"></i>
+											Ketik NIK atau Nama untuk mencari data penduduk.
+										</small>
+									</div>
 								</div>
-								</div>
+
 
 								<div class="form-group col-sm-12" style="font-weight: 500;">
 									<input type="text" name="fnama_ayah" id="fnama_ayah" class="form-control" placeholder="Nama Ayah / Orang Tua / Wali" style="text-transform: capitalize;" required>
@@ -242,74 +281,69 @@
 							<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 							<script>
-							$('#fnik_ayah').on('blur', function () {
-							var nik = $(this).val().trim();
-							if (nik.length === 16) {
+							$(document).ready(function(){
 
-								// Tampilkan animasi loading
-								Swal.fire({
-								title: 'Memeriksa NIK...',
-								text: 'Mohon tunggu sebentar',
-								allowOutsideClick: false,
-								didOpen: () => {
-									Swal.showLoading();
-								}
-								});
+									// Autocomplete berjalan saat mengetik
+									$('#fnik_ayah').keyup(function(){
+										let q = $(this).val().trim();
+										if(q.length < 1){
+											$('#list_nik_ayah').hide();
+											return;
+										}
 
-								$.ajax({
-								url: '../helper/check_nik.php',
-								type: 'POST',
-								data: { nik: nik },
-								dataType: 'json',
-								success: function (res) {
-									Swal.close(); // Tutup loading
+										$.get('../helper/search_penduduk.php?q=' + q, function(res){
+											let data = JSON.parse(res);
+											let html = "";
 
-									if (res.success) {
-									$('#fnama_ayah').val(res.data.nama);
-									$('#ftempat_tgl_lahir_ayah').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
-									$('#fkewarganegaraan_ayah').val(res.data.kewarganegaraan);
-									$('#fagama_ayah').val(res.data.agama);
-									$('#fpekerjaan_ayah').val(res.data.pekerjaan);
-									$('#falamat_ayah').val(res.data.alamat);
-									} else {
-									Swal.fire({
-										icon: 'warning',
-										title: 'NIK Tidak Ditemukan',
-										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
-										confirmButtonText: 'Tutup'
+											data.forEach(function(item){
+												html += `<a href="#" class="list-group-item list-group-item-action pilih-nik-ayah"
+															data-nik="${item.nik}">
+															${item.text}
+														</a>`;
+											});
+
+											$('#list_nik_ayah').html(html).show();
+										});
 									});
+
+									// Klik salah satu pilihan
+									$(document).on('click', '.pilih-nik-ayah', function(e){
+										e.preventDefault();
+										let nik = $(this).data('nik');
+										$('#fnik_ayah').val(nik);
+										$('#list_nik_ayah').hide();
+
+										// Panggil file check_nik.php yang lama
+										$.post('../helper/check_nik.php', { nik: nik }, function(res){
+											if(res.success){
+												$('#fnama_ayah').val(res.data.nama);
+												$('#ftempat_tgl_lahir_ayah').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+												$('#fkewarganegaraan_ayah').val(res.data.kewarganegaraan);
+												$('#fagama_ayah').val(res.data.agama);
+												$('#fpekerjaan_ayah').val(res.data.pekerjaan);
+												$('#falamat_ayah').val(res.data.alamat);
+											} else {
+												Swal.fire('NIK Tidak Ditemukan', '', 'warning');
+											}
+										}, 'json');
+									});
+
+									$('#fnik_ayah').on('input', function () {
+									var nik = $(this).val().trim();
+
+									// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+									if (nik === '') {
+										$('#fnama_ayah').val('');
+										$('#ftempat_tgl_lahir_ayah').val('');
+										$('#fkewarganegaraan_ayah').val('');
+										$('#fagama_ayah').val('');
+										$('#fpekerjaan_ayah').val('');
+										$('#falamat_ayah').val('');
 									}
-								},
-								error: function () {
-									Swal.close(); // Tutup loading jika error
-
-									Swal.fire({
-									icon: 'error',
-									title: 'Kesalahan Server',
-									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
-									confirmButtonText: 'Tutup'
 									});
-								}
 								});
-							}
-							});
-
-							$('#fnik_ayah').on('input', function () {
-							var nik = $(this).val().trim();
-
-							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
-							if (nik === '') {
-								$('#fnama_ayah').val('');
-								$('#ftempat_tgl_lahir_ayah').val('');
-								$('#fkewarganegaraan_ayah').val('');
-								$('#fagama_ayah').val('');
-								$('#fpekerjaan_ayah').val('');
-								$('#falamat_ayah').val('');
-							}
-							});
-
 							</script>
-							
+
 
 							<!-- Kolom Kanan: Ibu -->
 							<div class="col-sm-6">
@@ -317,17 +351,19 @@
 								<div class="form-group mb-3">
 								<div class="col-sm-12">
 									<input type="text" name="fnik_ibu" id="fnik_ibu"
-									class="form-control nik-input"
-									placeholder="NIK"
-									maxlength="16"
-									oninput="validasiNIK(this)"
-									onkeypress="return hanyaAngka(event)"
-									required>
+										class="form-control"
+										placeholder="Ketik NIK atau Nama..."
+										autocomplete="off"
+										required>
+
+										<!-- LIST HASIL PENCARIAN -->
+										<div id="list_nik_ibu" class="list-group" 
+											style="position:absolute; width:100%; z-index:999; display:none;"></div>
 									
 									<!-- Tambahkan alert info di bawah input -->
 									<small class="form-text text-info mt-1" style="display: flex; align-items: center;">
 									<i class="fa fa-info-circle mr-2 text-primary"></i>
-									Isi NIK untuk mengambil data otomatis istri dari database.
+									Ketik NIK atau Nama untuk mencari data penduduk.
 									</small>
 								</div>
 								</div>
@@ -354,71 +390,67 @@
 							</div>
 
 							<script>
-							$('#fnik_ibu').on('blur', function () {
-							var nik = $(this).val().trim();
-							if (nik.length === 16) {
+							$(document).ready(function(){
 
-								// Tampilkan animasi loading
-								Swal.fire({
-								title: 'Memeriksa NIK...',
-								text: 'Mohon tunggu sebentar',
-								allowOutsideClick: false,
-								didOpen: () => {
-									Swal.showLoading();
-								}
-								});
+									// Autocomplete berjalan saat mengetik
+									$('#fnik_ibu').keyup(function(){
+										let q = $(this).val().trim();
+										if(q.length < 1){
+											$('#list_nik_ibu').hide();
+											return;
+										}
 
-								$.ajax({
-								url: '../helper/check_nik.php',
-								type: 'POST',
-								data: { nik: nik },
-								dataType: 'json',
-								success: function (res) {
-									Swal.close(); // Tutup loading
+										$.get('../helper/search_penduduk.php?q=' + q, function(res){
+											let data = JSON.parse(res);
+											let html = "";
 
-									if (res.success) {
-									$('#fnama_ibu').val(res.data.nama);
-									$('#ftempat_tgl_lahir_ibu').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
-									$('#fkewarganegaraan_ibu').val(res.data.kewarganegaraan);
-									$('#fagama_ibu').val(res.data.agama);
-									$('#fpekerjaan_ibu').val(res.data.pekerjaan);
-									$('#falamat_ibu').val(res.data.alamat);
-									} else {
-									Swal.fire({
-										icon: 'warning',
-										title: 'NIK Tidak Ditemukan',
-										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
-										confirmButtonText: 'Tutup'
+											data.forEach(function(item){
+												html += `<a href="#" class="list-group-item list-group-item-action pilih-nik-ibu"
+															data-nik="${item.nik}">
+															${item.text}
+														</a>`;
+											});
+
+											$('#list_nik_ibu').html(html).show();
+										});
 									});
+
+									// Klik salah satu pilihan
+									$(document).on('click', '.pilih-nik-ibu', function(e){
+										e.preventDefault();
+										let nik = $(this).data('nik');
+										$('#fnik_ibu').val(nik);
+										$('#list_nik_ibu').hide();
+
+										// Panggil file check_nik.php yang lama
+										$.post('../helper/check_nik.php', { nik: nik }, function(res){
+											if(res.success){
+												$('#fnama_ibu').val(res.data.nama);
+												$('#ftempat_tgl_lahir_ibu').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+												$('#fkewarganegaraan_ibu').val(res.data.kewarganegaraan);
+												$('#fagama_ibu').val(res.data.agama);
+												$('#fpekerjaan_ibu').val(res.data.pekerjaan);
+												$('#falamat_ibu').val(res.data.alamat);
+											} else {
+												Swal.fire('NIK Tidak Ditemukan', '', 'warning');
+											}
+										}, 'json');
+									});
+
+									$('#fnik_ibu').on('input', function () {
+									var nik = $(this).val().trim();
+
+									// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+									if (nik === '') {
+										$('#fnama_ibu').val('');
+										$('#ftempat_tgl_lahir_ibu').val('');
+										$('#fkewarganegaraan_ibu').val('');
+										$('#fagama_ibu').val('');
+										$('#fpekerjaan_ibu').val('');
+										$('#falamat_ibu').val('');
 									}
-								},
-								error: function () {
-									Swal.close(); // Tutup loading jika error
-
-									Swal.fire({
-									icon: 'error',
-									title: 'Kesalahan Server',
-									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
-									confirmButtonText: 'Tutup'
 									});
-								}
 								});
-							}
-							});
-
-							$('#fnik_ibu').on('input', function () {
-							var nik = $(this).val().trim();
-
-							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
-							if (nik === '') {
-								$('#fnama_ibu').val('');
-								$('#ftempat_tgl_lahir_ibu').val('');
-								$('#fkewarganegaraan_ibu').val('');
-								$('#fagama_ibu').val('');
-								$('#fpekerjaan_ibu').val('');
-								$('#falamat_ibu').val('');
-							}
-							});
 							</script>
 
 						</div>

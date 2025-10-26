@@ -30,6 +30,29 @@
 	}
 </style>
 
+<style>
+  /* Style umum untuk semua list */
+  #list_nik_pelapor {
+    max-height: 350px;  /* Tinggi maksimal */
+    overflow-y: auto;   /* Scroll vertikal */
+    border: 1px solid #ced4da;
+    background: white;
+    border-radius: 4px;
+  }
+
+  /* Style item list */
+  #list_nik_pelapor .list-group-item {
+    cursor: pointer;
+    padding: 8px 12px;
+  }
+
+  /* Hover semua list */
+  #list_nik_pelapor .list-group-item:hover {
+    background: #007bff;
+    color: white;
+  }
+</style>
+
 <link rel="stylesheet" href="../helper/form-style.css">
 
 <body class="bg-light">
@@ -153,18 +176,20 @@
 
 									<div class="form-group mb-3">
 									<div class="col-sm-12">
+										<label for="fnik_pelapor" style="font-weight: 500;">NIK</label>
 										<input type="text" name="fnik_pelapor" id="fnik_pelapor"
-										class="form-control nik-input"
-										placeholder="NIK"
-										maxlength="16"
-										oninput="validasiNIK(this)"
-										onkeypress="return hanyaAngka(event)"
+										class="form-control"
+										placeholder="Ketik NIK atau Nama..."
+										autocomplete="off"
 										required>
-										
-										<!-- Tambahkan alert info di bawah input -->
-										<small class="form-text text-info mt-1" style="display: flex; align-items: center;">
-										<i class="fa fa-info-circle mr-2 text-primary"></i>
-										Isi NIK untuk mengambil data otomatis istri dari database.
+
+										<!-- LIST HASIL PENCARIAN -->
+										<div id="list_nik_pelapor" class="list-group" 
+											style="position:absolute; width:100%; z-index:999; display:none;"></div>
+
+										<small class="form-text text-info mt-1">
+											<i class="fa fa-info-circle mr-2 text-primary"></i>
+											Ketik NIK atau Nama untuk mencari data penduduk.
 										</small>
 									</div>
 									</div>
@@ -226,73 +251,68 @@
 
 						<!-- jQuery wajib -->
 							<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 							<script>
-							$('#fnik_pelapor').on('blur', function () {
-							var nik = $(this).val().trim();
-							if (nik.length === 16) {
+							$(document).ready(function(){
 
-								// Tampilkan animasi loading
-								Swal.fire({
-								title: 'Memeriksa NIK...',
-								text: 'Mohon tunggu sebentar',
-								allowOutsideClick: false,
-								didOpen: () => {
-									Swal.showLoading();
-								}
-								});
+									// Autocomplete berjalan saat mengetik
+									$('#fnik_pelapor').keyup(function(){
+										let q = $(this).val().trim();
+										if(q.length < 1){
+											$('#list_nik_pelapor').hide();
+											return;
+										}
 
-								$.ajax({
-								url: '../helper/check_nik.php',
-								type: 'POST',
-								data: { nik: nik },
-								dataType: 'json',
-								success: function (res) {
-									Swal.close(); // Tutup loading
+										$.get('../helper/search_penduduk.php?q=' + q, function(res){
+											let data = JSON.parse(res);
+											let html = "";
 
-									if (res.success) {
-									$('#fnama_pelapor').val(res.data.nama);
-									$('#ftanggal_lahir_pelapor').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
-									$('#fjenis_kelamin_pelapor').val(res.data.jenis_kelamin);
-									$('#fpekerjaan_pelapor').val(res.data.pekerjaan);
-									$('#falamat_pelapor').val(res.data.alamat);
-									} else {
-									Swal.fire({
-										icon: 'warning',
-										title: 'NIK Tidak Ditemukan',
-										text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
-										confirmButtonText: 'Tutup'
+											data.forEach(function(item){
+												html += `<a href="#" class="list-group-item list-group-item-action pilih-nik_pelapor"
+															data-nik="${item.nik}">
+															${item.text}
+														</a>`;
+											});
+
+											$('#list_nik_pelapor').html(html).show();
+										});
 									});
+
+									// Klik salah satu pilihan
+									$(document).on('click', '.pilih-nik_pelapor', function(e){
+										e.preventDefault();
+										let nik = $(this).data('nik');
+										$('#fnik_pelapor').val(nik);
+										$('#list_nik_pelapor').hide();
+
+										// Panggil file check_nik.php yang lama
+										$.post('../helper/check_nik.php', { nik: nik }, function(res){
+											if(res.success){
+												$('#fnama_pelapor').val(res.data.nama);
+												$('#ftanggal_lahir_pelapor').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+												$('#fjenis_kelamin_pelapor').val(res.data.jenis_kelamin);
+												$('#fpekerjaan_pelapor').val(res.data.pekerjaan);
+												$('#falamat_pelapor').val(res.data.alamat);
+											} else {
+												Swal.fire('NIK Tidak Ditemukan', '', 'warning');
+											}
+										}, 'json');
+									});
+
+									$('#fnik_pelapor').on('input', function () {
+									var nik = $(this).val().trim();
+
+									// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+									if (nik === '') {
+										$('#fnama_pelapor').val('');
+										$('#ftanggal_lahir_pelapor').val('');
+										$('#fjenis_kelamin_pelapor').val('');
+										$('#fpekerjaan_pelapor').val('');
+										$('#falamat_pelapor').val('');
 									}
-								},
-								error: function () {
-									Swal.close(); // Tutup loading jika error
-
-									Swal.fire({
-									icon: 'error',
-									title: 'Kesalahan Server',
-									text: 'Gagal mengambil data. Coba beberapa saat lagi.',
-									confirmButtonText: 'Tutup'
 									});
-								}
 								});
-							}
-							});
-
-							$('#fnik_pelapor').on('input', function () {
-							var nik = $(this).val().trim();
-
-							// Jika NIK dikosongkan, kosongkan juga semua isian terkait
-							if (nik === '') {
-								$('#fnama_pelapor').val('');
-								$('#ftanggal_lahir_pelapor').val('');
-								$('#fjenis_kelamin_pelapor').val('');
-								$('#fpekerjaan_pelapor').val('');
-								$('#falamat_pelapor').val('');
-							}
-							});
-
 							</script>
-
 
 						<hr width="97%">
 						<div class="container-fluid">

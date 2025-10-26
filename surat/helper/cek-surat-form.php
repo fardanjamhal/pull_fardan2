@@ -70,6 +70,25 @@
   .status-msg.success {
     color: green;
   }
+
+  #list_nik {
+										max-height: 350px; /* Tinggi maksimal */
+										overflow-y: auto;  /* Scroll vertikal */
+										border: 1px solid #ced4da;
+										background: white;
+										border-radius: 4px;
+									}
+
+									#list_nik .list-group-item {
+										cursor: pointer;
+										padding: 8px 12px;
+									}
+
+									#list_nik .list-group-item:hover {
+										background: #007bff;
+										color: white;
+									}
+
 </style>
 
 <div class="form-wrapper">
@@ -93,64 +112,67 @@
         <h5 class="text-center fw-bold mb-3">CEK SURAT ANDA</h5>
         <p class="text-muted text-center small mb-4">Masukkan NIK untuk melihat surat yang pernah dibuat.</p>
 
-        <div class="mb-3">
-          <label for="fnik" class="form-label fw-semibold">
-            <i class="fas fa-id-card"></i> NIK <span class="text-muted small">(16 digit angka)</span>
-          </label>
-          <input type="text" class="form-control" name="fnik" id="fnik" maxlength="16"
-                 placeholder="Masukkan NIK Anda..." oninput="cekNIK()" onkeypress="return hanyaAngka(event)" required>
-          <div id="notif-nik" class="status-msg"></div>
+        <div class="mb-3 position-relative">
+        <label for="fnik" class="form-label fw-semibold">
+          <i class="fas fa-id-card"></i> NIK <span class="text-muted small">(Ketik NIK atau Nama)</span>
+        </label>
+
+        <input type="text" class="form-control" name="fnik" id="fnik" placeholder="Masukkan NIK/Nama..." autocomplete="off" required>
+
+        <!-- LIST HASIL PENCARIAN -->
+        <div id="list_nik" class="list-group"
+            style="position:absolute; width:100%; z-index:999; display:none;"></div>
+
+        <div id="notif-nik" class="status-msg"></div>
         </div>
 
-        <script>
-          function hanyaAngka(evt) {
-            var charCode = (evt.which) ? evt.which : event.keyCode;
-            return !(charCode > 31 && (charCode < 48 || charCode > 57));
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+      <script>
+      $(document).ready(function(){
+
+        // Autocomplete saat mengetik
+        $('#fnik').keyup(function(){
+          let q = $(this).val().trim();
+          if(q.length < 1){
+            $('#list_nik').hide();
+            return;
           }
 
-          function cekNIK() {
-            const input = document.getElementById("fnik");
-            const msg = document.getElementById("notif-nik");
-            const nik = input.value;
+          $.get('../helper/search_penduduk_form.php?q=' + q, function(res){
+            let data = JSON.parse(res);
+            let html = "";
 
-            if (nik.length === 0) {
-              input.classList.remove('valid', 'invalid');
-              msg.textContent = "";
-              msg.className = "status-msg";
-            } else if (nik.length < 16) {
-              input.classList.remove('valid');
-              input.classList.add('invalid');
-              msg.textContent = "NIK harus 16 digit.";
-              msg.className = "status-msg error";
-            } else if (!/^\d{16}$/.test(nik)) {
-              input.classList.remove('valid');
-              input.classList.add('invalid');
-              msg.textContent = "NIK hanya boleh angka.";
-              msg.className = "status-msg error";
-            } else {
-              input.classList.remove('invalid');
-              input.classList.add('valid');
-              msg.textContent = "✅ NIK valid";
-              msg.className = "status-msg success";
-            }
+            data.forEach(function(item){
+              html += `<a href="#" class="list-group-item list-group-item-action pilih-nik"
+                          data-nik="${item.nik}">
+                          ${item.text}
+                      </a>`;
+            });
+
+            $('#list_nik').html(html).show();
+          });
+        });
+
+        // Klik pilihan daftar
+        $(document).on('click', '.pilih-nik', function(e){
+          e.preventDefault();
+          let nik = $(this).data('nik');
+          $('#fnik').val(nik);
+          $('#list_nik').hide();
+        });
+
+        // Sembunyikan daftar jika klik di luar
+        $(document).click(function(e){
+          if(!$(e.target).closest('#fnik, #list_nik').length){
+            $('#list_nik').hide();
           }
+        });
 
-          function validasiNIK() {
-            const input = document.getElementById("fnik");
-            const nik = input.value;
-            const msg = document.getElementById("notif-nik");
+      });
+      </script>
 
-            if (nik.length !== 16 || !/^\d{16}$/.test(nik)) {
-              input.classList.remove('valid');
-              input.classList.add('invalid');
-              msg.textContent = "NIK tidak valid. Harus 16 angka.";
-              msg.className = "status-msg error";
-              return false;
-            }
-
-            return true;
-          }
-        </script>
 
         <div class="text-center mt-4">
           <button type="submit" class="btn custom-btn-blue fw-semibold px-4">

@@ -1,5 +1,4 @@
 <?php
-include_once '../../../../../config/koneksi.php'; // atau sesuaikan path koneksi
 
 // Cek apakah sudah login
 if (!isset($_SESSION['lvl'])) {

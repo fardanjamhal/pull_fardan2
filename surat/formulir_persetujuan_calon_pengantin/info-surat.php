@@ -150,25 +150,46 @@
 						  	</div>
 						</div>
 
+								<style>
+									#list_nik_istri {
+										max-height: 350px; /* Tinggi maksimal */
+										overflow-y: auto;  /* Scroll vertikal */
+										border: 1px solid #ced4da;
+										background: white;
+										border-radius: 4px;
+									}
+
+									#list_nik_istri .list-group-item {
+										cursor: pointer;
+										padding: 8px 12px;
+									}
+
+									#list_nik_istri .list-group-item:hover {
+										background: #007bff;
+										color: white;
+									}
+								</style>
+
 						<script src="../../helper/helper-validasi-nik.js"></script>
 
-						<div class="form-group mb-3">
-						<div class="col-sm-12">
-							<input type="text" name="fnik_istri" id="fnik_istri"
-							class="form-control nik-input"
-							placeholder="Nomor Induk Kependudukan (Istri)"
-							maxlength="16"
-							oninput="validasiNIK(this)"
-							onkeypress="return hanyaAngka(event)"
-							required>
-							
-							<!-- Tambahkan alert info di bawah input -->
-							<small class="form-text text-info mt-1" style="display: flex; align-items: center;">
-							<i class="fa fa-info-circle mr-2 text-primary"></i>
-							Isi NIK untuk mengambil data otomatis istri dari database.
-							</small>
-						</div>
-						</div>
+								<div class="form-group mb-3 position-relative">
+									<div class="col-sm-12">
+										<input type="text" name="fnik_istri" id="fnik_istri"
+										class="form-control"
+										placeholder="Ketik NIK atau Nama..."
+										autocomplete="off"
+										required>
+
+										<!-- LIST HASIL PENCARIAN -->
+										<div id="list_nik_istri" class="list-group" 
+											style="position:absolute; width:100%; z-index:999; display:none;"></div>
+
+										<small class="form-text text-info mt-1">
+											<i class="fa fa-info-circle mr-2 text-primary"></i>
+											Ketik NIK atau Nama untuk mencari data penduduk.
+										</small>
+									</div>
+								</div>
 
 
 						<div class="row">
@@ -217,75 +238,68 @@
 						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 						<script>
-						$('#fnik_istri').on('blur', function () {
-						var nik = $(this).val().trim();
-						if (nik.length === 16) {
+							$(document).ready(function(){
 
-							// Tampilkan animasi loading
-							Swal.fire({
-							title: 'Memeriksa NIK...',
-							text: 'Mohon tunggu sebentar',
-							allowOutsideClick: false,
-							didOpen: () => {
-								Swal.showLoading();
-							}
-							});
+									// Autocomplete berjalan saat mengetik
+									$('#fnik_istri').keyup(function(){
+										let q = $(this).val().trim();
+										if(q.length < 1){
+											$('#list_nik_istri').hide();
+											return;
+										}
 
-							$.ajax({
-							url: '../helper/check_nik.php',
-							type: 'POST',
-							data: { nik: nik },
-							dataType: 'json',
-							success: function (res) {
-								Swal.close(); // Tutup loading
+										$.get('../helper/search_penduduk.php?q=' + q, function(res){
+											let data = JSON.parse(res);
+											let html = "";
 
-								if (res.success) {
-								$('#fnama_istri').val(res.data.nama);
-								$('#fbin_istri').val(res.data.nama_ayah || '');
-								$('#ftgl_lahir_istri').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
-								$('#fkewarganegaraan_istri').val(res.data.kewarganegaraan);
-								$('#fagama_istri').val(res.data.agama);
-								$('#fpekerjaan_istri').val(res.data.pekerjaan);
-								$('#falamat_istri').val(res.data.alamat);
-								} else {
-								Swal.fire({
-									icon: 'warning',
-									title: 'NIK Tidak Ditemukan',
-									text: 'NIK yang Anda masukkan tidak ada dalam data penduduk.',
-									confirmButtonText: 'Tutup'
+											data.forEach(function(item){
+												html += `<a href="#" class="list-group-item list-group-item-action pilih-nik-istri"
+															data-nik="${item.nik}">
+															${item.text}
+														</a>`;
+											});
+
+											$('#list_nik_istri').html(html).show();
+										});
+									});
+
+									// Klik salah satu pilihan
+									$(document).on('click', '.pilih-nik-istri', function(e){
+										e.preventDefault();
+										let nik = $(this).data('nik');
+										$('#fnik_istri').val(nik);
+										$('#list_nik_istri').hide();
+
+										// Panggil file check_nik.php yang lama
+										$.post('../helper/check_nik.php', { nik: nik }, function(res){
+											if(res.success){
+												$('#fnama_istri').val(res.data.nama);
+												$('#ftgl_lahir_istri').val(res.data.tempat_lahir + ', ' + res.data.tgl_lahir);
+												$('#fkewarganegaraan_istri').val(res.data.kewarganegaraan);
+												$('#fagama_istri').val(res.data.agama);
+												$('#fpekerjaan_istri').val(res.data.pekerjaan);
+												$('#falamat_istri').val(res.data.alamat);
+											} else {
+												Swal.fire('NIK Tidak Ditemukan', '', 'warning');
+											}
+										}, 'json');
+									});
+
+									$('#fnik_istri').on('input', function () {
+									var nik = $(this).val().trim();
+
+									// Jika NIK dikosongkan, kosongkan juga semua isian terkait
+									if (nik === '') {
+										$('#fnama_istri').val('');
+										$('#ftgl_lahir_istri').val('');
+										$('#fkewarganegaraan_istri').val('');
+										$('#fagama_istri').val('');
+										$('#fpekerjaan_istri').val('');
+										$('#falamat_istri').val('');
+									}
+									});
 								});
-								}
-							},
-							error: function () {
-								Swal.close(); // Tutup loading jika error
-
-								Swal.fire({
-								icon: 'error',
-								title: 'Kesalahan Server',
-								text: 'Gagal mengambil data. Coba beberapa saat lagi.',
-								confirmButtonText: 'Tutup'
-								});
-							}
-							});
-						}
-						});
-
-						$('#fnik_istri').on('input', function () {
-						var nik = $(this).val().trim();
-
-						// Jika NIK dikosongkan, kosongkan juga semua isian terkait
-						if (nik === '') {
-							$('#fnama_istri').val('');
-							$('#fbin_istri').val('');
-							$('#ftgl_lahir_istri').val('');
-							$('#fkewarganegaraan_istri').val('');
-							$('#fagama_istri').val('');
-							$('#fpekerjaan_istri').val('');
-							$('#falamat_istri').val('');
-						}
-						});
-
-						</script>
+							</script>
 
 
 						<hr width="97%">
